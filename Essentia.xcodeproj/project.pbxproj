@@ -216,7 +216,8 @@
 				3401AF1E20F7C2CA006DEF49 /* Sources */,
 				3401AF1F20F7C2CA006DEF49 /* Frameworks */,
 				3401AF2020F7C2CA006DEF49 /* Resources */,
-				3401AF5F20F81011006DEF49 /* ShellScript */,
+				3401AF5F20F81011006DEF49 /* Swift Lint */,
+				3401AF6020F81284006DEF49 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -274,18 +275,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3401AF5F20F81011006DEF49 /* ShellScript */ = {
+		3401AF5F20F81011006DEF49 /* Swift Lint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Swift Lint";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		3401AF6020F81284006DEF49 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 89de7cb8b4eb8c19f38e1ccf2b421d34e895812c 139279618f936aab3c16e3d65f43c21b0f586e6322a385789deef0d831fdc724";
 		};
 		36E34632A9323FE2E3844857 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
