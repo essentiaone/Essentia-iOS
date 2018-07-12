@@ -10,6 +10,15 @@
 		3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */; };
 		3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */; };
 		3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */; };
+		3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4120F7D0F1006DEF49 /* AppFont.swift */; };
+		3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4520F7D669006DEF49 /* AppColorInterface.swift */; };
+		3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */; };
+		3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4F20F7DE06006DEF49 /* RGB.swift */; };
+		3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */; };
+		3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF5620F80822006DEF49 /* WelcomeViewController.xib */; };
+		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
+		3401AF5B20F80B41006DEF49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5A20F80B41006DEF49 /* Application.swift */; };
+		3401AF5D20F80CB5006DEF49 /* UIViewController+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5C20F80CB5006DEF49 /* UIViewController+Init.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +27,15 @@
 		3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3401AF2F20F7C2CD006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3401AF3120F7C2CD006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3401AF4120F7D0F1006DEF49 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		3401AF4520F7D669006DEF49 /* AppColorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorInterface.swift; sourceTree = "<group>"; };
+		3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorSheme.swift; sourceTree = "<group>"; };
+		3401AF4F20F7DE06006DEF49 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3401AF5620F80822006DEF49 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3401AF5A20F80B41006DEF49 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		3401AF5C20F80CB5006DEF49 /* UIViewController+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Init.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,12 +68,117 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
-				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
-				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
-				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
-				3401AF3120F7C2CD006DEF49 /* Info.plist */,
+				3401AF5120F806C9006DEF49 /* UserCases */,
+				3401AF3920F7C3BC006DEF49 /* Resources */,
+				3401AF3820F7C3B1006DEF49 /* Application */,
+				3401AF3720F7C394006DEF49 /* Core */,
 			);
 			path = Essentia;
+			sourceTree = "<group>";
+		};
+		3401AF3720F7C394006DEF49 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4E20F7DDFD006DEF49 /* Helpers */,
+				3401AF4B20F7DDB6006DEF49 /* Extensions */,
+				3401AF3D20F7CF92006DEF49 /* Componets */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3401AF3820F7C3B1006DEF49 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
+				3401AF5A20F80B41006DEF49 /* Application.swift */,
+				3401AF5820F80B21006DEF49 /* main.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3401AF3920F7C3BC006DEF49 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
+				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
+				3401AF3120F7C2CD006DEF49 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewSymbols;
+			sourceTree = "<group>";
+		};
+		3401AF3D20F7CF92006DEF49 /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4820F7DCAA006DEF49 /* Color */,
+				3401AF4720F7DC9F006DEF49 /* Font */,
+				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
+			);
+			path = Componets;
+			sourceTree = "<group>";
+		};
+		3401AF4720F7DC9F006DEF49 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4120F7D0F1006DEF49 /* AppFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		3401AF4820F7DCAA006DEF49 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4520F7D669006DEF49 /* AppColorInterface.swift */,
+				3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		3401AF4B20F7DDB6006DEF49 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5C20F80CB5006DEF49 /* UIViewController+Init.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3401AF4E20F7DDFD006DEF49 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3401AF5120F806C9006DEF49 /* UserCases */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5220F80704006DEF49 /* Login */,
+			);
+			path = UserCases;
+			sourceTree = "<group>";
+		};
+		3401AF5220F80704006DEF49 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5320F807EA006DEF49 /* Welcome */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3401AF5320F807EA006DEF49 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */,
+				3401AF5620F80822006DEF49 /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +241,7 @@
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
+				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +252,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
+				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
+				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
+				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
+				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
+				3401AF5D20F80CB5006DEF49 /* UIViewController+Init.swift in Sources */,
+				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
+				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +398,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = Essentia/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -284,7 +416,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = Essentia/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
