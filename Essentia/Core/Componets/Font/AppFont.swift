@@ -21,7 +21,7 @@ enum AppFont {
     case medium
     case light
     
-    func withSize(_ size:CGFloat) -> UIFont {
+    func withSize(_ size: CGFloat) -> UIFont {
         guard let font = UIFont(name: fontName, size: size) else {
             fatalError()
         }
