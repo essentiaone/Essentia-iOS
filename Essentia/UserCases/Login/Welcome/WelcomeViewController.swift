@@ -8,6 +8,6 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+class WelcomeViewController: BaseViewController {
     
 }

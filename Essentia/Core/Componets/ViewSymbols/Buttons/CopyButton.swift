@@ -1,5 +1,5 @@
 //
-//  CenteredButton.swift
+//  CopyButton.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 13.07.18.
@@ -8,24 +8,24 @@
 
 import UIKit
 
-class CenteredButton: BaseButton {
+class CopyButton: BaseButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         drawCornerRadius()
         setFont()
     }
     
-    override var isSelected: Bool {
+    override var isEnabled: Bool {
         didSet {
-            isSelected ? setSelected() : setDeseleted()
+            isEnabled ? setEnableState() : setDisableState()
         }
     }
     
-    func setSelected() {
-        backgroundColor = .green
+    func setEnableState() {
+        backgroundColor = .blue
     }
     
-    func setDeseleted() {
-        backgroundColor = .blue
+    func setDisableState() {
+        backgroundColor = .gray
     }
 }

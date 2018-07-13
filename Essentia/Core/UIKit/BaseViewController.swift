@@ -1,5 +1,5 @@
 //
-//  UIViewController+Init.swift
+//  BaseViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 13.07.18.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UIViewController {
+class BaseViewController: UIViewController {
     @nonobjc
-    public override convenience init() {
+    convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
 }
