@@ -19,6 +19,8 @@
 		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
 		3401AF5B20F80B41006DEF49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5A20F80B41006DEF49 /* Application.swift */; };
 		3401AF5D20F80CB5006DEF49 /* UIViewController+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5C20F80CB5006DEF49 /* UIViewController+Init.swift */; };
+		3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6220F81924006DEF49 /* CenteredButton.swift */; };
+		3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +39,8 @@
 		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3401AF5A20F80B41006DEF49 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		3401AF5C20F80CB5006DEF49 /* UIViewController+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Init.swift"; sourceTree = "<group>"; };
+		3401AF6220F81924006DEF49 /* CenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredButton.swift; sourceTree = "<group>"; };
+		3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF6120F8189E006DEF49 /* Buttons */,
 			);
 			path = ViewSymbols;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
+				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -186,6 +192,14 @@
 				3401AF5620F80822006DEF49 /* WelcomeViewController.xib */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		3401AF6120F8189E006DEF49 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF6220F81924006DEF49 /* CenteredButton.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -329,6 +343,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
+				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
@@ -336,6 +351,7 @@
 				3401AF5D20F80CB5006DEF49 /* UIViewController+Init.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
+				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
