@@ -96,7 +96,6 @@
 			children = (
 				3401AF6820F82AA7006DEF49 /* UIKit */,
 				3401AF4E20F7DDFD006DEF49 /* Helpers */,
-				3401AF4B20F7DDB6006DEF49 /* Extensions */,
 				3401AF3D20F7CF92006DEF49 /* Componets */,
 			);
 			path = Core;
@@ -155,13 +154,6 @@
 				3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */,
 			);
 			path = Color;
-			sourceTree = "<group>";
-		};
-		3401AF4B20F7DDB6006DEF49 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3401AF4E20F7DDFD006DEF49 /* Helpers */ = {
