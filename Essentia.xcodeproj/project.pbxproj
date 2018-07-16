@@ -10,6 +10,20 @@
 		3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */; };
 		3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */; };
 		3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */; };
+		3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4120F7D0F1006DEF49 /* AppFont.swift */; };
+		3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4520F7D669006DEF49 /* AppColorInterface.swift */; };
+		3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */; };
+		3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4F20F7DE06006DEF49 /* RGB.swift */; };
+		3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */; };
+		3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF5620F80822006DEF49 /* WelcomeViewController.xib */; };
+		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
+		3401AF5B20F80B41006DEF49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5A20F80B41006DEF49 /* Application.swift */; };
+		3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6220F81924006DEF49 /* CenteredButton.swift */; };
+		3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */; };
+		3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6620F8299A006DEF49 /* CopyButton.swift */; };
+		3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6920F82AB5006DEF49 /* BaseViewController.swift */; };
+		3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6B20F82CB7006DEF49 /* BaseButton.swift */; };
+		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +32,22 @@
 		3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3401AF2F20F7C2CD006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3401AF3120F7C2CD006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3401AF4120F7D0F1006DEF49 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		3401AF4520F7D669006DEF49 /* AppColorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorInterface.swift; sourceTree = "<group>"; };
+		3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorSheme.swift; sourceTree = "<group>"; };
+		3401AF4F20F7DE06006DEF49 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		3401AF5620F80822006DEF49 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
+		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3401AF5A20F80B41006DEF49 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		3401AF6220F81924006DEF49 /* CenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredButton.swift; sourceTree = "<group>"; };
+		3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		3401AF6620F8299A006DEF49 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
+		3401AF6920F82AB5006DEF49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3401AF6B20F82CB7006DEF49 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
+		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +67,8 @@
 			children = (
 				3401AF2420F7C2CA006DEF49 /* Essentia */,
 				3401AF2320F7C2CA006DEF49 /* Products */,
+				95AC5A4B6668826F51D64E2B /* Pods */,
+				E89F81E827245E426E0DF11A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,12 +83,146 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
-				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
-				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
-				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
-				3401AF3120F7C2CD006DEF49 /* Info.plist */,
+				3401AF5120F806C9006DEF49 /* UserCases */,
+				3401AF3920F7C3BC006DEF49 /* Resources */,
+				3401AF3820F7C3B1006DEF49 /* Application */,
+				3401AF3720F7C394006DEF49 /* Core */,
 			);
 			path = Essentia;
+			sourceTree = "<group>";
+		};
+		3401AF3720F7C394006DEF49 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF6820F82AA7006DEF49 /* UIKit */,
+				3401AF4E20F7DDFD006DEF49 /* Helpers */,
+				3401AF3D20F7CF92006DEF49 /* Componets */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		3401AF3820F7C3B1006DEF49 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
+				3401AF5A20F80B41006DEF49 /* Application.swift */,
+				3401AF5820F80B21006DEF49 /* main.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		3401AF3920F7C3BC006DEF49 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
+				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
+				3401AF3120F7C2CD006DEF49 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF6120F8189E006DEF49 /* Buttons */,
+			);
+			path = ViewSymbols;
+			sourceTree = "<group>";
+		};
+		3401AF3D20F7CF92006DEF49 /* Componets */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4820F7DCAA006DEF49 /* Color */,
+				3401AF4720F7DC9F006DEF49 /* Font */,
+				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
+			);
+			path = Componets;
+			sourceTree = "<group>";
+		};
+		3401AF4720F7DC9F006DEF49 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4120F7D0F1006DEF49 /* AppFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		3401AF4820F7DCAA006DEF49 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4520F7D669006DEF49 /* AppColorInterface.swift */,
+				3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		3401AF4E20F7DDFD006DEF49 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
+				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3401AF5120F806C9006DEF49 /* UserCases */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5220F80704006DEF49 /* Login */,
+			);
+			path = UserCases;
+			sourceTree = "<group>";
+		};
+		3401AF5220F80704006DEF49 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5320F807EA006DEF49 /* Welcome */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		3401AF5320F807EA006DEF49 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */,
+				3401AF5620F80822006DEF49 /* WelcomeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		3401AF6120F8189E006DEF49 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF6220F81924006DEF49 /* CenteredButton.swift */,
+				3401AF6620F8299A006DEF49 /* CopyButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		3401AF6820F82AA7006DEF49 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF6920F82AB5006DEF49 /* BaseViewController.swift */,
+				3401AF6B20F82CB7006DEF49 /* BaseButton.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		95AC5A4B6668826F51D64E2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */,
+				CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E89F81E827245E426E0DF11A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,9 +232,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3401AF3420F7C2CD006DEF49 /* Build configuration list for PBXNativeTarget "Essentia" */;
 			buildPhases = (
+				36E34632A9323FE2E3844857 /* [CP] Check Pods Manifest.lock */,
 				3401AF1E20F7C2CA006DEF49 /* Sources */,
 				3401AF1F20F7C2CA006DEF49 /* Frameworks */,
 				3401AF2020F7C2CA006DEF49 /* Resources */,
+				3401AF5F20F81011006DEF49 /* Swift Lint */,
+				3401AF6020F81284006DEF49 /* Fabric */,
 			);
 			buildRules = (
 			);
@@ -118,17 +288,79 @@
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
+				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3401AF5F20F81011006DEF49 /* Swift Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Swift Lint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		3401AF6020F81284006DEF49 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 89de7cb8b4eb8c19f38e1ccf2b421d34e895812c 139279618f936aab3c16e3d65f43c21b0f586e6322a385789deef0d831fdc724";
+		};
+		36E34632A9323FE2E3844857 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Essentia-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3401AF1E20F7C2CA006DEF49 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
+				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
+				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
+				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
+				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
+				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
+				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
+				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
+				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
+				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
+				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,11 +494,13 @@
 		};
 		3401AF3520F7C2CD006DEF49 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = Essentia/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -280,11 +514,12 @@
 		};
 		3401AF3620F7C2CD006DEF49 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X24R65DM8E;
-				INFOPLIST_FILE = Essentia/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
