@@ -9,10 +9,10 @@
 import UIKit
 
 fileprivate struct Constants {
-    static var reguarFont = "HelveticaNeue"
-    static var boldFont = "HelveticaNeue-Bold"
-    static var lightFont = "HelveticaNeue-Light"
-    static var mediumFont = "HelveticaNeue-Medium"
+    static var reguarFont = "Avenir-Book"
+    static var boldFont = "Avenir-Heavy"
+    static var lightFont = "Avenir-Light"
+    static var mediumFont = "Avenir-Medium"
 }
 
 enum AppFont {
