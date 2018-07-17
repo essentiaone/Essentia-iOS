@@ -33,7 +33,7 @@ xcuserdata/
 *.xcuserstate
 xcschememanagement.plist
 /xcuserdata
-
+*.xcuserdatad
 ## Other
 *.moved-aside
 *.xccheckout
