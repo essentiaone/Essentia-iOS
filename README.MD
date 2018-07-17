@@ -1,4 +1,6 @@
 # Essentia
+[![Build Status](https://travis-ci.com/essentiaone/Essentia.svg?token=KxqSd9shNNgW2Ln2sojL&branch=develop)](https://travis-ci.com/essentiaone/Essentia)
+
 ### Usage
 ```
 cd Essentia
