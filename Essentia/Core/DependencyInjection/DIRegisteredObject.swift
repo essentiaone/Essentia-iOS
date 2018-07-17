@@ -57,13 +57,10 @@ class Storage: StorageInterface {
     }
     
     func object(key: String) -> RegisteredObject? {
-        
         var object: RegisteredObject? = nil
-        
         self.threadSaveOperation {
             object = self.storage.object(forKey: NSString(string:key))
         }
-        
         return object
     }
     
@@ -75,7 +72,6 @@ class Storage: StorageInterface {
     
     func all() -> [RegisteredObject] {
         var allObjects: [RegisteredObject] = []
-        
         self.threadSaveOperation {
                 let objectEnumerator = self.storage.objectEnumerator()
                 while let object = objectEnumerator?.nextObject() {
@@ -85,7 +81,6 @@ class Storage: StorageInterface {
                     allObjects.append(wrappedObject)
                 }
         }
-        
         return allObjects
     }
     
@@ -96,7 +91,6 @@ class Storage: StorageInterface {
     func releaseAllHeldObjects() {
         self.threadSaveOperation {
             let objectEnumerator = self.storage.objectEnumerator()
-            
             while let object = objectEnumerator?.nextObject() {
                 if let regObj = object as? RegisteredObject {
                     regObj.object = nil

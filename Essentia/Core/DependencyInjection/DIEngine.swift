@@ -24,11 +24,9 @@ public class DIEngine {
         guard let registeredObject = self.storageStrongRef.object(key: key) else {
             return nil
         }
-        
         return registeredObject.fetchObject()
     }
     
-    /// Removes all registrations in the container.
     public func removeAll() {
         storageStrongRef.removeAll()
     }
