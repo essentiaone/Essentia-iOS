@@ -1,5 +1,5 @@
 # Essentia
-[![Build Status](https://travis-ci.com/essentiaone/Essentia.svg?token=KxqSd9shNNgW2Ln2sojL&branch=develop)](https://travis-ci.com/essentiaone/Essentia)
+[![Build Status](https://travis-ci.com/essentiaone/Essentia-iOS.svg?token=KxqSd9shNNgW2Ln2sojL&branch=develop)](https://travis-ci.com/essentiaone/Essentia-iOS)
 
 ### Usage
 ```
