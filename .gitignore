@@ -32,7 +32,6 @@ DerivedData/
 *.xcuserstate
 xcschememanagement.plist
 */xcuserdata/*
-
 ## Other
 *.moved-aside
 *.xccheckout
