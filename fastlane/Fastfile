@@ -23,10 +23,29 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    increment_build_number
+
+#    ensure_git_branch(branch: "master")
+
+    #Increment build
+    ensure_git_status_clean
+    increment_build_number(xcodeproj: "Essentia.xcodeproj")
+    commit_version_bump(xcodeproj: "Essentia.xcodeproj")
+    add_git_tag
+    push_to_git_remote
+
     build_app(workspace: "Essentia.xcworkspace", scheme: "Essentia")
+    changelog_from_git_commits
     upload_to_testflight
-    
+
+    #Print version to slack
+    release_version_number = get_build_number(xcodeproj: 'Essentia.xcodeproj')
+    slack(message: "Build #{release_version_number} is ready for test on Testflight.")
+
+  end
+
+  
+  error do |lane, exception|
+     slack(message: exception.message, success: false)
   end
 
 end
