@@ -11,11 +11,17 @@ import Foundation
 class ApplicationDependenceProvider {
     func loadDependences() {
         loadCoreDependences()
-        loadLoginDependences()
+        loadDesignDependences()
     }
     
     private func loadCoreDependences() {
         loadColorSheme()
+        loadImageSheme()
+    }
+    
+    private func loadImageSheme() {
+        let injection: AppImageProviderInterface = AppImageProvider()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadColorSheme() {
@@ -23,12 +29,18 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    private func loadLoginDependences() {
+    private func loadDesignDependences() {
         loadLoginDesign()
+        loadBackupDesign()
     }
     
     private func loadLoginDesign() {
         let injection: LoginDesignInterface = LoginDesign()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadBackupDesign() {
+        let injection: BuckupDesignInterface = BackupDesign()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }
