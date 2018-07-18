@@ -3,3 +3,5 @@ disabled_rules:
  - identifier_name
 excluded:
   - Pods
+  - fastane
+  - installer
