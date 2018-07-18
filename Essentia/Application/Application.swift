@@ -9,5 +9,10 @@
 import UIKit
 
 class Application: UIApplication {
+    private let dependencePrivader: ApplicationDependenceProvider
     
+    override init() {
+        dependencePrivader = ApplicationDependenceProvider()
+        dependencePrivader.loadDependences()
+    }
 }

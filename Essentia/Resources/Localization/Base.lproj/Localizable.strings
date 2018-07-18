@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  Essentia
+
+  Created by Pavlo Boiko on 16.07.18.
+  Copyright © 2018 Essentia-One. All rights reserved.
+*/
+
+"Welcome.Restore" = "RESTORE";
+"Welcome.Title1" = "Welcome to";
+"Welcome.Title2" = "Essentia";
+"Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life,  at your fingertips.";
+"Welcome.Enter" = "ENTER";
+"Welcome.Tersm1" = "By continuing you agree to our ";
+"Welcome.Tersm2" = "Terms of Service";
+
+
+

@@ -9,6 +9,9 @@
 import UIKit
 
 class CopyButton: BaseButton {
+    
+    private lazy var colorProvider: AppColorInterface = inject()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         drawCornerRadius()

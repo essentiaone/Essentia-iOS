@@ -23,12 +23,17 @@
 		3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6620F8299A006DEF49 /* CopyButton.swift */; };
 		3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6920F82AB5006DEF49 /* BaseViewController.swift */; };
 		3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6B20F82CB7006DEF49 /* BaseButton.swift */; };
+		3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF7420FD20AD006DEF49 /* Localizable.strings */; };
+		3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */; };
+		3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */; };
 		3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8020FD3D99006DEF49 /* DIEngine.swift */; };
 		3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8220FD3DCD006DEF49 /* DIObjectScope.swift */; };
 		3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8420FD3DF6006DEF49 /* DIDependencyProviderInterface.swift */; };
 		3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8620FD3E22006DEF49 /* DIStorageInterface.swift */; };
 		3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8820FD3E66006DEF49 /* DIRegisteredObject.swift */; };
 		3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8A20FD3FD0006DEF49 /* DependenceCore.swift */; };
+		3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */; };
+		3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8F20FE9406006DEF49 /* BorderedButton.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,12 +56,17 @@
 		3401AF6620F8299A006DEF49 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 		3401AF6920F82AB5006DEF49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3401AF6B20F82CB7006DEF49 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
+		3401AF7520FD20B9006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesignInterface.swift; sourceTree = "<group>"; };
+		3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesign.swift; sourceTree = "<group>"; };
 		3401AF8020FD3D99006DEF49 /* DIEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIEngine.swift; sourceTree = "<group>"; };
 		3401AF8220FD3DCD006DEF49 /* DIObjectScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIObjectScope.swift; sourceTree = "<group>"; };
 		3401AF8420FD3DF6006DEF49 /* DIDependencyProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIDependencyProviderInterface.swift; sourceTree = "<group>"; };
 		3401AF8620FD3E22006DEF49 /* DIStorageInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIStorageInterface.swift; sourceTree = "<group>"; };
 		3401AF8820FD3E66006DEF49 /* DIRegisteredObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIRegisteredObject.swift; sourceTree = "<group>"; };
 		3401AF8A20FD3FD0006DEF49 /* DependenceCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependenceCore.swift; sourceTree = "<group>"; };
+		3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependenceProvider.swift; sourceTree = "<group>"; };
+		3401AF8F20FE9406006DEF49 /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +127,7 @@
 		3401AF3820F7C3B1006DEF49 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF8C20FE4592006DEF49 /* DependenceProvider */,
 				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
 				3401AF5A20F80B41006DEF49 /* Application.swift */,
 				3401AF5820F80B21006DEF49 /* main.swift */,
@@ -127,6 +138,7 @@
 		3401AF3920F7C3BC006DEF49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF6F20FD2043006DEF49 /* Localization */,
 				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
 				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
 				3401AF3120F7C2CD006DEF49 /* Info.plist */,
@@ -190,7 +202,8 @@
 		3401AF5220F80704006DEF49 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				3401AF5320F807EA006DEF49 /* Welcome */,
+				3401AF7A20FD3299006DEF49 /* Design */,
+				3401AF7920FD328C006DEF49 /* Controllers */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -209,6 +222,7 @@
 			children = (
 				3401AF6220F81924006DEF49 /* CenteredButton.swift */,
 				3401AF6620F8299A006DEF49 /* CopyButton.swift */,
+				3401AF8F20FE9406006DEF49 /* BorderedButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -222,6 +236,31 @@
 			path = UIKit;
 			sourceTree = "<group>";
 		};
+		3401AF6F20FD2043006DEF49 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF7420FD20AD006DEF49 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		3401AF7920FD328C006DEF49 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF5320F807EA006DEF49 /* Welcome */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3401AF7A20FD3299006DEF49 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */,
+				3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
 		3401AF7F20FD3D4D006DEF49 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +271,14 @@
 				3401AF8820FD3E66006DEF49 /* DIRegisteredObject.swift */,
 			);
 			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		3401AF8C20FE4592006DEF49 /* DependenceProvider */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */,
+			);
+			path = DependenceProvider;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -313,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
+				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 			);
@@ -375,16 +423,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
+				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
+				3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
+				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
+				3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
@@ -405,6 +457,14 @@
 				3401AF2F20F7C2CD006DEF49 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3401AF7420FD20AD006DEF49 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3401AF7520FD20B9006DEF49 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -529,7 +589,7 @@
 			baseConfigurationReference = A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
@@ -537,8 +597,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Essentia.Essentia;
+				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "479e53bf-0cc4-4889-8f36-f5c5a8404b77";
+				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -549,15 +611,18 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = X24R65DM8E;
 				INFOPLIST_FILE = "$(SRCROOT)/Essentia/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = Essentia.Essentia;
+				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "b36aad52-1d68-4616-a4ae-02bf04745d52";
+				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dis";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
