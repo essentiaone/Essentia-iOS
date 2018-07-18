@@ -10,4 +10,11 @@ import UIKit
 
 protocol AppColorInterface {
     var appBackgroundColor: UIColor { get }
+    var appTitleColor: UIColor { get }
+    var appDefaultTextColor: UIColor { get }
+    var appLinkTextColor: UIColor { get }
+    var centeredButtonBackgroudColor: UIColor { get }
+    var centeredButtonTextColor: UIColor { get }
+    var borderedButtonTextColor: UIColor { get }
+    var borderedButtonBorderColor: UIColor { get }
 }
