@@ -19,6 +19,7 @@ platform :ios do
 
   before_all do
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["IOS_DEV_TEAM"] = "https://hooks.slack.com/services/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"
   end
 
   desc "Push a new beta build to TestFlight"
@@ -45,7 +46,10 @@ platform :ios do
 
   
   error do |lane, exception|
-     slack(message: exception.message, success: false)
+     slack(
+      message: exception.message,
+      channel: ENV["IOS_DEV_TEAM"]
+    )
   end
 
 end
