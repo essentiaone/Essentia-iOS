@@ -32,6 +32,4 @@ class WarningViewContrller: BaseViewController {
     @IBAction func backAction(_ sender: Any) {
         dismiss(animated: true)
     }
-    
-    
 }

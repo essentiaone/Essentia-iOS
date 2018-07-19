@@ -25,7 +25,7 @@ class BackupDesign: BuckupDesignInterface {
         // MARK: - Fonts
         vc.titleLabel.font = AppFont.bold.withSize(32)
         vc.descriptionLabel.font = AppFont.regular.withSize(18)
-        
+
         vc.imageView.image = imageProvider.warningPrivacyIcon
     }
 }
