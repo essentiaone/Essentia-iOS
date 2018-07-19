@@ -19,7 +19,8 @@ Podfile.lock
 ## Fastlane
 
 installer/
-
+.autodeployment.sh
+Gemfile.lock
 
 ## Build generated
 build/
