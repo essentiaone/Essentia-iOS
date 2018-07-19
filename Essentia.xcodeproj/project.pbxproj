@@ -35,6 +35,8 @@
 		3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */; };
 		3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8F20FE9406006DEF49 /* BorderedButton.swift */; };
 		3401AFB421012D93006DEF49 /* EssentiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFB321012D93006DEF49 /* EssentiaTests.swift */; };
+		3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */; };
+		3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +83,8 @@
 		3401AFB121012D93006DEF49 /* EssentiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3401AFB321012D93006DEF49 /* EssentiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaTests.swift; sourceTree = "<group>"; };
 		3401AFB521012D93006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProvider.swift; sourceTree = "<group>"; };
+		3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProviderInterface.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFA52100F174006DEF49 /* Crypto */,
 				3401AF5120F806C9006DEF49 /* UserCases */,
 				3401AF3920F7C3BC006DEF49 /* Resources */,
 				3401AF3820F7C3B1006DEF49 /* Application */,
@@ -311,6 +316,23 @@
 				3401AFB521012D93006DEF49 /* Info.plist */,
 			);
 			path = EssentiaTests;
+            sourceTree = "<group>";
+        };
+		3401AFA52100F174006DEF49 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFA62100F17C006DEF49 /* Mnemonic */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		3401AFA62100F17C006DEF49 /* Mnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */,
+				3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */,
+			);
+			path = Mnemonic;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -343,6 +365,7 @@
 				3401AF2020F7C2CA006DEF49 /* Resources */,
 				3401AF5F20F81011006DEF49 /* Swift Lint */,
 				3401AF6020F81284006DEF49 /* Fabric */,
+				4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -477,6 +500,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -494,6 +537,7 @@
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
+				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
@@ -502,6 +546,7 @@
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
@@ -677,8 +722,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "479e53bf-0cc4-4889-8f36-f5c5a8404b77";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dev";
+				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -699,8 +744,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b36aad52-1d68-4616-a4ae-02bf04745d52";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dis";
+				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
