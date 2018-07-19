@@ -18,7 +18,9 @@ default_platform(:ios)
 platform :ios do
 
   before_all do
-    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    #dev_mobile
+    #ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
+    ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["IOS_DEV_TEAM"] = "https://hooks.slack.com/services/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"
   end
 
@@ -44,6 +46,9 @@ platform :ios do
 
   end
 
+  lane :build do
+    build_app(workspace: "Essentia.xcworkspace", scheme: "Essentia")
+  end
   
   error do |lane, exception|
      slack(
