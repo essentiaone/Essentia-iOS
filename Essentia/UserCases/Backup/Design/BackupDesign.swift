@@ -8,7 +8,7 @@
 
 import Foundation
 
-class BackupDesign: BuckupDesignInterface {
+class BackupDesign: BackupDesignInterface {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     

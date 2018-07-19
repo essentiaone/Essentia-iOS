@@ -40,7 +40,7 @@ class ApplicationDependenceProvider {
     }
     
     private func loadBackupDesign() {
-        let injection: BuckupDesignInterface = BackupDesign()
+        let injection: BackupDesignInterface = BackupDesign()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }

@@ -17,7 +17,7 @@ class WarningViewContrller: BaseViewController {
     
     // MARK: - Dependences
     
-    private lazy var design: BuckupDesignInterface = inject()
+    private lazy var design: BackupDesignInterface = inject()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {

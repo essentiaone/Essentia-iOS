@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol BuckupDesignInterface {
+protocol BackupDesignInterface {
     func applyDesign(to vc: WarningViewContrller)
 }
