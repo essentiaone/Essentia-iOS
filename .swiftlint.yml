@@ -5,3 +5,4 @@ excluded:
   - Pods
   - fastane
   - installer
+  - vendor/

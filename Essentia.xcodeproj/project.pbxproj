@@ -600,8 +600,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "479e53bf-0cc4-4889-8f36-f5c5a8404b77";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dev";
+				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -624,8 +624,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c4d8e828-01a5-4f0b-90cb-9da02f72a12f";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-AppStore";
+				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

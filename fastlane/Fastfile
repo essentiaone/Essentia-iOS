@@ -24,9 +24,19 @@ platform :ios do
     ENV["IOS_DEV_TEAM"] = "https://hooks.slack.com/services/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"
   end
 
+  desc "installing current pod dependecies"
+  lane :pod_install do
+    cocoapods(
+      clean: true,
+      repo_update: true,
+      use_bundle_exec: false
+    )
+  end
+
+
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
-
     ensure_git_branch(branch: "master")
 
     #Increment build
@@ -35,8 +45,31 @@ platform :ios do
     commit_version_bump(xcodeproj: "Essentia.xcodeproj")
     add_git_tag
     push_to_git_remote
+    
+    pod_install
 
-    build_app(workspace: "Essentia.xcworkspace", scheme: "Essentia")
+    match(
+      app_identifier: "impl.essentia.Essentia",
+      type: "appstore",
+      git_branch: "master",
+      readonly: true
+    )
+
+    # build app
+    gym(
+      scheme: "Essentia",
+      export_method: "app-store",
+      configuration: "Release",
+      export_options: {
+        uploadBitcode: false,
+        compileBitcode: false,
+        method: "app-store",
+        provisioningProfiles: { 
+         "impl.essentia.Essentia" => "match AppStore impl.essentia.Essentia",
+        }
+      } 
+    )
+
     changelog_from_git_commits
     upload_to_testflight
 

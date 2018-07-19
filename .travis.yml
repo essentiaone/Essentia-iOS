@@ -6,4 +6,4 @@ osx_image:
 
 script:
   - pod install
-  - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=11.4'
+  - fastlane beta
