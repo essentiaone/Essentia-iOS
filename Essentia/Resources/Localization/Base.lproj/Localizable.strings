@@ -6,6 +6,8 @@
   Copyright © 2018 Essentia-One. All rights reserved.
 */
 
+"Back" = "Back";
+
 "Welcome.Restore" = "RESTORE";
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
@@ -14,5 +16,6 @@
 "Welcome.Tersm1" = "By continuing you agree to our ";
 "Welcome.Tersm2" = "Terms of Service";
 
-
-
+"Warning.Title" = "Is there a ninja\nbehind you?";
+"Warning.Description" = "Make sure no one is watching you - move away from windows and cameras; do not make any screenshots - they can be easily stolen; check if anyone is gandering.";
+"Warning.Done" = "I’M IN A SAFE PLACE";
