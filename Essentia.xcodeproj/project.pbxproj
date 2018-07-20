@@ -37,6 +37,13 @@
 		3401AFB421012D93006DEF49 /* EssentiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFB321012D93006DEF49 /* EssentiaTests.swift */; };
 		3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */; };
 		3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */; };
+		3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */; };
+		3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */; };
+		3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9920FFF678006DEF49 /* BackButton.swift */; };
+		3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */; };
+		3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */; };
+		3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA121000078006DEF49 /* BackupDesign.swift */; };
+		3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +92,13 @@
 		3401AFB521012D93006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProvider.swift; sourceTree = "<group>"; };
 		3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProviderInterface.swift; sourceTree = "<group>"; };
+		3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewContrller.swift; sourceTree = "<group>"; };
+		3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WarningViewContrller.xib; sourceTree = "<group>"; };
+		3401AF9920FFF678006DEF49 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
+		3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageProviderInterface.swift; sourceTree = "<group>"; };
+		3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageProvider.swift; sourceTree = "<group>"; };
+		3401AFA121000078006DEF49 /* BackupDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesign.swift; sourceTree = "<group>"; };
+		3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesingInterface.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -185,8 +199,7 @@
 		3401AF3D20F7CF92006DEF49 /* Componets */ = {
 			isa = PBXGroup;
 			children = (
-				3401AF4820F7DCAA006DEF49 /* Color */,
-				3401AF4720F7DC9F006DEF49 /* Font */,
+				3401AF9B20FFF763006DEF49 /* AssetsProviders */,
 				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 			);
 			path = Componets;
@@ -222,6 +235,7 @@
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF9120FFF48C006DEF49 /* Backup */,
 				3401AF5220F80704006DEF49 /* Login */,
 			);
 			path = UserCases;
@@ -251,6 +265,7 @@
 				3401AF6220F81924006DEF49 /* CenteredButton.swift */,
 				3401AF6620F8299A006DEF49 /* CopyButton.swift */,
 				3401AF8F20FE9406006DEF49 /* BorderedButton.swift */,
+				3401AF9920FFF678006DEF49 /* BackButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -333,6 +348,60 @@
 				3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */,
 			);
 			path = Mnemonic;
+            sourceTree = "<group>";
+        };
+		3401AF9120FFF48C006DEF49 /* Backup */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF9320FFF4A3006DEF49 /* Controllers */,
+				3401AF9220FFF49A006DEF49 /* Design */,
+			);
+			path = Backup;
+			sourceTree = "<group>";
+		};
+		3401AF9220FFF49A006DEF49 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFA121000078006DEF49 /* BackupDesign.swift */,
+				3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF9420FFF4B6006DEF49 /* Warning */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3401AF9420FFF4B6006DEF49 /* Warning */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */,
+				3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */,
+			);
+			path = Warning;
+			sourceTree = "<group>";
+		};
+		3401AF9B20FFF763006DEF49 /* AssetsProviders */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF9C20FFF771006DEF49 /* Image */,
+				3401AF4720F7DC9F006DEF49 /* Font */,
+				3401AF4820F7DCAA006DEF49 /* Color */,
+			);
+			path = AssetsProviders;
+			sourceTree = "<group>";
+		};
+		3401AF9C20FFF771006DEF49 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */,
+				3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -438,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
+				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
@@ -530,6 +600,10 @@
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
+				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
+				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
+				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
+				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
@@ -547,8 +621,10 @@
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
+				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
+				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,

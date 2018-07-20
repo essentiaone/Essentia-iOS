@@ -28,6 +28,5 @@ class BaseButton: UIButton {
         layer.shadowOpacity = Constants.shadowOpacity
         layer.shadowRadius = Constants.shadowWidth
         layer.masksToBounds =  false
-//        demoView.layer.shadowPath = shadowPath.cgPath
     }
 }
