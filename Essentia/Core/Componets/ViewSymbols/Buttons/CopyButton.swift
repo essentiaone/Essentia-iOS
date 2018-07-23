@@ -9,26 +9,31 @@
 import UIKit
 
 class CopyButton: BaseButton {
-    
     private lazy var colorProvider: AppColorInterface = inject()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         drawCornerRadius()
+        setColor()
+        showsTouchWhenHighlighted = false
         setFont()
     }
     
-    override var isEnabled: Bool {
+    override var isSelected: Bool {
         didSet {
-            isEnabled ? setEnableState() : setDisableState()
+            isSelected ? setSelectedState() : setDeselectedState()
         }
     }
     
-    func setEnableState() {
-        backgroundColor = .blue
+    func setColor() {
+        setTitleColor(colorProvider.copyButtonTextColor, for: .normal)
     }
     
-    func setDisableState() {
-        backgroundColor = .gray
+    func setSelectedState() {
+        backgroundColor = colorProvider.copyButtonBackgroundSelectedColor
+    }
+    
+    func setDeselectedState() {
+        backgroundColor = colorProvider.copyButtonBackgroundDeselectedColor
     }
 }

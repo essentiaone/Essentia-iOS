@@ -28,4 +28,21 @@ class BackupDesign: BackupDesignInterface {
 
         vc.imageView.image = imageProvider.warningPrivacyIcon
     }
+    
+    func applyDesign(to vc: MnemonicPhraseCopyViewController) {
+        // MARK: - Localized Strings
+        vc.copyButton.setTitle(LS("MnemonicPhrase.Copy"), for: .normal)
+        vc.copyButton.setTitle(LS("MnemonicPhrase.Copied"), for: .selected)
+        vc.continueButton.setTitle(LS("MnemonicPhrase.Continue"), for: .normal)
+        vc.titleLabel.text = LS("MnemonicPhrase.Title")
+        vc.descriptionLabel.text = LS("MnemonicPhrase.Description")
+
+        // MARK: - Fonts
+        vc.titleLabel.font = AppFont.bold.withSize(32)
+        vc.descriptionLabel.font = AppFont.regular.withSize(18)
+        
+        // MARK: - State
+        vc.copyButton.isSelected = false
+        vc.continueButton.isEnabled = false
+    }
 }

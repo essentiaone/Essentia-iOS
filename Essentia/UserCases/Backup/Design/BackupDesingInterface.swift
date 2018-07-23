@@ -10,4 +10,5 @@ import Foundation
 
 protocol BackupDesignInterface {
     func applyDesign(to vc: WarningViewContrller)
+    func applyDesign(to vc: MnemonicPhraseCopyViewController)
 }

@@ -41,8 +41,31 @@
 		3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */; };
 		3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA121000078006DEF49 /* BackupDesign.swift */; };
 		3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */; };
+		3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */; };
+		3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */; };
+		3401AFB421012D93006DEF49 /* EssentiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFB321012D93006DEF49 /* EssentiaTests.swift */; };
+		3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */; };
+		3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */; };
+		3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */; };
+		3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFCE21023510006DEF49 /* BorderedCell.swift */; };
+		3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AFD1210238A4006DEF49 /* BorderedCell.xib */; };
+		3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */; };
+		3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */; };
+		3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */; };
+		3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */; };
+		3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFDD21043C44006DEF49 /* String+Size.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3401AFB621012D93006DEF49 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3401AF1A20F7C2CA006DEF49 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3401AF2120F7C2CA006DEF49;
+			remoteInfo = Essentia;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3401AF2220F7C2CA006DEF49 /* Essentia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essentia.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +104,21 @@
 		3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageProvider.swift; sourceTree = "<group>"; };
 		3401AFA121000078006DEF49 /* BackupDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesign.swift; sourceTree = "<group>"; };
 		3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesingInterface.swift; sourceTree = "<group>"; };
+		3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProvider.swift; sourceTree = "<group>"; };
+		3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicProviderInterface.swift; sourceTree = "<group>"; };
+		3401AFB121012D93006DEF49 /* EssentiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3401AFB321012D93006DEF49 /* EssentiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaTests.swift; sourceTree = "<group>"; };
+		3401AFB521012D93006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseCopyViewController.swift; sourceTree = "<group>"; };
+		3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MnemonicPhraseCopyViewController.xib; sourceTree = "<group>"; };
+		3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		3401AFCE21023510006DEF49 /* BorderedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedCell.swift; sourceTree = "<group>"; };
+		3401AFD1210238A4006DEF49 /* BorderedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BorderedCell.xib; sourceTree = "<group>"; };
+		3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReusableCell+Nib.swift"; sourceTree = "<group>"; };
+		3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
+		3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringLayout.swift; sourceTree = "<group>"; };
+		3401AFDD21043C44006DEF49 /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +133,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3401AFAE21012D93006DEF49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -102,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3401AF2420F7C2CA006DEF49 /* Essentia */,
+				3401AFB221012D93006DEF49 /* EssentiaTests */,
 				3401AF2320F7C2CA006DEF49 /* Products */,
 				95AC5A4B6668826F51D64E2B /* Pods */,
 				E89F81E827245E426E0DF11A /* Frameworks */,
@@ -112,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3401AF2220F7C2CA006DEF49 /* Essentia.app */,
+				3401AFB121012D93006DEF49 /* EssentiaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +166,7 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFA52100F174006DEF49 /* Crypto */,
 				3401AF5120F806C9006DEF49 /* UserCases */,
 				3401AF3920F7C3BC006DEF49 /* Resources */,
 				3401AF3820F7C3B1006DEF49 /* Application */,
@@ -130,6 +178,7 @@
 		3401AF3720F7C394006DEF49 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFD521032F15006DEF49 /* Extensions */,
 				3401AF7F20FD3D4D006DEF49 /* DependencyInjection */,
 				3401AF6820F82AA7006DEF49 /* UIKit */,
 				3401AF4E20F7DDFD006DEF49 /* Helpers */,
@@ -163,6 +212,7 @@
 		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFCD21022EF2006DEF49 /* Cells */,
 				3401AF6120F8189E006DEF49 /* Buttons */,
 			);
 			path = ViewSymbols;
@@ -171,6 +221,7 @@
 		3401AF3D20F7CF92006DEF49 /* Componets */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFDA21033B0A006DEF49 /* Layout */,
 				3401AF9B20FFF763006DEF49 /* AssetsProviders */,
 				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 			);
@@ -200,6 +251,7 @@
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
 				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
 				3401AF8A20FD3FD0006DEF49 /* DependenceCore.swift */,
+				3401AFDD21043C44006DEF49 /* String+Size.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -247,6 +299,7 @@
 			children = (
 				3401AF6920F82AB5006DEF49 /* BaseViewController.swift */,
 				3401AF6B20F82CB7006DEF49 /* BaseButton.swift */,
+				3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -317,6 +370,7 @@
 		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */,
 				3401AF9420FFF4B6006DEF49 /* Warning */,
 			);
 			path = Controllers;
@@ -350,6 +404,84 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		3401AFA52100F174006DEF49 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFA62100F17C006DEF49 /* Mnemonic */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		3401AFA62100F17C006DEF49 /* Mnemonic */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFA72100F1AC006DEF49 /* MnemonicProvider.swift */,
+				3401AFAB21012BB4006DEF49 /* MnemonicProviderInterface.swift */,
+			);
+			path = Mnemonic;
+			sourceTree = "<group>";
+		};
+		3401AFB221012D93006DEF49 /* EssentiaTests */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFB321012D93006DEF49 /* EssentiaTests.swift */,
+				3401AFB521012D93006DEF49 /* Info.plist */,
+			);
+			path = EssentiaTests;
+			sourceTree = "<group>";
+		};
+		3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFCA21022B07006DEF49 /* CollectionView */,
+				3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */,
+				3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */,
+			);
+			path = MnemonicPhraseCopy;
+			sourceTree = "<group>";
+		};
+		3401AFCA21022B07006DEF49 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		3401AFCD21022EF2006DEF49 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFD021023890006DEF49 /* BorderedCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		3401AFD021023890006DEF49 /* BorderedCell */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFCE21023510006DEF49 /* BorderedCell.swift */,
+				3401AFD1210238A4006DEF49 /* BorderedCell.xib */,
+			);
+			path = BorderedCell;
+			sourceTree = "<group>";
+		};
+		3401AFD521032F15006DEF49 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */,
+				3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3401AFDA21033B0A006DEF49 /* Layout */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */,
+			);
+			path = Layout;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +512,7 @@
 				3401AF2020F7C2CA006DEF49 /* Resources */,
 				3401AF5F20F81011006DEF49 /* Swift Lint */,
 				3401AF6020F81284006DEF49 /* Fabric */,
+				4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -389,6 +522,24 @@
 			productName = Essentia;
 			productReference = 3401AF2220F7C2CA006DEF49 /* Essentia.app */;
 			productType = "com.apple.product-type.application";
+		};
+		3401AFB021012D93006DEF49 /* EssentiaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3401AFBA21012D93006DEF49 /* Build configuration list for PBXNativeTarget "EssentiaTests" */;
+			buildPhases = (
+				3401AFAD21012D93006DEF49 /* Sources */,
+				3401AFAE21012D93006DEF49 /* Frameworks */,
+				3401AFAF21012D93006DEF49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3401AFB721012D93006DEF49 /* PBXTargetDependency */,
+			);
+			name = EssentiaTests;
+			productName = EssentiaTests;
+			productReference = 3401AFB121012D93006DEF49 /* EssentiaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -402,6 +553,10 @@
 				TargetAttributes = {
 					3401AF2120F7C2CA006DEF49 = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					3401AFB021012D93006DEF49 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 3401AF2120F7C2CA006DEF49;
 					};
 				};
 			};
@@ -419,6 +574,7 @@
 			projectRoot = "";
 			targets = (
 				3401AF2120F7C2CA006DEF49 /* Essentia */,
+				3401AFB021012D93006DEF49 /* EssentiaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -430,9 +586,18 @@
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
+				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
+				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3401AFAF21012D93006DEF49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,6 +650,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -493,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
+				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
@@ -506,17 +692,26 @@
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
+				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
+				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
+				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
+				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
 				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
+				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
 				3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */,
+				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
+				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
+				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
@@ -524,7 +719,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3401AFAD21012D93006DEF49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3401AFB421012D93006DEF49 /* EssentiaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3401AFB721012D93006DEF49 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3401AF2120F7C2CA006DEF49 /* Essentia */;
+			targetProxy = 3401AFB621012D93006DEF49 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */ = {
@@ -675,8 +886,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "479e53bf-0cc4-4889-8f36-f5c5a8404b77";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dev";
+				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -697,10 +908,50 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b36aad52-1d68-4616-a4ae-02bf04745d52";
-				PROVISIONING_PROFILE_SPECIFIER = "Essentia-Dis";
+				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3401AFB821012D93006DEF49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X24R65DM8E;
+				INFOPLIST_FILE = EssentiaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssentiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Essentia.app/Essentia";
+			};
+			name = Debug;
+		};
+		3401AFB921012D93006DEF49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X24R65DM8E;
+				INFOPLIST_FILE = EssentiaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssentiaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Essentia.app/Essentia";
 			};
 			name = Release;
 		};
@@ -721,6 +972,15 @@
 			buildConfigurations = (
 				3401AF3520F7C2CD006DEF49 /* Debug */,
 				3401AF3620F7C2CD006DEF49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3401AFBA21012D93006DEF49 /* Build configuration list for PBXNativeTarget "EssentiaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3401AFB821012D93006DEF49 /* Debug */,
+				3401AFB921012D93006DEF49 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
