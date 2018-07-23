@@ -14,7 +14,11 @@ protocol AppColorInterface {
     var appDefaultTextColor: UIColor { get }
     var appLinkTextColor: UIColor { get }
     var centeredButtonBackgroudColor: UIColor { get }
+    var centeredButtonDisabledBackgroudColor: UIColor { get }
     var centeredButtonTextColor: UIColor { get }
     var borderedButtonTextColor: UIColor { get }
     var borderedButtonBorderColor: UIColor { get }
+    var copyButtonBackgroundDeselectedColor: UIColor { get }
+    var copyButtonBackgroundSelectedColor: UIColor { get }
+    var copyButtonTextColor: UIColor { get }
 }

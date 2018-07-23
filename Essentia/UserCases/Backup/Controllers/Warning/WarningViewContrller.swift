@@ -16,7 +16,6 @@ class WarningViewContrller: BaseViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     // MARK: - Dependences
-    
     private lazy var design: BackupDesignInterface = inject()
     
     // MARK: - Lifecycle
@@ -27,6 +26,9 @@ class WarningViewContrller: BaseViewController {
     
     // MARK: - Actions
     @IBAction func doneAction(_ sender: Any) {
+        let mnemonic: MnemonicProviderInterface = MnemonicProvider()
+        let vc = MnemonicPhraseCopyViewController(mnemonic: mnemonic.generateMnemonic())
+        present(vc, animated: true)
     }
     
     @IBAction func backAction(_ sender: Any) {

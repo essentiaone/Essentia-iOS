@@ -9,7 +9,6 @@
 import UIKit
 
 class BackButton: BaseButton {
-    
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
@@ -30,5 +29,4 @@ class BackButton: BaseButton {
         imageView?.frame.size = CGSize(width: 13, height: 22)
         imageView?.contentMode = .scaleAspectFit
     }
-    
 }

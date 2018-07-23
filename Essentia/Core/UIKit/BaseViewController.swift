@@ -9,8 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    @nonobjc
-    convenience init() {
-        self.init(nibName: nil, bundle: nil)
+    public init() {
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

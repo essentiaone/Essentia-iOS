@@ -19,9 +19,9 @@ class CenteredButton: BaseButton {
         drawShadow(width: 5.0)
     }
     
-    override var isSelected: Bool {
+    override var isEnabled: Bool {
         didSet {
-            isSelected ? setSelected() : setDeseleted()
+            isEnabled ? setEnabled() : setDisable()
         }
     }
     
@@ -30,11 +30,13 @@ class CenteredButton: BaseButton {
         backgroundColor = colorProvider.centeredButtonBackgroudColor
     }
     
-    private func setSelected() {
-        backgroundColor = .green
+    private func setDisable() {
+        backgroundColor = colorProvider.centeredButtonDisabledBackgroudColor
+        drawShadow(width: 5.0)
     }
     
-    private func setDeseleted() {
+    private func setEnabled() {
         backgroundColor = colorProvider.centeredButtonBackgroudColor
+        drawShadow(width: 5.0)
     }
 }

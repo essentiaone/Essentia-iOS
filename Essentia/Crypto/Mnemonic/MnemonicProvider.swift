@@ -9,8 +9,8 @@
 import HDWalletKit
 
 class MnemonicProvider: MnemonicProviderInterface {
-    func generateMnemonic() -> [String] {
+    func generateMnemonic() -> String {
         //Generate mnemonic due to localization (todo)
-        return Mnemonic.create().components(separatedBy: " ")
+        return Mnemonic.create()
     }
 }

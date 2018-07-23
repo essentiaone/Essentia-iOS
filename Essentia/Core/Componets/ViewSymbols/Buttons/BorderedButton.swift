@@ -9,7 +9,6 @@
 import UIKit
 
 class BorderedButton: BaseButton {
-    
     private lazy var colorProvider: AppColorInterface = inject()
     
     override func awakeFromNib() {
@@ -28,5 +27,4 @@ class BorderedButton: BaseButton {
         layer.borderColor = colorProvider.borderedButtonBorderColor.cgColor
         layer.borderWidth = 2
     }
-    
 }

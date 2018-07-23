@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MnemonicProviderInterface {
-    func generateMnemonic() -> [String]
+    func generateMnemonic() -> String
 }
