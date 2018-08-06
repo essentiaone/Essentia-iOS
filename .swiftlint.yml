@@ -1,5 +1,8 @@
 disabled_rules:
  - trailing_whitespace
  - identifier_name
+ - class_delegate_protocol
+ - weak_delegate
+ - line_length
 excluded:
   - Pods

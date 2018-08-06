@@ -20,3 +20,8 @@ public func inject<T>() -> T {
     let result = diEngine.resolve(key: key) as T?
     return result!
 }
+
+public func relese<T>(_ injection: T) {
+    let key = String(describing: T.self)
+    diEngine.relese(key: key)
+}

@@ -26,12 +26,10 @@ class WarningViewContrller: BaseViewController {
     
     // MARK: - Actions
     @IBAction func doneAction(_ sender: Any) {
-        let mnemonic: MnemonicProviderInterface = MnemonicProvider()
-        let vc = MnemonicPhraseCopyViewController(mnemonic: mnemonic.generateMnemonic())
-        present(vc, animated: true)
+        (inject() as BackupRouterInterface).showNext()
     }
     
     @IBAction func backAction(_ sender: Any) {
-        dismiss(animated: true)
+        (inject() as BackupRouterInterface).showPrev()
     }
 }

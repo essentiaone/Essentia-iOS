@@ -6,7 +6,7 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class BackupDesign: BackupDesignInterface {
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -44,5 +44,22 @@ class BackupDesign: BackupDesignInterface {
         // MARK: - State
         vc.copyButton.isSelected = false
         vc.continueButton.isEnabled = false
+    }
+    
+    func applyDesign(to vc: MnemonicPhraseConfirmViewController) {
+        // MARK: - Localized Strings
+        vc.titleLabel.text = LS("MnemonicPhraseConfirm.Title")
+        vc.descriptionLabel.text = LS("MnemonicPhraseConfirm.Description")
+        
+        // MARK: - Fonts
+        vc.titleLabel.font = AppFont.bold.withSize(32)
+        vc.descriptionLabel.font = AppFont.regular.withSize(18)
+        vc.currentWordLabel.font = AppFont.regular.withSize(15)
+        
+        // MARK: - Layout
+        vc.confirmWordsCollectionView.layer.cornerRadius = 3
+        vc.confirmWordsCollectionView.layer.borderColor = colorProvider.blueBorderColor.cgColor
+        vc.confirmWordsCollectionView.layer.borderWidth = 1.0
+        
     }
 }
