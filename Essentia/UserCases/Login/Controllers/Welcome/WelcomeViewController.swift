@@ -31,7 +31,11 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        present(WarningViewContrller(), animated: true)
+        let mnemonic: String = MnemonicProvider(language: .english).mnemonic
+        prepareInjection(
+            BackupRouter(rootController: self, mnemonic: mnemonic, type: .mnemonic) as BackupRouterInterface,
+            memoryPolicy: .viewController
+        )
     }
     
     @IBAction func termsAction(_ sender: Any) {

@@ -21,4 +21,12 @@ protocol AppColorInterface {
     var copyButtonBackgroundDeselectedColor: UIColor { get }
     var copyButtonBackgroundSelectedColor: UIColor { get }
     var copyButtonTextColor: UIColor { get }
+    var blueBorderColor: UIColor { get }
+    var currentWordEmpty: UIColor { get }
+    var currentWordSelected: UIColor { get }
+    var currentWordCurrent: UIColor { get }
+    var currentWordEnteringString: UIColor { get }
+    var currentWordEnteringPlaceholder: UIColor { get }
+    var enteredWordBackgroud: UIColor { get }
+    var enteredWordText: UIColor { get }
 }

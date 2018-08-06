@@ -8,6 +8,20 @@
 
 import Foundation
 
+enum Language {
+    case english
+    case japanese
+    case korean
+    case spanish
+    case simplifiedChinese
+    case traditionalChinese
+    case french
+    case italian
+
+}
+
 protocol MnemonicProviderInterface {
-    func generateMnemonic() -> String
+    init(language: Language)
+    var mnemonic: String { get }
+    var wordList: [String] { get }
 }

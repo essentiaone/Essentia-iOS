@@ -54,6 +54,19 @@
 		3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */; };
 		3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */; };
 		3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFDD21043C44006DEF49 /* String+Size.swift */; };
+		3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */; };
+		3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AFE221062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib */; };
+		3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */; };
+		3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE72107705A006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift */; };
+		3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFEA2109F5CB006DEF49 /* FakeTextField.swift */; };
+		3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */; };
+		3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */; };
+		3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */; };
+		3448264521107A2100C19EB3 /* EditingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448264421107A2100C19EB3 /* EditingCell.swift */; };
+		3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448264621107A4B00C19EB3 /* EditingCell.xib */; };
+		344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826512114B21B00C19EB3 /* PhraseEnteringState.swift */; };
+		344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */; };
+		344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826552115FDB100C19EB3 /* String+DescribingEnum.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -119,6 +132,19 @@
 		3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
 		3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringLayout.swift; sourceTree = "<group>"; };
 		3401AFDD21043C44006DEF49 /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
+		3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseConfirmViewController.swift; sourceTree = "<group>"; };
+		3401AFE221062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicPhraseConfirmViewController.xib; sourceTree = "<group>"; };
+		3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseConfirmCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		3401AFE72107705A006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWordIndicatorCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		3401AFEA2109F5CB006DEF49 /* FakeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTextField.swift; sourceTree = "<group>"; };
+		3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringController.swift; sourceTree = "<group>"; };
+		3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouterInterface.swift; sourceTree = "<group>"; };
+		3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouter.swift; sourceTree = "<group>"; };
+		3448264421107A2100C19EB3 /* EditingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCell.swift; sourceTree = "<group>"; };
+		3448264621107A4B00C19EB3 /* EditingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditingCell.xib; sourceTree = "<group>"; };
+		344826512114B21B00C19EB3 /* PhraseEnteringState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringState.swift; sourceTree = "<group>"; };
+		344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringControllerDelegate.swift; sourceTree = "<group>"; };
+		344826552115FDB100C19EB3 /* String+DescribingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DescribingEnum.swift"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +192,7 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
+				3448264D2113327700C19EB3 /* Models */,
 				3401AFA52100F174006DEF49 /* Crypto */,
 				3401AF5120F806C9006DEF49 /* UserCases */,
 				3401AF3920F7C3BC006DEF49 /* Resources */,
@@ -212,6 +239,7 @@
 		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFE92109F5B8006DEF49 /* TextFields */,
 				3401AFCD21022EF2006DEF49 /* Cells */,
 				3401AF6120F8189E006DEF49 /* Buttons */,
 			);
@@ -352,6 +380,7 @@
 		3401AF9120FFF48C006DEF49 /* Backup */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFEF210A0867006DEF49 /* Router */,
 				3401AF9320FFF4A3006DEF49 /* Controllers */,
 				3401AF9220FFF49A006DEF49 /* Design */,
 			);
@@ -370,6 +399,7 @@
 		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */,
 				3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */,
 				3401AF9420FFF4B6006DEF49 /* Warning */,
 			);
@@ -451,6 +481,7 @@
 		3401AFCD21022EF2006DEF49 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				3448264321107A0100C19EB3 /* EditingCell */,
 				3401AFD021023890006DEF49 /* BorderedCell */,
 			);
 			path = Cells;
@@ -470,6 +501,7 @@
 			children = (
 				3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */,
 				3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */,
+				344826552115FDB100C19EB3 /* String+DescribingEnum.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -480,6 +512,69 @@
 				3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */,
 			);
 			path = Layout;
+			sourceTree = "<group>";
+		};
+		3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */ = {
+			isa = PBXGroup;
+			children = (
+				344826502114B1DF00C19EB3 /* Controllers */,
+				3401AFE421064133006DEF49 /* CollectionView */,
+				3401AFE221062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib */,
+				344826512114B21B00C19EB3 /* PhraseEnteringState.swift */,
+			);
+			path = MnemonicPhraseConfirm;
+			sourceTree = "<group>";
+		};
+		3401AFE421064133006DEF49 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */,
+				3401AFE72107705A006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		3401AFE92109F5B8006DEF49 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFEA2109F5CB006DEF49 /* FakeTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		3401AFEF210A0867006DEF49 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */,
+				3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		3448264321107A0100C19EB3 /* EditingCell */ = {
+			isa = PBXGroup;
+			children = (
+				3448264421107A2100C19EB3 /* EditingCell.swift */,
+				3448264621107A4B00C19EB3 /* EditingCell.xib */,
+			);
+			path = EditingCell;
+			sourceTree = "<group>";
+		};
+		3448264D2113327700C19EB3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		344826502114B1DF00C19EB3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */,
+				3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */,
+				344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -588,8 +683,10 @@
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
+				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
+				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,18 +774,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
+				344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
 				3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */,
+				3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
@@ -703,19 +803,27 @@
 				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
 				3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */,
 				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
+				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
+				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
+				3448264521107A2100C19EB3 /* EditingCell.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
+				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
+				3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
+				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
+				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,7 @@ class ApplicationDependenceProvider {
     private func loadCoreDependences() {
         loadColorSheme()
         loadImageSheme()
+        loadMnemonicProvider()
     }
     
     private func loadImageSheme() {
@@ -34,6 +35,7 @@ class ApplicationDependenceProvider {
         loadBackupDesign()
     }
     
+    // MARK: - Design
     private func loadLoginDesign() {
         let injection: LoginDesignInterface = LoginDesign()
         prepareInjection(injection, memoryPolicy: .viewController)
@@ -41,6 +43,13 @@ class ApplicationDependenceProvider {
     
     private func loadBackupDesign() {
         let injection: BackupDesignInterface = BackupDesign()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    // MARK: - Mnemonic
+    
+    private func loadMnemonicProvider() {
+        let injection: MnemonicProviderInterface = MnemonicProvider(language: .english)
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }
