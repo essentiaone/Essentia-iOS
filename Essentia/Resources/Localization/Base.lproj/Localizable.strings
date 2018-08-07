@@ -29,3 +29,9 @@
 "MnemonicPhraseConfirm.Title" = "Mnemonic Phrase Confirmation";
 "MnemonicPhraseConfirm.Description" = "Enter the following words to complete the backup process.";
 "MnemonicPhraseConfirm.CurrentWord" = "-th word";
+
+"SeedCopy.Title" = "Seed";
+"SeedCopy.Description" = "Below you’ll see your Seed. Please save it securely since you can use to access your Essence";
+"SeedCopy.Copy" = "COPY";
+"SeedCopy.Copied" = "COPIED";
+"SeedCopy.Continue" = "CONTINUE";

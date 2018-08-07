@@ -10,11 +10,17 @@ import HDWalletKit
 
 class MnemonicProvider: MnemonicProviderInterface {
     let language: Language
-    var mnemonic: String
     
     required init(language: Language) {
         self.language = language
-        mnemonic = Mnemonic.create()
+    }
+    
+    var mnemonic: String {
+        return  Mnemonic.create()
+    }
+    
+    func seed(from mnemonic: String) -> String {
+        return Mnemonic.createSeed(mnemonic: mnemonic).toHexString()
     }
     
     var wordList: [String] {

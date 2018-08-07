@@ -67,6 +67,8 @@
 		344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826512114B21B00C19EB3 /* PhraseEnteringState.swift */; };
 		344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */; };
 		344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826552115FDB100C19EB3 /* String+DescribingEnum.swift */; };
+		3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448265821189B7900C19EB3 /* SeedCopyViewController.swift */; };
+		3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -145,6 +147,8 @@
 		344826512114B21B00C19EB3 /* PhraseEnteringState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringState.swift; sourceTree = "<group>"; };
 		344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringControllerDelegate.swift; sourceTree = "<group>"; };
 		344826552115FDB100C19EB3 /* String+DescribingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DescribingEnum.swift"; sourceTree = "<group>"; };
+		3448265821189B7900C19EB3 /* SeedCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedCopyViewController.swift; sourceTree = "<group>"; };
+		3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedCopyViewController.xib; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -399,6 +403,7 @@
 		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3448265721189B5B00C19EB3 /* SeedCopy */,
 				3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */,
 				3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */,
 				3401AF9420FFF4B6006DEF49 /* Warning */,
@@ -577,6 +582,15 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		3448265721189B5B00C19EB3 /* SeedCopy */ = {
+			isa = PBXGroup;
+			children = (
+				3448265821189B7900C19EB3 /* SeedCopyViewController.swift */,
+				3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */,
+			);
+			path = SeedCopy;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -687,6 +701,7 @@
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
+				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -808,6 +823,7 @@
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
