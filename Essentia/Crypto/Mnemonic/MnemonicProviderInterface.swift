@@ -24,4 +24,5 @@ protocol MnemonicProviderInterface {
     init(language: Language)
     var mnemonic: String { get }
     var wordList: [String] { get }
+    func seed(from mnemonic: String) -> String 
 }

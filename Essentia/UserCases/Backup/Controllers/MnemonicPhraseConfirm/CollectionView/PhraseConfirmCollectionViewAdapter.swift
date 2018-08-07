@@ -13,7 +13,6 @@ fileprivate struct Constants {
     static var cellHeight: CGFloat = 26
 }
 
-//TODO: - Check typo
 class PhraseConfirmCollectionViewAdapter: NSObject,
     UICollectionViewDataSource,
     PhraseEnteringViewProtocol,
