@@ -13,5 +13,5 @@ protocol BackupDesignInterface {
     func applyDesign(to vc: MnemonicPhraseCopyViewController)
     func applyDesign(to vc: MnemonicPhraseConfirmViewController)
     func applyDesign(to vc: SeedCopyViewController)
-    
+    func applyDesign(to vc: KeyStorePasswordViewController)
 }

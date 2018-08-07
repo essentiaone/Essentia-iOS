@@ -13,6 +13,7 @@ fileprivate enum BackupRoutes {
     case phraseCopy(mnemonic: String)
     case phraseConfirm(mnemonic: String)
     case seedCopy(seed: String)
+    case keyStorePassword(mnemonic: String)
     
     var controller: UIViewController {
         switch self {
@@ -24,6 +25,8 @@ fileprivate enum BackupRoutes {
             return MnemonicPhraseConfirmViewController(mnemonic: mnemonic)
         case .seedCopy(let seed):
             return SeedCopyViewController(seed: seed)
+        case .keyStorePassword(let mnemonic):
+            return KeyStorePasswordViewController(mnemonic: mnemonic)
         }
     }
 }
@@ -33,9 +36,6 @@ class BackupRouter: BackupRouterInterface {
     fileprivate let routes: [BackupRoutes]
     var current: Int = 0
     required init(rootController: UIViewController, mnemonic: String, type: BackupType) {
-        navigationController = UINavigationController(rootViewController: WarningViewContrller())
-        navigationController.setNavigationBarHidden(true, animated: false)
-        rootController.present(navigationController, animated: true)
         switch type {
         case .mnemonic:
             routes = [
@@ -48,9 +48,14 @@ class BackupRouter: BackupRouterInterface {
                  .warning,
                  .seedCopy(seed: (inject() as MnemonicProviderInterface).seed(from: mnemonic))
             ]
-        default:
-            routes = []
+        case .keystore:
+            routes = [
+                .keyStorePassword(mnemonic: mnemonic)
+            ]
         }
+        navigationController = UINavigationController(rootViewController: routes[0].controller)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        rootController.present(navigationController, animated: true)
     }
     
     func showNext() {

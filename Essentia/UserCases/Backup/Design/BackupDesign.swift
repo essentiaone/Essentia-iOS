@@ -98,4 +98,21 @@ class BackupDesign: BackupDesignInterface {
         vc.textView.layer.borderColor = colorProvider.blueBorderColor.cgColor
         vc.textView.layer.borderWidth = 1.0
     }
+    
+    func applyDesign(to vc: KeyStorePasswordViewController) {
+        // MARK: - Localized Strings
+        vc.continueButton.setTitle(LS("SeedCopy.Continue"), for: .normal)
+        vc.titleLabel.text = LS("SeedCopy.Title")
+        vc.descriptionLabel.text = LS("SeedCopy.Description")
+        
+        // MARK: - Fonts
+        vc.titleLabel.font = AppFont.bold.withSize(32)
+        vc.descriptionLabel.font = AppFont.regular.withSize(18)
+        vc.passwordTextField.font = AppFont.regular.withSize(16)
+        
+        // MARK: - Colors
+        vc.titleLabel.textColor =  colorProvider.appTitleColor
+        vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
+        vc.passwordTextField.textColor = colorProvider.appTitleColor
+    }
 }

@@ -35,3 +35,9 @@
 "SeedCopy.Copy" = "COPY";
 "SeedCopy.Copied" = "COPIED";
 "SeedCopy.Continue" = "CONTINUE";
+
+"SeedCopy.Title" = "Create Password";
+"SeedCopy.Description" = "Strong password - secure account. Come up with the unique password to access Essentia later on.
+";
+"SeedCopy.Continue" = "CONTINUE";
+
