@@ -35,3 +35,8 @@
 "SeedCopy.Copy" = "COPY";
 "SeedCopy.Copied" = "COPIED";
 "SeedCopy.Continue" = "CONTINUE";
+
+"InfoAlert.Ok" = "OK";
+
+"KeyStoreSaved.Title" = "Your Keystore file saved";
+"KeyStoreSaved.Description" = "Now you can login with the keystore file in Essentia";
