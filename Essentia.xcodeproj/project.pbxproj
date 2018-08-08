@@ -71,6 +71,11 @@
 		3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */; };
 		34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */; };
 		34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482666211A620C00C19EB3 /* InfoAlertViewController.swift */; };
+		3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448266B211B362000C19EB3 /* LaunchpadViewController.swift */; };
+		3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448266D211B362A00C19EB3 /* LaunchpadViewController.xib */; };
+		34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448266F211B366400C19EB3 /* LaunchpadItem.swift */; };
+		34482678211B9BAC00C19EB3 /* TabBarControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482677211B9BAC00C19EB3 /* TabBarControllerBuilder.swift */; };
+		3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482679211BA20F00C19EB3 /* BaseTabBarController.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -153,6 +158,11 @@
 		3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedCopyViewController.xib; sourceTree = "<group>"; };
 		34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAlertViewController.xib; sourceTree = "<group>"; };
 		34482666211A620C00C19EB3 /* InfoAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewController.swift; sourceTree = "<group>"; };
+		3448266B211B362000C19EB3 /* LaunchpadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadViewController.swift; sourceTree = "<group>"; };
+		3448266D211B362A00C19EB3 /* LaunchpadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadViewController.xib; sourceTree = "<group>"; };
+		3448266F211B366400C19EB3 /* LaunchpadItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadItem.swift; sourceTree = "<group>"; };
+		34482677211B9BAC00C19EB3 /* TabBarControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerBuilder.swift; sourceTree = "<group>"; };
+		34482679211BA20F00C19EB3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +306,8 @@
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
 			isa = PBXGroup;
 			children = (
+				34482674211B9B6300C19EB3 /* TabBar */,
+				34482668211B321000C19EB3 /* Launchpad */,
 				3401AF9120FFF48C006DEF49 /* Backup */,
 				3401AF5220F80704006DEF49 /* Login */,
 			);
@@ -337,6 +349,7 @@
 				3401AF6920F82AB5006DEF49 /* BaseViewController.swift */,
 				3401AF6B20F82CB7006DEF49 /* BaseButton.swift */,
 				3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */,
+				34482679211BA20F00C19EB3 /* BaseTabBarController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -613,6 +626,40 @@
 			path = BlureAlert;
 			sourceTree = "<group>";
 		};
+		34482668211B321000C19EB3 /* Launchpad */ = {
+			isa = PBXGroup;
+			children = (
+				3448266A211B360200C19EB3 /* LaunchpadController */,
+				34482669211B345800C19EB3 /* Items */,
+			);
+			path = Launchpad;
+			sourceTree = "<group>";
+		};
+		34482669211B345800C19EB3 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3448266F211B366400C19EB3 /* LaunchpadItem.swift */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		3448266A211B360200C19EB3 /* LaunchpadController */ = {
+			isa = PBXGroup;
+			children = (
+				3448266B211B362000C19EB3 /* LaunchpadViewController.swift */,
+				3448266D211B362A00C19EB3 /* LaunchpadViewController.xib */,
+			);
+			path = LaunchpadController;
+			sourceTree = "<group>";
+		};
+		34482674211B9B6300C19EB3 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				34482677211B9BAC00C19EB3 /* TabBarControllerBuilder.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -726,6 +773,7 @@
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
+				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +860,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
+				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
@@ -846,12 +896,14 @@
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
+				34482678211B9BAC00C19EB3 /* TabBarControllerBuilder.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
+				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
