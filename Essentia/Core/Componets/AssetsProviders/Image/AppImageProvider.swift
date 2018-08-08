@@ -11,4 +11,5 @@ import UIKit
 class AppImageProvider: AppImageProviderInterface {
     var backButtonImage: UIImage = #imageLiteral(resourceName: "backButton")
     var warningPrivacyIcon: UIImage = #imageLiteral(resourceName: "warningPrivacy")
+    var checkInfoIcon: UIImage = #imageLiteral(resourceName: "InfoCheckIcon")
 }

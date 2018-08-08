@@ -69,6 +69,8 @@
 		344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826552115FDB100C19EB3 /* String+DescribingEnum.swift */; };
 		3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448265821189B7900C19EB3 /* SeedCopyViewController.swift */; };
 		3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */; };
+		34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */; };
+		34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482666211A620C00C19EB3 /* InfoAlertViewController.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +151,8 @@
 		344826552115FDB100C19EB3 /* String+DescribingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DescribingEnum.swift"; sourceTree = "<group>"; };
 		3448265821189B7900C19EB3 /* SeedCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedCopyViewController.swift; sourceTree = "<group>"; };
 		3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedCopyViewController.xib; sourceTree = "<group>"; };
+		34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAlertViewController.xib; sourceTree = "<group>"; };
+		34482666211A620C00C19EB3 /* InfoAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewController.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				34482662211A5FFE00C19EB3 /* Alerts */,
 				3401AFE92109F5B8006DEF49 /* TextFields */,
 				3401AFCD21022EF2006DEF49 /* Cells */,
 				3401AF6120F8189E006DEF49 /* Buttons */,
@@ -591,6 +596,23 @@
 			path = SeedCopy;
 			sourceTree = "<group>";
 		};
+		34482662211A5FFE00C19EB3 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				34482663211A61CC00C19EB3 /* BlureAlert */,
+			);
+			path = Alerts;
+			sourceTree = "<group>";
+		};
+		34482663211A61CC00C19EB3 /* BlureAlert */ = {
+			isa = PBXGroup;
+			children = (
+				34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */,
+				34482666211A620C00C19EB3 /* InfoAlertViewController.swift */,
+			);
+			path = BlureAlert;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +718,7 @@
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
+				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
@@ -798,6 +821,7 @@
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
 				344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
+				34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
