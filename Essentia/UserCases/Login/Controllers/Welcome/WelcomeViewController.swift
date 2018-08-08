@@ -31,11 +31,12 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        let mnemonic: String = MnemonicProvider(language: .english).mnemonic
-        prepareInjection(
-            BackupRouter(rootController: self, mnemonic: mnemonic, type: .seed) as BackupRouterInterface,
-            memoryPolicy: .viewController
-        )
+        InfoAlertViewController.show(title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"))
+//        let mnemonic: String = MnemonicProvider(language: .english).mnemonic
+//        prepareInjection(
+//            BackupRouter(rootController: self, mnemonic: mnemonic, type: .seed) as BackupRouterInterface,
+//            memoryPolicy: .viewController
+//        )
     }
     
     @IBAction func termsAction(_ sender: Any) {

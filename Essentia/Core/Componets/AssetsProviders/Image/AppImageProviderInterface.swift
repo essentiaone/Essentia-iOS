@@ -11,4 +11,5 @@ import UIKit
 protocol AppImageProviderInterface {
     var backButtonImage: UIImage { get }
     var warningPrivacyIcon: UIImage { get }
+    var checkInfoIcon: UIImage { get }
 }
