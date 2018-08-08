@@ -1,5 +1,5 @@
 //
-//  TabBarControllerBuilder.swift
+//  TabBarController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 09.08.18.

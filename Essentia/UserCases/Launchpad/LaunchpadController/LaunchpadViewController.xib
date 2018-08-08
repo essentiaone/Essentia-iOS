@@ -19,7 +19,39 @@
         <view contentMode="scaleToFill" id="EAO-CA-Kj6">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eH-Q1-ret">
+                    <rect key="frame" x="15" y="80" width="345" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G5j-9P-kBC">
+                    <rect key="frame" x="0.0" y="116" width="375" height="496"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOk-CW-EPG">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UcU-cG-OmT">
+                    <rect key="frame" x="168" y="622" width="39" height="37"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3eH-Q1-ret" firstAttribute="leading" secondItem="rTh-Hm-MMm" secondAttribute="leading" constant="15" id="3e9-9w-lNy"/>
+                <constraint firstItem="UcU-cG-OmT" firstAttribute="top" secondItem="G5j-9P-kBC" secondAttribute="bottom" constant="10" id="Ags-Yv-PU7"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="bottom" secondItem="UcU-cG-OmT" secondAttribute="bottom" constant="8" id="DAk-Af-h0j"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="3eH-Q1-ret" secondAttribute="trailing" constant="15" id="SMD-P9-f2X"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="G5j-9P-kBC" secondAttribute="trailing" id="eAj-aS-HJ7"/>
+                <constraint firstItem="G5j-9P-kBC" firstAttribute="leading" secondItem="rTh-Hm-MMm" secondAttribute="leading" id="iu1-IF-jxm"/>
+                <constraint firstItem="3eH-Q1-ret" firstAttribute="top" secondItem="rTh-Hm-MMm" secondAttribute="top" constant="60" id="qg9-hX-njq"/>
+                <constraint firstItem="UcU-cG-OmT" firstAttribute="centerX" secondItem="EAO-CA-Kj6" secondAttribute="centerX" id="t6X-ID-IlY"/>
+                <constraint firstItem="G5j-9P-kBC" firstAttribute="top" secondItem="3eH-Q1-ret" secondAttribute="bottom" constant="15" id="tJo-IY-szI"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="rTh-Hm-MMm"/>
             <point key="canvasLocation" x="-74" y="13"/>
         </view>

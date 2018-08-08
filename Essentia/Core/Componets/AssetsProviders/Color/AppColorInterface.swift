@@ -13,6 +13,7 @@ protocol AppColorInterface {
     var appTitleColor: UIColor { get }
     var appDefaultTextColor: UIColor { get }
     var appLinkTextColor: UIColor { get }
+    //MARK: - Backup
     var centeredButtonBackgroudColor: UIColor { get }
     var centeredButtonDisabledBackgroudColor: UIColor { get }
     var centeredButtonTextColor: UIColor { get }
@@ -29,4 +30,7 @@ protocol AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor { get }
     var enteredWordBackgroud: UIColor { get }
     var enteredWordText: UIColor { get }
+    // MARK: - Launchpad
+    var launchpadItemTitleColor: UIColor { get }
+    var launchpadItemSubTitleColor: UIColor { get }
 }

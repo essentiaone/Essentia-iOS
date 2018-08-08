@@ -10,6 +10,7 @@ import UIKit
 
 protocol LaunchpadItemInterface {
     var title: String { get }
+    var subTitle: String { get }
     var icon: UIImage { get }
     func show(from rootController: UIViewController)
 }
