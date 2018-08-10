@@ -14,3 +14,15 @@ protocol LaunchpadItemInterface {
     var icon: UIImage { get }
     func show(from rootController: UIViewController)
 }
+
+class TestItem: LaunchpadItemInterface {
+    var title: String = "Title"
+    
+    var subTitle: String = "Subtitle"
+    
+    var icon: UIImage = #imageLiteral(resourceName: "InfoCheckIcon")
+    
+    func show(from rootController: UIViewController) {
+        
+    }
+}

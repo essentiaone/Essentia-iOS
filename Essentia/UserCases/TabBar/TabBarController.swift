@@ -9,6 +9,9 @@
 import UIKit
 
 class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
+    // MARK: - Dependences
+    private lazy var imageProvider: AppImageProviderInterface = inject()
+    
     // MARK: - Init
     override init() {
         super.init()
@@ -23,25 +26,33 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     // MARK: - TabBarItems
     private var launchpad: UIViewController {
         let vc = LaunchpadViewController()
-        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Launchpad"), image: nil, selectedImage: nil)
+        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Launchpad"),
+                                     image: imageProvider.launchpadIcon,
+                                     selectedImage: nil)
         return vc
     }
     
     private var wallet: UIViewController {
         let vc = UIViewController()
-        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Wallet"), image: nil, selectedImage: nil)
+        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Wallet"),
+                                     image: imageProvider.walletIcon,
+                                     selectedImage: nil)
         return vc
     }
     
     private var notifications: UIViewController {
         let vc = UIViewController()
-        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Notifications"), image: nil, selectedImage: nil)
+        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Notifications"),
+                                     image: imageProvider.notificationsIcon,
+                                     selectedImage: nil)
         return vc
     }
     
     private var settings: UIViewController {
         let vc = UIViewController()
-        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Settings"), image: nil, selectedImage: nil)
+        vc.tabBarItem = UITabBarItem(title: LS("TabBar.Settings"),
+                                     image: imageProvider.settingsIcon,
+                                     selectedImage: nil)
         return vc
     }
 }

@@ -13,7 +13,7 @@ protocol AppColorInterface {
     var appTitleColor: UIColor { get }
     var appDefaultTextColor: UIColor { get }
     var appLinkTextColor: UIColor { get }
-    //MARK: - Backup
+    // MARK: - Backup
     var centeredButtonBackgroudColor: UIColor { get }
     var centeredButtonDisabledBackgroudColor: UIColor { get }
     var centeredButtonTextColor: UIColor { get }

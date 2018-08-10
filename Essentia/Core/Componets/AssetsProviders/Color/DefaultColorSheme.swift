@@ -26,7 +26,7 @@ struct DefaultColorSheme: AppColorInterface {
     var appTitleColor: UIColor = Constants.appDarkTextColor
     var appDefaultTextColor: UIColor = Constants.appLightGray
     var appLinkTextColor: UIColor = Constants.appDarkGray
-    //MARK: - Backup
+    // MARK: - Backup
     var centeredButtonBackgroudColor: UIColor = Constants.appDarkBlue
     var centeredButtonDisabledBackgroudColor: UIColor = Constants.appLigntLightGray
     var centeredButtonTextColor: UIColor = Constants.appWhiteColor

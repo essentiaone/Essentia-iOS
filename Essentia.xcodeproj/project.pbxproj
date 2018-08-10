@@ -78,6 +78,7 @@
 		3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482679211BA20F00C19EB3 /* BaseTabBarController.swift */; };
 		3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448267C211BA40800C19EB3 /* LaunchpadItemCell.swift */; };
 		3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448267E211BA40F00C19EB3 /* LaunchpadItemCell.xib */; };
+		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -167,6 +168,7 @@
 		34482679211BA20F00C19EB3 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		3448267C211BA40800C19EB3 /* LaunchpadItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadItemCell.swift; sourceTree = "<group>"; };
 		3448267E211BA40F00C19EB3 /* LaunchpadItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadItemCell.xib; sourceTree = "<group>"; };
+		34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -651,6 +653,7 @@
 		3448266A211B360200C19EB3 /* LaunchpadController */ = {
 			isa = PBXGroup;
 			children = (
+				34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */,
 				3448266B211B362000C19EB3 /* LaunchpadViewController.swift */,
 				3448266D211B362A00C19EB3 /* LaunchpadViewController.xib */,
 			);
@@ -896,6 +899,7 @@
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
+				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
 				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
