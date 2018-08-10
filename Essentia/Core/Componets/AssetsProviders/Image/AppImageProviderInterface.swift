@@ -12,4 +12,8 @@ protocol AppImageProviderInterface {
     var backButtonImage: UIImage { get }
     var warningPrivacyIcon: UIImage { get }
     var checkInfoIcon: UIImage { get }
+    var launchpadIcon: UIImage { get }
+    var notificationsIcon: UIImage { get }
+    var walletIcon: UIImage { get }
+    var settingsIcon: UIImage { get }
 }
