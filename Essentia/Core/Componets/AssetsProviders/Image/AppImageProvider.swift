@@ -12,4 +12,8 @@ class AppImageProvider: AppImageProviderInterface {
     var backButtonImage: UIImage = #imageLiteral(resourceName: "backButton")
     var warningPrivacyIcon: UIImage = #imageLiteral(resourceName: "warningPrivacy")
     var checkInfoIcon: UIImage = #imageLiteral(resourceName: "InfoCheckIcon")
+    var launchpadIcon: UIImage = #imageLiteral(resourceName: "tabBarLaunchpad")
+    var notificationsIcon: UIImage = #imageLiteral(resourceName: "tabBarNotifications")
+    var walletIcon: UIImage = #imageLiteral(resourceName: "tabBarWallet")
+    var settingsIcon: UIImage = #imageLiteral(resourceName: "tabBarSettings")
 }

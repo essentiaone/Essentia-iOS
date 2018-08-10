@@ -18,6 +18,7 @@ fileprivate struct Constants {
     static var appLightBlueOpacity =  #colorLiteral(red: 0.1333333333, green: 0.3607843137, blue: 1, alpha: 0.31) //RGB(34, 92, 255, alpha: 0.31)
     static var appWhiteColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // .white
     static var appDarkTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) // .darkText
+    static var appSemiDarkColor = #colorLiteral(red: 0.07450980392, green: 0.1019607843, blue: 0.137254902, alpha: 1)//RGB(19, 26, 35)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -25,6 +26,7 @@ struct DefaultColorSheme: AppColorInterface {
     var appTitleColor: UIColor = Constants.appDarkTextColor
     var appDefaultTextColor: UIColor = Constants.appLightGray
     var appLinkTextColor: UIColor = Constants.appDarkGray
+    // MARK: - Backup
     var centeredButtonBackgroudColor: UIColor = Constants.appDarkBlue
     var centeredButtonDisabledBackgroudColor: UIColor = Constants.appLigntLightGray
     var centeredButtonTextColor: UIColor = Constants.appWhiteColor
@@ -41,4 +43,7 @@ struct DefaultColorSheme: AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor = Constants.appLigntLightGray
     var enteredWordBackgroud: UIColor = Constants.appDarkBlue
     var enteredWordText: UIColor = Constants.appWhiteColor
+    // MARK: - Launchpad
+    var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
+    var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray
 }

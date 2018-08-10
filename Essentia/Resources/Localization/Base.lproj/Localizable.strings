@@ -40,3 +40,8 @@
 
 "KeyStoreSaved.Title" = "Your Keystore File saved";
 "KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
+
+"TabBar.Launchpad" = "Launchpad";
+"TabBar.Wallet" = "Wallet";
+"TabBar.Notifications" = "Notifications";
+"TabBar.Settings" = "Settings";

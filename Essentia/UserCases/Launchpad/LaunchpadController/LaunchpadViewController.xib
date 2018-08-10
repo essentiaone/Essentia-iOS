@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LaunchpadViewController" customModule="Essentia" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="G5j-9P-kBC" id="NJ9-nd-mA3"/>
+                <outlet property="pageControl" destination="UcU-cG-OmT" id="eRA-Qy-PEk"/>
+                <outlet property="titleLabel" destination="3eH-Q1-ret" id="9gy-CD-kuH"/>
+                <outlet property="view" destination="EAO-CA-Kj6" id="F4t-Hp-Okb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EAO-CA-Kj6">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eH-Q1-ret">
+                    <rect key="frame" x="15" y="60" width="345" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G5j-9P-kBC">
+                    <rect key="frame" x="0.0" y="75" width="375" height="537"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOk-CW-EPG">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UcU-cG-OmT">
+                    <rect key="frame" x="168" y="622" width="39" height="37"/>
+                </pageControl>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="3eH-Q1-ret" firstAttribute="leading" secondItem="rTh-Hm-MMm" secondAttribute="leading" constant="15" id="3e9-9w-lNy"/>
+                <constraint firstItem="UcU-cG-OmT" firstAttribute="top" secondItem="G5j-9P-kBC" secondAttribute="bottom" constant="10" id="Ags-Yv-PU7"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="bottom" secondItem="UcU-cG-OmT" secondAttribute="bottom" constant="8" id="DAk-Af-h0j"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="3eH-Q1-ret" secondAttribute="trailing" constant="15" id="SMD-P9-f2X"/>
+                <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="G5j-9P-kBC" secondAttribute="trailing" id="eAj-aS-HJ7"/>
+                <constraint firstItem="G5j-9P-kBC" firstAttribute="leading" secondItem="rTh-Hm-MMm" secondAttribute="leading" id="iu1-IF-jxm"/>
+                <constraint firstItem="3eH-Q1-ret" firstAttribute="top" secondItem="rTh-Hm-MMm" secondAttribute="top" constant="40" id="qg9-hX-njq"/>
+                <constraint firstItem="UcU-cG-OmT" firstAttribute="centerX" secondItem="EAO-CA-Kj6" secondAttribute="centerX" id="t6X-ID-IlY"/>
+                <constraint firstItem="G5j-9P-kBC" firstAttribute="top" secondItem="3eH-Q1-ret" secondAttribute="bottom" constant="15" id="tJo-IY-szI"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="rTh-Hm-MMm"/>
+            <point key="canvasLocation" x="-74" y="13"/>
+        </view>
+    </objects>
+</document>
