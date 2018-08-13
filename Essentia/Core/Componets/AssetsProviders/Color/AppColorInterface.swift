@@ -38,4 +38,9 @@ protocol AppColorInterface {
     var titleColor: UIColor { get }
     var accountStrengthContainerViewBackgroud: UIColor { get }
     var accountStrengthContainerViewTitles: UIColor { get }
+    var settingsMenuTitle: UIColor { get }
+    var settingsMenuSubtitle: UIColor { get }
+    var settingsMenuSwitchAccount: UIColor { get }
+    var settingsMenuLogOut: UIColor { get }
+    
 }

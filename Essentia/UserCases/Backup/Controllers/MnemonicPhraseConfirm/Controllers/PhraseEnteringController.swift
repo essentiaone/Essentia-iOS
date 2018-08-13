@@ -86,7 +86,7 @@ class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
         switch lastEditingWord {
         case currentWord:
             state[editingIndex] = .entered(lastEditingWord, editingIndex: enteredWordCount)
-            enteredWordCount += 1
+            enteredWordCount++
             choseNewIndexIfNeeded()
         default:
             state[editingIndex] = .entering(word: lastEditingWord,

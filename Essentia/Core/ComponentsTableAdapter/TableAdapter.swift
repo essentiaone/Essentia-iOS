@@ -29,6 +29,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.tableView.register(TableComponentEmpty.self)
         self.tableView.register(TableComponentSeparator.self)
         self.tableView.register(TableComponentTitle.self)
+        self.tableView.register(TableComponentAccountStrengthAction.self)
+        self.tableView.register(TableComponentTitleDetail.self)
     }
     
     // MARK: - Update State
@@ -60,6 +62,24 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.resultAction = action
             cell.progress = progress
             return cell
+        case .menuTitleDetail(let icon, let title, let detail, _):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.detailTextLabel?.text = detail
+            cell.imageView?.image = icon
+            return cell
+        case .menuSwitch(let icon, let title, let state, let action):
+            let cell: TableComponentSwitch = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.imageView?.image = icon
+            cell.switchView.isOn = state.value
+            cell.action = action
+            return cell
+        case .menuButton(let title, let color, _):
+            let cell: TableComponentMenuButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.textLabel?.textColor = color
+            return cell
         default:
             fatalError()
         }
@@ -76,8 +96,26 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(36), width: tableView.frame.width)
         case .accountStrengthAction:
             return 394.0
+        case .menuButton: fallthrough
+        case .menuSwitch: fallthrough
+        case .menuTitleDetail:
+            return 44.0
         default:
             fatalError()
+        }
+    }
+    
+    // MARK: - UITableViewDelegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let component = tableState[indexPath.row]
+        switch component {
+        case .menuButton(_, _, let action):
+            action()
+        case .menuTitleDetail(_, _, _, let action):
+            action()
+        default:
+            return
         }
     }
 }

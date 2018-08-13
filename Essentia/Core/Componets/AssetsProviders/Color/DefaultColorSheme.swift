@@ -13,6 +13,7 @@ fileprivate struct Constants {
     static var appLigntLightGray = #colorLiteral(red: 0.7490196078, green: 0.7882352941, blue: 0.8509803922, alpha: 1) //RGB(191, 201, 217)
     static var appDarkGray = #colorLiteral(red: 0.5764705882, green: 0.6431372549, blue: 0.7490196078, alpha: 1) //RGB(147, 164, 191)
     static var appDarkBlue = #colorLiteral(red: 0, green: 0.1176470588, blue: 1, alpha: 1) //RGB(0, 30, 255)
+    static var appLightBlue = #colorLiteral(red: 0.1764705882, green: 0.3921568627, blue: 0.9960784314, alpha: 1) //RGB(45, 100, 254)
     static var appGreen = #colorLiteral(red: 0.2196078431, green: 0.7490196078, blue: 0.2980392157, alpha: 1) //RGB(56, 191, 76)
     static var appDarkBlueOpacity = #colorLiteral(red: 0, green: 0.1176470588, blue: 1, alpha: 0.19) //RGB(0, 30, 255, alpha: 0.19)
     static var appLightBlueOpacity =  #colorLiteral(red: 0.1333333333, green: 0.3607843137, blue: 1, alpha: 0.31) //RGB(34, 92, 255, alpha: 0.31)
@@ -21,6 +22,7 @@ fileprivate struct Constants {
     static var appSemiDarkColor = #colorLiteral(red: 0.07450980392, green: 0.1019607843, blue: 0.137254902, alpha: 1)//RGB(19, 26, 35)
     static var appDarkGrayOpacity = #colorLiteral(red: 0.5764705882, green: 0.6431372549, blue: 0.7490196078, alpha: 0.5241252201) //RGB(147, 164, 191, 0.5)
     static var appRedColor = #colorLiteral(red: 1, green: 0.2196078431, blue: 0, alpha: 1) //RGB(255, 56, 0)
+    static var appDarkRedColor = #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1) //RGB(208, 2, 27)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -53,4 +55,8 @@ struct DefaultColorSheme: AppColorInterface {
     var titleColor: UIColor = Constants.appDarkTextColor
     var accountStrengthContainerViewBackgroud: UIColor = Constants.appRedColor
     var accountStrengthContainerViewTitles: UIColor = Constants.appWhiteColor
+    var settingsMenuTitle: UIColor = Constants.appDarkTextColor
+    var settingsMenuSubtitle: UIColor = Constants.appLightGray
+    var settingsMenuSwitchAccount: UIColor = Constants.appLightBlue
+    var settingsMenuLogOut: UIColor = Constants.appDarkRedColor
 }

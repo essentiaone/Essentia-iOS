@@ -18,9 +18,9 @@ enum TableComponent: Equatable {
     case accountStrength(progress: Int, backAction: () -> Void)
     case accountStrengthAction(progress: Int, action: () -> Void)
     case currentAccount(icon: UIImage, title: String, name: String)
-    case menuTitleDetail(icon: UIImage, title: String, detail: String)
-    case menuSwitch(icon: UIImage, title: String, state: ComponentState<Bool>)
-    case menuButton(title: String, color: UIColor)
+    case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
+    case menuSwitch(icon: UIImage, title: String, state: ComponentState<Bool>, action: (Bool) -> Void)
+    case menuButton(title: String, color: UIColor, action: () -> Void)
     case strengthField(state: ComponentState<Bool>, title: String, detail: String)
     case plainText(title: String)
     
