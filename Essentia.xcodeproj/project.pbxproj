@@ -66,7 +66,6 @@
 		3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448264621107A4B00C19EB3 /* EditingCell.xib */; };
 		344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826512114B21B00C19EB3 /* PhraseEnteringState.swift */; };
 		344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */; };
-		344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826552115FDB100C19EB3 /* String+DescribingEnum.swift */; };
 		3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448265821189B7900C19EB3 /* SeedCopyViewController.swift */; };
 		3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */; };
 		34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */; };
@@ -79,6 +78,20 @@
 		3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448267C211BA40800C19EB3 /* LaunchpadItemCell.swift */; };
 		3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448267E211BA40F00C19EB3 /* LaunchpadItemCell.xib */; };
 		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
+		34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482685211DDC1800C19EB3 /* TableAdapter.swift */; };
+		3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482689211DDC4C00C19EB3 /* ComponentState.swift */; };
+		3448268C211DDC8F00C19EB3 /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448268B211DDC8F00C19EB3 /* TableComponent.swift */; };
+		34482692211DDDEF00C19EB3 /* AbstractDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448268E211DDDEF00C19EB3 /* AbstractDiffCalculator.swift */; };
+		34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448268F211DDDEF00C19EB3 /* Dwifft+UIKit.swift */; };
+		34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482690211DDDEF00C19EB3 /* Dwifft.swift */; };
+		34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482691211DDDEF00C19EB3 /* SectionedValues.swift */; };
+		344826A121205F0700C19EB3 /* TableComponentSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826A021205F0700C19EB3 /* TableComponentSeparator.swift */; };
+		344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */; };
+		344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826A52120B4A200C19EB3 /* TableComponentTitle.swift */; };
+		344826AC2120B50D00C19EB3 /* TableComponentTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344826AB2120B50D00C19EB3 /* TableComponentTitle.xib */; };
+		344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826B02120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift */; };
+		344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344826B22120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib */; };
+		344826B7212162B000C19EB3 /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826B6212162B000C19EB3 /* UIView+Shadow.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -156,7 +169,6 @@
 		3448264621107A4B00C19EB3 /* EditingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditingCell.xib; sourceTree = "<group>"; };
 		344826512114B21B00C19EB3 /* PhraseEnteringState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringState.swift; sourceTree = "<group>"; };
 		344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringControllerDelegate.swift; sourceTree = "<group>"; };
-		344826552115FDB100C19EB3 /* String+DescribingEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+DescribingEnum.swift"; sourceTree = "<group>"; };
 		3448265821189B7900C19EB3 /* SeedCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedCopyViewController.swift; sourceTree = "<group>"; };
 		3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedCopyViewController.xib; sourceTree = "<group>"; };
 		34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAlertViewController.xib; sourceTree = "<group>"; };
@@ -169,6 +181,20 @@
 		3448267C211BA40800C19EB3 /* LaunchpadItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadItemCell.swift; sourceTree = "<group>"; };
 		3448267E211BA40F00C19EB3 /* LaunchpadItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadItemCell.xib; sourceTree = "<group>"; };
 		34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadCollectionViewAdapter.swift; sourceTree = "<group>"; };
+		34482685211DDC1800C19EB3 /* TableAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapter.swift; sourceTree = "<group>"; };
+		34482689211DDC4C00C19EB3 /* ComponentState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentState.swift; sourceTree = "<group>"; };
+		3448268B211DDC8F00C19EB3 /* TableComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
+		3448268E211DDDEF00C19EB3 /* AbstractDiffCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDiffCalculator.swift; sourceTree = "<group>"; };
+		3448268F211DDDEF00C19EB3 /* Dwifft+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dwifft+UIKit.swift"; sourceTree = "<group>"; };
+		34482690211DDDEF00C19EB3 /* Dwifft.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dwifft.swift; sourceTree = "<group>"; };
+		34482691211DDDEF00C19EB3 /* SectionedValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedValues.swift; sourceTree = "<group>"; };
+		344826A021205F0700C19EB3 /* TableComponentSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSeparator.swift; sourceTree = "<group>"; };
+		344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentEmpty.swift; sourceTree = "<group>"; };
+		344826A52120B4A200C19EB3 /* TableComponentTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitle.swift; sourceTree = "<group>"; };
+		344826AB2120B50D00C19EB3 /* TableComponentTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitle.xib; sourceTree = "<group>"; };
+		344826B02120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAccountStrengthAction.swift; sourceTree = "<group>"; };
+		344826B22120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAccountStrengthAction.xib; sourceTree = "<group>"; };
+		344826B6212162B000C19EB3 /* UIView+Shadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -216,6 +242,7 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
+				34482696211DDF5900C19EB3 /* Third-Party */,
 				3448264D2113327700C19EB3 /* Models */,
 				3401AFA52100F174006DEF49 /* Crypto */,
 				3401AF5120F806C9006DEF49 /* UserCases */,
@@ -229,6 +256,7 @@
 		3401AF3720F7C394006DEF49 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				34482684211DD5F300C19EB3 /* ComponentsTableAdapter */,
 				3401AFD521032F15006DEF49 /* Extensions */,
 				3401AF7F20FD3D4D006DEF49 /* DependencyInjection */,
 				3401AF6820F82AA7006DEF49 /* UIKit */,
@@ -312,6 +340,7 @@
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
 			isa = PBXGroup;
 			children = (
+				34482683211DD17000C19EB3 /* Settings */,
 				34482668211B321000C19EB3 /* Launchpad */,
 				34482674211B9B6300C19EB3 /* TabBar */,
 				3401AF9120FFF48C006DEF49 /* Backup */,
@@ -531,7 +560,7 @@
 			children = (
 				3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */,
 				3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */,
-				344826552115FDB100C19EB3 /* String+DescribingEnum.swift */,
+				344826B6212162B000C19EB3 /* UIView+Shadow.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -677,6 +706,72 @@
 			path = LaunchpadItemCell;
 			sourceTree = "<group>";
 		};
+		34482683211DD17000C19EB3 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		34482684211DD5F300C19EB3 /* ComponentsTableAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				3448269F21205EE000C19EB3 /* TableComponentCells */,
+				34482685211DDC1800C19EB3 /* TableAdapter.swift */,
+				34482689211DDC4C00C19EB3 /* ComponentState.swift */,
+				3448268B211DDC8F00C19EB3 /* TableComponent.swift */,
+			);
+			path = ComponentsTableAdapter;
+			sourceTree = "<group>";
+		};
+		3448268D211DDDEF00C19EB3 /* Dwifft */ = {
+			isa = PBXGroup;
+			children = (
+				3448268E211DDDEF00C19EB3 /* AbstractDiffCalculator.swift */,
+				3448268F211DDDEF00C19EB3 /* Dwifft+UIKit.swift */,
+				34482690211DDDEF00C19EB3 /* Dwifft.swift */,
+				34482691211DDDEF00C19EB3 /* SectionedValues.swift */,
+			);
+			path = Dwifft;
+			sourceTree = "<group>";
+		};
+		34482696211DDF5900C19EB3 /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				3448268D211DDDEF00C19EB3 /* Dwifft */,
+			);
+			path = "Third-Party";
+			sourceTree = "<group>";
+		};
+		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
+			isa = PBXGroup;
+			children = (
+				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
+				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
+				344826AF2120F6B200C19EB3 /* TableComponentAccountStrengthAction */,
+				344826A82120B4D200C19EB3 /* TableComponentTitle */,
+			);
+			path = TableComponentCells;
+			sourceTree = "<group>";
+		};
+		344826A82120B4D200C19EB3 /* TableComponentTitle */ = {
+			isa = PBXGroup;
+			children = (
+				344826A52120B4A200C19EB3 /* TableComponentTitle.swift */,
+				344826AB2120B50D00C19EB3 /* TableComponentTitle.xib */,
+			);
+			path = TableComponentTitle;
+			sourceTree = "<group>";
+		};
+		344826AF2120F6B200C19EB3 /* TableComponentAccountStrengthAction */ = {
+			isa = PBXGroup;
+			children = (
+				344826B02120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift */,
+				344826B22120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib */,
+			);
+			path = TableComponentAccountStrengthAction;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -780,6 +875,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
+				344826AC2120B50D00C19EB3 /* TableComponentTitle.xib in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
@@ -788,6 +884,7 @@
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
+				344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
@@ -885,14 +982,18 @@
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
+				344826A121205F0700C19EB3 /* TableComponentSeparator.swift in Sources */,
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
-				344826562115FDB100C19EB3 /* String+DescribingEnum.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
+				34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */,
 				34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */,
+				344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */,
+				3448268C211DDC8F00C19EB3 /* TableComponent.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
+				34482692211DDDEF00C19EB3 /* AbstractDiffCalculator.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
 				3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */,
 				3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */,
@@ -900,11 +1001,14 @@
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
+				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
 				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
+				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
+				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
 				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
@@ -914,6 +1018,7 @@
 				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
+				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
@@ -922,8 +1027,10 @@
 				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
+				3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
+				344826B7212162B000C19EB3 /* UIView+Shadow.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
@@ -934,6 +1041,7 @@
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
+				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 			);

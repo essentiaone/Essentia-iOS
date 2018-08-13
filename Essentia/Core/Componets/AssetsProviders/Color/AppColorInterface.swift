@@ -33,4 +33,9 @@ protocol AppColorInterface {
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor { get }
     var launchpadItemSubTitleColor: UIColor { get }
+    // MARK: - TableViewAdapter
+    var separatorBackgroundColor: UIColor { get }
+    var titleColor: UIColor { get }
+    var accountStrengthContainerViewBackgroud: UIColor { get }
+    var accountStrengthContainerViewTitles: UIColor { get }
 }

@@ -12,4 +12,8 @@ extension String {
     func singleLineLabelWidth(with font: UIFont) -> CGFloat {
         return self.size(withAttributes: [NSAttributedStringKey.font: font]).width
     }
+    
+    func multyLineLabelHeight(with font: UIFont, width: CGFloat) -> CGFloat {
+        return 10.0
+    }
 }

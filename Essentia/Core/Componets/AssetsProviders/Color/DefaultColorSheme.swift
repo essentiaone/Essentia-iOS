@@ -19,6 +19,8 @@ fileprivate struct Constants {
     static var appWhiteColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0) // .white
     static var appDarkTextColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) // .darkText
     static var appSemiDarkColor = #colorLiteral(red: 0.07450980392, green: 0.1019607843, blue: 0.137254902, alpha: 1)//RGB(19, 26, 35)
+    static var appDarkGrayOpacity = #colorLiteral(red: 0.5764705882, green: 0.6431372549, blue: 0.7490196078, alpha: 0.5241252201) //RGB(147, 164, 191, 0.5)
+    static var appRedColor = #colorLiteral(red: 1, green: 0.2196078431, blue: 0, alpha: 1) //RGB(255, 56, 0)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -46,4 +48,9 @@ struct DefaultColorSheme: AppColorInterface {
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray
+    // MARK: - TableViewAdapter
+    var separatorBackgroundColor: UIColor = Constants.appDarkGrayOpacity
+    var titleColor: UIColor = Constants.appDarkTextColor
+    var accountStrengthContainerViewBackgroud: UIColor = Constants.appRedColor
+    var accountStrengthContainerViewTitles: UIColor = Constants.appWhiteColor
 }
