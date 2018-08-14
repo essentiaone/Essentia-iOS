@@ -6,8 +6,16 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum SettingsRoutes {
+    case accountStrength
+    case language
+    case currency
+}
 
 protocol SettingsRouterInterface {
-    
+    init(navigationController: UINavigationController)
+    func show(_ route: SettingsRoutes)
+    func pop()
 }

@@ -106,6 +106,8 @@
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
+		349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */; };
+		349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -223,6 +225,8 @@
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
+		349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAccountStrength.swift; sourceTree = "<group>"; };
+		349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAccountStrength.xib; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -777,6 +781,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				349AA4A021230CC400E9256F /* TableComponentAccountStrength */,
 				344826CA2121904C00C19EB3 /* TableComponentCurrentAccount */,
 				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
 				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
@@ -868,6 +873,15 @@
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 			);
 			path = SecureAccountViewController;
+			sourceTree = "<group>";
+		};
+		349AA4A021230CC400E9256F /* TableComponentAccountStrength */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */,
+				349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */,
+			);
+			path = TableComponentAccountStrength;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -980,6 +994,7 @@
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				349AA4992122F14500E9256F /* SecureAccountViewController.xib in Resources */,
+				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
@@ -1106,6 +1121,7 @@
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
+				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,

@@ -22,14 +22,30 @@ class SettingsViewController: BaseViewController {
     
     private var currentLanguage: String = "English"
     
+    // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        injectRouter()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
         tableAdapter.updateState(state)
     }
     
+    // MARK: - Override
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
+    private func injectRouter() {
+        guard let navigation = navigationController else { return }
+        let injection: SettingsRouterInterface = SettingsRouter(navigationController: navigation)
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
     private func applyDesign() {
-        tableView.contentInsetAdjustmentBehavior = .never
         tableView.backgroundColor = colorProvider.settingsCellsBackround
     }
     
@@ -99,7 +115,7 @@ class SettingsViewController: BaseViewController {
     }
     
     private lazy var accountStrenghtAction: () -> Void = {
-        
+        (inject() as SettingsRouterInterface).show(.accountStrength)
     }
     
     private lazy var editCurrentAccountAction: () -> Void = {

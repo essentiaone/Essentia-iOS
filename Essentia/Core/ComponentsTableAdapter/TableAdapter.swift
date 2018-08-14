@@ -21,20 +21,22 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     private func setupTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInsetAdjustmentBehavior = .never
         registerCells()
     }
     
     func registerCells() {
-        self.tableView.register(TableComponentEmpty.self)
-        self.tableView.register(TableComponentSeparator.self)
-        self.tableView.register(TableComponentTitle.self)
-        self.tableView.register(TableComponentAccountStrengthAction.self)
-        self.tableView.register(TableComponentTitleDetail.self)
-        self.tableView.register(TableComponentSwitch.self)
-        self.tableView.register(TableComponentMenuButton.self)
-        self.tableView.register(TableComponentCurrentAccount.self)
+        tableView.register(TableComponentEmpty.self)
+        tableView.register(TableComponentSeparator.self)
+        tableView.register(TableComponentTitle.self)
+        tableView.register(TableComponentAccountStrengthAction.self)
+        tableView.register(TableComponentAccountStrength.self)
+        tableView.register(TableComponentTitleDetail.self)
+        tableView.register(TableComponentSwitch.self)
+        tableView.register(TableComponentMenuButton.self)
+        tableView.register(TableComponentCurrentAccount.self)
     }
     
     // MARK: - Update State
@@ -67,6 +69,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
             cell.resultAction = action
             cell.progress = progress
+            return cell
+        case .accountStrength(let progress, let backAction):
+            let cell: TableComponentAccountStrength = tableView.dequeueReusableCell(for: indexPath)
+            cell.progress = progress
+            cell.resultAction = backAction
             return cell
         case .menuTitleDetail(let icon, let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
@@ -106,6 +113,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return height
         case .title(let title):
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
+        case .accountStrength:
+            return 286.0
         case .accountStrengthAction:
             return 394.0
         case .menuButton: fallthrough

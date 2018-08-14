@@ -22,4 +22,5 @@ class AppImageProvider: AppImageProviderInterface {
     var darkThemeIcon: UIImage = #imageLiteral(resourceName: "SettingsTheme")
     var feedbackIcon: UIImage = #imageLiteral(resourceName: "settingsFeedback")
     var testAvatarIcon: UIImage = #imageLiteral(resourceName: "testAvatar")
+    var backWhiteIcon: UIImage = #imageLiteral(resourceName: "backWhite")
 }

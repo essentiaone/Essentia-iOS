@@ -22,4 +22,5 @@ protocol AppImageProviderInterface {
     var darkThemeIcon: UIImage { get }
     var feedbackIcon: UIImage { get }
     var testAvatarIcon: UIImage { get }
+    var backWhiteIcon: UIImage { get }
 }
