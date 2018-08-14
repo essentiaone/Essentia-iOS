@@ -24,13 +24,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eH-Q1-ret">
-                    <rect key="frame" x="15" y="60" width="345" height="0.0"/>
+                    <rect key="frame" x="15" y="45" width="345" height="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="G5j-9P-kBC">
-                    <rect key="frame" x="0.0" y="75" width="375" height="537"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="552"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VOk-CW-EPG">
                         <size key="itemSize" width="50" height="50"/>
@@ -51,7 +51,7 @@
                 <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="3eH-Q1-ret" secondAttribute="trailing" constant="15" id="SMD-P9-f2X"/>
                 <constraint firstItem="rTh-Hm-MMm" firstAttribute="trailing" secondItem="G5j-9P-kBC" secondAttribute="trailing" id="eAj-aS-HJ7"/>
                 <constraint firstItem="G5j-9P-kBC" firstAttribute="leading" secondItem="rTh-Hm-MMm" secondAttribute="leading" id="iu1-IF-jxm"/>
-                <constraint firstItem="3eH-Q1-ret" firstAttribute="top" secondItem="rTh-Hm-MMm" secondAttribute="top" constant="40" id="qg9-hX-njq"/>
+                <constraint firstItem="3eH-Q1-ret" firstAttribute="top" secondItem="rTh-Hm-MMm" secondAttribute="top" constant="25" id="qg9-hX-njq"/>
                 <constraint firstItem="UcU-cG-OmT" firstAttribute="centerX" secondItem="EAO-CA-Kj6" secondAttribute="centerX" id="t6X-ID-IlY"/>
                 <constraint firstItem="G5j-9P-kBC" firstAttribute="top" secondItem="3eH-Q1-ret" secondAttribute="bottom" constant="15" id="tJo-IY-szI"/>
             </constraints>

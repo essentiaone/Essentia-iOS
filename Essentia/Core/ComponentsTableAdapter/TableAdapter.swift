@@ -17,6 +17,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     public init(tableView: UITableView) {
         self.tableView = tableView
         super.init()
+        setupTableView()
     }
     
     private func setupTableView() {
@@ -31,6 +32,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.tableView.register(TableComponentTitle.self)
         self.tableView.register(TableComponentAccountStrengthAction.self)
         self.tableView.register(TableComponentTitleDetail.self)
+        self.tableView.register(TableComponentSwitch.self)
+        self.tableView.register(TableComponentMenuButton.self)
+        self.tableView.register(TableComponentCurrentAccount.self)
     }
     
     // MARK: - Update State
@@ -51,11 +55,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
             return cell
-        case .separator:
-            return (tableView.dequeueReusableCell(for: indexPath) as TableComponentSeparator)
+        case .separator(let inset):
+            let cell: TableComponentSeparator = tableView.dequeueReusableCell(for: indexPath)
+            cell.separatorInset = inset
+            return cell
         case .title(let title):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
-            cell.title.text = title
+            cell.titleLabel.text = title
             return cell
         case .accountStrengthAction(let progress, let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
@@ -80,6 +86,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = title
             cell.textLabel?.textColor = color
             return cell
+        case .currentAccount(let icon, let title, let name, _):
+            let cell: TableComponentCurrentAccount = tableView.dequeueReusableCell(for: indexPath)
+            cell.accountImageView.image = icon
+            cell.accountTitleLabel.text = title
+            cell.accountDescription.text = name
+            return cell
         default:
             fatalError()
         }
@@ -93,15 +105,29 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .empty(let height, _):
             return height
         case .title(let title):
-            return title.multyLineLabelHeight(with: AppFont.bold.withSize(36), width: tableView.frame.width)
+            return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
         case .accountStrengthAction:
             return 394.0
         case .menuButton: fallthrough
         case .menuSwitch: fallthrough
         case .menuTitleDetail:
             return 44.0
+        case .currentAccount:
+            return 91.0
         default:
             fatalError()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+        let component = tableState[indexPath.row]
+        switch component {
+        case .currentAccount: fallthrough
+        case .menuButton: fallthrough
+        case .menuTitleDetail:
+            return true
+        default:
+            return false
         }
     }
     
@@ -113,6 +139,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuButton(_, _, let action):
             action()
         case .menuTitleDetail(_, _, _, let action):
+            action()
+        case .currentAccount(_, _, _, let action):
             action()
         default:
             return

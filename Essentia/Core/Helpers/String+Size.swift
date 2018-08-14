@@ -14,6 +14,11 @@ extension String {
     }
     
     func multyLineLabelHeight(with font: UIFont, width: CGFloat) -> CGFloat {
-        return 10.0
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect,
+                                            options: [.usesLineFragmentOrigin, .usesFontLeading],
+                                            attributes: [NSAttributedStringKey.font: font],
+                                            context: nil)
+        return boundingBox.height
     }
 }

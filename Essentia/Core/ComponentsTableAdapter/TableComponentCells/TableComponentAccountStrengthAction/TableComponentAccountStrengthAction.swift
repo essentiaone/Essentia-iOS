@@ -40,7 +40,8 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
         containerView.backgroundColor = colorProvider.accountStrengthContainerViewBackgroud
         titleLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         descriptionLabel.textColor = colorProvider.accountStrengthContainerViewTitles
-        accountButton.setTitleColor(colorProvider.accountStrengthContainerViewTitles, for: .normal)
+        accountButton.setTitleColor(colorProvider.accountStrengthContainerViewButtonTitle, for: .normal)
+        backgroundColor = colorProvider.settingsBackgroud
         
         // MARK: - Layer
         containerView.drawShadow(width: 10.0)

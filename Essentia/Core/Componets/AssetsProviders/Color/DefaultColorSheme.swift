@@ -23,6 +23,7 @@ fileprivate struct Constants {
     static var appDarkGrayOpacity = #colorLiteral(red: 0.5764705882, green: 0.6431372549, blue: 0.7490196078, alpha: 0.5241252201) //RGB(147, 164, 191, 0.5)
     static var appRedColor = #colorLiteral(red: 1, green: 0.2196078431, blue: 0, alpha: 1) //RGB(255, 56, 0)
     static var appDarkRedColor = #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1) //RGB(208, 2, 27)
+    static var appWhiteWithLightBlue = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.9803921569, alpha: 1) //RGB(237, 242, 250)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -51,12 +52,15 @@ struct DefaultColorSheme: AppColorInterface {
     var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray
     // MARK: - TableViewAdapter
+    var settingsCellsBackround: UIColor = Constants.appWhiteColor
     var separatorBackgroundColor: UIColor = Constants.appDarkGrayOpacity
     var titleColor: UIColor = Constants.appDarkTextColor
     var accountStrengthContainerViewBackgroud: UIColor = Constants.appRedColor
     var accountStrengthContainerViewTitles: UIColor = Constants.appWhiteColor
+    var accountStrengthContainerViewButtonTitle: UIColor = Constants.appDarkTextColor
     var settingsMenuTitle: UIColor = Constants.appDarkTextColor
     var settingsMenuSubtitle: UIColor = Constants.appLightGray
     var settingsMenuSwitchAccount: UIColor = Constants.appLightBlue
     var settingsMenuLogOut: UIColor = Constants.appDarkRedColor
+    var settingsBackgroud: UIColor = Constants.appWhiteWithLightBlue
 }

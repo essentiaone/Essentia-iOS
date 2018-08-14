@@ -11,10 +11,11 @@ import UIKit
 class TableComponentTitle: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     
-    @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        title.textColor = colorProvider.appTitleColor
+        titleLabel.font = AppFont.bold.withSize(34)
+        titleLabel.textColor = colorProvider.appTitleColor
     }
 }

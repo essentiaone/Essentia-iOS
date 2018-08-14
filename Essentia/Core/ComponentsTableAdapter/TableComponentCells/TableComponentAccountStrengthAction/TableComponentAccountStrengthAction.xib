@@ -75,6 +75,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="EmI-Wn-3a9" firstAttribute="leading" secondItem="ko3-ut-t6U" secondAttribute="leading" constant="8" id="DFS-31-Sw5"/>
                     <constraint firstAttribute="trailing" secondItem="EmI-Wn-3a9" secondAttribute="trailing" constant="8" id="KFk-7f-AZS"/>
@@ -82,6 +83,7 @@
                     <constraint firstAttribute="bottom" secondItem="EmI-Wn-3a9" secondAttribute="bottom" constant="24" id="sa7-ts-W5o"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="accountButton" destination="kk4-Cq-YTW" id="VXH-eY-Ccr"/>
                 <outlet property="containerView" destination="EmI-Wn-3a9" id="cgI-fN-KvS"/>

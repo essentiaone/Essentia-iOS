@@ -16,4 +16,9 @@ protocol AppImageProviderInterface {
     var notificationsIcon: UIImage { get }
     var walletIcon: UIImage { get }
     var settingsIcon: UIImage { get }
+    var languageIcon: UIImage { get }
+    var currencyIcon: UIImage { get }
+    var securityIcon: UIImage { get }
+    var darkThemeIcon: UIImage { get }
+    var feedbackIcon: UIImage { get }
 }
