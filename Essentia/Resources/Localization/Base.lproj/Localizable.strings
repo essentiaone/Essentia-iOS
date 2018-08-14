@@ -45,3 +45,18 @@
 "TabBar.Wallet" = "Wallet";
 "TabBar.Notifications" = "Notifications";
 "TabBar.Settings" = "Settings";
+
+"Settings.Title" = "Settings";
+"Settings.AccountStrength.Title" = "Account Strength";
+"Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
+"Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
+"Settings.CurrentAccountTitle" = "Account Name";
+"Settings.Language" = "Language";
+"Settings.Currency" = "Currency";
+"Settings.Security" = "Security";
+"Settings.DarkTheme" = "Dark Theme";
+"Settings.Feedback" = "Feedback";
+"Settings.Switch" = "Switch Account";
+"Settings.LogOut" = "Log Out";
+
+

@@ -25,7 +25,7 @@ class LaunchpadViewController: BaseViewController, LaunchpadCollectionViewAdapte
     
     func applyDesign() {
         titleLabel.text = LS("TabBar.Launchpad")
-        titleLabel.font = AppFont.bold.withSize(36)
+        titleLabel.font = AppFont.bold.withSize(34)
         
         colletionViewAdapter.delegate = self
     }

@@ -54,7 +54,7 @@ class BackupRouter: BackupRouterInterface {
     }
     
     func showNext() {
-        current += 1
+        current++
         print("Showing next. Current is \(current)")
         guard current != routes.count else {
             relese(self as BackupRouterInterface)
@@ -65,7 +65,7 @@ class BackupRouter: BackupRouterInterface {
     }
     
     func showPrev() {
-        current -= 1
+        current--
         print("Showing prev. Current is \(current)")
         navigationController.popViewController(animated: true)
         guard current >= 0 else {

@@ -58,7 +58,7 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
                 let collectionViewWidth = self.collectionView?.frame.width ?? 0
                 let appendedMargin = (collectionViewWidth - Constants.leftPadding * 2 - rowWidth) / 2
                 leftMargin += appendedMargin
-                currentRow += 1
+                currentRow++
             }
             applyLayoutAttributs(layoutAttribute)
         }
@@ -70,7 +70,7 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
                     self.rowSizes = [[leftMargin, 0]]
                 } else {
                     self.rowSizes.append([leftMargin, 0])
-                    currentRow += 1
+                    currentRow++
                 }
             }
             applyLayoutAttributs(layoutAttribute)
