@@ -102,6 +102,10 @@
 		344826C921218CA600C19EB3 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344826C821218CA600C19EB3 /* SettingsViewController.xib */; };
 		344826CC2121906D00C19EB3 /* TableComponentCurrentAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826CB2121906D00C19EB3 /* TableComponentCurrentAccount.swift */; };
 		344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344826CD212190AC00C19EB3 /* TableComponentCurrentAccount.xib */; };
+		349AA4992122F14500E9256F /* SecureAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4982122F14500E9256F /* SecureAccountViewController.xib */; };
+		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
+		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
+		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -215,6 +219,10 @@
 		344826C821218CA600C19EB3 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		344826CB2121906D00C19EB3 /* TableComponentCurrentAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCurrentAccount.swift; sourceTree = "<group>"; };
 		344826CD212190AC00C19EB3 /* TableComponentCurrentAccount.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCurrentAccount.xib; sourceTree = "<group>"; };
+		349AA4982122F14500E9256F /* SecureAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecureAccountViewController.xib; sourceTree = "<group>"; };
+		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
+		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
+		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -730,8 +738,8 @@
 		34482683211DD17000C19EB3 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
-				344826C821218CA600C19EB3 /* SettingsViewController.xib */,
+				349AA4962122F11900E9256F /* Router */,
+				349AA4942122F0F600E9256F /* Controllers */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -824,6 +832,42 @@
 				344826CB2121906D00C19EB3 /* TableComponentCurrentAccount.swift */,
 			);
 			path = TableComponentCurrentAccount;
+			sourceTree = "<group>";
+		};
+		349AA4942122F0F600E9256F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4972122F12C00E9256F /* SecureAccountViewController */,
+				349AA4952122F10800E9256F /* SettingsViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		349AA4952122F10800E9256F /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
+				344826C821218CA600C19EB3 /* SettingsViewController.xib */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		349AA4962122F11900E9256F /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */,
+				349AA49E2122F48900E9256F /* SettingsRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		349AA4972122F12C00E9256F /* SecureAccountViewController */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4982122F14500E9256F /* SecureAccountViewController.xib */,
+				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
+			);
+			path = SecureAccountViewController;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -935,6 +979,7 @@
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
+				349AA4992122F14500E9256F /* SecureAccountViewController.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
@@ -1034,6 +1079,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
+				349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */,
 				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
@@ -1069,6 +1115,7 @@
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,
+				349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
 				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
@@ -1106,6 +1153,7 @@
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
+				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 			);
