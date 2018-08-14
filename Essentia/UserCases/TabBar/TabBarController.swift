@@ -49,7 +49,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     }
     
     private var settings: UIViewController {
-        let vc = UIViewController()
+        let vc = SettingsViewController()
         vc.tabBarItem = UITabBarItem(title: LS("TabBar.Settings"),
                                      image: imageProvider.settingsIcon,
                                      selectedImage: nil)

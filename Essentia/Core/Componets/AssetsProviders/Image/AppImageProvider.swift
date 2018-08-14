@@ -16,4 +16,10 @@ class AppImageProvider: AppImageProviderInterface {
     var notificationsIcon: UIImage = #imageLiteral(resourceName: "tabBarNotifications")
     var walletIcon: UIImage = #imageLiteral(resourceName: "tabBarWallet")
     var settingsIcon: UIImage = #imageLiteral(resourceName: "tabBarSettings")
+    var languageIcon: UIImage = #imageLiteral(resourceName: "settingsLanguage")
+    var currencyIcon: UIImage = #imageLiteral(resourceName: "settingsCurrency")
+    var securityIcon: UIImage = #imageLiteral(resourceName: "settingsSecurity")
+    var darkThemeIcon: UIImage = #imageLiteral(resourceName: "SettingsTheme")
+    var feedbackIcon: UIImage = #imageLiteral(resourceName: "settingsFeedback")
+    var testAvatarIcon: UIImage = #imageLiteral(resourceName: "testAvatar")
 }
