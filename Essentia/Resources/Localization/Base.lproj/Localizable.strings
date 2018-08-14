@@ -49,7 +49,7 @@
 "Settings.Title" = "Settings";
 "Settings.AccountStrength.Title" = "Account Strength";
 "Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
-"Settings.AccountStrength.SequreButton" = "SECURE MY ACCOUNT";
+"Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
 "Settings.CurrentAccountTitle" = "Account Name";
 "Settings.Language" = "Language";
 "Settings.Currency" = "Currency";

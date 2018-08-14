@@ -29,7 +29,7 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
         // MARK: - Localized Strings
         titleLabel.text = LS("Settings.AccountStrength.Title")
         descriptionLabel.text = LS("Settings.AccountStrength.Description")
-        accountButton.setTitle(LS("Settings.AccountStrength.SequreButton"), for: .normal)
+        accountButton.setTitle(LS("Settings.AccountStrength.SecureButton"), for: .normal)
         
         // MARK: - Font
         titleLabel.font = AppFont.bold.withSize(24)

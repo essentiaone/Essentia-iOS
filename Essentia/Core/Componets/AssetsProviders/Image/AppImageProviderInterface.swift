@@ -21,4 +21,5 @@ protocol AppImageProviderInterface {
     var securityIcon: UIImage { get }
     var darkThemeIcon: UIImage { get }
     var feedbackIcon: UIImage { get }
+    var testAvatarIcon: UIImage { get }
 }
