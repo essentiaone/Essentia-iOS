@@ -22,7 +22,7 @@
                         <rect key="frame" x="8" y="16" width="359" height="353.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oud-pw-iHx">
-                                <rect key="frame" x="24" y="21" width="311" height="33"/>
+                                <rect key="frame" x="15" y="21" width="329" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="xFp-CW-4mN"/>
                                 </constraints>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lyd-3k-8oW">
-                                <rect key="frame" x="24" y="59" width="311" height="72.5"/>
+                                <rect key="frame" x="15" y="59" width="329" height="72.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -60,14 +60,14 @@
                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oud-pw-iHx" firstAttribute="top" secondItem="FTY-Tv-gKE" secondAttribute="top" constant="21" id="FL9-uY-jhm"/>
-                            <constraint firstItem="lyd-3k-8oW" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="24" id="Fsz-ta-uTu"/>
+                            <constraint firstItem="lyd-3k-8oW" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="15" id="Fsz-ta-uTu"/>
                             <constraint firstItem="aRX-3E-eIn" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="56" id="RDN-Jy-OBu"/>
-                            <constraint firstAttribute="trailing" secondItem="oud-pw-iHx" secondAttribute="trailing" constant="24" id="Rnn-5n-xsY"/>
+                            <constraint firstAttribute="trailing" secondItem="oud-pw-iHx" secondAttribute="trailing" constant="15" id="Rnn-5n-xsY"/>
                             <constraint firstAttribute="bottom" secondItem="aRX-3E-eIn" secondAttribute="bottom" constant="32" id="TPx-IT-7dZ"/>
-                            <constraint firstAttribute="trailing" secondItem="lyd-3k-8oW" secondAttribute="trailing" constant="24" id="ahK-gN-0Um"/>
+                            <constraint firstAttribute="trailing" secondItem="lyd-3k-8oW" secondAttribute="trailing" constant="15" id="ahK-gN-0Um"/>
                             <constraint firstAttribute="trailing" secondItem="4gz-x7-cOK" secondAttribute="trailing" constant="52" id="cfn-e8-i6E"/>
                             <constraint firstItem="4gz-x7-cOK" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="52" id="f3b-zG-gna"/>
-                            <constraint firstItem="oud-pw-iHx" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="24" id="i9d-CC-Sbe"/>
+                            <constraint firstItem="oud-pw-iHx" firstAttribute="leading" secondItem="FTY-Tv-gKE" secondAttribute="leading" constant="15" id="i9d-CC-Sbe"/>
                             <constraint firstItem="4gz-x7-cOK" firstAttribute="top" secondItem="lyd-3k-8oW" secondAttribute="bottom" constant="5" id="mbM-6v-snr"/>
                             <constraint firstItem="aRX-3E-eIn" firstAttribute="top" secondItem="4gz-x7-cOK" secondAttribute="bottom" constant="40" id="r6U-p7-AVd"/>
                             <constraint firstItem="lyd-3k-8oW" firstAttribute="top" secondItem="oud-pw-iHx" secondAttribute="bottom" constant="5" id="uSD-c1-ERw"/>

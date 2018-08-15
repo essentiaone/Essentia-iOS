@@ -46,7 +46,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         backButton.tintColor = colorProvider.accountStrengthContainerViewTitles
         
         // MARK: - Layer
-        containerView.drawShadow(width: 15.0)
+        containerView.drawShadow(width: 25.0)
         backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         backButton.setImage(iconProvider.backWhiteIcon, for: .normal)
     }

@@ -62,6 +62,7 @@
 		3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */; };
 		3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */; };
 		3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */; };
+		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		3448264521107A2100C19EB3 /* EditingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448264421107A2100C19EB3 /* EditingCell.swift */; };
 		3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448264621107A4B00C19EB3 /* EditingCell.xib */; };
 		344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826512114B21B00C19EB3 /* PhraseEnteringState.swift */; };
@@ -116,6 +117,7 @@
 		349AA4B921245C2D00E9256F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4B821245C2D00E9256F /* UserService.swift */; };
 		349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */; };
 		349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BC21246A1E00E9256F /* LocalFilesService.swift */; };
+		349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4BF212495E300E9256F /* TableComponentDescription.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +191,7 @@
 		3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringController.swift; sourceTree = "<group>"; };
 		3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouterInterface.swift; sourceTree = "<group>"; };
 		3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouter.swift; sourceTree = "<group>"; };
+		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		3448264421107A2100C19EB3 /* EditingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCell.swift; sourceTree = "<group>"; };
 		3448264621107A4B00C19EB3 /* EditingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditingCell.xib; sourceTree = "<group>"; };
 		344826512114B21B00C19EB3 /* PhraseEnteringState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringState.swift; sourceTree = "<group>"; };
@@ -243,6 +246,7 @@
 		349AA4B821245C2D00E9256F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesServiceInterface.swift; sourceTree = "<group>"; };
 		349AA4BC21246A1E00E9256F /* LocalFilesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesService.swift; sourceTree = "<group>"; };
+		349AA4BF212495E300E9256F /* TableComponentDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentDescription.xib; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -489,6 +493,7 @@
 				3401AFEF210A0867006DEF49 /* Router */,
 				3401AF9320FFF4A3006DEF49 /* Controllers */,
 				3401AF9220FFF49A006DEF49 /* Design */,
+				343122632124A0DA009E4A7A /* BackupType.swift */,
 			);
 			path = Backup;
 			sourceTree = "<group>";
@@ -799,6 +804,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				349AA4BE212495BD00E9256F /* TableComponentDescription */,
 				349AA4A62123289C00E9256F /* TableComponentSecureCheckBox */,
 				349AA4A021230CC400E9256F /* TableComponentAccountStrength */,
 				344826CA2121904C00C19EB3 /* TableComponentCurrentAccount */,
@@ -809,7 +815,6 @@
 				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
 				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
 				344826C4212187FE00C19EB3 /* TableComponentMenuButton.swift */,
-				349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */,
 			);
 			path = TableComponentCells;
 			sourceTree = "<group>";
@@ -940,6 +945,15 @@
 			path = LocalFilesService;
 			sourceTree = "<group>";
 		};
+		349AA4BE212495BD00E9256F /* TableComponentDescription */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */,
+				349AA4BF212495E300E9256F /* TableComponentDescription.xib */,
+			);
+			path = TableComponentDescription;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1048,6 +1062,7 @@
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
+				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				349AA4992122F14500E9256F /* SecureAccountViewController.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
@@ -1188,6 +1203,7 @@
 				349AA4B421242CF900E9256F /* User.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
+				343122642124A0DA009E4A7A /* BackupType.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,

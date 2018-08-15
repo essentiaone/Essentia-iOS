@@ -8,8 +8,10 @@
 
 import UIKit
 
-class TableComponentDescription: UITableViewCell {
+class TableComponentDescription: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
+    
+    @IBOutlet weak var titleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,7 +19,7 @@ class TableComponentDescription: UITableViewCell {
     }
     
     private func applyDesign() {
-         self.textLabel?.textColor = colorProvider.settingsMenuSubtitle
-        self.textLabel?.font = AppFont.regular.withSize(14)
+        self.titleLabel?.textColor = colorProvider.settingsMenuSubtitle
+        self.titleLabel?.font = AppFont.regular.withSize(14)
     }
 }

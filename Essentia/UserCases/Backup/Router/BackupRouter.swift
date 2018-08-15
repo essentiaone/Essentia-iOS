@@ -32,10 +32,8 @@ class BackupRouter: BackupRouterInterface {
     let navigationController: UINavigationController
     fileprivate let routes: [BackupRoutes]
     var current: Int = 0
-    required init(rootController: UIViewController, mnemonic: String, type: BackupType) {
-        navigationController = UINavigationController(rootViewController: WarningViewContrller())
-        navigationController.setNavigationBarHidden(true, animated: false)
-        rootController.present(navigationController, animated: true)
+    required init(navigationController: UINavigationController, mnemonic: String, type: BackupType) {
+        self.navigationController = navigationController
         switch type {
         case .mnemonic:
             routes = [
@@ -51,12 +49,13 @@ class BackupRouter: BackupRouterInterface {
         default:
             routes = []
         }
+        self.navigationController.pushViewController(routes.first!.controller, animated: true)
     }
     
     func showNext() {
         current++
-        print("Showing next. Current is \(current)")
         guard current != routes.count else {
+            navigationController.popToRootViewController(animated: true)
             relese(self as BackupRouterInterface)
             return
         }
@@ -66,10 +65,8 @@ class BackupRouter: BackupRouterInterface {
     
     func showPrev() {
         current--
-        print("Showing prev. Current is \(current)")
         navigationController.popViewController(animated: true)
         guard current >= 0 else {
-            navigationController.dismiss(animated: true)
             relese(self as BackupRouterInterface)
             return
         }

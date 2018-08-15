@@ -9,7 +9,7 @@
 import UIKit
 
 protocol BackupRouterInterface: class {
-    init(rootController: UIViewController, mnemonic: String, type: BackupType)
+    init(navigationController: UINavigationController, mnemonic: String, type: BackupType)
     func showNext()
     func showPrev()
 }

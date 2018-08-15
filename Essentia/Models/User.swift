@@ -8,12 +8,6 @@
 
 import Foundation
 
-enum BackupType: Int, Codable {
-    case mnemonic
-    case seed
-    case keystore
-}
-
 class User: Codable {
     let id: String
     let seed: String

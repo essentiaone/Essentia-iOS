@@ -13,7 +13,7 @@ enum TableComponent: Equatable {
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case title(title: String)
-    case description(title: String)
+    case description(title: String, backgroud: UIColor)
     // MARK: - Settings
     case accountStrength(progress: Int, backAction: () -> Void)
     case accountStrengthAction(progress: Int, action: () -> Void)

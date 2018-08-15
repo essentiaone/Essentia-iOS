@@ -34,6 +34,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentEmpty.self)
         tableView.register(TableComponentSeparator.self)
         tableView.register(TableComponentTitle.self)
+        tableView.register(TableComponentDescription.self)
         tableView.register(TableComponentAccountStrengthAction.self)
         tableView.register(TableComponentAccountStrength.self)
         tableView.register(TableComponentTitleDetail.self)
@@ -69,6 +70,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .title(let title):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
+            return cell
+        case .description(let title, let backgroud):
+            let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.backgroundColor = backgroud
             return cell
         case .accountStrengthAction(let progress, let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
@@ -124,6 +130,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return height
         case .title(let title):
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
+        case .description(let title, _):
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
         case .accountStrength:
             return 286.0
         case .accountStrengthAction:
@@ -150,7 +158,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         switch component {
         case .currentAccount: fallthrough
         case .menuButton: fallthrough
-        case .menuTitleDetail:
+        case .menuTitleDetail: fallthrough
+        case .checkBox:
             return true
         default:
             return false

@@ -27,8 +27,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6a-kx-vb4">
-                        <rect key="frame" x="62" y="45" width="264" height="33.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6a-kx-vb4">
+                        <rect key="frame" x="62" y="41" width="264" height="44.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,13 +44,13 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="h6K-nA-EFw" secondAttribute="trailing" constant="15" id="F7g-G6-ZUk"/>
                     <constraint firstItem="h6K-nA-EFw" firstAttribute="leading" secondItem="zoQ-7x-tzf" secondAttribute="leading" constant="62" id="JX6-11-AIg"/>
-                    <constraint firstAttribute="bottom" secondItem="r6a-kx-vb4" secondAttribute="bottom" constant="12" id="MKr-LX-XsQ"/>
+                    <constraint firstAttribute="bottom" secondItem="r6a-kx-vb4" secondAttribute="bottom" constant="5" id="MKr-LX-XsQ"/>
                     <constraint firstItem="r6a-kx-vb4" firstAttribute="leading" secondItem="zoQ-7x-tzf" secondAttribute="leading" constant="62" id="Otv-L0-reU"/>
                     <constraint firstItem="h6K-nA-EFw" firstAttribute="top" secondItem="zoQ-7x-tzf" secondAttribute="top" constant="16" id="PKY-9G-Gh0"/>
                     <constraint firstItem="UUU-d3-5kk" firstAttribute="centerY" secondItem="zoQ-7x-tzf" secondAttribute="centerY" id="SUB-Ll-u0E"/>
                     <constraint firstItem="UUU-d3-5kk" firstAttribute="leading" secondItem="zoQ-7x-tzf" secondAttribute="leading" constant="16" id="U6q-xb-hP7"/>
                     <constraint firstAttribute="trailing" secondItem="r6a-kx-vb4" secondAttribute="trailing" constant="15" id="frf-pH-QbD"/>
-                    <constraint firstItem="r6a-kx-vb4" firstAttribute="top" secondItem="h6K-nA-EFw" secondAttribute="bottom" constant="4" id="kRD-eQ-8oT"/>
+                    <constraint firstItem="r6a-kx-vb4" firstAttribute="top" secondItem="h6K-nA-EFw" secondAttribute="bottom" id="kRD-eQ-8oT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

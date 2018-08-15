@@ -10,6 +10,9 @@ import UIKit
 
 enum SettingsRoutes {
     case accountStrength
+    case backupMenmonic
+    case backupSeed
+    case backupKeystore
     case language
     case currency
 }
