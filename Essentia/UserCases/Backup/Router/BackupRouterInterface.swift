@@ -8,12 +8,6 @@
 
 import UIKit
 
-enum BackupType {
-    case mnemonic
-    case seed
-    case keystore
-}
-
 protocol BackupRouterInterface: class {
     init(rootController: UIViewController, mnemonic: String, type: BackupType)
     func showNext()

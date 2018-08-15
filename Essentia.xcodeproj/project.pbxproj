@@ -111,6 +111,11 @@
 		349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */; };
 		349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */; };
 		349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */; };
+		349AA4B221242CC900E9256F /* UserServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4B121242CC900E9256F /* UserServiceInterface.swift */; };
+		349AA4B421242CF900E9256F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4B321242CF900E9256F /* User.swift */; };
+		349AA4B921245C2D00E9256F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4B821245C2D00E9256F /* UserService.swift */; };
+		349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */; };
+		349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BC21246A1E00E9256F /* LocalFilesService.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -233,6 +238,11 @@
 		349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCheckBox.swift; sourceTree = "<group>"; };
 		349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCheckBox.xib; sourceTree = "<group>"; };
 		349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentDescription.swift; sourceTree = "<group>"; };
+		349AA4B121242CC900E9256F /* UserServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceInterface.swift; sourceTree = "<group>"; };
+		349AA4B321242CF900E9256F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		349AA4B821245C2D00E9256F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesServiceInterface.swift; sourceTree = "<group>"; };
+		349AA4BC21246A1E00E9256F /* LocalFilesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesService.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,9 +304,10 @@
 		3401AF3720F7C394006DEF49 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				349AA4AF21242C4C00E9256F /* Services */,
+				3401AF7F20FD3D4D006DEF49 /* DependencyInjection */,
 				34482684211DD5F300C19EB3 /* ComponentsTableAdapter */,
 				3401AFD521032F15006DEF49 /* Extensions */,
-				3401AF7F20FD3D4D006DEF49 /* DependencyInjection */,
 				3401AF6820F82AA7006DEF49 /* UIKit */,
 				3401AF4E20F7DDFD006DEF49 /* Helpers */,
 				3401AF3D20F7CF92006DEF49 /* Componets */,
@@ -369,7 +380,6 @@
 			children = (
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
 				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
-				3401AF8A20FD3FD0006DEF49 /* DependenceCore.swift */,
 				3401AFDD21043C44006DEF49 /* String+Size.swift */,
 			);
 			path = Helpers;
@@ -455,6 +465,7 @@
 		3401AF7F20FD3D4D006DEF49 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF8A20FD3FD0006DEF49 /* DependenceCore.swift */,
 				3401AF8020FD3D99006DEF49 /* DIEngine.swift */,
 				3401AF8220FD3DCD006DEF49 /* DIObjectScope.swift */,
 				3401AF8420FD3DF6006DEF49 /* DIDependencyProviderInterface.swift */,
@@ -661,6 +672,7 @@
 		3448264D2113327700C19EB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				349AA4B321242CF900E9256F /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -901,6 +913,33 @@
 			path = TableComponentSecureCheckBox;
 			sourceTree = "<group>";
 		};
+		349AA4AF21242C4C00E9256F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4B521244A4600E9256F /* LocalFilesService */,
+				349AA4B021242CAE00E9256F /* UserService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		349AA4B021242CAE00E9256F /* UserService */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4B121242CC900E9256F /* UserServiceInterface.swift */,
+				349AA4B821245C2D00E9256F /* UserService.swift */,
+			);
+			path = UserService;
+			sourceTree = "<group>";
+		};
+		349AA4B521244A4600E9256F /* LocalFilesService */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */,
+				349AA4BC21246A1E00E9256F /* LocalFilesService.swift */,
+			);
+			path = LocalFilesService;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1116,6 +1155,7 @@
 				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
+				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
@@ -1139,11 +1179,13 @@
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
+				349AA4B221242CC900E9256F /* UserServiceInterface.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
 				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
+				349AA4B421242CF900E9256F /* User.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicProvider.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
@@ -1165,6 +1207,7 @@
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				349AA4B921245C2D00E9256F /* UserService.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicProviderInterface.swift in Sources */,
@@ -1192,6 +1235,7 @@
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
+				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
