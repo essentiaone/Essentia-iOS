@@ -60,6 +60,17 @@
 "Settings.LogOut" = "Log Out";
 
 "Settings.Secure.Back" = "Settings";
+"Settings.Secure.Title" = "Take these steps to enhance your security";
+"Settings.Secure.Prefix.Save" = "Save";
+"Settings.Secure.Prefix.Show" = "Show";
+"Settings.Secure.Mnemonic.Title" = "Mnemonic Phrase";
+"Settings.Secure.Mnemonic.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Seed.Title" = "Seed";
+"Settings.Secure.Seed.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
+"Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Description" = "By completing these steps you are making your account more security";
+
 
 
 

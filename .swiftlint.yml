@@ -7,3 +7,4 @@ disabled_rules:
 excluded:
   - Pods
   - Essentia/Third-Party
+  - Essentia/Core/ComponentsTableAdapter/TableAdapter.swift

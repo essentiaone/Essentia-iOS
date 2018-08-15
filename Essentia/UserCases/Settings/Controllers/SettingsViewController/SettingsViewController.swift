@@ -74,7 +74,7 @@ class SettingsViewController: BaseViewController {
                                  action: languageAction),
                 .separator(inset: Constants.separatorInset),
                 .empty(height: 16, background: colorProvider.settingsBackgroud),
-                TableComponent.menuSwitch(icon: imageProvider.darkThemeIcon,
+                .menuSwitch(icon: imageProvider.darkThemeIcon,
                                           title: LS("Settings.DarkTheme"),
                                           state: ComponentState(defaultValue: false),
                                           action: darkThemeAction),

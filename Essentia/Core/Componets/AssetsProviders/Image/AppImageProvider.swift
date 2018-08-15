@@ -23,4 +23,6 @@ class AppImageProvider: AppImageProviderInterface {
     var feedbackIcon: UIImage = #imageLiteral(resourceName: "settingsFeedback")
     var testAvatarIcon: UIImage = #imageLiteral(resourceName: "testAvatar")
     var backWhiteIcon: UIImage = #imageLiteral(resourceName: "backWhite")
+    var checkBoxEmpty: UIImage = #imageLiteral(resourceName: "checkBoxEmpty")
+    var checkBoxFilled: UIImage = #imageLiteral(resourceName: "checkBoxFilled")
 }

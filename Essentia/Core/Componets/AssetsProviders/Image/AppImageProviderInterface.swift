@@ -23,4 +23,6 @@ protocol AppImageProviderInterface {
     var feedbackIcon: UIImage { get }
     var testAvatarIcon: UIImage { get }
     var backWhiteIcon: UIImage { get }
+    var checkBoxEmpty: UIImage { get }
+    var checkBoxFilled: UIImage { get }
 }

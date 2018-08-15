@@ -108,6 +108,9 @@
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
 		349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */; };
 		349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */; };
+		349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */; };
+		349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */; };
+		349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +230,9 @@
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
 		349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAccountStrength.swift; sourceTree = "<group>"; };
 		349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAccountStrength.xib; sourceTree = "<group>"; };
+		349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCheckBox.swift; sourceTree = "<group>"; };
+		349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCheckBox.xib; sourceTree = "<group>"; };
+		349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentDescription.swift; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -781,15 +787,17 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				349AA4A62123289C00E9256F /* TableComponentSecureCheckBox */,
 				349AA4A021230CC400E9256F /* TableComponentAccountStrength */,
 				344826CA2121904C00C19EB3 /* TableComponentCurrentAccount */,
-				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
-				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
 				344826B82121696C00C19EB3 /* TableComponentTitleDetail */,
 				344826BF2121832500C19EB3 /* TableComponentSwitch */,
 				344826AF2120F6B200C19EB3 /* TableComponentAccountStrengthAction */,
 				344826A82120B4D200C19EB3 /* TableComponentTitle */,
+				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
+				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
 				344826C4212187FE00C19EB3 /* TableComponentMenuButton.swift */,
+				349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */,
 			);
 			path = TableComponentCells;
 			sourceTree = "<group>";
@@ -882,6 +890,15 @@
 				349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */,
 			);
 			path = TableComponentAccountStrength;
+			sourceTree = "<group>";
+		};
+		349AA4A62123289C00E9256F /* TableComponentSecureCheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */,
+				349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */,
+			);
+			path = TableComponentSecureCheckBox;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -1000,6 +1017,7 @@
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
+				349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */,
 				344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
@@ -1143,6 +1161,7 @@
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
+				349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
@@ -1171,6 +1190,7 @@
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
+				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1340,6 +1360,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-expression-type-checking=200 -Xfrontend -warn-long-function-bodies=200 -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
@@ -1362,6 +1383,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" -Xfrontend -warn-long-expression-type-checking=200 -Xfrontend -warn-long-function-bodies=200 -Xfrontend -debug-time-function-bodies";
 				PRODUCT_BUNDLE_IDENTIFIER = impl.essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";

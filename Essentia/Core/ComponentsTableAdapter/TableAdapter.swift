@@ -9,6 +9,9 @@
 import UIKit
 
 class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Dependences
+    private lazy var imageProvider: AppImageProviderInterface = inject()
+    
     // MARK: - State
     private var tableState: [TableComponent] = []
     private var tableView: UITableView
@@ -37,6 +40,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSwitch.self)
         tableView.register(TableComponentMenuButton.self)
         tableView.register(TableComponentCurrentAccount.self)
+        tableView.register(TableComponentCheckBox.self)
+        tableView.register(TableComponentDescription.self)
     }
     
     // MARK: - Update State
@@ -99,6 +104,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.accountTitleLabel.text = title
             cell.accountDescription.text = name
             return cell
+        case .checkBox(let state, let titlePrefix, let title, let  subtitle, _):
+            let cell: TableComponentCheckBox = tableView.dequeueReusableCell(for: indexPath)
+            cell.setAttributesTitle(regularPrefix: titlePrefix, attributedSuffix: title)
+            cell.descriptionLabel.text = subtitle
+            cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
+            return cell
         default:
             fatalError()
         }
@@ -123,9 +134,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 44.0
         case .currentAccount:
             return 91.0
+        case .checkBox:
+            return 92.0
         default:
             fatalError()
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
@@ -150,6 +167,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuTitleDetail(_, _, _, let action):
             action()
         case .currentAccount(_, _, _, let action):
+            action()
+        case .checkBox(_, _, _, _, let action):
             action()
         default:
             return
