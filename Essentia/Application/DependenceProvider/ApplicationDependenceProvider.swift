@@ -15,11 +15,22 @@ class ApplicationDependenceProvider {
     }
     
     private func loadCoreDependences() {
-        loadColorSheme()
-        loadImageSheme()
+        loadAssets()
+        loadServices()
         loadMnemonicProvider()
     }
     
+    private func loadAssets() {
+        loadImageSheme()
+        loadColorSheme()
+    }
+    
+    private func loadDesignDependences() {
+        loadLoginDesign()
+        loadBackupDesign()
+    }
+    
+    // MARK: - Assets
     private func loadImageSheme() {
         let injection: AppImageProviderInterface = AppImageProvider()
         prepareInjection(injection, memoryPolicy: .viewController)
@@ -28,11 +39,6 @@ class ApplicationDependenceProvider {
     private func loadColorSheme() {
         let injection: AppColorInterface = DefaultColorSheme()
         prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func loadDesignDependences() {
-        loadLoginDesign()
-        loadBackupDesign()
     }
     
     // MARK: - Design
@@ -50,6 +56,23 @@ class ApplicationDependenceProvider {
     
     private func loadMnemonicProvider() {
         let injection: MnemonicProviderInterface = MnemonicProvider(language: .english)
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    // MARK: - Services
+    
+    private func loadServices() {
+        loadUserService()
+        loadFileService()
+    }
+    
+    private func loadUserService() {
+        let injection: LocalFilesServiceInterface = LocalFilesService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadFileService() {
+        let injection: UserServiceInterface = UserService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }

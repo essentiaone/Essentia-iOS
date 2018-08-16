@@ -13,7 +13,7 @@ enum TableComponent: Equatable {
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case title(title: String)
-    case description(title: String)
+    case description(title: String, backgroud: UIColor)
     // MARK: - Settings
     case accountStrength(progress: Int, backAction: () -> Void)
     case accountStrengthAction(progress: Int, action: () -> Void)
@@ -21,7 +21,7 @@ enum TableComponent: Equatable {
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
     case menuSwitch(icon: UIImage, title: String, state: ComponentState<Bool>, action: (Bool) -> Void)
     case menuButton(title: String, color: UIColor, action: () -> Void)
-    case strengthField(state: ComponentState<Bool>, title: String, detail: String)
+    case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
     case plainText(title: String)
     
     // MARK: - Equatable
