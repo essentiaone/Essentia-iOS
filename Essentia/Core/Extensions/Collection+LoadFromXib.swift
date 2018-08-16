@@ -52,4 +52,11 @@ extension UITableView {
         }
         return cell
     }
+    
+    public func cellForRow<Cell: UITableViewCell>(at indexPath: IndexPath) -> Cell {
+        guard let cell = cellForRow(at: indexPath) as? Cell else {
+            fatalError()
+        }
+        return cell
+    }
 }

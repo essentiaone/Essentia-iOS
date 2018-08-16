@@ -9,6 +9,9 @@
 import UIKit
 
 class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
+    // MARK: - Dependences
+    private lazy var imageProvider: AppImageProviderInterface = inject()
+    
     // MARK: - State
     private var tableState: [TableComponent] = []
     private var tableView: UITableView
@@ -21,20 +24,25 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     private func setupTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.contentInsetAdjustmentBehavior = .never
         registerCells()
     }
     
     func registerCells() {
-        self.tableView.register(TableComponentEmpty.self)
-        self.tableView.register(TableComponentSeparator.self)
-        self.tableView.register(TableComponentTitle.self)
-        self.tableView.register(TableComponentAccountStrengthAction.self)
-        self.tableView.register(TableComponentTitleDetail.self)
-        self.tableView.register(TableComponentSwitch.self)
-        self.tableView.register(TableComponentMenuButton.self)
-        self.tableView.register(TableComponentCurrentAccount.self)
+        tableView.register(TableComponentEmpty.self)
+        tableView.register(TableComponentSeparator.self)
+        tableView.register(TableComponentTitle.self)
+        tableView.register(TableComponentDescription.self)
+        tableView.register(TableComponentAccountStrengthAction.self)
+        tableView.register(TableComponentAccountStrength.self)
+        tableView.register(TableComponentTitleDetail.self)
+        tableView.register(TableComponentSwitch.self)
+        tableView.register(TableComponentMenuButton.self)
+        tableView.register(TableComponentCurrentAccount.self)
+        tableView.register(TableComponentCheckBox.self)
+        tableView.register(TableComponentDescription.self)
     }
     
     // MARK: - Update State
@@ -63,10 +71,20 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             return cell
+        case .description(let title, let backgroud):
+            let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.backgroundColor = backgroud
+            return cell
         case .accountStrengthAction(let progress, let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
             cell.resultAction = action
             cell.progress = progress
+            return cell
+        case .accountStrength(let progress, let backAction):
+            let cell: TableComponentAccountStrength = tableView.dequeueReusableCell(for: indexPath)
+            cell.progress = progress
+            cell.resultAction = backAction
             return cell
         case .menuTitleDetail(let icon, let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
@@ -92,6 +110,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.accountTitleLabel.text = title
             cell.accountDescription.text = name
             return cell
+        case .checkBox(let state, let titlePrefix, let title, let  subtitle, _):
+            let cell: TableComponentCheckBox = tableView.dequeueReusableCell(for: indexPath)
+            cell.setAttributesTitle(regularPrefix: titlePrefix, attributedSuffix: title)
+            cell.descriptionLabel.text = subtitle
+            cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
+            return cell
         default:
             fatalError()
         }
@@ -106,6 +130,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return height
         case .title(let title):
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
+        case .description(let title, _):
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
+        case .accountStrength:
+            return 286.0
         case .accountStrengthAction:
             return 394.0
         case .menuButton: fallthrough
@@ -114,9 +142,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 44.0
         case .currentAccount:
             return 91.0
+        case .checkBox:
+            return 92.0
         default:
             fatalError()
         }
+    }
+    
+    public func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
@@ -124,7 +158,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         switch component {
         case .currentAccount: fallthrough
         case .menuButton: fallthrough
-        case .menuTitleDetail:
+        case .menuTitleDetail: fallthrough
+        case .checkBox:
             return true
         default:
             return false
@@ -141,6 +176,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuTitleDetail(_, _, _, let action):
             action()
         case .currentAccount(_, _, _, let action):
+            action()
+        case .checkBox(_, _, _, _, let action):
             action()
         default:
             return

@@ -12,12 +12,17 @@ import XCTest
 class EssentiaTests: XCTestCase {
     
     func testMnemonicProviderWordCountAndSymolsInWord() {
-        let mnemonicProvider: MnemonicProviderInterface = MnemonicProvider()
-        let wordList = mnemonicProvider.generateMnemonic()
+        let mnemonicProvider: MnemonicProviderInterface = MnemonicProvider(language: .english)
+        let wordList = mnemonicProvider.mnemonic.split(separator: " ")
         XCTAssert(wordList.count == 12)
         wordList.forEach { (word) in
             XCTAssert(word.count > 2)
         }
+    }
+    
+    func testFolderPathGeneration() {
+        let folderGeneration: LocalFolderPath = .subFolder("Users", .subFolder("Local", .finale("Shared")))
+        XCTAssertEqual(folderGeneration.path, "/Users/Local/Shared")
     }
     
 }
