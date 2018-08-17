@@ -12,10 +12,7 @@ fileprivate struct Constants {
     static var separatorInset = UIEdgeInsets(top: 0, left: 65, bottom: 0, right: 0)
 }
 
-class SettingsViewController: BaseViewController {
-    @IBOutlet weak var tableView: UITableView!
-    private lazy var tableAdapter = TableAdapter(tableView: tableView)
-    
+class SettingsViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()

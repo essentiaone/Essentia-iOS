@@ -27,12 +27,14 @@ class LaunchpadViewController: BaseViewController, LaunchpadCollectionViewAdapte
         titleLabel.text = LS("TabBar.Launchpad")
         titleLabel.font = AppFont.bold.withSize(34)
         
+        navigationController?.tabBarController?.tabBar.isHidden = false
         colletionViewAdapter.delegate = self
     }
     
     // MARK: - LaunchpadCollectionViewAdapterDelegate
     func didSelect(item: LaunchpadItemInterface) {
-        item.show(from: self)
+        navigationController?.tabBarController?.tabBar.isHidden = true
+        item.show(from: self.navigationController!)
     }
     
     func willShowPage(at index: Int) {
