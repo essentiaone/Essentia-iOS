@@ -20,6 +20,16 @@
 "Warning.Description" = "Make sure no one is watching you - move away from windows and cameras; do not make any screenshots - they can be easily stolen; check if anyone is gandering.";
 "Warning.Done" = "I’M IN A SAFE PLACE";
 
+"WarningKeystore.Title" = "Keep Your Money Make Backup";
+"WarningKeystore.Skip" = "Skip";
+"WarningKeystore.Paragraph1.Title" = "Keep it securely saved!";
+"WarningKeystore.Paragraph1.Description" = "If you lose your backup method, you can't access your account again!";
+"WarningKeystore.Paragraph2.Title" = "Don't share it with anyone!";
+"WarningKeystore.Paragraph2.Description" = "Sharing is caring, but not when it comes to your backup method!";
+"WarningKeystore.Paragraph3.Title" = "Backup your backup!";
+"WarningKeystore.Paragraph3.Description" = "Your account is valuable and has multiple backups keep it extra safe";
+"WarningKeystore.Save" = "Save Keystrore File";
+
 "MnemonicPhrase.Title" = "Mnemonic Phrase";
 "MnemonicPhrase.Description" = "Please save your mnemonic phrase. It’ll let you login to your Essence!";
 "MnemonicPhrase.Copy" = "COPY";
@@ -37,7 +47,39 @@
 "SeedCopy.Continue" = "CONTINUE";
 
 "SeedCopy.Title" = "Create Password";
-"SeedCopy.Description" = "Strong password - secure account. Come up with the unique password to access Essentia later on.
-";
+"SeedCopy.Description" = "Strong password - secure account. Come up with the unique password to access Essentia later on.";
 "SeedCopy.Continue" = "CONTINUE";
+"InfoAlert.Ok" = "OK";
 
+"KeyStoreSaved.Title" = "Your Keystore File saved";
+"KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
+
+"TabBar.Launchpad" = "Launchpad";
+"TabBar.Wallet" = "Wallet";
+"TabBar.Notifications" = "Notifications";
+"TabBar.Settings" = "Settings";
+
+"Settings.Title" = "Settings";
+"Settings.AccountStrength.Title" = "Account Strength";
+"Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
+"Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
+"Settings.CurrentAccountTitle" = "Account Name";
+"Settings.Language" = "Language";
+"Settings.Currency" = "Currency";
+"Settings.Security" = "Security";
+"Settings.DarkTheme" = "Dark Theme";
+"Settings.Feedback" = "Feedback";
+"Settings.Switch" = "Switch Account";
+"Settings.LogOut" = "Log Out";
+
+"Settings.Secure.Back" = "Settings";
+"Settings.Secure.Title" = "Take these steps to enhance your security";
+"Settings.Secure.Prefix.Save" = "Save";
+"Settings.Secure.Prefix.Show" = "Show";
+"Settings.Secure.Mnemonic.Title" = "Mnemonic Phrase";
+"Settings.Secure.Mnemonic.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Seed.Title" = "Seed";
+"Settings.Secure.Seed.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
+"Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Description" = "By completing these steps you are making your account more security";

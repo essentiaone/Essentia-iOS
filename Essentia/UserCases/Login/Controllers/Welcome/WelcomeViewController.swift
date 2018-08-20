@@ -31,11 +31,7 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        let mnemonic: String = MnemonicProvider(language: .english).mnemonic
-        prepareInjection(
-            BackupRouter(rootController: self, mnemonic: mnemonic, type: .keystore) as BackupRouterInterface,
-            memoryPolicy: .viewController
-        )
+        present(TabBarController(), animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {

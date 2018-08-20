@@ -6,3 +6,8 @@ disabled_rules:
  - line_length
 excluded:
   - Pods
+  - fastane
+  - installer
+  - vendor/
+  - Essentia/Third-Party
+  - Essentia/Core/ComponentsTableAdapter/TableAdapter.swift

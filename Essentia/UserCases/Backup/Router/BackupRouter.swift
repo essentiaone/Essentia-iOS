@@ -14,6 +14,7 @@ fileprivate enum BackupRoutes {
     case phraseConfirm(mnemonic: String)
     case seedCopy(seed: String)
     case keyStorePassword(mnemonic: String)
+    case keyStoreWarning
     
     var controller: UIViewController {
         switch self {
@@ -27,6 +28,8 @@ fileprivate enum BackupRoutes {
             return SeedCopyViewController(seed: seed)
         case .keyStorePassword(let mnemonic):
             return KeyStorePasswordViewController(mnemonic: mnemonic)
+        case .keyStoreWarning:
+            return KeyStoreWarningViewController()
         }
     }
 }
@@ -35,7 +38,8 @@ class BackupRouter: BackupRouterInterface {
     let navigationController: UINavigationController
     fileprivate let routes: [BackupRoutes]
     var current: Int = 0
-    required init(rootController: UIViewController, mnemonic: String, type: BackupType) {
+    required init(navigationController: UINavigationController, mnemonic: String, type: BackupType) {
+        self.navigationController = navigationController
         switch type {
         case .mnemonic:
             routes = [
@@ -50,18 +54,17 @@ class BackupRouter: BackupRouterInterface {
             ]
         case .keystore:
             routes = [
+                .keyStoreWarning,
                 .keyStorePassword(mnemonic: mnemonic)
             ]
         }
-        navigationController = UINavigationController(rootViewController: routes[0].controller)
-        navigationController.setNavigationBarHidden(true, animated: false)
-        rootController.present(navigationController, animated: true)
+        self.navigationController.pushViewController(routes.first!.controller, animated: true)
     }
     
     func showNext() {
-        current += 1
-        print("Showing next. Current is \(current)")
+        current++
         guard current != routes.count else {
+            navigationController.popToRootViewController(animated: true)
             relese(self as BackupRouterInterface)
             return
         }
@@ -70,11 +73,9 @@ class BackupRouter: BackupRouterInterface {
     }
     
     func showPrev() {
-        current -= 1
-        print("Showing prev. Current is \(current)")
+        current--
         navigationController.popViewController(animated: true)
         guard current >= 0 else {
-            navigationController.dismiss(animated: true)
             relese(self as BackupRouterInterface)
             return
         }
