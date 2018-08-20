@@ -15,10 +15,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - State
     private var tableState: [TableComponent] = []
     private var tableView: UITableView
+    private var helper: TableAdapterHelper
     
     // MARK: - Init
     public init(tableView: UITableView) {
         self.tableView = tableView
+        self.helper = TableAdapterHelper(tableView: tableView)
         super.init()
         setupTableView()
     }
@@ -43,6 +45,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCurrentAccount.self)
         tableView.register(TableComponentCheckBox.self)
         tableView.register(TableComponentDescription.self)
+        tableView.register(TableComponentParagraph.self)
+        tableView.register(TableComponentNavigationBar.self)
+        tableView.register(TableComponentCenteredButton.self)
     }
     
     // MARK: - Update State
@@ -57,8 +62,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let component = tableState[indexPath.row]
-        switch component {
+        switch tableState[indexPath.row] {
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
@@ -75,6 +79,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.backgroundColor = backgroud
+            return cell
+        case .calculatbleSpace(let background):
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = background
             return cell
         case .accountStrengthAction(let progress, let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
@@ -116,6 +124,24 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.descriptionLabel.text = subtitle
             cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
             return cell
+        case .centeredButton(let title,let action):
+            let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.setTitle(title, for: .normal)
+            cell.action = action
+            return cell
+        case .navigationBar(let left, let right, let title, let lAction,let rAction):
+            let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
+            cell.leftButton.setTitle(left, for: .normal)
+            cell.rightButton.setTitle(right, for: .normal)
+            cell.titleLabel.text = title
+            cell.leftAction = lAction
+            cell.rightAction = rAction
+            return cell
+        case .paragraph(let title, let description):
+            let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.descriptionLabel.text = description
+            return cell
         default:
             fatalError()
         }
@@ -132,6 +158,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
+        case .calculatbleSpace:
+            return helper.heightForEmptySpace(with: tableState, in: self)
         case .accountStrength:
             return 286.0
         case .accountStrengthAction:
@@ -144,6 +172,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 91.0
         case .checkBox:
             return 92.0
+        case .centeredButton:
+            return 75.0
+        case .navigationBar:
+            return 44
+        case .paragraph(let title, let description):
+            let labelWidth = tableView.frame.width - 43
+            return title.multyLineLabelHeight(with: AppFont.bold.withSize(18),
+                                              width: labelWidth) +
+                   description.multyLineLabelHeight(with: AppFont.regular.withSize(17),
+                                                    width: labelWidth) + 20
         default:
             fatalError()
         }

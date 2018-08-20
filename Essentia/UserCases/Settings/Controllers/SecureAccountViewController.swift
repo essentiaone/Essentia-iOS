@@ -8,10 +8,7 @@
 
 import UIKit
 
-class SecureAccountViewController: BaseViewController {
-    @IBOutlet weak var tableView: UITableView!
-    private lazy var tableAdapter = TableAdapter(tableView: tableView)
-    
+class SecureAccountViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
