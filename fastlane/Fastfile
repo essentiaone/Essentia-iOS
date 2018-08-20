@@ -37,7 +37,7 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    ensure_git_branch(branch: "master")
+    ensure_git_branch(branch: "develop")
 
     #Increment build
     ensure_git_status_clean

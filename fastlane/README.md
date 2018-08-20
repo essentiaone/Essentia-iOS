@@ -16,6 +16,11 @@ or alternatively using `brew cask install fastlane`
 
 # Available Actions
 ## iOS
+### ios pod_install
+```
+fastlane ios pod_install
+```
+installing current pod dependecies
 ### ios beta
 ```
 fastlane ios beta
