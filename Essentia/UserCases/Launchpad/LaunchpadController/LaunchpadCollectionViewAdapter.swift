@@ -64,10 +64,6 @@ UICollectionViewDelegateFlowLayout {
     
     // MARK: - UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.frame.width - Constants.cellsInset) / CGFloat(Constants.cellsPerRow)
-        let height = (collectionView.frame.height - Constants.horizontalInsets) / CGFloat(Constants.cellsPerColumn)
-        return CGSize(width: width, height: height)
+        return CGSize(width: 100, height: 134)
     }
-    
-//    scrollView
 }

@@ -25,4 +25,5 @@ class AppImageProvider: AppImageProviderInterface {
     var backWhiteIcon: UIImage = #imageLiteral(resourceName: "backWhite")
     var checkBoxEmpty: UIImage = #imageLiteral(resourceName: "checkBoxEmpty")
     var checkBoxFilled: UIImage = #imageLiteral(resourceName: "checkBoxFilled")
+    var darkDotIcon: UIImage = #imageLiteral(resourceName: "darkDot")
 }
