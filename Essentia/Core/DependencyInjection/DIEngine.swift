@@ -27,6 +27,10 @@ public class DIEngine {
         return registeredObject.fetchObject()
     }
     
+    public func relese(key: String) {
+        storageStrongRef.remove(key: key)
+    }
+    
     public func removeAll() {
         storageStrongRef.removeAll()
     }

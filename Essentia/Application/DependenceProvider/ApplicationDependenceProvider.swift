@@ -11,11 +11,29 @@ import Foundation
 class ApplicationDependenceProvider {
     func loadDependences() {
         loadCoreDependences()
-        loadLoginDependences()
+        loadDesignDependences()
     }
     
     private func loadCoreDependences() {
+        loadAssets()
+        loadServices()
+        loadMnemonicProvider()
+    }
+    
+    private func loadAssets() {
+        loadImageSheme()
         loadColorSheme()
+    }
+    
+    private func loadDesignDependences() {
+        loadLoginDesign()
+        loadBackupDesign()
+    }
+    
+    // MARK: - Assets
+    private func loadImageSheme() {
+        let injection: AppImageProviderInterface = AppImageProvider()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadColorSheme() {
@@ -23,12 +41,38 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    private func loadLoginDependences() {
-        loadLoginDesign()
-    }
-    
+    // MARK: - Design
     private func loadLoginDesign() {
         let injection: LoginDesignInterface = LoginDesign()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadBackupDesign() {
+        let injection: BackupDesignInterface = BackupDesign()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    // MARK: - Mnemonic
+    
+    private func loadMnemonicProvider() {
+        let injection: MnemonicProviderInterface = MnemonicProvider(language: .english)
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    // MARK: - Services
+    
+    private func loadServices() {
+        loadUserService()
+        loadFileService()
+    }
+    
+    private func loadUserService() {
+        let injection: LocalFilesServiceInterface = LocalFilesService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadFileService() {
+        let injection: UserServiceInterface = UserService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }

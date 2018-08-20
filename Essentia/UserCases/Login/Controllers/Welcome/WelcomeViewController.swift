@@ -31,6 +31,7 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
+        present(TabBarController(), animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WarningViewContrller" customModule="Essentia" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="kOA-Qm-Ari" id="tT7-kc-8Qh"/>
+                <outlet property="doneButton" destination="4Il-dW-qJH" id="Nb8-Jy-X9i"/>
+                <outlet property="imageView" destination="m0K-rY-UuV" id="dK6-2p-0ex"/>
+                <outlet property="titleLabel" destination="ooA-hJ-jmM" id="C0b-PP-XsJ"/>
+                <outlet property="view" destination="fPJ-RC-UcJ" id="H8z-Bg-8tk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fPJ-RC-UcJ">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJZ-JE-LZM" customClass="BackButton" customModule="Essentia">
+                    <rect key="frame" x="0.0" y="28" width="80" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="D3V-5e-3Ps"/>
+                        <constraint firstAttribute="width" constant="80" id="asn-Gh-rNH"/>
+                    </constraints>
+                    <connections>
+                        <action selector="backAction:" destination="-1" eventType="touchUpInside" id="qAw-Ui-DPt"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOA-Qm-Ari">
+                    <rect key="frame" x="10" y="161" width="300" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Il-dW-qJH" customClass="CenteredButton" customModule="Essentia" customModuleProvider="target">
+                    <rect key="frame" x="15" y="507" width="290" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="P0K-tX-3ZS"/>
+                    </constraints>
+                    <connections>
+                        <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="lt7-Hb-SVI"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooA-hJ-jmM">
+                    <rect key="frame" x="10" y="63" width="310" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="6AX-MM-xvp"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m0K-rY-UuV">
+                    <rect key="frame" x="50" y="171" width="220" height="301"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ooA-hJ-jmM" firstAttribute="leading" secondItem="Wd1-wh-SOa" secondAttribute="leading" constant="10" id="7yx-Uy-iIP"/>
+                <constraint firstItem="iJZ-JE-LZM" firstAttribute="leading" secondItem="Wd1-wh-SOa" secondAttribute="leading" id="Ab1-TV-1LG"/>
+                <constraint firstItem="m0K-rY-UuV" firstAttribute="top" secondItem="kOA-Qm-Ari" secondAttribute="bottom" constant="10" id="Ago-eW-vSl"/>
+                <constraint firstItem="Wd1-wh-SOa" firstAttribute="trailing" secondItem="4Il-dW-qJH" secondAttribute="trailing" constant="15" id="CFI-ua-FmT"/>
+                <constraint firstItem="Wd1-wh-SOa" firstAttribute="trailing" secondItem="m0K-rY-UuV" secondAttribute="trailing" constant="50" id="L4M-Q4-lmr"/>
+                <constraint firstItem="Wd1-wh-SOa" firstAttribute="bottom" secondItem="4Il-dW-qJH" secondAttribute="bottom" constant="16" id="LX4-ub-7Ue"/>
+                <constraint firstItem="m0K-rY-UuV" firstAttribute="leading" secondItem="Wd1-wh-SOa" secondAttribute="leading" constant="50" id="LsQ-Jq-Fqs"/>
+                <constraint firstItem="Wd1-wh-SOa" firstAttribute="trailing" secondItem="kOA-Qm-Ari" secondAttribute="trailing" constant="10" id="QEg-mZ-93T"/>
+                <constraint firstItem="Wd1-wh-SOa" firstAttribute="trailing" secondItem="ooA-hJ-jmM" secondAttribute="trailing" id="REC-si-Cqo"/>
+                <constraint firstItem="ooA-hJ-jmM" firstAttribute="top" secondItem="iJZ-JE-LZM" secondAttribute="bottom" id="dbj-hK-n1p"/>
+                <constraint firstItem="kOA-Qm-Ari" firstAttribute="leading" secondItem="Wd1-wh-SOa" secondAttribute="leading" constant="10" id="mgB-cP-RG4"/>
+                <constraint firstItem="4Il-dW-qJH" firstAttribute="top" secondItem="m0K-rY-UuV" secondAttribute="bottom" constant="35" id="pLL-pH-WCk"/>
+                <constraint firstItem="iJZ-JE-LZM" firstAttribute="top" secondItem="Wd1-wh-SOa" secondAttribute="top" constant="8" id="s7u-Id-Clb"/>
+                <constraint firstItem="kOA-Qm-Ari" firstAttribute="top" secondItem="ooA-hJ-jmM" secondAttribute="bottom" constant="8" id="wu5-SF-fUn"/>
+                <constraint firstItem="4Il-dW-qJH" firstAttribute="leading" secondItem="Wd1-wh-SOa" secondAttribute="leading" constant="15" id="xNJ-Al-zus"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Wd1-wh-SOa"/>
+            <point key="canvasLocation" x="169" y="-377"/>
+        </view>
+    </objects>
+</document>

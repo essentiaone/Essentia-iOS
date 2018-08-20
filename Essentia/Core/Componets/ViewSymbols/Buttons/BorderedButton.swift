@@ -8,14 +8,14 @@
 
 import UIKit
 
-class BorderedButton: UIButton {
-    
+class BorderedButton: BaseButton {
     private lazy var colorProvider: AppColorInterface = inject()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         drawBorder()
         drawText()
+        drawCornerRadius()
     }
     
     private func drawText() {
@@ -24,9 +24,7 @@ class BorderedButton: UIButton {
     }
     
     private func drawBorder() {
-        layer.cornerRadius = 5
         layer.borderColor = colorProvider.borderedButtonBorderColor.cgColor
         layer.borderWidth = 2
     }
-    
 }
