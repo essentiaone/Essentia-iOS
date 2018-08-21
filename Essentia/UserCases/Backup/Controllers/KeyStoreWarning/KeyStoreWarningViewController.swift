@@ -15,7 +15,7 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.updateState(state)
+        tableAdapter.reload(state)
     }
     
     private var state: [TableComponent] {
@@ -38,8 +38,10 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
                        description: LS("WarningKeystore.Paragraph3.Description")),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("WarningKeystore.Save"),
+                            isEnable: true,
                             action: saveAction),
-            .empty(height: 15, background: colorProvider.settingsCellsBackround)
+            .empty(height: 10, background: colorProvider.settingsCellsBackround),
+            .tabBarSpace
         ]
     }
     // MARK: - Actions

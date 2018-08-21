@@ -21,10 +21,11 @@ class InfoAlertViewController: BaseViewController {
     let alertDescription: String
     let okAction: () -> Void
     // MARK: - Show
-    static func show(from: UIViewController? = nil, title: String, description: String) {
+    static func show(from: UIViewController? = nil, title: String, description: String, okAction: (() -> Void)? = nil) {
         let root = from ?? UIApplication.shared.keyWindow?.rootViewController
         let alert = InfoAlertViewController(title: title, description: description) {
             root?.dismiss(animated: true)
+            okAction?()
         }
         alert.modalPresentationStyle = .custom
         root?.present(alert, animated: true)

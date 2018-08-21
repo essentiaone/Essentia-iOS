@@ -51,6 +51,14 @@
 "SeedCopy.Continue" = "CONTINUE";
 "InfoAlert.Ok" = "OK";
 
+"Keystore.Title" = "Password";
+"Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
+"Keystore.PasswordField.Title" = "Password";
+"Keystore.PasswordField.Placeholder" = "Required";
+"Keystore.PasswordField.Description" = "Minimum 8 characters";
+"Keystore.PasswordField.Status.Good" = "Good";
+"Keystore.Continue" = "CONTINUE";
+
 "KeyStoreSaved.Title" = "Your Keystore File saved";
 "KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
 

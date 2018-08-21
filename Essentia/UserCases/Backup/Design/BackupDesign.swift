@@ -61,13 +61,11 @@ class BackupDesign: BackupDesignInterface {
         vc.currentWordLabel.font = AppFont.regular.withSize(15)
         
         // MARK: - Colors
+        vc.separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         vc.titleLabel.textColor =  colorProvider.appTitleColor
         vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
-
-        // MARK: - Layout
-        vc.confirmWordsCollectionView.layer.cornerRadius = 3
-        vc.confirmWordsCollectionView.layer.borderColor = colorProvider.blueBorderColor.cgColor
-        vc.confirmWordsCollectionView.layer.borderWidth = 1.0
+        let inset: CGFloat = DeviceSeries.currentSeries == .iPhoneX ? 35 : 70
+        vc.buttomCurrentWordConstraint.constant = vc.keyboardHeight - inset
     }
 
     func applyDesign(to vc: SeedCopyViewController) {
@@ -88,31 +86,10 @@ class BackupDesign: BackupDesignInterface {
         vc.titleLabel.textColor =  colorProvider.appTitleColor
         vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
         vc.textView.textColor = colorProvider.appTitleColor
+        vc.separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         
         // MARK: - State
         vc.copyButton.isSelected = false
         vc.continueButton.isEnabled = false
-        
-        // MARK: - Layout
-        vc.textView.layer.cornerRadius = 3
-        vc.textView.layer.borderColor = colorProvider.blueBorderColor.cgColor
-        vc.textView.layer.borderWidth = 1.0
-    }
-    
-    func applyDesign(to vc: KeyStorePasswordViewController) {
-        // MARK: - Localized Strings
-        vc.continueButton.setTitle(LS("SeedCopy.Continue"), for: .normal)
-        vc.titleLabel.text = LS("SeedCopy.Title")
-        vc.descriptionLabel.text = LS("SeedCopy.Description")
-        
-        // MARK: - Fonts
-        vc.titleLabel.font = AppFont.bold.withSize(32)
-        vc.descriptionLabel.font = AppFont.regular.withSize(18)
-        vc.passwordTextField.font = AppFont.regular.withSize(16)
-        
-        // MARK: - Colors
-        vc.titleLabel.textColor =  colorProvider.appTitleColor
-        vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
-        vc.passwordTextField.textColor = colorProvider.appTitleColor
     }
 }

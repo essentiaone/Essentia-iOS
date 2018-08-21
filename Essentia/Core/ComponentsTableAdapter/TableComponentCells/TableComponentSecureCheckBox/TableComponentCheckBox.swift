@@ -27,6 +27,7 @@ class TableComponentCheckBox: UITableViewCell, NibLoadable {
         mutableAttributedString.append(
             NSAttributedString(string: regularPrefix,
                                attributes: [NSAttributedStringKey.font: AppFont.regular.withSize(18)]))
+        mutableAttributedString.append(NSAttributedString(string: " "))
         mutableAttributedString.append(
             NSAttributedString(string: attributedSuffix,
                                attributes: [NSAttributedStringKey.font: AppFont.bold.withSize(18)]))
