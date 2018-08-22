@@ -14,7 +14,7 @@ enum TableComponent: Equatable {
     case empty(height: CGFloat, background: UIColor)
     case title(title: String)
     case description(title: String, backgroud: UIColor)
-    case centeredButton(title: String, action: () -> Void)
+    case centeredButton(title: String, isEnable: Bool, action: () -> Void)
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
@@ -27,6 +27,9 @@ enum TableComponent: Equatable {
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
     case plainText(title: String)
+    case password(passwordAction: (Bool, String) -> Void)
+    case keyboardInset
+    case tabBarSpace
     
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

@@ -21,7 +21,7 @@ class EssentiaTests: XCTestCase {
     }
     
     func testFolderPathGeneration() {
-        let folderGeneration: LocalFolderPath = .subFolder("Users", .subFolder("Local", .finale("Shared")))
+        let folderGeneration: LocalFolderPath = .subFolder("Users", .subFolder("Local", .final("Shared")))
         XCTAssertEqual(folderGeneration.path, "/Users/Local/Shared")
     }
     

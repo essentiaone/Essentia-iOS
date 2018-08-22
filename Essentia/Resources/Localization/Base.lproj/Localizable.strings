@@ -46,7 +46,18 @@
 "SeedCopy.Copied" = "COPIED";
 "SeedCopy.Continue" = "CONTINUE";
 
+"SeedCopy.Title" = "Create Password";
+"SeedCopy.Description" = "Strong password - secure account. Come up with the unique password to access Essentia later on.";
+"SeedCopy.Continue" = "CONTINUE";
 "InfoAlert.Ok" = "OK";
+
+"Keystore.Title" = "Password";
+"Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
+"Keystore.PasswordField.Title" = "Password";
+"Keystore.PasswordField.Placeholder" = "Required";
+"Keystore.PasswordField.Description" = "Minimum 8 characters";
+"Keystore.PasswordField.Status.Good" = "Good";
+"Keystore.Continue" = "CONTINUE";
 
 "KeyStoreSaved.Title" = "Your Keystore File saved";
 "KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
@@ -80,9 +91,3 @@
 "Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
 "Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
 "Settings.Secure.Description" = "By completing these steps you are making your account more security";
-
-
-
-
-
-

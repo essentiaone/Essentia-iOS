@@ -16,7 +16,8 @@ class SeedCopyViewController: BaseViewController {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var continueButton: CenteredButton!
- 
+    @IBOutlet weak var separatorView: UIView!
+    
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
     

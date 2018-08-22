@@ -30,6 +30,8 @@ protocol AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor { get }
     var enteredWordBackgroud: UIColor { get }
     var enteredWordText: UIColor { get }
+    var validPasswordIndicator: UIColor { get }
+    var notValidPasswordIndicator: UIColor { get }
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor { get }
     var launchpadItemSubTitleColor: UIColor { get }

@@ -18,6 +18,8 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     @IBOutlet weak var currentWordCollectionView: UICollectionView!
     @IBOutlet weak var fakeTextField: FakeTextField!
     @IBOutlet weak var phraseEnteringViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var buttomCurrentWordConstraint: NSLayoutConstraint!
+    @IBOutlet weak var separatorView: UIView!
     
     // MARK: - Dependences
     private let mnemonic: String

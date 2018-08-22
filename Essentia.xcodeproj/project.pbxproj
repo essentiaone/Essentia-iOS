@@ -78,6 +78,7 @@
 		344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */; };
 		3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448265821189B7900C19EB3 /* SeedCopyViewController.swift */; };
 		3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */; };
+		3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448265D2119A10600C19EB3 /* KeyStorePasswordViewController.swift */; };
 		34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */; };
 		34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482666211A620C00C19EB3 /* InfoAlertViewController.swift */; };
 		3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448266B211B362000C19EB3 /* LaunchpadViewController.swift */; };
@@ -125,6 +126,9 @@
 		349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */; };
 		349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BC21246A1E00E9256F /* LocalFilesService.swift */; };
 		349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4BF212495E300E9256F /* TableComponentDescription.xib */; };
+		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
+		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
+		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -214,6 +218,7 @@
 		344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringControllerDelegate.swift; sourceTree = "<group>"; };
 		3448265821189B7900C19EB3 /* SeedCopyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedCopyViewController.swift; sourceTree = "<group>"; };
 		3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeedCopyViewController.xib; sourceTree = "<group>"; };
+		3448265D2119A10600C19EB3 /* KeyStorePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStorePasswordViewController.swift; sourceTree = "<group>"; };
 		34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InfoAlertViewController.xib; sourceTree = "<group>"; };
 		34482666211A620C00C19EB3 /* InfoAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoAlertViewController.swift; sourceTree = "<group>"; };
 		3448266B211B362000C19EB3 /* LaunchpadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +266,9 @@
 		349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesServiceInterface.swift; sourceTree = "<group>"; };
 		349AA4BC21246A1E00E9256F /* LocalFilesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesService.swift; sourceTree = "<group>"; };
 		349AA4BF212495E300E9256F /* TableComponentDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentDescription.xib; sourceTree = "<group>"; };
+		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
+		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
+		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -399,6 +407,7 @@
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
 				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
 				3401AFDD21043C44006DEF49 /* String+Size.swift */,
+				34B79651212B1CEF000B1251 /* DeviceSeries.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -525,6 +534,7 @@
 		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3448265C21199F7A00C19EB3 /* KeyStorePassword */,
 				343122652124ACE5009E4A7A /* KeyStoreWarning */,
 				3448265721189B5B00C19EB3 /* SeedCopy */,
 				3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */,
@@ -752,6 +762,14 @@
 			path = SeedCopy;
 			sourceTree = "<group>";
 		};
+		3448265C21199F7A00C19EB3 /* KeyStorePassword */ = {
+			isa = PBXGroup;
+			children = (
+				3448265D2119A10600C19EB3 /* KeyStorePasswordViewController.swift */,
+			);
+			path = KeyStorePassword;
+			sourceTree = "<group>";
+		};
 		34482662211A5FFE00C19EB3 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,6 +874,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34B7965A212C085A000B1251 /* TableComponentPassword */,
 				343122772124EA33009E4A7A /* TableComponentCenteredButton */,
 				343122712124E900009E4A7A /* TableComponentParagraph */,
 				3431226C2124E73C009E4A7A /* TableComponentNavigationBar */,
@@ -991,6 +1010,15 @@
 			path = TableComponentDescription;
 			sourceTree = "<group>";
 		};
+		34B7965A212C085A000B1251 /* TableComponentPassword */ = {
+			isa = PBXGroup;
+			children = (
+				34B79658212C084B000B1251 /* TableComponentPassword.swift */,
+				34B7965B212C086A000B1251 /* TableComponentPassword.xib */,
+			);
+			path = TableComponentPassword;
+			sourceTree = "<group>";
+		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1094,6 +1122,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
+				34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */,
 				344826AC2120B50D00C19EB3 /* TableComponentTitle.xib in Resources */,
 				343122702124E76C009E4A7A /* TableComponentNavigationBar.xib in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
@@ -1263,6 +1292,7 @@
 				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */,
+				34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
@@ -1275,6 +1305,7 @@
 				344826C5212187FE00C19EB3 /* TableComponentMenuButton.swift in Sources */,
 				3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
+				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				344826B7212162B000C19EB3 /* UIView+Shadow.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
@@ -1295,6 +1326,7 @@
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
+				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1497,7 +1529,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore impl.essentia.Essentia";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-                VERSIONING_SYSTEM = "apple-generic";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

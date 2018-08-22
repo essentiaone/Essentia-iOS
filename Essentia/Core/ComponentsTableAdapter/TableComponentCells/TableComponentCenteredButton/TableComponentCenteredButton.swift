@@ -22,10 +22,16 @@ class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     private func applyDesign() {
         titleButton.titleLabel?.font = AppFont.regular.withSize(15)
         titleButton.setTitleColor(colorProvider.centeredButtonTextColor, for: .normal)
-        titleButton.backgroundColor = colorProvider.centeredButtonBackgroudColor
         
         titleButton.drawCornerRadius()
         titleButton.drawShadow(width: 5)
+    }
+    
+    func setEnable(_ isEnable: Bool) {
+        let background = isEnable ? colorProvider.centeredButtonBackgroudColor :
+                                   colorProvider.centeredButtonDisabledBackgroudColor
+        titleButton.backgroundColor = background
+        titleButton.isEnabled = isEnable
     }
     
     @IBAction func action(_ sender: Any) {

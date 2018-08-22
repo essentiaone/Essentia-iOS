@@ -9,6 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    var keyboardHeight: CGFloat = 256.0
+    
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,5 +21,18 @@ class BaseViewController: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        guard let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+            return
+        }
+        let keyboardRectangle = keyboardSize.cgRectValue
+        keyboardHeight = keyboardRectangle.height
     }
 }

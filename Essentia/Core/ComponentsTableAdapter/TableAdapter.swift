@@ -48,10 +48,28 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentParagraph.self)
         tableView.register(TableComponentNavigationBar.self)
         tableView.register(TableComponentCenteredButton.self)
+        tableView.register(TableComponentPassword.self)
     }
     
     // MARK: - Update State
-    func updateState(_ state: [TableComponent]) {
+    public func simpleReload(_ state:[TableComponent]) {
+        let oldState = self.tableState
+        self.tableState = state
+        UIView.setAnimationsEnabled(false)
+        tableView.beginUpdates()
+        for step in Dwifft.diff(oldState, state) {
+            switch step {
+            case .insert(let rowIndex, _):
+                tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
+            case .delete(let rowIndex, _):
+                tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
+            }
+        }
+        tableView.endUpdates()
+        UIView.setAnimationsEnabled(true)
+    }
+    
+    func reload(_ state: [TableComponent]) {
         self.tableState = state
         tableView.reloadData()
     }
@@ -124,9 +142,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.descriptionLabel.text = subtitle
             cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
             return cell
-        case .centeredButton(let title,let action):
+        case .centeredButton(let title, let isEnable, let action):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
+            cell.setEnable(isEnable)
             cell.action = action
             return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
@@ -141,6 +160,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.descriptionLabel.text = description
+            return cell
+        case .password(let passwordAction):
+            let cell: TableComponentPassword = tableView.dequeueReusableCell(for: indexPath)
+            cell.passwordAction = passwordAction
+            return cell
+        case .tabBarSpace: fallthrough
+        case .keyboardInset:
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = .clear
             return cell
         default:
             fatalError()
@@ -176,12 +204,18 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 75.0
         case .navigationBar:
             return 44
+        case .password:
+            return 76.0
         case .paragraph(let title, let description):
             let labelWidth = tableView.frame.width - 43
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(18),
                                               width: labelWidth) +
                    description.multyLineLabelHeight(with: AppFont.regular.withSize(17),
                                                     width: labelWidth) + 20
+        case .keyboardInset:
+            return DeviceSeries.currentSeries == .iPhoneX ? 280 : 200.0
+        case .tabBarSpace:
+            return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         default:
             fatalError()
         }

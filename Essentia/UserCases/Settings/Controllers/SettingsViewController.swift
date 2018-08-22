@@ -28,7 +28,7 @@ class SettingsViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
-        tableAdapter.updateState(state)
+        tableAdapter.reload(state)
     }
     
     // MARK: - Override
@@ -89,7 +89,7 @@ class SettingsViewController: BaseTableAdapterController {
                 .menuButton(title: LS("Settings.LogOut"),
                             color: colorProvider.settingsMenuLogOut,
                             action: logOutAction),
-                .empty(height: 24, background: colorProvider.settingsBackgroud)
+                .empty(height: 95, background: colorProvider.settingsBackgroud)
         ]
     }
     

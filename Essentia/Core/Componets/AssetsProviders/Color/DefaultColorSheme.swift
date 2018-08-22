@@ -48,6 +48,9 @@ struct DefaultColorSheme: AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor = Constants.appLigntLightGray
     var enteredWordBackgroud: UIColor = Constants.appDarkBlue
     var enteredWordText: UIColor = Constants.appWhiteColor
+    var validPasswordIndicator: UIColor = Constants.appGreen
+    var notValidPasswordIndicator: UIColor = Constants.appLigntLightGray
+    
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray
