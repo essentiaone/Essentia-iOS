@@ -26,7 +26,7 @@ class MnemonicService: MnemonicServiceInterface {
     }
     
     func languageForCurrentLocale() -> MnemonicLanguage {
-        func chinasLanguageType(for languageCode: String) -> MnemonicLanguage {
+        func chinesLanguageType(for languageCode: String) -> MnemonicLanguage {
             let chinasType = languageCode.prefix(7)
             switch chinasType {
             case "zh_Hans":
@@ -51,7 +51,7 @@ class MnemonicService: MnemonicServiceInterface {
         case "es":
             return .spanish
         case "zh":
-            return chinasLanguageType(for: languageCode)
+            return chinesLanguageType(for: languageCode)
         case "fr":
             return .french
         case "it":
