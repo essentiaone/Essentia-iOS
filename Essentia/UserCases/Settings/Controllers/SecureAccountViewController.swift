@@ -33,21 +33,22 @@ class SecureAccountViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
+        let currentUserBackups = EssentaStore.currentUser.currentlyBackuped
         return [
             .accountStrength(progress: 10, backAction: backAction),
-            .checkBox(state:  ComponentState(defaultValue: true),
+            .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.mnemonic)),
             titlePrifex: LS("Settings.Secure.Prefix.Save"),
                       title: LS("Settings.Secure.Mnemonic.Title"),
                       subtitle: LS("Settings.Secure.Mnemonic.Description"),
                       action: mnemonicAction),
             .empty(height: 1, background: colorProvider.settingsBackgroud),
-            .checkBox(state: ComponentState(defaultValue: true),
+            .checkBox(state: ComponentState(defaultValue: currentUserBackups.contains(.seed)),
                       titlePrifex: LS("Settings.Secure.Prefix.Show"),
                       title: LS("Settings.Secure.Seed.Title"),
                       subtitle: LS("Settings.Secure.Seed.Description"),
                       action: seedAction),
             .empty(height: 1, background: colorProvider.settingsBackgroud),
-            .checkBox(state:  ComponentState(defaultValue: false),
+            .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.keystore)),
                       titlePrifex: LS("Settings.Secure.Prefix.Save"),
                       title: LS("Settings.Secure.KeyStore.Title"),
                       subtitle: LS("Settings.Secure.KeyStore.Description"),

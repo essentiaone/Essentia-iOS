@@ -1,5 +1,5 @@
 //
-//  UserServiceInterface.swift
+//  UserStorageServiceInterface.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 15.08.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol UserServiceInterface {
+protocol UserStorageServiceInterface {
     func get() throws -> [User]
     func store(user: User) throws
     func remove(user: User) throws

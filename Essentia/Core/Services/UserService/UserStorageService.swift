@@ -12,7 +12,7 @@ fileprivate struct Constants {
     static var storageFolder = "Users"
 }
 
-class UserService: UserServiceInterface {
+class UserStorageService: UserStorageServiceInterface {
     // MARK: - Dependences
     private lazy var fileSerice: LocalFilesServiceInterface = inject()
     let folderPath: LocalFolderPath = .final(Constants.storageFolder)

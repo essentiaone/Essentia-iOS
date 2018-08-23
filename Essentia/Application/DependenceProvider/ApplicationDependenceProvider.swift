@@ -12,12 +12,12 @@ class ApplicationDependenceProvider {
     func loadDependences() {
         loadCoreDependences()
         loadDesignDependences()
+        loadLoginDependences()
     }
     
     private func loadCoreDependences() {
         loadAssets()
         loadServices()
-        loadMnemonicProvider()
     }
     
     private func loadAssets() {
@@ -41,6 +41,16 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
+    // MARK: - Login
+    private func loadLoginDependences() {
+        loadLoginInteractor()
+    }
+    
+    private func loadLoginInteractor() {
+        let injection: LoginInteractorInterface = LoginInteractor()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
     // MARK: - Design
     private func loadLoginDesign() {
         let injection: LoginDesignInterface = LoginDesign()
@@ -52,27 +62,25 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    // MARK: - Mnemonic
-    
-    private func loadMnemonicProvider() {
-        let injection: MnemonicProviderInterface = MnemonicProvider(language: .english)
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
     // MARK: - Services
-    
     private func loadServices() {
         loadUserService()
         loadFileService()
+        loadMnemonicService()
+    }
+    
+    private func loadMnemonicService() {
+        let injection: MnemonicServiceInterface = MnemonicService()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadUserService() {
-        let injection: LocalFilesServiceInterface = LocalFilesService()
+        let injection: UserStorageServiceInterface = UserStorageService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadFileService() {
-        let injection: UserServiceInterface = UserService()
+        let injection: LocalFilesServiceInterface = LocalFilesService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }
