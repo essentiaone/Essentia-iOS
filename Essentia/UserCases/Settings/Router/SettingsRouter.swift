@@ -41,7 +41,7 @@ class SettingsRouter: SettingsRouterInterface {
     }
     
     private func showBackupRoute(type: BackupType) {
-        guard let mnemonic = EssentaStore.currentUser.mnemonic else {
+        guard let mnemonic = EssentiaStore.currentUser.mnemonic else {
             return
         }
         prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)

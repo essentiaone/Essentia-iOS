@@ -62,7 +62,7 @@ class SettingsViewController: BaseTableAdapterController {
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.currencyIcon,
                                  title: LS("Settings.Currency"),
-                                 detail: EssentaStore.currentUser.currency.titleString,
+                                 detail: EssentiaStore.currentUser.currency.titleString,
                                  action: currencyAction),
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.securityIcon,
