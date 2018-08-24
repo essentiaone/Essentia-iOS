@@ -91,3 +91,5 @@
 "Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
 "Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
 "Settings.Secure.Description" = "By completing these steps you are making your account more security";
+
+"Settings.Currency.Title" = "Currency";

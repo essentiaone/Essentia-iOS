@@ -56,7 +56,7 @@ class SeedCopyViewController: BaseViewController {
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        EssentaStore.currentUser.currentlyBackuped.append(.seed)
+        EssentaStore.currentUser.currentlyBackedUp.append(.seed)
         (inject() as BackupRouterInterface).showNext()
     }
 }
