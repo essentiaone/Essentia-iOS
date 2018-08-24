@@ -50,7 +50,7 @@ class BackupRouter: BackupRouterInterface {
         case .seed:
             routes = [
                  .warning,
-                 .seedCopy(seed: (inject() as MnemonicProviderInterface).seed(from: mnemonic))
+                 .seedCopy(seed: (inject() as MnemonicServiceInterface).seed(from: mnemonic))
             ]
         case .keystore:
             routes = [

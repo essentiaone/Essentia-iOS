@@ -19,6 +19,7 @@ class WelcomeViewController: BaseViewController {
     
     // MARK: - Dependences
     private lazy var design: LoginDesignInterface = inject()
+    private lazy var interactor: LoginInteractorInterface = inject()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -31,10 +32,15 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
+        interactor.generateNewUser()
         present(TabBarController(), animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {
+    }
+    
+    private func createUser() {
+        
     }
     
 }

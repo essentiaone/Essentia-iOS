@@ -21,7 +21,7 @@ class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
     
     // MARK: - Depenences
     weak var delegate: PhraseEnteringControllerDelegate?
-    private lazy var mnemonicProvider: MnemonicProviderInterface = inject()
+    private lazy var mnemonicProvider: MnemonicServiceInterface = inject()
     
     // MARK: - Init
     init(mnemonic: String, views: [PhraseEnteringViewProtocol]) {
@@ -57,7 +57,7 @@ class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
         guard !string.isEmpty else {
             return ""
         }
-        let word = mnemonicProvider.wordList.first {
+        let word = mnemonicProvider.wordList().first {
             return $0.starts(with: string)
         }
         return word ?? ""
