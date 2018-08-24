@@ -8,14 +8,14 @@
 
 import UIKit
 
-class BaseTableAdapterController: UIViewController {
+class BaseTableAdapterController: BaseViewController {
     // MARK: - Init
     let tableView: UITableView
     lazy var tableAdapter = TableAdapter(tableView: tableView)
     
-    public init() {
+    public override init() {
         tableView = UITableView()
-        super.init(nibName: nil, bundle: nil)
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {

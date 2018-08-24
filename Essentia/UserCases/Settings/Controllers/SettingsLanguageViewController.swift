@@ -1,5 +1,5 @@
 //
-//  SettingsCurrencyViewController.swift
+//  SettingsLanguageViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 24.08.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsCurrencyViewController: BaseTableAdapterController {
+class SettingsLanguageViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
@@ -34,24 +34,25 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Settings.Currency.Title"))
-        ] + currenciesState
+            .title(title: LS("Settings.Language.Title"))
+            ] + languageState
     }
     
-    var currenciesState: [TableComponent] {
-        var currencyState: [TableComponent] = []
-        let currenyCurrency = EssentiaStore.currentUser.currency
-        Currency.cases.forEach { (currency) in
-            currencyState.append(.menuTitleCheck(
-                title: currency.titleString,
-                state: ComponentState(defaultValue: currenyCurrency == currency),
+    var languageState: [TableComponent] {
+        var languageComponent: [TableComponent] = []
+        let currenyLanguage = EssentiaStore.currentUser.language
+        LocalizationLanguage.cases.forEach { (language) in
+            languageComponent.append(.menuTitleCheck(
+                title: language.rawValue,
+                state: ComponentState(defaultValue: currenyLanguage == language),
                 action: {
-                    EssentiaStore.currentUser.currency = currency
+                    EssentiaStore.currentUser.language = language
                     self.tableAdapter.reload(self.state)
+                    self.showFlipAnimation()
             }))
-            currencyState.append(.separator(inset: .zero))
+            languageComponent.append(.separator(inset: .zero))
         }
-        return currencyState
+        return languageComponent
     }
     
     // MARK: - Actions

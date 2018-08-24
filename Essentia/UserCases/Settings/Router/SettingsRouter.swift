@@ -27,8 +27,8 @@ class SettingsRouter: SettingsRouterInterface {
             showBackupRoute(type: .keystore)
         case .currency:
             push(vc: SettingsCurrencyViewController())
-        default:
-            return
+        case .language:
+            push(vc: SettingsLanguageViewController())
         }
     }
     

@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Essentia
-
-  Created by Pavlo Boiko on 16.07.18.
-  Copyright © 2018 Essentia-One. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Essentia
+ 
+ Created by Pavlo Boiko on 16.07.18.
+ Copyright © 2018 Essentia-One. All rights reserved.
+ */
 
 "Back" = "Back";
 
@@ -93,4 +93,4 @@
 "Settings.Secure.Description" = "By completing these steps you are making your account more security";
 
 "Settings.Currency.Title" = "Currency";
-"Settings.Language.Title" = "Language";
+"Settings.Language.Title" = "語言";
