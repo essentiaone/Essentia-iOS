@@ -46,7 +46,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: {
-                    EssentaStore.currentUser.currency = currency
+                    EssentiaStore.currentUser.currency = currency
                     self.tableAdapter.reload(self.state)
             }))
             currencyState.append(.separator(inset: .zero))
