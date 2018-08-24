@@ -49,6 +49,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentNavigationBar.self)
         tableView.register(TableComponentCenteredButton.self)
         tableView.register(TableComponentPassword.self)
+        tableView.register(TableComponentCheckField.self)
     }
     
     // MARK: - Update State
@@ -170,6 +171,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = .clear
             return cell
+        case .menuTitleCheck(let title, let state, _):
+            let cell: TableComponentCheckField = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.checkImageView.image = state.value ?! imageProvider.checkIcon
+            return cell
         default:
             fatalError()
         }
@@ -216,6 +222,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return DeviceSeries.currentSeries == .iPhoneX ? 280 : 200.0
         case .tabBarSpace:
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
+        case .menuTitleCheck:
+            return 44.0
         default:
             fatalError()
         }
@@ -231,6 +239,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .currentAccount: fallthrough
         case .menuButton: fallthrough
         case .menuTitleDetail: fallthrough
+        case .menuTitleCheck: fallthrough
         case .checkBox:
             return true
         default:
@@ -250,6 +259,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .currentAccount(_, _, _, let action):
             action()
         case .checkBox(_, _, _, _, let action):
+            action()
+        case .menuTitleCheck(_, _, let action):
             action()
         default:
             return

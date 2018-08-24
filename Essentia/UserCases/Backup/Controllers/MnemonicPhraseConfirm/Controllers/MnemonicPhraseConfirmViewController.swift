@@ -69,7 +69,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     // MARK: - PhraseEnteringControllerDelegate
     
     func didFinishConfirmingWords() {
-        EssentaStore.currentUser.currentlyBackuped.append(.mnemonic)
+        EssentiaStore.currentUser.currentlyBackedUp.append(.mnemonic)
         (inject() as BackupRouterInterface).showNext()
     }
     

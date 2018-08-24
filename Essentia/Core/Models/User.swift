@@ -15,7 +15,8 @@ class User: Codable {
     let seed: String
     var mnemonic: String?
     var name: String?
-    var currentlyBackuped: [BackupType] = []
+    var currency: Currency
+    var currentlyBackedUp: [BackupType] = []
     
     convenience init(mnemonic: String) {
       let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)
@@ -26,7 +27,8 @@ class User: Codable {
     init(seed: String) {
         self.seed = seed
         self.id = String(Date().timeIntervalSince1970)
-        self.currentlyBackuped = []
+        self.currentlyBackedUp = []
+        self.currency = .usd
     }
     
     var dislayName: String {

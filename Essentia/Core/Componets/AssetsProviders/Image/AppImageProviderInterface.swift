@@ -26,4 +26,5 @@ protocol AppImageProviderInterface {
     var checkBoxEmpty: UIImage { get }
     var checkBoxFilled: UIImage { get }
     var darkDotIcon: UIImage { get }
+    var checkIcon: UIImage { get }
 }

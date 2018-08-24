@@ -76,7 +76,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
     
     private lazy var continueAction: () -> Void = {
         InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
-            EssentaStore.currentUser.currentlyBackuped.append(.keystore)
+            EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
             (inject() as BackupRouterInterface).showNext()
         })
     }

@@ -15,6 +15,6 @@ class LoginInteractor: LoginInteractorInterface {
     func generateNewUser() {
         let currentLocaleLanguage = mnemonicService.languageForCurrentLocale()
         let mnemonic = mnemonicService.newMnemonic(with: currentLocaleLanguage)
-        EssentaStore.currentUser = User(mnemonic: mnemonic)
+        EssentiaStore.currentUser = User(mnemonic: mnemonic)
     }
 }

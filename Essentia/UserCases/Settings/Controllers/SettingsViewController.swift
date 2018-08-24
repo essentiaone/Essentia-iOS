@@ -62,8 +62,8 @@ class SettingsViewController: BaseTableAdapterController {
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.currencyIcon,
                                  title: LS("Settings.Currency"),
-                                 detail: "USD",
-                                 action: languageAction),
+                                 detail: EssentiaStore.currentUser.currency.titleString,
+                                 action: currencyAction),
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.securityIcon,
                                  title: LS("Settings.Security"),
@@ -94,6 +94,10 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
+    
+    private lazy var currencyAction: () -> Void = {
+        (inject() as SettingsRouterInterface).show(.currency)
+    }
     
     private lazy var switchAccountAction: () -> Void = {
         

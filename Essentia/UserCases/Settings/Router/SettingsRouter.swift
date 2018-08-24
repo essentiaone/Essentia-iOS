@@ -25,6 +25,8 @@ class SettingsRouter: SettingsRouterInterface {
             showBackupRoute(type: .seed)
         case .backupKeystore:
             showBackupRoute(type: .keystore)
+        case .currency:
+            push(vc: SettingsCurrencyViewController())
         default:
             return
         }
@@ -39,6 +41,9 @@ class SettingsRouter: SettingsRouterInterface {
     }
     
     private func showBackupRoute(type: BackupType) {
-        prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: "duty stable equal capable scrap suffer field penalty aspect hazard awake stand dilemma ancient unknown", type: type) as BackupRouterInterface, memoryPolicy: .viewController)
+        guard let mnemonic = EssentiaStore.currentUser.mnemonic else {
+            return
+        }
+        prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
     }
 }

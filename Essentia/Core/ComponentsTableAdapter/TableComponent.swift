@@ -23,6 +23,7 @@ enum TableComponent: Equatable {
     case accountStrengthAction(progress: Int, action: () -> Void)
     case currentAccount(icon: UIImage, title: String, name: String, action: () -> Void)
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
+    case menuTitleCheck(title: String, state: ComponentState<Bool>, action: () -> Void)
     case menuSwitch(icon: UIImage, title: String, state: ComponentState<Bool>, action: (Bool) -> Void)
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
