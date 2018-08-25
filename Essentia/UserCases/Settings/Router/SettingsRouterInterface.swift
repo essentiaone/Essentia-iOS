@@ -21,4 +21,5 @@ protocol SettingsRouterInterface {
     init(navigationController: UINavigationController)
     func show(_ route: SettingsRoutes)
     func pop()
+    func logOut()
 }

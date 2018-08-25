@@ -102,7 +102,8 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var logOutAction: () -> Void = {
-        
+        EssentiaStore.currentUser = User.notSigned
+        (inject() as SettingsRouterInterface).logOut()
     }
     
     private lazy var darkThemeAction: (Bool) -> Void = { isOn in
