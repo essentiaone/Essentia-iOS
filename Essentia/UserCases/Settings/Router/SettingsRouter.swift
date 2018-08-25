@@ -49,8 +49,8 @@ class SettingsRouter: SettingsRouterInterface {
     }
     
     func logOut() {
-        let parent = navigationController?.parent as? WelcomeViewController
+        let root = UIApplication.shared.keyWindow?.rootViewController as? WelcomeViewController
         navigationController?.dismiss(animated: true)
-        parent?.showFlipAnimation()
+        root?.showFlipAnimation()
     }
 }
