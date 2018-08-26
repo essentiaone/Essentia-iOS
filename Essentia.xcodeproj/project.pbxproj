@@ -140,6 +140,8 @@
 		34B27A3E21304B2E00527F15 /* LocalizationLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3D21304B2E00527F15 /* LocalizationLanguage.swift */; };
 		34B27A4021305FBC00527F15 /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3F21305FBC00527F15 /* String+Format.swift */; };
 		34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A42213064E500527F15 /* MnemonicLanguage.swift */; };
+		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
+		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -297,11 +299,15 @@
 		34B27A3F21305FBC00527F15 /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		34B27A41213061E200527F15 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		34B27A42213064E500527F15 /* MnemonicLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLanguage.swift; sourceTree = "<group>"; };
+		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
+		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
+		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
+		CDC5A9F9A18EC49B38D82905 /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
 		CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -331,6 +337,7 @@
 				3401AFB221012D93006DEF49 /* EssentiaTests */,
 				3401AF2320F7C2CA006DEF49 /* Products */,
 				E89F81E827245E426E0DF11A /* Frameworks */,
+				734BB9C102E6709C3C2DC5E0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -397,6 +404,7 @@
 		3401AF3A20F7C5E9006DEF49 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				34B27A4521336AF200527F15 /* Loader */,
 				34482662211A5FFE00C19EB3 /* Alerts */,
 				3401AFE92109F5B8006DEF49 /* TextFields */,
 				3401AFCD21022EF2006DEF49 /* Cells */,
@@ -1071,6 +1079,15 @@
 			path = TableComponentDescription;
 			sourceTree = "<group>";
 		};
+		34B27A4521336AF200527F15 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				34B27A4821336B4D00527F15 /* LoaderInterface.swift */,
+				34B27A4A21336B5900527F15 /* Loader.swift */,
+			);
+			path = Loader;
+			sourceTree = "<group>";
+		};
 		34B7965A212C085A000B1251 /* TableComponentPassword */ = {
 			isa = PBXGroup;
 			children = (
@@ -1078,6 +1095,15 @@
 				34B7965B212C086A000B1251 /* TableComponentPassword.xib */,
 			);
 			path = TableComponentPassword;
+			sourceTree = "<group>";
+		};
+		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CDC5A9F9A18EC49B38D82905 /* Pods-Essentia.debug.xcconfig */,
+				8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		95AC5A4B6668826F51D64E2B /* Pods */ = {
@@ -1278,11 +1304,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1368,6 +1396,7 @@
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
+				34B27A4B21336B5900527F15 /* Loader.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
@@ -1397,6 +1426,7 @@
 				3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
+				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,

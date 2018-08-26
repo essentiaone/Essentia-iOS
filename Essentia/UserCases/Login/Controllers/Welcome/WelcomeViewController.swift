@@ -32,8 +32,11 @@ class WelcomeViewController: BaseViewController {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        interactor.generateNewUser()
-        present(TabBarController(), animated: true)
+        (inject() as LoaderInterface).show()
+        interactor.generateNewUser {
+            (inject() as LoaderInterface).hide()
+            self.present(TabBarController(), animated: true)
+        }
     }
     
     @IBAction func termsAction(_ sender: Any) {

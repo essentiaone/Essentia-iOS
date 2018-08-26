@@ -9,5 +9,5 @@
 import Foundation
 
 protocol LoginInteractorInterface {
-    func generateNewUser()
+    func generateNewUser(callBack:@escaping () -> Void)
 }
