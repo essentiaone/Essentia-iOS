@@ -62,6 +62,8 @@
 		3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */; };
 		3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */; };
 		3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */; };
+		34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */; };
+		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -142,6 +144,8 @@
 		34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A42213064E500527F15 /* MnemonicLanguage.swift */; };
 		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
 		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
+		34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */; };
+		34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -218,6 +222,8 @@
 		3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringController.swift; sourceTree = "<group>"; };
 		3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouterInterface.swift; sourceTree = "<group>"; };
 		3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouter.swift; sourceTree = "<group>"; };
+		34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitle.swift; sourceTree = "<group>"; };
+		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
@@ -301,6 +307,8 @@
 		34B27A42213064E500527F15 /* MnemonicLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLanguage.swift; sourceTree = "<group>"; };
 		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
+		34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccoutViewController.swift; sourceTree = "<group>"; };
+		34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccoutViewController.xib; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
@@ -727,6 +735,15 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		34115DFC2134462900A54B7E /* TableComponentImageTitle */ = {
+			isa = PBXGroup;
+			children = (
+				34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */,
+				34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */,
+			);
+			path = TableComponentImageTitle;
+			sourceTree = "<group>";
+		};
 		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
 			isa = PBXGroup;
 			children = (
@@ -939,6 +956,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34115DFC2134462900A54B7E /* TableComponentImageTitle */,
 				34416808212FEDB7008B8A91 /* TableComponentCheckField */,
 				34B7965A212C085A000B1251 /* TableComponentPassword */,
 				343122772124EA33009E4A7A /* TableComponentCenteredButton */,
@@ -1007,6 +1025,7 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				34B27A4C2133710700527F15 /* SwitchAccout */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
@@ -1086,6 +1105,15 @@
 				34B27A4A21336B5900527F15 /* Loader.swift */,
 			);
 			path = Loader;
+			sourceTree = "<group>";
+		};
+		34B27A4C2133710700527F15 /* SwitchAccout */ = {
+			isa = PBXGroup;
+			children = (
+				34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */,
+				34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */,
+			);
+			path = SwitchAccout;
 			sourceTree = "<group>";
 		};
 		34B7965A212C085A000B1251 /* TableComponentPassword */ = {
@@ -1220,6 +1248,7 @@
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
+				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
@@ -1234,6 +1263,7 @@
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */,
+				34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */,
 				344826BC212169CE00C19EB3 /* TableComponentTitleDetail.xib in Resources */,
 				344826C32121834F00C19EB3 /* TableComponentSwitch.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
@@ -1305,12 +1335,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1363,6 +1395,7 @@
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
 				349AA4B221242CC900E9256F /* UserStorageServiceInterface.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
+				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
@@ -1424,6 +1457,7 @@
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */,
+				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
 				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,

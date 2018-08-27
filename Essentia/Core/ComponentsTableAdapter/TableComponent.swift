@@ -14,6 +14,7 @@ enum TableComponent: Equatable {
     case empty(height: CGFloat, background: UIColor)
     case title(title: String)
     case description(title: String, backgroud: UIColor)
+    case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void)
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case paragraph(title: String, description: String)

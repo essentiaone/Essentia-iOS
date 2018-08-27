@@ -11,4 +11,5 @@ import Foundation
 protocol LoaderInterface {
     func show()
     func hide()
+    func showError(message: String)
 }

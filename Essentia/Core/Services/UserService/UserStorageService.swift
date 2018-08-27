@@ -22,10 +22,18 @@ class UserStorageService: UserStorageServiceInterface {
     }
     
     func store(user: User) throws {
-        try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
+        do {
+            try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
+        } catch {
+            print(error)
+        }
     }
     
-    func remove(user: User) throws {
-        try fileSerice.removeFile(at: folderPath, with: user.id)
+    func remove(user: User) {
+        do {
+            try fileSerice.removeFile(at: folderPath, with: user.id)
+        } catch {
+            print(error)
+        }
     }
 }

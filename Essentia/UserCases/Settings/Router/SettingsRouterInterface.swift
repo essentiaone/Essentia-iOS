@@ -15,6 +15,7 @@ enum SettingsRoutes {
     case backupKeystore
     case language
     case currency
+    case switchAccount(callBack: () -> Void)
 }
 
 protocol SettingsRouterInterface {

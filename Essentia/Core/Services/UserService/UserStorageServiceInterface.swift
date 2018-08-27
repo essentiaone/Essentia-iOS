@@ -11,5 +11,5 @@ import Foundation
 protocol UserStorageServiceInterface {
     func get() throws -> [User]
     func store(user: User) throws
-    func remove(user: User) throws
+    func remove(user: User)
 }

@@ -22,4 +22,8 @@ class Loader: LoaderInterface {
     func hide() {
         SVProgressHUD.dismiss()
     }
+    
+    func showError(message: String) {
+        SVProgressHUD.showError(withStatus: message)
+    }
 }
