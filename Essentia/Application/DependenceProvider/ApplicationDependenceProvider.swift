@@ -68,6 +68,12 @@ class ApplicationDependenceProvider {
         loadFileService()
         loadMnemonicService()
         loadLoader()
+        loadLogger()
+    }
+    
+    private func loadLogger() {
+        let injection: LoggerServiceInterface = LoggerService()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadLoader() {

@@ -18,10 +18,15 @@ def pod_ui
     pod 'SVProgressHUD'
 end
 
+def pod_debug
+    pod 'CocoaLumberjack/Swift'
+end
+
 target 'Essentia' do
     use_frameworks!
     pod_core
     pod_ui
+    pod_debug
     pod_analytics
     
 end

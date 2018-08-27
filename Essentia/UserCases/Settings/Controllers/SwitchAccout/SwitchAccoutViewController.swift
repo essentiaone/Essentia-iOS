@@ -82,7 +82,7 @@ class SwitchAccoutViewController: BaseViewController {
     }
     
     private func loadUsers() {
-        guard let users = try? userService.get() else { return }
+        let users = userService.get()
         self.users = users
     }
     
@@ -109,11 +109,7 @@ class SwitchAccoutViewController: BaseViewController {
     
     private func storeCurrentUser() {
         let user = EssentiaStore.currentUser
-        do {
-            try (inject() as UserStorageServiceInterface).store(user: user)
-        } catch {
-            (inject() as LoaderInterface).showError(message: error.localizedDescription)
-        }
+        (inject() as UserStorageServiceInterface).store(user: user)
     }
     
     private func generateNewUser() {

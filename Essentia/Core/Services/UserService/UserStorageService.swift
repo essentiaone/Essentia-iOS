@@ -17,15 +17,20 @@ class UserStorageService: UserStorageServiceInterface {
     private lazy var fileSerice: LocalFilesServiceInterface = inject()
     let folderPath: LocalFolderPath = .final(Constants.storageFolder)
     
-    func get() throws -> [User] {
-        return try fileSerice.getFilesInFolder(path: folderPath)
+    func get() -> [User] {
+        do {
+            return try fileSerice.getFilesInFolder(path: folderPath)
+        } catch {
+            (inject() as LoggerServiceInterface).log(error.localizedDescription)
+            return []
+        }
     }
     
-    func store(user: User) throws {
+    func store(user: User) {
         do {
             try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
         } catch {
-            print(error)
+            (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }
     }
     
@@ -33,7 +38,7 @@ class UserStorageService: UserStorageServiceInterface {
         do {
             try fileSerice.removeFile(at: folderPath, with: user.id)
         } catch {
-            print(error)
+            (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }
     }
 }
