@@ -16,6 +16,7 @@ class User: Codable {
     var mnemonic: String?
     var name: String?
     var currency: Currency
+    var language: LocalizationLanguage
     var currentlyBackedUp: [BackupType] = []
     
     convenience init(mnemonic: String) {
@@ -29,6 +30,7 @@ class User: Codable {
         self.id = String(Date().timeIntervalSince1970)
         self.currentlyBackedUp = []
         self.currency = .usd
+        self.language = LocalizationLanguage.defaultLanguage
     }
     
     var dislayName: String {

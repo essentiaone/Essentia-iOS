@@ -9,7 +9,7 @@
 import UIKit
 
 class SettingsRouter: SettingsRouterInterface {
-    let navigationController: UINavigationController
+    weak var navigationController: UINavigationController?
     
     required init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -27,23 +27,30 @@ class SettingsRouter: SettingsRouterInterface {
             showBackupRoute(type: .keystore)
         case .currency:
             push(vc: SettingsCurrencyViewController())
-        default:
-            return
+        case .language:
+            push(vc: SettingsLanguageViewController())
         }
     }
     
     private func push(vc: UIViewController) {
-        navigationController.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func pop() {
-        navigationController.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     private func showBackupRoute(type: BackupType) {
-        guard let mnemonic = EssentiaStore.currentUser.mnemonic else {
+        guard let mnemonic = EssentiaStore.currentUser.mnemonic,
+              let navigation = navigationController else {
             return
         }
-        prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
+        prepareInjection(BackupRouter(navigationController: navigation, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
+    }
+    
+    func logOut() {
+        let root = UIApplication.shared.keyWindow?.rootViewController as? WelcomeViewController
+        navigationController?.dismiss(animated: true)
+        root?.showFlipAnimation()
     }
 }

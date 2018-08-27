@@ -14,9 +14,14 @@ def pod_core
    pod 'essentia-bridges-api-ios'
 end
 
+def pod_ui
+    pod 'SVProgressHUD'
+end
+
 target 'Essentia' do
     use_frameworks!
     pod_core
+    pod_ui
     pod_analytics
     
 end

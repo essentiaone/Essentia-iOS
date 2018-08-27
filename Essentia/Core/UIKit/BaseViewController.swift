@@ -35,4 +35,10 @@ class BaseViewController: UIViewController {
         let keyboardRectangle = keyboardSize.cgRectValue
         keyboardHeight = keyboardRectangle.height
     }
+    
+    func showFlipAnimation() {
+        guard let mainwindow = UIApplication.shared.delegate?.window as? UIWindow else { return }
+        UIView.transition(with: mainwindow, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
+        }) { (_) -> Void in}
+    }
 }

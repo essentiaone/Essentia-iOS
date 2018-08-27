@@ -8,17 +8,6 @@
 
 import Foundation
 
-enum MnemonicLanguage {
-    case english
-    case japanese
-    case korean
-    case spanish
-    case simplifiedChinese
-    case traditionalChinese
-    case french
-    case italian
-}
-
 protocol MnemonicServiceInterface {
     func wordList() -> [String]
     func wordList(with language: MnemonicLanguage) -> [String]

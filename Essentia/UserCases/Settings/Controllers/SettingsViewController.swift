@@ -17,8 +17,6 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
-    private var currentLanguage: String = "English"
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,7 +55,7 @@ class SettingsViewController: BaseTableAdapterController {
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
                 .menuTitleDetail(icon: imageProvider.languageIcon,
                                  title: LS("Settings.Language"),
-                                 detail: currentLanguage,
+                                 detail: EssentiaStore.currentUser.language.rawValue,
                                  action: languageAction),
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.currencyIcon,
@@ -104,7 +102,8 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var logOutAction: () -> Void = {
-        
+        EssentiaStore.currentUser = User.notSigned
+        (inject() as SettingsRouterInterface).logOut()
     }
     
     private lazy var darkThemeAction: (Bool) -> Void = { isOn in
@@ -112,7 +111,7 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var languageAction: () -> Void = {
-        
+        (inject() as SettingsRouterInterface).show(.language)
     }
     
     private lazy var accountStrenghtAction: () -> Void = {
