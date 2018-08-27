@@ -52,6 +52,7 @@ class SwitchAccoutViewController: BaseViewController {
     // MARK: - Lifecycly
     override func viewDidLoad() {
         super.viewDidLoad()
+        storeCurrentUser()
         loadUsers()
         applyDesign()
         tableAdapter.reload(state)
@@ -101,7 +102,6 @@ class SwitchAccoutViewController: BaseViewController {
     }
     
     private lazy var createUserAction: () -> Void = { [weak self] in
-        self?.storeCurrentUser()
         self?.generateNewUser()
         self?.callBack()
         self?.dismiss(animated: true)
