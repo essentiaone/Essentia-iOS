@@ -41,7 +41,14 @@ enum LocalizationLanguage: String, Codable, Equatable {
     }
     
     var titleString: String {
-        return rawValue.firstSimbolUppercased()
+        switch self {
+        case .english:
+            return LS("LocalizationLanguage.English")
+        case .korean:
+            return LS("LocalizationLanguage.Korean")
+        case .chinese:
+            return LS("LocalizationLanguage.Chinese")
+        }
     }
     
     static var defaultLanguage: LocalizationLanguage {

@@ -24,6 +24,7 @@ class TestItem: LaunchpadItemInterface {
     
     func show(from navigationController: UINavigationController) {
         navigationController.tabBarController?.hidesBottomBarWhenPushed = true
-        prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: "duty stable equal capable scrap suffer field penalty aspect hazard awake stand dilemma ancient unknown", type: .keystore) as BackupRouterInterface, memoryPolicy: .viewController)
+        guard let mnemonic = EssentiaStore.currentUser.mnemonic else { return }
+        prepareInjection(BackupRouter(navigationController: navigationController, mnemonic: mnemonic, type: .keystore) as BackupRouterInterface, memoryPolicy: .viewController)
     }
 }

@@ -27,15 +27,20 @@ class LocalFilesService: LocalFilesServiceInterface {
         }
     }
     
-    func storeFile<File: Codable>(file: File, to path: LocalFolderPath, with name: String) throws {
-        let fileData = try JSONEncoder().encode(file)
+    func storeData(_ data: Data, to path: LocalFolderPath, with name: String) throws -> URL {
         let fileManager = FileManager.default
         let directory = directoryPath(currentPath: path.path)
         if !fileManager.fileExists(atPath: directory) {
             try fileManager.createDirectory(atPath: directory, withIntermediateDirectories: true, attributes: nil)
         }
         let url = fileUrl(fromPath: path.path, name: name)
-        try fileData.write(to: url)
+        try data.write(to: url)
+        return url
+    }
+    
+    func storeFile<File: Codable>(file: File, to path: LocalFolderPath, with name: String) throws -> URL {
+        let fileData = try JSONEncoder().encode(file)
+        return try storeData(fileData, to: path, with: name)
     }
     
     func removeFile(at path: LocalFolderPath, with name: String) throws {

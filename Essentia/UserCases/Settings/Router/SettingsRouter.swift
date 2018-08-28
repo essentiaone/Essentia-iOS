@@ -31,6 +31,12 @@ class SettingsRouter: SettingsRouterInterface {
             push(vc: SettingsLanguageViewController())
         case .switchAccount(let callBack):
             popUp(vc: SwitchAccoutViewController(callBack))
+        case .security:
+            push(vc: SettingsSecurityViewController())
+        case .backup(let type):
+            showBackupRoute(type: type)
+        case .activity(let fileUrl):
+            popUp(vc: UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil))
         }
     }
     
@@ -46,17 +52,17 @@ class SettingsRouter: SettingsRouterInterface {
         navigationController?.present(vc, animated: true)
     }
     
-    private func showBackupRoute(type: BackupType) {
-        guard let mnemonic = EssentiaStore.currentUser.mnemonic,
-              let navigation = navigationController else {
-            return
-        }
-        prepareInjection(BackupRouter(navigationController: navigation, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
-    }
-    
     func logOut() {
         let root = UIApplication.shared.keyWindow?.rootViewController as? WelcomeViewController
         navigationController?.dismiss(animated: true)
         root?.showFlipAnimation()
+    }
+    
+    private func showBackupRoute(type: BackupType) {
+        guard let mnemonic = EssentiaStore.currentUser.mnemonic,
+            let navigation = navigationController else {
+                return
+        }
+        prepareInjection(BackupRouter(navigationController: navigation, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
     }
 }
