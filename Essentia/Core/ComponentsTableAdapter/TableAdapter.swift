@@ -50,6 +50,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCenteredButton.self)
         tableView.register(TableComponentPassword.self)
         tableView.register(TableComponentCheckField.self)
+        tableView.register(TableComponentImageTitle.self)
     }
     
     // MARK: - Update State
@@ -176,6 +177,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.checkImageView.image = state.value ?! imageProvider.checkIcon
             return cell
+        case .imageTitle(let image,let title, let withArrow, _):
+            let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage?.image = image
+            cell.titleLabel.text = title
+            cell.accessoryType = withArrow ? .disclosureIndicator : .none
+            return cell
         default:
             fatalError()
         }
@@ -224,6 +231,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         case .menuTitleCheck:
             return 44.0
+        case .imageTitle:
+            return 60.0
         default:
             fatalError()
         }
@@ -240,6 +249,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuButton: fallthrough
         case .menuTitleDetail: fallthrough
         case .menuTitleCheck: fallthrough
+        case .imageTitle: fallthrough
         case .checkBox:
             return true
         default:
@@ -250,6 +260,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let component = tableState[indexPath.row]
         switch component {
         case .menuButton(_, _, let action):
@@ -261,6 +272,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .checkBox(_, _, _, _, let action):
             action()
         case .menuTitleCheck(_, _, let action):
+            action()
+        case .imageTitle(_, _, _,let action):
             action()
         default:
             return

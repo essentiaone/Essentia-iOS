@@ -29,6 +29,8 @@ class SettingsRouter: SettingsRouterInterface {
             push(vc: SettingsCurrencyViewController())
         case .language:
             push(vc: SettingsLanguageViewController())
+        case .switchAccount(let callBack):
+            popUp(vc: SwitchAccoutViewController(callBack))
         }
     }
     
@@ -38,6 +40,10 @@ class SettingsRouter: SettingsRouterInterface {
     
     func pop() {
         navigationController?.popViewController(animated: true)
+    }
+    
+    func popUp(vc: UIViewController) {
+        navigationController?.present(vc, animated: true)
     }
     
     private func showBackupRoute(type: BackupType) {

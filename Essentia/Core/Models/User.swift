@@ -6,9 +6,9 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class User: Codable {
+class User: NSObject, Codable {
     static var notSigned = User(mnemonic: "")
     
     let id: String
@@ -16,6 +16,7 @@ class User: Codable {
     var mnemonic: String?
     var name: String?
     var currency: Currency
+    var imageData: Data?
     var language: LocalizationLanguage
     var currentlyBackedUp: [BackupType] = []
     
@@ -25,15 +26,30 @@ class User: Codable {
       self.mnemonic = mnemonic
     }
     
+    convenience init(seed: String, image: UIImage, name: String) {
+        self.init(seed: seed)
+        self.name = name
+        self.imageData = UIImageJPEGRepresentation(image, 1.0)
+    }
+    
     init(seed: String) {
         self.seed = seed
-        self.id = String(Date().timeIntervalSince1970)
+        self.id = String(Int(Date().timeIntervalSince1970))
         self.currentlyBackedUp = []
         self.currency = .usd
+        self.imageData = UIImageJPEGRepresentation(UIImage(named: "testAvatar")!, 1.0)!
         self.language = LocalizationLanguage.defaultLanguage
     }
     
     var dislayName: String {
         return name ?? String(seed.suffix(4))
+    }
+    
+    var icon: UIImage {
+        guard let data = imageData,
+              let image = UIImage(data: data) else {
+            return #imageLiteral(resourceName: "testAvatar")
+        }
+        return image
     }
 }

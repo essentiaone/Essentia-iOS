@@ -94,3 +94,6 @@
 
 "Settings.Currency.Title" = "Currency";
 "Settings.Language.Title" = "언어";
+
+"Settings.Accounts.Title" = "Accounts";
+"Settings.Accounts.CreateNew" = "Create Account";

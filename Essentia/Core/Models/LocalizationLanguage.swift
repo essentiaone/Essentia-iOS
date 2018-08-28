@@ -37,7 +37,11 @@ enum LocalizationLanguage: String, Codable, Equatable {
     }
     
     var rawValue: String {
-        return String(describing: self).firstSimbolUppercased()
+        return String(describing: self)
+    }
+    
+    var titleString: String {
+        return rawValue.firstSimbolUppercased()
     }
     
     static var defaultLanguage: LocalizationLanguage {

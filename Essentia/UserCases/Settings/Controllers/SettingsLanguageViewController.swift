@@ -43,7 +43,7 @@ class SettingsLanguageViewController: BaseTableAdapterController {
         let currenyLanguage = EssentiaStore.currentUser.language
         LocalizationLanguage.cases.forEach { (language) in
             languageComponent.append(.menuTitleCheck(
-                title: language.rawValue,
+                title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: {
                     EssentiaStore.currentUser.language = language

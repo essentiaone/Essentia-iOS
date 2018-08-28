@@ -26,12 +26,16 @@ class SettingsViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
-        tableAdapter.reload(state)
+        updateState()
     }
     
     // MARK: - Override
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    private func updateState() {
+        tableAdapter.reload(state)
     }
     
     private func injectRouter() {
@@ -45,22 +49,23 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
+        let store = EssentiaStore.currentUser
         return [.empty(height: 45, background: colorProvider.settingsCellsBackround),
                 .title(title: LS("Settings.Title")),
                 .accountStrengthAction(progress: 10, action: accountStrenghtAction),
-                .currentAccount(icon: imageProvider.testAvatarIcon,
+                .currentAccount(icon: store.icon,
                                 title: LS("Settings.CurrentAccountTitle"),
-                                name: "Test",
+                                name: store.dislayName,
                                 action: editCurrentAccountAction),
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
                 .menuTitleDetail(icon: imageProvider.languageIcon,
                                  title: LS("Settings.Language"),
-                                 detail: EssentiaStore.currentUser.language.rawValue,
+                                 detail: store.language.titleString,
                                  action: languageAction),
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.currencyIcon,
                                  title: LS("Settings.Currency"),
-                                 detail: EssentiaStore.currentUser.currency.titleString,
+                                 detail: store.currency.titleString,
                                  action: currencyAction),
                 .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.securityIcon,
@@ -69,11 +74,11 @@ class SettingsViewController: BaseTableAdapterController {
                                  action: languageAction),
                 .separator(inset: Constants.separatorInset),
                 .empty(height: 16, background: colorProvider.settingsBackgroud),
-                .menuSwitch(icon: imageProvider.darkThemeIcon,
-                                          title: LS("Settings.DarkTheme"),
-                                          state: ComponentState(defaultValue: false),
-                                          action: darkThemeAction),
-                .separator(inset: Constants.separatorInset),
+//                .menuSwitch(icon: imageProvider.darkThemeIcon,
+//                                          title: LS("Settings.DarkTheme"),
+//                                          state: ComponentState(defaultValue: false),
+//                                          action: darkThemeAction),
+//                .separator(inset: Constants.separatorInset),
                 .menuTitleDetail(icon: imageProvider.feedbackIcon,
                                  title: LS("Settings.Feedback"),
                                  detail: "",
@@ -98,10 +103,14 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var switchAccountAction: () -> Void = {
-        
+        (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
+            self?.updateState()
+        }))
+        self.viewDidDisappear(true)
     }
     
     private lazy var logOutAction: () -> Void = {
+        (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.currentUser)
         EssentiaStore.currentUser = User.notSigned
         (inject() as SettingsRouterInterface).logOut()
     }
