@@ -92,6 +92,6 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     }
     
     private lazy var loginMethodAction: () -> Void = {
-        self.router.pop()
+        (inject() as SettingsRouterInterface).show(.loginType)
     }
 }

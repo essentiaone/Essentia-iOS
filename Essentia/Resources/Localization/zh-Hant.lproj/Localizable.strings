@@ -118,7 +118,7 @@
 "LocalizationLanguage.Korean" = "Korean";
 "LocalizationLanguage.Chinese" = "Chinese";
 
-"BackupType.Mnemonic" = "";
+"BackupType.Mnemonic" = "Mnemonic";
 "BackupType.Seed" = "Seed";
 "BackupType.Keystore" = "Keystore";
 "BackupType.None" = "None";

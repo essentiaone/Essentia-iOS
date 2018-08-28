@@ -19,6 +19,7 @@ enum SettingsRoutes {
     case switchAccount(callBack: () -> Void)
     case backup(type: BackupType)
     case activity(fileUrl: URL)
+    case loginType
 }
 
 protocol SettingsRouterInterface {
