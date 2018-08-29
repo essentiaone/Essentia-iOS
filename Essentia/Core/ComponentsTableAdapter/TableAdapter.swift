@@ -51,6 +51,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentPassword.self)
         tableView.register(TableComponentCheckField.self)
         tableView.register(TableComponentImageTitle.self)
+        tableView.register(TableComponentSectionTitle.self)
     }
     
     // MARK: - Update State
@@ -114,6 +115,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.progress = progress
             cell.resultAction = backAction
             return cell
+        case .menuSimpleTitleDetail(let title, let detail, let withArrow , _):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.detailTextLabel?.text = detail
+            cell.accessoryType = withArrow ? .disclosureIndicator : .none
+            return cell
         case .menuTitleDetail(let icon, let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
             cell.textLabel?.text = title
@@ -126,6 +133,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.imageView?.image = icon
             cell.switchView.isOn = state.value
             cell.action = action
+            return cell
+        case .menuSectionHeader(let title, let backgroud):
+            let cell: TableComponentSectionTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.backgroundColor = backgroud
             return cell
         case .menuButton(let title, let color, _):
             let cell: TableComponentMenuButton = tableView.dequeueReusableCell(for: indexPath)
@@ -207,6 +219,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 394.0
         case .menuButton: fallthrough
         case .menuSwitch: fallthrough
+        case .menuSimpleTitleDetail: fallthrough
         case .menuTitleDetail:
             return 44.0
         case .currentAccount:
@@ -233,6 +246,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 44.0
         case .imageTitle:
             return 60.0
+        case .menuSectionHeader:
+            return 26.0
         default:
             fatalError()
         }
@@ -248,6 +263,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .currentAccount: fallthrough
         case .menuButton: fallthrough
         case .menuTitleDetail: fallthrough
+        case .menuSimpleTitleDetail: fallthrough
         case .menuTitleCheck: fallthrough
         case .imageTitle: fallthrough
         case .checkBox:
@@ -266,6 +282,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuButton(_, _, let action):
             action()
         case .menuTitleDetail(_, _, _, let action):
+            action()
+        case .menuSimpleTitleDetail(_, _, _, let action):
             action()
         case .currentAccount(_, _, _, let action):
             action()

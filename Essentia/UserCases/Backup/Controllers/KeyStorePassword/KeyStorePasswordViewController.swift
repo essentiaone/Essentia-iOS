@@ -11,6 +11,7 @@ import UIKit
 fileprivate struct Store {
     var password: String = ""
     var isValid: Bool = false
+    static var keyStoreFolder = "Keystore"
 }
 
 class KeyStorePasswordViewController: BaseTableAdapterController {
@@ -75,9 +76,34 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
     }
     
     private lazy var continueAction: () -> Void = {
-        InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
-            EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
-            (inject() as BackupRouterInterface).showNext()
-        })
+        (inject() as LoaderInterface).show()
+       self.storeMnemonic()
+    }
+    
+    private func storeMnemonic() {
+        DispatchQueue.global().async {
+            let path = LocalFolderPath.final(Store.keyStoreFolder)
+            do {
+                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(seed: EssentiaStore.currentUser.seed,
+                                                                                       password: self.store.password)
+                let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
+                                                                                 to: path,
+                                                                                 with: EssentiaStore.currentUser.id)
+                EssentiaStore.currentUser.keystoreUrl = url
+            } catch {
+                (inject() as LoggerServiceInterface).log(error.localizedDescription)
+            }
+            self.showSuccess()
+        }
+    }
+    
+    private func showSuccess() {
+        OperationQueue.main.addOperation {
+            (inject() as LoaderInterface).hide()
+            InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
+                EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
+                (inject() as BackupRouterInterface).showNext()
+            })
+        }
     }
 }

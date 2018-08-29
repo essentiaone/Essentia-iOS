@@ -28,7 +28,7 @@ class UserStorageService: UserStorageServiceInterface {
     
     func store(user: User) {
         do {
-            try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
+            _ = try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
         } catch {
             (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }

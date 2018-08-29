@@ -71,7 +71,7 @@ class SettingsViewController: BaseTableAdapterController {
                 .menuTitleDetail(icon: imageProvider.securityIcon,
                                  title: LS("Settings.Security"),
                                  detail: "",
-                                 action: languageAction),
+                                 action: securityAction),
                 .separator(inset: Constants.separatorInset),
                 .empty(height: 16, background: colorProvider.settingsBackgroud),
 //                .menuSwitch(icon: imageProvider.darkThemeIcon,
@@ -117,6 +117,10 @@ class SettingsViewController: BaseTableAdapterController {
     
     private lazy var darkThemeAction: (Bool) -> Void = { isOn in
         
+    }
+    
+    private lazy var securityAction: () -> Void = {
+        (inject() as SettingsRouterInterface).show(.security)
     }
     
     private lazy var languageAction: () -> Void = {
