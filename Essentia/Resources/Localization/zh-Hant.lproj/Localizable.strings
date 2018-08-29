@@ -132,3 +132,9 @@
 "MnemonicBackupWarning.Description" = "In order to use this login method as primary one, you need to make a backup of it";
 "MnemonicBackupWarning.LeftButton" = "CANCEL";
 "MnemonicBackupWarning.RightButton" = "BACKUP";
+
+"Restore.Title" = "Restore";
+"Restore.Description" = "Choose your preferred login method to access your Essentia account";
+"Restore.Mnemonic" = "Mnemonic Phrase";
+"Restore.Seed" = "Seed";
+"Restore.Keystore" = "Keystore File";

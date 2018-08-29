@@ -32,4 +32,7 @@ protocol AppImageProviderInterface {
     var notificationPlaceholderIcon: UIImage { get }
     var warningIcon: UIImage { get }
     var mnemonicWaringIcon: UIImage { get }
+    var mnemonicIcon: UIImage { get }
+    var seedIcon: UIImage { get }
+    var keystoreIcon: UIImage { get }
 }
