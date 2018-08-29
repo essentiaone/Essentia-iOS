@@ -19,6 +19,8 @@ class User: NSObject, Codable {
     var imageData: Data?
     var language: LocalizationLanguage
     var currentlyBackedUp: [BackupType] = []
+    var loginMethod: BackupType = .none
+    var keystoreUrl: URL?
     
     convenience init(mnemonic: String) {
       let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)

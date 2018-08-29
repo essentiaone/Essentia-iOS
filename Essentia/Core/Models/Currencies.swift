@@ -15,7 +15,16 @@ enum Currency: Int, Codable, Equatable, Hashable {
     case cny
     
     var titleString: String {
-        return String(describing: self).uppercased()
+        switch self {
+        case .usd:
+            return LS("Currency.usd")
+        case .eur:
+            return LS("Currency.eur")
+        case .krw:
+            return LS("Currency.krw")
+        case .cny:
+            return LS("Currency.cny")
+        }
     }
     
     static var cases: [Currency] {

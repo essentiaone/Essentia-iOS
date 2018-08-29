@@ -25,6 +25,11 @@ class MnemonicService: MnemonicServiceInterface {
         return wrappedLanguage(for: language).words
     }
     
+    func keyStoreFile(seed: String, password: String) throws -> Data {
+        let keystore = try KeystoreV3(seed: Data(hex: seed), password: password)
+        return (try keystore?.encodedData())!
+    }
+    
     func languageForCurrentLocale() -> MnemonicLanguage {
         func chinesLanguageType(for languageCode: String) -> MnemonicLanguage {
             let chinasType = languageCode.prefix(7)

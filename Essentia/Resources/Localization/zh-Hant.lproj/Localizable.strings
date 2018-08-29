@@ -97,3 +97,28 @@
 
 "Settings.Accounts.Title" = "Accounts";
 "Settings.Accounts.CreateNew" = "Create Account";
+
+"Settings.Security.Title" = "Security";
+"Settings.Security.SectionHeader" = "BACKUP FILES";
+"Settings.Security.Mnemonic.Title" = "Mnemonic Phrase";
+"Settings.Security.Mnemonic.Detail" = "Show";
+"Settings.Security.Seed.Title" = "Seed";
+"Settings.Security.Seed.Detail" = "Show";
+"Settings.Security.Keystore.Title" = "Keystore File";
+"Settings.Security.Keystore.Detail" = "Download";
+"Settings.Security.LoginMethod.Title" = "Login Method";
+"Settings.Security.LoginMethod.Detail.None" = "None";
+
+"Currency.usd" = "USD";
+"Currency.eur" = "EUR";
+"Currency.krw" = "KRW";
+"Currency.cny" = "CNY";
+
+"LocalizationLanguage.English" = "English";
+"LocalizationLanguage.Korean" = "Korean";
+"LocalizationLanguage.Chinese" = "Chinese";
+
+"BackupType.Mnemonic" = "Mnemonic";
+"BackupType.Seed" = "Seed";
+"BackupType.Keystore" = "Keystore";
+"BackupType.None" = "None";

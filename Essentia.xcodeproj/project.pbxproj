@@ -66,6 +66,10 @@
 		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E012134A24000A54B7E /* LoggerServiceInterface.swift */; };
 		34115E052134A25F00A54B7E /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E042134A25F00A54B7E /* LoggerService.swift */; };
+		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
+		34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */; };
+		34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */; };
+		34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -228,6 +232,10 @@
 		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		34115E012134A24000A54B7E /* LoggerServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerServiceInterface.swift; sourceTree = "<group>"; };
 		34115E042134A25F00A54B7E /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
+		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
+		34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSectionTitle.swift; sourceTree = "<group>"; };
+		34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSectionTitle.xib; sourceTree = "<group>"; };
+		34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoginMethodViewController.swift; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
@@ -757,6 +765,15 @@
 			path = LoggerService;
 			sourceTree = "<group>";
 		};
+		34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */ = {
+			isa = PBXGroup;
+			children = (
+				34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */,
+				34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */,
+			);
+			path = TableComponentSectionTitle;
+			sourceTree = "<group>";
+		};
 		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
 			isa = PBXGroup;
 			children = (
@@ -969,6 +986,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */,
 				34115DFC2134462900A54B7E /* TableComponentImageTitle */,
 				34416808212FEDB7008B8A91 /* TableComponentCheckField */,
 				34B7965A212C085A000B1251 /* TableComponentPassword */,
@@ -1043,6 +1061,8 @@
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
 				34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */,
+				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
+				34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1256,6 +1276,7 @@
 				3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */,
 				34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */,
 				344826AC2120B50D00C19EB3 /* TableComponentTitle.xib in Resources */,
+				34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */,
 				343122702124E76C009E4A7A /* TableComponentNavigationBar.xib in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
@@ -1454,8 +1475,11 @@
 				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
+				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
 				34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */,
+				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
+				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				344826C5212187FE00C19EB3 /* TableComponentMenuButton.swift in Sources */,
 				3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */,
