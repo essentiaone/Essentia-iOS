@@ -30,4 +30,7 @@ class AppImageProvider: AppImageProviderInterface {
     var cancelIcon: UIImage = #imageLiteral(resourceName: "cancelIcon")
     var plusIcon: UIImage = #imageLiteral(resourceName: "greenPlusIcon")
     var notificationPlaceholderIcon: UIImage = #imageLiteral(resourceName: "notificationPlaceholder")
+    var mnemonicIcon: UIImage = #imageLiteral(resourceName: "mnemonicIcon")
+    var seedIcon: UIImage = #imageLiteral(resourceName: "seedIcon")
+    var keystoreIcon: UIImage = #imageLiteral(resourceName: "keystoreIcon")
 }
