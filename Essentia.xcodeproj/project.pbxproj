@@ -66,12 +66,12 @@
 		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E012134A24000A54B7E /* LoggerServiceInterface.swift */; };
 		34115E052134A25F00A54B7E /* LoggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E042134A25F00A54B7E /* LoggerService.swift */; };
-		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
-		34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */; };
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */; };
 		34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */; };
 		34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */; };
+		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
+		34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -144,6 +144,8 @@
 		349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */; };
 		349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA4BC21246A1E00E9256F /* LocalFilesService.swift */; };
 		349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349AA4BF212495E300E9256F /* TableComponentDescription.xib */; };
+		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
+		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
 		34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3B213048CB00527F15 /* Bundle+LS.swift */; };
@@ -234,12 +236,12 @@
 		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		34115E012134A24000A54B7E /* LoggerServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerServiceInterface.swift; sourceTree = "<group>"; };
 		34115E042134A25F00A54B7E /* LoggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerService.swift; sourceTree = "<group>"; };
-		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
-		34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsPlaceholderViewController.xib; sourceTree = "<group>"; };
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSectionTitle.swift; sourceTree = "<group>"; };
 		34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSectionTitle.xib; sourceTree = "<group>"; };
 		34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoginMethodViewController.swift; sourceTree = "<group>"; };
+		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
+		34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsPlaceholderViewController.xib; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
@@ -312,6 +314,8 @@
 		349AA4BA2124604B00E9256F /* LocalFilesServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesServiceInterface.swift; sourceTree = "<group>"; };
 		349AA4BC21246A1E00E9256F /* LocalFilesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFilesService.swift; sourceTree = "<group>"; };
 		349AA4BF212495E300E9256F /* TableComponentDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentDescription.xib; sourceTree = "<group>"; };
+		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
+		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A382130449D00527F15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -543,6 +547,7 @@
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				34AA4E8E2136A783004C25ED /* RestoreAccount */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
 			);
 			path = Controllers;
@@ -770,15 +775,6 @@
 			path = LoggerService;
 			sourceTree = "<group>";
 		};
-		34115E1121368E7100A54B7E /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */,
-				34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */,
-			);
-			path = Notifications;
-            sourceTree = "<group>";
-        };
 		34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */ = {
 			isa = PBXGroup;
 			children = (
@@ -786,6 +782,15 @@
 				34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */,
 			);
 			path = TableComponentSectionTitle;
+			sourceTree = "<group>";
+		};
+		34115E1121368E7100A54B7E /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */,
+				34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */,
+			);
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
@@ -1146,6 +1151,15 @@
 			path = TableComponentDescription;
 			sourceTree = "<group>";
 		};
+		34AA4E8E2136A783004C25ED /* RestoreAccount */ = {
+			isa = PBXGroup;
+			children = (
+				34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */,
+				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
+			);
+			path = RestoreAccount;
+			sourceTree = "<group>";
+		};
 		34B27A4521336AF200527F15 /* Loader */ = {
 			isa = PBXGroup;
 			children = (
@@ -1298,6 +1312,7 @@
 				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
+				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
@@ -1522,6 +1537,7 @@
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
+				34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */,
 				34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,

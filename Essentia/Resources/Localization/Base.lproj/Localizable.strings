@@ -123,3 +123,9 @@
 "BackupType.Keystore" = "Keystore";
 "BackupType.None" = "None";
 
+"Restore.Title" = "Restore";
+"Restore.Description" = "Choose your preferred login method to access your Essentia account";
+"Restore.Mnemonic" = "Mnemonic Phrase";
+"Restore.Seed" = "Seed";
+"Restore.Keystore" = "Keystore File";
+

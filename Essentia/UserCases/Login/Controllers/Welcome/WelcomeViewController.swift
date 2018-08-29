@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeViewController: BaseViewController {
+class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
@@ -29,6 +29,7 @@ class WelcomeViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
+        present(RestoreAccountViewController(delegate: self), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {
@@ -42,7 +43,8 @@ class WelcomeViewController: BaseViewController {
     @IBAction func termsAction(_ sender: Any) {
     }
     
-    private func createUser() {
+    // MARK: - RestoreAccountDelegate
+    func showBackup(type: BackupType) {
         
     }
     
