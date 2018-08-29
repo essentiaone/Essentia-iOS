@@ -48,7 +48,7 @@ fileprivate enum TabBarTab {
         case .wallet:
             return UIViewController()
         case .notifications:
-            return UIViewController()
+            return NotificationsPlaceholderViewController()
         case .settings:
             return SettingsViewController()
         }
@@ -67,7 +67,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     override init() {
         super.init()
         delegate = self
-        let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
+        let items: [TabBarTab] = [.launchpad, .notifications, .settings]
         viewControllers = items.map { return $0.tabBarItem }
         hidesBottomBarWhenPushed = false
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BackupType: Int, Codable {
+enum BackupType: String, Codable {
     case mnemonic
     case seed
     case keystore
