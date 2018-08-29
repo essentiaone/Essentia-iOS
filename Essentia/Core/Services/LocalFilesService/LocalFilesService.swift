@@ -14,7 +14,9 @@ class LocalFilesService: LocalFilesServiceInterface {
         let url = fileUrl(fromPath: path.path, name: name)
         let fileData = try Data(contentsOf: url)
         guard let file: File = try? JSONDecoder().decode(File.self, from: fileData) else {
-            throw NSError(domain: "Unable to get file", code:  404, userInfo: nil)
+            try removeFile(at: path, with: name)
+            (inject() as LoggerServiceInterface).log("File removed at \(path.path)\(name)")
+            throw NSError(domain: "Unable to decode file", code:  401, userInfo: nil)
         }
         return file
     }
@@ -22,8 +24,11 @@ class LocalFilesService: LocalFilesServiceInterface {
     func getFilesInFolder<File: Codable>(path: LocalFolderPath) throws -> [File] {
         let pathUrl = fileUrl(fromPath: path.path, name: nil)
         let names = try FileManager.default.contentsOfDirectory(atPath: pathUrl.path)
-        return try names.map {
-            return try getFile(path: path, name: $0)
+        return names.compactMap {
+            guard let file: File = try? getFile(path: path, name: $0) else {
+                return nil
+            }
+            return file
         }
     }
     
