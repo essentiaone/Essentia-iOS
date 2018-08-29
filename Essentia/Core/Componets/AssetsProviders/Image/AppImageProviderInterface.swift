@@ -30,4 +30,6 @@ protocol AppImageProviderInterface {
     var cancelIcon: UIImage { get }
     var plusIcon: UIImage { get }
     var notificationPlaceholderIcon: UIImage { get }
+    var warningIcon: UIImage { get }
+    var mnemonicWaringIcon: UIImage { get }
 }
