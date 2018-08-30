@@ -31,6 +31,8 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
         leftButton.setImage(imageProvider.backButtonImage, for: .normal)
         leftButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: -5)
         leftButton.imageView?.contentMode = .scaleAspectFit
+        leftButton.titleLabel?.font = AppFont.regular.withSize(15.0)
+        rightButton.titleLabel?.font = AppFont.regular.withSize(15.0)
     }
     
     @IBAction func leftButtonAction(_ sender: Any) {

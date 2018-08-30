@@ -159,6 +159,10 @@
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
+		34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */; };
+		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
+		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
+		34ECE48E21373107008D9696 /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48D21373107008D9696 /* BackupMnemonicAlert.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -332,6 +336,10 @@
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
+		34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
+		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
+		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
+		34ECE48D21373107008D9696 /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -612,6 +620,7 @@
 				3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */,
 				3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */,
 				3401AF9420FFF4B6006DEF49 /* Warning */,
+				34ECE48D21373107008D9696 /* BackupMnemonicAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -904,18 +913,19 @@
 		34482662211A5FFE00C19EB3 /* Alerts */ = {
 			isa = PBXGroup;
 			children = (
-				34482663211A61CC00C19EB3 /* BlureAlert */,
+				34ECE4862136EBE5008D9696 /* QuestionAlert */,
+				34482663211A61CC00C19EB3 /* InfoAlert */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
 		};
-		34482663211A61CC00C19EB3 /* BlureAlert */ = {
+		34482663211A61CC00C19EB3 /* InfoAlert */ = {
 			isa = PBXGroup;
 			children = (
 				34482664211A61FE00C19EB3 /* InfoAlertViewController.xib */,
 				34482666211A620C00C19EB3 /* InfoAlertViewController.swift */,
 			);
-			path = BlureAlert;
+			path = InfoAlert;
 			sourceTree = "<group>";
 		};
 		34482668211B321000C19EB3 /* Launchpad */ = {
@@ -1082,6 +1092,7 @@
 				34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */,
 				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
 				34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */,
+				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1185,6 +1196,15 @@
 				34B7965B212C086A000B1251 /* TableComponentPassword.xib */,
 			);
 			path = TableComponentPassword;
+			sourceTree = "<group>";
+		};
+		34ECE4862136EBE5008D9696 /* QuestionAlert */ = {
+			isa = PBXGroup;
+			children = (
+				34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */,
+				34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */,
+			);
+			path = QuestionAlert;
 			sourceTree = "<group>";
 		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
@@ -1325,6 +1345,7 @@
 				349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */,
 				344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
+				34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */,
@@ -1497,6 +1518,7 @@
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
+				34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */,
 				34B27A4B21336B5900527F15 /* Loader.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
@@ -1537,6 +1559,7 @@
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
+				34ECE48E21373107008D9696 /* BackupMnemonicAlert.swift in Sources */,
 				34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */,
 				34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
@@ -1544,6 +1567,7 @@
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
+				34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

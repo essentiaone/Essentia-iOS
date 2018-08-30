@@ -49,7 +49,7 @@ class SwitchAccoutViewController: BaseViewController {
                                                        action: createUserAction)]
     }
     
-    // MARK: - Lifecycly
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         storeCurrentUser()

@@ -66,6 +66,10 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private lazy var mnemonicAction: () -> Void = {
+        guard EssentiaStore.currentUser.currentlyBackedUp.contains(.mnemonic) else {
+            self.showBackupMnemonicAlert()
+            return
+        }
         EssentiaStore.currentUser.loginMethod = .mnemonic
         self.reloadState()
     }
@@ -78,5 +82,12 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     private lazy var ketstoreAction: () -> Void = {
         EssentiaStore.currentUser.loginMethod = .keystore
         self.reloadState()
+    }
+    
+    private func showBackupMnemonicAlert() {
+        let alert = BackupMnemonicAlert(leftAction: {}) {
+            (inject() as SettingsRouterInterface).show(.backupMenmonic)
+        }
+        present(alert, animated: true)
     }
 }
