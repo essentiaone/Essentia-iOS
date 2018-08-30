@@ -137,3 +137,9 @@
 "Restore.Mnemonic" = "Mnemonic Phrase";
 "Restore.Seed" = "Seed";
 "Restore.Keystore" = "Keystore File";
+
+"EditAccount.Title" = "Account Name";
+"EditAccount.Done" = "Done";
+"EditAccount.Back" = "Settings";
+"EditAccount.Placeholder" = "Account...";
+"EditAccount.Description" = "Create a name for your account";

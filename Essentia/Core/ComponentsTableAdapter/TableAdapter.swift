@@ -52,6 +52,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCheckField.self)
         tableView.register(TableComponentImageTitle.self)
         tableView.register(TableComponentSectionTitle.self)
+        tableView.register(TableComponentTextField.self)
     }
     
     // MARK: - Update State
@@ -195,6 +196,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
+        case .textField(let placeholder, let text, let endEditing):
+            let cell: TableComponentTextField = tableView.dequeueReusableCell(for: indexPath)
+            cell.textField.placeholder = placeholder
+            cell.textField.text = text
+            cell.textFieldAction = endEditing
+            return cell
         default:
             fatalError()
         }
@@ -248,6 +255,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 60.0
         case .menuSectionHeader:
             return 26.0
+        case .textField:
+            return 35.0
         default:
             fatalError()
         }

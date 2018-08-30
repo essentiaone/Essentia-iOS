@@ -145,6 +145,6 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var editCurrentAccountAction: () -> Void = {
-        
+        (inject() as SettingsRouterInterface).show(.accountName)
     }
 }

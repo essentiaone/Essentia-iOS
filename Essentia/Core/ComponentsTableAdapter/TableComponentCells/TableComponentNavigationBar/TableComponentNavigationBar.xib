@@ -19,25 +19,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-uA-UPO">
-                        <rect key="frame" x="0.0" y="0.0" width="80" height="43.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="95" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="cTU-mM-LSg"/>
+                            <constraint firstAttribute="width" constant="95" id="cTU-mM-LSg"/>
                         </constraints>
                         <connections>
                             <action selector="leftButtonAction:" destination="g5j-rq-3pL" eventType="touchUpInside" id="VV1-xI-QB7"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-NH-Lid">
-                        <rect key="frame" x="295" y="0.0" width="80" height="43.5"/>
+                        <rect key="frame" x="280" y="0.0" width="95" height="43.5"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="80" id="69D-pq-FE3"/>
+                            <constraint firstAttribute="width" constant="95" id="69D-pq-FE3"/>
                         </constraints>
                         <connections>
                             <action selector="rightButtonAction:" destination="g5j-rq-3pL" eventType="touchUpInside" id="nWL-Yh-EUy"/>
                         </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Gfd-gb-Ahi">
-                        <rect key="frame" x="90" y="22" width="195" height="0.0"/>
+                        <rect key="frame" x="95" y="22" width="185" height="0.0"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -53,9 +53,9 @@
                     <constraint firstItem="eR6-NH-Lid" firstAttribute="top" secondItem="wXg-KD-swc" secondAttribute="top" id="hQ6-oA-C1F"/>
                     <constraint firstAttribute="trailing" secondItem="eR6-NH-Lid" secondAttribute="trailing" id="rAB-cz-MG5"/>
                     <constraint firstAttribute="bottom" secondItem="eR6-NH-Lid" secondAttribute="bottom" id="sYl-en-JlZ"/>
-                    <constraint firstItem="eR6-NH-Lid" firstAttribute="leading" secondItem="Gfd-gb-Ahi" secondAttribute="trailing" constant="10" id="ut9-Dz-hbF"/>
+                    <constraint firstItem="eR6-NH-Lid" firstAttribute="leading" secondItem="Gfd-gb-Ahi" secondAttribute="trailing" id="ut9-Dz-hbF"/>
                     <constraint firstItem="VZA-uA-UPO" firstAttribute="centerY" secondItem="wXg-KD-swc" secondAttribute="centerY" id="xxI-Gh-5pJ"/>
-                    <constraint firstItem="Gfd-gb-Ahi" firstAttribute="leading" secondItem="VZA-uA-UPO" secondAttribute="trailing" constant="10" id="zG0-gK-HzT"/>
+                    <constraint firstItem="Gfd-gb-Ahi" firstAttribute="leading" secondItem="VZA-uA-UPO" secondAttribute="trailing" id="zG0-gK-HzT"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

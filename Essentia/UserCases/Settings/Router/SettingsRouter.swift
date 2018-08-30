@@ -39,6 +39,8 @@ class SettingsRouter: SettingsRouterInterface {
             popUp(vc: UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil))
         case .loginType:
             push(vc: SettingsLoginMethodViewController())
+        case .accountName:
+            push(vc: SettingsEditUserViewController())
         }
     }
     
