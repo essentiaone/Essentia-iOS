@@ -163,6 +163,9 @@
 		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
 		34ECE48E21373107008D9696 /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48D21373107008D9696 /* BackupMnemonicAlert.swift */; };
+		34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */; };
+		34ECE49321383206008D9696 /* TableComponentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49221383206008D9696 /* TableComponentTextField.swift */; };
+		34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE49421383218008D9696 /* TableComponentTextField.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -340,6 +343,9 @@
 		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
 		34ECE48D21373107008D9696 /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
+		34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditUserViewController.swift; sourceTree = "<group>"; };
+		34ECE49221383206008D9696 /* TableComponentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextField.swift; sourceTree = "<group>"; };
+		34ECE49421383218008D9696 /* TableComponentTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextField.xib; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1015,6 +1021,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34ECE4912138306D008D9696 /* TableComponentTextField */,
 				34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */,
 				34115DFC2134462900A54B7E /* TableComponentImageTitle */,
 				34416808212FEDB7008B8A91 /* TableComponentCheckField */,
@@ -1093,6 +1100,7 @@
 				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
 				34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */,
 				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
+				34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1205,6 +1213,15 @@
 				34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */,
 			);
 			path = QuestionAlert;
+			sourceTree = "<group>";
+		};
+		34ECE4912138306D008D9696 /* TableComponentTextField */ = {
+			isa = PBXGroup;
+			children = (
+				34ECE49221383206008D9696 /* TableComponentTextField.swift */,
+				34ECE49421383218008D9696 /* TableComponentTextField.xib */,
+			);
+			path = TableComponentTextField;
 			sourceTree = "<group>";
 		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
@@ -1348,6 +1365,7 @@
 				34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
+				34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */,
 				343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */,
 				34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */,
 				344826BC212169CE00C19EB3 /* TableComponentTitleDetail.xib in Resources */,
@@ -1488,11 +1506,13 @@
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
+				34ECE49321383206008D9696 /* TableComponentTextField.swift in Sources */,
 				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
 				349AA4B421242CF900E9256F /* User.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicService.swift in Sources */,
 				343122642124A0DA009E4A7A /* BackupType.swift in Sources */,
+				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,

@@ -27,6 +27,7 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
     private func applyDesign() {
         leftButton.isHidden = leftAction != nil
         rightButton.isHidden = rightAction != nil
+        titleLabel.font = AppFont.bold.withSize(16)
         
         leftButton.setImage(imageProvider.backButtonImage, for: .normal)
         leftButton.imageEdgeInsets = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: -5)

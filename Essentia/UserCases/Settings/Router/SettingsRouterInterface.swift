@@ -20,6 +20,7 @@ enum SettingsRoutes {
     case backup(type: BackupType)
     case activity(fileUrl: URL)
     case loginType
+    case accountName
 }
 
 protocol SettingsRouterInterface {
