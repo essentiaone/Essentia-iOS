@@ -47,14 +47,14 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
     // MARK: - Actions
     
     private lazy var backAction: () -> Void = {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     private lazy var skipAction: () -> Void = {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     private lazy var saveAction: () -> Void = {
-        (inject() as BackupRouterInterface).showNext()
+        (inject() as AuthRouterInterface).showNext()
     }
 }

@@ -1,5 +1,5 @@
 //
-//  PharseEnteringController.swift
+//  MnemonicConfirmEnteringController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 26.07.18.
@@ -12,9 +12,9 @@ fileprivate struct Constants {
     static var confirmationNeeded: Int = 4
 }
 
-class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
+class MnemonicConfirmEnteringController: NSObject, MnemonicPhraseConfirmViewControllerInterface {
     private let mnemonic: [String]
-    private var views: [PhraseEnteringViewProtocol?]
+    private var views: [PhraseEnteringViewProtocol?] = []
     private var state: [PhraseEnteringState]
     private var editingIndex: Int = -1
     private var enteredWordCount: Int = 0
@@ -24,10 +24,10 @@ class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
     private lazy var mnemonicProvider: MnemonicServiceInterface = inject()
     
     // MARK: - Init
-    init(mnemonic: String, views: [PhraseEnteringViewProtocol]) {
-        self.views = views
+    init(delegate: PhraseEnteringControllerDelegate, mnemonic: String) {
         self.mnemonic = mnemonic.components(separatedBy: " ")
         self.state = Array(repeating: .empty, count: self.mnemonic.count)
+        self.delegate = delegate
         super.init()
     }
     
@@ -42,10 +42,19 @@ class PhraseEnteringController: NSObject, FakeTextFieldDelegate {
         return mnemonic[editingIndex]
     }
     
+    // MARK: - MnemonicPhraseConfirmViewControllerInterface
+    func beginEntering() {
+        choseNewIndexIfNeeded()
+    }
+    
+    func setViews(_ views: [PhraseEnteringViewProtocol?]) {
+        self.views = views
+    }
+    
     // MARK: - WordCalculating
     func choseNewIndexIfNeeded() {
         guard enteredWordCount < Constants.confirmationNeeded else {
-            delegate?.didFinishConfirmingWords()
+            delegate?.didFinishConfirmingWords(mnemonic: mnemonic)
             return
         }
         confirmNewWord()

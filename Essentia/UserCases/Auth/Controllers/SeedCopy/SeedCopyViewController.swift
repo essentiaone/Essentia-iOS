@@ -46,7 +46,7 @@ class SeedCopyViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func backAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     @IBAction func copyAction(_ sender: Any) {
@@ -57,6 +57,6 @@ class SeedCopyViewController: BaseViewController {
     
     @IBAction func continueAction(_ sender: Any) {
         EssentiaStore.currentUser.currentlyBackedUp.append(.seed)
-        (inject() as BackupRouterInterface).showNext()
+        (inject() as AuthRouterInterface).showNext()
     }
 }

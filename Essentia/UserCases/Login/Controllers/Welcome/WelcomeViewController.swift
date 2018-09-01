@@ -27,6 +27,14 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         design.applyDesign(to: self)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard !EssentiaStore.currentUser.seed.isEmpty else {
+            return
+        }
+        openTabBar()
+    }
+    
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
         present(RestoreAccountViewController(delegate: self), animated: true)
@@ -35,17 +43,29 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     @IBAction func enterAction(_ sender: Any) {
         (inject() as LoaderInterface).show()
         interactor.generateNewUser {
+            self.openTabBar()
             (inject() as LoaderInterface).hide()
-            self.present(TabBarController(), animated: true)
         }
     }
     
     @IBAction func termsAction(_ sender: Any) {
     }
     
+    func openTabBar() {
+        self.present(TabBarController(), animated: true)
+    }
+    
     // MARK: - RestoreAccountDelegate
     func showBackup(type: BackupType) {
-        
+        dismiss(animated: true)
+        let nvc = UINavigationController()
+        nvc.setNavigationBarHidden(true, animated: false)
+        self.present(nvc, animated: true)
+        prepareInjection(AuthRouter(navigationController: nvc,
+                                    mnemonic: "",
+                                    type: type,
+                                    auth: .login) as AuthRouterInterface,
+                         memoryPolicy: .viewController)
     }
     
 }

@@ -42,12 +42,12 @@ class RestoreAccountViewController: BaseViewController {
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),
                         withArrow: true,
-                        action: keystoreAction),
+                        action: mnemonicAction),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
             .imageTitle(image: imageProvider.seedIcon,
                         title: LS("Restore.Seed"),
                         withArrow: true,
-                        action: keystoreAction),
+                        action: seedAction),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
             .imageTitle(image: imageProvider.keystoreIcon,
                         title: LS("Restore.Keystore"),
@@ -80,18 +80,15 @@ class RestoreAccountViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private lazy var keystoreAction: () -> Void = { [weak self] in
-        self?.delegate?.showBackup(type: .keystore)
-        self?.dismiss(animated: true)
+    private lazy var keystoreAction: () -> Void = {
+        self.delegate?.showBackup(type: .keystore)
     }
     
-    private lazy var seedAction: () -> Void = { [weak self] in
-        self?.delegate?.showBackup(type: .seed)
-        self?.dismiss(animated: true)
+    private lazy var seedAction: () -> Void = {
+        self.delegate?.showBackup(type: .seed)
     }
     
-    private lazy var mnemonicAction: () -> Void = { [weak self] in
-        self?.delegate?.showBackup(type: .mnemonic)
-        self?.dismiss(animated: true)
+    private lazy var mnemonicAction: () -> Void = {
+        self.delegate?.showBackup(type: .mnemonic)
     }
 }

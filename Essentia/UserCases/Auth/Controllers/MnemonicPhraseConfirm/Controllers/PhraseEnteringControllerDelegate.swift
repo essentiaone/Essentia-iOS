@@ -10,5 +10,10 @@ import Foundation
 
 protocol PhraseEnteringControllerDelegate: class {
     func didBeginConfirming(word: String, at index: Int)
-    func didFinishConfirmingWords()
+    func didFinishConfirmingWords(mnemonic: [String])
+}
+
+protocol MnemonicPhraseConfirmViewControllerInterface: FakeTextFieldDelegate {
+    func beginEntering()
+    func setViews(_ views: [PhraseEnteringViewProtocol?])
 }
