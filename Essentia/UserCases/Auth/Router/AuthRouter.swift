@@ -14,7 +14,7 @@ fileprivate enum AuthRoutes {
     case phraseConfirm(mnemonic: String)
     case mnemonicLogin
     case seedCopy
-    case keyStorePassword(mnemonic: String)
+    case keyStorePassword(auth: AuthType)
     case keyStoreWarning
     
     var controller: UIViewController {
@@ -27,8 +27,8 @@ fileprivate enum AuthRoutes {
             return MnemonicPhraseConfirmViewController(mnemonic: mnemonic)
         case .seedCopy:
             return SeedCopyViewController(seed: EssentiaStore.currentUser.seed)
-        case .keyStorePassword(let mnemonic):
-            return KeyStorePasswordViewController(mnemonic: mnemonic)
+        case .keyStorePassword(let auth):
+            return KeyStorePasswordViewController(auth)
         case .keyStoreWarning:
             return KeyStoreWarningViewController()
         case .mnemonicLogin:
@@ -60,7 +60,7 @@ class AuthRouter: AuthRouterInterface {
             case .keystore:
                 routes = [
                     .keyStoreWarning,
-                    .keyStorePassword(mnemonic: mnemonic)
+                    .keyStorePassword(auth: auth)
                 ]
             default: routes = []
             }
@@ -75,6 +75,7 @@ class AuthRouter: AuthRouterInterface {
                 ]
             case .keystore:
                 routes = [
+                    .keyStorePassword(auth: auth)
                 ]
             default: routes = []
             }

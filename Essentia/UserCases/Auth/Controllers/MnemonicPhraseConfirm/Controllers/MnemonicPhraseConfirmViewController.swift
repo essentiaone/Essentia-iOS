@@ -26,7 +26,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     private lazy var wordIndicator = CurrentWordIndicatorAdapter(collectionView: currentWordCollectionView)
     private lazy var wordEntering = PhraseConfirmCollectionViewAdapter(collectionView: confirmWordsCollectionView)
     private var phraseEnteingController: MnemonicPhraseConfirmViewControllerInterface?
-    private let authType: AuthType
+    let authType: AuthType
     
     // MARK: - Init
     required init(mnemonic: String) {

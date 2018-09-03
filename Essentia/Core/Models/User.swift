@@ -9,7 +9,7 @@
 import UIKit
 
 class User: NSObject, Codable {
-    static var notSigned = User(mnemonic: "")
+    static var notSigned = User(seed: "")
     
     let id: String
     let seed: String

@@ -122,8 +122,8 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="9Si-PW-bma" firstAttribute="leading" secondItem="oNA-dA-ngD" secondAttribute="leading" id="5lL-92-3zq"/>
-                <constraint firstItem="9Si-PW-bma" firstAttribute="top" secondItem="oNA-dA-ngD" secondAttribute="top" constant="-20" id="6CJ-Fn-lba"/>
                 <constraint firstItem="oNA-dA-ngD" firstAttribute="trailing" secondItem="9Si-PW-bma" secondAttribute="trailing" id="Ilx-Rk-tQN"/>
+                <constraint firstItem="9Si-PW-bma" firstAttribute="top" secondItem="VrK-4H-gia" secondAttribute="top" id="MHq-db-8Wz"/>
                 <constraint firstItem="oNA-dA-ngD" firstAttribute="bottom" secondItem="9Si-PW-bma" secondAttribute="bottom" id="leg-yl-LP3"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="oNA-dA-ngD"/>

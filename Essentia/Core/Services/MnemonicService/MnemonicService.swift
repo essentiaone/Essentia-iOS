@@ -30,6 +30,15 @@ class MnemonicService: MnemonicServiceInterface {
         return (try keystore?.encodedData())!
     }
     
+    func seed(from keystoeFile: Data, password: String) -> String? {
+        guard let keystoreV3 = try? KeystoreV3(keyStore: keystoeFile),
+              let pk = try? keystoreV3?.getDecriptedKeyStore(password: password),
+              let seed = pk?.toHexString() else {
+            return nil
+        }
+        return seed
+    }
+    
     func languageForCurrentLocale() -> MnemonicLanguage {
         func chinesLanguageType(for languageCode: String) -> MnemonicLanguage {
             let chinasType = languageCode.prefix(7)

@@ -27,8 +27,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         design.applyDesign(to: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         guard !EssentiaStore.currentUser.seed.isEmpty else {
             return
         }
