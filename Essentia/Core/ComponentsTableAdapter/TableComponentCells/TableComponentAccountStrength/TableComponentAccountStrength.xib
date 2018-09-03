@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="369.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vpC-eY-bQu">
-                                <rect key="frame" x="15" y="74" width="345" height="44"/>
+                                <rect key="frame" x="15" y="69" width="345" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="O7l-48-ud3"/>
                                 </constraints>
@@ -38,13 +37,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8Pw-Oo-0Vd">
-                                <rect key="frame" x="15" y="123" width="345" height="0.0"/>
+                                <rect key="frame" x="15" y="118" width="345" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOb-Co-Jao">
-                                <rect key="frame" x="0.0" y="25" width="100" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="H3q-ES-gmZ"/>
                                     <constraint firstAttribute="height" constant="44" id="bUQ-nC-tY8"/>
@@ -64,7 +63,7 @@
                             <constraint firstItem="vpC-eY-bQu" firstAttribute="leading" secondItem="R8h-Z9-CfB" secondAttribute="leading" constant="15" id="ccg-3y-L6J"/>
                             <constraint firstItem="8Pw-Oo-0Vd" firstAttribute="top" secondItem="vpC-eY-bQu" secondAttribute="bottom" constant="5" id="dVG-Pn-4mX"/>
                             <constraint firstAttribute="bottom" secondItem="QK2-Cc-8kt" secondAttribute="bottom" constant="25" id="fSs-hJ-dTs"/>
-                            <constraint firstItem="jOb-Co-Jao" firstAttribute="top" secondItem="R8h-Z9-CfB" secondAttribute="top" constant="25" id="its-Nh-BdP"/>
+                            <constraint firstItem="jOb-Co-Jao" firstAttribute="top" secondItem="R8h-Z9-CfB" secondAttribute="top" constant="20" id="its-Nh-BdP"/>
                             <constraint firstAttribute="trailing" secondItem="vpC-eY-bQu" secondAttribute="trailing" constant="15" id="s2i-mv-NFA"/>
                             <constraint firstAttribute="trailing" secondItem="QK2-Cc-8kt" secondAttribute="trailing" constant="52" id="smf-h8-yKO"/>
                         </constraints>

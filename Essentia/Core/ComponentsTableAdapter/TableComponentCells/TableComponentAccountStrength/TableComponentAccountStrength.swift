@@ -35,7 +35,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         // MARK: - Font
         titleLabel.font = AppFont.bold.withSize(32)
         descriptionLabel.font = AppFont.regular.withSize(15)
-        backButton.titleLabel?.font = AppFont.regular.withSize(15)
+        backButton.titleLabel?.font = AppFont.regular.withSize(16)
         
         // MARK: - Color
         containerView.backgroundColor = colorProvider.accountStrengthContainerViewBackgroud
