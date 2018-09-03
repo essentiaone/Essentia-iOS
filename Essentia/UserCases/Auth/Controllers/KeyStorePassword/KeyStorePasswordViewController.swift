@@ -72,7 +72,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
     }
     
     private lazy var backAction: () -> Void = {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     private lazy var continueAction: () -> Void = {
@@ -102,7 +102,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
             (inject() as LoaderInterface).hide()
             InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
                 EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
-                (inject() as BackupRouterInterface).showNext()
+                (inject() as AuthRouterInterface).showNext()
             })
         }
     }

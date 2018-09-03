@@ -14,7 +14,7 @@ class LaunchpadViewController: BaseViewController, LaunchpadCollectionViewAdapte
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     
-    private lazy var colletionViewAdapter = LaunchpadCollectionViewAdapter(items: [TestItem()],
+    private lazy var colletionViewAdapter = LaunchpadCollectionViewAdapter(items: [],
                                                                            collectionView: collectionView)
     
     // MARK: - Lifecycle

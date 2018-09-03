@@ -1,5 +1,5 @@
 //
-//  BackupRouter.swift
+//  AuthRouter.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 26.07.18.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-fileprivate enum BackupRoutes {
+fileprivate enum AuthRoutes {
     case warning
     case phraseCopy(mnemonic: String)
     case phraseConfirm(mnemonic: String)
+    case mnemonicLogin
     case seedCopy
     case keyStorePassword(mnemonic: String)
     case keyStoreWarning
@@ -30,34 +31,53 @@ fileprivate enum BackupRoutes {
             return KeyStorePasswordViewController(mnemonic: mnemonic)
         case .keyStoreWarning:
             return KeyStoreWarningViewController()
+        case .mnemonicLogin:
+            return MnemonicPhraseConfirmViewController()
         }
     }
 }
 
-class BackupRouter: BackupRouterInterface {
+class AuthRouter: AuthRouterInterface {
     let navigationController: UINavigationController
-    fileprivate let routes: [BackupRoutes]
+    fileprivate let routes: [AuthRoutes]
     var current: Int = 0
-    required init(navigationController: UINavigationController, mnemonic: String, type: BackupType) {
+    required init(navigationController: UINavigationController, mnemonic: String, type: BackupType, auth: AuthType) {
         self.navigationController = navigationController
-        switch type {
-        case .mnemonic:
-            routes = [
-                .warning,
-                .phraseCopy(mnemonic: mnemonic),
-                .phraseConfirm(mnemonic: mnemonic)
-            ]
-        case .seed:
-            routes = [
-                 .warning,
-                 .seedCopy
-            ]
-        case .keystore:
-            routes = [
-                .keyStoreWarning,
-                .keyStorePassword(mnemonic: mnemonic)
-            ]
-        default: routes = []
+        switch auth {
+        case .backup:
+            switch type {
+            case .mnemonic:
+                routes = [
+                    .warning,
+                    .phraseCopy(mnemonic: mnemonic),
+                    .phraseConfirm(mnemonic: mnemonic)
+                ]
+            case .seed:
+                routes = [
+                    .warning,
+                    .seedCopy
+                ]
+            case .keystore:
+                routes = [
+                    .keyStoreWarning,
+                    .keyStorePassword(mnemonic: mnemonic)
+                ]
+            default: routes = []
+            }
+        case .login:
+            switch type {
+            case .mnemonic:
+                routes = [
+                    .mnemonicLogin
+                ]
+            case .seed:
+                routes = [
+                ]
+            case .keystore:
+                routes = [
+                ]
+            default: routes = []
+            }
         }
         self.navigationController.pushViewController(routes.first!.controller, animated: true)
     }
@@ -66,7 +86,7 @@ class BackupRouter: BackupRouterInterface {
         current++
         guard current != routes.count else {
             navigationController.popToRootViewController(animated: true)
-            relese(self as BackupRouterInterface)
+            relese(self as AuthRouterInterface)
             return
         }
         let nextController = routes[current].controller
@@ -75,9 +95,14 @@ class BackupRouter: BackupRouterInterface {
     
     func showPrev() {
         current--
-        navigationController.popViewController(animated: true)
+        if navigationController.viewControllers.count == 1 {
+            navigationController.view.endEditing(true)
+            navigationController.dismiss(animated: true)
+        } else {
+            navigationController.popViewController(animated: true)
+        }
         guard current >= 0 else {
-            relese(self as BackupRouterInterface)
+            relese(self as AuthRouterInterface)
             return
         }
     }

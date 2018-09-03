@@ -59,9 +59,9 @@
 		3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */; };
 		3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE72107705A006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift */; };
 		3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFEA2109F5CB006DEF49 /* FakeTextField.swift */; };
-		3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */; };
-		3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */; };
-		3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */; };
+		3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift */; };
+		3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */; };
+		3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */; };
 		34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */; };
 		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E012134A24000A54B7E /* LoggerServiceInterface.swift */; };
@@ -166,6 +166,7 @@
 		34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */; };
 		34ECE49321383206008D9696 /* TableComponentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49221383206008D9696 /* TableComponentTextField.swift */; };
 		34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE49421383218008D9696 /* TableComponentTextField.xib */; };
+		34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -236,9 +237,9 @@
 		3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseConfirmCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		3401AFE72107705A006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWordIndicatorCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		3401AFEA2109F5CB006DEF49 /* FakeTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeTextField.swift; sourceTree = "<group>"; };
-		3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringController.swift; sourceTree = "<group>"; };
-		3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouterInterface.swift; sourceTree = "<group>"; };
-		3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupRouter.swift; sourceTree = "<group>"; };
+		3401AFED2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicConfirmEnteringController.swift; sourceTree = "<group>"; };
+		3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouterInterface.swift; sourceTree = "<group>"; };
+		3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitle.swift; sourceTree = "<group>"; };
 		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		34115E012134A24000A54B7E /* LoggerServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerServiceInterface.swift; sourceTree = "<group>"; };
@@ -346,6 +347,7 @@
 		34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditUserViewController.swift; sourceTree = "<group>"; };
 		34ECE49221383206008D9696 /* TableComponentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextField.swift; sourceTree = "<group>"; };
 		34ECE49421383218008D9696 /* TableComponentTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextField.xib; sourceTree = "<group>"; };
+		34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLoginController.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -502,7 +504,7 @@
 				34482683211DD17000C19EB3 /* Settings */,
 				34482668211B321000C19EB3 /* Launchpad */,
 				34482674211B9B6300C19EB3 /* TabBar */,
-				3401AF9120FFF48C006DEF49 /* Backup */,
+				3401AF9120FFF48C006DEF49 /* Auth */,
 				3401AF5220F80704006DEF49 /* Login */,
 			);
 			path = UserCases;
@@ -561,6 +563,7 @@
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				34ECE4962138578E008D9696 /* MnemonicLogin */,
 				34AA4E8E2136A783004C25ED /* RestoreAccount */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
 			);
@@ -597,7 +600,7 @@
 			path = DependenceProvider;
 			sourceTree = "<group>";
 		};
-		3401AF9120FFF48C006DEF49 /* Backup */ = {
+		3401AF9120FFF48C006DEF49 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
 				3401AFEF210A0867006DEF49 /* Router */,
@@ -605,7 +608,7 @@
 				3401AF9220FFF49A006DEF49 /* Design */,
 				343122632124A0DA009E4A7A /* BackupType.swift */,
 			);
-			path = Backup;
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		3401AF9220FFF49A006DEF49 /* Design */ = {
@@ -766,8 +769,8 @@
 		3401AFEF210A0867006DEF49 /* Router */ = {
 			isa = PBXGroup;
 			children = (
-				3401AFF2210A0AC6006DEF49 /* BackupRouter.swift */,
-				3401AFF0210A0885006DEF49 /* BackupRouterInterface.swift */,
+				3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */,
+				3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -892,8 +895,9 @@
 		344826502114B1DF00C19EB3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */,
 				3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */,
-				3401AFED2109FD4F006DEF49 /* PhraseEnteringController.swift */,
+				3401AFED2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift */,
 				344826532115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift */,
 			);
 			path = Controllers;
@@ -1224,6 +1228,13 @@
 			path = TableComponentTextField;
 			sourceTree = "<group>";
 		};
+		34ECE4962138578E008D9696 /* MnemonicLogin */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MnemonicLogin;
+			sourceTree = "<group>";
+		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1494,7 +1505,7 @@
 				34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */,
 				3401AF5020F7DE06006DEF49 /* RGB.swift in Sources */,
 				3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */,
-				3401AFF3210A0AC6006DEF49 /* BackupRouter.swift in Sources */,
+				3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
@@ -1528,6 +1539,7 @@
 				3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */,
 				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
 				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
+				34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
@@ -1544,7 +1556,7 @@
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
-				3401AFF1210A0885006DEF49 /* BackupRouterInterface.swift in Sources */,
+				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
 				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
@@ -1571,7 +1583,7 @@
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
-				3401AFEE2109FD4F006DEF49 /* PhraseEnteringController.swift in Sources */,
+				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,

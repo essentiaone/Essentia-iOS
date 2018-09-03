@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum AuthType {
+    case login
+    case backup
+}
+
 enum BackupType: String, Codable {
     case mnemonic
     case seed

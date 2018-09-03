@@ -22,21 +22,24 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     @IBOutlet weak var separatorView: UIView!
     
     // MARK: - Dependences
-    private let mnemonic: String
     private lazy var design: BackupDesignInterface = inject()
     private lazy var wordIndicator = CurrentWordIndicatorAdapter(collectionView: currentWordCollectionView)
     private lazy var wordEntering = PhraseConfirmCollectionViewAdapter(collectionView: confirmWordsCollectionView)
-    private lazy var phraseEnteingController = PhraseEnteringController(mnemonic: mnemonic,
-                                                                        views: [wordEntering, wordIndicator])
+    private var phraseEnteingController: MnemonicPhraseConfirmViewControllerInterface?
+    private let authType: AuthType
     
     // MARK: - Init
     required init(mnemonic: String) {
-        self.mnemonic = mnemonic
+        authType = .backup
         super.init()
+        phraseEnteingController = MnemonicConfirmEnteringController(delegate: self,
+                                                                    mnemonic: mnemonic)
     }
     
-    required override init() {
-        fatalError("init() has not been implemented")
+    override init() {
+        authType = .login
+        super.init()
+        phraseEnteingController = MnemonicLoginController(delegate: self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -47,13 +50,14 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         design.applyDesign(to: self)
+        phraseEnteingController?.setViews([wordEntering, wordIndicator])
         setupFakeTextField()
         setupPhraseEnteringController()
+        
     }
     
     private func setupPhraseEnteringController() {
-        phraseEnteingController.delegate = self
-        phraseEnteingController.choseNewIndexIfNeeded()
+        phraseEnteingController?.beginEntering()
     }
     
     private func setupFakeTextField() {
@@ -63,14 +67,21 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     
     // MARK: - Actions
     @IBAction func backAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     // MARK: - PhraseEnteringControllerDelegate
     
-    func didFinishConfirmingWords() {
-        EssentiaStore.currentUser.currentlyBackedUp.append(.mnemonic)
-        (inject() as BackupRouterInterface).showNext()
+    func didFinishConfirmingWords(mnemonic: [String]) {
+        switch authType {
+        case .backup:
+            EssentiaStore.currentUser.currentlyBackedUp.append(.mnemonic)
+            (inject() as AuthRouterInterface).showNext()
+        case .login:
+            let mnemonic = mnemonic.joined(separator: " ")
+            EssentiaStore.currentUser = User(mnemonic: mnemonic)
+            (inject() as AuthRouterInterface).showPrev()
+        }
     }
     
     func didBeginConfirming(word: String, at index: Int) {

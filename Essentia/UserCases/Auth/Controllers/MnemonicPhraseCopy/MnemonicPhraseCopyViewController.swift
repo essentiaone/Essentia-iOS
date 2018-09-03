@@ -47,7 +47,7 @@ class MnemonicPhraseCopyViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func backAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
     
     @IBAction func copyAction(_ sender: Any) {
@@ -57,7 +57,7 @@ class MnemonicPhraseCopyViewController: BaseViewController {
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showNext()
+        (inject() as AuthRouterInterface).showNext()
     }
     
 }

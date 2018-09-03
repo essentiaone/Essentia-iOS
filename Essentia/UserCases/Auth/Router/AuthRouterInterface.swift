@@ -1,5 +1,5 @@
 //
-//  BackupRouterInterface.swift
+//  AuthRouterInterface.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 26.07.18.
@@ -8,8 +8,8 @@
 
 import UIKit
 
-protocol BackupRouterInterface: class {
-    init(navigationController: UINavigationController, mnemonic: String, type: BackupType)
+protocol AuthRouterInterface: class {
+    init(navigationController: UINavigationController, mnemonic: String, type: BackupType, auth: AuthType)
     func showNext()
     func showPrev()
 }

@@ -26,10 +26,10 @@ class WarningViewContrller: BaseViewController {
     
     // MARK: - Actions
     @IBAction func doneAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showNext()
+        (inject() as AuthRouterInterface).showNext()
     }
     
     @IBAction func backAction(_ sender: Any) {
-        (inject() as BackupRouterInterface).showPrev()
+        (inject() as AuthRouterInterface).showPrev()
     }
 }

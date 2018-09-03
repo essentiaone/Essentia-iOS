@@ -67,6 +67,6 @@ class SettingsRouter: SettingsRouterInterface {
             let navigation = navigationController else {
                 return
         }
-        prepareInjection(BackupRouter(navigationController: navigation, mnemonic: mnemonic, type: type) as BackupRouterInterface, memoryPolicy: .viewController)
+        prepareInjection(AuthRouter(navigationController: navigation, mnemonic: mnemonic, type: type, auth: .backup) as AuthRouterInterface, memoryPolicy: .viewController)
     }
 }
