@@ -53,7 +53,8 @@ class BackupDesign: BackupDesignInterface {
     func applyDesign(to vc: MnemonicPhraseConfirmViewController) {
         // MARK: - Localized Strings
         vc.titleLabel.text = LS("MnemonicPhraseConfirm.Title")
-        vc.descriptionLabel.text = LS("MnemonicPhraseConfirm.Description")
+        let description = vc.authType == .login ? LS("MnemonicLogin.Description") : LS("MnemonicPhraseConfirm.Description")
+        vc.descriptionLabel.text = description
         
         // MARK: - Fonts
         vc.titleLabel.font = AppFont.bold.withSize(32)
@@ -74,11 +75,14 @@ class BackupDesign: BackupDesignInterface {
     func applyDesign(to vc: SeedCopyViewController) {
         // MARK: - Localized Strings
         vc.copyButton.setTitle(LS("SeedCopy.Copy"), for: .normal)
+        let description = vc.authType == .login ? LS("SeedConfirm.Description") : LS("SeedCopy.Description")
         vc.copyButton.setTitle(LS("SeedCopy.Copied"), for: .selected)
         vc.continueButton.setTitle(LS("SeedCopy.Continue"), for: .normal)
         vc.titleLabel.text = LS("SeedCopy.Title")
-        vc.descriptionLabel.text = LS("SeedCopy.Description")
-        vc.textView.text = vc.seed
+        vc.descriptionLabel.text = description
+        if vc.authType == .backup {
+            vc.textView.text = EssentiaStore.currentUser.seed
+        }
         
         // MARK: - Fonts
         vc.titleLabel.font = AppFont.bold.withSize(32)
@@ -92,7 +96,13 @@ class BackupDesign: BackupDesignInterface {
         vc.separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         
         // MARK: - State
+        if vc.authType == .login {
+            vc.copyButton.isHidden = true
+            vc.textView.becomeFirstResponder()
+        }
         vc.copyButton.isSelected = false
         vc.continueButton.isEnabled = false
+        
+        vc.continueButtomConstraint.constant = vc.authType == .login ? vc.keyboardHeight - 25 : 20
     }
 }

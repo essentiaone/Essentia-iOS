@@ -62,7 +62,6 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         nvc.setNavigationBarHidden(true, animated: false)
         self.present(nvc, animated: true)
         prepareInjection(AuthRouter(navigationController: nvc,
-                                    mnemonic: "",
                                     type: type,
                                     auth: .login) as AuthRouterInterface,
                          memoryPolicy: .viewController)

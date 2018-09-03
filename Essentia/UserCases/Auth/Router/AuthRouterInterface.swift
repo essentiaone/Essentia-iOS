@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AuthRouterInterface: class {
-    init(navigationController: UINavigationController, mnemonic: String, type: BackupType, auth: AuthType)
+    init(navigationController: UINavigationController, type: BackupType, auth: AuthType)
     func showNext()
     func showPrev()
 }

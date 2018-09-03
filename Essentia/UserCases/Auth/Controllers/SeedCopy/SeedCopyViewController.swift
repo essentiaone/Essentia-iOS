@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeedCopyViewController: BaseViewController {
+class SeedCopyViewController: BaseViewController, UITextViewDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,19 +17,17 @@ class SeedCopyViewController: BaseViewController {
     @IBOutlet weak var copyButton: UIButton!
     @IBOutlet weak var continueButton: CenteredButton!
     @IBOutlet weak var separatorView: UIView!
+    @IBOutlet weak var continueButtomConstraint: NSLayoutConstraint!
     
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
-    
-    // MARK: - Store
-    let seed: String
+    let authType: AuthType
     
     // MARK: - Init
-    required init(seed: String) {
-        self.seed = seed
+    required init(_ auth: AuthType) {
+        authType = auth
         super.init()
     }
-    
     required override init() {
         fatalError("init() has not been implemented")
     }
@@ -42,6 +40,7 @@ class SeedCopyViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         design.applyDesign(to: self)
+        textView.delegate = self
     }
     
     // MARK: - Actions
@@ -52,11 +51,27 @@ class SeedCopyViewController: BaseViewController {
     @IBAction func copyAction(_ sender: Any) {
         copyButton.isSelected = true
         continueButton.isEnabled = true
-        UIPasteboard.general.string = seed
+        UIPasteboard.general.string = EssentiaStore.currentUser.seed
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        EssentiaStore.currentUser.currentlyBackedUp.append(.seed)
-        (inject() as AuthRouterInterface).showNext()
+        switch authType {
+        case .backup:
+            EssentiaStore.currentUser.currentlyBackedUp.append(.seed)
+            (inject() as AuthRouterInterface).showNext()
+        case .login:
+            EssentiaStore.currentUser = User(seed: textView.text)
+            (inject() as AuthRouterInterface).showPrev()
+        }
+
+    }
+    
+    // MARK: - UITextViewDelegate
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if authType == .login {
+            let continueEnable = textView.text.count == 128
+            continueButton.isEnabled = continueEnable
+        }
     }
 }
