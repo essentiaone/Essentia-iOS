@@ -54,4 +54,9 @@ class User: NSObject, Codable {
         }
         return image
     }
+    
+    var securityLevel: Int {
+        let values = currentlyBackedUp.map { return $0.rawValue }
+        return values.reduce(0, +)
+    }
 }

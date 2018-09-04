@@ -19,7 +19,6 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     @IBOutlet weak var backButton: UIButton!
     
     var resultAction: (() -> Void)?
-    var progress: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,7 +37,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         backButton.titleLabel?.font = AppFont.regular.withSize(16)
         
         // MARK: - Color
-        containerView.backgroundColor = colorProvider.accountStrengthContainerViewBackgroud
+        containerView.backgroundColor = containerBackgroud
         titleLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         descriptionLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         backgroundColor = colorProvider.settingsBackgroud
@@ -49,6 +48,17 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         containerView.drawShadow(width: 25.0)
         backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         backButton.setImage(iconProvider.backWhiteIcon, for: .normal)
+    }
+    
+    private var containerBackgroud: UIColor {
+        switch EssentiaStore.currentUser.securityLevel {
+        case 30..<50:
+           return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
+        case 50..<100:
+            return colorProvider.accountStrengthContainerViewBackgroudHightSecure
+        default:
+            return colorProvider.accountStrengthContainerViewBackgroudLowSecure
+        }
     }
     
     @IBAction func backAction(_ sender: AnyObject) {

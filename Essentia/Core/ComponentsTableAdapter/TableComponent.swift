@@ -21,8 +21,8 @@ enum TableComponent: Equatable {
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
     // MARK: - Settings
-    case accountStrength(progress: Int, backAction: () -> Void)
-    case accountStrengthAction(progress: Int, action: () -> Void)
+    case accountStrength(backAction: () -> Void)
+    case accountStrengthAction(action: () -> Void)
     case currentAccount(icon: UIImage, title: String, name: String, action: () -> Void)
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
     case menuSimpleTitleDetail(title: String, detail: String, withArrow: Bool, action: () -> Void)
