@@ -39,7 +39,9 @@ protocol AppColorInterface {
     var settingsCellsBackround: UIColor { get }
     var separatorBackgroundColor: UIColor { get }
     var titleColor: UIColor { get }
-    var accountStrengthContainerViewBackgroud: UIColor { get }
+    var accountStrengthContainerViewBackgroudLowSecure: UIColor { get }
+    var accountStrengthContainerViewBackgroudMediumSecure: UIColor { get }
+    var accountStrengthContainerViewBackgroudHightSecure: UIColor { get }
     var accountStrengthContainerViewTitles: UIColor { get }
     var accountStrengthContainerViewButtonTitle: UIColor { get }
     var settingsMenuTitle: UIColor { get }

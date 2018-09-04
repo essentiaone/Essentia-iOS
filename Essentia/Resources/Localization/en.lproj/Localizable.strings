@@ -8,6 +8,7 @@
 
 "Back" = "Back";
 
+"InfoAlert.Ok" = "OK";
 "Welcome.Restore" = "RESTORE";
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
@@ -45,11 +46,7 @@
 "SeedCopy.Copy" = "COPY";
 "SeedCopy.Copied" = "COPIED";
 "SeedCopy.Continue" = "CONTINUE";
-
-"SeedCopy.Title" = "Create Password";
-"SeedCopy.Description" = "Strong password - secure account. Come up with the unique password to access Essentia later on.";
-"SeedCopy.Continue" = "CONTINUE";
-"InfoAlert.Ok" = "OK";
+"SeedConfirm.Description" = "Paste your Seed to access Essentia";
 
 "Keystore.Title" = "Password";
 "Keystore.Description" = "Create a secure password to login to your Essence - safety first!";

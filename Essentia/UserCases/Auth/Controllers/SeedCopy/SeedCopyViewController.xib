@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SeedCopyViewController" customModule="Essentia" customModuleProvider="target">
             <connections>
                 <outlet property="backButton" destination="CEy-gh-jco" id="B7p-pH-8Ze"/>
+                <outlet property="continueButtomConstraint" destination="Ecb-8b-NmM" id="sAz-ZM-anI"/>
                 <outlet property="continueButton" destination="XrF-yh-Hh0" id="cfG-bs-aql"/>
                 <outlet property="copyButton" destination="BWi-pu-4jH" id="ml9-gn-yc0"/>
                 <outlet property="descriptionLabel" destination="Rae-ss-Oac" id="YhC-Ud-o7D"/>
@@ -33,6 +33,8 @@
                         <constraint firstAttribute="width" constant="80" id="i4z-3f-gMc"/>
                         <constraint firstAttribute="height" constant="35" id="xXf-Z4-XjA"/>
                     </constraints>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="5"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="bOz-Yr-Et7"/>
                     </connections>
@@ -72,7 +74,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nne-pO-RVD">
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="nne-pO-RVD">
                     <rect key="frame" x="15" y="143" width="345" height="128"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
@@ -80,7 +82,7 @@
                     </constraints>
                     <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
                 </textView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foY-JP-87d">
                     <rect key="frame" x="0.0" y="271" width="375" height="1"/>

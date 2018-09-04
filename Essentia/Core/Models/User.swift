@@ -9,7 +9,7 @@
 import UIKit
 
 class User: NSObject, Codable {
-    static var notSigned = User(mnemonic: "")
+    static var notSigned = User(seed: "")
     
     let id: String
     let seed: String
@@ -53,5 +53,10 @@ class User: NSObject, Codable {
             return #imageLiteral(resourceName: "testAvatar")
         }
         return image
+    }
+    
+    var securityLevel: Int {
+        let values = currentlyBackedUp.map { return $0.rawValue }
+        return values.reduce(0, +)
     }
 }

@@ -63,10 +63,9 @@ class SettingsRouter: SettingsRouterInterface {
     }
     
     private func showBackupRoute(type: BackupType) {
-        guard let mnemonic = EssentiaStore.currentUser.mnemonic,
-            let navigation = navigationController else {
+        guard let navigation = navigationController else {
                 return
         }
-        prepareInjection(AuthRouter(navigationController: navigation, mnemonic: mnemonic, type: type, auth: .backup) as AuthRouterInterface, memoryPolicy: .viewController)
+        prepareInjection(AuthRouter(navigationController: navigation, type: type, auth: .backup) as AuthRouterInterface, memoryPolicy: .viewController)
     }
 }

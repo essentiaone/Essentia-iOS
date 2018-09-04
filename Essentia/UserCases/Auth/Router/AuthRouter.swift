@@ -13,8 +13,8 @@ fileprivate enum AuthRoutes {
     case phraseCopy(mnemonic: String)
     case phraseConfirm(mnemonic: String)
     case mnemonicLogin
-    case seedCopy
-    case keyStorePassword(mnemonic: String)
+    case seedAuth(auth: AuthType)
+    case keyStorePassword(auth: AuthType)
     case keyStoreWarning
     
     var controller: UIViewController {
@@ -25,10 +25,10 @@ fileprivate enum AuthRoutes {
             return MnemonicPhraseCopyViewController(mnemonic: mnemonic)
         case .phraseConfirm(let mnemonic):
             return MnemonicPhraseConfirmViewController(mnemonic: mnemonic)
-        case .seedCopy:
-            return SeedCopyViewController(seed: EssentiaStore.currentUser.seed)
-        case .keyStorePassword(let mnemonic):
-            return KeyStorePasswordViewController(mnemonic: mnemonic)
+        case .seedAuth(let auth):
+            return SeedCopyViewController(auth)
+        case .keyStorePassword(let auth):
+            return KeyStorePasswordViewController(auth)
         case .keyStoreWarning:
             return KeyStoreWarningViewController()
         case .mnemonicLogin:
@@ -41,12 +41,16 @@ class AuthRouter: AuthRouterInterface {
     let navigationController: UINavigationController
     fileprivate let routes: [AuthRoutes]
     var current: Int = 0
-    required init(navigationController: UINavigationController, mnemonic: String, type: BackupType, auth: AuthType) {
+    required init(navigationController: UINavigationController, type: BackupType, auth: AuthType) {
         self.navigationController = navigationController
         switch auth {
         case .backup:
             switch type {
             case .mnemonic:
+                guard let mnemonic = EssentiaStore.currentUser.mnemonic else {
+                    routes = []
+                    break
+                }
                 routes = [
                     .warning,
                     .phraseCopy(mnemonic: mnemonic),
@@ -55,12 +59,12 @@ class AuthRouter: AuthRouterInterface {
             case .seed:
                 routes = [
                     .warning,
-                    .seedCopy
+                    .seedAuth(auth:auth)
                 ]
             case .keystore:
                 routes = [
                     .keyStoreWarning,
-                    .keyStorePassword(mnemonic: mnemonic)
+                    .keyStorePassword(auth: auth)
                 ]
             default: routes = []
             }
@@ -72,9 +76,11 @@ class AuthRouter: AuthRouterInterface {
                 ]
             case .seed:
                 routes = [
+                    .seedAuth(auth:auth)
                 ]
             case .keystore:
                 routes = [
+                    .keyStorePassword(auth: auth)
                 ]
             default: routes = []
             }

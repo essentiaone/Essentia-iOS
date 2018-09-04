@@ -22,10 +22,10 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
-                           right: LS("WarningKeystore.Skip"),
+                           right: "",
                            title: "",
                            lAction: backAction,
-                           rAction: skipAction),
+                           rAction: nil),
             .title(title: LS("WarningKeystore.Title")),
             .empty(height: 8, background: colorProvider.settingsCellsBackround),
             .paragraph(title: LS("WarningKeystore.Paragraph1.Title"),

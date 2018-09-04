@@ -27,8 +27,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         design.applyDesign(to: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         guard !EssentiaStore.currentUser.seed.isEmpty else {
             return
         }
@@ -41,11 +41,10 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        (inject() as LoaderInterface).show()
-        interactor.generateNewUser {
+        let switchAccount =  SwitchAccoutViewController {
             self.openTabBar()
-            (inject() as LoaderInterface).hide()
         }
+        present(switchAccount, animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {
@@ -62,7 +61,6 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         nvc.setNavigationBarHidden(true, animated: false)
         self.present(nvc, animated: true)
         prepareInjection(AuthRouter(navigationController: nvc,
-                                    mnemonic: "",
                                     type: type,
                                     auth: .login) as AuthRouterInterface,
                          memoryPolicy: .viewController)

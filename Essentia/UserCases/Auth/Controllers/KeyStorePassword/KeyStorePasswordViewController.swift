@@ -14,18 +14,19 @@ fileprivate struct Store {
     static var keyStoreFolder = "Keystore"
 }
 
-class KeyStorePasswordViewController: BaseTableAdapterController {
+class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrowserViewControllerDelegate {
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - Store
     private var store = Store()
-    let mnemonic: String
+    private var keystore: Data?
+    let authType: AuthType
     
     // MARK: - Init
-    required init(mnemonic: String) {
-        self.mnemonic = mnemonic
+    required init(_ auth: AuthType) {
+        authType = auth
         super.init()
     }
     
@@ -34,8 +35,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if authType == .login && keystore == nil {
+            showFilePicker()
+            return
+        }
         updateState()
     }
     
@@ -76,11 +82,32 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
     }
     
     private lazy var continueAction: () -> Void = {
-        (inject() as LoaderInterface).show()
-       self.storeMnemonic()
+        switch self.authType {
+        case .backup:
+            (inject() as LoaderInterface).show()
+            self.storeKeystore()
+        case .login:
+            self.decodeKeystore()
+        }
     }
     
-    private func storeMnemonic() {
+    private func decodeKeystore() {
+        guard let data = self.keystore else { return }
+        let seed = (inject() as MnemonicServiceInterface).seed(from: data, password: self.store.password)
+        if let seed = seed {
+            EssentiaStore.currentUser = User(seed: seed)
+        }
+        (inject() as AuthRouterInterface).showPrev()
+    }
+    
+    private func showFilePicker() {
+        let fileBrowser = UIDocumentBrowserViewController(forOpeningFilesWithContentTypes: ["public.plain-text"])
+        fileBrowser.allowsPickingMultipleItems = false
+        fileBrowser.delegate = self
+        present(fileBrowser, animated: true)
+    }
+    
+    private func storeKeystore() {
         DispatchQueue.global().async {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
@@ -88,7 +115,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
-                                                                                 with: EssentiaStore.currentUser.id)
+                                                                                 with: "\(EssentiaStore.currentUser.id).txt")
                 EssentiaStore.currentUser.keystoreUrl = url
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
@@ -104,6 +131,18 @@ class KeyStorePasswordViewController: BaseTableAdapterController {
                 EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
                 (inject() as AuthRouterInterface).showNext()
             })
+        }
+    }
+    
+    // MARK: - UIDocumentBrowserViewControllerDelegate
+    func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
+        dismiss(animated: true)
+        guard let url = documentURLs.first else { return }
+        if url.startAccessingSecurityScopedResource() {
+            NSFileCoordinator().coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { (newUrl) in
+                self.keystore = try? Data(contentsOf: newUrl)
+            }
+            url.stopAccessingSecurityScopedResource()
         }
     }
 }

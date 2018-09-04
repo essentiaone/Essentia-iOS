@@ -106,14 +106,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
             return cell
-        case .accountStrengthAction(let progress, let action):
+        case .accountStrengthAction( let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
             cell.resultAction = action
-            cell.progress = progress
             return cell
-        case .accountStrength(let progress, let backAction):
+        case .accountStrength(let backAction):
             let cell: TableComponentAccountStrength = tableView.dequeueReusableCell(for: indexPath)
-            cell.progress = progress
             cell.resultAction = backAction
             return cell
         case .menuSimpleTitleDetail(let title, let detail, let withArrow , _):
