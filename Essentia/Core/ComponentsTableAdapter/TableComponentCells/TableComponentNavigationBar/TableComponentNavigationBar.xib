@@ -17,23 +17,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-uA-UPO">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZA-uA-UPO">
                         <rect key="frame" x="0.0" y="0.0" width="95" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="95" id="cTU-mM-LSg"/>
                         </constraints>
-                        <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="5"/>
+                        <inset key="titleEdgeInsets" minX="-8" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                         <connections>
                             <action selector="leftButtonAction:" destination="g5j-rq-3pL" eventType="touchUpInside" id="VV1-xI-QB7"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-NH-Lid">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eR6-NH-Lid">
                         <rect key="frame" x="280" y="0.0" width="95" height="43.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="95" id="69D-pq-FE3"/>
                         </constraints>
-                        <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <inset key="imageEdgeInsets" minX="5" minY="10" maxX="0.0" maxY="10"/>
+                        <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="10" maxX="0.0" maxY="10"/>
                         <connections>
                             <action selector="rightButtonAction:" destination="g5j-rq-3pL" eventType="touchUpInside" id="nWL-Yh-EUy"/>
                         </connections>

@@ -13,9 +13,9 @@
             <connections>
                 <outlet property="accountsTableview" destination="QAk-zQ-IsC" id="eCA-dO-BJ0"/>
                 <outlet property="cancelButton" destination="etr-l5-gdP" id="aCV-ET-HVe"/>
+                <outlet property="containerHeight" destination="67O-UT-pBD" id="W7t-q3-DGa"/>
                 <outlet property="contentView" destination="wTr-of-rqZ" id="FVm-aW-v3M"/>
                 <outlet property="titleLabel" destination="hPl-Hb-w1k" id="In4-bX-Bes"/>
-                <outlet property="topConstraint" destination="dDU-mj-hNm" id="d16-jl-yKs"/>
                 <outlet property="view" destination="VvY-cd-vq7" id="n2d-zw-2J6"/>
             </connections>
         </placeholder>
@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wTr-of-rqZ">
-                                <rect key="frame" x="15" y="24" width="345" height="618"/>
+                                <rect key="frame" x="15" y="392" width="345" height="250"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mkw-kY-TPf">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="66"/>
@@ -65,13 +65,14 @@
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QAk-zQ-IsC">
-                                        <rect key="frame" x="0.0" y="66" width="345" height="528"/>
+                                        <rect key="frame" x="0.0" y="66" width="345" height="160"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QAk-zQ-IsC" firstAttribute="leading" secondItem="wTr-of-rqZ" secondAttribute="leading" id="5ec-eg-q3t"/>
+                                    <constraint firstAttribute="height" constant="250" id="67O-UT-pBD"/>
                                     <constraint firstItem="QAk-zQ-IsC" firstAttribute="top" secondItem="Mkw-kY-TPf" secondAttribute="bottom" id="PjV-mb-5Xy"/>
                                     <constraint firstItem="Mkw-kY-TPf" firstAttribute="top" secondItem="wTr-of-rqZ" secondAttribute="top" id="SJl-sA-kgj"/>
                                     <constraint firstItem="Mkw-kY-TPf" firstAttribute="leading" secondItem="wTr-of-rqZ" secondAttribute="leading" id="gex-Kp-3sN"/>
@@ -83,7 +84,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="wTr-of-rqZ" secondAttribute="bottom" constant="25" id="Ftw-t5-Axm"/>
-                            <constraint firstItem="wTr-of-rqZ" firstAttribute="top" secondItem="HBn-CE-ctD" secondAttribute="top" constant="24" id="dDU-mj-hNm"/>
+                            <constraint firstItem="wTr-of-rqZ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="HBn-CE-ctD" secondAttribute="top" constant="24" id="dDU-mj-hNm"/>
                             <constraint firstItem="wTr-of-rqZ" firstAttribute="leading" secondItem="HBn-CE-ctD" secondAttribute="leading" constant="15" id="j7B-GX-qLd"/>
                             <constraint firstAttribute="trailing" secondItem="wTr-of-rqZ" secondAttribute="trailing" constant="15" id="sj1-0v-BdV"/>
                         </constraints>

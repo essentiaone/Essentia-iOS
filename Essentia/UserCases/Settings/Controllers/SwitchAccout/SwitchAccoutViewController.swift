@@ -13,7 +13,7 @@ class SwitchAccoutViewController: BaseViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var contentView: UIView!
-    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerHeight: NSLayoutConstraint!
     var users: [User] = []
     var callBack: () -> Void
     
@@ -69,15 +69,11 @@ class SwitchAccoutViewController: BaseViewController {
     }
     
     private func setContentTopInset() {
-        let screenHeight: CGFloat = view.frame.height
-        let defaultContentInsetHeight: CGFloat = 48.0
-        let staticContentHeight: CGFloat = 130.0
+        let staticContentHeight: CGFloat = 150.0
         let singeCellHeight: CGFloat = 61.0
         let dynamicContentHeight = singeCellHeight * CGFloat(users.count)
-        let allContentHeight = defaultContentInsetHeight + staticContentHeight + dynamicContentHeight
-        let dynamicTopInset = screenHeight - allContentHeight
-        let currentTopInset = dynamicTopInset > 24 ? dynamicTopInset : 24
-        topConstraint.constant = currentTopInset
+        let allContentHeight = staticContentHeight + dynamicContentHeight
+        containerHeight.constant = allContentHeight
     }
     
     private func loadUsers() {
