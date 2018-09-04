@@ -30,8 +30,8 @@ class MnemonicService: MnemonicServiceInterface {
         return (try keystore?.encodedData())!
     }
     
-    func seed(from keystoeFile: Data, password: String) -> String? {
-        guard let keystoreV3 = try? KeystoreV3(keyStore: keystoeFile),
+    func seed(from keystoreFile: Data, password: String) -> String? {
+        guard let keystoreV3 = try? KeystoreV3(keyStore: keystoreFile),
               let pk = try? keystoreV3?.getDecriptedKeyStore(password: password),
               let seed = pk?.toHexString() else {
             return nil
