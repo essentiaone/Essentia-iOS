@@ -103,12 +103,12 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var switchAccountAction: () -> Void = {
+        (inject() as UserStorageServiceInterface).store(user: EssentiaStore.currentUser)
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
         self.viewDidDisappear(true)
     }
-    
     private lazy var logOutAction: () -> Void = {
         guard EssentiaStore.currentUser.currentlyBackedUp == [] else {
             self.logOutUser()

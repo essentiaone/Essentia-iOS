@@ -56,7 +56,7 @@ class SecureAccountViewController: BaseTableAdapterController {
             .empty(height: 8, background: colorProvider.settingsBackgroud),
             .description(title: LS("Settings.Secure.Description"),
                          backgroud: colorProvider.settingsBackgroud),
-            .empty(height: 20, background: colorProvider.settingsBackgroud)
+            .empty(height: 50, background: colorProvider.settingsBackgroud)
         ]
     }
     

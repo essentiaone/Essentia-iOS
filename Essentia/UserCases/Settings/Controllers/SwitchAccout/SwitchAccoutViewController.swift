@@ -36,23 +36,22 @@ class SwitchAccoutViewController: BaseViewController {
     
     private var state: [TableComponent] {
         let usersState = users.map({ (user) -> [TableComponent] in
-            return [TableComponent.imageTitle(image: user.icon, title: user.dislayName, withArrow: true, action: {
-                self.loginToUser(user)
-            }),
+            return [.imageTitle(image: user.icon, title: user.dislayName, withArrow: true, action: {
+                        self.loginToUser(user)
+                    }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
         }).flatMap {
             return $0
         }
         return usersState + [.imageTitle(image: imageProvider.plusIcon,
-                                                       title: LS("Settings.Accounts.CreateNew"),
-                                                       withArrow: false,
-                                                       action: createUserAction)]
+                                         title: LS("Settings.Accounts.CreateNew"),
+                                         withArrow: false,
+                                         action: createUserAction)]
     }
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        storeCurrentUser()
         loadUsers()
         applyDesign()
         tableAdapter.reload(state)
@@ -72,9 +71,9 @@ class SwitchAccoutViewController: BaseViewController {
     private func setContentTopInset() {
         let screenHeight: CGFloat = view.frame.height
         let defaultContentInsetHeight: CGFloat = 48.0
-        let staticContentHeight: CGFloat = 120.0
-        let singeCellHeight: CGFloat = 60.0
-        let dynamicContentHeight = singeCellHeight * CGFloat(users.count)
+        let staticContentHeight: CGFloat = 150.0
+        let singeCellHeight: CGFloat = 61.0
+        let dynamicContentHeight = singeCellHeight * CGFloat(users.count + 1)
         let allContentHeight = defaultContentInsetHeight + staticContentHeight + dynamicContentHeight
         let dynamicTopInset = screenHeight - allContentHeight
         let currentTopInset = dynamicTopInset > 24 ? dynamicTopInset : 24
@@ -95,21 +94,15 @@ class SwitchAccoutViewController: BaseViewController {
     
     // MARK: - SwitchAccountTableAdapterDelegate
     func loginToUser(_ user: User) {
-        storeCurrentUser()
+        dismiss(animated: true)
         EssentiaStore.currentUser = user
         callBack()
-        dismiss(animated: true)
     }
     
     private lazy var createUserAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
         self?.generateNewUser()
         self?.callBack()
-        self?.dismiss(animated: true)
-    }
-    
-    private func storeCurrentUser() {
-        let user = EssentiaStore.currentUser
-        (inject() as UserStorageServiceInterface).store(user: user)
     }
     
     private func generateNewUser() {

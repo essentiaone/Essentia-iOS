@@ -41,11 +41,10 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        (inject() as LoaderInterface).show()
-        interactor.generateNewUser {
+        let switchAccount =  SwitchAccoutViewController {
             self.openTabBar()
-            (inject() as LoaderInterface).hide()
         }
+        present(switchAccount, animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {

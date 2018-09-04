@@ -30,7 +30,7 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
         titleLabel.font = AppFont.bold.withSize(16)
         
         leftButton.setImage(imageProvider.backButtonImage, for: .normal)
-        leftButton.contentEdgeInsets = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 20)
+        leftButton.contentEdgeInsets = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 0)
         leftButton.imageView?.contentMode = .scaleAspectFit
         leftButton.titleLabel?.font = AppFont.regular.withSize(15.0)
         rightButton.titleLabel?.font = AppFont.regular.withSize(15.0)
