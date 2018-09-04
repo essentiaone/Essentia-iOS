@@ -1,14 +1,13 @@
-/* 
-  Localizable.strings
-  Essentia
-
-  Created by Pavlo Boiko on 16.07.18.
-  Copyright © 2018 Essentia-One. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Essentia
+ 
+ Created by Pavlo Boiko on 16.07.18.
+ Copyright © 2018 Essentia-One. All rights reserved.
+ */
 
 "Back" = "Back";
 
-"InfoAlert.Ok" = "OK";
 "Welcome.Restore" = "RESTORE";
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
@@ -33,6 +32,7 @@
 
 "MnemonicPhrase.Title" = "Mnemonic Phrase";
 "MnemonicPhrase.Description" = "Please save your mnemonic phrase. It’ll let you login to your Essence!";
+"MnemonicLogin.Description" = "Enter your 12 word Mnemonic Phrase to log in to Essentia";
 "MnemonicPhrase.Copy" = "COPY";
 "MnemonicPhrase.Copied" = "COPIED";
 "MnemonicPhrase.Continue" = "CONTINUE";
@@ -47,6 +47,7 @@
 "SeedCopy.Copied" = "COPIED";
 "SeedCopy.Continue" = "CONTINUE";
 "SeedConfirm.Description" = "Paste your Seed to access Essentia";
+"InfoAlert.Ok" = "OK";
 
 "Keystore.Title" = "Password";
 "Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
@@ -129,6 +130,7 @@
 "MnemonicBackupWarning.Description" = "In order to use this login method as primary one, you need to make a backup of it";
 "MnemonicBackupWarning.LeftButton" = "CANCEL";
 "MnemonicBackupWarning.RightButton" = "BACKUP";
+
 "Restore.Title" = "Restore";
 "Restore.Description" = "Choose your preferred login method to access your Essentia account";
 "Restore.Mnemonic" = "Mnemonic Phrase";

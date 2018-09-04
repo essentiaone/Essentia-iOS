@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  Essentia
-
-  Created by Pavlo Boiko on 16.07.18.
-  Copyright © 2018 Essentia-One. All rights reserved.
-*/
+/*
+ Localizable.strings
+ Essentia
+ 
+ Created by Pavlo Boiko on 16.07.18.
+ Copyright © 2018 Essentia-One. All rights reserved.
+ */
 
 "Back" = "Back";
 
@@ -32,6 +32,7 @@
 
 "MnemonicPhrase.Title" = "Mnemonic Phrase";
 "MnemonicPhrase.Description" = "Please save your mnemonic phrase. It’ll let you login to your Essence!";
+"MnemonicLogin.Description" = "Enter your 12 word Mnemonic Phrase to log in to Essentia";
 "MnemonicPhrase.Copy" = "COPY";
 "MnemonicPhrase.Copied" = "COPIED";
 "MnemonicPhrase.Continue" = "CONTINUE";
