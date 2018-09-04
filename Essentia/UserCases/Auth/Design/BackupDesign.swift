@@ -103,6 +103,6 @@ class BackupDesign: BackupDesignInterface {
         vc.copyButton.isSelected = false
         vc.continueButton.isEnabled = false
         
-        vc.continueButtomConstraint.constant = vc.authType == .login ? vc.keyboardHeight - 25 : 20
+        vc.continueButtomConstraint.constant = vc.authType == .login ? vc.keyboardHeight - 35 : 20
     }
 }
