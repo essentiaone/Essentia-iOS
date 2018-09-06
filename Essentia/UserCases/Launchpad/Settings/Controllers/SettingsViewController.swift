@@ -49,26 +49,26 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
-        let store = EssentiaStore.currentUser
+        let profile = EssentiaStore.currentUser.profile
         let rawState: [TableComponent?] =
             [.empty(height: 45, background: colorProvider.settingsCellsBackround),
-             .title(title: LS("Settings.Title")),
-             (EssentiaStore.currentUser.securityLevel < 50) ?
+             .title(bold: true, title: LS("Settings.Title")),
+             (EssentiaStore.currentUser.backup.securityLevel < 50) ?
                 .accountStrengthAction(action: accountStrenghtAction) :
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
-             .currentAccount(icon: store.icon,
+             .currentAccount(icon: profile.icon,
                              title: LS("Settings.CurrentAccountTitle"),
-                             name: store.dislayName,
+                             name: EssentiaStore.currentUser.dislayName,
                              action: editCurrentAccountAction),
              .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.languageIcon,
                               title: LS("Settings.Language"),
-                              detail: store.language.titleString,
+                              detail: profile.language.titleString,
                               action: languageAction),
              .separator(inset: Constants.separatorInset),
              .menuTitleDetail(icon: imageProvider.currencyIcon,
                               title: LS("Settings.Currency"),
-                              detail: store.currency.titleString,
+                              detail: profile.currency.titleString,
                               action: currencyAction),
              .separator(inset: Constants.separatorInset),
              .menuTitleDetail(icon: imageProvider.securityIcon,
@@ -108,7 +108,7 @@ class SettingsViewController: BaseTableAdapterController {
         self.viewDidDisappear(true)
     }
     private lazy var logOutAction: () -> Void = {
-        guard EssentiaStore.currentUser.currentlyBackedUp == [] else {
+        guard EssentiaStore.currentUser.backup.currentlyBackedUp == [] else {
             self.logOutUser()
             return
         }

@@ -26,7 +26,7 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("WarningKeystore.Title")),
+            .title(bold: true, title: LS("WarningKeystore.Title")),
             .empty(height: 8, background: colorProvider.settingsCellsBackround),
             .paragraph(title: LS("WarningKeystore.Paragraph1.Title"),
                        description: LS("WarningKeystore.Paragraph1.Description")),

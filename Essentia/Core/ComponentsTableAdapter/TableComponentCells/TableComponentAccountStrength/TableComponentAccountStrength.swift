@@ -51,7 +51,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     }
     
     private var containerBackgroud: UIColor {
-        switch EssentiaStore.currentUser.securityLevel {
+        switch EssentiaStore.currentUser.backup.securityLevel {
         case 30..<50:
            return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
         case 50..<100:

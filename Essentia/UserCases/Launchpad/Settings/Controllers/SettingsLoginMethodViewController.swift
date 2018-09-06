@@ -31,7 +31,7 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
-        let loginType = EssentiaStore.currentUser.loginMethod
+        let loginType = EssentiaStore.currentUser.backup.loginMethod
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -39,7 +39,7 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Settings.Security.LoginMethod.Title")),
+            .title(bold: true, title: LS("Settings.Security.LoginMethod.Title")),
             .empty(height: 22.0, background: colorProvider.settingsBackgroud),
             .menuSectionHeader(title: LS("Settings.Security.SectionHeader"),
                                backgroud: colorProvider.settingsBackgroud),
@@ -66,21 +66,21 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private lazy var mnemonicAction: () -> Void = {
-        guard EssentiaStore.currentUser.currentlyBackedUp.contains(.mnemonic) else {
+        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             self.showBackupMnemonicAlert()
             return
         }
-        EssentiaStore.currentUser.loginMethod = .mnemonic
+        EssentiaStore.currentUser.backup.loginMethod = .mnemonic
         self.reloadState()
     }
     
     private lazy var seedAction: () -> Void = {
-        EssentiaStore.currentUser.loginMethod = .seed
+        EssentiaStore.currentUser.backup.loginMethod = .seed
         self.reloadState()
     }
     
     private lazy var ketstoreAction: () -> Void = {
-        EssentiaStore.currentUser.loginMethod = .keystore
+        EssentiaStore.currentUser.backup.loginMethod = .keystore
         self.reloadState()
     }
     

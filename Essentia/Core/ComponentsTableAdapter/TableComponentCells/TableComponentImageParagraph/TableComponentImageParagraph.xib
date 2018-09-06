@@ -17,18 +17,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zj9-Ho-Dqo">
-                        <rect key="frame" x="16" y="15" width="40" height="40"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zj9-Ho-Dqo">
+                        <rect key="frame" x="16" y="18.5" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="mXO-Vs-c3N"/>
-                            <constraint firstAttribute="width" constant="40" id="oRE-kF-kfM"/>
+                            <constraint firstAttribute="height" constant="50" id="mXO-Vs-c3N"/>
+                            <constraint firstAttribute="width" constant="50" id="oRE-kF-kfM"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsn-vc-4Kf">
-                        <rect key="frame" x="71" y="10" width="289" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="50" id="lYV-3b-uIa"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsn-vc-4Kf">
+                        <rect key="frame" x="81" y="5" width="279" height="66.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -36,11 +33,11 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="fsn-vc-4Kf" firstAttribute="leading" secondItem="zj9-Ho-Dqo" secondAttribute="trailing" constant="15" id="53w-vq-INf"/>
-                    <constraint firstItem="zj9-Ho-Dqo" firstAttribute="centerY" secondItem="GYh-bz-Jz3" secondAttribute="centerY" id="DZJ-2v-Udr"/>
-                    <constraint firstAttribute="bottom" secondItem="fsn-vc-4Kf" secondAttribute="bottom" constant="10" id="UfA-rO-q1I"/>
+                    <constraint firstItem="zj9-Ho-Dqo" firstAttribute="centerY" secondItem="GYh-bz-Jz3" secondAttribute="centerY" constant="5" id="DZJ-2v-Udr"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fsn-vc-4Kf" secondAttribute="bottom" constant="5" id="UfA-rO-q1I"/>
                     <constraint firstItem="fsn-vc-4Kf" firstAttribute="centerY" secondItem="GYh-bz-Jz3" secondAttribute="centerY" id="ahV-sP-fnf"/>
                     <constraint firstItem="zj9-Ho-Dqo" firstAttribute="leading" secondItem="GYh-bz-Jz3" secondAttribute="leading" constant="16" id="grk-eV-On0"/>
-                    <constraint firstItem="fsn-vc-4Kf" firstAttribute="top" secondItem="GYh-bz-Jz3" secondAttribute="top" constant="10" id="k7J-2p-YAy"/>
+                    <constraint firstItem="fsn-vc-4Kf" firstAttribute="top" secondItem="GYh-bz-Jz3" secondAttribute="top" constant="5" id="k7J-2p-YAy"/>
                     <constraint firstAttribute="trailing" secondItem="fsn-vc-4Kf" secondAttribute="trailing" constant="15" id="pPE-AY-I2y"/>
                 </constraints>
             </tableViewCellContentView>

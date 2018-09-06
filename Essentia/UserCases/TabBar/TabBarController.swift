@@ -78,8 +78,10 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         let isWalletTab = item.title == LS("TabBar.Wallet")
-        if isWalletTab {
-            
+        let isFirstlyOnWallet = EssentiaStore.currentUser.userEvents.isFirstlyOnWallet
+        if isWalletTab && isFirstlyOnWallet {
+            EssentiaStore.currentUser.userEvents.isFirstlyOnWallet = false
+            present(WalletWelcomeViewController(), animated: true)
         }
     }
 }

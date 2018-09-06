@@ -36,7 +36,7 @@ class SwitchAccoutViewController: BaseViewController {
     
     private var state: [TableComponent] {
         let usersState = users.map({ (user) -> [TableComponent] in
-            return [.imageTitle(image: user.icon, title: user.dislayName, withArrow: true, action: {
+            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: {
                         self.loginToUser(user)
                     }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
