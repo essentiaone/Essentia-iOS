@@ -53,6 +53,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentImageTitle.self)
         tableView.register(TableComponentSectionTitle.self)
         tableView.register(TableComponentTextField.self)
+        tableView.register(TableComponentImageParagraph.self)
     }
     
     // MARK: - Update State
@@ -93,13 +94,22 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentSeparator = tableView.dequeueReusableCell(for: indexPath)
             cell.separatorInset = inset
             return cell
-        case .title(let title):
+        case .title(let bold, let title):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
+            let font = bold ? AppFont.bold : AppFont.regular
+            cell.titleLabel.font = font.withSize(34)
+            return cell
+        case .descriptionWithSize(let fontSize,let title,let backgroud):
+            let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.backgroundColor = backgroud
+            cell.titleLabel.font = AppFont.regular.withSize(fontSize)
             return cell
         case .description(let title, let backgroud):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
+            cell.titleLabel.font = AppFont.regular.withSize(14)
             cell.backgroundColor = backgroud
             return cell
         case .calculatbleSpace(let background):
@@ -200,6 +210,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textField.text = text
             cell.textFieldAction = endEditing
             return cell
+        case .imageParagraph(let image,let paragraph):
+            let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage.image = image
+            cell.titleLabel.text = paragraph
+            return cell
         default:
             fatalError()
         }
@@ -212,8 +227,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 1.0
         case .empty(let height, _):
             return height
-        case .title(let title):
-            return title.multyLineLabelHeight(with: AppFont.bold.withSize(34), width: tableView.frame.width)
+        case .title(let bold, let title):
+            let font = bold ? AppFont.bold : AppFont.regular
+            return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
+        case .descriptionWithSize(let fontSize, let title, _):
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
         case .calculatbleSpace:
@@ -249,7 +267,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         case .menuTitleCheck:
             return 44.0
-        case .imageTitle:
+        case .imageTitle: fallthrough
+        case .imageParagraph:
             return 60.0
         case .menuSectionHeader:
             return 26.0

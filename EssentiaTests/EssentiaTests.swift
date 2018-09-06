@@ -12,8 +12,8 @@ import XCTest
 class EssentiaTests: XCTestCase {
     
     func testMnemonicProviderWordCountAndSymolsInWord() {
-        let mnemonicProvider: MnemonicProviderInterface = MnemonicProvider(language: .english)
-        let wordList = mnemonicProvider.mnemonic.split(separator: " ")
+        let mnemonicProvider: MnemonicServiceInterface = MnemonicService()
+        let wordList = mnemonicProvider.newMnemonic(with: .english).split(separator: " ")
         XCTAssert(wordList.count == 12)
         wordList.forEach { (word) in
             XCTAssert(word.count > 2)

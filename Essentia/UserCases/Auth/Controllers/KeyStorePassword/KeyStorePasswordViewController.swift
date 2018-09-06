@@ -57,7 +57,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Keystore.Title")),
+            .title(bold: true, title: LS("Keystore.Title")),
             .description(title: LS("Keystore.Description"), backgroud: colorProvider.settingsCellsBackround),
             .empty(height: 10.0, background: colorProvider.settingsCellsBackround),
             .password(passwordAction: passwordAction),
@@ -116,7 +116,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
                                                                                  with: "\(EssentiaStore.currentUser.id).txt")
-                EssentiaStore.currentUser.keystoreUrl = url
+                EssentiaStore.currentUser.backup.keystoreUrl = url
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
             }
@@ -128,7 +128,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
-                EssentiaStore.currentUser.currentlyBackedUp.append(.keystore)
+                EssentiaStore.currentUser.backup.currentlyBackedUp.append(.keystore)
                 (inject() as AuthRouterInterface).showNext()
             })
         }

@@ -34,19 +34,19 @@ class SettingsLanguageViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Settings.Language.Title"))
+            .title(bold: true, title: LS("Settings.Language.Title"))
             ] + languageState
     }
     
     var languageState: [TableComponent] {
         var languageComponent: [TableComponent] = []
-        let currenyLanguage = EssentiaStore.currentUser.language
+        let currenyLanguage = EssentiaStore.currentUser.profile.language
         LocalizationLanguage.cases.forEach { (language) in
             languageComponent.append(.menuTitleCheck(
                 title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: {
-                    EssentiaStore.currentUser.language = language
+                    EssentiaStore.currentUser.profile.language = language
                     self.tableAdapter.reload(self.state)
                     self.showFlipAnimation()
             }))

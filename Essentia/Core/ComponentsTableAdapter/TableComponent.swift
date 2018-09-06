@@ -12,8 +12,9 @@ enum TableComponent: Equatable {
     // MARK: - Common
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
-    case title(title: String)
+    case title(bold: Bool, title: String)
     case description(title: String, backgroud: UIColor)
+    case descriptionWithSize(fontSize: CGFloat, title: String, backgroud: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void)
@@ -35,6 +36,8 @@ enum TableComponent: Equatable {
     case password(passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace
+    // MARK: - Wallet
+    case imageParagraph(image: UIImage, paragraph: String)
     
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

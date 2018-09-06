@@ -142,3 +142,13 @@
 "EditAccount.Back" = "Settings";
 "EditAccount.Placeholder" = "Account...";
 "EditAccount.Description" = "Create a name for your account";
+
+// MARK: - Wallet
+
+"Wallet.Welcome.Title1" = "Welcome to your";
+"Wallet.Welcome.Title2" = "Multi-wallet";
+"Wallet.Welcome.Description" = "Easier, more convenient, and even more secure";
+"Wallet.Welcome.Paragraph1" = "Completely decentralized through the blockchain";
+"Wallet.Welcome.Paragraph2" = "Only you can access";
+"Wallet.Welcome.Paragraph3" = "Exchange directly on Essentia";
+"Wallet.Welcome.Continue" = "Continue";

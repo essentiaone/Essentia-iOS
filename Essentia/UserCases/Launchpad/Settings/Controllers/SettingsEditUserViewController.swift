@@ -59,7 +59,7 @@ class SettingsEditUserViewController: BaseTableAdapterController {
             return
         }
         self.view.endEditing(true)
-        EssentiaStore.currentUser.name = self.enteredName
+        EssentiaStore.currentUser.profile.name = self.enteredName
         self.router.pop()
     }
     

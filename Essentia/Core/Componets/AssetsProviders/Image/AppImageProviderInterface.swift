@@ -35,4 +35,8 @@ protocol AppImageProviderInterface {
     var mnemonicIcon: UIImage { get }
     var seedIcon: UIImage { get }
     var keystoreIcon: UIImage { get }
+    // MARK: - Wallet
+    var welcomeParagraph1: UIImage { get }
+    var welcomeParagraph2: UIImage { get }
+    var welcomeParagraph3: UIImage { get }
 }

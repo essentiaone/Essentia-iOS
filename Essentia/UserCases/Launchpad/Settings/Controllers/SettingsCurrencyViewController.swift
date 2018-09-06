@@ -34,19 +34,19 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Settings.Currency.Title"))
+            .title(bold: true, title: LS("Settings.Currency.Title"))
         ] + currenciesState
     }
     
     var currenciesState: [TableComponent] {
         var currencyState: [TableComponent] = []
-        let currenyCurrency = EssentiaStore.currentUser.currency
+        let currenyCurrency = EssentiaStore.currentUser.profile.currency
         Currency.cases.forEach { (currency) in
             currencyState.append(.menuTitleCheck(
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: {
-                    EssentiaStore.currentUser.currency = currency
+                    EssentiaStore.currentUser.profile.currency = currency
                     self.tableAdapter.reload(self.state)
             }))
             currencyState.append(.separator(inset: .zero))

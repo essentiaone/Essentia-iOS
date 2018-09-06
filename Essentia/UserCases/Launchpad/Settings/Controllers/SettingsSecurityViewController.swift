@@ -34,7 +34,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
                            title: "",
                            lAction: backAction,
                            rAction: nil),
-            .title(title: LS("Settings.Security.Title")),
+            .title(bold: true, title: LS("Settings.Security.Title")),
             .empty(height: 22.0, background: colorProvider.settingsBackgroud),
             .menuSectionHeader(title: LS("Settings.Security.SectionHeader"),
                                backgroud: colorProvider.settingsBackgroud),
@@ -55,7 +55,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
             .separator(inset: .zero),
             .empty(height: 16.0, background: colorProvider.settingsBackgroud),
             .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.currentUser.loginMethod.titleString,
+                                   detail: EssentiaStore.currentUser.backup.loginMethod.titleString,
                                    withArrow: true,
                                    action: loginMethodAction),
             .separator(inset: .zero),
@@ -72,7 +72,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     }
     
     private lazy var mnemonicAction: () -> Void = {
-        guard EssentiaStore.currentUser.currentlyBackedUp.contains(.mnemonic) else {
+        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
             return
         }
@@ -83,8 +83,8 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     }
     
     private lazy var ketstoreAction: () -> Void = {
-        guard EssentiaStore.currentUser.currentlyBackedUp.contains(.keystore),
-              let keystore = EssentiaStore.currentUser.keystoreUrl else {
+        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.keystore),
+              let keystore = EssentiaStore.currentUser.backup.keystoreUrl else {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
             return
         }
