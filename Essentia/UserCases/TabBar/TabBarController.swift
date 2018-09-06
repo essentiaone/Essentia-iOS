@@ -67,12 +67,19 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     override init() {
         super.init()
         delegate = self
-        let items: [TabBarTab] = [.launchpad, .notifications, .settings]
+        let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
         viewControllers = items.map { return $0.tabBarItem }
         hidesBottomBarWhenPushed = false
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let isWalletTab = item.title == LS("TabBar.Wallet")
+        if isWalletTab {
+            
+        }
     }
 }

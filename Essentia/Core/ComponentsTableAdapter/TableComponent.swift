@@ -35,6 +35,8 @@ enum TableComponent: Equatable {
     case password(passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace
+    // MARK: - Wallet
+    case imageParagraph(image: UIImage, paragraph: String)
     
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

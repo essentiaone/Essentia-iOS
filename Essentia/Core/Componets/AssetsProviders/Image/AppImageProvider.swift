@@ -35,4 +35,8 @@ class AppImageProvider: AppImageProviderInterface {
     var mnemonicIcon: UIImage = #imageLiteral(resourceName: "mnemonicIcon")
     var seedIcon: UIImage = #imageLiteral(resourceName: "seedIcon")
     var keystoreIcon: UIImage = #imageLiteral(resourceName: "keystoreIcon")
+    // MARK: - Wallet
+    var welcomeParagraph1: UIImage = #imageLiteral(resourceName: "paragraph1")
+    var welcomeParagraph2: UIImage = #imageLiteral(resourceName: "paragraph2")
+    var welcomeParagraph3: UIImage = #imageLiteral(resourceName: "paragraph3")
 }

@@ -200,6 +200,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textField.text = text
             cell.textFieldAction = endEditing
             return cell
+        case .imageParagraph(let image,let paragraph):
+            let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage.image = image
+            cell.titleLabel.text = paragraph
+            return cell
         default:
             fatalError()
         }
@@ -249,7 +254,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         case .menuTitleCheck:
             return 44.0
-        case .imageTitle:
+        case .imageTitle: fallthrough
+        case .imageParagraph:
             return 60.0
         case .menuSectionHeader:
             return 26.0
