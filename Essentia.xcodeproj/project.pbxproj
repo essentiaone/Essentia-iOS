@@ -142,6 +142,7 @@
 		344958E72141754D00C2230B /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958E62141754D00C2230B /* UserProfile.swift */; };
 		344958E92141763600C2230B /* UserBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958E82141763600C2230B /* UserBackup.swift */; };
 		344958EC21417CEC00C2230B /* UserEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958EB21417CEC00C2230B /* UserEvents.swift */; };
+		344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958F62142687000C2230B /* UIImage+UIColor.swift */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
@@ -332,6 +333,7 @@
 		344958E62141754D00C2230B /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		344958E82141763600C2230B /* UserBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserBackup.swift; sourceTree = "<group>"; };
 		344958EB21417CEC00C2230B /* UserEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEvents.swift; sourceTree = "<group>"; };
+		344958F62142687000C2230B /* UIImage+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 				344826BD21217EA200C19EB3 /* Int+Unary.swift */,
 				34B27A3B213048CB00527F15 /* Bundle+LS.swift */,
 				34B27A3F21305FBC00527F15 /* String+Format.swift */,
+				344958F62142687000C2230B /* UIImage+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1700,6 +1703,7 @@
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
+				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,

@@ -70,6 +70,9 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
         let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
         viewControllers = items.map { return $0.tabBarItem }
         hidesBottomBarWhenPushed = false
+        tabBar.layer.borderWidth = 0.0
+        tabBar.clipsToBounds = true
+        tabBar.backgroundImage = UIImage.withColor(.white)
     }
     
     required init?(coder aDecoder: NSCoder) {
