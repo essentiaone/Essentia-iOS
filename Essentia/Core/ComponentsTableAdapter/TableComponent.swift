@@ -14,11 +14,13 @@ enum TableComponent: Equatable {
     case empty(height: CGFloat, background: UIColor)
     case title(bold: Bool, title: String)
     case description(title: String, backgroud: UIColor)
-    case descriptionWithSize(fontSize: CGFloat, title: String, backgroud: UIColor)
+    case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, backgroud: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void)
+    case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
+    case rightNavigationButton(image: UIImage, action: () -> Void)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
     // MARK: - Settings
@@ -38,6 +40,7 @@ enum TableComponent: Equatable {
     case tabBarSpace
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
+    case centeredImage(image: UIImage)
     
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

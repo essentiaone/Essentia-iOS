@@ -29,7 +29,6 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
         rightButton.isHidden = rightAction != nil
         titleLabel.font = AppFont.bold.withSize(16)
         
-        leftButton.setImage(imageProvider.backButtonImage, for: .normal)
         leftButton.imageView?.contentMode = .scaleAspectFit
         leftButton.titleLabel?.font = AppFont.regular.withSize(15.0)
         rightButton.titleLabel?.font = AppFont.regular.withSize(15.0)

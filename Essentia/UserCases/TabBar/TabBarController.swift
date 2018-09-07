@@ -46,7 +46,7 @@ fileprivate enum TabBarTab {
         case .launchpad:
             return LaunchpadViewController()
         case .wallet:
-            return UIViewController()
+            return WalletMainViewController()
         case .notifications:
             return NotificationsPlaceholderViewController()
         case .settings:
