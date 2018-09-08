@@ -55,6 +55,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTextField.self)
         tableView.register(TableComponentImageParagraph.self)
         tableView.register(TableComponentCenteredImage.self)
+        tableView.register(TableComponentTitleSubtitle.self)
     }
     
     // MARK: - Update State
@@ -137,6 +138,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
             cell.imageView?.image = icon
+            return cell
+        case .titleSubtitle(let title, let detail, _):
+            let cell: TableComponentTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.detailTextLabel?.text = detail
             return cell
         case .menuSwitch(let icon, let title, let state, let action):
             let cell: TableComponentSwitch = tableView.dequeueReusableCell(for: indexPath)
@@ -300,6 +306,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
+        case .titleSubtitle:
+            return 60.0
         default:
             fatalError()
         }
@@ -343,7 +351,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .menuTitleCheck(_, _, let action):
             action()
-        case .imageTitle(_, _, _,let action):
+        case .imageTitle(_, _, _, let action):
+            action()
+        case .titleSubtitle(_,_, let action):
             action()
         default:
             return

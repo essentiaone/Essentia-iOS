@@ -6,8 +6,6 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
-
 class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
@@ -35,6 +33,6 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var addWalletAction: () -> Void = {
-        
+        self.present(WalletNewAssetViewController(), animated: true)
     }
 }
