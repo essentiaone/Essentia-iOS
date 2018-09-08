@@ -538,6 +538,7 @@
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
 			isa = PBXGroup;
 			children = (
+				34482683211DD17000C19EB3 /* Settings */,
 				344958CB214111A100C2230B /* Wallet */,
 				34115E1121368E7100A54B7E /* Notifications */,
 				34482668211B321000C19EB3 /* Launchpad */,
@@ -980,7 +981,6 @@
 		34482668211B321000C19EB3 /* Launchpad */ = {
 			isa = PBXGroup;
 			children = (
-				34482683211DD17000C19EB3 /* Settings */,
 				3448266A211B360200C19EB3 /* LaunchpadController */,
 				34482669211B345800C19EB3 /* Items */,
 			);
