@@ -39,4 +39,6 @@ protocol AppImageProviderInterface {
     var welcomeParagraph1: UIImage { get }
     var welcomeParagraph2: UIImage { get }
     var welcomeParagraph3: UIImage { get }
+    var walletPlaceholder: UIImage { get }
+    var bluePlus: UIImage { get }
 }

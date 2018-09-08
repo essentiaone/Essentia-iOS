@@ -39,4 +39,6 @@ class AppImageProvider: AppImageProviderInterface {
     var welcomeParagraph1: UIImage = #imageLiteral(resourceName: "paragraph1")
     var welcomeParagraph2: UIImage = #imageLiteral(resourceName: "paragraph2")
     var welcomeParagraph3: UIImage = #imageLiteral(resourceName: "paragraph3")
+    var walletPlaceholder: UIImage = #imageLiteral(resourceName: "walletMainPlaceholder")
+    var bluePlus: UIImage = #imageLiteral(resourceName: "bluePlusIcon")
 }

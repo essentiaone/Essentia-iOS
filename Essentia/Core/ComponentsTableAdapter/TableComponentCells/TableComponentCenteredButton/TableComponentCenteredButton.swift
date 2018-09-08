@@ -11,6 +11,8 @@ import UIKit
 class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     
+    @IBOutlet weak var rightInset: NSLayoutConstraint!
+    @IBOutlet weak var leftInset: NSLayoutConstraint!
     @IBOutlet weak var titleButton: BaseButton!
     var action: (() -> Void)?
     

@@ -54,6 +54,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSectionTitle.self)
         tableView.register(TableComponentTextField.self)
         tableView.register(TableComponentImageParagraph.self)
+        tableView.register(TableComponentCenteredImage.self)
     }
     
     // MARK: - Update State
@@ -100,10 +101,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let font = bold ? AppFont.bold : AppFont.regular
             cell.titleLabel.font = font.withSize(34)
             return cell
-        case .descriptionWithSize(let fontSize,let title,let backgroud):
+        case .descriptionWithSize(let aligment ,let fontSize,let title,let backgroud):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.backgroundColor = backgroud
+            cell.titleLabel.textAlignment = aligment
             cell.titleLabel.font = AppFont.regular.withSize(fontSize)
             return cell
         case .description(let title, let backgroud):
@@ -173,12 +175,19 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
+            cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
             cell.leftButton.setTitle(left, for: .normal)
             cell.rightButton.setTitle(right, for: .normal)
             cell.titleLabel.text = title
             cell.leftAction = lAction
             cell.rightAction = rAction
             return cell
+        case .rightNavigationButton(let image,let action):
+            let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
+            cell.rightButton.setImage(image, for: .normal)
+            cell.rightAction = action
+            return cell
+            
         case .paragraph(let title, let description):
             let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
@@ -215,6 +224,19 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleImage.image = image
             cell.titleLabel.text = paragraph
             return cell
+        case .smallCenteredButton(let title,let isEnable,let action):
+            let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.setTitle(title, for: .normal)
+            cell.setEnable(isEnable)
+            let inset = tableView.frame.width / 4
+            cell.leftInset.constant = inset
+            cell.rightInset.constant = inset
+            cell.action = action
+            return cell
+        case .centeredImage(let image):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.image = image
+            return cell
         default:
             fatalError()
         }
@@ -230,7 +252,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .title(let bold, let title):
             let font = bold ? AppFont.bold : AppFont.regular
             return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
-        case .descriptionWithSize(let fontSize, let title, _):
+        case .descriptionWithSize(_, let fontSize, let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
@@ -249,8 +271,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 91.0
         case .checkBox:
             return 92.0
+        case .smallCenteredButton: fallthrough
         case .centeredButton:
             return 75.0
+        case .rightNavigationButton:fallthrough
         case .navigationBar:
             return 44
         case .password:
@@ -274,6 +298,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 26.0
         case .textField:
             return 35.0
+        case .centeredImage(let image):
+            return image.size.height
         default:
             fatalError()
         }
