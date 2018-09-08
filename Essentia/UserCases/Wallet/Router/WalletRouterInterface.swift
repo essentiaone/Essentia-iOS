@@ -6,8 +6,12 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-protocol WalletRouterInterface {
-    
+enum WalletRoutes {
+    case newAssets
+}
+
+protocol WalletRouterInterface: BaseRouterInterface {
+    func show(_ route: WalletRoutes)
 }

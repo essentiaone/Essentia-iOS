@@ -21,7 +21,7 @@ class WalletNewAssetViewController: BaseTableAdapterController {
 
     private var state: [TableComponent] {
         return [
-            .empty(height: 20, background: colorProvider.settingsCellsBackround),
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Wallet.Back"), right: "", title: "", lAction: backAction, rAction: nil),
             .title(bold: true, title: LS("Wallet.NewAsset.Title")),
             .empty(height: 16, background: colorProvider.settingsBackgroud),
@@ -48,7 +48,7 @@ class WalletNewAssetViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
-        
+        (inject() as WalletRouterInterface).pop()
     }
     
     private lazy var addAssetAction: () -> Void = {

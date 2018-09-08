@@ -8,13 +8,7 @@
 
 import UIKit
 
-class SettingsRouter: SettingsRouterInterface {
-    weak var navigationController: UINavigationController?
-    
-    required init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-    
+class SettingsRouter: BaseRouter, SettingsRouterInterface {
     func show(_ route: SettingsRoutes) {
         switch route {
         case .accountStrength:
@@ -42,18 +36,6 @@ class SettingsRouter: SettingsRouterInterface {
         case .accountName:
             push(vc: SettingsEditUserViewController())
         }
-    }
-    
-    private func push(vc: UIViewController) {
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func pop() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func popUp(vc: UIViewController) {
-        navigationController?.present(vc, animated: true)
     }
     
     func logOut() {

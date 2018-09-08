@@ -23,9 +23,7 @@ enum SettingsRoutes {
     case accountName
 }
 
-protocol SettingsRouterInterface {
-    init(navigationController: UINavigationController)
+protocol SettingsRouterInterface: BaseRouterInterface {
     func show(_ route: SettingsRoutes)
-    func pop()
     func logOut()
 }

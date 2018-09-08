@@ -163,6 +163,8 @@
 		349BC04C2142C618003AC330 /* WalletNewAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */; };
 		349BC04F2143D71F003AC330 /* TableComponentTitleSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC04E2143D71F003AC330 /* TableComponentTitleSubtitle.swift */; };
 		349BC0512143D72A003AC330 /* TableComponentTitleSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */; };
+		349BC0532143DDB1003AC330 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0522143DDB1003AC330 /* BaseRouter.swift */; };
+		349BC0552143DF19003AC330 /* BaseRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0542143DF19003AC330 /* BaseRouterInterface.swift */; };
 		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
 		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
@@ -360,6 +362,8 @@
 		349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNewAssetViewController.swift; sourceTree = "<group>"; };
 		349BC04E2143D71F003AC330 /* TableComponentTitleSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleSubtitle.swift; sourceTree = "<group>"; };
 		349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleSubtitle.xib; sourceTree = "<group>"; };
+		349BC0522143DDB1003AC330 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		349BC0542143DF19003AC330 /* BaseRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterInterface.swift; sourceTree = "<group>"; };
 		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
 		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
@@ -587,6 +591,8 @@
 				3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */,
 				34482679211BA20F00C19EB3 /* BaseTabBarController.swift */,
 				3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */,
+				349BC0522143DDB1003AC330 /* BaseRouter.swift */,
+				349BC0542143DF19003AC330 /* BaseRouterInterface.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1140,8 +1146,8 @@
 			isa = PBXGroup;
 			children = (
 				344958DB21412D5F00C2230B /* Design */,
-				344958D42141226400C2230B /* Router */,
 				344958CF2141200A00C2230B /* Controllers */,
+				344958D42141226400C2230B /* Router */,
 				344958CD21411FE900C2230B /* Interactor */,
 			);
 			path = Wallet;
@@ -1613,6 +1619,7 @@
 				343122732124E92D009E4A7A /* TableComponentParagraph.swift in Sources */,
 				349BC04F2143D71F003AC330 /* TableComponentTitleSubtitle.swift in Sources */,
 				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
+				349BC0532143DDB1003AC330 /* BaseRouter.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
@@ -1638,6 +1645,7 @@
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
+				349BC0552143DF19003AC330 /* BaseRouterInterface.swift in Sources */,
 				3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */,
 				34482692211DDDEF00C19EB3 /* AbstractDiffCalculator.swift in Sources */,
 				34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */,

@@ -15,11 +15,18 @@ class WalletMainViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.reload(state)
+        injectRouter()
+    }
+    
+    private func injectRouter() {
+        guard let navigation = navigationController else { return }
+        let injection: WalletRouterInterface = WalletRouter(navigationController: navigation)
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private var state: [TableComponent] {
         return [
-            .empty(height: 20, background: .clear),
+            .empty(height: 24, background: .clear),
             .rightNavigationButton(image: imageProvider.bluePlus, action: addWalletAction),
             .title(bold: true, title: LS("Wallet.Title")),
             .empty(height: 52, background: .clear),
@@ -33,6 +40,6 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var addWalletAction: () -> Void = {
-        self.present(WalletNewAssetViewController(), animated: true)
+        (inject() as WalletRouterInterface).show(.newAssets)
     }
 }
