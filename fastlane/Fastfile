@@ -1,23 +1,18 @@
-# This file contains the fastlane.tools configuration
-# You can find the documentation at https://docs.fastlane.tools
-#
-# For a list of all available actions, check out
-#
-#     https://docs.fastlane.tools/actions
-#
-# For a list of all available plugins, check out
-#
-#     https://docs.fastlane.tools/plugins/available-plugins
-#
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
 
   before_all do
+    create_keychain(
+        name: ENV["MATCH_KEYCHAIN_NAME"],
+	password: ENV["MATCH_PASSWORD"],
+	default_keychain: true,
+	unlock: true,
+	timeout: 3600,
+	add_to_search_list: true,
+	verbose: true
+    )
     #dev_mobile
     #ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
     ENV["SLACK_URL"] = "https://hooks.slack.com/services/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"
@@ -37,11 +32,8 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-<<<<<<< HEAD
-    ensure_git_branch(branch: "master")
-=======
-    ensure_git_branch(branch: "develop")
->>>>>>> 41d0143081e162ac413f191c1a63651761478dc2
+    generateProfiles(type: "Adhoc", identifier: "impl.essentia.Essentia")
+    ensure_git_branch(branch: "feature/fastlane-CD")
 
     #Increment build
     ensure_git_status_clean
@@ -55,7 +47,7 @@ platform :ios do
     match(
       app_identifier: "impl.essentia.Essentia",
       type: "appstore",
-      git_branch: "master",
+      git_branch: "develop",
       readonly: true
     )
 
@@ -93,6 +85,12 @@ platform :ios do
       channel: ENV["IOS_DEV_TEAM"]
     )
   end
+
+    after_all do |lane|
+        delete_keychain(
+            name: ENV["MATCH_KEYCHAIN_NAME"]
+        )
+    end
 
 end
 
