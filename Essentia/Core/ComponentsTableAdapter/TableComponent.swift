@@ -27,6 +27,7 @@ enum TableComponent: Equatable {
     case accountStrength(backAction: () -> Void)
     case accountStrengthAction(action: () -> Void)
     case currentAccount(icon: UIImage, title: String, name: String, action: () -> Void)
+    case titleSubtitle(title: String, detail: String, action: () -> Void)
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
     case menuSimpleTitleDetail(title: String, detail: String, withArrow: Bool, action: () -> Void)
     case menuTitleCheck(title: String, state: ComponentState<Bool>, action: () -> Void)

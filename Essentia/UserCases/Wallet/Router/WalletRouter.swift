@@ -6,8 +6,13 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class WalletRouter: WalletRouterInterface {
-    
+class WalletRouter: BaseRouter, WalletRouterInterface {
+    func show(_ route: WalletRoutes) {
+        switch route {
+        case .newAssets:
+            push(vc: WalletNewAssetViewController())
+        }
+    }
 }
