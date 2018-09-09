@@ -46,9 +46,9 @@ fileprivate enum TabBarTab {
         case .launchpad:
             return LaunchpadViewController()
         case .wallet:
-            return UIViewController()
+            return WalletMainViewController()
         case .notifications:
-            return UIViewController()
+            return NotificationsPlaceholderViewController()
         case .settings:
             return SettingsViewController()
         }
@@ -70,9 +70,21 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
         let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
         viewControllers = items.map { return $0.tabBarItem }
         hidesBottomBarWhenPushed = false
+        tabBar.layer.borderWidth = 0.0
+        tabBar.clipsToBounds = true
+        tabBar.backgroundImage = UIImage.withColor(.white)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let isWalletTab = item.title == LS("TabBar.Wallet")
+        let isFirstlyOnWallet = EssentiaStore.currentUser.userEvents.isFirstlyOnWallet
+        if isWalletTab && isFirstlyOnWallet {
+            EssentiaStore.currentUser.userEvents.isFirstlyOnWallet = false
+            present(WalletWelcomeViewController(), animated: true)
+        }
     }
 }

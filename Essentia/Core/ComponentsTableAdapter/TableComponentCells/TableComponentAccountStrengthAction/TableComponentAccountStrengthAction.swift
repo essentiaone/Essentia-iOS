@@ -18,7 +18,6 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
     @IBOutlet weak var accountButton: UIButton!
     
     var resultAction: (() -> Void)?
-    var progress: Int?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +36,6 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
         accountButton.titleLabel?.font = AppFont.regular.withSize(15)
         
         // MARK: - Color
-        containerView.backgroundColor = colorProvider.accountStrengthContainerViewBackgroud
         titleLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         descriptionLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         accountButton.setTitleColor(colorProvider.accountStrengthContainerViewButtonTitle, for: .normal)
@@ -47,6 +45,22 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
         containerView.drawShadow(width: 10.0)
         containerView.layer.cornerRadius = 10.00
         accountButton.layer.cornerRadius = 5.0
+    }
+    
+    private var containerViewBackgroud: UIColor {
+        switch EssentiaStore.currentUser.backup.securityLevel {
+        case 30..<50:
+            return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
+        case 50..<100:
+            return colorProvider.accountStrengthContainerViewBackgroudHightSecure
+        default:
+            return colorProvider.accountStrengthContainerViewBackgroudLowSecure
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        containerView.backgroundColor = containerViewBackgroud
     }
     
     @IBAction func accountAction(_ sender: AnyObject) {

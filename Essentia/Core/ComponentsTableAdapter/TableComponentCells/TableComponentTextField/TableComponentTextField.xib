@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentTextField" rowHeight="35" id="wLm-lZ-q2v" customClass="TableComponentTextField" customModule="Essentia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wLm-lZ-q2v" id="JL7-Js-PxF">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="34.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="VoK-rl-khb">
+                        <rect key="frame" x="15" y="0.0" width="345" height="34.5"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="VoK-rl-khb" secondAttribute="bottom" id="MKH-Cz-sth"/>
+                    <constraint firstItem="VoK-rl-khb" firstAttribute="top" secondItem="JL7-Js-PxF" secondAttribute="top" id="ReD-TH-sls"/>
+                    <constraint firstAttribute="trailing" secondItem="VoK-rl-khb" secondAttribute="trailing" constant="15" id="lhX-Vm-MD0"/>
+                    <constraint firstItem="VoK-rl-khb" firstAttribute="leading" secondItem="JL7-Js-PxF" secondAttribute="leading" constant="15" id="xg9-Ap-sPM"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="VoK-rl-khb" id="nKX-VL-k7Q"/>
+            </connections>
+            <point key="canvasLocation" x="-111.5" y="-63.5"/>
+        </tableViewCell>
+    </objects>
+</document>

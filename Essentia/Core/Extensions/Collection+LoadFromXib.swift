@@ -47,10 +47,12 @@ extension UITableView {
     }
     
     public func dequeueReusableCell<Cell: UITableViewCell>(for indexPath: IndexPath) -> Cell {
-        guard let cell = dequeueReusableCell(withIdentifier: Cell.identifire, for: indexPath) as? Cell else {
+        let cellIdentifire = Cell.identifire
+        let cell = dequeueReusableCell(withIdentifier: cellIdentifire, for: indexPath) as? Cell
+        guard cell != nil else {
             fatalError()
         }
-        return cell
+        return cell!
     }
     
     public func cellForRow<Cell: UITableViewCell>(at indexPath: IndexPath) -> Cell {

@@ -20,6 +20,5 @@ class TableComponentDescription: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         self.titleLabel?.textColor = colorProvider.settingsMenuSubtitle
-        self.titleLabel?.font = AppFont.regular.withSize(14)
     }
 }

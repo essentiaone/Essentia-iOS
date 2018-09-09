@@ -1,7 +1,158 @@
-/* 
-  Localizable.strings
-  Essentia
+/*
+ Localizable.strings
+ Essentia
+ 
+ Created by Pavlo Boiko on 16.07.18.
+ Copyright © 2018 Essentia-One. All rights reserved.
+ */
 
-  Created by Pavlo Boiko on 16.07.18.
-  Copyright © 2018 Essentia-One. All rights reserved.
-*/
+"Back" = "Back";
+
+"Welcome.Restore" = "RESTORE";
+"Welcome.Title1" = "Welcome to";
+"Welcome.Title2" = "Essentia";
+"Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life,  at your fingertips.";
+"Welcome.Enter" = "ENTER";
+"Welcome.Tersm1" = "By continuing you agree to our ";
+"Welcome.Tersm2" = "Terms of Service";
+
+"Warning.Title" = "Is there a ninja\nbehind you?";
+"Warning.Description" = "Make sure no one is watching you - move away from windows and cameras; do not make any screenshots - they can be easily stolen; check if anyone is gandering.";
+"Warning.Done" = "I’M IN A SAFE PLACE";
+
+"WarningKeystore.Title" = "Keep Your Money Make Backup";
+"WarningKeystore.Skip" = "Skip";
+"WarningKeystore.Paragraph1.Title" = "Keep it securely saved!";
+"WarningKeystore.Paragraph1.Description" = "If you lose your backup method, you can't access your account again!";
+"WarningKeystore.Paragraph2.Title" = "Don't share it with anyone!";
+"WarningKeystore.Paragraph2.Description" = "Sharing is caring, but not when it comes to your backup method!";
+"WarningKeystore.Paragraph3.Title" = "Backup your backup!";
+"WarningKeystore.Paragraph3.Description" = "Your account is valuable and has multiple backups keep it extra safe";
+"WarningKeystore.Save" = "Save Keystrore File";
+
+"MnemonicPhrase.Title" = "Mnemonic Phrase";
+"MnemonicPhrase.Description" = "Please save your mnemonic phrase. It’ll let you login to your Essence!";
+"MnemonicLogin.Description" = "Enter your 12 word Mnemonic Phrase to log in to Essentia";
+"MnemonicPhrase.Copy" = "COPY";
+"MnemonicPhrase.Copied" = "COPIED";
+"MnemonicPhrase.Continue" = "CONTINUE";
+
+"MnemonicPhraseConfirm.Title" = "Mnemonic Phrase Confirmation";
+"MnemonicPhraseConfirm.Description" = "Enter the following words to complete the backup process.";
+"MnemonicPhraseConfirm.CurrentWord" = "-th word";
+
+"SeedCopy.Title" = "Seed";
+"SeedCopy.Description" = "Below you’ll see your Seed. Please save it securely since you can use to access your Essence";
+"SeedCopy.Copy" = "COPY";
+"SeedCopy.Copied" = "COPIED";
+"SeedCopy.Continue" = "CONTINUE";
+"SeedConfirm.Description" = "Paste your Seed to access Essentia";
+"InfoAlert.Ok" = "OK";
+
+"Keystore.Title" = "Password";
+"Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
+"Keystore.PasswordField.Title" = "Password";
+"Keystore.PasswordField.Placeholder" = "Required";
+"Keystore.PasswordField.Description" = "Minimum 8 characters";
+"Keystore.PasswordField.Status.Good" = "Good";
+"Keystore.Continue" = "CONTINUE";
+
+"KeyStoreSaved.Title" = "Your Keystore File saved";
+"KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
+
+"TabBar.Launchpad" = "Launchpad";
+"TabBar.Wallet" = "Wallet";
+"TabBar.Notifications" = "Notifications";
+"TabBar.Settings" = "Settings";
+
+"Settings.Title" = "Settings";
+"Settings.AccountStrength.Title" = "Account Strength";
+"Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
+"Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
+"Settings.CurrentAccountTitle" = "Account Name";
+"Settings.Language" = "Language";
+"Settings.Currency" = "Currency";
+"Settings.Security" = "Security";
+"Settings.DarkTheme" = "Dark Theme";
+"Settings.Feedback" = "Feedback";
+"Settings.Switch" = "Switch Account";
+"Settings.LogOut" = "Log Out";
+
+"Settings.Secure.Back" = "Settings";
+"Settings.Secure.Title" = "Take these steps to enhance your security";
+"Settings.Secure.Prefix.Save" = "Save";
+"Settings.Secure.Prefix.Show" = "Show";
+"Settings.Secure.Mnemonic.Title" = "Mnemonic Phrase";
+"Settings.Secure.Mnemonic.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Seed.Title" = "Seed";
+"Settings.Secure.Seed.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
+"Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Description" = "By completing these steps you are making your account more security";
+
+"Settings.Currency.Title" = "Currency";
+"Settings.Language.Title" = "Language";
+
+"Settings.Accounts.Title" = "Accounts";
+"Settings.Accounts.CreateNew" = "Create Account";
+
+"Settings.Security.Title" = "Security";
+"Settings.Security.SectionHeader" = "BACKUP FILES";
+"Settings.Security.Mnemonic.Title" = "Mnemonic Phrase";
+"Settings.Security.Mnemonic.Detail" = "Show";
+"Settings.Security.Seed.Title" = "Seed";
+"Settings.Security.Seed.Detail" = "Show";
+"Settings.Security.Keystore.Title" = "Keystore File";
+"Settings.Security.Keystore.Detail" = "Download";
+"Settings.Security.LoginMethod.Title" = "Login Method";
+"Settings.Security.LoginMethod.Detail.None" = "None";
+
+"Currency.usd" = "USD";
+"Currency.eur" = "EUR";
+"Currency.krw" = "KRW";
+"Currency.cny" = "CNY";
+
+"LocalizationLanguage.English" = "English";
+"LocalizationLanguage.Korean" = "Korean";
+"LocalizationLanguage.Chinese" = "Chinese";
+
+"BackupType.Mnemonic" = "Mnemonic";
+"BackupType.Seed" = "Seed";
+"BackupType.Keystore" = "Keystore";
+"BackupType.None" = "None";
+
+"LogOutAction.Title" = "Are you sure?";
+"LogOutAction.Description" = "We noticed that you haven't backed up your account yet. Please back it up if you ever want to access this account again";
+"LogOutAction.LeftButton" = "BACKUP";
+"LogOutAction.RightButton" = "LOG OUT";
+
+"MnemonicBackupWarning.Title" = "You need to backup your Mnemonic Phrase";
+"MnemonicBackupWarning.Description" = "In order to use this login method as primary one, you need to make a backup of it";
+"MnemonicBackupWarning.LeftButton" = "CANCEL";
+"MnemonicBackupWarning.RightButton" = "BACKUP";
+
+"Restore.Title" = "Restore";
+"Restore.Description" = "Choose your preferred login method to access your Essentia account";
+"Restore.Mnemonic" = "Mnemonic Phrase";
+"Restore.Seed" = "Seed";
+"Restore.Keystore" = "Keystore File";
+
+"EditAccount.Title" = "Account Name";
+"EditAccount.Done" = "Done";
+"EditAccount.Back" = "Settings";
+"EditAccount.Placeholder" = "Account...";
+"EditAccount.Description" = "Create a name for your account";
+
+// MARK: - Wallet
+
+"Wallet.Welcome.Title1" = "Welcome to your";
+"Wallet.Welcome.Title2" = "Multi-wallet";
+"Wallet.Welcome.Description" = "Easier, more convenient, and even more secure";
+"Wallet.Welcome.Paragraph1" = "Completely decentralized through the blockchain";
+"Wallet.Welcome.Paragraph2" = "Only you can access";
+"Wallet.Welcome.Paragraph3" = "Exchange directly on Essentia";
+"Wallet.Welcome.Continue" = "Continue";
+
+"Wallet.Title" = "Wallet";
+"Wallet.Empty.Description" = "You have no assets, but you can add ones";
+"Wallet.Empty.Add" = "ADD";

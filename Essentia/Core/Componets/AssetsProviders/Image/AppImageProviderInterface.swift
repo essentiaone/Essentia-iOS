@@ -25,4 +25,20 @@ protocol AppImageProviderInterface {
     var backWhiteIcon: UIImage { get }
     var checkBoxEmpty: UIImage { get }
     var checkBoxFilled: UIImage { get }
+    var darkDotIcon: UIImage { get }
+    var checkIcon: UIImage { get }
+    var cancelIcon: UIImage { get }
+    var plusIcon: UIImage { get }
+    var notificationPlaceholderIcon: UIImage { get }
+    var warningIcon: UIImage { get }
+    var mnemonicWaringIcon: UIImage { get }
+    var mnemonicIcon: UIImage { get }
+    var seedIcon: UIImage { get }
+    var keystoreIcon: UIImage { get }
+    // MARK: - Wallet
+    var welcomeParagraph1: UIImage { get }
+    var welcomeParagraph2: UIImage { get }
+    var welcomeParagraph3: UIImage { get }
+    var walletPlaceholder: UIImage { get }
+    var bluePlus: UIImage { get }
 }

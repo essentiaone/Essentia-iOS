@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeViewController: BaseViewController {
+class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
@@ -19,6 +19,7 @@ class WelcomeViewController: BaseViewController {
     
     // MARK: - Dependences
     private lazy var design: LoginDesignInterface = inject()
+    private lazy var interactor: LoginInteractorInterface = inject()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,15 +27,43 @@ class WelcomeViewController: BaseViewController {
         design.applyDesign(to: self)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !EssentiaStore.currentUser.seed.isEmpty else {
+            return
+        }
+        openTabBar()
+    }
+    
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
+        present(RestoreAccountViewController(delegate: self), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        present(TabBarController(), animated: true)
+        let switchAccount =  SwitchAccoutViewController {
+            self.openTabBar()
+        }
+        present(switchAccount, animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {
+    }
+    
+    func openTabBar() {
+        self.present(TabBarController(), animated: true)
+    }
+    
+    // MARK: - RestoreAccountDelegate
+    func showBackup(type: BackupType) {
+        dismiss(animated: true)
+        let nvc = UINavigationController()
+        nvc.setNavigationBarHidden(true, animated: false)
+        self.present(nvc, animated: true)
+        prepareInjection(AuthRouter(navigationController: nvc,
+                                    type: type,
+                                    auth: .login) as AuthRouterInterface,
+                         memoryPolicy: .viewController)
     }
     
 }

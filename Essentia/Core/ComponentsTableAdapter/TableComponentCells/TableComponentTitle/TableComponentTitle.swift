@@ -15,7 +15,6 @@ class TableComponentTitle: UITableViewCell, NibLoadable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        titleLabel.font = AppFont.bold.withSize(34)
         titleLabel.textColor = colorProvider.appTitleColor
     }
 }

@@ -12,17 +12,5 @@ protocol LaunchpadItemInterface {
     var title: String { get }
     var subTitle: String { get }
     var icon: UIImage { get }
-    func show(from rootController: UIViewController)
-}
-
-class TestItem: LaunchpadItemInterface {
-    var title: String = "Title"
-    
-    var subTitle: String = "Subtitle"
-    
-    var icon: UIImage = #imageLiteral(resourceName: "InfoCheckIcon")
-    
-    func show(from rootController: UIViewController) {
-        
-    }
+    func show(from navigationController: UINavigationController)
 }

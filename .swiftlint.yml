@@ -4,6 +4,7 @@ disabled_rules:
  - class_delegate_protocol
  - weak_delegate
  - line_length
+ - cyclomatic_complexity
 excluded:
   - Pods
   - fastane

@@ -30,6 +30,8 @@ protocol AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor { get }
     var enteredWordBackgroud: UIColor { get }
     var enteredWordText: UIColor { get }
+    var validPasswordIndicator: UIColor { get }
+    var notValidPasswordIndicator: UIColor { get }
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor { get }
     var launchpadItemSubTitleColor: UIColor { get }
@@ -37,7 +39,9 @@ protocol AppColorInterface {
     var settingsCellsBackround: UIColor { get }
     var separatorBackgroundColor: UIColor { get }
     var titleColor: UIColor { get }
-    var accountStrengthContainerViewBackgroud: UIColor { get }
+    var accountStrengthContainerViewBackgroudLowSecure: UIColor { get }
+    var accountStrengthContainerViewBackgroudMediumSecure: UIColor { get }
+    var accountStrengthContainerViewBackgroudHightSecure: UIColor { get }
     var accountStrengthContainerViewTitles: UIColor { get }
     var accountStrengthContainerViewButtonTitle: UIColor { get }
     var settingsMenuTitle: UIColor { get }

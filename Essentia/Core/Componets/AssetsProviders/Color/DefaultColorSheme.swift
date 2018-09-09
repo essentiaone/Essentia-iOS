@@ -24,6 +24,7 @@ fileprivate struct Constants {
     static var appRedColor = #colorLiteral(red: 1, green: 0.2196078431, blue: 0, alpha: 1) //RGB(255, 56, 0)
     static var appDarkRedColor = #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1) //RGB(208, 2, 27)
     static var appWhiteWithLightBlue = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.9803921569, alpha: 1) //RGB(237, 242, 250)
+    static var appOrageColor = #colorLiteral(red: 1, green: 0.631372549, blue: 0, alpha: 1) //RGB(255,161,0)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -48,6 +49,9 @@ struct DefaultColorSheme: AppColorInterface {
     var currentWordEnteringPlaceholder: UIColor = Constants.appLigntLightGray
     var enteredWordBackgroud: UIColor = Constants.appDarkBlue
     var enteredWordText: UIColor = Constants.appWhiteColor
+    var validPasswordIndicator: UIColor = Constants.appGreen
+    var notValidPasswordIndicator: UIColor = Constants.appLigntLightGray
+    
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray
@@ -55,7 +59,9 @@ struct DefaultColorSheme: AppColorInterface {
     var settingsCellsBackround: UIColor = Constants.appWhiteColor
     var separatorBackgroundColor: UIColor = Constants.appDarkGrayOpacity
     var titleColor: UIColor = Constants.appDarkTextColor
-    var accountStrengthContainerViewBackgroud: UIColor = Constants.appRedColor
+    var accountStrengthContainerViewBackgroudLowSecure: UIColor = Constants.appRedColor
+    var accountStrengthContainerViewBackgroudMediumSecure: UIColor = Constants.appOrageColor
+    var accountStrengthContainerViewBackgroudHightSecure: UIColor = Constants.appGreen
     var accountStrengthContainerViewTitles: UIColor = Constants.appWhiteColor
     var accountStrengthContainerViewButtonTitle: UIColor = Constants.appDarkTextColor
     var settingsMenuTitle: UIColor = Constants.appDarkTextColor
