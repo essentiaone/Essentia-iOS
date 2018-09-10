@@ -326,6 +326,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuSimpleTitleDetail: fallthrough
         case .menuTitleCheck: fallthrough
         case .imageTitle: fallthrough
+        case .titleSubtitle: fallthrough
         case .checkBox:
             return true
         default:

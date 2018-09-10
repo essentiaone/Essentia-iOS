@@ -41,4 +41,8 @@ class AppImageProvider: AppImageProviderInterface {
     var welcomeParagraph3: UIImage = #imageLiteral(resourceName: "paragraph3")
     var walletPlaceholder: UIImage = #imageLiteral(resourceName: "walletMainPlaceholder")
     var bluePlus: UIImage = #imageLiteral(resourceName: "bluePlusIcon")
+    var bitcoinIcon: UIImage = #imageLiteral(resourceName: "bitcoin")
+    var litecoinIcon: UIImage = #imageLiteral(resourceName: "litecoin")
+    var ethereumIcon: UIImage = #imageLiteral(resourceName: "ethereum")
+    var bitcoinCashIcon: UIImage = #imageLiteral(resourceName: "bitcoinCash")
 }

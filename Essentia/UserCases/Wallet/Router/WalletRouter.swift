@@ -13,6 +13,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         switch route {
         case .newAssets:
             push(vc: WalletNewAssetViewController())
+        case .importAsset:
+            push(vc: WalletImportAssetViewController())
         }
     }
 }

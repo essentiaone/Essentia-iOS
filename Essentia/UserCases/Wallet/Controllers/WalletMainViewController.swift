@@ -26,14 +26,14 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private var state: [TableComponent] {
         return [
-            .empty(height: 24, background: .clear),
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(image: imageProvider.bluePlus, action: addWalletAction),
             .title(bold: true, title: LS("Wallet.Title")),
-            .empty(height: 52, background: .clear),
+            .empty(height: 52, background: colorProvider.settingsCellsBackround),
             .centeredImage(image: imageProvider.walletPlaceholder),
-            .empty(height: 40, background: .clear),
-            .descriptionWithSize(aligment: .center, fontSize: 17, title: LS("Wallet.Empty.Description"), backgroud: .clear),
-            .empty(height: 10, background: .clear),
+            .empty(height: 40, background: colorProvider.settingsCellsBackround),
+            .descriptionWithSize(aligment: .center, fontSize: 17, title: LS("Wallet.Empty.Description"), backgroud: colorProvider.settingsCellsBackround),
+            .empty(height: 10, background: colorProvider.settingsCellsBackround),
             .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction)
         ]
     }

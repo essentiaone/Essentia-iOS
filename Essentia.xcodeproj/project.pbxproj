@@ -165,6 +165,8 @@
 		349BC0512143D72A003AC330 /* TableComponentTitleSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */; };
 		349BC0532143DDB1003AC330 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0522143DDB1003AC330 /* BaseRouter.swift */; };
 		349BC0552143DF19003AC330 /* BaseRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0542143DF19003AC330 /* BaseRouterInterface.swift */; };
+		349BC0572146553C003AC330 /* WalletImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0562146553C003AC330 /* WalletImportAssetViewController.swift */; };
+		349BC05921466591003AC330 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC05821466591003AC330 /* Coin.swift */; };
 		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
 		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
@@ -364,6 +366,8 @@
 		349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleSubtitle.xib; sourceTree = "<group>"; };
 		349BC0522143DDB1003AC330 /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		349BC0542143DF19003AC330 /* BaseRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterInterface.swift; sourceTree = "<group>"; };
+		349BC0562146553C003AC330 /* WalletImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportAssetViewController.swift; sourceTree = "<group>"; };
+		349BC05821466591003AC330 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
 		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
@@ -934,6 +938,7 @@
 				34B27A3D21304B2E00527F15 /* LocalizationLanguage.swift */,
 				34416806212F711E008B8A91 /* Currencies.swift */,
 				34B27A42213064E500527F15 /* MnemonicLanguage.swift */,
+				349BC05821466591003AC330 /* Coin.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1168,6 +1173,7 @@
 				344958D921412CA400C2230B /* WalletWelcomeViewController.swift */,
 				344958ED2141CC3000C2230B /* WalletMainViewController.swift */,
 				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
+				349BC0562146553C003AC330 /* WalletImportAssetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1626,6 +1632,7 @@
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				344958EE2141CC3000C2230B /* WalletMainViewController.swift in Sources */,
 				34115E052134A25F00A54B7E /* LoggerService.swift in Sources */,
+				349BC05921466591003AC330 /* Coin.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */,
@@ -1753,6 +1760,7 @@
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
+				349BC0572146553C003AC330 /* WalletImportAssetViewController.swift in Sources */,
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
 				34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */,
