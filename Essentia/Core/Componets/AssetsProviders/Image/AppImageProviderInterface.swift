@@ -41,4 +41,8 @@ protocol AppImageProviderInterface {
     var welcomeParagraph3: UIImage { get }
     var walletPlaceholder: UIImage { get }
     var bluePlus: UIImage { get }
+    var bitcoinIcon: UIImage { get }
+    var litecoinIcon: UIImage { get }
+    var ethereumIcon: UIImage { get }
+    var bitcoinCashIcon: UIImage { get }
 }

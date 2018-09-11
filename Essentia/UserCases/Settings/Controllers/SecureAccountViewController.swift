@@ -36,6 +36,9 @@ class SecureAccountViewController: BaseTableAdapterController {
         let currentUserBackups = EssentiaStore.currentUser.backup.currentlyBackedUp
         return [
             .accountStrength(backAction: backAction),
+            .shadow(height: 24,
+                    shadowColor: colorProvider.settingsShadowColor,
+                    background: colorProvider.settingsBackgroud),
             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.mnemonic)),
             titlePrifex: LS("Settings.Secure.Prefix.Save"),
                       title: LS("Settings.Secure.Mnemonic.Title"),

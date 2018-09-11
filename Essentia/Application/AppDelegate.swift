@@ -27,8 +27,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwizzleLocalizedFiles()
         return true
     }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        (inject() as UserStorageServiceInterface).store(user: EssentiaStore.currentUser)
-    }
 }

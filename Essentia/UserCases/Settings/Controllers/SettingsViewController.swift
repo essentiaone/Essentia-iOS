@@ -101,7 +101,6 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var switchAccountAction: () -> Void = {
-        (inject() as UserStorageServiceInterface).store(user: EssentiaStore.currentUser)
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))

@@ -25,6 +25,7 @@ fileprivate struct Constants {
     static var appDarkRedColor = #colorLiteral(red: 0.8156862745, green: 0.007843137255, blue: 0.1058823529, alpha: 1) //RGB(208, 2, 27)
     static var appWhiteWithLightBlue = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.9803921569, alpha: 1) //RGB(237, 242, 250)
     static var appOrageColor = #colorLiteral(red: 1, green: 0.631372549, blue: 0, alpha: 1) //RGB(255,161,0)
+    static var shadowColor = #colorLiteral(red: 0.07843137255, green: 0.137254902, blue: 0.3019607843, alpha: 1) //RGB(20,35,77)
 }
 
 struct DefaultColorSheme: AppColorInterface {
@@ -69,4 +70,5 @@ struct DefaultColorSheme: AppColorInterface {
     var settingsMenuSwitchAccount: UIColor = Constants.appLightBlue
     var settingsMenuLogOut: UIColor = Constants.appDarkRedColor
     var settingsBackgroud: UIColor = Constants.appWhiteWithLightBlue
+    var settingsShadowColor: UIColor = Constants.shadowColor
 }

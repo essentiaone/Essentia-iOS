@@ -171,3 +171,8 @@
 "Wallet.NewAsset.Import.Subtitle" = "With Private Key";
 "Wallet.NewAsset.Import.Description" = "Use this option to import ALL/SOME ADDRESSES linked to an account on services like Jaxx, Electum etc...";
 
+"Wallet.ImportAsset.Title" = "Import Asset";
+"Wallet.Bitcoin" = "Bitcoin";
+"Wallet.Ethereum" = "Ethereum";
+"Wallet.Litecoin" = "Litecoin";
+"Wallet.BitcoinCash" = "Bitcoin Cash";

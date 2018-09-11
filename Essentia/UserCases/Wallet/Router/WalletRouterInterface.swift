@@ -10,6 +10,7 @@ import UIKit
 
 enum WalletRoutes {
     case newAssets
+    case importAsset
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

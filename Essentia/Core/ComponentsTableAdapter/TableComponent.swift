@@ -12,6 +12,7 @@ enum TableComponent: Equatable {
     // MARK: - Common
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
+    case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, backgroud: UIColor)

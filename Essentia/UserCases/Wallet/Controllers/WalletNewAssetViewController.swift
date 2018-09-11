@@ -56,6 +56,6 @@ class WalletNewAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var importAssetAction: () -> Void = {
-        
+        (inject() as WalletRouterInterface).show(.importAsset)
     }
 }
