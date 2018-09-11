@@ -60,7 +60,9 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate {
             EssentiaStore.currentUser.backup.currentlyBackedUp.append(.seed)
             (inject() as AuthRouterInterface).showNext()
         case .login:
-            EssentiaStore.currentUser = User(seed: textView.text)
+            let user = User(seed: textView.text)
+            EssentiaStore.currentUser = user
+            (inject() as UserStorageServiceInterface).store(user: user)
             (inject() as AuthRouterInterface).showPrev()
         }
 

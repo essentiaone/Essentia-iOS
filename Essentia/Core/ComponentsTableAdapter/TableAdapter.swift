@@ -56,6 +56,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentImageParagraph.self)
         tableView.register(TableComponentCenteredImage.self)
         tableView.register(TableComponentTitleSubtitle.self)
+        tableView.register(TableComponentShadow.self)
     }
     
     // MARK: - Update State
@@ -91,6 +92,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
+            return cell
+        case .shadow(_, let shadowColor, let background):
+            let cell: TableComponentShadow = tableView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = background
+            cell.drawGradient(withColor: shadowColor)
+            cell.layoutSubviews()
             return cell
         case .separator(let inset):
             let cell: TableComponentSeparator = tableView.dequeueReusableCell(for: indexPath)
@@ -193,7 +200,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.rightButton.setImage(image, for: .normal)
             cell.rightAction = action
             return cell
-            
         case .paragraph(let title, let description):
             let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
@@ -253,6 +259,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         switch component {
         case .separator:
             return 1.0
+        case .shadow(let height, _, _):
+            return height
         case .empty(let height, _):
             return height
         case .title(let bold, let title):

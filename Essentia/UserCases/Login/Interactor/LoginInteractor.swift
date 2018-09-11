@@ -17,7 +17,9 @@ class LoginInteractor: LoginInteractorInterface {
             let currentLocaleLanguage = self.mnemonicService.languageForCurrentLocale()
             let mnemonic = self.mnemonicService.newMnemonic(with: currentLocaleLanguage)
             DispatchQueue.main.async {
-                EssentiaStore.currentUser = User(mnemonic: mnemonic)
+                let user = User(mnemonic: mnemonic)
+                EssentiaStore.currentUser = user
+                (inject() as UserStorageServiceInterface).store(user: user)
                 callBack()
             }
         }

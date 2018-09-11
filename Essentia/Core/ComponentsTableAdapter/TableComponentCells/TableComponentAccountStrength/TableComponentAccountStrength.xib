@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R8h-Z9-CfB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="369.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="393.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="vpC-eY-bQu">
                                 <rect key="frame" x="15" y="69" width="345" height="44"/>
@@ -30,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK2-Cc-8kt">
-                                <rect key="frame" x="52" y="244.5" width="271" height="100"/>
+                                <rect key="frame" x="52" y="268.5" width="271" height="100"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="lRm-ki-01r"/>
@@ -73,8 +73,8 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="R8h-Z9-CfB" secondAttribute="trailing" id="CTx-ME-GLm"/>
                     <constraint firstItem="R8h-Z9-CfB" firstAttribute="top" secondItem="gCG-DC-PzV" secondAttribute="top" id="EmW-o1-GTQ"/>
+                    <constraint firstAttribute="bottom" secondItem="R8h-Z9-CfB" secondAttribute="bottom" id="eqp-T9-iXO"/>
                     <constraint firstItem="R8h-Z9-CfB" firstAttribute="leading" secondItem="gCG-DC-PzV" secondAttribute="leading" id="gvn-24-EUa"/>
-                    <constraint firstAttribute="bottom" secondItem="R8h-Z9-CfB" secondAttribute="bottom" constant="24" id="pDQ-ye-I1C"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

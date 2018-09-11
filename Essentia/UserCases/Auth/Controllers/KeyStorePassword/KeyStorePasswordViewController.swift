@@ -95,7 +95,9 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         guard let data = self.keystore else { return }
         let seed = (inject() as MnemonicServiceInterface).seed(from: data, password: self.store.password)
         if let seed = seed {
-            EssentiaStore.currentUser = User(seed: seed)
+            let user = User(seed: seed)
+            EssentiaStore.currentUser = user
+            (inject() as UserStorageServiceInterface).store(user: user)
         }
         (inject() as AuthRouterInterface).showPrev()
     }

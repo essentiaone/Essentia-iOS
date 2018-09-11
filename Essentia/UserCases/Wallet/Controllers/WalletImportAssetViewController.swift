@@ -26,7 +26,9 @@ class WalletImportAssetViewController: BaseTableAdapterController {
                            lAction: backAction,
                            rAction: nil),
             .title(bold: true, title: LS("Wallet.ImportAsset.Title")),
-            .empty(height: 16, background: colorProvider.settingsBackgroud)
+            .shadow(height: 16,
+                    shadowColor: colorProvider.settingsShadowColor,
+                    background: colorProvider.settingsBackgroud)
             ] + coins + [
             .calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]

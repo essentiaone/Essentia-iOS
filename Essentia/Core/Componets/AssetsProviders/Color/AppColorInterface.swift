@@ -49,4 +49,6 @@ protocol AppColorInterface {
     var settingsMenuSwitchAccount: UIColor { get }
     var settingsMenuLogOut: UIColor { get }
     var settingsBackgroud: UIColor { get }
+    var settingsShadowColor: UIColor { get }
+
 }
