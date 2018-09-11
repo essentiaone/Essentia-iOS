@@ -28,7 +28,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
             .descriptionWithSize(aligment: .left,
                                  fontSize: 17,
                                  title: LS("Settings.Secure.Description"),
-                                 backgroud: .clear),
+                                 background: .clear),
             .empty(height: 47, background: .clear),
             .imageParagraph(image: imageProvider.welcomeParagraph1, paragraph: LS("Wallet.Welcome.Paragraph1")),
             .empty(height: 16, background: .clear),
@@ -36,7 +36,10 @@ class WalletWelcomeViewController: BaseTableAdapterController {
             .empty(height: 16, background: .clear),
             .imageParagraph(image: imageProvider.welcomeParagraph3, paragraph: LS("Wallet.Welcome.Paragraph3")),
             .calculatbleSpace(background: .clear),
-            .centeredButton(title: LS("Wallet.Welcome.Continue"), isEnable: true, action: continueAction)
+            .centeredButton(title: LS("Wallet.Welcome.Continue"),
+                            isEnable: true,
+                            action: continueAction,
+                            background: colorProvider.settingsCellsBackround)
         ]
     }
 

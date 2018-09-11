@@ -20,7 +20,6 @@ class TableComponentTextField: UITableViewCell, NibLoadable, UITextFieldDelegate
     private func applyDesign() {
         textField.font = AppFont.regular.withSize(14)
         textField.textColor = (inject() as AppColorInterface).appTitleColor
-        textField.becomeFirstResponder()
         textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         textField.delegate = self
     }

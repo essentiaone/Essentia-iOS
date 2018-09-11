@@ -9,7 +9,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    var keyboardHeight: CGFloat = 256.0
+    var keyboardHeight: CGFloat = 0
+    var isKeyboardShown: Bool = false
     
     public init() {
         super.init(nibName: nil, bundle: nil)
@@ -34,6 +35,7 @@ class BaseViewController: UIViewController {
         }
         let keyboardRectangle = keyboardSize.cgRectValue
         keyboardHeight = keyboardRectangle.height
+        isKeyboardShown = keyboardHeight > 0
     }
     
     func showFlipAnimation() {

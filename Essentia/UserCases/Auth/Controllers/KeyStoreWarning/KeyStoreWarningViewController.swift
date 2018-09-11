@@ -39,7 +39,8 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("WarningKeystore.Save"),
                             isEnable: true,
-                            action: saveAction),
+                            action: saveAction,
+                            background: colorProvider.settingsCellsBackround),
             .empty(height: 10, background: colorProvider.settingsCellsBackround),
             .tabBarSpace
         ]

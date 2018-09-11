@@ -57,6 +57,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCenteredImage.self)
         tableView.register(TableComponentTitleSubtitle.self)
         tableView.register(TableComponentShadow.self)
+        tableView.register(TableComponentTextView.self)
     }
     
     // MARK: - Update State
@@ -180,10 +181,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.descriptionLabel.text = subtitle
             cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
             return cell
-        case .centeredButton(let title, let isEnable, let action):
+        case .centeredButton(let title, let isEnable, let action, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
             cell.setEnable(isEnable)
+            cell.backgroundColor = background
             cell.action = action
             return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
@@ -248,6 +250,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .centeredImage(let image):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            return cell
+        case .textView(let placeholder,let text,let endEditing):
+            let cell: TableComponentTextView = tableView.dequeueReusableCell(for: indexPath)
+            cell.placeholderLabel.text = placeholder
+            cell.textView.text = text
+            cell.textFieldAction = endEditing
+            cell.updatePlaceholderPosition()
             return cell
         default:
             fatalError()
@@ -316,6 +325,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return image.size.height
         case .titleSubtitle:
             return 60.0
+        case .textView:
+            return 77.0
         default:
             fatalError()
         }
@@ -364,6 +375,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .titleSubtitle(_,_, let action):
             action()
+        case .textField:
+            let cell: TableComponentTextField = tableView.cellForRow(at: indexPath)
+            cell.textField.becomeFirstResponder()
+        case .textView:
+            let cell: TableComponentTextView = tableView.cellForRow(at: indexPath)
+            cell.setToTop()
+            cell.textView.becomeFirstResponder()
         default:
             return
         }

@@ -32,7 +32,10 @@ class WalletMainViewController: BaseTableAdapterController {
             .empty(height: 52, background: colorProvider.settingsCellsBackround),
             .centeredImage(image: imageProvider.walletPlaceholder),
             .empty(height: 40, background: colorProvider.settingsCellsBackround),
-            .descriptionWithSize(aligment: .center, fontSize: 17, title: LS("Wallet.Empty.Description"), backgroud: colorProvider.settingsCellsBackround),
+            .descriptionWithSize(aligment: .center,
+                                 fontSize: 17,
+                                 title: LS("Wallet.Empty.Description"),
+                                 background: colorProvider.settingsCellsBackround),
             .empty(height: 10, background: colorProvider.settingsCellsBackround),
             .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction)
         ]
