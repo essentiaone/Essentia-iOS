@@ -17,6 +17,14 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             push(vc: WalletSelectImportAssetViewController())
         case .importAsset(let coin):
             push(vc: WalletImportAssetViewController(coin: coin))
+        case .failImportingAlert:
+            popUp(vc: FailImportingAlert(leftAction: {
+                self.popToRoot()
+            }, rightAction: {}))
+        case .succesImportingAlert:
+            popUp(vc: WalletDoneImportingAlert(okAction: {
+                self.popToRoot()
+            }))
         }
     }
 }

@@ -27,4 +27,8 @@ class BaseRouter {
     func popUp(vc: UIViewController) {
         navigationController?.present(vc, animated: true)
     }
+    
+    func popToRoot() {
+        navigationController?.popToRootViewController(animated: true)
+    }
 }

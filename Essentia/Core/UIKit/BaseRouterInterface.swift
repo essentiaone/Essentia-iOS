@@ -11,4 +11,5 @@ import UIKit
 protocol BaseRouterInterface {
     init(navigationController: UINavigationController)
     func pop()
+    func popToRoot()
 }

@@ -28,4 +28,8 @@ class TableComponentTextField: UITableViewCell, NibLoadable, UITextFieldDelegate
     @objc func textFieldChanged() {
         textFieldAction?(textField.text!)
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = false
+    }
 }

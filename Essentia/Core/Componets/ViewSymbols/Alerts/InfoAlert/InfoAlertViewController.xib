@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,7 +60,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FzK-2v-HuH">
-                                        <rect key="frame" x="15" y="85" width="295" height="59"/>
+                                        <rect key="frame" x="15" y="75" width="295" height="69"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -84,7 +83,7 @@
                                     <constraint firstItem="xZy-QQ-RYX" firstAttribute="top" secondItem="FzK-2v-HuH" secondAttribute="bottom" constant="10" id="HwJ-Dx-FY4"/>
                                     <constraint firstAttribute="bottom" secondItem="oiL-rR-zlp" secondAttribute="bottom" id="LH8-NP-0Q4"/>
                                     <constraint firstItem="7yc-Dn-5rg" firstAttribute="centerX" secondItem="drP-tv-mlP" secondAttribute="centerX" id="O8T-SR-MC6"/>
-                                    <constraint firstItem="FzK-2v-HuH" firstAttribute="top" secondItem="IZ6-uc-e69" secondAttribute="bottom" constant="10" id="Qyp-aU-gqi"/>
+                                    <constraint firstItem="FzK-2v-HuH" firstAttribute="top" secondItem="IZ6-uc-e69" secondAttribute="bottom" id="Qyp-aU-gqi"/>
                                     <constraint firstAttribute="trailing" secondItem="xZy-QQ-RYX" secondAttribute="trailing" id="VRy-67-u9u"/>
                                     <constraint firstAttribute="trailing" secondItem="IZ6-uc-e69" secondAttribute="trailing" constant="10" id="f7y-jx-byh"/>
                                     <constraint firstItem="oiL-rR-zlp" firstAttribute="leading" secondItem="drP-tv-mlP" secondAttribute="leading" id="max-I6-NMO"/>

@@ -46,6 +46,11 @@ class TableComponentTextView: UITableViewCell, NibLoadable, UITextViewDelegate {
         updatePlaceholderPosition()
     }
     
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+        textView.isUserInteractionEnabled = false
+        return true
+    }
+    
     func setToCenter() {
         let centerOfScreen = (frame.height/2) - 8
         animatePlaceholder(size: 16, position: centerOfScreen)
