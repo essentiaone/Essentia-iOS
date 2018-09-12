@@ -34,10 +34,10 @@ class BaseViewController: UIViewController {
             return
         }
         let newKeyboardHeight = keyboardSize.cgRectValue.height
-        let sholdNotify = keyboardHeight != newKeyboardHeight
+        let shouldNotify = keyboardHeight != newKeyboardHeight
         keyboardHeight = newKeyboardHeight
         isKeyboardShown = keyboardHeight > 0
-        if sholdNotify {
+        if shouldNotify {
             keyboardDidChange()
         }
     }
