@@ -35,7 +35,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     // MARK: - Lifecycle
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if authType == .login && keystore == nil {
@@ -130,10 +130,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     private func showSuccess() {
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
-            InfoAlertViewController.show(from: self, title: LS("KeyStoreSaved.Title"), description: LS("KeyStoreSaved.Description"), okAction: {
+            let alert = KeystoreSavedAlert(okAction: {
                 EssentiaStore.currentUser.backup.currentlyBackedUp.append(.keystore)
                 (inject() as AuthRouterInterface).showNext()
             })
+            self.present(alert, animated: true)
         }
     }
     
