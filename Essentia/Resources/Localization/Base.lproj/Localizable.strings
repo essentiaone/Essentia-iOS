@@ -182,3 +182,7 @@
 "Wallet.Import.PrivateKey" = "Private Key";
 "Wallet.Import.Name" = "Name";
 "Wallet.Import.ImportButton" = "Import";
+
+"Wallet.DoneImporting.Title" = "Well done!";
+"Wallet.DoneImporting.Description" = "The wallet was successfully imported! Enjoy the freedom of your Essentia Wallet!";
+"Wallet.DoneImporting.Button" = "BACK TO WALLET";

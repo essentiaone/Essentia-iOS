@@ -45,13 +45,13 @@ class InfoAlertViewController: UIViewController {
         // MARK: - Colors
         titleLabel.textColor =  colorProvider.appTitleColor
         descriptionLabel.textColor = colorProvider.appDefaultTextColor
+        okButton.setTitleColor(colorProvider.centeredButtonBackgroudColor, for: .normal)
         
         // MARK: - Fonts
         titleLabel.font = AppFont.bold.withSize(17)
         descriptionLabel.font = AppFont.regular.withSize(15)
         
         // MARK: - Layout
-        
         alertContentView.layer.cornerRadius = 10
         alertContentView.layer.opacity = 0.95
     }

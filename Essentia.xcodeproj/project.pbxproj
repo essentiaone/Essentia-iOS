@@ -174,7 +174,7 @@
 		34AC4DE82147C2F6001C17D8 /* TableComponentTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */; };
 		34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE921486293001C17D8 /* ImportedAsset.swift */; };
 		34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEB21492189001C17D8 /* UserWallet.swift */; };
-		34AC4DEE214939B4001C17D8 /* WalletDoneImportingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DED214939B4001C17D8 /* WalletDoneImportingViewController.swift */; };
+		34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */; };
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
@@ -382,7 +382,7 @@
 		34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextView.xib; sourceTree = "<group>"; };
 		34AC4DE921486293001C17D8 /* ImportedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedAsset.swift; sourceTree = "<group>"; };
 		34AC4DEB21492189001C17D8 /* UserWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWallet.swift; sourceTree = "<group>"; };
-		34AC4DED214939B4001C17D8 /* WalletDoneImportingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneImportingViewController.swift; sourceTree = "<group>"; };
+		34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneImportingAlert.swift; sourceTree = "<group>"; };
 		34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreSavedAlert.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1191,7 +1191,7 @@
 				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
 				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
 				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
-				34AC4DED214939B4001C17D8 /* WalletDoneImportingViewController.swift */,
+				34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1743,7 +1743,7 @@
 				34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
 				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
-				34AC4DEE214939B4001C17D8 /* WalletDoneImportingViewController.swift in Sources */,
+				34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
 				34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */,
 				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,

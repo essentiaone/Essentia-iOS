@@ -98,6 +98,14 @@ class WalletImportAssetViewController: BaseTableAdapterController {
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             return
         }
-        
+        EssentiaStore.currentUser.wallet.importedAssets.append(newWallet)
+        self.showDoneAlert()
+    }
+    
+    private func showDoneAlert() {
+        let alert = WalletDoneImportingAlert {
+            (inject() as WalletRouterInterface).popToRoot()
+        }
+        present(alert, animated: true)
     }
 }
