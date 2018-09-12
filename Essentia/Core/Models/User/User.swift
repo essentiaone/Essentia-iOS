@@ -15,6 +15,7 @@ class User: NSObject, Codable {
     var profile: UserProfile
     var backup: UserBackup = UserBackup()
     var userEvents: UserEvents = UserEvents()
+    var wallet: UserWallet = UserWallet()
     let seed: String
     var mnemonic: String?
     

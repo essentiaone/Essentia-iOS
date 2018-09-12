@@ -36,4 +36,9 @@ class BaseTableAdapterController: BaseViewController {
             view.addConstraint(NSLayoutConstraint(item: tableView, attribute: $0, relatedBy: .equal, toItem: view, attribute: $0, multiplier: 1, constant: 0))
         }
     }
+    
+    override func keyboardDidChange() {
+        super.keyboardDidChange()
+    }
+
 }

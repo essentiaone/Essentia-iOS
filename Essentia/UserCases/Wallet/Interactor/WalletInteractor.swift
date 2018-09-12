@@ -9,5 +9,11 @@
 import Foundation
 
 class WalletInteractor: WalletInteractorInterface {
-    
+    func isValidWallet(_ wallet: ImportedAsset) -> Bool {
+        let importdAssets = EssentiaStore.currentUser.wallet.importedAssets
+        let alreadyContainWallet = importdAssets.contains {
+            return $0.name == wallet.name || $0.pk == wallet.pk
+        }
+        return !alreadyContainWallet
+    }
 }

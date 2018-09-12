@@ -32,7 +32,7 @@ class WalletNewAssetViewController: BaseTableAdapterController {
             .descriptionWithSize(aligment: .left,
                                  fontSize: 13,
                                  title: LS("Wallet.NewAsset.Add.Description"),
-                                 backgroud: colorProvider.settingsBackgroud),
+                                 background: colorProvider.settingsBackgroud),
             .empty(height: 16, background: colorProvider.settingsBackgroud),
             .titleSubtitle(title: LS("Wallet.NewAsset.Import.Title"),
                            detail: LS("Wallet.NewAsset.Import.Subtitle"),
@@ -41,7 +41,7 @@ class WalletNewAssetViewController: BaseTableAdapterController {
             .descriptionWithSize(aligment: .left,
                                  fontSize: 13,
                                  title: LS("Wallet.NewAsset.Import.Description"),
-                                 backgroud:colorProvider.settingsBackgroud),
+                                 background:colorProvider.settingsBackgroud),
             .calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]
     }
@@ -56,6 +56,6 @@ class WalletNewAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var importAssetAction: () -> Void = {
-        (inject() as WalletRouterInterface).show(.importAsset)
+        (inject() as WalletRouterInterface).show(.selectImportAsset)
     }
 }

@@ -176,3 +176,9 @@
 "Wallet.Ethereum" = "Ethereum";
 "Wallet.Litecoin" = "Litecoin";
 "Wallet.BitcoinCash" = "Bitcoin Cash";
+
+"Wallet.Import" = "Import";
+"Wallet.Import.Description" = "Name your wallet and enter your private key - that’s all there is to it!";
+"Wallet.Import.PrivateKey" = "Private Key";
+"Wallet.Import.Name" = "Name";
+"Wallet.Import.ImportButton" = "Import";

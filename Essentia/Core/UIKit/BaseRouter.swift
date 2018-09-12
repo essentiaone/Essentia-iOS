@@ -20,6 +20,7 @@ class BaseRouter {
     }
     
     func push(vc: UIViewController) {
+        vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)
     }
     

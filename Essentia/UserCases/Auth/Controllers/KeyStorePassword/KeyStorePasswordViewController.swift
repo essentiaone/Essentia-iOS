@@ -64,7 +64,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("SeedCopy.Continue"),
                             isEnable: store.isValid,
-                            action: continueAction),
+                            action: continueAction,
+                            background: colorProvider.settingsCellsBackround),
             .empty(height: 10, background: colorProvider.settingsCellsBackround),
             .keyboardInset
         ]

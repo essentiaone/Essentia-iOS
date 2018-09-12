@@ -17,6 +17,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var tableView: UITableView
     private var helper: TableAdapterHelper
     
+    private var selectedRow: IndexPath? = nil
+    
     // MARK: - Init
     public init(tableView: UITableView) {
         self.tableView = tableView
@@ -57,6 +59,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCenteredImage.self)
         tableView.register(TableComponentTitleSubtitle.self)
         tableView.register(TableComponentShadow.self)
+        tableView.register(TableComponentTextView.self)
     }
     
     // MARK: - Update State
@@ -75,11 +78,18 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         tableView.endUpdates()
         UIView.setAnimationsEnabled(true)
+
+        guard let indexPath = selectedRow else { return }
+        tableView(tableView, didSelectRowAt: indexPath)
     }
     
     func reload(_ state: [TableComponent]) {
         self.tableState = state
         tableView.reloadData()
+    }
+    
+    private func setTableViewInset(_ inset:CGFloat) {
+        tableView.setContentOffset(CGPoint(x: 0, y: inset), animated: true)
     }
     
     // MARK: - UITableViewDataSource
@@ -180,10 +190,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.descriptionLabel.text = subtitle
             cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
             return cell
-        case .centeredButton(let title, let isEnable, let action):
+        case .centeredButton(let title, let isEnable, let action, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
             cell.setEnable(isEnable)
+            cell.backgroundColor = background
             cell.action = action
             return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
@@ -248,6 +259,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .centeredImage(let image):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            return cell
+        case .textView(let placeholder,let text,let endEditing):
+            let cell: TableComponentTextView = tableView.dequeueReusableCell(for: indexPath)
+            cell.placeholderLabel.text = placeholder
+            cell.textView.text = text
+            cell.textFieldAction = endEditing
+            cell.updatePlaceholderPosition()
             return cell
         default:
             fatalError()
@@ -316,6 +334,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return image.size.height
         case .titleSubtitle:
             return 60.0
+        case .textView:
+            return 77.0
         default:
             fatalError()
         }
@@ -335,6 +355,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuTitleCheck: fallthrough
         case .imageTitle: fallthrough
         case .titleSubtitle: fallthrough
+        case .textField: fallthrough
+        case .textView: fallthrough
         case .checkBox:
             return true
         default:
@@ -345,6 +367,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = nil
         tableView.deselectRow(at: indexPath, animated: true)
         let component = tableState[indexPath.row]
         switch component {
@@ -364,8 +387,23 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .titleSubtitle(_,_, let action):
             action()
+        case .textField:
+            let cell: TableComponentTextField = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.textField)
+        case .textView:
+            let cell: TableComponentTextView = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.textView)
+            cell.setToTop()
         default:
             return
         }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func focusView(view: UIView) {
+        view.isUserInteractionEnabled = true
+        view.becomeFirstResponder()
     }
 }
