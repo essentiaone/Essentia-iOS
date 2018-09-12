@@ -96,10 +96,18 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     private lazy var importAction: () -> Void = {
         let newWallet = ImportedAsset(coin: self.store.coin, pk: self.store.privateKey, name: self.store.name)
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
+            self.showFailAlert()
             return
         }
         EssentiaStore.currentUser.wallet.importedAssets.append(newWallet)
         self.showDoneAlert()
+    }
+    
+    private func showFailAlert() {
+        let alert = FailImportingAlert(leftAction: {
+            (inject() as WalletRouterInterface).popToRoot()
+        }) {}
+        present(alert, animated: true)
     }
     
     private func showDoneAlert() {

@@ -176,6 +176,7 @@
 		34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEB21492189001C17D8 /* UserWallet.swift */; };
 		34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */; };
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
+		34AC4DF321494DA7001C17D8 /* FailImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
 		34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3B213048CB00527F15 /* Bundle+LS.swift */; };
@@ -384,6 +385,7 @@
 		34AC4DEB21492189001C17D8 /* UserWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWallet.swift; sourceTree = "<group>"; };
 		34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneImportingAlert.swift; sourceTree = "<group>"; };
 		34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreSavedAlert.swift; sourceTree = "<group>"; };
+		34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailImportingAlert.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A382130449D00527F15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1192,6 +1194,7 @@
 				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
 				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
 				34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */,
+				34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */,
 				3448268C211DDC8F00C19EB3 /* TableComponent.swift in Sources */,
 				344958D12141224700C2230B /* WalletInteractorInterface.swift in Sources */,
+				34AC4DF321494DA7001C17D8 /* FailImportingAlert.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,

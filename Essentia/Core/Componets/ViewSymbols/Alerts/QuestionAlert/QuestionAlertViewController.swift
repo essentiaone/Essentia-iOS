@@ -45,7 +45,7 @@ class QuestionAlertViewController: UIViewController {
     private func applyDesign() {
         // MARK: - Colors
         titleLabel.textColor = colorProvider.appTitleColor
-        descriptionLabel.textColor = colorProvider.appDefaultTextColor
+        descriptionLabel.textColor = colorProvider.appTitleColor
         
         // MARK: - Fonts
         titleLabel.font = AppFont.bold.withSize(17)

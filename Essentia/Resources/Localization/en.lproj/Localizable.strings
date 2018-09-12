@@ -182,3 +182,7 @@
 "Wallet.DoneImporting.Description" = "The wallet was successfully imported! Enjoy the freedom of your Essentia Wallet!";
 "Wallet.DoneImporting.Button" = "BACK TO WALLET";
 
+"Wallet.FailImporing.Title" = "Oops";
+"Wallet.FailImporing.Description" = "It seems like something went wrong. Don’t worry, double check the info you entered and try again! It won’t take long, we promise.";
+"Wallet.FailImporing.LeftButton" = "CANCEL";
+"Wallet.FailImporing.RightButton" = "TRY AGAIN";

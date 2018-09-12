@@ -44,7 +44,7 @@ class InfoAlertViewController: UIViewController {
     private func applyDesign() {
         // MARK: - Colors
         titleLabel.textColor =  colorProvider.appTitleColor
-        descriptionLabel.textColor = colorProvider.appDefaultTextColor
+        descriptionLabel.textColor = colorProvider.appTitleColor
         okButton.setTitleColor(colorProvider.centeredButtonBackgroudColor, for: .normal)
         
         // MARK: - Fonts
