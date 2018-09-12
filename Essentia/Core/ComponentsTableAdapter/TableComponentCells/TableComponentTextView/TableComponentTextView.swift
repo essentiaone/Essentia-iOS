@@ -47,7 +47,6 @@ class TableComponentTextView: UITableViewCell, NibLoadable, UITextViewDelegate {
     }
     
     func setToCenter() {
-        layoutIfNeeded()
         let centerOfScreen = (frame.height/2) - 8
         animatePlaceholder(size: 16, position: centerOfScreen)
     }

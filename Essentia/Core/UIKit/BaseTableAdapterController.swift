@@ -37,8 +37,8 @@ class BaseTableAdapterController: BaseViewController {
         }
     }
     
-    override func keyboardWillShow(notification: NSNotification) {
-        super.keyboardWillShow(notification: notification)
+    override func keyboardDidChange() {
+        super.keyboardDidChange()
     }
 
 }

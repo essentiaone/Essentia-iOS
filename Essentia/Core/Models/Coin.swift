@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Coin {
+enum Coin: String, Codable {
     case bitcoin
     case ethereum
     case litecoin
@@ -39,6 +39,15 @@ enum Coin {
         case .bitcoinCash:
             return imageProvider.bitcoinCashIcon
         }
+    }
+    
+    func isValidPK(_ pk: String) -> Bool {
+        let regexString = "^[5KL][1-9A-HJ-NP-Za-km-z]{50,51}$"
+        guard let regex = try? NSRegularExpression(pattern: regexString, options: .anchorsMatchLines),
+            regex.firstMatch(in: pk, options: .anchored, range: .init(location: 0, length: pk.count)) != nil else {
+                return false
+        }
+        return true
     }
     
     static var allCases: [Coin] {

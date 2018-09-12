@@ -26,17 +26,23 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         guard let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
             return
         }
-        let keyboardRectangle = keyboardSize.cgRectValue
-        keyboardHeight = keyboardRectangle.height
+        let newKeyboardHeight = keyboardSize.cgRectValue.height
+        let sholdNotify = keyboardHeight != newKeyboardHeight
+        keyboardHeight = newKeyboardHeight
         isKeyboardShown = keyboardHeight > 0
+        if sholdNotify {
+            keyboardDidChange()
+        }
     }
+    
+    func keyboardDidChange() {}
     
     func showFlipAnimation() {
         guard let mainwindow = UIApplication.shared.delegate?.window as? UIWindow else { return }

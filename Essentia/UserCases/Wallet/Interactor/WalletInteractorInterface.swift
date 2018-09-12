@@ -9,5 +9,5 @@
 import Foundation
 
 protocol WalletInteractorInterface {
-    
+    func isValidWallet(_ wallet: ImportedAsset) -> Bool
 }

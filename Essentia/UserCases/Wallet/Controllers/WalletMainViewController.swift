@@ -16,6 +16,12 @@ class WalletMainViewController: BaseTableAdapterController {
         super.viewWillAppear(animated)
         tableAdapter.reload(state)
         injectRouter()
+        injectInteractor()
+    }
+    
+    private func injectInteractor() {
+        let injection: WalletInteractorInterface = WalletInteractor()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func injectRouter() {

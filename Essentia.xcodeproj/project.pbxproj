@@ -172,6 +172,8 @@
 		34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */; };
 		34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */; };
 		34AC4DE82147C2F6001C17D8 /* TableComponentTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */; };
+		34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE921486293001C17D8 /* ImportedAsset.swift */; };
+		34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEB21492189001C17D8 /* UserWallet.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
 		34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3B213048CB00527F15 /* Bundle+LS.swift */; };
@@ -376,6 +378,8 @@
 		34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportAssetViewController.swift; sourceTree = "<group>"; };
 		34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextView.xib; sourceTree = "<group>"; };
+		34AC4DE921486293001C17D8 /* ImportedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedAsset.swift; sourceTree = "<group>"; };
+		34AC4DEB21492189001C17D8 /* UserWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWallet.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A382130449D00527F15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -944,6 +948,7 @@
 				34416806212F711E008B8A91 /* Currencies.swift */,
 				34B27A42213064E500527F15 /* MnemonicLanguage.swift */,
 				349BC05821466591003AC330 /* Coin.swift */,
+				34AC4DE921486293001C17D8 /* ImportedAsset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1210,6 +1215,7 @@
 				344958E62141754D00C2230B /* UserProfile.swift */,
 				344958E82141763600C2230B /* UserBackup.swift */,
 				344958EB21417CEC00C2230B /* UserEvents.swift */,
+				34AC4DEB21492189001C17D8 /* UserWallet.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -1727,6 +1733,7 @@
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
+				34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
 				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
@@ -1770,6 +1777,7 @@
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
+				34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */,

@@ -18,7 +18,7 @@ fileprivate struct Store {
     }
     
     var isValid: Bool {
-        return false
+        return coin.isValidPK(privateKey)
     }
 }
 
@@ -74,8 +74,8 @@ class WalletImportAssetViewController: BaseTableAdapterController {
         return rawState.compactMap { return $0 }
     }
     
-    override func keyboardWillShow(notification: NSNotification) {
-        super.keyboardWillShow(notification: notification)
+    override func keyboardDidChange() {
+        super.keyboardDidChange()
         self.tableAdapter.simpleReload(state)
     }
     
@@ -86,6 +86,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
 
     private lazy var privateKeyAction: (String) -> Void = {
         self.store.privateKey = $0
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var backAction: () -> Void = {
@@ -93,6 +94,10 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var importAction: () -> Void = {
-        (inject() as WalletRouterInterface).pop()
+        let newWallet = ImportedAsset(coin: self.store.coin, pk: self.store.privateKey, name: self.store.name)
+        guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
+            return
+        }
+        
     }
 }

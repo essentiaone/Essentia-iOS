@@ -17,6 +17,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var tableView: UITableView
     private var helper: TableAdapterHelper
     
+    private var selectedRow: IndexPath? = nil
+    
     // MARK: - Init
     public init(tableView: UITableView) {
         self.tableView = tableView
@@ -76,11 +78,18 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         }
         tableView.endUpdates()
         UIView.setAnimationsEnabled(true)
+
+        guard let indexPath = selectedRow else { return }
+        tableView(tableView, didSelectRowAt: indexPath)
     }
     
     func reload(_ state: [TableComponent]) {
         self.tableState = state
         tableView.reloadData()
+    }
+    
+    private func setTableViewInset(_ inset:CGFloat) {
+        tableView.setContentOffset(CGPoint(x: 0, y: inset), animated: true)
     }
     
     // MARK: - UITableViewDataSource
@@ -346,6 +355,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuTitleCheck: fallthrough
         case .imageTitle: fallthrough
         case .titleSubtitle: fallthrough
+        case .textField: fallthrough
+        case .textView: fallthrough
         case .checkBox:
             return true
         default:
@@ -356,6 +367,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = nil
         tableView.deselectRow(at: indexPath, animated: true)
         let component = tableState[indexPath.row]
         switch component {
@@ -377,13 +389,21 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .textField:
             let cell: TableComponentTextField = tableView.cellForRow(at: indexPath)
-            cell.textField.becomeFirstResponder()
+            selectedRow = indexPath
+            focusView(view: cell.textField)
         case .textView:
             let cell: TableComponentTextView = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.textView)
             cell.setToTop()
-            cell.textView.becomeFirstResponder()
         default:
             return
         }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func focusView(view: UIView) {
+        view.isUserInteractionEnabled = true
+        view.becomeFirstResponder()
     }
 }
