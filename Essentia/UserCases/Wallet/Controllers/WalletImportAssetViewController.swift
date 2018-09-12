@@ -85,8 +85,12 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     }
 
     private lazy var privateKeyAction: (String) -> Void = {
+        let wasValid = self.store.isValid
         self.store.privateKey = $0
-        self.tableAdapter.simpleReload(self.state)
+        let isValid = self.store.isValid
+        if wasValid != isValid {
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     private lazy var backAction: () -> Void = {
