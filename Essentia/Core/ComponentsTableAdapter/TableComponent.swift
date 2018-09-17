@@ -44,7 +44,10 @@ enum TableComponent: Equatable {
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
-    
+    case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    case checkImageTitle(image: UIImage, title: String, isSelected: Bool, action: () -> Void)
+    case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
+
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
         return lhs.rawValue == rhs.rawValue

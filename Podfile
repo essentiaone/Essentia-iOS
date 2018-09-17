@@ -12,6 +12,7 @@ end
 def pod_core
    pod 'HDWalletKit'
    pod 'essentia-bridges-api-ios'
+   pod 'essentia-network-core-ios'
 end
 
 def pod_ui
