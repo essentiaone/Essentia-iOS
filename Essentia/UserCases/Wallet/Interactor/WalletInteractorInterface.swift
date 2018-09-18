@@ -9,5 +9,9 @@
 import Foundation
 
 protocol WalletInteractorInterface {
-    func isValidWallet(_ wallet: ImportedAsset) -> Bool
+    func isValidWallet(_ wallet: ImportedWallet) -> Bool
+    func getCoinsList() -> [AssetInterface]
+    func getTokensList(result: @escaping ([AssetInterface]) -> Void)
+    func addCoinsToWallet(_ assets: [AssetInterface])
+    func addTokensToWallet(_ assets: [AssetInterface])
 }

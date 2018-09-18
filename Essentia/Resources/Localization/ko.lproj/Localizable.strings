@@ -186,3 +186,9 @@
 "Wallet.FailImporing.Description" = "It seems like something went wrong. Don’t worry, double check the info you entered and try again! It won’t take long, we promise.";
 "Wallet.FailImporing.LeftButton" = "CANCEL";
 "Wallet.FailImporing.RightButton" = "TRY AGAIN";
+
+"Wallet.CreateNewAsset.Title" = "New Asset";
+"Wallet.CreateNewAsset.Done" = "Done";
+"Wallet.CreateNewAsset.Switch.Coins" = "Coins";
+"Wallet.CreateNewAsset.Switch.Tokens" = "Tokens";
+"Wallet.CreateNewAsset.SearchPlaceholder" = "Search";

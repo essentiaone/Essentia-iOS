@@ -14,6 +14,7 @@ enum WalletRoutes {
     case importAsset(Coin)
     case failImportingAlert
     case succesImportingAlert
+    case addAsset
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

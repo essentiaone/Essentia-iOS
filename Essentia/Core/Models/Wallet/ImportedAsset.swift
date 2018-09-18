@@ -1,5 +1,5 @@
 //
-//  ImportedAsset.swift
+//  ImportedWallet.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 11.09.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ImportedAsset: Codable {
+struct ImportedWallet: Codable, WalletInterface {
     var coin: Coin
     var pk: String
     var name: String

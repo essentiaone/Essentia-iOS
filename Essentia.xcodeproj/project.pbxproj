@@ -144,6 +144,16 @@
 		344958F12141D7B500C2230B /* TableComponentCenteredImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958F02141D7B500C2230B /* TableComponentCenteredImage.swift */; };
 		344958F32141D7C000C2230B /* TableComponentCenteredImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344958F22141D7C000C2230B /* TableComponentCenteredImage.xib */; };
 		344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958F62142687000C2230B /* UIImage+UIColor.swift */; };
+		346B7AE3214D4230003BF737 /* UIImage+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B7AE2214D4230003BF737 /* UIImage+Text.swift */; };
+		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
+		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
+		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
+		34737BCC214FAEB7008A306F /* WalletServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */; };
+		34737BCE214FAEBE008A306F /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCD214FAEBE008A306F /* WalletService.swift */; };
+		34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCF214FC9C9008A306F /* GeneratingWallet.swift */; };
+		34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD3214FF6EB008A306F /* WalletInterface.swift */; };
+		34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */; };
+		34737BD8214FFC86008A306F /* TokenAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD7214FFC86008A306F /* TokenAsset.swift */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
@@ -166,6 +176,8 @@
 		349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */; };
 		349BC05921466591003AC330 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC05821466591003AC330 /* Coin.swift */; };
 		349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC05A21467344003AC330 /* TableComponentShadow.swift */; };
+		34A37D31214D34F70022FD93 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D30214D34F70022FD93 /* Token.swift */; };
+		34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */; };
 		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
 		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34AC4DE12147101A001C17D8 /* TableComponentShadow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */; };
@@ -177,6 +189,16 @@
 		34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */; };
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
 		34AC4DF321494DA7001C17D8 /* FailImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */; };
+		34AC4DF7214959C8001C17D8 /* WalletCreateNewAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DF6214959C8001C17D8 /* WalletCreateNewAssetViewController.swift */; };
+		34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DF92149603E001C17D8 /* TableComponentSegmentControl.swift */; };
+		34AC4DFC21496088001C17D8 /* TableComponentSegmentControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DFB21496088001C17D8 /* TableComponentSegmentControl.xib */; };
+		34AC4DFF21496B7A001C17D8 /* TableComponentCheckImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DFE21496B7A001C17D8 /* TableComponentCheckImageTitle.xib */; };
+		34AC4E0121496B82001C17D8 /* TableComponentCheckImageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E0021496B82001C17D8 /* TableComponentCheckImageTitle.swift */; };
+		34AC4E042149D7A4001C17D8 /* TableComponentSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E032149D7A4001C17D8 /* TableComponentSearch.swift */; };
+		34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4E052149D7B0001C17D8 /* TableComponentSearch.xib */; };
+		34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E072149D98B001C17D8 /* AssetInterface.swift */; };
+		34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */; };
+		34AC4E0C214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
 		34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3B213048CB00527F15 /* Bundle+LS.swift */; };
@@ -353,6 +375,16 @@
 		344958F02141D7B500C2230B /* TableComponentCenteredImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCenteredImage.swift; sourceTree = "<group>"; };
 		344958F22141D7C000C2230B /* TableComponentCenteredImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCenteredImage.xib; sourceTree = "<group>"; };
 		344958F62142687000C2230B /* UIImage+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
+		346B7AE2214D4230003BF737 /* UIImage+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Text.swift"; sourceTree = "<group>"; };
+		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
+		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
+		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
+		34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletServiceInterface.swift; sourceTree = "<group>"; };
+		34737BCD214FAEBE008A306F /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
+		34737BCF214FC9C9008A306F /* GeneratingWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWallet.swift; sourceTree = "<group>"; };
+		34737BD3214FF6EB008A306F /* WalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInterface.swift; sourceTree = "<group>"; };
+		34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWalletInfo.swift; sourceTree = "<group>"; };
+		34737BD7214FFC86008A306F /* TokenAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAsset.swift; sourceTree = "<group>"; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -375,6 +407,8 @@
 		349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSelectImportAssetViewController.swift; sourceTree = "<group>"; };
 		349BC05821466591003AC330 /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		349BC05A21467344003AC330 /* TableComponentShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentShadow.swift; sourceTree = "<group>"; };
+		34A37D30214D34F70022FD93 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+bjd2+sbdm.swift"; sourceTree = "<group>"; };
 		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
 		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentShadow.xib; sourceTree = "<group>"; };
@@ -386,6 +420,16 @@
 		34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneImportingAlert.swift; sourceTree = "<group>"; };
 		34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreSavedAlert.swift; sourceTree = "<group>"; };
 		34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FailImportingAlert.swift; sourceTree = "<group>"; };
+		34AC4DF6214959C8001C17D8 /* WalletCreateNewAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCreateNewAssetViewController.swift; sourceTree = "<group>"; };
+		34AC4DF92149603E001C17D8 /* TableComponentSegmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSegmentControl.swift; sourceTree = "<group>"; };
+		34AC4DFB21496088001C17D8 /* TableComponentSegmentControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSegmentControl.xib; sourceTree = "<group>"; };
+		34AC4DFE21496B7A001C17D8 /* TableComponentCheckImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCheckImageTitle.xib; sourceTree = "<group>"; };
+		34AC4E0021496B82001C17D8 /* TableComponentCheckImageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCheckImageTitle.swift; sourceTree = "<group>"; };
+		34AC4E032149D7A4001C17D8 /* TableComponentSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSearch.swift; sourceTree = "<group>"; };
+		34AC4E052149D7B0001C17D8 /* TableComponentSearch.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSearch.xib; sourceTree = "<group>"; };
+		34AC4E072149D98B001C17D8 /* AssetInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInterface.swift; sourceTree = "<group>"; };
+		34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
+		34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A382130449D00527F15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -567,8 +611,8 @@
 				34115E1121368E7100A54B7E /* Notifications */,
 				34482668211B321000C19EB3 /* Launchpad */,
 				34482674211B9B6300C19EB3 /* TabBar */,
-				3401AF9120FFF48C006DEF49 /* Auth */,
 				3401AF5220F80704006DEF49 /* Login */,
+				3401AF9120FFF48C006DEF49 /* Auth */,
 			);
 			path = UserCases;
 			sourceTree = "<group>";
@@ -792,6 +836,10 @@
 				34B27A3B213048CB00527F15 /* Bundle+LS.swift */,
 				34B27A3F21305FBC00527F15 /* String+Format.swift */,
 				344958F62142687000C2230B /* UIImage+UIColor.swift */,
+				34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */,
+				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
+				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
+				346B7AE2214D4230003BF737 /* UIImage+Text.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -950,12 +998,9 @@
 		3448264D2113327700C19EB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				34737BD2214FEB30008A306F /* Auth */,
+				34737BD1214FEB1B008A306F /* Wallet */,
 				344958E5214174CA00C2230B /* User */,
-				34B27A3D21304B2E00527F15 /* LocalizationLanguage.swift */,
-				34416806212F711E008B8A91 /* Currencies.swift */,
-				34B27A42213064E500527F15 /* MnemonicLanguage.swift */,
-				349BC05821466591003AC330 /* Coin.swift */,
-				34AC4DE921486293001C17D8 /* ImportedAsset.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1093,6 +1138,9 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34AC4E022149D5DA001C17D8 /* TableComponentSearch */,
+				34AC4DFD21496B45001C17D8 /* TableComponentCheckImageTitle */,
+				34AC4DF821495EB2001C17D8 /* TableComponentSegmentControl */,
 				34AC4DE42147BBBD001C17D8 /* TableComponentTextView */,
 				34AC4DDF21471005001C17D8 /* TableComponentShadow */,
 				349BC04D2143D6F9003AC330 /* TableComponentTitleSubtitle */,
@@ -1195,6 +1243,7 @@
 				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
 				34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */,
 				34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */,
+				34AC4DF6214959C8001C17D8 /* WalletCreateNewAssetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1236,6 +1285,50 @@
 				344958F22141D7C000C2230B /* TableComponentCenteredImage.xib */,
 			);
 			path = TableComponentCenteredImage;
+			sourceTree = "<group>";
+		};
+		34737BC3214EACE5008A306F /* TokensService */ = {
+			isa = PBXGroup;
+			children = (
+				34737BC4214EACF9008A306F /* TokensService.swift */,
+				34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */,
+				34737BC8214EFEEC008A306F /* TekensEndpoint.swift */,
+			);
+			path = TokensService;
+			sourceTree = "<group>";
+		};
+		34737BCA214FAEA3008A306F /* WalletService */ = {
+			isa = PBXGroup;
+			children = (
+				34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */,
+				34737BCD214FAEBE008A306F /* WalletService.swift */,
+			);
+			path = WalletService;
+			sourceTree = "<group>";
+		};
+		34737BD1214FEB1B008A306F /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				349BC05821466591003AC330 /* Coin.swift */,
+				34737BD7214FFC86008A306F /* TokenAsset.swift */,
+				34AC4DE921486293001C17D8 /* ImportedAsset.swift */,
+				34AC4E072149D98B001C17D8 /* AssetInterface.swift */,
+				34A37D30214D34F70022FD93 /* Token.swift */,
+				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
+				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
+				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		34737BD2214FEB30008A306F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				34B27A3D21304B2E00527F15 /* LocalizationLanguage.swift */,
+				34416806212F711E008B8A91 /* Currencies.swift */,
+				34B27A42213064E500527F15 /* MnemonicLanguage.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		349AA4942122F0F600E9256F /* Controllers */ = {
@@ -1284,6 +1377,8 @@
 		349AA4AF21242C4C00E9256F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				34737BCA214FAEA3008A306F /* WalletService */,
+				34737BC3214EACE5008A306F /* TokensService */,
 				34115E032134A24600A54B7E /* LoggerService */,
 				3401AFA62100F17C006DEF49 /* MnemonicService */,
 				349AA4B521244A4600E9256F /* LocalFilesService */,
@@ -1353,6 +1448,33 @@
 				34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */,
 			);
 			path = TableComponentTextView;
+			sourceTree = "<group>";
+		};
+		34AC4DF821495EB2001C17D8 /* TableComponentSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				34AC4DF92149603E001C17D8 /* TableComponentSegmentControl.swift */,
+				34AC4DFB21496088001C17D8 /* TableComponentSegmentControl.xib */,
+			);
+			path = TableComponentSegmentControl;
+			sourceTree = "<group>";
+		};
+		34AC4DFD21496B45001C17D8 /* TableComponentCheckImageTitle */ = {
+			isa = PBXGroup;
+			children = (
+				34AC4DFE21496B7A001C17D8 /* TableComponentCheckImageTitle.xib */,
+				34AC4E0021496B82001C17D8 /* TableComponentCheckImageTitle.swift */,
+			);
+			path = TableComponentCheckImageTitle;
+			sourceTree = "<group>";
+		};
+		34AC4E022149D5DA001C17D8 /* TableComponentSearch */ = {
+			isa = PBXGroup;
+			children = (
+				34AC4E032149D7A4001C17D8 /* TableComponentSearch.swift */,
+				34AC4E052149D7B0001C17D8 /* TableComponentSearch.xib */,
+			);
+			path = TableComponentSearch;
 			sourceTree = "<group>";
 		};
 		34B27A4521336AF200527F15 /* Loader */ = {
@@ -1522,12 +1644,14 @@
 				343122702124E76C009E4A7A /* TableComponentNavigationBar.xib in Resources */,
 				34AC4DE82147C2F6001C17D8 /* TableComponentTextView.xib in Resources */,
 				3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */,
+				34AC4DFF21496B7A001C17D8 /* TableComponentCheckImageTitle.xib in Resources */,
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				349BC0512143D72A003AC330 /* TableComponentTitleSubtitle.xib in Resources */,
 				34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
+				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
 				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				344958E421416A6800C2230B /* TableComponentImageParagraph.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
@@ -1543,6 +1667,7 @@
 				344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */,
+				34AC4DFC21496088001C17D8 /* TableComponentSegmentControl.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */,
@@ -1645,6 +1770,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3431226E2124E754009E4A7A /* TableComponentNavigationBar.swift in Sources */,
+				34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */,
 				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
 				3441680A212FEDDF008B8A91 /* TableComponentCheckField.swift in Sources */,
 				349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */,
@@ -1657,10 +1783,14 @@
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
+				34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */,
 				344958EE2141CC3000C2230B /* WalletMainViewController.swift in Sources */,
 				34115E052134A25F00A54B7E /* LoggerService.swift in Sources */,
+				34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */,
 				349BC05921466591003AC330 /* Coin.swift in Sources */,
+				34737BCE214FAEBE008A306F /* WalletService.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
+				34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */,
 				344826CC2121906D00C19EB3 /* TableComponentCurrentAccount.swift in Sources */,
@@ -1672,6 +1802,8 @@
 				344958DA21412CA400C2230B /* WalletWelcomeViewController.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
 				34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */,
+				34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */,
+				34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */,
 				34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */,
 				344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */,
 				3448268C211DDC8F00C19EB3 /* TableComponent.swift in Sources */,
@@ -1679,6 +1811,7 @@
 				34AC4DF321494DA7001C17D8 /* FailImportingAlert.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
+				34AC4DF7214959C8001C17D8 /* WalletCreateNewAssetViewController.swift in Sources */,
 				3401AF6320F81924006DEF49 /* CenteredButton.swift in Sources */,
 				349BC0552143DF19003AC330 /* BaseRouterInterface.swift in Sources */,
 				3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */,
@@ -1690,6 +1823,7 @@
 				3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
 				3401AF8120FD3D99006DEF49 /* DIEngine.swift in Sources */,
+				34AC4E0C214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift in Sources */,
 				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				34B27A4021305FBC00527F15 /* String+Format.swift in Sources */,
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
@@ -1711,12 +1845,15 @@
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,
+				34A37D31214D34F70022FD93 /* Token.swift in Sources */,
 				34B27A3E21304B2E00527F15 /* LocalizationLanguage.swift in Sources */,
+				34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
 				349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */,
 				344167EF212E168A008B8A91 /* EssentiaStore.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				344958E92141763600C2230B /* UserBackup.swift in Sources */,
+				34AC4E042149D7A4001C17D8 /* TableComponentSearch.swift in Sources */,
 				3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */,
 				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
 				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
@@ -1727,11 +1864,14 @@
 				34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				344958F12141D7B500C2230B /* TableComponentCenteredImage.swift in Sources */,
+				34737BD8214FFC86008A306F /* TokenAsset.swift in Sources */,
+				34737BC5214EACF9008A306F /* TokensService.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
 				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
 				3401AF8520FD3DF6006DEF49 /* DIDependencyProviderInterface.swift in Sources */,
 				349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */,
+				34AC4E0121496B82001C17D8 /* TableComponentCheckImageTitle.swift in Sources */,
 				34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
@@ -1741,6 +1881,7 @@
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
+				34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
@@ -1756,6 +1897,7 @@
 				349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				344826C5212187FE00C19EB3 /* TableComponentMenuButton.swift in Sources */,
+				34737BCC214FAEB7008A306F /* WalletServiceInterface.swift in Sources */,
 				3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
@@ -1775,10 +1917,12 @@
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
 				34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
+				346B7AE3214D4230003BF737 /* UIImage+Text.swift in Sources */,
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
 				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,
+				34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				344958D32141225700C2230B /* WalletInteractor.swift in Sources */,

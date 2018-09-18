@@ -69,6 +69,18 @@ class ApplicationDependenceProvider {
         loadMnemonicService()
         loadLoader()
         loadLogger()
+        loadTokens()
+        loadWallets()
+    }
+    
+    private func loadWallets() {
+        let injection: WalletServiceInterface = WalletService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadTokens() {
+        let injection: TokensServiceInterface = TokenService()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadLogger() {

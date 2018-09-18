@@ -60,6 +60,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleSubtitle.self)
         tableView.register(TableComponentShadow.self)
         tableView.register(TableComponentTextView.self)
+        tableView.register(TableComponentSegmentControl.self)
+        tableView.register(TableComponentCheckImageTitle.self)
+        tableView.register(TableComponentSearch.self)
     }
     
     // MARK: - Update State
@@ -267,6 +270,27 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textFieldAction = endEditing
             cell.updatePlaceholderPosition()
             return cell
+        case .segmentControlCell(let titles, let selected, let action):
+            let cell: TableComponentSegmentControl = tableView.dequeueReusableCell(for: indexPath)
+            cell.setTitles(titles)
+            cell.segmentControllerChangedAtIndex = action
+            cell.segmentControl.selectedSegmentIndex = selected
+            return cell
+        case .checkImageTitle(let image, let title, let isSelected, _):
+            let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.image = image
+            cell.titleLabel.text = title
+            cell.checkImageView.image = isSelected ? imageProvider.checkSelected : imageProvider.checkNotSelected
+            return cell
+        case .search(let title, let placeholder, let tint, let backgroud, let didChangeString):
+            let cell: TableComponentSearch = tableView.dequeueReusableCell(for: indexPath)
+            cell.searchBar.isUserInteractionEnabled = false
+            cell.searchBar.text = title
+            cell.searchBar.placeholder = placeholder
+            cell.searchBar.barTintColor = tint
+            cell.searchBar.findView(type: UITextField.self)?.backgroundColor = backgroud
+            cell.textChangedAction = didChangeString
+            return cell
         default:
             fatalError()
         }
@@ -323,6 +347,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         case .menuTitleCheck:
             return 44.0
+        case .checkImageTitle: fallthrough
         case .imageTitle: fallthrough
         case .imageParagraph:
             return 60.0
@@ -336,6 +361,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 60.0
         case .textView:
             return 77.0
+        case .segmentControlCell:
+            return 30.0
+        case .search:
+            return 36.0
         default:
             fatalError()
         }
@@ -357,7 +386,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitle: fallthrough
         case .textField: fallthrough
         case .textView: fallthrough
-        case .checkBox:
+        case .checkImageTitle: fallthrough
+        case .checkBox: fallthrough
+        case .search: 
             return true
         default:
             return false
@@ -385,6 +416,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .imageTitle(_, _, _, let action):
             action()
+        case .checkImageTitle(_, _, _, let action):
+            action()
         case .titleSubtitle(_,_, let action):
             action()
         case .textField:
@@ -396,6 +429,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             selectedRow = indexPath
             focusView(view: cell.textView)
             cell.setToTop()
+        case .search:
+            let cell: TableComponentSearch = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.searchBar)
         default:
             return
         }
@@ -405,5 +442,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
+        
     }
 }

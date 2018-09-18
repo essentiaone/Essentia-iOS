@@ -25,6 +25,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: WalletDoneImportingAlert(okAction: {
                 self.popToRoot()
             }))
+        case .addAsset:
+            push(vc: WalletCreateNewAssetViewController())
         }
     }
 }

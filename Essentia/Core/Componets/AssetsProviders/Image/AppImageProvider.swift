@@ -45,4 +45,6 @@ class AppImageProvider: AppImageProviderInterface {
     var litecoinIcon: UIImage = #imageLiteral(resourceName: "litecoin")
     var ethereumIcon: UIImage = #imageLiteral(resourceName: "ethereum")
     var bitcoinCashIcon: UIImage = #imageLiteral(resourceName: "bitcoinCash")
+    var checkSelected: UIImage = #imageLiteral(resourceName: "walletCheckSelected")
+    var checkNotSelected: UIImage = #imageLiteral(resourceName: "walletCheckNotSelected")
 }

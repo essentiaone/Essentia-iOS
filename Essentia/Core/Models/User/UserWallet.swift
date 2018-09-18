@@ -9,5 +9,7 @@
 import Foundation
 
 struct UserWallet: Codable {
-    var importedAssets: [ImportedAsset] = []
+    var importedWallets: [ImportedWallet] = []
+    var generatedWalletsInfo: [GeneratingWalletInfo] = []
+    var tokenAssets: [TokenAsset] = []
 }
