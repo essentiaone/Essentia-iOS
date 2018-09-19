@@ -50,5 +50,7 @@ protocol AppColorInterface {
     var settingsMenuLogOut: UIColor { get }
     var settingsBackgroud: UIColor { get }
     var settingsShadowColor: UIColor { get }
-
+    var balanceChangedPlus: UIColor { get }
+    var balanceChangedMinus: UIColor { get }
+    var balanceChanged: UIColor { get }
 }

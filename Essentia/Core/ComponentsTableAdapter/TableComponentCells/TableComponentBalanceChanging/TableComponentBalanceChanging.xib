@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentBalanceChanging" id="KhF-OO-3Q4" customClass="TableComponentBalanceChanging" customModule="Essentia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KhF-OO-3Q4" id="buu-QO-7Kf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cy-Br-oUl">
+                        <rect key="frame" x="187.5" y="21.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ja-EO-L46">
+                        <rect key="frame" x="147.5" y="6" width="30" height="30"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ6-2Y-YHw">
+                        <rect key="frame" x="192.5" y="22.5" width="0.0" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="6cy-Br-oUl" firstAttribute="centerX" secondItem="buu-QO-7Kf" secondAttribute="centerX" id="0df-KE-EXg"/>
+                    <constraint firstItem="cQ6-2Y-YHw" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="7tA-Gu-Q2g"/>
+                    <constraint firstItem="cQ6-2Y-YHw" firstAttribute="leading" secondItem="6cy-Br-oUl" secondAttribute="trailing" constant="5" id="8l6-HM-zfy"/>
+                    <constraint firstItem="6cy-Br-oUl" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="A9x-6n-YOp"/>
+                    <constraint firstItem="6cy-Br-oUl" firstAttribute="leading" secondItem="8Ja-EO-L46" secondAttribute="trailing" constant="10" id="Hoj-oN-Icq"/>
+                    <constraint firstItem="8Ja-EO-L46" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="LyO-fg-CI7"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="procentTitle" destination="6cy-Br-oUl" id="EYN-rG-Mmk"/>
+                <outlet property="timeUpdateLabel" destination="cQ6-2Y-YHw" id="Ebd-9e-rfk"/>
+                <outlet property="updateButton" destination="8Ja-EO-L46" id="tcO-qq-fMW"/>
+            </connections>
+            <point key="canvasLocation" x="173" y="-44"/>
+        </tableViewCell>
+    </objects>
+</document>

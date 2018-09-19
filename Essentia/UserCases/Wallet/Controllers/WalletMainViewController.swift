@@ -31,9 +31,52 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
+        if EssentiaStore.currentUser.wallet.isEmpty {
+            return emptyState
+        }
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .rightNavigationButton(image: imageProvider.bluePlus, action: addWalletAction),
+            .rightNavigationButton(title: LS("Wallet.Title"),
+                                   image: imageProvider.bluePlus,
+                                   action: addWalletAction),
+            .empty(height: 20, background: colorProvider.settingsCellsBackround),
+            .titleWithFont(font: AppFont.regular.withSize(20),
+                           title: LS("Wallet.Main.Balance.Title"),
+                           background: colorProvider.settingsCellsBackround),
+            .titleWithFont(font: AppFont.bold.withSize(32),
+                           title: "$54,500,234.00",
+                           background: colorProvider.settingsCellsBackround),
+            .balanceChanging(status: .idle,
+                             balanceChanged: "+3.5%",
+                             perTime: "(24h)",
+                             action: updateBalanceChanginPerDay),
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
+            .titleWithFont(font: AppFont.bold.withSize(17),
+                           title: LS("Wallet.Main.Coins.Essntia"),
+                           background: colorProvider.settingsCellsBackround)
+        ] + balancesState
+    }
+    
+    var balancesState: [TableComponent] {
+        var balances: [TableComponent] = []
+        let assets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+        assets.forEach { (asset) in
+            balances.append(.assetBalance(image: asset.coin.icon,
+                                          title: asset.coin.name,
+                                          value: "\(EssentiaStore.currentUser.profile.currency.symbol) 0.0",
+                                          currencyValue: "0.0 \(asset.coin.symbol)",
+                action: {
+                    
+            }))
+            balances.append(.separator(inset: .zero))
+        }
+        return balances
+    }
+    
+    var emptyState: [TableComponent] {
+        return [
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
+            .rightNavigationButton(title: "", image: imageProvider.bluePlus, action: addWalletAction),
             .title(bold: true, title: LS("Wallet.Title")),
             .empty(height: 52, background: colorProvider.settingsCellsBackround),
             .centeredImage(image: imageProvider.walletPlaceholder),
@@ -50,5 +93,9 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Actions
     private lazy var addWalletAction: () -> Void = {
         (inject() as WalletRouterInterface).show(.newAssets)
+    }
+    
+    private lazy var updateBalanceChanginPerDay: () -> Void = {
+        
     }
 }

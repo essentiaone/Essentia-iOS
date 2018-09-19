@@ -11,6 +11,7 @@ import UIKit
 protocol AssetInterface {
     var name: String { get }
     var icon: UIImage { get }
+    var symbol: String { get }
 }
 
 extension AssetInterface where Self: Hashable {

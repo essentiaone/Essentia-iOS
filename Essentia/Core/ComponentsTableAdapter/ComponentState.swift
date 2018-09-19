@@ -25,3 +25,8 @@ class ComponentState<T>: NSObject {
         return "Value: \(value),Error: \(localizedError)"
     }
 }
+
+enum ComponentStatus {
+    case idle
+    case updating
+}

@@ -63,6 +63,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSegmentControl.self)
         tableView.register(TableComponentCheckImageTitle.self)
         tableView.register(TableComponentSearch.self)
+        tableView.register(TableComponentBalanceChanging.self)
+        tableView.register(TableComponentAssetBalance.self)
     }
     
     // MARK: - Update State
@@ -121,6 +123,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             let font = bold ? AppFont.bold : AppFont.regular
             cell.titleLabel.font = font.withSize(34)
+            return cell
+        case .titleWithFont(let font, let title, let background):
+            let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.titleLabel.font = font
+            cell.backgroundColor = background
+            cell.titleLabel.minimumScaleFactor = 0.5
+            cell.titleLabel.textAlignment = .center
             return cell
         case .descriptionWithSize(let aligment ,let fontSize,let title,let backgroud):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
@@ -209,9 +219,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.leftAction = lAction
             cell.rightAction = rAction
             return cell
-        case .rightNavigationButton(let image,let action):
+        case .rightNavigationButton(let title, let image,let action):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
             cell.rightButton.setImage(image, for: .normal)
+            cell.titleLabel.text = title
             cell.rightAction = action
             return cell
         case .paragraph(let title, let description):
@@ -291,6 +302,19 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.searchBar.findView(type: UITextField.self)?.backgroundColor = backgroud
             cell.textChangedAction = didChangeString
             return cell
+        case .balanceChanging(let status, let balanceChanged, let perTime, _):
+            let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
+            cell.procentTitle.text = balanceChanged
+            cell.timeUpdateLabel.text = perTime
+            cell.status = status
+            return cell
+        case .assetBalance(let image, let title, let value, let currencyValue,_):
+            let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage.image = image
+            cell.titleLabel.text = title
+            cell.balanceTopValue.text = value
+            cell.balanceButtomValue.text = currencyValue
+            return cell
         default:
             fatalError()
         }
@@ -308,6 +332,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .title(let bold, let title):
             let font = bold ? AppFont.bold : AppFont.regular
             return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
+        case .titleWithFont(let font, let title,_):
+            return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
         case .descriptionWithSize(_, let fontSize, let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
@@ -365,6 +391,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 30.0
         case .search:
             return 36.0
+        case .balanceChanging:
+            return 25.0
+        case .assetBalance:
+            return 60.0
         default:
             fatalError()
         }
@@ -388,7 +418,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .textView: fallthrough
         case .checkImageTitle: fallthrough
         case .checkBox: fallthrough
-        case .search: 
+        case .search: fallthrough
+        case .assetBalance:
             return true
         default:
             return false
@@ -433,6 +464,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentSearch = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.searchBar)
+        case .assetBalance(_, _, _, _, let action):
+            action()
         default:
             return
         }

@@ -156,6 +156,8 @@
 "Wallet.Title" = "Wallet";
 "Wallet.Empty.Description" = "You have no assets, but you can add ones";
 "Wallet.Empty.Add" = "ADD";
+"Wallet.Main.Balance.Title" = "Total Balance";
+"Wallet.Main.Coins.Essntia" = "Essentia Assets";
 
 "Wallet.Back" = "Back";
 "Wallet.NewAsset.Title" = "New Assets";
@@ -171,6 +173,11 @@
 "Wallet.Ethereum" = "Ethereum";
 "Wallet.Litecoin" = "Litecoin";
 "Wallet.BitcoinCash" = "Bitcoin Cash";
+
+"Wallet.Bitcoin.Short" = "BTC";
+"Wallet.Ethereum.Short" = "ETH";
+"Wallet.Litecoin.Short" = "LTC";
+"Wallet.BitcoinCash.Short" = "BCH";
 
 "Wallet.Import" = "Import";
 "Wallet.Import.Description" = "Name your wallet and enter your private key - that’s all there is to it!";
