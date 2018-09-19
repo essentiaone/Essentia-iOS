@@ -27,6 +27,19 @@ enum Coin: String, Codable, AssetInterface {
         }
     }
     
+    var symbol: String {
+        switch self {
+        case .bitcoin:
+            return LS("Wallet.Bitcoin.Short")
+        case .ethereum:
+            return LS("Wallet.Ethereum.Short")
+        case .litecoin:
+            return LS("Wallet.Litecoin.Short")
+        case .bitcoinCash:
+            return LS("Wallet.BitcoinCash.Short")
+        }
+    }
+    
     var icon: UIImage {
         let imageProvider = inject() as AppImageProviderInterface
         switch self {

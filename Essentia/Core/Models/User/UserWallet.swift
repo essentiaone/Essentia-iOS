@@ -12,4 +12,8 @@ struct UserWallet: Codable {
     var importedWallets: [ImportedWallet] = []
     var generatedWalletsInfo: [GeneratingWalletInfo] = []
     var tokenAssets: [TokenAsset] = []
+    
+    var isEmpty: Bool {
+        return importedWallets.isEmpty && tokenAssets.isEmpty && generatedWalletsInfo.isEmpty
+    }
 }

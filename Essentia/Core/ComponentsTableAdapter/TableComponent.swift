@@ -14,6 +14,7 @@ enum TableComponent: Equatable {
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
+    case titleWithFont(font: UIFont, title: String, background: UIColor)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
@@ -22,7 +23,7 @@ enum TableComponent: Equatable {
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
-    case rightNavigationButton(image: UIImage, action: () -> Void)
+    case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
     // MARK: - Settings
@@ -47,6 +48,8 @@ enum TableComponent: Equatable {
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case checkImageTitle(image: UIImage, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
+    case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
+    case assetBalance(image: UIImage, title: String, value: String, currencyValue: String, action: () -> Void)
 
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

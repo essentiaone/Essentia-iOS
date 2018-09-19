@@ -27,6 +27,19 @@ enum Currency: Int, Codable, Equatable, Hashable {
         }
     }
     
+    var symbol: String {
+        switch self {
+        case .usd:
+            return "$"
+        case .eur:
+            return "€"
+        case .krw:
+            return "₩"
+        case .cny:
+            return "¥"
+        }
+    }
+    
     static var cases: [Currency] {
         return [.usd, .eur, .krw, .cny]
     }
