@@ -24,7 +24,7 @@ class TableComponentSeparator: UITableViewCell {
         separatorView.frame = CGRect(x: separatorInset.left, y: contentView.bounds.height - px, width: contentView.bounds.width - separatorInset.left - separatorInset.right, height: px)
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundColor = .clear

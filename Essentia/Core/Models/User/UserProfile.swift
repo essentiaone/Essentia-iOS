@@ -17,13 +17,13 @@ struct UserProfile: Codable {
     init() {
         self.currency = .usd
         self.language = LocalizationLanguage.defaultLanguage
-        self.imageData = UIImageJPEGRepresentation(UIImage(named: "testAvatar")!, 1.0)!
+        self.imageData = UIImage(named: "testAvatar")!.jpegData(compressionQuality: 1.0)!
     }
     
     init(image: UIImage, name: String) {
         self.init()
         self.name = name
-        self.imageData = UIImageJPEGRepresentation(image, 1.0)
+        self.imageData = image.jpegData(compressionQuality: 1.0)
     }
     
     var icon: UIImage {

@@ -30,7 +30,7 @@ class LoginDesign: LoginDesignInterface {
             NSAttributedString(
                 string: LS("Welcome.Tersm2"),
                 attributes: [.font: AppFont.regular.withSize(13),
-                             .underlineStyle: NSUnderlineStyle.styleSingle.rawValue]
+                             .underlineStyle: NSUnderlineStyle.single.rawValue]
             )
         )
         vc.termsButton.setAttributedTitle(termsAttributedText, for: .normal)

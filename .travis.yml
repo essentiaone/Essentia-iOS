@@ -8,5 +8,4 @@ before_install:
    - pod update
 install: true
 script:
-  - pod update
   - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.0'

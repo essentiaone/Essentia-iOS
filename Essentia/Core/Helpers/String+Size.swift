@@ -10,14 +10,14 @@ import UIKit
 
 extension String {
     func singleLineLabelWidth(with font: UIFont) -> CGFloat {
-        return self.size(withAttributes: [NSAttributedStringKey.font: font]).width
+        return self.size(withAttributes: [NSAttributedString.Key.font: font]).width
     }
     
     func multyLineLabelHeight(with font: UIFont, width: CGFloat) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect,
                                             options: [.usesLineFragmentOrigin, .usesFontLeading],
-                                            attributes: [NSAttributedStringKey.font: font],
+                                            attributes: [NSAttributedString.Key.font: font],
                                             context: nil)
         return boundingBox.height
     }

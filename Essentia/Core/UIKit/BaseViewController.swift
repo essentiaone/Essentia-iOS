@@ -26,11 +26,11 @@ class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue else {
+        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else {
             return
         }
         let newKeyboardHeight = keyboardSize.cgRectValue.height

@@ -18,13 +18,13 @@ class EditingCell: BaseCollectionViewCell, NibLoadable {
         mutableAttributedString.append(NSAttributedString(string: string,
                                                           attributes:
             [
-                NSAttributedStringKey.foregroundColor: colorProvider.currentWordEnteringString,
-                NSAttributedStringKey.font: AppFont.medium.withSize(15)]))
+                NSAttributedString.Key.foregroundColor: colorProvider.currentWordEnteringString,
+                NSAttributedString.Key.font: AppFont.medium.withSize(15)]))
         mutableAttributedString.append(NSAttributedString(string: placeholder,
                                                           attributes:
             [
-                NSAttributedStringKey.foregroundColor: colorProvider.currentWordEnteringPlaceholder,
-                NSAttributedStringKey.font: AppFont.medium.withSize(15)]))
+                NSAttributedString.Key.foregroundColor: colorProvider.currentWordEnteringPlaceholder,
+                NSAttributedString.Key.font: AppFont.medium.withSize(15)]))
         titleLabel.attributedText = mutableAttributedString
     }
 }

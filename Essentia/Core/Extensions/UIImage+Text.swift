@@ -15,9 +15,9 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         
         let textFontAttributes = [
-            NSAttributedStringKey.font: AppFont.bold.withSize(size.height/2),
-            NSAttributedStringKey.foregroundColor: color
-            ] as [NSAttributedStringKey : Any]
+            NSAttributedString.Key.font: AppFont.bold.withSize(size.height/2),
+            NSAttributedString.Key.foregroundColor: color
+            ] as [NSAttributedString.Key : Any]
         image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
         
         let rect = CGRect(origin: CGPoint(x: size.height/3, y: size.height/5), size: size)
