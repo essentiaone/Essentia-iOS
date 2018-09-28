@@ -65,6 +65,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSearch.self)
         tableView.register(TableComponentBalanceChanging.self)
         tableView.register(TableComponentAssetBalance.self)
+        tableView.register(TableComponentTitleSubtileDescription.self)
     }
     
     // MARK: - Update State
@@ -315,6 +316,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.balanceTopValue.text = value
             cell.balanceButtomValue.text = currencyValue
             return cell
+        case .titleSubtitleDescription(let title, let subtile, let description, _):
+            let cell: TableComponentTitleSubtileDescription = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.subtileLabel.text = subtile
+            cell.descriptionLabel.text = description
+            return cell
         default:
             fatalError()
         }
@@ -375,6 +382,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 44.0
         case .checkImageTitle: fallthrough
         case .imageTitle: fallthrough
+        case .titleSubtitle: fallthrough
+        case .assetBalance: fallthrough
+        case .titleSubtitleDescription: fallthrough
         case .imageParagraph:
             return 60.0
         case .menuSectionHeader:
@@ -383,8 +393,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
-        case .titleSubtitle:
-            return 60.0
         case .textView:
             return 77.0
         case .segmentControlCell:
@@ -393,8 +401,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 36.0
         case .balanceChanging:
             return 25.0
-        case .assetBalance:
-            return 60.0
         default:
             fatalError()
         }
@@ -419,6 +425,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .checkImageTitle: fallthrough
         case .checkBox: fallthrough
         case .search: fallthrough
+        case .titleSubtitleDescription: fallthrough
         case .assetBalance:
             return true
         default:
@@ -465,6 +472,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             selectedRow = indexPath
             focusView(view: cell.searchBar)
         case .assetBalance(_, _, _, _, let action):
+            action()
+        case .titleSubtitleDescription(_, _, _, let action):
             action()
         default:
             return

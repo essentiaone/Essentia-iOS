@@ -44,7 +44,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
 
     private var state: [TableComponent] {
         let rawState: [TableComponent?] = [
-            .empty(height: 15, background: colorProvider.settingsCellsBackround),
+            .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Wallet.Back"),
                            right: "",
                            title: "",

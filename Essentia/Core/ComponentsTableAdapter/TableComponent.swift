@@ -50,6 +50,7 @@ enum TableComponent: Equatable {
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(image: UIImage, title: String, value: String, currencyValue: String, action: () -> Void)
+    case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
 
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
