@@ -1246,15 +1246,9 @@
 		344958CF2141200A00C2230B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34737BDB21512446008A306F /* New Group */,
+				344DB538215E4F7500F7D1E2 /* AddWallet */,
 				344958D921412CA400C2230B /* WalletWelcomeViewController.swift */,
 				344958ED2141CC3000C2230B /* WalletMainViewController.swift */,
-				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
-				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
-				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
-				34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */,
-				34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */,
-				34AC4DF6214959C8001C17D8 /* WalletCreateNewAssetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1296,6 +1290,19 @@
 				344958F22141D7C000C2230B /* TableComponentCenteredImage.xib */,
 			);
 			path = TableComponentCenteredImage;
+			sourceTree = "<group>";
+		};
+		344DB538215E4F7500F7D1E2 /* AddWallet */ = {
+			isa = PBXGroup;
+			children = (
+				34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */,
+				34AC4DF6214959C8001C17D8 /* WalletCreateNewAssetViewController.swift */,
+				34AC4DF221494DA7001C17D8 /* FailImportingAlert.swift */,
+				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
+				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
+				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
+			);
+			path = AddWallet;
 			sourceTree = "<group>";
 		};
 		34737BC3214EACE5008A306F /* TokensService */ = {
@@ -1340,13 +1347,6 @@
 				34B27A42213064E500527F15 /* MnemonicLanguage.swift */,
 			);
 			path = Auth;
-			sourceTree = "<group>";
-		};
-		34737BDB21512446008A306F /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		34737BDC2151596B008A306F /* TableComponentBalanceChanging */ = {
