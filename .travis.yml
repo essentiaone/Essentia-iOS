@@ -2,8 +2,8 @@ language:
   - objective-c
 
 osx_image: 
-  - xcode9.4
+  - xcode10
 
 script:
   - pod update
-  - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=11.4'
+  - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.0'
