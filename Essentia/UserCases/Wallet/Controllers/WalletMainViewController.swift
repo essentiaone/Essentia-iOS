@@ -6,10 +6,13 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
+import Foundation
+
 class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var interator: WalletInteractorInterface = inject()
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -50,27 +53,8 @@ class WalletMainViewController: BaseTableAdapterController {
                              balanceChanged: "+3.5%",
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
-            .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .titleWithFont(font: AppFont.bold.withSize(17),
-                           title: LS("Wallet.Main.Coins.Essntia"),
-                           background: colorProvider.settingsCellsBackround)
-        ] + balancesState
-    }
-    
-    var balancesState: [TableComponent] {
-        var balances: [TableComponent] = []
-        let assets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
-        assets.forEach { (asset) in
-            balances.append(.assetBalance(image: asset.coin.icon,
-                                          title: asset.coin.name,
-                                          value: "\(EssentiaStore.currentUser.profile.currency.symbol) 0.0",
-                                          currencyValue: "0.0 \(asset.coin.symbol)",
-                action: {
-                    
-            }))
-            balances.append(.separator(inset: .zero))
-        }
-        return balances
+            .empty(height: 24, background: colorProvider.settingsCellsBackround)
+        ] + coinsState
     }
     
     var emptyState: [TableComponent] {
@@ -88,6 +72,43 @@ class WalletMainViewController: BaseTableAdapterController {
             .empty(height: 10, background: colorProvider.settingsCellsBackround),
             .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction)
         ]
+    }
+    
+    var coinsState: [TableComponent] {
+        var coinsTypesState: [TableComponent] = []
+        coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
+                                                        wallets: interator.getGeneratedWallets()))
+        coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Imported"),
+                                                        wallets: interator.getImportedWallets()))
+        return coinsTypesState
+    }
+
+    func buildSection(title: String, wallets: [WalletInterface]) -> [TableComponent] {
+        guard !wallets.isEmpty else { return [] }
+        var sectionState: [TableComponent] = []
+        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
+        sectionState.append(.descriptionWithSize(aligment: .left,
+                                                    fontSize: 14,
+                                                    title: title,
+                                                    background: colorProvider.settingsBackgroud))
+        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
+        sectionState.append(contentsOf: buildStateForWallets(wallets))
+        return sectionState
+    }
+    
+    func buildStateForWallets(_ wallets: [WalletInterface]) -> [TableComponent] {
+        var assetState: [TableComponent] = []
+        wallets.forEach { (wallet) in
+            assetState.append(.assetBalance(image: wallet.coin.icon,
+                                          title: wallet.coin.name,
+                                          value: "\(EssentiaStore.currentUser.profile.currency.symbol) 0.0",
+                currencyValue: "0.0 \(wallet.coin.symbol)",
+                action: {
+                    
+            }))
+            assetState.append(.separator(inset: .zero))
+        }
+        return assetState
     }
     
     // MARK: - Actions

@@ -54,6 +54,15 @@ class WalletInteractor: WalletInteractorInterface {
             let tokenAsset = TokenAsset(token: token, wallet: etherWallet)
             EssentiaStore.currentUser.wallet.tokenAssets.append(tokenAsset)
         }
-        
+    }
+    
+    func getGeneratedWallets() -> [GeneratedWallet] {
+        let walletsInfo = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+        let seed = Data(hex: EssentiaStore.currentUser.seed)
+        return walletsInfo.map({ return walletService.generateWallet(seed: seed, walletInfo: $0) })
+    }
+    
+    func getImportedWallets() -> [ImportedWallet] {
+        return EssentiaStore.currentUser.wallet.importedWallets
     }
 }

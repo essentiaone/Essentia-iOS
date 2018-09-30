@@ -40,6 +40,10 @@ enum Coin: String, Codable, AssetInterface {
         }
     }
     
+    func setIcon(in imageView: UIImageView) {
+        imageView.image = icon
+    }
+    
     var icon: UIImage {
         let imageProvider = inject() as AppImageProviderInterface
         switch self {
@@ -55,7 +59,7 @@ enum Coin: String, Codable, AssetInterface {
     }
     
     func isValidPK(_ pk: String) -> Bool {
-        let regexString = "^[5KL][1-9A-HJ-NP-Za-km-z]{50,51}$"
+        let regexString = "^[1-9A-HJ-NP-Za-km-z]{50,51}$"
         guard let regex = try? NSRegularExpression(pattern: regexString, options: .anchorsMatchLines),
             regex.firstMatch(in: pk, options: .anchored, range: .init(location: 0, length: pk.count)) != nil else {
                 return false

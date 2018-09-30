@@ -190,7 +190,7 @@
 		34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */; };
 		34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */; };
 		34AC4DE82147C2F6001C17D8 /* TableComponentTextView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */; };
-		34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE921486293001C17D8 /* ImportedAsset.swift */; };
+		34AC4DEA21486293001C17D8 /* ImportedWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE921486293001C17D8 /* ImportedWallet.swift */; };
 		34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEB21492189001C17D8 /* UserWallet.swift */; };
 		34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */; };
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
@@ -427,7 +427,7 @@
 		34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportAssetViewController.swift; sourceTree = "<group>"; };
 		34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextView.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextView.xib; sourceTree = "<group>"; };
-		34AC4DE921486293001C17D8 /* ImportedAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedAsset.swift; sourceTree = "<group>"; };
+		34AC4DE921486293001C17D8 /* ImportedWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedWallet.swift; sourceTree = "<group>"; };
 		34AC4DEB21492189001C17D8 /* UserWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserWallet.swift; sourceTree = "<group>"; };
 		34AC4DED214939B4001C17D8 /* WalletDoneImportingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneImportingAlert.swift; sourceTree = "<group>"; };
 		34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreSavedAlert.swift; sourceTree = "<group>"; };
@@ -1319,6 +1319,26 @@
 			path = TableComponentTitleSubtileDescription;
 			sourceTree = "<group>";
 		};
+		344DB53E215ED30C00F7D1E2 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				34AC4DE921486293001C17D8 /* ImportedWallet.swift */,
+				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
+				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		344DB53F215ED33100F7D1E2 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				349BC05821466591003AC330 /* Coin.swift */,
+				34AC4E072149D98B001C17D8 /* AssetInterface.swift */,
+				34A37D30214D34F70022FD93 /* Token.swift */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
 		34737BC3214EACE5008A306F /* TokensService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1341,13 +1361,9 @@
 		34737BD1214FEB1B008A306F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				349BC05821466591003AC330 /* Coin.swift */,
+				344DB53F215ED33100F7D1E2 /* Asset */,
+				344DB53E215ED30C00F7D1E2 /* Wallet */,
 				34737BD7214FFC86008A306F /* TokenAsset.swift */,
-				34AC4DE921486293001C17D8 /* ImportedAsset.swift */,
-				34AC4E072149D98B001C17D8 /* AssetInterface.swift */,
-				34A37D30214D34F70022FD93 /* Token.swift */,
-				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
-				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
 				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 			);
 			path = Wallet;
@@ -1942,7 +1958,7 @@
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
-				34AC4DEA21486293001C17D8 /* ImportedAsset.swift in Sources */,
+				34AC4DEA21486293001C17D8 /* ImportedWallet.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
 				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
 				34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */,

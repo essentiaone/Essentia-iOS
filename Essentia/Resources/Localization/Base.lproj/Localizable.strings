@@ -163,6 +163,7 @@
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "Essentia Assets";
+"Wallet.Main.Coins.Imported" = "Imported Assets";
 
 "Wallet.Back" = "Back";
 "Wallet.NewAsset.Title" = "New Assets";
