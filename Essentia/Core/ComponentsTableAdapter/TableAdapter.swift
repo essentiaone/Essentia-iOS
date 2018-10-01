@@ -66,6 +66,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentBalanceChanging.self)
         tableView.register(TableComponentAssetBalance.self)
         tableView.register(TableComponentTitleSubtileDescription.self)
+        tableView.register(TableComponentTableView.self)
     }
     
     // MARK: - Update State
@@ -322,6 +323,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.subtileLabel.text = subtile
             cell.descriptionLabel.text = description
             return cell
+        case .tableWithHeight(_, let state):
+            let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.reload(state)
+            return cell
         default:
             fatalError()
         }
@@ -345,6 +350,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
+        case .tableWithHeight(let height, _):
+            return height
         case .calculatbleSpace:
             return helper.heightForEmptySpace(with: tableState, in: self)
         case .accountStrength:

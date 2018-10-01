@@ -42,6 +42,13 @@ class WalletMainViewController: BaseTableAdapterController {
             return emptyState
         }
         return [
+        .tableWithHeight(height: 240, state: nonEmptyStaticState),
+        .tableWithHeight(height: tableView.frame.height - 240, state: assetState)
+        ]
+    }
+    
+    var nonEmptyStaticState: [TableComponent] {
+        return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
                                    image: imageProvider.bluePlus,
@@ -62,7 +69,7 @@ class WalletMainViewController: BaseTableAdapterController {
                                          LS("Wallet.Main.Segment.Segment")],
                                 selected: Constans.currentSegment,
                                 action: segmentControlAction)
-        ] + assetState
+        ]
     }
     
     var assetState: [TableComponent] {
@@ -74,7 +81,7 @@ class WalletMainViewController: BaseTableAdapterController {
         default: return []
         }
     }
-
+    
     var emptyState: [TableComponent] {
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -109,15 +116,15 @@ class WalletMainViewController: BaseTableAdapterController {
                                                         wallets: interator.getImportedWallets()))
         return coinsTypesState
     }
-
+    
     func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
         guard !wallets.isEmpty else { return [] }
         var sectionState: [TableComponent] = []
         sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
         sectionState.append(.descriptionWithSize(aligment: .left,
-                                                    fontSize: 14,
-                                                    title: title,
-                                                    background: colorProvider.settingsBackgroud))
+                                                 fontSize: 14,
+                                                 title: title,
+                                                 background: colorProvider.settingsBackgroud))
         sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
         sectionState.append(contentsOf: buildStateForWallets(wallets))
         return sectionState
@@ -127,11 +134,11 @@ class WalletMainViewController: BaseTableAdapterController {
         var assetState: [TableComponent] = []
         wallets.forEach { (wallet) in
             assetState.append(.assetBalance(image: wallet.icon,
-                                          title: wallet.name,
-                                          value: wallet.balanceInCurrentCurrency,
-                currencyValue: wallet.balance,
-                action: {
-                    
+                                            title: wallet.name,
+                                            value: wallet.balanceInCurrentCurrency,
+                                            currencyValue: wallet.balance,
+                                            action: {
+                                                
             }))
             assetState.append(.separator(inset: .zero))
         }

@@ -9,6 +9,7 @@
 import UIKit
 
 enum TableComponent: Equatable {
+    case tableWithHeight(height:CGFloat, state: [TableComponent])
     // MARK: - Common
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
