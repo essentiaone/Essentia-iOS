@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GeneratingWalletInfo: Codable {
+struct GeneratingWalletInfo: Hashable, Codable {
     var name: String
     var coin: Coin
     var derivationIndex: UInt32

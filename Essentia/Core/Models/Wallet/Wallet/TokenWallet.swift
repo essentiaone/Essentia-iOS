@@ -1,5 +1,5 @@
 //
-//  GeneratedWallet.swift
+//  TokenWallet.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 17.09.18.
@@ -8,19 +8,20 @@
 
 import UIKit
 
-struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
-    var name: String
-    var pk: String
-    var address: String
-    var coin: Coin
-    var derivationIndex: UInt32
+struct TokenAsset: Codable, ViewWalletInterface {
+    var token: Token
+    var wallet: GeneratingWalletInfo
+    
+    var name: String {
+        return token.name
+    }
     
     var icon: UIImage {
-        return coin.icon
+        return token.icon
     }
     
     var symbol: String {
-        return coin.symbol
+        return token.symbol
     }
     
     var balanceInCurrentCurrency: String {
@@ -28,6 +29,6 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
     }
     
     var balance: String {
-        return "0.0 " + coin.symbol
+        return "0.0 " + token.symbol
     }
 }

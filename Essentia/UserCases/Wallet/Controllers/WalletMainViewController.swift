@@ -8,6 +8,10 @@
 
 import Foundation
 
+fileprivate struct Constans {
+    static var currentSegment: Int = 0
+}
+
 class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
@@ -17,9 +21,9 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
         injectRouter()
         injectInteractor()
+        tableAdapter.reload(state)
     }
     
     private func injectInteractor() {
@@ -53,10 +57,24 @@ class WalletMainViewController: BaseTableAdapterController {
                              balanceChanged: "+3.5%",
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
-            .empty(height: 24, background: colorProvider.settingsCellsBackround)
-        ] + coinsState
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
+            .segmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
+                                         LS("Wallet.Main.Segment.Segment")],
+                                selected: Constans.currentSegment,
+                                action: segmentControlAction)
+        ] + assetState
     }
     
+    var assetState: [TableComponent] {
+        switch Constans.currentSegment {
+        case 0:
+            return coinsState
+        case 1:
+            return tokensState
+        default: return []
+        }
+    }
+
     var emptyState: [TableComponent] {
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -74,6 +92,15 @@ class WalletMainViewController: BaseTableAdapterController {
         ]
     }
     
+    var tokensState: [TableComponent] {
+        var tokenTabState: [TableComponent] = []
+        let tokensByWallets = interator.getTokensByWalleets()
+        for (key, value) in tokensByWallets {
+            tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
+        }
+        return tokenTabState
+    }
+    
     var coinsState: [TableComponent] {
         var coinsTypesState: [TableComponent] = []
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
@@ -83,7 +110,7 @@ class WalletMainViewController: BaseTableAdapterController {
         return coinsTypesState
     }
 
-    func buildSection(title: String, wallets: [WalletInterface]) -> [TableComponent] {
+    func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
         guard !wallets.isEmpty else { return [] }
         var sectionState: [TableComponent] = []
         sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
@@ -96,13 +123,13 @@ class WalletMainViewController: BaseTableAdapterController {
         return sectionState
     }
     
-    func buildStateForWallets(_ wallets: [WalletInterface]) -> [TableComponent] {
+    func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
         var assetState: [TableComponent] = []
         wallets.forEach { (wallet) in
-            assetState.append(.assetBalance(image: wallet.coin.icon,
-                                          title: wallet.coin.name,
-                                          value: "\(EssentiaStore.currentUser.profile.currency.symbol) 0.0",
-                currencyValue: "0.0 \(wallet.coin.symbol)",
+            assetState.append(.assetBalance(image: wallet.icon,
+                                          title: wallet.name,
+                                          value: wallet.balanceInCurrentCurrency,
+                currencyValue: wallet.balance,
                 action: {
                     
             }))
@@ -112,6 +139,11 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
+    private lazy var segmentControlAction: (Int) -> Void = {
+        Constans.currentSegment = $0
+        self.tableAdapter.simpleReload(self.state)
+    }
+    
     private lazy var addWalletAction: () -> Void = {
         (inject() as WalletRouterInterface).show(.newAssets)
     }

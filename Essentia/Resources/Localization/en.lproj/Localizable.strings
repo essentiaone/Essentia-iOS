@@ -159,6 +159,8 @@
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "Essentia Assets";
 "Wallet.Main.Coins.Imported" = "Imported Assets";
+"Wallet.Main.Segment.First" = "Coins";
+"Wallet.Main.Segment.Segment" = "Tokens";
 
 "Wallet.Back" = "Back";
 "Wallet.NewAsset.Title" = "New Assets";

@@ -146,6 +146,7 @@
 		344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344958F62142687000C2230B /* UIImage+UIColor.swift */; };
 		344DB53B215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB53A215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift */; };
 		344DB53D215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB53C215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib */; };
+		344DB5412162363C00F7D1E2 /* ViewWalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */; };
 		346B7AE3214D4230003BF737 /* UIImage+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B7AE2214D4230003BF737 /* UIImage+Text.swift */; };
 		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
 		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
@@ -155,7 +156,7 @@
 		34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCF214FC9C9008A306F /* GeneratingWallet.swift */; };
 		34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD3214FF6EB008A306F /* WalletInterface.swift */; };
 		34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */; };
-		34737BD8214FFC86008A306F /* TokenAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD7214FFC86008A306F /* TokenAsset.swift */; };
+		34737BD8214FFC86008A306F /* TokenWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD7214FFC86008A306F /* TokenWallet.swift */; };
 		34737BDE2151598E008A306F /* TableComponentBalanceChanging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BDD2151598E008A306F /* TableComponentBalanceChanging.swift */; };
 		34737BE02151C1DD008A306F /* TableComponentBalanceChanging.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34737BDF2151C1DC008A306F /* TableComponentBalanceChanging.xib */; };
 		34737BE321526874008A306F /* TableComponentAssetBalance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34737BE221526874008A306F /* TableComponentAssetBalance.xib */; };
@@ -383,6 +384,7 @@
 		344958F62142687000C2230B /* UIImage+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
 		344DB53A215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleSubtileDescription.swift; sourceTree = "<group>"; };
 		344DB53C215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleSubtileDescription.xib; sourceTree = "<group>"; };
+		344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWalletInterface.swift; sourceTree = "<group>"; };
 		346B7AE2214D4230003BF737 /* UIImage+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Text.swift"; sourceTree = "<group>"; };
 		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
 		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
@@ -392,7 +394,7 @@
 		34737BCF214FC9C9008A306F /* GeneratingWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWallet.swift; sourceTree = "<group>"; };
 		34737BD3214FF6EB008A306F /* WalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInterface.swift; sourceTree = "<group>"; };
 		34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWalletInfo.swift; sourceTree = "<group>"; };
-		34737BD7214FFC86008A306F /* TokenAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAsset.swift; sourceTree = "<group>"; };
+		34737BD7214FFC86008A306F /* TokenWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWallet.swift; sourceTree = "<group>"; };
 		34737BDD2151598E008A306F /* TableComponentBalanceChanging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentBalanceChanging.swift; sourceTree = "<group>"; };
 		34737BDF2151C1DC008A306F /* TableComponentBalanceChanging.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentBalanceChanging.xib; sourceTree = "<group>"; };
 		34737BE221526874008A306F /* TableComponentAssetBalance.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAssetBalance.xib; sourceTree = "<group>"; };
@@ -1322,9 +1324,11 @@
 		344DB53E215ED30C00F7D1E2 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				34737BD7214FFC86008A306F /* TokenWallet.swift */,
 				34AC4DE921486293001C17D8 /* ImportedWallet.swift */,
 				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
 				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
+				344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1363,7 +1367,6 @@
 			children = (
 				344DB53F215ED33100F7D1E2 /* Asset */,
 				344DB53E215ED30C00F7D1E2 /* Wallet */,
-				34737BD7214FFC86008A306F /* TokenAsset.swift */,
 				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 			);
 			path = Wallet;
@@ -1937,7 +1940,7 @@
 				34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */,
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				344958F12141D7B500C2230B /* TableComponentCenteredImage.swift in Sources */,
-				34737BD8214FFC86008A306F /* TokenAsset.swift in Sources */,
+				34737BD8214FFC86008A306F /* TokenWallet.swift in Sources */,
 				34737BC5214EACF9008A306F /* TokensService.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
@@ -1952,6 +1955,7 @@
 				34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */,
 				34B27A4B21336B5900527F15 /* Loader.swift in Sources */,
 				3401AF6520F826B3006DEF49 /* LocalizedStrings.swift in Sources */,
+				344DB5412162363C00F7D1E2 /* ViewWalletInterface.swift in Sources */,
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
 				34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */,
