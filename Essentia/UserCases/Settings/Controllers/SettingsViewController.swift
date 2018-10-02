@@ -90,7 +90,8 @@ class SettingsViewController: BaseTableAdapterController {
              .menuButton(title: LS("Settings.LogOut"),
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
-             .empty(height: 95, background: colorProvider.settingsBackgroud)]
+             .calculatbleSpace(background: colorProvider.settingsBackgroud),
+             .empty(height: 10, background: colorProvider.settingsBackgroud )]
         return rawState.compactMap { return $0 }
     }
     

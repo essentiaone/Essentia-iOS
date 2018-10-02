@@ -39,12 +39,13 @@ class WalletWelcomeViewController: BaseTableAdapterController {
             .centeredButton(title: LS("Wallet.Welcome.Continue"),
                             isEnable: true,
                             action: continueAction,
-                            background: colorProvider.settingsCellsBackround)
+                            background: colorProvider.settingsCellsBackround),
+            .empty(height: 16, background: .clear)
         ]
     }
 
     // MARK: - Actions
-    private lazy var continueAction: () -> Void = {
-        self.dismiss(animated: true)
+    private lazy var continueAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
     }
 }

@@ -163,6 +163,9 @@
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "Essentia Assets";
+"Wallet.Main.Coins.Imported" = "Imported Assets";
+"Wallet.Main.Segment.First" = "Coins";
+"Wallet.Main.Segment.Segment" = "Tokens";
 
 "Wallet.Back" = "Back";
 "Wallet.NewAsset.Title" = "New Assets";
@@ -172,6 +175,9 @@
 "Wallet.NewAsset.Import.Title" = "Import Asset";
 "Wallet.NewAsset.Import.Subtitle" = "With Private Key";
 "Wallet.NewAsset.Import.Description" = "Use this option to import ALL/SOME ADDRESSES linked to an account on services like Jaxx, Electum etc...";
+
+"Wallet.NewAsset.Token.SelectWallet.Title" = "ETH Wallet";
+"Wallet.NewAsset.Token.SelectWallet.Subtitle" = "Wallet with tokens";
 
 "Wallet.ImportAsset.Title" = "Import Asset";
 "Wallet.Bitcoin" = "Bitcoin";

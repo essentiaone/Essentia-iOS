@@ -6,17 +6,24 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
+import Foundation
+
+fileprivate struct Constans {
+    static var currentSegment: Int = 0
+}
+
 class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var interator: WalletInteractorInterface = inject()
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
         injectRouter()
         injectInteractor()
+        tableAdapter.reload(state)
     }
     
     private func injectInteractor() {
@@ -35,6 +42,13 @@ class WalletMainViewController: BaseTableAdapterController {
             return emptyState
         }
         return [
+        .tableWithHeight(height: 240, state: nonEmptyStaticState),
+        .tableWithHeight(height: tableView.frame.height - 240, state: assetState)
+        ]
+    }
+    
+    var nonEmptyStaticState: [TableComponent] {
+        return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
                                    image: imageProvider.bluePlus,
@@ -51,26 +65,21 @@ class WalletMainViewController: BaseTableAdapterController {
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .titleWithFont(font: AppFont.bold.withSize(17),
-                           title: LS("Wallet.Main.Coins.Essntia"),
-                           background: colorProvider.settingsCellsBackround)
-        ] + balancesState
+            .segmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
+                                         LS("Wallet.Main.Segment.Segment")],
+                                selected: Constans.currentSegment,
+                                action: segmentControlAction)
+        ]
     }
     
-    var balancesState: [TableComponent] {
-        var balances: [TableComponent] = []
-        let assets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
-        assets.forEach { (asset) in
-            balances.append(.assetBalance(image: asset.coin.icon,
-                                          title: asset.coin.name,
-                                          value: "\(EssentiaStore.currentUser.profile.currency.symbol) 0.0",
-                                          currencyValue: "0.0 \(asset.coin.symbol)",
-                action: {
-                    
-            }))
-            balances.append(.separator(inset: .zero))
+    var assetState: [TableComponent] {
+        switch Constans.currentSegment {
+        case 0:
+            return coinsState
+        case 1:
+            return tokensState
+        default: return []
         }
-        return balances
     }
     
     var emptyState: [TableComponent] {
@@ -90,7 +99,58 @@ class WalletMainViewController: BaseTableAdapterController {
         ]
     }
     
+    var tokensState: [TableComponent] {
+        var tokenTabState: [TableComponent] = []
+        let tokensByWallets = interator.getTokensByWalleets()
+        for (key, value) in tokensByWallets {
+            tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
+        }
+        return tokenTabState
+    }
+    
+    var coinsState: [TableComponent] {
+        var coinsTypesState: [TableComponent] = []
+        coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
+                                                        wallets: interator.getGeneratedWallets()))
+        coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Imported"),
+                                                        wallets: interator.getImportedWallets()))
+        return coinsTypesState
+    }
+    
+    func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
+        guard !wallets.isEmpty else { return [] }
+        var sectionState: [TableComponent] = []
+        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
+        sectionState.append(.descriptionWithSize(aligment: .left,
+                                                 fontSize: 14,
+                                                 title: title,
+                                                 background: colorProvider.settingsBackgroud))
+        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
+        sectionState.append(contentsOf: buildStateForWallets(wallets))
+        return sectionState
+    }
+    
+    func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
+        var assetState: [TableComponent] = []
+        wallets.forEach { (wallet) in
+            assetState.append(.assetBalance(imageUrl: wallet.iconUrl,
+                                            title: wallet.name,
+                                            value: wallet.balanceInCurrentCurrency,
+                                            currencyValue: wallet.balance,
+                                            action: {
+                                                
+            }))
+            assetState.append(.separator(inset: .zero))
+        }
+        return assetState
+    }
+    
     // MARK: - Actions
+    private lazy var segmentControlAction: (Int) -> Void = {
+        Constans.currentSegment = $0
+        self.tableAdapter.simpleReload(self.state)
+    }
+    
     private lazy var addWalletAction: () -> Void = {
         (inject() as WalletRouterInterface).show(.newAssets)
     }

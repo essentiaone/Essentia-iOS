@@ -13,6 +13,7 @@ fileprivate struct Store {
     var searchString: String = ""
     var assets: [AssetInterface] = []
     var selectedAssets: [AssetInterface] = []
+    var etherWalletForTokens: GeneratingWalletInfo?
 }
 
 class WalletCreateNewAssetViewController: BaseTableAdapterController {
@@ -47,8 +48,24 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
                     didChange: searchChangedAction),
             .empty(height: 16, background: colorProvider.settingsCellsBackround),
             .empty(height: 16, background: colorProvider.settingsBackgroud)
+            ] + selectWalletState + [
             ] + assetState + [
             .calculatbleSpace(background: colorProvider.settingsBackgroud)
+        ]
+    }
+    
+    var selectWalletState: [TableComponent] {
+        guard store.selectedComponent != 0 else { return [] }
+        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo.filter({ return $0.coin == Coin.ethereum })
+        guard wallets.count > 1 else { return [] }
+        let selectedWallet = store.etherWalletForTokens ?? wallets.first!
+        return [
+            .empty(height: 4, background: colorProvider.settingsCellsBackround),
+            .titleSubtitleDescription(title: LS("Wallet.NewAsset.Token.SelectWallet.Title"),
+                                      subtile: LS("Wallet.NewAsset.Token.SelectWallet.Subtitle"),
+                                      description: selectedWallet.name,
+                                      action: selectWalletAction),
+            .empty(height: 4, background: colorProvider.settingsCellsBackround)
         ]
     }
     
@@ -59,7 +76,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
         filteredStore.forEach { (asset) in
             let selectedIndex = self.store.selectedAssets.index(where: { $0.name.lowercased() == asset.name.lowercased() })
             let isSelected = selectedIndex != nil
-            coinsState.append(.checkImageTitle(image: asset.icon, title: asset.name, isSelected: isSelected, action: {
+            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.name, isSelected: isSelected, action: {
                 if isSelected {
                     self.store.selectedAssets.remove(at: selectedIndex!)
                 } else {
@@ -90,12 +107,12 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     
     private lazy var selectSegmentCotrolAction: (Int) -> Void = {
         self.store.selectedAssets = []
+        self.store.assets = []
         let interactor: WalletInteractorInterface = inject()
         self.store.selectedComponent = $0
         switch $0 {
         case 0:
             self.store.assets = interactor.getCoinsList()
-            self.tableAdapter.simpleReload(self.state)
         case 1:
             interactor.getTokensList(result: {
                 self.store.assets = $0
@@ -103,10 +120,15 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
             })
         default: return
         }
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var searchChangedAction: (String) -> Void = {
         self.store.searchString = $0
         self.tableAdapter.simpleReload(self.state)
+    }
+    
+    private lazy var selectWalletAction: () -> Void = {
+        
     }
 }

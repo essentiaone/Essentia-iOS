@@ -21,12 +21,16 @@ class TableComponentAssetBalance: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         let colorProvider: AppColorInterface = inject()
-        titleImage.layer.cornerRadius = 30.0
         titleLabel.font = AppFont.medium.withSize(17)
         titleLabel.textColor = colorProvider.appTitleColor
         balanceTopValue.textColor = colorProvider.appTitleColor
         balanceButtomValue.textColor = colorProvider.appDefaultTextColor
         balanceTopValue.font = AppFont.bold.withSize(15)
         balanceButtomValue.font = AppFont.regular.withSize(14)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView?.image = nil
     }
 }

@@ -41,8 +41,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        let switchAccount =  SwitchAccoutViewController {
-            self.openTabBar()
+        let switchAccount =  SwitchAccoutViewController { [weak self] in
+            self?.openTabBar()
         }
         present(switchAccount, animated: true)
     }

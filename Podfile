@@ -17,6 +17,7 @@ end
 
 def pod_ui
     pod 'SVProgressHUD'
+    pod 'Kingfisher'
 end
 
 def pod_debug

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WalletInteractor: WalletInteractorInterface {
+class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
     private lazy var tokenService: TokensServiceInterface = inject()
     
@@ -54,6 +54,27 @@ class WalletInteractor: WalletInteractorInterface {
             let tokenAsset = TokenAsset(token: token, wallet: etherWallet)
             EssentiaStore.currentUser.wallet.tokenAssets.append(tokenAsset)
         }
-        
+    }
+    
+    func getGeneratedWallets() -> [GeneratedWallet] {
+        let walletsInfo = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+        let seed = Data(hex: EssentiaStore.currentUser.seed)
+        return walletsInfo.map({ return walletService.generateWallet(seed: seed, walletInfo: $0) })
+    }
+    
+    func getImportedWallets() -> [ImportedWallet] {
+        return EssentiaStore.currentUser.wallet.importedWallets
+    }
+    
+    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenAsset]] {
+        var tokensByWallets: [GeneratingWalletInfo : [TokenAsset]] = [:]
+        let tokens = EssentiaStore.currentUser.wallet.tokenAssets
+        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+        for wallet in wallets {
+            let tokensByCurrentWallet = tokens.filter({ return $0.wallet == wallet })
+            guard !tokensByCurrentWallet.isEmpty else { continue }
+            tokensByWallets[wallet] = tokensByCurrentWallet
+        }
+        return tokensByWallets
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Dependences
@@ -65,6 +66,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSearch.self)
         tableView.register(TableComponentBalanceChanging.self)
         tableView.register(TableComponentAssetBalance.self)
+        tableView.register(TableComponentTitleSubtileDescription.self)
+        tableView.register(TableComponentTableView.self)
     }
     
     // MARK: - Update State
@@ -287,9 +290,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
             return cell
-        case .checkImageTitle(let image, let title, let isSelected, _):
+        case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleImageView.image = image
+            cell.titleImageView.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.checkImageView.image = isSelected ? imageProvider.checkSelected : imageProvider.checkNotSelected
             return cell
@@ -308,12 +311,22 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.timeUpdateLabel.text = perTime
             cell.status = status
             return cell
-        case .assetBalance(let image, let title, let value, let currencyValue,_):
+        case .assetBalance(let imageUrl, let title, let value, let currencyValue,_):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleImage.image = image
+            cell.titleImage.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.balanceTopValue.text = value
             cell.balanceButtomValue.text = currencyValue
+            return cell
+        case .titleSubtitleDescription(let title, let subtile, let description, _):
+            let cell: TableComponentTitleSubtileDescription = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.subtileLabel.text = subtile
+            cell.descriptionLabel.text = description
+            return cell
+        case .tableWithHeight(_, let state):
+            let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.reload(state)
             return cell
         default:
             fatalError()
@@ -338,6 +351,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
+        case .tableWithHeight(let height, _):
+            return height
         case .calculatbleSpace:
             return helper.heightForEmptySpace(with: tableState, in: self)
         case .accountStrength:
@@ -375,6 +390,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 44.0
         case .checkImageTitle: fallthrough
         case .imageTitle: fallthrough
+        case .titleSubtitle: fallthrough
+        case .assetBalance: fallthrough
+        case .titleSubtitleDescription: fallthrough
         case .imageParagraph:
             return 60.0
         case .menuSectionHeader:
@@ -383,8 +401,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
-        case .titleSubtitle:
-            return 60.0
         case .textView:
             return 77.0
         case .segmentControlCell:
@@ -393,8 +409,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return 36.0
         case .balanceChanging:
             return 25.0
-        case .assetBalance:
-            return 60.0
         default:
             fatalError()
         }
@@ -419,6 +433,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .checkImageTitle: fallthrough
         case .checkBox: fallthrough
         case .search: fallthrough
+        case .titleSubtitleDescription: fallthrough
         case .assetBalance:
             return true
         default:
@@ -465,6 +480,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             selectedRow = indexPath
             focusView(view: cell.searchBar)
         case .assetBalance(_, _, _, _, let action):
+            action()
+        case .titleSubtitleDescription(_, _, _, let action):
             action()
         default:
             return

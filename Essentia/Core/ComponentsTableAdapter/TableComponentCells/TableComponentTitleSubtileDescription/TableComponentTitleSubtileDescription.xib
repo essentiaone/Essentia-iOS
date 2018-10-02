@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentTitleSubtileDescription" rowHeight="60" id="fmE-Vn-nQD" customClass="TableComponentTitleSubtileDescription" customModule="Essentia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fmE-Vn-nQD" id="BGC-zF-hFE">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nD-Px-rdu">
+                        <rect key="frame" x="16" y="8" width="166.5" height="19.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3R-Gi-JfL">
+                        <rect key="frame" x="16" y="32.5" width="166.5" height="19"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q7Z-Jv-ggd">
+                        <rect key="frame" x="192.5" y="12" width="166.5" height="37.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Q3R-Gi-JfL" firstAttribute="top" secondItem="5nD-Px-rdu" secondAttribute="bottom" constant="5" id="2wb-bn-Dai"/>
+                    <constraint firstItem="Q7Z-Jv-ggd" firstAttribute="leading" secondItem="5nD-Px-rdu" secondAttribute="trailing" constant="10" id="8gX-kt-e6Q"/>
+                    <constraint firstAttribute="bottom" secondItem="Q7Z-Jv-ggd" secondAttribute="bottom" constant="10" id="CJZ-vz-nIW"/>
+                    <constraint firstAttribute="bottom" secondItem="Q3R-Gi-JfL" secondAttribute="bottom" constant="8" id="I7m-Qg-SSW"/>
+                    <constraint firstItem="Q7Z-Jv-ggd" firstAttribute="width" secondItem="5nD-Px-rdu" secondAttribute="width" id="OZR-Ic-Ncj"/>
+                    <constraint firstItem="Q3R-Gi-JfL" firstAttribute="leading" secondItem="BGC-zF-hFE" secondAttribute="leading" constant="16" id="OqU-PS-sCn"/>
+                    <constraint firstItem="5nD-Px-rdu" firstAttribute="top" secondItem="BGC-zF-hFE" secondAttribute="top" constant="8" id="T3Z-IA-vne"/>
+                    <constraint firstItem="Q7Z-Jv-ggd" firstAttribute="top" secondItem="BGC-zF-hFE" secondAttribute="top" constant="12" id="VOb-Yp-Qpx"/>
+                    <constraint firstAttribute="trailing" secondItem="Q7Z-Jv-ggd" secondAttribute="trailing" constant="16" id="VTQ-4s-Udc"/>
+                    <constraint firstItem="5nD-Px-rdu" firstAttribute="leading" secondItem="BGC-zF-hFE" secondAttribute="leading" constant="16" id="cf8-wA-ULX"/>
+                    <constraint firstItem="Q3R-Gi-JfL" firstAttribute="height" secondItem="5nD-Px-rdu" secondAttribute="height" id="mAH-Du-8s2"/>
+                    <constraint firstItem="Q7Z-Jv-ggd" firstAttribute="leading" secondItem="Q3R-Gi-JfL" secondAttribute="trailing" constant="10" id="pJ1-73-ZIr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="Q7Z-Jv-ggd" id="gfE-lf-3ZA"/>
+                <outlet property="subtileLabel" destination="Q3R-Gi-JfL" id="4sF-LC-hRL"/>
+                <outlet property="titleLabel" destination="5nD-Px-rdu" id="nzd-HI-I7X"/>
+            </connections>
+            <point key="canvasLocation" x="15" y="141"/>
+        </tableViewCell>
+    </objects>
+</document>
