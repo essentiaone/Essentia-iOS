@@ -47,10 +47,10 @@ enum TableComponent: Equatable {
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
-    case checkImageTitle(image: UIImage, title: String, isSelected: Bool, action: () -> Void)
+    case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
-    case assetBalance(image: UIImage, title: String, value: String, currencyValue: String, action: () -> Void)
+    case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
 
     // MARK: - Equatable

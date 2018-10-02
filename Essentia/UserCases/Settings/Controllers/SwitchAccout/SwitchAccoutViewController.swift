@@ -103,9 +103,9 @@ class SwitchAccoutViewController: BaseViewController {
     
     private func generateNewUser() {
         (inject() as LoaderInterface).show()
-        (inject() as LoginInteractorInterface).generateNewUser {
+        (inject() as LoginInteractorInterface).generateNewUser {  [weak self] in
             (inject() as LoaderInterface).hide()
-            self.present(TabBarController(), animated: true)
+            self?.present(TabBarController(), animated: true)
         }
     }
 }

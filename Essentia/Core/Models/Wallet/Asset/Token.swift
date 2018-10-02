@@ -14,12 +14,7 @@ struct Token: Codable, AssetInterface {
     var name: String
     var decimals: Int
     
-    var icon: UIImage {
-        let firstCharacter = symbol.first ?? Character("T")
-        let firstSymbol = String(firstCharacter)
-        return UIImage.image(text:firstSymbol,
-                             size: CGSize(width: 50, height: 50),
-                             color: .darkText,
-                             backgroud: .lightGray)
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
     }
 }

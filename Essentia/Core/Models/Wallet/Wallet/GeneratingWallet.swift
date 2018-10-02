@@ -15,8 +15,8 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
     var coin: Coin
     var derivationIndex: UInt32
     
-    var icon: UIImage {
-        return coin.icon
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
     }
     
     var symbol: String {

@@ -45,7 +45,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     }
 
     // MARK: - Actions
-    private lazy var continueAction: () -> Void = {
-        self.dismiss(animated: true)
+    private lazy var continueAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
     }
 }

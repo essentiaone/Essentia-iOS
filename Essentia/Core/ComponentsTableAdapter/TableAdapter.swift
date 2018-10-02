@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Dependences
@@ -289,9 +290,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
             return cell
-        case .checkImageTitle(let image, let title, let isSelected, _):
+        case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleImageView.image = image
+            cell.titleImageView.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.checkImageView.image = isSelected ? imageProvider.checkSelected : imageProvider.checkNotSelected
             return cell
@@ -310,9 +311,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.timeUpdateLabel.text = perTime
             cell.status = status
             return cell
-        case .assetBalance(let image, let title, let value, let currencyValue,_):
+        case .assetBalance(let imageUrl, let title, let value, let currencyValue,_):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleImage.image = image
+            cell.titleImage.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.balanceTopValue.text = value
             cell.balanceButtomValue.text = currencyValue

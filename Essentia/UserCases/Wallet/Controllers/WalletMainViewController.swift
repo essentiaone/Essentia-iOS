@@ -133,7 +133,7 @@ class WalletMainViewController: BaseTableAdapterController {
     func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
         var assetState: [TableComponent] = []
         wallets.forEach { (wallet) in
-            assetState.append(.assetBalance(image: wallet.icon,
+            assetState.append(.assetBalance(imageUrl: wallet.iconUrl,
                                             title: wallet.name,
                                             value: wallet.balanceInCurrentCurrency,
                                             currencyValue: wallet.balance,

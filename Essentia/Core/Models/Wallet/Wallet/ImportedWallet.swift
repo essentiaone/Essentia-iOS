@@ -13,8 +13,8 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     var pk: String
     var name: String
     
-    var icon: UIImage {
-        return coin.icon
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
     }
     
     var symbol: String {

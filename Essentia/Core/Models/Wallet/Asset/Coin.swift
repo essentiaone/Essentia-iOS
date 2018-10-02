@@ -58,6 +58,10 @@ enum Coin: String, Codable, AssetInterface {
         }
     }
     
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
+    }
+    
     func isValidPK(_ pk: String) -> Bool {
         let regexString = "^[1-9A-HJ-NP-Za-km-z]{50,51}$"
         guard let regex = try? NSRegularExpression(pattern: regexString, options: .anchorsMatchLines),

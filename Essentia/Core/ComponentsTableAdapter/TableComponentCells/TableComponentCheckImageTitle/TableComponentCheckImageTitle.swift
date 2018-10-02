@@ -25,4 +25,9 @@ class TableComponentCheckImageTitle: UITableViewCell, NibLoadable {
         titleLabel.font = AppFont.medium.withSize(17)
         titleLabel.textColor = (inject() as AppColorInterface).appTitleColor
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        titleImageView.image = nil
+    }
 }

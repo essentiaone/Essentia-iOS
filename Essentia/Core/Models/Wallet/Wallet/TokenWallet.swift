@@ -16,8 +16,8 @@ struct TokenAsset: Codable, ViewWalletInterface {
         return token.name
     }
     
-    var icon: UIImage {
-        return token.icon
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
     }
     
     var symbol: String {

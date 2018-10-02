@@ -150,7 +150,7 @@
 		344DB543216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */; };
 		344DB5482162705C00F7D1E2 /* TableComponentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */; };
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
-		346B7AE3214D4230003BF737 /* UIImage+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346B7AE2214D4230003BF737 /* UIImage+Text.swift */; };
+		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
 		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
 		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
 		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
@@ -391,7 +391,7 @@
 		344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTwoTabsTableAdapterController.swift; sourceTree = "<group>"; };
 		344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTableView.swift; sourceTree = "<group>"; };
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
-		346B7AE2214D4230003BF737 /* UIImage+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Text.swift"; sourceTree = "<group>"; };
+		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
 		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
 		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
 		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
@@ -613,6 +613,7 @@
 		3401AF4E20F7DDFD006DEF49 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				344DB54B21630E2400F7D1E2 /* Formatters */,
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
 				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
 				3401AFDD21043C44006DEF49 /* String+Size.swift */,
@@ -860,7 +861,6 @@
 				34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */,
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
-				346B7AE2214D4230003BF737 /* UIImage+Text.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1360,6 +1360,14 @@
 			path = TableComponentTableView;
 			sourceTree = "<group>";
 		};
+		344DB54B21630E2400F7D1E2 /* Formatters */ = {
+			isa = PBXGroup;
+			children = (
+				344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */,
+			);
+			path = Formatters;
+			sourceTree = "<group>";
+		};
 		34737BC3214EACE5008A306F /* TokensService */ = {
 			isa = PBXGroup;
 			children = (
@@ -1837,6 +1845,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
@@ -1845,6 +1854,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
@@ -1901,6 +1911,7 @@
 				344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */,
 				3448268C211DDC8F00C19EB3 /* TableComponent.swift in Sources */,
 				344958D12141224700C2230B /* WalletInteractorInterface.swift in Sources */,
+				344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */,
 				34AC4DF321494DA7001C17D8 /* FailImportingAlert.swift in Sources */,
 				3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */,
 				3401AF5B20F80B41006DEF49 /* Application.swift in Sources */,
@@ -2014,7 +2025,6 @@
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
 				34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
-				346B7AE3214D4230003BF737 /* UIImage+Text.swift in Sources */,
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
