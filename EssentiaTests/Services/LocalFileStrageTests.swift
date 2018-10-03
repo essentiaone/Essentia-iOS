@@ -1,15 +1,15 @@
 //
-//  EssentiaTests.swift
+//  LocalFileStrageTests.swift
 //  EssentiaTests
 //
-//  Created by Pavlo Boiko on 19.07.18.
+//  Created by Pavlo Boiko on 10/3/18.
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
 import XCTest
 @testable import Essentia
 
-class EssentiaTests: XCTestCase {
+class LocalFileStrageTests: XCTestCase {
     
     func testMnemonicProviderWordCountAndSymolsInWord() {
         let mnemonicProvider: MnemonicServiceInterface = MnemonicService()
