@@ -97,6 +97,10 @@
 		3441680A212FEDDF008B8A91 /* TableComponentCheckField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34416809212FEDDF008B8A91 /* TableComponentCheckField.swift */; };
 		3441680C212FEDEC008B8A91 /* TableComponentCheckField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3441680B212FEDEC008B8A91 /* TableComponentCheckField.xib */; };
 		3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3441680D212FF468008B8A91 /* FastTernaryOperator.swift */; };
+		3445D49C2167B4550014A2B0 /* CurrencyRankDemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445D49B2167B4550014A2B0 /* CurrencyRankDemon.swift */; };
+		3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445D49D2167B6020014A2B0 /* CurrencyRankDemonInterface.swift */; };
+		3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445D4A12167C48A0014A2B0 /* AssetsRank.swift */; };
+		3445D4A42167C94E0014A2B0 /* AssetPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3445D4A32167C94E0014A2B0 /* AssetPrice.swift */; };
 		3448264521107A2100C19EB3 /* EditingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3448264421107A2100C19EB3 /* EditingCell.swift */; };
 		3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3448264621107A4B00C19EB3 /* EditingCell.xib */; };
 		344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826512114B21B00C19EB3 /* PhraseEnteringState.swift */; };
@@ -345,6 +349,10 @@
 		34416809212FEDDF008B8A91 /* TableComponentCheckField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCheckField.swift; sourceTree = "<group>"; };
 		3441680B212FEDEC008B8A91 /* TableComponentCheckField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCheckField.xib; sourceTree = "<group>"; };
 		3441680D212FF468008B8A91 /* FastTernaryOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastTernaryOperator.swift; sourceTree = "<group>"; };
+		3445D49B2167B4550014A2B0 /* CurrencyRankDemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemon.swift; sourceTree = "<group>"; };
+		3445D49D2167B6020014A2B0 /* CurrencyRankDemonInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemonInterface.swift; sourceTree = "<group>"; };
+		3445D4A12167C48A0014A2B0 /* AssetsRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsRank.swift; sourceTree = "<group>"; };
+		3445D4A32167C94E0014A2B0 /* AssetPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetPrice.swift; sourceTree = "<group>"; };
 		3448264421107A2100C19EB3 /* EditingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingCell.swift; sourceTree = "<group>"; };
 		3448264621107A4B00C19EB3 /* EditingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditingCell.xib; sourceTree = "<group>"; };
 		344826512114B21B00C19EB3 /* PhraseEnteringState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseEnteringState.swift; sourceTree = "<group>"; };
@@ -550,6 +558,7 @@
 		3401AF3720F7C394006DEF49 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				3445D4972167B4060014A2B0 /* Demons */,
 				344167ED212E1166008B8A91 /* Store */,
 				3448264D2113327700C19EB3 /* Models */,
 				349AA4AF21242C4C00E9256F /* Services */,
@@ -566,9 +575,9 @@
 		3401AF3820F7C3B1006DEF49 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF5A20F80B41006DEF49 /* Application.swift */,
 				3401AF8C20FE4592006DEF49 /* DependenceProvider */,
 				3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */,
-				3401AF5A20F80B41006DEF49 /* Application.swift */,
 				3401AF5820F80B21006DEF49 /* main.swift */,
 			);
 			path = Application;
@@ -989,11 +998,13 @@
 			path = BlockchainWrapperService;
 			sourceTree = "<group>";
 		};
-		3411AF0B2166593F00AB9476 /* AssetsRates */ = {
+		3411AF0B2166593F00AB9476 /* AssetsRanks */ = {
 			isa = PBXGroup;
 			children = (
+				3445D4A12167C48A0014A2B0 /* AssetsRank.swift */,
+				3445D4A32167C94E0014A2B0 /* AssetPrice.swift */,
 			);
-			path = AssetsRates;
+			path = AssetsRanks;
 			sourceTree = "<group>";
 		};
 		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
@@ -1055,6 +1066,23 @@
 				3441680B212FEDEC008B8A91 /* TableComponentCheckField.xib */,
 			);
 			path = TableComponentCheckField;
+			sourceTree = "<group>";
+		};
+		3445D4972167B4060014A2B0 /* Demons */ = {
+			isa = PBXGroup;
+			children = (
+				3445D49A2167B4410014A2B0 /* CurrencyRankDemon */,
+			);
+			path = Demons;
+			sourceTree = "<group>";
+		};
+		3445D49A2167B4410014A2B0 /* CurrencyRankDemon */ = {
+			isa = PBXGroup;
+			children = (
+				3445D49B2167B4550014A2B0 /* CurrencyRankDemon.swift */,
+				3445D49D2167B6020014A2B0 /* CurrencyRankDemonInterface.swift */,
+			);
+			path = CurrencyRankDemon;
 			sourceTree = "<group>";
 		};
 		3448264321107A0100C19EB3 /* EditingCell */ = {
@@ -1440,7 +1468,7 @@
 		34737BD1214FEB1B008A306F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				3411AF0B2166593F00AB9476 /* AssetsRates */,
+				3411AF0B2166593F00AB9476 /* AssetsRanks */,
 				344DB53F215ED33100F7D1E2 /* Asset */,
 				344DB53E215ED30C00F7D1E2 /* Wallet */,
 				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
@@ -1994,6 +2022,7 @@
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
 				344DB543216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift in Sources */,
+				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
 				3401AFCF21023510006DEF49 /* BorderedCell.swift in Sources */,
@@ -2018,6 +2047,7 @@
 				344DB53B215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				344958E92141763600C2230B /* UserBackup.swift in Sources */,
+				3445D49C2167B4550014A2B0 /* CurrencyRankDemon.swift in Sources */,
 				34AC4E042149D7A4001C17D8 /* TableComponentSearch.swift in Sources */,
 				3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */,
 				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
@@ -2054,6 +2084,7 @@
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
 				34AC4DEA21486293001C17D8 /* ImportedWallet.swift in Sources */,
+				3445D4A42167C94E0014A2B0 /* AssetPrice.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,
 				34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */,
 				34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */,
@@ -2071,6 +2102,7 @@
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
+				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
 				344826B7212162B000C19EB3 /* UIView+Shadow.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */,

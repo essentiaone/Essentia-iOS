@@ -18,6 +18,7 @@ class ApplicationDependenceProvider {
     private func loadCoreDependences() {
         loadAssets()
         loadServices()
+        loadDemons()
     }
     
     private func loadAssets() {
@@ -62,6 +63,17 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
+    // MARK: - Demons
+    
+    private func loadDemons() {
+        loadRankDemon()
+    }
+    
+    private func loadRankDemon() {
+        let injection: CurrencyRankDemonInterface = CurrencyRankDemon()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
     // MARK: - Services
     private func loadServices() {
         loadUserService()
@@ -71,6 +83,18 @@ class ApplicationDependenceProvider {
         loadLogger()
         loadTokens()
         loadWallets()
+        loadBlockchainWrapper()
+        loadCurrencyConvert()
+    }
+    
+    private func loadBlockchainWrapper() {
+        let injection: BlockchainWrapperServiceInterface = BlockchainWrapperService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadCurrencyConvert() {
+        let injection: CurrencyConverterServiceInterface = CurrencyConverterService()
+        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadWallets() {

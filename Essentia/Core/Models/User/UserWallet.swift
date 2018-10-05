@@ -16,4 +16,17 @@ struct UserWallet: Codable {
     var isEmpty: Bool {
         return importedWallets.isEmpty && tokenWallets.isEmpty && generatedWalletsInfo.isEmpty
     }
+    
+    var uniqueAssets: [AssetInterface] {
+        var allAssets: [AssetInterface] = []
+        var unique: [AssetInterface] = []
+        allAssets.append(contentsOf: importedWallets.map({ return $0.coin}))
+        allAssets.append(contentsOf: generatedWalletsInfo.map({ return $0.coin }))
+        allAssets.append(contentsOf: tokenWallets.map({ return $0.token }))
+        for asset in allAssets {
+            guard !unique.contains(where: { return $0.name == asset.name }) else { continue }
+            unique.append(asset)
+        }
+        return unique
+    }
 }

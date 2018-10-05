@@ -10,4 +10,5 @@ import Foundation
 
 struct EssentiaStore {
     static var currentUser: User = User.notSigned
+    static var ranks: AssetRank = AssetRank()
 }
