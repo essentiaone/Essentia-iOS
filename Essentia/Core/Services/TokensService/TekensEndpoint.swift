@@ -11,7 +11,7 @@ import EssentiaNetworkCore
 
 enum TokensEndpoint: RequestProtocol {
     var path: String {
-        return "/essentiaone/ess-base/develop/ess_base/database/fixtures/production/tokens/ethereum.json?token=AVnc42JVsYN0Uynschf4DuD1Z9n4lL5Bks5bomywwA"
+        return "/essentia-status-bot/95d6105a210608577d30f070524deb25/raw/6c27ccb801644becacd3ae3b38927e8c8dafcd5e/tokens.json"
     }
     
     var extraHeaders: [String : String]? {

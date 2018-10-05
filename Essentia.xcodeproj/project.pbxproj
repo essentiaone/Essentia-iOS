@@ -77,6 +77,8 @@
 		3411AEF02164DAB700AB9476 /* CoinGeckoCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */; };
 		3411AEF321650A2800AB9476 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */; };
 		3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */; };
+		3411AF062165659200AB9476 /* BlockchainWrapperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* BlockchainWrapperService.swift */; };
+		3411AF082165659B00AB9476 /* BlockchainWrapperServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -323,6 +325,8 @@
 		3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoCurrencyModel.swift; sourceTree = "<group>"; };
 		3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
+		3411AF052165659200AB9476 /* BlockchainWrapperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainWrapperService.swift; sourceTree = "<group>"; };
+		3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainWrapperServiceInterface.swift; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
@@ -976,6 +980,22 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		3411AF042165655900AB9476 /* BlockchainWrapperService */ = {
+			isa = PBXGroup;
+			children = (
+				3411AF052165659200AB9476 /* BlockchainWrapperService.swift */,
+				3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */,
+			);
+			path = BlockchainWrapperService;
+			sourceTree = "<group>";
+		};
+		3411AF0B2166593F00AB9476 /* AssetsRates */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AssetsRates;
+			sourceTree = "<group>";
+		};
 		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
 			isa = PBXGroup;
 			children = (
@@ -1420,6 +1440,7 @@
 		34737BD1214FEB1B008A306F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				3411AF0B2166593F00AB9476 /* AssetsRates */,
 				344DB53F215ED33100F7D1E2 /* Asset */,
 				344DB53E215ED30C00F7D1E2 /* Wallet */,
 				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
@@ -1501,6 +1522,7 @@
 		349AA4AF21242C4C00E9256F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3411AF042165655900AB9476 /* BlockchainWrapperService */,
 				3411AEE821642F6500AB9476 /* CurrencyConverterService */,
 				34737BCA214FAEA3008A306F /* WalletService */,
 				34737BC3214EACE5008A306F /* TokensService */,
@@ -1877,6 +1899,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
@@ -1886,6 +1909,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
@@ -1916,6 +1940,7 @@
 				3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
+				3411AF082165659B00AB9476 /* BlockchainWrapperServiceInterface.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */,
 				344958EE2141CC3000C2230B /* WalletMainViewController.swift in Sources */,
@@ -1923,6 +1948,7 @@
 				34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */,
 				349BC05921466591003AC330 /* Coin.swift in Sources */,
 				34737BCE214FAEBE008A306F /* WalletService.swift in Sources */,
+				3411AF062165659200AB9476 /* BlockchainWrapperService.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,

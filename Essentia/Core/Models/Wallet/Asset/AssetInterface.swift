@@ -11,11 +11,16 @@ import UIKit
 protocol AssetInterface {
     var name: String { get }
     var symbol: String { get }
-    var iconUrl: URL { get }
 }
 
 extension AssetInterface where Self: Hashable {
     var hashValue: Int {
         return name.djb2hash
+    }
+}
+
+extension AssetInterface {
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
     }
 }

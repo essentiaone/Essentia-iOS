@@ -25,18 +25,19 @@ class MnemonicService: MnemonicServiceInterface {
         return wrappedLanguage(for: language).words
     }
     
-    func keyStoreFile(seed: String, password: String) throws -> Data {
-        let keystore = try KeystoreV3(seed: Data(hex: seed), password: password)
+    func keyStoreFile(mnemonic: String, password: String) throws -> Data {
+        let passwordHash = password.sha256().sha256()
+        let keystore = try KeystoreV3(data: mnemonic, password: passwordHash)
         return (try keystore?.encodedData())!
     }
     
-    func seed(from keystoreFile: Data, password: String) -> String? {
+    func mnemonic(from keystoreFile: Data, password: String) -> String? {
+        let passwordHash = password.sha256().sha256()
         guard let keystoreV3 = try? KeystoreV3(keyStore: keystoreFile),
-              let pk = try? keystoreV3?.getDecriptedKeyStore(password: password),
-              let seed = pk?.toHexString() else {
+              let mnemonic = try? keystoreV3?.getDecriptedKeyStore(password: passwordHash) else {
             return nil
         }
-        return seed
+        return mnemonic
     }
     
     func languageForCurrentLocale() -> MnemonicLanguage {

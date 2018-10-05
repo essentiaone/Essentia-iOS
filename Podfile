@@ -15,6 +15,10 @@ def pod_core
    pod 'essentia-network-core-ios'
 end
 
+def pod_functional 
+   pod 'PromiseKit', '~> 6.0'
+end
+
 def pod_ui
     pod 'SVProgressHUD'
     pod 'Kingfisher'
@@ -30,5 +34,5 @@ target 'Essentia' do
     pod_ui
     pod_debug
     pod_analytics
-    
+    pod_functional
 end

@@ -13,8 +13,4 @@ struct Token: Codable, AssetInterface {
     var symbol: String
     var name: String
     var decimals: Int
-    
-    var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: name, size: .x128).url
-    }
 }

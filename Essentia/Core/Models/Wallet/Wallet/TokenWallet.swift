@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TokenAsset: Codable, ViewWalletInterface {
+struct TokenWallet: Codable, ViewWalletInterface {
     var token: Token
     var wallet: GeneratingWalletInfo
     

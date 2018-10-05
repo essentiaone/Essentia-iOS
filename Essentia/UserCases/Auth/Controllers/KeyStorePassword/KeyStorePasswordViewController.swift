@@ -94,7 +94,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     
     private func decodeKeystore() {
         guard let data = self.keystore else { return }
-        let seed = (inject() as MnemonicServiceInterface).seed(from: data, password: self.store.password)
+        let seed = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
         if let seed = seed {
             let user = User(seed: seed)
             EssentiaStore.currentUser = user
@@ -111,10 +111,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     private func storeKeystore() {
+        guard let mneminic = EssentiaStore.currentUser.mnemonic else { return }
         DispatchQueue.global().async {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
-                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(seed: EssentiaStore.currentUser.seed,
+                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mneminic,
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,

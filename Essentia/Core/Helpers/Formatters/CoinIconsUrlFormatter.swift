@@ -9,7 +9,7 @@
 import Foundation
 
 fileprivate struct Constants {
-    static var imagesUrl = "https://clogos.essentia.network/"
+    static var imagesUrl = "https://clogos.essdev.info/"
     static var imageUrlPostfix = ".png"
 }
 

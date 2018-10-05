@@ -27,7 +27,7 @@ class CurrencyConverterTests: XCTestCase {
     
     func testConvert(coin: Coin, currency: Currency) {
         let expectation = self.expectation(description: "Convert \(coin.name) to \(currency.rawValue)")
-        currencyConvertService?.convertBalance(value: 1, from: coin.name.formattedCoinName ,
+        currencyConvertService?.convertBalance(value: 1, from: coin ,
                                                to: currency, convertedValue: { (value) in
                                                 XCTAssert(value >= 0)
                                                 expectation.fulfill()

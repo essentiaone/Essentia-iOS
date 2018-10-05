@@ -99,7 +99,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var importAction: () -> Void = {
-        let newWallet = ImportedWallet(coin: self.store.coin, pk: self.store.privateKey, name: self.store.name)
+        let newWallet = ImportedWallet(address: "0x000", coin: self.store.coin, pk: self.store.privateKey, name: self.store.name)
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return

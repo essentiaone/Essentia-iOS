@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
@@ -51,8 +52,8 @@ class WalletInteractor: WalletInteractorInterface {
             return wallet.coin == Coin.ethereum
         }) else { return }
         tokens.forEach { token in
-            let tokenAsset = TokenAsset(token: token, wallet: etherWallet)
-            EssentiaStore.currentUser.wallet.tokenAssets.append(tokenAsset)
+            let tokenAsset = TokenWallet(token: token, wallet: etherWallet)
+            EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
         }
     }
     
@@ -66,9 +67,9 @@ class WalletInteractor: WalletInteractorInterface {
         return EssentiaStore.currentUser.wallet.importedWallets
     }
     
-    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenAsset]] {
-        var tokensByWallets: [GeneratingWalletInfo : [TokenAsset]] = [:]
-        let tokens = EssentiaStore.currentUser.wallet.tokenAssets
+    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]] {
+        var tokensByWallets: [GeneratingWalletInfo : [TokenWallet]] = [:]
+        let tokens = EssentiaStore.currentUser.wallet.tokenWallets
         let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
         for wallet in wallets {
             let tokensByCurrentWallet = tokens.filter({ return $0.wallet == wallet })

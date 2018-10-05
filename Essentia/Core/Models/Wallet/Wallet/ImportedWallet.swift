@@ -9,6 +9,7 @@
 import UIKit
 
 struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
+    var address: String
     var coin: Coin
     var pk: String
     var name: String
