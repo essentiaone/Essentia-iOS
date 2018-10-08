@@ -14,7 +14,7 @@ class WalletService: WalletServiceInterface {
         let hdwalletCoin = wrapCoin(coin: walletInfo.coin)
         let wallet = Wallet(seed: seed, coin: hdwalletCoin)
         let account = wallet.generateAccount(at: walletInfo.derivationIndex)
-        return GeneratedWallet(name: walletInfo.name,
+        return  GeneratedWallet(name: walletInfo.name,
                               pk: account.rawPrivateKey,
                               address: account.address,
                               coin: walletInfo.coin,
@@ -32,5 +32,17 @@ class WalletService: WalletServiceInterface {
         case .litecoin:
             return HDWalletKit.Coin.litecoin
         }
+    }
+    
+    func generateAddress(from pk: String, coin: Coin) -> String {
+        let coin: HDWalletKit.Coin = wrapCoin(coin: coin)
+        let privateKey = PrivateKey(pk: pk, coin: coin)
+        return privateKey.publicKey.address
+    }
+    
+    func generateAddress(_ walletInfo: GeneratingWalletInfo) -> String {
+        let seed = Data(hex: EssentiaStore.currentUser.seed)
+        let wallet = self.generateWallet(seed: seed, walletInfo: walletInfo)
+        return wallet.address
     }
 }

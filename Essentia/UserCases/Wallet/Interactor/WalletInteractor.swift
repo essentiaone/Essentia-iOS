@@ -12,6 +12,7 @@ import PromiseKit
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
     private lazy var tokenService: TokensServiceInterface = inject()
+    private lazy var blockchainWrapper: BlockchainWrapperServiceInterface = inject()
     
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
         let importdAssets = EssentiaStore.currentUser.wallet.importedWallets
@@ -79,5 +80,13 @@ class WalletInteractor: WalletInteractorInterface {
             tokensByWallets[wallet] = tokensByCurrentWallet
         }
         return tokensByWallets
+    }
+    
+    func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void) {
+        blockchainWrapper.getBalance(for: wallet.coin, address: wallet.address, balance: balance)
+    }
+    
+    func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
+        blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
     }
 }

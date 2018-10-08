@@ -13,6 +13,15 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     var coin: Coin
     var pk: String
     var name: String
+    var lastBalance: Double?
+    
+    init(address: String, coin: Coin, pk: String, name: String, lastBalance: Double? = nil) {
+        self.address = address
+        self.coin = coin
+        self.pk = pk
+        self.name = name
+        self.lastBalance = lastBalance
+    }
     
     var iconUrl: URL {
         return CoinIconsUrlFormatter(name: name, size: .x128).url
@@ -22,11 +31,11 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
         return coin.symbol
     }
     
-    var balanceInCurrentCurrency: String {
-        return "$ 0.0"
-    }
-    
     var balance: String {
         return "0.0 " + coin.symbol
+    }
+    
+    var asset: AssetInterface {
+        return coin
     }
 }

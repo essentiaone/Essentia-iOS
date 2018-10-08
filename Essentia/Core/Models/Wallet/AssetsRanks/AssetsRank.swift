@@ -11,6 +11,10 @@ import Foundation
 struct AssetRank {
     var ranks: [AssetPrice] = []
     
+    func getRank(for asset: AssetInterface) -> Double? {
+        return getRank(for: EssentiaStore.currentUser.profile.currency, and: asset)
+    }
+    
     func getRank(for currency: Currency, and asset: AssetInterface) -> Double? {
         return ranks.first(where: { $0.currency == currency && $0.asset.name == asset.name})?.price
     }

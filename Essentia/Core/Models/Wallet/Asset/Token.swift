@@ -9,8 +9,13 @@
 import UIKit
 
 struct Token: Codable, AssetInterface {
+    var id: String
     var address: String
     var symbol: String
     var name: String
     var decimals: Int
+    
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: id, size: .x128).url
+    }
 }

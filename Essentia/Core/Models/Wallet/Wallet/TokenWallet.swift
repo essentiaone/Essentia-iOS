@@ -11,6 +11,13 @@ import UIKit
 struct TokenWallet: Codable, ViewWalletInterface {
     var token: Token
     var wallet: GeneratingWalletInfo
+    var lastBalance: Double?
+    
+    init(token: Token, wallet: GeneratingWalletInfo, lastBalance: Double? = nil) {
+        self.token = token
+        self.wallet = wallet
+        self.lastBalance = lastBalance
+    }
     
     var name: String {
         return token.name
@@ -30,5 +37,13 @@ struct TokenWallet: Codable, ViewWalletInterface {
     
     var balance: String {
         return "0.0 " + token.symbol
+    }
+    
+    var asset: AssetInterface {
+        return token
+    }
+    
+    var address: String {
+        return (inject() as WalletServiceInterface).generateAddress(wallet)
     }
 }

@@ -10,8 +10,8 @@ import Foundation
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo : [TokenWallet]] = [:]
-    var generatedWallets: [ViewWalletInterface] = []
-    var importedWallets: [ViewWalletInterface] = []
+    var generatedWallets: [GeneratedWallet] = []
+    var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
 }
 
@@ -28,6 +28,7 @@ class WalletMainViewController: BaseTableAdapterController {
         injectRouter()
         injectInteractor()
         loadData()
+        loadBalances()
         tableAdapter.reload(state)
     }
     
@@ -121,9 +122,9 @@ class WalletMainViewController: BaseTableAdapterController {
     var coinsState: [TableComponent] {
         var coinsTypesState: [TableComponent] = []
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
-                                                        wallets: interator.getGeneratedWallets()))
+                                                        wallets: store.generatedWallets))
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Imported"),
-                                                        wallets: interator.getImportedWallets()))
+                                                        wallets: store.importedWallets))
         return coinsTypesState
     }
     
@@ -159,6 +160,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var segmentControlAction: (Int) -> Void = {
         self.store.currentSegment = $0
         self.tableAdapter.simpleReload(self.state)
+        self.loadBalances()
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -167,5 +169,40 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private lazy var updateBalanceChanginPerDay: () -> Void = {
         
+    }
+    
+    // MARK: - Private
+    
+    private func loadBalances() {
+        switch store.currentSegment {
+        case 0:
+            self.loadCoinBalances()
+        case 1:
+            self.loadTokenBalances()
+        default: return
+        }
+    }
+    
+    private func loadCoinBalances() {
+        self.store.generatedWallets.enumerated().forEach { (offset, wallet) in
+            interator.getBalance(for: wallet, balance: { (balance) in
+                self.store.generatedWallets[offset].lastBalance = balance
+                self.tableAdapter.simpleReload(self.state)
+            })
+        }
+        self.store.importedWallets.enumerated().forEach { (offset, wallet) in
+            interator.getBalance(for: wallet, balance: { (balance) in
+                self.store.importedWallets[offset].lastBalance = balance
+                self.tableAdapter.simpleReload(self.state)
+            })
+        }
+    }
+    
+    private func loadTokenBalances() {
+        self.store.tokens.forEach { (tokenWallet) in
+            tokenWallet.value.enumerated().forEach({ indexedToken in
+                
+            })
+        }
     }
 }
