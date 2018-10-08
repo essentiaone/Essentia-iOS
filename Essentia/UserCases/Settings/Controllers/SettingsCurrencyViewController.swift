@@ -47,7 +47,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: {
                     EssentiaStore.currentUser.profile.currency = currency
-                    (inject() as CurrencyRankDemonInterface).update()
+                    (inject() as CurrencyRankDaemonInterface).update()
                     self.tableAdapter.reload(self.state)
             }))
             currencyState.append(.separator(inset: .zero))

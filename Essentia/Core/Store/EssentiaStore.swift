@@ -16,6 +16,6 @@ struct EssentiaStore {
         currentUser = user
         guard user != .notSigned else { return }
         (inject() as UserStorageServiceInterface).store(user: user)
-        (inject() as CurrencyRankDemonInterface).update()
+        (inject() as CurrencyRankDaemonInterface).update()
     }
 }

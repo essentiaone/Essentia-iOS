@@ -18,7 +18,7 @@ class ApplicationDependenceProvider {
     private func loadCoreDependences() {
         loadAssets()
         loadServices()
-        loadDemons()
+        loadDaemons()
     }
     
     private func loadAssets() {
@@ -63,14 +63,14 @@ class ApplicationDependenceProvider {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    // MARK: - Demons
+    // MARK: - Daemons
     
-    private func loadDemons() {
-        loadRankDemon()
+    private func loadDaemons() {
+        loadRankDaemon()
     }
     
-    private func loadRankDemon() {
-        let injection: CurrencyRankDemonInterface = CurrencyRankDemon()
+    private func loadRankDaemon() {
+        let injection: CurrencyRankDaemonInterface = CurrencyRankDaemon()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     

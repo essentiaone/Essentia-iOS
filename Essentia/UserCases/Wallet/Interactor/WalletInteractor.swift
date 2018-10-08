@@ -44,7 +44,7 @@ class WalletInteractor: WalletInteractorInterface {
             currentlyAddedWallets.append(walletInfo)
         }
         EssentiaStore.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
-        (inject() as CurrencyRankDemonInterface).update()
+        (inject() as CurrencyRankDaemonInterface).update()
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
@@ -56,7 +56,7 @@ class WalletInteractor: WalletInteractorInterface {
         tokens.forEach { token in
             let tokenAsset = TokenWallet(token: token, wallet: etherWallet)
             EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
-            (inject() as CurrencyRankDemonInterface).update()
+            (inject() as CurrencyRankDaemonInterface).update()
         }
     }
     

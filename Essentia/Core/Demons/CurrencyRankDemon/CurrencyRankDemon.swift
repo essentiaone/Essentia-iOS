@@ -1,5 +1,5 @@
 //
-//  CurrencyRankDemon.swift
+//  CurrencyRankDaemon.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 10/5/18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CurrencyRankDemon: CurrencyRankDemonInterface {
+class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     var assets: [AssetInterface] = []
     private lazy var  converterService: CurrencyConverterServiceInterface = inject()
     

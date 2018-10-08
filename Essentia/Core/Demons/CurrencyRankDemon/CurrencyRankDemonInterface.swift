@@ -1,5 +1,5 @@
 //
-//  CurrencyRankDemonInterface.swift
+//  CurrencyRankDaemonInterface.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 10/5/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CurrencyRankDemonInterface {
+protocol CurrencyRankDaemonInterface {
     func update()
 }
