@@ -18,9 +18,11 @@ Podfile.lock
 
 ## Fastlane
 
+
 installer/
 .autodeployment.sh
 Gemfile.lock
+fastlane/
 
 ## Build generated
 build/
