@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Currency: Int, Codable, Equatable, Hashable {
+enum Currency: String, Codable, Equatable, Hashable {
     case usd
     case eur
     case krw

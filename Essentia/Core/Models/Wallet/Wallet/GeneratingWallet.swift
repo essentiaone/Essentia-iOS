@@ -14,6 +14,16 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
     var address: String
     var coin: Coin
     var derivationIndex: UInt32
+    var lastBalance: Double?
+    
+    init(name: String, pk: String, address: String, coin: Coin, derivationIndex: UInt32, lastBalance: Double? = nil) {
+        self.name = name
+        self.pk = pk
+        self.address = address
+        self.coin = coin
+        self.derivationIndex = derivationIndex
+        self.lastBalance = lastBalance
+    }
     
     var iconUrl: URL {
         return CoinIconsUrlFormatter(name: name, size: .x128).url
@@ -23,11 +33,12 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
         return coin.symbol
     }
     
-    var balanceInCurrentCurrency: String {
-        return "$ 0.0"
+    var balance: String {
+        guard let last = lastBalance else { return "" }
+        return "\(last) " + coin.symbol
     }
     
-    var balance: String {
-        return "0.0 " + coin.symbol
+    var asset: AssetInterface {
+        return coin
     }
 }

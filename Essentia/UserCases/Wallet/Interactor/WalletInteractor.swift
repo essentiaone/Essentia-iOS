@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import PromiseKit
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
     private lazy var tokenService: TokensServiceInterface = inject()
+    private lazy var blockchainWrapper: BlockchainWrapperServiceInterface = inject()
     
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
         let importdAssets = EssentiaStore.currentUser.wallet.importedWallets
@@ -42,6 +44,7 @@ class WalletInteractor: WalletInteractorInterface {
             currentlyAddedWallets.append(walletInfo)
         }
         EssentiaStore.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
+        (inject() as CurrencyRankDaemonInterface).update()
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
@@ -51,8 +54,9 @@ class WalletInteractor: WalletInteractorInterface {
             return wallet.coin == Coin.ethereum
         }) else { return }
         tokens.forEach { token in
-            let tokenAsset = TokenAsset(token: token, wallet: etherWallet)
-            EssentiaStore.currentUser.wallet.tokenAssets.append(tokenAsset)
+            let tokenAsset = TokenWallet(token: token, wallet: etherWallet)
+            EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
+            (inject() as CurrencyRankDaemonInterface).update()
         }
     }
     
@@ -66,9 +70,9 @@ class WalletInteractor: WalletInteractorInterface {
         return EssentiaStore.currentUser.wallet.importedWallets
     }
     
-    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenAsset]] {
-        var tokensByWallets: [GeneratingWalletInfo : [TokenAsset]] = [:]
-        let tokens = EssentiaStore.currentUser.wallet.tokenAssets
+    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]] {
+        var tokensByWallets: [GeneratingWalletInfo : [TokenWallet]] = [:]
+        let tokens = EssentiaStore.currentUser.wallet.tokenWallets
         let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
         for wallet in wallets {
             let tokensByCurrentWallet = tokens.filter({ return $0.wallet == wallet })
@@ -76,5 +80,13 @@ class WalletInteractor: WalletInteractorInterface {
             tokensByWallets[wallet] = tokensByCurrentWallet
         }
         return tokensByWallets
+    }
+    
+    func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void) {
+        blockchainWrapper.getBalance(for: wallet.coin, address: wallet.address, balance: balance)
+    }
+    
+    func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
+        blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
     }
 }

@@ -16,5 +16,7 @@ protocol WalletInteractorInterface {
     func addTokensToWallet(_ assets: [AssetInterface])
     func getGeneratedWallets() -> [GeneratedWallet]
     func getImportedWallets() -> [ImportedWallet]
-    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenAsset]]
+    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]]
+    func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void)
+    func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void)
 }

@@ -18,8 +18,7 @@ class LoginInteractor: LoginInteractorInterface {
             let mnemonic = self.mnemonicService.newMnemonic(with: currentLocaleLanguage)
             DispatchQueue.main.async {
                 let user = User(mnemonic: mnemonic)
-                EssentiaStore.currentUser = user
-                (inject() as UserStorageServiceInterface).store(user: user)
+                EssentiaStore.setUser(user)
                 callBack()
             }
         }

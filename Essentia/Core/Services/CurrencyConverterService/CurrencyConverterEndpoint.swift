@@ -1,17 +1,21 @@
 //
-//  TekensEndpoint.swift
+//  CurrencyConverterEndpoint.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 17.09.18.
+//  Created by Pavlo Boiko on 10/3/18.
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
 import Foundation
 import EssentiaNetworkCore
 
-enum TokensEndpoint: RequestProtocol {
+enum CurrencyConverterEndpoint: RequestProtocol {
     var path: String {
-        return "/essentia-status-bot/95d6105a210608577d30f070524deb25/raw/5bcebb6576b290e612bbd70d7188ff283fd27165/tokens.json"
+        switch self {
+        case .getPrice(let forCoin, let inCurrency):
+            let currency = inCurrency.rawValue
+            return "/coins/markets?vs_currency=\(currency)&ids=\(forCoin)"
+        }
     }
     
     var extraHeaders: [String : String]? {
@@ -28,5 +32,5 @@ enum TokensEndpoint: RequestProtocol {
         return .json
     }
     
-    case list
+    case getPrice(forCoin: String, inCurrency: Currency)
 }

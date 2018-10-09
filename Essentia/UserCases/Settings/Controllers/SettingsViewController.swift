@@ -122,7 +122,7 @@ class SettingsViewController: BaseTableAdapterController {
     
     func logOutUser() {
         (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.currentUser)
-        EssentiaStore.currentUser = User.notSigned
+        EssentiaStore.setUser(.notSigned)
         (inject() as SettingsRouterInterface).logOut()
     }
     

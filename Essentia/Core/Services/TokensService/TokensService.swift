@@ -10,7 +10,7 @@ import Foundation
 import EssentiaNetworkCore
 
 class TokenService: TokensServiceInterface {
-    let networkManager: NetworkManager = NetworkManager("https://raw.githubusercontent.com")
+    let networkManager: NetworkManager = NetworkManager("https://gist.githubusercontent.com")
     
     func getTokensList(_ callBack: @escaping ([Token]) -> Void) {
         (inject() as LoaderInterface).show()

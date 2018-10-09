@@ -99,12 +99,14 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var importAction: () -> Void = {
-        let newWallet = ImportedWallet(coin: self.store.coin, pk: self.store.privateKey, name: self.store.name)
+        let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
+        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: self.store.name, lastBalance: 0)
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return
         }
         EssentiaStore.currentUser.wallet.importedWallets.append(newWallet)
+        (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
     }
 }

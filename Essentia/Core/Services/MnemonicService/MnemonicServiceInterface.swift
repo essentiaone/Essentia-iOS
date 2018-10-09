@@ -13,7 +13,7 @@ protocol MnemonicServiceInterface {
     func wordList(with language: MnemonicLanguage) -> [String]
     func newMnemonic(with language: MnemonicLanguage) -> String
     func seed(from mnemonic: String) -> String
-    func keyStoreFile(seed: String, password: String) throws -> Data
-    func seed(from keystoreFile: Data, password: String) -> String?
+    func keyStoreFile(mnemonic: String, password: String) throws -> Data
+    func mnemonic(from keystoreFile: Data, password: String) -> String?
     func languageForCurrentLocale() -> MnemonicLanguage
 }

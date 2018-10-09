@@ -8,8 +8,11 @@
 
 import Foundation
 
-fileprivate struct Constans {
-    static var currentSegment: Int = 0
+fileprivate struct Store {
+    var tokens: [GeneratingWalletInfo : [TokenWallet]] = [:]
+    var generatedWallets: [GeneratedWallet] = []
+    var importedWallets: [ImportedWallet] = []
+    var currentSegment: Int = 0
 }
 
 class WalletMainViewController: BaseTableAdapterController {
@@ -17,12 +20,15 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
+    private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         injectRouter()
         injectInteractor()
+        loadData()
+        loadBalances()
         tableAdapter.reload(state)
     }
     
@@ -35,6 +41,12 @@ class WalletMainViewController: BaseTableAdapterController {
         guard let navigation = navigationController else { return }
         let injection: WalletRouterInterface = WalletRouter(navigationController: navigation)
         prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadData() {
+        self.store.generatedWallets = interator.getGeneratedWallets()
+        self.store.importedWallets = interator.getImportedWallets()
+        self.store.tokens = interator.getTokensByWalleets()
     }
     
     private var state: [TableComponent] {
@@ -67,13 +79,13 @@ class WalletMainViewController: BaseTableAdapterController {
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .segmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
                                          LS("Wallet.Main.Segment.Segment")],
-                                selected: Constans.currentSegment,
+                                selected: store.currentSegment,
                                 action: segmentControlAction)
         ]
     }
     
     var assetState: [TableComponent] {
-        switch Constans.currentSegment {
+        switch store.currentSegment {
         case 0:
             return coinsState
         case 1:
@@ -101,8 +113,7 @@ class WalletMainViewController: BaseTableAdapterController {
     
     var tokensState: [TableComponent] {
         var tokenTabState: [TableComponent] = []
-        let tokensByWallets = interator.getTokensByWalleets()
-        for (key, value) in tokensByWallets {
+        for (key, value) in store.tokens {
             tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
         }
         return tokenTabState
@@ -111,9 +122,9 @@ class WalletMainViewController: BaseTableAdapterController {
     var coinsState: [TableComponent] {
         var coinsTypesState: [TableComponent] = []
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
-                                                        wallets: interator.getGeneratedWallets()))
+                                                        wallets: store.generatedWallets))
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Imported"),
-                                                        wallets: interator.getImportedWallets()))
+                                                        wallets: store.importedWallets))
         return coinsTypesState
     }
     
@@ -147,8 +158,9 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = {
-        Constans.currentSegment = $0
+        self.store.currentSegment = $0
         self.tableAdapter.simpleReload(self.state)
+        self.loadBalances()
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -157,5 +169,40 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private lazy var updateBalanceChanginPerDay: () -> Void = {
         
+    }
+    
+    // MARK: - Private
+    
+    private func loadBalances() {
+        switch store.currentSegment {
+        case 0:
+            self.loadCoinBalances()
+        case 1:
+            self.loadTokenBalances()
+        default: return
+        }
+    }
+    
+    private func loadCoinBalances() {
+        self.store.generatedWallets.enumerated().forEach { (offset, wallet) in
+            interator.getBalance(for: wallet, balance: { (balance) in
+                self.store.generatedWallets[offset].lastBalance = balance
+                self.tableAdapter.simpleReload(self.state)
+            })
+        }
+        self.store.importedWallets.enumerated().forEach { (offset, wallet) in
+            interator.getBalance(for: wallet, balance: { (balance) in
+                self.store.importedWallets[offset].lastBalance = balance
+                self.tableAdapter.simpleReload(self.state)
+            })
+        }
+    }
+    
+    private func loadTokenBalances() {
+        self.store.tokens.forEach { (tokenWallet) in
+            tokenWallet.value.enumerated().forEach({ indexedToken in
+                
+            })
+        }
     }
 }
