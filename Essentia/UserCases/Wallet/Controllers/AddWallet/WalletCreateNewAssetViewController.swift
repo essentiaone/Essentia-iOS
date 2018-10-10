@@ -19,6 +19,7 @@ fileprivate struct Store {
 class WalletCreateNewAssetViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var interactor: WalletInteractorInterface = inject()
     private var store: Store = Store()
     
     // MARK: - Lifecycle
@@ -57,6 +58,12 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     var selectWalletState: [TableComponent] {
         guard store.selectedComponent != 0 else { return [] }
         let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo.filter({ return $0.coin == Coin.ethereum })
+//        switch wallets.count {
+//        case 0:
+////            store.etherWalletForTokens = interactor.
+//        default:
+//            <#code#>
+//        }
         guard wallets.count > 1 else { return [] }
         let selectedWallet = store.etherWalletForTokens ?? wallets.first!
         return [
@@ -95,7 +102,12 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
         case 0:
             (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets)
         case 1:
-            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
+            guard let wallet = self.store.etherWalletForTokens else {
+                (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
+                (inject() as WalletRouterInterface).show(.succesImportingAlert)
+                return
+            }
+            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
         (inject() as WalletRouterInterface).show(.succesImportingAlert)

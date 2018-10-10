@@ -32,8 +32,8 @@ class WalletInteractor: WalletInteractorInterface {
         }
     }
     
-    func addCoinsToWallet(_ assets: [AssetInterface]) {
-        guard let coins = assets as? [Coin] else { return }
+    @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo] {
+        guard let coins = assets as? [Coin] else { return [] }
         var currentlyAddedWallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
         coins.forEach { coin in
             let currentCoinAssets = currentlyAddedWallets.filter({ return $0.coin == coin })
@@ -45,16 +45,18 @@ class WalletInteractor: WalletInteractorInterface {
         }
         EssentiaStore.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
         (inject() as CurrencyRankDaemonInterface).update()
+        return currentlyAddedWallets
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
+        guard let wallet = addCoinsToWallet([Coin.ethereum]).first else { return }
+        addTokensToWallet(assets, for: wallet)
+    }
+    
+    func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo) {
         guard let tokens = assets as? [Token] else { return }
-        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
-        guard let etherWallet = wallets.first(where: { (wallet) -> Bool in
-            return wallet.coin == Coin.ethereum
-        }) else { return }
         tokens.forEach { token in
-            let tokenAsset = TokenWallet(token: token, wallet: etherWallet)
+            let tokenAsset = TokenWallet(token: token, wallet: wallet)
             EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
             (inject() as CurrencyRankDaemonInterface).update()
         }
