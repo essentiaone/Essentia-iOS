@@ -89,6 +89,7 @@
 		343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */; };
 		3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */; };
 		3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */; };
+		343D5C88216FF3C400E77880 /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D5C87216FF3C400E77880 /* BalanceFormatter.swift */; };
 		344167EF212E168A008B8A91 /* EssentiaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167EE212E168A008B8A91 /* EssentiaStore.swift */; };
 		344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167F6212EC235008B8A91 /* LoginInteractor.swift */; };
 		344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167F8212EC246008B8A91 /* LoginInteractorInterface.swift */; };
@@ -341,6 +342,7 @@
 		343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCenteredButton.xib; sourceTree = "<group>"; };
 		3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCenteredButton.swift; sourceTree = "<group>"; };
 		3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterHelper.swift; sourceTree = "<group>"; };
+		343D5C87216FF3C400E77880 /* BalanceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceFormatter.swift; sourceTree = "<group>"; };
 		344167EE212E168A008B8A91 /* EssentiaStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaStore.swift; sourceTree = "<group>"; };
 		344167F6212EC235008B8A91 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		344167F8212EC246008B8A91 /* LoginInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1442,6 +1444,7 @@
 			isa = PBXGroup;
 			children = (
 				344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */,
+				343D5C87216FF3C400E77880 /* BalanceFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -2037,6 +2040,7 @@
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
 				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				3401AF8320FD3DCD006DEF49 /* DIObjectScope.swift in Sources */,
+				343D5C88216FF3C400E77880 /* BalanceFormatter.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,
 				34A37D31214D34F70022FD93 /* Token.swift in Sources */,
 				34B27A3E21304B2E00527F15 /* LocalizationLanguage.swift in Sources */,

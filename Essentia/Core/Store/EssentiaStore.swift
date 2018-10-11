@@ -15,8 +15,9 @@ struct EssentiaStore {
     static func setUser(_ user: User) {
         (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
         currentUser = user
-        guard user != .notSigned else { fatalError() }
-        (inject() as UserStorageServiceInterface).store(user: user)
+        if user != .notSigned {
+            (inject() as UserStorageServiceInterface).store(user: user)
+        }
         (inject() as CurrencyRankDaemonInterface).update()
     }
 }

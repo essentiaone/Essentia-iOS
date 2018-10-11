@@ -29,7 +29,6 @@ class WalletMainViewController: BaseTableAdapterController {
         injectInteractor()
         loadData()
         loadBalances()
-        tableAdapter.reload(state)
     }
     
     private func injectInteractor() {
@@ -219,6 +218,7 @@ class WalletMainViewController: BaseTableAdapterController {
         allWallets.forEach { (wallet) in
             currentBalance += wallet.balanceInCurrentCurrency
         }
-        return EssentiaStore.currentUser.profile.currency.symbol + "\(currentBalance)"
+        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return formatter.attributedAmount(amount: currentBalance)
     }
 }

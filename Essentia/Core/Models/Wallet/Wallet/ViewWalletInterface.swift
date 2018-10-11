@@ -29,10 +29,12 @@ extension ViewWalletInterface {
     }
     
     var formattedBalanceInCurrentCurrency: String {
-       return  EssentiaStore.currentUser.profile.currency.symbol + "\(balanceInCurrentCurrency) "
+       let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return  formatter.attributedAmount(amount: balanceInCurrentCurrency)
     }
     
     var formattedBalance: String {
-        return  "\(lastBalance ?? 0) " + asset.symbol
+        let formatter = BalanceFormatter(asset: asset)
+        return formatter.attributedAmount(amount: lastBalance)
     }
 }
