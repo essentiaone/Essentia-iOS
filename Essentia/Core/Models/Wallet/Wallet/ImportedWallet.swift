@@ -31,10 +31,6 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
         return coin.symbol
     }
     
-    var balance: String {
-        return "0.0 " + coin.symbol
-    }
-    
     var asset: AssetInterface {
         return coin
     }

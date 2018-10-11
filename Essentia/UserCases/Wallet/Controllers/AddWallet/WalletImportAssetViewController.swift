@@ -88,7 +88,6 @@ class WalletImportAssetViewController: BaseTableAdapterController {
         let wasValid = self.store.isValid
         self.store.privateKey = $0
         let isValid = self.store.isValid
-        print(isValid)
         if wasValid != isValid {
             self.tableAdapter.simpleReload(self.state)
         }

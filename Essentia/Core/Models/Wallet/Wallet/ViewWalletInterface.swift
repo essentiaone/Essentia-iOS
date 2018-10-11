@@ -14,16 +14,25 @@ protocol ViewWalletInterface: Codable {
     var name: String { get }
     var iconUrl: URL { get }
     var symbol: String { get }
-    var balanceInCurrentCurrency: String { get }
-    var balance: String { get }
+    var balanceInCurrentCurrency: Double { get }
+    var formattedBalanceInCurrentCurrency: String { get }
+    var formattedBalance: String { get }
     var lastBalance: Double? { get }
+    
 }
 
 extension ViewWalletInterface {
-    var balanceInCurrentCurrency: String {
+    var balanceInCurrentCurrency: Double {
         guard let currentBalance = lastBalance,
-              let rank = EssentiaStore.ranks.getRank(for: asset) else { return "" }
-        let convertedBalance = currentBalance * rank
-        return "\(convertedBalance) " + EssentiaStore.currentUser.profile.currency.symbol
+              let rank = EssentiaStore.ranks.getRank(for: asset) else { return 0 }
+        return currentBalance * rank
+    }
+    
+    var formattedBalanceInCurrentCurrency: String {
+       return  EssentiaStore.currentUser.profile.currency.symbol + "\(balanceInCurrentCurrency) "
+    }
+    
+    var formattedBalance: String {
+        return  "\(lastBalance ?? 0) " + asset.symbol
     }
 }

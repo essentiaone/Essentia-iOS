@@ -70,7 +70,7 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(32),
-                           title: "$54,500,234.00",
+                           title: currentBalanceInCurrency(),
                            background: colorProvider.settingsCellsBackround),
             .balanceChanging(status: .idle,
                              balanceChanged: "+3.5%",
@@ -146,8 +146,8 @@ class WalletMainViewController: BaseTableAdapterController {
         wallets.forEach { (wallet) in
             assetState.append(.assetBalance(imageUrl: wallet.iconUrl,
                                             title: wallet.name,
-                                            value: wallet.balanceInCurrentCurrency,
-                                            currencyValue: wallet.balance,
+                                            value: wallet.formattedBalanceInCurrentCurrency,
+                                            currencyValue: wallet.formattedBalance,
                                             action: {
                                                 
             }))
@@ -207,5 +207,18 @@ class WalletMainViewController: BaseTableAdapterController {
                 })
             })
         }
+    }
+
+    private func currentBalanceInCurrency() -> String {
+        var currentBalance: Double = 0
+        var allWallets: [ViewWalletInterface] = self.store.generatedWallets
+        allWallets.append(contentsOf: self.store.importedWallets)
+        self.store.tokens.values.forEach { (tokenWallets) in
+            allWallets.append(contentsOf: tokenWallets)
+        }
+        allWallets.forEach { (wallet) in
+            currentBalance += wallet.balanceInCurrentCurrency
+        }
+        return EssentiaStore.currentUser.profile.currency.symbol + "\(currentBalance)"
     }
 }
