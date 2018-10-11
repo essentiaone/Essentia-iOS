@@ -17,17 +17,17 @@ extension Double {
 
 final class BalanceFormatter {
     private let balanceFormatter: NumberFormatter
+    private var currencySymbol: String?
     
     convenience init(currency: Currency) {
         self.init()
-        balanceFormatter.locale = Locale(identifier: "en_US")
         balanceFormatter.currencySymbol = currency.symbol
     }
     
     convenience init(asset: AssetInterface) {
         self.init()
-        balanceFormatter.locale = Locale(identifier: "de_DE")
-        balanceFormatter.currencySymbol = asset.symbol
+        balanceFormatter.currencySymbol = ""
+        currencySymbol = asset.symbol
     }
     
     private init() {
@@ -38,8 +38,12 @@ final class BalanceFormatter {
         balanceFormatter.decimalSeparator = "."
     }
     
-    func attributedAmount(amount: Double?) -> String {
+    func formattedAmmount(amount: Double?) -> String {
         let amount = amount ?? 0
-        return balanceFormatter.string(for: amount) ?? ""
+        let formatted = balanceFormatter.string(for: amount) ?? ""
+        guard let currency = currencySymbol else {
+            return formatted
+        }
+        return formatted + " " + currency
     }
 }

@@ -219,6 +219,6 @@ class WalletMainViewController: BaseTableAdapterController {
             currentBalance += wallet.balanceInCurrentCurrency
         }
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
-        return formatter.attributedAmount(amount: currentBalance)
+        return formatter.formattedAmmount(amount: currentBalance)
     }
 }
