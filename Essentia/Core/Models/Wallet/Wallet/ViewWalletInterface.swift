@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol ViewWalletInterface {
+protocol ViewWalletInterface: Codable {
     var asset: AssetInterface { get }
     var address: String { get }
     var name: String { get }

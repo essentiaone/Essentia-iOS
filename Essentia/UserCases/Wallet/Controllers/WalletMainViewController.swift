@@ -201,7 +201,10 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadTokenBalances() {
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                
+                interator.getBalance(for: indexedToken.element, balance: { (balance) in
+                    self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
+                    self.tableAdapter.simpleReload(self.state)
+                })
             })
         }
     }
