@@ -20,4 +20,7 @@ protocol WalletInteractorInterface {
     func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]]
     func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void)
     func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void)
+    func getBalanceInCurrentCurrency() -> Double
+    func getYesterdayBalanceInCurrentCurrency() -> Double
+    func getBalanceChangePer24Hours() -> Double
 }

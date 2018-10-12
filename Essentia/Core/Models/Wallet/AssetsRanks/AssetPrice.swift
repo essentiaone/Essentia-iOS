@@ -12,4 +12,5 @@ struct AssetPrice {
     var currency: Currency
     var asset: AssetInterface
     var price: Double
+    var yesterdayPrice: Double
 }

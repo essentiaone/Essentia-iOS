@@ -20,8 +20,9 @@ class CurrencyRankDaemon: CurrencyRankDaemonInterface {
         assets = EssentiaStore.currentUser.wallet.uniqueAssets
         let currency = EssentiaStore.currentUser.profile.currency
         assets.forEach { asset in
-            converterService.getPrice(for: asset, in: currency, price: { (price) in
-                EssentiaStore.ranks.setRank(for: currency, and: asset, rank: price)
+            converterService.getCoinInfo(from: asset, to: currency, info: { (info) in
+                let yesterdayPrice = info.currentPrice + info.priceChange24h
+                EssentiaStore.ranks.setRank(for: currency, and: asset, rank: info.currentPrice, yesterdayPrice: yesterdayPrice)
             })
         }
     }

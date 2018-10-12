@@ -91,4 +91,36 @@ class WalletInteractor: WalletInteractorInterface {
     func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
         blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
     }
+    
+    func getBalanceInCurrentCurrency() -> Double {
+        var currentBalance: Double = 0
+        allWallets.forEach { (wallet) in
+            currentBalance += wallet.balanceInCurrentCurrency
+        }
+        return currentBalance
+    }
+    
+    func getYesterdayBalanceInCurrentCurrency() -> Double {
+        var currentBalance: Double = 0
+        allWallets.forEach { (wallet) in
+            currentBalance += wallet.yesterdayBalanceInCurrentCurrency
+        }
+        return currentBalance
+    }
+    
+    var allWallets: [ViewWalletInterface] {
+        var wallets: [ViewWalletInterface] = getGeneratedWallets()
+        wallets.append(contentsOf: getImportedWallets())
+        getTokensByWalleets().values.forEach { (tokenWallets) in
+            wallets.append(contentsOf: tokenWallets)
+        }
+        return wallets
+    }
+    
+    func getBalanceChangePer24Hours() -> Double {
+        let yesterdayBalance = getYesterdayBalanceInCurrentCurrency()
+        let dif = getBalanceInCurrentCurrency() - yesterdayBalance
+        guard yesterdayBalance != 0 else { return 0 }
+        return (dif / yesterdayBalance) * 100
+    }
 }

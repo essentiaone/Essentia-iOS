@@ -69,10 +69,10 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(32),
-                           title: currentBalanceInCurrency(),
+                           title: formattedBalance(interator.getBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround),
             .balanceChanging(status: .idle,
-                             balanceChanged: "+3.5%",
+                             balanceChanged: formattedChangePer24Hours(interator.getBalanceChangePer24Hours()) ,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -192,6 +192,7 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.importedWallets.enumerated().forEach { (offset, wallet) in
             interator.getBalance(for: wallet, balance: { (balance) in
                 self.store.importedWallets[offset].lastBalance = balance
+                EssentiaStore.currentUser.wallet.importedWallets[offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state)
             })
         }
@@ -208,17 +209,15 @@ class WalletMainViewController: BaseTableAdapterController {
         }
     }
 
-    private func currentBalanceInCurrency() -> String {
-        var currentBalance: Double = 0
-        var allWallets: [ViewWalletInterface] = self.store.generatedWallets
-        allWallets.append(contentsOf: self.store.importedWallets)
-        self.store.tokens.values.forEach { (tokenWallets) in
-            allWallets.append(contentsOf: tokenWallets)
-        }
-        allWallets.forEach { (wallet) in
-            currentBalance += wallet.balanceInCurrentCurrency
-        }
+    private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
-        return formatter.formattedAmmount(amount: currentBalance)
+        return formatter.formattedAmmount(amount: balance)
+    }
+    
+    private func formattedChangePer24Hours(_ procents: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.allowsFloats = true
+        return formatter.string(from: NSNumber(value: procents - 1)) ?? "0.00%"
     }
 }

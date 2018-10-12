@@ -11,4 +11,5 @@ import Foundation
 protocol CurrencyConverterServiceInterface {
     func convertBalance(value: Double, from asset: AssetInterface, to currency: Currency, convertedValue: @escaping (Double) -> Void)
     func getPrice(for asset: AssetInterface, in currency: Currency, price: @escaping (Double) -> Void)
+    func getCoinInfo(from asset: AssetInterface, to currency: Currency, info: @escaping (CoinGeckoCurrencyModel) -> Void)
 }
