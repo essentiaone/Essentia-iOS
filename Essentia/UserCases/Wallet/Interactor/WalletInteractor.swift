@@ -121,6 +121,6 @@ class WalletInteractor: WalletInteractorInterface {
         let yesterdayBalance = getYesterdayBalanceInCurrentCurrency()
         let dif = getBalanceInCurrentCurrency() - yesterdayBalance
         guard yesterdayBalance != 0 else { return 0 }
-        return (dif / yesterdayBalance) * 100
+        return (dif / yesterdayBalance)
     }
 }

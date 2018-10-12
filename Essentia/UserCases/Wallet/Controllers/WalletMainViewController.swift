@@ -23,6 +23,11 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableAdapter.reload(state)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         injectRouter()
@@ -217,7 +222,10 @@ class WalletMainViewController: BaseTableAdapterController {
     private func formattedChangePer24Hours(_ procents: Double) -> String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
+        formatter.decimalSeparator = "."
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
         formatter.allowsFloats = true
-        return formatter.string(from: NSNumber(value: procents - 1)) ?? "0.00%"
+        return formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
     }
 }
