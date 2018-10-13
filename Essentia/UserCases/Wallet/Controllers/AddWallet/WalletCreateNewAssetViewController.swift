@@ -19,6 +19,7 @@ fileprivate struct Store {
 class WalletCreateNewAssetViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var interactor: WalletInteractorInterface = inject()
     private var store: Store = Store()
     
     // MARK: - Lifecycle
@@ -60,12 +61,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
         guard wallets.count > 1 else { return [] }
         let selectedWallet = store.etherWalletForTokens ?? wallets.first!
         return [
-            .empty(height: 4, background: colorProvider.settingsCellsBackround),
             .titleSubtitleDescription(title: LS("Wallet.NewAsset.Token.SelectWallet.Title"),
                                       subtile: LS("Wallet.NewAsset.Token.SelectWallet.Subtitle"),
                                       description: selectedWallet.name,
                                       action: selectWalletAction),
-            .empty(height: 4, background: colorProvider.settingsCellsBackround)
+            .empty(height: 4, background: colorProvider.settingsBackgroud)
         ]
     }
     
@@ -95,7 +95,12 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
         case 0:
             (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets)
         case 1:
-            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
+            guard let wallet = self.store.etherWalletForTokens else {
+                (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
+                (inject() as WalletRouterInterface).show(.succesImportingAlert)
+                return
+            }
+            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
         (inject() as WalletRouterInterface).show(.succesImportingAlert)

@@ -8,6 +8,7 @@
 
 import Foundation
 import EssentiaBridgesApi
+import HDWalletKit
 
 fileprivate struct Constants {
     static var url = "https://b3.essentia.network"
@@ -59,8 +60,23 @@ class BlockchainWrapperService: BlockchainWrapperServiceInterface {
             }
         }
     }
-
+    
     func getBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
-//        cryptoWallet.
+        let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
+        guard let data = try? erc20Token.generateGetBalanceParameter(toAddress: address) else {
+            return
+        }
+        let smartContract = EthereumSmartContract(to: address, data: data.toHexString().addHexPrefix())
+        cryptoWallet.ethereum.getTokenBalance(info: smartContract) { (result) in
+            switch result {
+            case .success(let object):
+                guard let weiBalance = Wei(object.balance, radix: 16),
+                    let etherBalance = try? WeiEthterConverter.toEther(wei: weiBalance) as NSDecimalNumber else {
+                        return
+                }
+                balance(etherBalance.doubleValue)
+            default: return
+            }
+        }
     }
 }

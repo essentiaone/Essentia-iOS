@@ -33,11 +33,6 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
         return coin.symbol
     }
     
-    var balance: String {
-        guard let last = lastBalance else { return "" }
-        return "\(last) " + coin.symbol
-    }
-    
     var asset: AssetInterface {
         return coin
     }

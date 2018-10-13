@@ -8,22 +8,40 @@
 
 import UIKit
 
-protocol ViewWalletInterface {
+protocol ViewWalletInterface: Codable {
     var asset: AssetInterface { get }
     var address: String { get }
     var name: String { get }
     var iconUrl: URL { get }
     var symbol: String { get }
-    var balanceInCurrentCurrency: String { get }
-    var balance: String { get }
+    var balanceInCurrentCurrency: Double { get }
+    var yesterdayBalanceInCurrentCurrency: Double { get }
+    var formattedBalanceInCurrentCurrency: String { get }
+    var formattedBalance: String { get }
     var lastBalance: Double? { get }
+    
 }
 
 extension ViewWalletInterface {
-    var balanceInCurrentCurrency: String {
+    var balanceInCurrentCurrency: Double {
         guard let currentBalance = lastBalance,
-              let rank = EssentiaStore.ranks.getRank(for: asset) else { return "" }
-        let convertedBalance = currentBalance * rank
-        return "\(convertedBalance) " + EssentiaStore.currentUser.profile.currency.symbol
+              let rank = EssentiaStore.ranks.getRank(for: asset) else { return 0 }
+        return currentBalance * rank
+    }
+    
+    var yesterdayBalanceInCurrentCurrency: Double {
+        guard let currentBalance = lastBalance,
+            let rank = EssentiaStore.ranks.getYesterdayRank(for: asset) else { return 0 }
+        return currentBalance * rank
+    }
+    
+    var formattedBalanceInCurrentCurrency: String {
+       let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return  formatter.formattedAmmount(amount: balanceInCurrentCurrency)
+    }
+    
+    var formattedBalance: String {
+        let formatter = BalanceFormatter(asset: asset)
+        return formatter.formattedAmmount(amount: lastBalance)
     }
 }

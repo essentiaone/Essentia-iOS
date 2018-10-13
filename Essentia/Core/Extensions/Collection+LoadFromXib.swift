@@ -48,7 +48,7 @@ extension UITableView {
     
     public func dequeueReusableCell<Cell: UITableViewCell>(for indexPath: IndexPath) -> Cell {
         let cellIdentifire = Cell.identifire
-        let cell = dequeueReusableCell(withIdentifier: cellIdentifire, for: indexPath) as? Cell
+        let cell = dequeueReusableCell(withIdentifier: cellIdentifire) as? Cell
         guard cell != nil else {
             fatalError()
         }

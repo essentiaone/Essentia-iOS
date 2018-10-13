@@ -23,13 +23,17 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableAdapter.reload(state)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         injectRouter()
         injectInteractor()
         loadData()
         loadBalances()
-        tableAdapter.reload(state)
     }
     
     private func injectInteractor() {
@@ -70,10 +74,10 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(32),
-                           title: "$54,500,234.00",
+                           title: formattedBalance(interator.getBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround),
             .balanceChanging(status: .idle,
-                             balanceChanged: "+3.5%",
+                             balanceChanged: formattedChangePer24Hours(interator.getBalanceChangePer24Hours()) ,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -146,8 +150,8 @@ class WalletMainViewController: BaseTableAdapterController {
         wallets.forEach { (wallet) in
             assetState.append(.assetBalance(imageUrl: wallet.iconUrl,
                                             title: wallet.name,
-                                            value: wallet.balanceInCurrentCurrency,
-                                            currencyValue: wallet.balance,
+                                            value: wallet.formattedBalanceInCurrentCurrency,
+                                            currencyValue: wallet.formattedBalance,
                                             action: {
                                                 
             }))
@@ -193,6 +197,7 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.importedWallets.enumerated().forEach { (offset, wallet) in
             interator.getBalance(for: wallet, balance: { (balance) in
                 self.store.importedWallets[offset].lastBalance = balance
+                EssentiaStore.currentUser.wallet.importedWallets[offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state)
             })
         }
@@ -201,8 +206,26 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadTokenBalances() {
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                
+                interator.getBalance(for: indexedToken.element, balance: { (balance) in
+                    self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
+                    self.tableAdapter.simpleReload(self.state)
+                })
             })
         }
+    }
+
+    private func formattedBalance(_ balance: Double) -> String {
+        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return formatter.formattedAmmount(amount: balance)
+    }
+    
+    private func formattedChangePer24Hours(_ procents: Double) -> String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.decimalSeparator = "."
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 2
+        formatter.allowsFloats = true
+        return formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
     }
 }

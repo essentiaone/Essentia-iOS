@@ -32,8 +32,8 @@ class WalletInteractor: WalletInteractorInterface {
         }
     }
     
-    func addCoinsToWallet(_ assets: [AssetInterface]) {
-        guard let coins = assets as? [Coin] else { return }
+    @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo] {
+        guard let coins = assets as? [Coin] else { return [] }
         var currentlyAddedWallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
         coins.forEach { coin in
             let currentCoinAssets = currentlyAddedWallets.filter({ return $0.coin == coin })
@@ -45,16 +45,18 @@ class WalletInteractor: WalletInteractorInterface {
         }
         EssentiaStore.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
         (inject() as CurrencyRankDaemonInterface).update()
+        return currentlyAddedWallets
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
+        guard let wallet = addCoinsToWallet([Coin.ethereum]).first else { return }
+        addTokensToWallet(assets, for: wallet)
+    }
+    
+    func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo) {
         guard let tokens = assets as? [Token] else { return }
-        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
-        guard let etherWallet = wallets.first(where: { (wallet) -> Bool in
-            return wallet.coin == Coin.ethereum
-        }) else { return }
         tokens.forEach { token in
-            let tokenAsset = TokenWallet(token: token, wallet: etherWallet)
+            let tokenAsset = TokenWallet(token: token, wallet: wallet)
             EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
             (inject() as CurrencyRankDaemonInterface).update()
         }
@@ -88,5 +90,37 @@ class WalletInteractor: WalletInteractorInterface {
     
     func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
         blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
+    }
+    
+    func getBalanceInCurrentCurrency() -> Double {
+        var currentBalance: Double = 0
+        allWallets.forEach { (wallet) in
+            currentBalance += wallet.balanceInCurrentCurrency
+        }
+        return currentBalance
+    }
+    
+    func getYesterdayBalanceInCurrentCurrency() -> Double {
+        var currentBalance: Double = 0
+        allWallets.forEach { (wallet) in
+            currentBalance += wallet.yesterdayBalanceInCurrentCurrency
+        }
+        return currentBalance
+    }
+    
+    var allWallets: [ViewWalletInterface] {
+        var wallets: [ViewWalletInterface] = getGeneratedWallets()
+        wallets.append(contentsOf: getImportedWallets())
+        getTokensByWalleets().values.forEach { (tokenWallets) in
+            wallets.append(contentsOf: tokenWallets)
+        }
+        return wallets
+    }
+    
+    func getBalanceChangePer24Hours() -> Double {
+        let yesterdayBalance = getYesterdayBalanceInCurrentCurrency()
+        let dif = getBalanceInCurrentCurrency() - yesterdayBalance
+        guard yesterdayBalance != 0 else { return 0 }
+        return (dif / yesterdayBalance)
     }
 }

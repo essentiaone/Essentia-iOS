@@ -13,9 +13,11 @@ struct EssentiaStore {
     static var ranks: AssetRank = AssetRank()
     
     static func setUser(_ user: User) {
+        (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
         currentUser = user
-        guard user != .notSigned else { return }
-        (inject() as UserStorageServiceInterface).store(user: user)
+        if user != .notSigned {
+            (inject() as UserStorageServiceInterface).store(user: user)
+        }
         (inject() as CurrencyRankDaemonInterface).update()
     }
 }

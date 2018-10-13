@@ -31,14 +31,6 @@ struct TokenWallet: Codable, ViewWalletInterface {
         return token.symbol
     }
     
-    var balanceInCurrentCurrency: String {
-        return "$ 0.0"
-    }
-    
-    var balance: String {
-        return "0.0 " + token.symbol
-    }
-    
     var asset: AssetInterface {
         return token
     }

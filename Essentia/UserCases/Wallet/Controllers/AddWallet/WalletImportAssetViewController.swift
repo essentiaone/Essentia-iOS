@@ -88,7 +88,6 @@ class WalletImportAssetViewController: BaseTableAdapterController {
         let wasValid = self.store.isValid
         self.store.privateKey = $0
         let isValid = self.store.isValid
-        print(isValid)
         if wasValid != isValid {
             self.tableAdapter.simpleReload(self.state)
         }
@@ -100,7 +99,8 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     
     private lazy var importAction: () -> Void = {
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
-        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: self.store.name, lastBalance: 0)
+        let walletName = self.store.name.isEmpty ? self.store.coin.name : self.store.name
+        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0)
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return
