@@ -20,8 +20,9 @@ def pod_functional
 end
 
 def pod_ui
-    pod 'SVProgressHUD'
-    pod 'Kingfisher'
+    pod 'SVProgressHUD' # Can remove later
+    pod 'Kingfisher' # Can remove later
+    pod 'MXSegmentedControl' # Can remove later
 end
 
 def pod_debug
