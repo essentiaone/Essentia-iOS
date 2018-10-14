@@ -44,7 +44,11 @@ class CurrencyConverterService: CurrencyConverterServiceInterface {
                 self.storeCoinInfo(object, from: asset, to: currency)
                 info(object)
             case .failure(let error):
-                (inject() as LoaderInterface).showError(message: error.localizedDescription)
+                switch error {
+                case .error(let errorMessage):
+                    (inject() as LoaderInterface).showError(message: errorMessage.error)
+                default: return
+                }
             }
         }
         guard let stored = getCoinInfoFromStorage(from: asset, to: currency) else { return }
