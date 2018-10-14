@@ -613,7 +613,6 @@
 			children = (
 				3401AFDA21033B0A006DEF49 /* Layout */,
 				3401AF9B20FFF763006DEF49 /* AssetsProviders */,
-				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -696,6 +695,7 @@
 		3401AF6820F82AA7006DEF49 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 				3401AF6920F82AB5006DEF49 /* BaseViewController.swift */,
 				3401AF6B20F82CB7006DEF49 /* BaseButton.swift */,
 				3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */,
