@@ -35,14 +35,10 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
     }
     
     @IBAction func leftButtonAction(_ sender: Any) {
-        DispatchQueue.main.async { [weak self] in
-            self?.leftAction?()
-        }
+        self.leftAction?()
     }
     
     @IBAction func rightButtonAction(_ sender: Any) {
-        DispatchQueue.main.async { [weak self] in
-            self?.rightAction?()
-        }
+        self.rightAction?()
     }
 }

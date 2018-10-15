@@ -61,8 +61,6 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        DispatchQueue.main.async { [weak self] in
-            self?.resultAction?()
-        }
+        self.resultAction?()
     }
 }

@@ -25,8 +25,6 @@ class TableComponentSwitch: UITableViewCell, NibLoadable {
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
-        DispatchQueue.main.async { [weak self] in
-            self?.action?(sender.isOn)
-        }
+        self.action?(sender.isOn)
     }
 }

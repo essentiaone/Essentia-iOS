@@ -37,8 +37,6 @@ class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     }
     
     @IBAction func action(_ sender: Any) {
-        DispatchQueue.main.async { [weak self] in
-            self?.action?()
-        }
+        self.action?()
     }
 }
