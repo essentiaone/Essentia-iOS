@@ -52,7 +52,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     private var containerBackgroud: UIColor {
         switch EssentiaStore.currentUser.backup.securityLevel {
         case 30..<50:
-           return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
+            return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
         case 50..<100:
             return colorProvider.accountStrengthContainerViewBackgroudHightSecure
         default:
@@ -61,6 +61,8 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     }
     
     @IBAction func backAction(_ sender: AnyObject) {
-        resultAction?()
+        DispatchQueue.main.async { [weak self] in
+            self?.resultAction?()
+        }
     }
 }

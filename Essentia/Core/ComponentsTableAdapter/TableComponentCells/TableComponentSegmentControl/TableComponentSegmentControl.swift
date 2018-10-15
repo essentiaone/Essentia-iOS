@@ -35,6 +35,6 @@ class TableComponentSegmentControl: UITableViewCell, NibLoadable {
     }
     
     @IBAction func segmentControllChanged(_ sender: UISegmentedControl) {
-        segmentControllerChangedAtIndex?(sender.selectedSegmentIndex)
+        self.segmentControllerChangedAtIndex?(sender.selectedSegmentIndex)
     }
 }

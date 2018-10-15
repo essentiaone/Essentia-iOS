@@ -165,7 +165,9 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var segmentControlAction: (Int) -> Void = {
         self.store.currentSegment = $0
         self.tableAdapter.simpleReload(self.state)
-        self.loadBalances()
+        DispatchQueue.global().async {
+            self.loadBalances()
+        }
     }
     
     private lazy var addWalletAction: () -> Void = {
