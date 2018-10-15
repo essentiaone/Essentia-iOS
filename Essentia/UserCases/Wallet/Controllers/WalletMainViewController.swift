@@ -24,14 +24,10 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Lifecycle
     
-    override func loadView() {
-        super.loadView()
-        injectRouter()
-        injectInteractor()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        injectRouter()
+        injectInteractor()
         self.tableAdapter.reload(state)
     }
     
