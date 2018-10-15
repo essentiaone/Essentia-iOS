@@ -44,4 +44,8 @@ extension ViewWalletInterface {
         let formatter = BalanceFormatter(asset: asset)
         return formatter.formattedAmmount(amount: lastBalance)
     }
+    
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
+    }
 }

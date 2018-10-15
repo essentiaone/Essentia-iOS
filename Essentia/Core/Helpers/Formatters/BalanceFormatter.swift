@@ -22,12 +22,14 @@ final class BalanceFormatter {
     convenience init(currency: Currency) {
         self.init()
         balanceFormatter.currencySymbol = currency.symbol
+        balanceFormatter.minimumSignificantDigits = 1
     }
     
     convenience init(asset: AssetInterface) {
         self.init()
         balanceFormatter.currencySymbol = ""
         currencySymbol = asset.symbol
+        balanceFormatter.minimumSignificantDigits = 6
     }
     
     private init() {

@@ -23,10 +23,6 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
         self.lastBalance = lastBalance
     }
     
-    var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: name, size: .x128).url
-    }
-    
     var symbol: String {
         return coin.symbol
     }
