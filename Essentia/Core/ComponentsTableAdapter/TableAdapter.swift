@@ -68,6 +68,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentAssetBalance.self)
         tableView.register(TableComponentTitleSubtileDescription.self)
         tableView.register(TableComponentTableView.self)
+        tableView.register(TableComponentCustomSegment.self)
     }
     
     // MARK: - Update State
@@ -290,6 +291,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
             return cell
+        case .customSegmentControlCell:
+            let cell: TableComponentCustomSegment = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: imageUrl)
@@ -403,6 +407,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return image.size.height
         case .textView:
             return 77.0
+        case .customSegmentControlCell: fallthrough
         case .segmentControlCell:
             return 30.0
         case .search:

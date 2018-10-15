@@ -53,4 +53,5 @@ protocol AppColorInterface {
     var balanceChangedPlus: UIColor { get }
     var balanceChangedMinus: UIColor { get }
     var balanceChanged: UIColor { get }
+    var segmentControlIndicatorColor: UIColor { get }
 }

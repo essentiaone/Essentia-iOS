@@ -22,7 +22,6 @@ end
 def pod_ui
     pod 'SVProgressHUD' # Can remove later
     pod 'Kingfisher' # Can remove later
-    pod 'PBSegmentedControl' # Can remove later
 end
 
 def pod_debug

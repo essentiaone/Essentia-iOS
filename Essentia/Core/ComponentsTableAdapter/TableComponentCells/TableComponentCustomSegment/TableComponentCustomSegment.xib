@@ -11,13 +11,31 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="62" id="BjM-hC-Yzj">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentCustomSegment" rowHeight="62" id="BjM-hC-Yzj" customClass="TableComponentCustomSegment" customModule="Essentia" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BjM-hC-Yzj" id="V20-0g-2U2">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-ob-Mqd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                    </segmentedControl>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o3d-ob-Mqd" secondAttribute="bottom" id="M6H-78-4oZ"/>
+                    <constraint firstItem="o3d-ob-Mqd" firstAttribute="top" secondItem="V20-0g-2U2" secondAttribute="top" id="bd8-dm-WM2"/>
+                    <constraint firstAttribute="trailing" secondItem="o3d-ob-Mqd" secondAttribute="trailing" id="vxE-VN-RBQ"/>
+                    <constraint firstItem="o3d-ob-Mqd" firstAttribute="leading" secondItem="V20-0g-2U2" secondAttribute="leading" id="xfL-NK-flH"/>
+                </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="segmentControl" destination="o3d-ob-Mqd" id="xb9-wF-W9s"/>
+            </connections>
             <point key="canvasLocation" x="239" y="88"/>
         </tableViewCell>
     </objects>

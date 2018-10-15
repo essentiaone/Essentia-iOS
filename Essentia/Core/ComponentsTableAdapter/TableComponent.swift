@@ -52,6 +52,7 @@ enum TableComponent: Equatable {
     case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
+    case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
 
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {

@@ -82,7 +82,7 @@ class WalletMainViewController: BaseTableAdapterController {
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .segmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
+            .customSegmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
                                          LS("Wallet.Main.Segment.Segment")],
                                 selected: store.currentSegment,
                                 action: segmentControlAction)
