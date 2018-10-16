@@ -14,19 +14,101 @@ class TableAdapterHelper {
         self.tableView = tableView
     }
     
-    func heightForEmptySpace(with state: [TableComponent], in adapter: TableAdapter) -> CGFloat {
+    func heightForEmptySpace(with state: [TableComponent]) -> CGFloat {
         var totalContentHeight: CGFloat = 0
         for (index, item) in state.enumerated() {
             switch item {
             case .calculatbleSpace:
                 break
             default:
-                totalContentHeight += adapter.tableView(tableView, heightForRowAt: IndexPath(row: index, section: 0))
+                totalContentHeight += height(for: IndexPath(row: index, section: 0), in: state)
                 break
             }
         }
         let resultHeight = tableView.frame.height - totalContentHeight
         return resultHeight > 0.0 ? resultHeight : 0.0
+    }
+    
+    func height(for indexPath: IndexPath, in state: [TableComponent]) -> CGFloat {
+        let component = state[indexPath.row]
+        switch component {
+        case .separator:
+            return 1.0
+        case .shadow(let height, _, _):
+            return height
+        case .empty(let height, _):
+            return height
+        case .title(let bold, let title):
+            let font = bold ? AppFont.bold : AppFont.regular
+            return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
+        case .titleWithFont(let font, let title, _):
+            return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
+        case .descriptionWithSize(_, let fontSize, let title, _):
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
+        case .description(let title, _):
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
+        case .tableWithHeight(let height, _):
+            return height
+        case .calculatbleSpace:
+            return heightForEmptySpace(with: state)
+        case .accountStrength:
+            return 286.0
+        case .accountStrengthAction:
+            return 394.0
+        case .menuButton: fallthrough
+        case .menuSwitch: fallthrough
+        case .menuSimpleTitleDetail: fallthrough
+        case .menuTitleDetail:
+            return 44.0
+        case .currentAccount:
+            return 91.0
+        case .checkBox:
+            return 92.0
+        case .smallCenteredButton: fallthrough
+        case .centeredButton:
+            return 75.0
+        case .rightNavigationButton:fallthrough
+        case .navigationBar:
+            return 44
+        case .password:
+            return 76.0
+        case .paragraph(let title, let description):
+            let labelWidth = tableView.frame.width - 43
+            return title.multyLineLabelHeight(with: AppFont.bold.withSize(18),
+                                              width: labelWidth) +
+                description.multyLineLabelHeight(with: AppFont.regular.withSize(17),
+                                                 width: labelWidth) + 20
+        case .keyboardInset:
+            return DeviceSeries.currentSeries == .iPhoneX ? 280 : 200.0
+        case .tabBarSpace:
+            return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
+        case .menuTitleCheck:
+            return 44.0
+        case .checkImageTitle: fallthrough
+        case .imageTitle: fallthrough
+        case .titleSubtitle: fallthrough
+        case .assetBalance: fallthrough
+        case .titleSubtitleDescription: fallthrough
+        case .imageParagraph:
+            return 60.0
+        case .menuSectionHeader:
+            return 26.0
+        case .textField:
+            return 35.0
+        case .centeredImage(let image):
+            return image.size.height
+        case .textView:
+            return 77.0
+        case .customSegmentControlCell: fallthrough
+        case .segmentControlCell:
+            return 30.0
+        case .search:
+            return 36.0
+        case .balanceChanging:
+            return 25.0
+        default:
+            fatalError()
+        }
     }
     
 }
