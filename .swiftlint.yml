@@ -12,3 +12,4 @@ excluded:
   - vendor/
   - Essentia/Third-Party
   - Essentia/Core/ComponentsTableAdapter/TableAdapter.swift
+  - Essentia/Core/ComponentsTableAdapter/TableAdapterHelper.swift
