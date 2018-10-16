@@ -111,4 +111,11 @@ class TableAdapterHelper {
         }
     }
     
+    func allContentHeight(for state: [TableComponent]) -> CGFloat {
+        var height: CGFloat = 0
+        state.enumerated().forEach { (element) in
+            height += self.height(for: IndexPath(row: element.offset, section: 0), in: state)
+        }
+        return height
+    }
 }
