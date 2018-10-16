@@ -5,9 +5,11 @@
 ```
 cd Essentia
 pod install
+pod repo update
+pod update
 open Essentia.xcworkspace
 ```
 ### Requirements
-- `xCode 9.3.5`
-- `iOS 10.0`
-- `Swift 4`
+- `xCode 10.0`
+- `iOS 11.0`
+- `Swift 4.2`
