@@ -238,6 +238,8 @@
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
 		34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */; };
 		34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */; };
+		34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */; };
+		34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */; };
 		34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */; };
 		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
@@ -498,6 +500,8 @@
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
 		34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTablePopUpController.swift; sourceTree = "<group>"; };
 		34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletPopUp.swift; sourceTree = "<group>"; };
+		34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleImageButton.swift; sourceTree = "<group>"; };
+		34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleImageButton.xib; sourceTree = "<group>"; };
 		34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
 		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -1257,6 +1261,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34D8060E217631FF0079A5A5 /* TableComponentTitleImage */,
 				3440C3292173BCC600A58465 /* TableComponentCustomSegment */,
 				344DB5462162703200F7D1E2 /* TableComponentTableView */,
 				344DB539215E77D900F7D1E2 /* TableComponentTitleSubtileDescription */,
@@ -1702,6 +1707,15 @@
 			path = TableComponentPassword;
 			sourceTree = "<group>";
 		};
+		34D8060E217631FF0079A5A5 /* TableComponentTitleImage */ = {
+			isa = PBXGroup;
+			children = (
+				34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */,
+				34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */,
+			);
+			path = TableComponentTitleImage;
+			sourceTree = "<group>";
+		};
 		34ECE4862136EBE5008D9696 /* QuestionAlert */ = {
 			isa = PBXGroup;
 			children = (
@@ -1857,6 +1871,7 @@
 				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
 				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				344958E421416A6800C2230B /* TableComponentImageParagraph.xib in Resources */,
+				34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
@@ -2163,6 +2178,7 @@
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
+				34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */,
 				34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */,

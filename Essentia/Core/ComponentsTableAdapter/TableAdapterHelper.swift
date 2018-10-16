@@ -106,6 +106,8 @@ class TableAdapterHelper {
             return 36.0
         case .balanceChanging:
             return 25.0
+        case .titleWithCancel:
+            return 40.0
         default:
             fatalError()
         }

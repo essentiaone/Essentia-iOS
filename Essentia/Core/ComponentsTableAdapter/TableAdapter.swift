@@ -69,6 +69,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleSubtileDescription.self)
         tableView.register(TableComponentTableView.self)
         tableView.register(TableComponentCustomSegment.self)
+        tableView.register(TableComponentTitleImageButton.self)
     }
     
     // MARK: - Update State
@@ -340,6 +341,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .tableWithHeight(_, let state):
             let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.reload(state)
+            return cell
+        case .titleWithCancel(let title, let action):
+            let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.action = action
             return cell
         default:
             fatalError()
