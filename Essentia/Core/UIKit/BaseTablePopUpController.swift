@@ -73,7 +73,7 @@ class BaseTablePopUpController: BaseViewController {
         blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: blureView.contentView, attribute: .leading, multiplier: 1, constant: position.horizontalInset))
         switch position {
         case .bottom:
-            blureView.contentView.addConstraint(NSLayoutConstraint(item: blureView.contentView, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: 20))
+            blureView.contentView.addConstraint(NSLayoutConstraint(item: blureView.contentView, attribute: .bottom, relatedBy: .equal, toItem: tableView, attribute: .bottom, multiplier: 1, constant: position.verticalInset))
         case .center:
             blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .centerY, relatedBy: .equal, toItem: blureView.contentView, attribute: .centerY, multiplier: 1, constant: 0))
         }
