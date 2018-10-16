@@ -16,7 +16,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - State
     private var tableState: [TableComponent] = []
     private var tableView: UITableView
-    private var helper: TableAdapterHelper
+    var helper: TableAdapterHelper
     
     private var selectedRow: IndexPath? = nil
     

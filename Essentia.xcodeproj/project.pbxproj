@@ -236,6 +236,7 @@
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
+		34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */; };
 		34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */; };
 		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
@@ -494,6 +495,7 @@
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
+		34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTablePopUpController.swift; sourceTree = "<group>"; };
 		34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
 		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -708,6 +710,7 @@
 				349BC0522143DDB1003AC330 /* BaseRouter.swift */,
 				349BC0542143DF19003AC330 /* BaseRouterInterface.swift */,
 				344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */,
+				34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2142,6 +2145,7 @@
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
+				34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */,
 				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,
 				34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
