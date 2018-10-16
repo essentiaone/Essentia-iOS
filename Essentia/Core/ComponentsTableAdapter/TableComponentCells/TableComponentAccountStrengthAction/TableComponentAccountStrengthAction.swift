@@ -64,6 +64,6 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
     }
     
     @IBAction func accountAction(_ sender: AnyObject) {
-        resultAction?()
+        self.resultAction?()
     }
 }

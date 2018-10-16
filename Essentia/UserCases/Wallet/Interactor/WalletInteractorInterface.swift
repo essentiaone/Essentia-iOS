@@ -22,5 +22,5 @@ protocol WalletInteractorInterface {
     func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void)
     func getBalanceInCurrentCurrency() -> Double
     func getYesterdayBalanceInCurrentCurrency() -> Double
-    func getBalanceChangePer24Hours() -> Double
+    func getBalanceChangePer24Hours(result: @escaping (Double) -> Void)
 }

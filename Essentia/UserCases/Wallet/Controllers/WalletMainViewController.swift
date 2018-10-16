@@ -6,13 +6,16 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo : [TokenWallet]] = [:]
     var generatedWallets: [GeneratedWallet] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
+    var balanceChangedPer24Hours: Double = 0
+    var tableHeight: CGFloat = 0
+    
 }
 
 class WalletMainViewController: BaseTableAdapterController {
@@ -21,19 +24,32 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
     private lazy var store: Store = Store()
+
+    private var cashCoinsState: [TableComponent]?
+    private var cashTokensState: [TableComponent]?
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableAdapter.reload(state)
+        injectRouter()
+        injectInteractor()
+        
+        self.tableAdapter.reload(state())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        injectRouter()
-        injectInteractor()
+        (inject() as LoaderInterface).show()
         loadData()
         loadBalances()
+        cashState()
+        (inject() as LoaderInterface).hide()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.store.tableHeight = tableView.frame.height
     }
     
     private func injectInteractor() {
@@ -47,23 +63,32 @@ class WalletMainViewController: BaseTableAdapterController {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
+    private func cashState() {
+        cashCoinsState = coinsState()
+        cashTokensState = tokensState()
+    }
+    
     private func loadData() {
         self.store.generatedWallets = interator.getGeneratedWallets()
         self.store.importedWallets = interator.getImportedWallets()
         self.store.tokens = interator.getTokensByWalleets()
     }
     
-    private var state: [TableComponent] {
+    private func state() -> [TableComponent] {
         if EssentiaStore.currentUser.wallet.isEmpty {
-            return emptyState
+            return emptyState()
         }
         return [
-        .tableWithHeight(height: 240, state: nonEmptyStaticState),
-        .tableWithHeight(height: tableView.frame.height - 240, state: assetState)
+            .tableWithHeight(height: 240, state: nonEmptyStaticState()),
+            .tableWithHeight(height: store.tableHeight - 240, state: assetState())
         ]
     }
     
-    var nonEmptyStaticState: [TableComponent] {
+    private func nonEmptyStaticState() -> [TableComponent] {
+        interator.getBalanceChangePer24Hours { (changes) in
+            self.store.balanceChangedPer24Hours = changes
+            self.tableAdapter.simpleReload(self.state())
+        }
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
@@ -77,28 +102,28 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: formattedBalance(interator.getBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround),
             .balanceChanging(status: .idle,
-                             balanceChanged: formattedChangePer24Hours(interator.getBalanceChangePer24Hours()) ,
+                             balanceChanged: formattedChangePer24Hours(store.balanceChangedPer24Hours) ,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .segmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
-                                         LS("Wallet.Main.Segment.Segment")],
-                                selected: store.currentSegment,
-                                action: segmentControlAction)
+            .customSegmentControlCell(titles: [LS("Wallet.Main.Segment.First"),
+                                               LS("Wallet.Main.Segment.Segment")],
+                                      selected: store.currentSegment,
+                                      action: segmentControlAction)
         ]
     }
     
-    var assetState: [TableComponent] {
+    private func assetState() -> [TableComponent] {
         switch store.currentSegment {
         case 0:
-            return coinsState
+            return cashCoinsState ?? coinsState()
         case 1:
-            return tokensState
+            return cashTokensState ?? tokensState()
         default: return []
         }
     }
     
-    var emptyState: [TableComponent] {
+    private func emptyState() -> [TableComponent] {
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: "", image: imageProvider.bluePlus, action: addWalletAction),
@@ -115,7 +140,7 @@ class WalletMainViewController: BaseTableAdapterController {
         ]
     }
     
-    var tokensState: [TableComponent] {
+    private func tokensState() -> [TableComponent] {
         var tokenTabState: [TableComponent] = []
         for (key, value) in store.tokens {
             tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
@@ -123,7 +148,7 @@ class WalletMainViewController: BaseTableAdapterController {
         return tokenTabState
     }
     
-    var coinsState: [TableComponent] {
+    private func coinsState() -> [TableComponent] {
         var coinsTypesState: [TableComponent] = []
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Essntia"),
                                                         wallets: store.generatedWallets))
@@ -162,9 +187,16 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = {
+        (inject() as LoaderInterface).show()
         self.store.currentSegment = $0
-        self.tableAdapter.simpleReload(self.state)
-        self.loadBalances()
+        DispatchQueue.global().async {
+            self.loadBalances()
+            let newState = self.state()
+            DispatchQueue.main.async {
+                (inject() as LoaderInterface).hide()
+                self.tableAdapter.reload(newState)
+            }
+        }
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -191,14 +223,14 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.generatedWallets.enumerated().forEach { (offset, wallet) in
             interator.getBalance(for: wallet, balance: { (balance) in
                 self.store.generatedWallets[offset].lastBalance = balance
-                self.tableAdapter.simpleReload(self.state)
+                self.tableAdapter.simpleReload(self.state())
             })
         }
         self.store.importedWallets.enumerated().forEach { (offset, wallet) in
             interator.getBalance(for: wallet, balance: { (balance) in
                 self.store.importedWallets[offset].lastBalance = balance
                 EssentiaStore.currentUser.wallet.importedWallets[offset].lastBalance = balance
-                self.tableAdapter.simpleReload(self.state)
+                self.tableAdapter.simpleReload(self.state())
             })
         }
     }
@@ -208,7 +240,7 @@ class WalletMainViewController: BaseTableAdapterController {
             tokenWallet.value.enumerated().forEach({ indexedToken in
                 interator.getBalance(for: indexedToken.element, balance: { (balance) in
                     self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
-                    self.tableAdapter.simpleReload(self.state)
+                    self.tableAdapter.simpleReload(self.state())
                 })
             })
         }

@@ -35,10 +35,10 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
     }
     
     @IBAction func leftButtonAction(_ sender: Any) {
-        leftAction?()
+        self.leftAction?()
     }
     
     @IBAction func rightButtonAction(_ sender: Any) {
-        rightAction?()
+        self.rightAction?()
     }
 }

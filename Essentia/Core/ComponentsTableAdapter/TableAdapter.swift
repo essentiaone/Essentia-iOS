@@ -68,6 +68,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentAssetBalance.self)
         tableView.register(TableComponentTitleSubtileDescription.self)
         tableView.register(TableComponentTableView.self)
+        tableView.register(TableComponentCustomSegment.self)
     }
     
     // MARK: - Update State
@@ -76,7 +77,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.tableState = state
         UIView.setAnimationsEnabled(false)
         tableView.beginUpdates()
-        for step in Dwifft.diff(oldState, state) {
+        let diff = Dwifft.diff(oldState, state)
+        for step in diff  {
             switch step {
             case .insert(let rowIndex, _):
                 tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
@@ -290,6 +292,17 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
             return cell
+        case .customSegmentControlCell(let titles, let selected, let action):
+            let cell: TableComponentCustomSegment = tableView.dequeueReusableCell(for: indexPath)
+            cell.segmentControl.removeAllSegments()
+            titles.forEach {
+                cell.segmentControl.insertSegment(withTitle: $0, at: cell.segmentControl.numberOfSegments, animated: false)
+            }
+            cell.selectedIndex = selected
+            cell.segmentControl.selectedSegmentIndex = selected
+            cell.action = action
+            cell.setNeedsLayout()
+            return cell
         case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: imageUrl)
@@ -403,6 +416,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return image.size.height
         case .textView:
             return 77.0
+        case .customSegmentControlCell: fallthrough
         case .segmentControlCell:
             return 30.0
         case .search:

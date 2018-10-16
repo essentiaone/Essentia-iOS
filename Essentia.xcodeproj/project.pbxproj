@@ -90,6 +90,8 @@
 		3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */; };
 		3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */; };
 		343D5C88216FF3C400E77880 /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343D5C87216FF3C400E77880 /* BalanceFormatter.swift */; };
+		3440C32B2173BCE200A58465 /* TableComponentCustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440C32A2173BCE200A58465 /* TableComponentCustomSegment.swift */; };
+		3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3440C32D2173BD0A00A58465 /* TableComponentCustomSegment.xib */; };
 		344167EF212E168A008B8A91 /* EssentiaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167EE212E168A008B8A91 /* EssentiaStore.swift */; };
 		344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167F6212EC235008B8A91 /* LoginInteractor.swift */; };
 		344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344167F8212EC246008B8A91 /* LoginInteractorInterface.swift */; };
@@ -343,6 +345,8 @@
 		3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCenteredButton.swift; sourceTree = "<group>"; };
 		3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterHelper.swift; sourceTree = "<group>"; };
 		343D5C87216FF3C400E77880 /* BalanceFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceFormatter.swift; sourceTree = "<group>"; };
+		3440C32A2173BCE200A58465 /* TableComponentCustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCustomSegment.swift; sourceTree = "<group>"; };
+		3440C32D2173BD0A00A58465 /* TableComponentCustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCustomSegment.xib; sourceTree = "<group>"; };
 		344167EE212E168A008B8A91 /* EssentiaStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaStore.swift; sourceTree = "<group>"; };
 		344167F6212EC235008B8A91 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		344167F8212EC246008B8A91 /* LoginInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorInterface.swift; sourceTree = "<group>"; };
@@ -613,7 +617,6 @@
 			children = (
 				3401AFDA21033B0A006DEF49 /* Layout */,
 				3401AF9B20FFF763006DEF49 /* AssetsProviders */,
-				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 			);
 			path = Componets;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 		3401AF6820F82AA7006DEF49 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3401AF3A20F7C5E9006DEF49 /* ViewSymbols */,
 				3401AF6920F82AB5006DEF49 /* BaseViewController.swift */,
 				3401AF6B20F82CB7006DEF49 /* BaseButton.swift */,
 				3401AFD321023C7B006DEF49 /* BaseCollectionViewCell.swift */,
@@ -1044,6 +1048,15 @@
 			path = TableComponentCenteredButton;
 			sourceTree = "<group>";
 		};
+		3440C3292173BCC600A58465 /* TableComponentCustomSegment */ = {
+			isa = PBXGroup;
+			children = (
+				3440C32A2173BCE200A58465 /* TableComponentCustomSegment.swift */,
+				3440C32D2173BD0A00A58465 /* TableComponentCustomSegment.xib */,
+			);
+			path = TableComponentCustomSegment;
+			sourceTree = "<group>";
+		};
 		344167ED212E1166008B8A91 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -1239,6 +1252,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3440C3292173BCC600A58465 /* TableComponentCustomSegment */,
 				344DB5462162703200F7D1E2 /* TableComponentTableView */,
 				344DB539215E77D900F7D1E2 /* TableComponentTitleSubtileDescription */,
 				34737BE121525EC2008A306F /* TableComponentAssetBalance */,
@@ -1845,6 +1859,7 @@
 				3441680C212FEDEC008B8A91 /* TableComponentCheckField.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
+				3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				343122752124E93E009E4A7A /* TableComponentParagraph.xib in Resources */,
 				349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */,
@@ -1930,6 +1945,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/PBSegmentedControl/PBSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
@@ -1940,6 +1956,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
@@ -2130,6 +2147,7 @@
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				344958D32141225700C2230B /* WalletInteractor.swift in Sources */,
+				3440C32B2173BCE200A58465 /* TableComponentCustomSegment.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
 				34ECE48E21373107008D9696 /* BackupMnemonicAlert.swift in Sources */,
 				34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */,

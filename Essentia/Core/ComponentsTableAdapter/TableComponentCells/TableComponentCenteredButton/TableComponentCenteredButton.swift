@@ -37,6 +37,6 @@ class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     }
     
     @IBAction func action(_ sender: Any) {
-        action?()
+        self.action?()
     }
 }

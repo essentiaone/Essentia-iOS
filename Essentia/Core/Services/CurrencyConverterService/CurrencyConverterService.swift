@@ -37,14 +37,18 @@ class CurrencyConverterService: CurrencyConverterServiceInterface {
     
     func getCoinInfo(from asset: AssetInterface, to currency: Currency, info: @escaping (CoinGeckoCurrencyModel) -> Void) {
         let endpoint = CurrencyConverterEndpoint.getPrice(forCoin: asset.name.formattedCoinName, inCurrency: currency)
-        networkManager.makeRequest(endpoint) { (result: Result<[CoinGeckoCurrencyModel]>) in
+        networkManager.makeAsyncRequest(endpoint) { (result: Result<[CoinGeckoCurrencyModel]>) in
             switch result {
             case .success(let objects):
                 guard let object = objects.first else { return }
                 self.storeCoinInfo(object, from: asset, to: currency)
                 info(object)
             case .failure(let error):
-                (inject() as LoaderInterface).showError(message: error.localizedDescription)
+                switch error {
+                case .error(let errorMessage):
+                    (inject() as LoaderInterface).showError(message: errorMessage.error)
+                default: return
+                }
             }
         }
         guard let stored = getCoinInfoFromStorage(from: asset, to: currency) else { return }

@@ -24,7 +24,7 @@ struct TokenWallet: Codable, ViewWalletInterface {
     }
     
     var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: name, size: .x128).url
+        return CoinIconsUrlFormatter(name: token.id, size: .x128).url
     }
     
     var symbol: String {

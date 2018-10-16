@@ -25,6 +25,6 @@ class TableComponentSwitch: UITableViewCell, NibLoadable {
     }
     
     @IBAction func switchChanged(_ sender: UISwitch) {
-        action?(sender.isOn)
+        self.action?(sender.isOn)
     }
 }
