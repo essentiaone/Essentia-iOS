@@ -12,7 +12,7 @@ protocol ViewWalletInterface: Codable {
     var asset: AssetInterface { get }
     var address: String { get }
     var name: String { get }
-//    var iconUrl: URL { get }
+    var iconUrl: URL { get }
     var symbol: String { get }
     var balanceInCurrentCurrency: Double { get }
     var yesterdayBalanceInCurrentCurrency: Double { get }
