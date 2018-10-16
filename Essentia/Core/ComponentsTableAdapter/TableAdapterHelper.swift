@@ -85,6 +85,7 @@ class TableAdapterHelper {
         case .menuTitleCheck:
             return 44.0
         case .checkImageTitle: fallthrough
+        case .imageUrlTitle: fallthrough
         case .imageTitle: fallthrough
         case .titleSubtitle: fallthrough
         case .assetBalance: fallthrough

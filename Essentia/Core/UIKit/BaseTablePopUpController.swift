@@ -30,13 +30,12 @@ class BaseTablePopUpController: BaseViewController {
     private var blureView: UIVisualEffectView
     private var tableView: UITableView
     private let position: BasePopUpPosition
-    private let state: [TableComponent]
+    var state: [TableComponent] = []
     
     lazy var tableAdapter = TableAdapter(tableView: tableView)
     
-    init(position: BasePopUpPosition, state: [TableComponent]) {
+    init(position: BasePopUpPosition) {
         self.position = position
-        self.state = state
         self.blureView = UIVisualEffectView(frame: UIScreen.main.bounds)
         self.tableView = UITableView()
         super.init()

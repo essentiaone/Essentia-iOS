@@ -1261,7 +1261,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
-				34D8060E217631FF0079A5A5 /* TableComponentTitleImage */,
+				34D8060E217631FF0079A5A5 /* TableComponentTitleImageButton */,
 				3440C3292173BCC600A58465 /* TableComponentCustomSegment */,
 				344DB5462162703200F7D1E2 /* TableComponentTableView */,
 				344DB539215E77D900F7D1E2 /* TableComponentTitleSubtileDescription */,
@@ -1707,13 +1707,13 @@
 			path = TableComponentPassword;
 			sourceTree = "<group>";
 		};
-		34D8060E217631FF0079A5A5 /* TableComponentTitleImage */ = {
+		34D8060E217631FF0079A5A5 /* TableComponentTitleImageButton */ = {
 			isa = PBXGroup;
 			children = (
 				34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */,
 				34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */,
 			);
-			path = TableComponentTitleImage;
+			path = TableComponentTitleImageButton;
 			sourceTree = "<group>";
 		};
 		34ECE4862136EBE5008D9696 /* QuestionAlert */ = {

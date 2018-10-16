@@ -27,6 +27,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             }))
         case .addAsset:
             push(vc: WalletCreateNewAssetViewController())
+        case .selectEtherWallet(let wallets, let action):
+            popUp(vc: SelectWalletPopUp(wallets: wallets, didSelect: action))
         }
     }
 }
