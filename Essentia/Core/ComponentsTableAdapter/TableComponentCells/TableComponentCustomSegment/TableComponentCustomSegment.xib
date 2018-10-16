@@ -18,13 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-ob-Mqd">
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-ob-Mqd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
                         <segments>
                             <segment title="First"/>
                             <segment title="Second"/>
                         </segments>
+                        <connections>
+                            <action selector="didSelectSegment:" destination="BjM-hC-Yzj" eventType="valueChanged" id="5nP-OS-Gpp"/>
+                        </connections>
                     </segmentedControl>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaH-ho-h8c">
+                        <rect key="frame" x="44" y="59.5" width="240" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="o3d-ob-Mqd" secondAttribute="bottom" id="M6H-78-4oZ"/>
@@ -34,9 +42,10 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="segmentControl" destination="o3d-ob-Mqd" id="xb9-wF-W9s"/>
+                <outlet property="indicatorView" destination="XaH-ho-h8c" id="49M-fv-4tQ"/>
+                <outlet property="segmentControl" destination="o3d-ob-Mqd" id="AKo-OI-uAT"/>
             </connections>
-            <point key="canvasLocation" x="239" y="88"/>
+            <point key="canvasLocation" x="231" y="74"/>
         </tableViewCell>
     </objects>
 </document>

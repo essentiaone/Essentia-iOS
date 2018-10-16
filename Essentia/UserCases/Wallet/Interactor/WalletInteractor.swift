@@ -117,10 +117,14 @@ class WalletInteractor: WalletInteractorInterface {
         return wallets
     }
     
-    func getBalanceChangePer24Hours() -> Double {
-        let yesterdayBalance = getYesterdayBalanceInCurrentCurrency()
-        let dif = getBalanceInCurrentCurrency() - yesterdayBalance
-        guard yesterdayBalance != 0 else { return 0 }
-        return (dif / yesterdayBalance)
+    func getBalanceChangePer24Hours(result: @escaping (Double) -> Void) {
+        DispatchQueue.global().async {
+            let yesterdayBalance = self.getYesterdayBalanceInCurrentCurrency()
+            let dif = self.getBalanceInCurrentCurrency() - yesterdayBalance
+            guard yesterdayBalance != 0 else { return }
+            DispatchQueue.main.async {
+                result(dif / yesterdayBalance)
+            }
+        }
     }
 }
