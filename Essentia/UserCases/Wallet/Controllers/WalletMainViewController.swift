@@ -35,7 +35,8 @@ class WalletMainViewController: BaseTableAdapterController {
         injectRouter()
         injectInteractor()
         
-        self.tableAdapter.reload(state())
+        let initstate = state()
+        self.tableAdapter.reload(initstate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,9 +79,13 @@ class WalletMainViewController: BaseTableAdapterController {
         if EssentiaStore.currentUser.wallet.isEmpty {
             return emptyState()
         }
+        let staticState = nonEmptyStaticState()
+        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState )
+        let emptySpace = store.tableHeight - contentHeight
+        let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
         return [
-            .tableWithHeight(height: 240, state: nonEmptyStaticState()),
-            .tableWithHeight(height: store.tableHeight - 240, state: assetState())
+            .tableWithHeight(height: contentHeight, state: staticState),
+            .tableWithHeight(height: bottomTableContentHeight, state: assetState())
         ]
     }
     
