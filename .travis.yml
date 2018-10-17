@@ -6,8 +6,5 @@ osx_image:
 cache:
   - bundler
   - cocoapods
-before_install:
-   - pod update
-install: true
 script:
   - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.0'
