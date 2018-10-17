@@ -3,8 +3,10 @@ language:
 
 osx_image: 
   - xcode10
+cache:
+  - bundler
+  - cocoapods
 before_install:
-   - pod cache clean --all    
    - pod update
 install: true
 script:
