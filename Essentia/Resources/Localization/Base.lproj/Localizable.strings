@@ -211,4 +211,8 @@
 "Wallet.CreateNewAsset.Switch.Tokens" = "Tokens";
 "Wallet.CreateNewAsset.SearchPlaceholder" = "Search";
 
+///////////
+
+"Wallet.AddTokens.SelectRoot.Title" = "Choose Wallet";
+"Wallet.AddTokens.SelectRoot.Description" = "Choose wallet you want to add tokens to";
 

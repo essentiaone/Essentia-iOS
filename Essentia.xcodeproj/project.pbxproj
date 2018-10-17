@@ -237,6 +237,9 @@
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
 		34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */; };
+		34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */; };
+		34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */; };
+		34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */; };
 		34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */; };
 		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
@@ -496,6 +499,9 @@
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
 		34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTablePopUpController.swift; sourceTree = "<group>"; };
+		34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletPopUp.swift; sourceTree = "<group>"; };
+		34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleImageButton.swift; sourceTree = "<group>"; };
+		34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleImageButton.xib; sourceTree = "<group>"; };
 		34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
 		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -942,13 +948,13 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		34115DFC2134462900A54B7E /* TableComponentImageTitle */ = {
+		34115DFC2134462900A54B7E /* ImageTitle */ = {
 			isa = PBXGroup;
 			children = (
 				34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */,
 				34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */,
 			);
-			path = TableComponentImageTitle;
+			path = ImageTitle;
 			sourceTree = "<group>";
 		};
 		34115E032134A24600A54B7E /* LoggerService */ = {
@@ -960,13 +966,13 @@
 			path = LoggerService;
 			sourceTree = "<group>";
 		};
-		34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */ = {
+		34115E0A2134B24A00A54B7E /* SectionTitle */ = {
 			isa = PBXGroup;
 			children = (
 				34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */,
 				34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */,
 			);
-			path = TableComponentSectionTitle;
+			path = SectionTitle;
 			sourceTree = "<group>";
 		};
 		34115E1121368E7100A54B7E /* Notifications */ = {
@@ -1024,40 +1030,40 @@
 			path = KeyStoreWarning;
 			sourceTree = "<group>";
 		};
-		3431226C2124E73C009E4A7A /* TableComponentNavigationBar */ = {
+		3431226C2124E73C009E4A7A /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
 				3431226D2124E754009E4A7A /* TableComponentNavigationBar.swift */,
 				3431226F2124E76C009E4A7A /* TableComponentNavigationBar.xib */,
 			);
-			path = TableComponentNavigationBar;
+			path = NavigationBar;
 			sourceTree = "<group>";
 		};
-		343122712124E900009E4A7A /* TableComponentParagraph */ = {
+		343122712124E900009E4A7A /* Paragraph */ = {
 			isa = PBXGroup;
 			children = (
 				343122722124E92D009E4A7A /* TableComponentParagraph.swift */,
 				343122742124E93E009E4A7A /* TableComponentParagraph.xib */,
 			);
-			path = TableComponentParagraph;
+			path = Paragraph;
 			sourceTree = "<group>";
 		};
-		343122772124EA33009E4A7A /* TableComponentCenteredButton */ = {
+		343122772124EA33009E4A7A /* CenteredButton */ = {
 			isa = PBXGroup;
 			children = (
 				343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */,
 				3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */,
 			);
-			path = TableComponentCenteredButton;
+			path = CenteredButton;
 			sourceTree = "<group>";
 		};
-		3440C3292173BCC600A58465 /* TableComponentCustomSegment */ = {
+		3440C3292173BCC600A58465 /* CustomSegment */ = {
 			isa = PBXGroup;
 			children = (
 				3440C32A2173BCE200A58465 /* TableComponentCustomSegment.swift */,
 				3440C32D2173BD0A00A58465 /* TableComponentCustomSegment.xib */,
 			);
-			path = TableComponentCustomSegment;
+			path = CustomSegment;
 			sourceTree = "<group>";
 		};
 		344167ED212E1166008B8A91 /* Store */ = {
@@ -1077,13 +1083,13 @@
 			path = Interactor;
 			sourceTree = "<group>";
 		};
-		34416808212FEDB7008B8A91 /* TableComponentCheckField */ = {
+		34416808212FEDB7008B8A91 /* CheckField */ = {
 			isa = PBXGroup;
 			children = (
 				34416809212FEDDF008B8A91 /* TableComponentCheckField.swift */,
 				3441680B212FEDEC008B8A91 /* TableComponentCheckField.xib */,
 			);
-			path = TableComponentCheckField;
+			path = CheckField;
 			sourceTree = "<group>";
 		};
 		3445D4972167B4060014A2B0 /* Demons */ = {
@@ -1255,35 +1261,36 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
-				3440C3292173BCC600A58465 /* TableComponentCustomSegment */,
-				344DB5462162703200F7D1E2 /* TableComponentTableView */,
-				344DB539215E77D900F7D1E2 /* TableComponentTitleSubtileDescription */,
-				34737BE121525EC2008A306F /* TableComponentAssetBalance */,
-				34737BDC2151596B008A306F /* TableComponentBalanceChanging */,
-				34AC4E022149D5DA001C17D8 /* TableComponentSearch */,
-				34AC4DFD21496B45001C17D8 /* TableComponentCheckImageTitle */,
-				34AC4DF821495EB2001C17D8 /* TableComponentSegmentControl */,
-				34AC4DE42147BBBD001C17D8 /* TableComponentTextView */,
-				34AC4DDF21471005001C17D8 /* TableComponentShadow */,
-				349BC04D2143D6F9003AC330 /* TableComponentTitleSubtitle */,
-				344958EF2141D78D00C2230B /* TableComponentCenteredImage */,
-				344958E021416A4400C2230B /* TableComponentImageParagraph */,
-				34ECE4912138306D008D9696 /* TableComponentTextField */,
-				34115E0A2134B24A00A54B7E /* TableComponentSectionTitle */,
-				34115DFC2134462900A54B7E /* TableComponentImageTitle */,
-				34416808212FEDB7008B8A91 /* TableComponentCheckField */,
-				34B7965A212C085A000B1251 /* TableComponentPassword */,
-				343122772124EA33009E4A7A /* TableComponentCenteredButton */,
-				343122712124E900009E4A7A /* TableComponentParagraph */,
-				3431226C2124E73C009E4A7A /* TableComponentNavigationBar */,
-				349AA4BE212495BD00E9256F /* TableComponentDescription */,
-				349AA4A62123289C00E9256F /* TableComponentSecureCheckBox */,
-				349AA4A021230CC400E9256F /* TableComponentAccountStrength */,
-				344826CA2121904C00C19EB3 /* TableComponentCurrentAccount */,
-				344826B82121696C00C19EB3 /* TableComponentTitleDetail */,
-				344826BF2121832500C19EB3 /* TableComponentSwitch */,
-				344826AF2120F6B200C19EB3 /* TableComponentAccountStrengthAction */,
-				344826A82120B4D200C19EB3 /* TableComponentTitle */,
+				34D8060E217631FF0079A5A5 /* TitleImageButton */,
+				3440C3292173BCC600A58465 /* CustomSegment */,
+				344DB5462162703200F7D1E2 /* TableView */,
+				344DB539215E77D900F7D1E2 /* TitleSubtileDescription */,
+				34737BE121525EC2008A306F /* AssetBalance */,
+				34737BDC2151596B008A306F /* BalanceChanging */,
+				34AC4E022149D5DA001C17D8 /* Search */,
+				34AC4DFD21496B45001C17D8 /* CheckImageTitle */,
+				34AC4DF821495EB2001C17D8 /* SegmentControl */,
+				34AC4DE42147BBBD001C17D8 /* tTextView */,
+				34AC4DDF21471005001C17D8 /* Shadow */,
+				349BC04D2143D6F9003AC330 /* TitleSubtitle */,
+				344958EF2141D78D00C2230B /* CenteredImage */,
+				344958E021416A4400C2230B /* ImageParagraph */,
+				34ECE4912138306D008D9696 /* TextField */,
+				34115E0A2134B24A00A54B7E /* SectionTitle */,
+				34115DFC2134462900A54B7E /* ImageTitle */,
+				34416808212FEDB7008B8A91 /* CheckField */,
+				34B7965A212C085A000B1251 /* Password */,
+				343122772124EA33009E4A7A /* CenteredButton */,
+				343122712124E900009E4A7A /* Paragraph */,
+				3431226C2124E73C009E4A7A /* NavigationBar */,
+				349AA4BE212495BD00E9256F /* Description */,
+				349AA4A62123289C00E9256F /* SecureCheckBox */,
+				349AA4A021230CC400E9256F /* AccountStrength */,
+				344826CA2121904C00C19EB3 /* CurrentAccount */,
+				344826B82121696C00C19EB3 /* TitleDetail */,
+				344826BF2121832500C19EB3 /* Switch */,
+				344826AF2120F6B200C19EB3 /* AccountStrengthAction */,
+				344826A82120B4D200C19EB3 /* Title */,
 				344826A22120B1B700C19EB3 /* TableComponentEmpty.swift */,
 				344826A021205F0700C19EB3 /* TableComponentSeparator.swift */,
 				344826C4212187FE00C19EB3 /* TableComponentMenuButton.swift */,
@@ -1291,49 +1298,49 @@
 			path = TableComponentCells;
 			sourceTree = "<group>";
 		};
-		344826A82120B4D200C19EB3 /* TableComponentTitle */ = {
+		344826A82120B4D200C19EB3 /* Title */ = {
 			isa = PBXGroup;
 			children = (
 				344826A52120B4A200C19EB3 /* TableComponentTitle.swift */,
 				344826AB2120B50D00C19EB3 /* TableComponentTitle.xib */,
 			);
-			path = TableComponentTitle;
+			path = Title;
 			sourceTree = "<group>";
 		};
-		344826AF2120F6B200C19EB3 /* TableComponentAccountStrengthAction */ = {
+		344826AF2120F6B200C19EB3 /* AccountStrengthAction */ = {
 			isa = PBXGroup;
 			children = (
 				344826B02120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift */,
 				344826B22120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib */,
 			);
-			path = TableComponentAccountStrengthAction;
+			path = AccountStrengthAction;
 			sourceTree = "<group>";
 		};
-		344826B82121696C00C19EB3 /* TableComponentTitleDetail */ = {
+		344826B82121696C00C19EB3 /* TitleDetail */ = {
 			isa = PBXGroup;
 			children = (
 				344826B9212169C600C19EB3 /* TableComponentTitleDetail.swift */,
 				344826BB212169CE00C19EB3 /* TableComponentTitleDetail.xib */,
 			);
-			path = TableComponentTitleDetail;
+			path = TitleDetail;
 			sourceTree = "<group>";
 		};
-		344826BF2121832500C19EB3 /* TableComponentSwitch */ = {
+		344826BF2121832500C19EB3 /* Switch */ = {
 			isa = PBXGroup;
 			children = (
 				344826C02121833E00C19EB3 /* TableComponentSwitch.swift */,
 				344826C22121834F00C19EB3 /* TableComponentSwitch.xib */,
 			);
-			path = TableComponentSwitch;
+			path = Switch;
 			sourceTree = "<group>";
 		};
-		344826CA2121904C00C19EB3 /* TableComponentCurrentAccount */ = {
+		344826CA2121904C00C19EB3 /* CurrentAccount */ = {
 			isa = PBXGroup;
 			children = (
 				344826CD212190AC00C19EB3 /* TableComponentCurrentAccount.xib */,
 				344826CB2121906D00C19EB3 /* TableComponentCurrentAccount.swift */,
 			);
-			path = TableComponentCurrentAccount;
+			path = CurrentAccount;
 			sourceTree = "<group>";
 		};
 		344958CB214111A100C2230B /* Wallet */ = {
@@ -1374,13 +1381,13 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		344958E021416A4400C2230B /* TableComponentImageParagraph */ = {
+		344958E021416A4400C2230B /* ImageParagraph */ = {
 			isa = PBXGroup;
 			children = (
 				344958E121416A6000C2230B /* TableComponentImageParagraph.swift */,
 				344958E321416A6800C2230B /* TableComponentImageParagraph.xib */,
 			);
-			path = TableComponentImageParagraph;
+			path = ImageParagraph;
 			sourceTree = "<group>";
 		};
 		344958E5214174CA00C2230B /* User */ = {
@@ -1395,13 +1402,13 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		344958EF2141D78D00C2230B /* TableComponentCenteredImage */ = {
+		344958EF2141D78D00C2230B /* CenteredImage */ = {
 			isa = PBXGroup;
 			children = (
 				344958F02141D7B500C2230B /* TableComponentCenteredImage.swift */,
 				344958F22141D7C000C2230B /* TableComponentCenteredImage.xib */,
 			);
-			path = TableComponentCenteredImage;
+			path = CenteredImage;
 			sourceTree = "<group>";
 		};
 		344DB538215E4F7500F7D1E2 /* AddWallet */ = {
@@ -1413,17 +1420,18 @@
 				34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */,
 				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
 				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
+				34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */,
 			);
 			path = AddWallet;
 			sourceTree = "<group>";
 		};
-		344DB539215E77D900F7D1E2 /* TableComponentTitleSubtileDescription */ = {
+		344DB539215E77D900F7D1E2 /* TitleSubtileDescription */ = {
 			isa = PBXGroup;
 			children = (
 				344DB53A215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift */,
 				344DB53C215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib */,
 			);
-			path = TableComponentTitleSubtileDescription;
+			path = TitleSubtileDescription;
 			sourceTree = "<group>";
 		};
 		344DB53E215ED30C00F7D1E2 /* Wallet */ = {
@@ -1448,13 +1456,13 @@
 			path = Asset;
 			sourceTree = "<group>";
 		};
-		344DB5462162703200F7D1E2 /* TableComponentTableView */ = {
+		344DB5462162703200F7D1E2 /* TableView */ = {
 			isa = PBXGroup;
 			children = (
 				344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */,
 				344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */,
 			);
-			path = TableComponentTableView;
+			path = TableView;
 			sourceTree = "<group>";
 		};
 		344DB54B21630E2400F7D1E2 /* Formatters */ = {
@@ -1506,22 +1514,22 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
-		34737BDC2151596B008A306F /* TableComponentBalanceChanging */ = {
+		34737BDC2151596B008A306F /* BalanceChanging */ = {
 			isa = PBXGroup;
 			children = (
 				34737BDD2151598E008A306F /* TableComponentBalanceChanging.swift */,
 				34737BDF2151C1DC008A306F /* TableComponentBalanceChanging.xib */,
 			);
-			path = TableComponentBalanceChanging;
+			path = BalanceChanging;
 			sourceTree = "<group>";
 		};
-		34737BE121525EC2008A306F /* TableComponentAssetBalance */ = {
+		34737BE121525EC2008A306F /* AssetBalance */ = {
 			isa = PBXGroup;
 			children = (
 				34737BE221526874008A306F /* TableComponentAssetBalance.xib */,
 				34737BE42152688B008A306F /* TableComponentAssetBalance.swift */,
 			);
-			path = TableComponentAssetBalance;
+			path = AssetBalance;
 			sourceTree = "<group>";
 		};
 		349AA4942122F0F600E9256F /* Controllers */ = {
@@ -1549,22 +1557,22 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		349AA4A021230CC400E9256F /* TableComponentAccountStrength */ = {
+		349AA4A021230CC400E9256F /* AccountStrength */ = {
 			isa = PBXGroup;
 			children = (
 				349AA4A121230CCE00E9256F /* TableComponentAccountStrength.swift */,
 				349AA4A421230CE000E9256F /* TableComponentAccountStrength.xib */,
 			);
-			path = TableComponentAccountStrength;
+			path = AccountStrength;
 			sourceTree = "<group>";
 		};
-		349AA4A62123289C00E9256F /* TableComponentSecureCheckBox */ = {
+		349AA4A62123289C00E9256F /* SecureCheckBox */ = {
 			isa = PBXGroup;
 			children = (
 				349AA4A7212328D600E9256F /* TableComponentCheckBox.swift */,
 				349AA4A9212328DF00E9256F /* TableComponentCheckBox.xib */,
 			);
-			path = TableComponentSecureCheckBox;
+			path = SecureCheckBox;
 			sourceTree = "<group>";
 		};
 		349AA4AF21242C4C00E9256F /* Services */ = {
@@ -1600,22 +1608,22 @@
 			path = LocalFilesService;
 			sourceTree = "<group>";
 		};
-		349AA4BE212495BD00E9256F /* TableComponentDescription */ = {
+		349AA4BE212495BD00E9256F /* Description */ = {
 			isa = PBXGroup;
 			children = (
 				349AA4AD21240ECC00E9256F /* TableComponentDescription.swift */,
 				349AA4BF212495E300E9256F /* TableComponentDescription.xib */,
 			);
-			path = TableComponentDescription;
+			path = Description;
 			sourceTree = "<group>";
 		};
-		349BC04D2143D6F9003AC330 /* TableComponentTitleSubtitle */ = {
+		349BC04D2143D6F9003AC330 /* TitleSubtitle */ = {
 			isa = PBXGroup;
 			children = (
 				349BC04E2143D71F003AC330 /* TableComponentTitleSubtitle.swift */,
 				349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */,
 			);
-			path = TableComponentTitleSubtitle;
+			path = TitleSubtitle;
 			sourceTree = "<group>";
 		};
 		34AA4E8E2136A783004C25ED /* RestoreAccount */ = {
@@ -1627,49 +1635,49 @@
 			path = RestoreAccount;
 			sourceTree = "<group>";
 		};
-		34AC4DDF21471005001C17D8 /* TableComponentShadow */ = {
+		34AC4DDF21471005001C17D8 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
 				349BC05A21467344003AC330 /* TableComponentShadow.swift */,
 				34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */,
 			);
-			path = TableComponentShadow;
+			path = Shadow;
 			sourceTree = "<group>";
 		};
-		34AC4DE42147BBBD001C17D8 /* TableComponentTextView */ = {
+		34AC4DE42147BBBD001C17D8 /* tTextView */ = {
 			isa = PBXGroup;
 			children = (
 				34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */,
 				34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */,
 			);
-			path = TableComponentTextView;
+			path = tTextView;
 			sourceTree = "<group>";
 		};
-		34AC4DF821495EB2001C17D8 /* TableComponentSegmentControl */ = {
+		34AC4DF821495EB2001C17D8 /* SegmentControl */ = {
 			isa = PBXGroup;
 			children = (
 				34AC4DF92149603E001C17D8 /* TableComponentSegmentControl.swift */,
 				34AC4DFB21496088001C17D8 /* TableComponentSegmentControl.xib */,
 			);
-			path = TableComponentSegmentControl;
+			path = SegmentControl;
 			sourceTree = "<group>";
 		};
-		34AC4DFD21496B45001C17D8 /* TableComponentCheckImageTitle */ = {
+		34AC4DFD21496B45001C17D8 /* CheckImageTitle */ = {
 			isa = PBXGroup;
 			children = (
 				34AC4DFE21496B7A001C17D8 /* TableComponentCheckImageTitle.xib */,
 				34AC4E0021496B82001C17D8 /* TableComponentCheckImageTitle.swift */,
 			);
-			path = TableComponentCheckImageTitle;
+			path = CheckImageTitle;
 			sourceTree = "<group>";
 		};
-		34AC4E022149D5DA001C17D8 /* TableComponentSearch */ = {
+		34AC4E022149D5DA001C17D8 /* Search */ = {
 			isa = PBXGroup;
 			children = (
 				34AC4E032149D7A4001C17D8 /* TableComponentSearch.swift */,
 				34AC4E052149D7B0001C17D8 /* TableComponentSearch.xib */,
 			);
-			path = TableComponentSearch;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		34B27A4521336AF200527F15 /* Loader */ = {
@@ -1690,13 +1698,22 @@
 			path = SwitchAccout;
 			sourceTree = "<group>";
 		};
-		34B7965A212C085A000B1251 /* TableComponentPassword */ = {
+		34B7965A212C085A000B1251 /* Password */ = {
 			isa = PBXGroup;
 			children = (
 				34B79658212C084B000B1251 /* TableComponentPassword.swift */,
 				34B7965B212C086A000B1251 /* TableComponentPassword.xib */,
 			);
-			path = TableComponentPassword;
+			path = Password;
+			sourceTree = "<group>";
+		};
+		34D8060E217631FF0079A5A5 /* TitleImageButton */ = {
+			isa = PBXGroup;
+			children = (
+				34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */,
+				34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */,
+			);
+			path = TitleImageButton;
 			sourceTree = "<group>";
 		};
 		34ECE4862136EBE5008D9696 /* QuestionAlert */ = {
@@ -1708,13 +1725,13 @@
 			path = QuestionAlert;
 			sourceTree = "<group>";
 		};
-		34ECE4912138306D008D9696 /* TableComponentTextField */ = {
+		34ECE4912138306D008D9696 /* TextField */ = {
 			isa = PBXGroup;
 			children = (
 				34ECE49221383206008D9696 /* TableComponentTextField.swift */,
 				34ECE49421383218008D9696 /* TableComponentTextField.xib */,
 			);
-			path = TableComponentTextField;
+			path = TextField;
 			sourceTree = "<group>";
 		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
@@ -1854,6 +1871,7 @@
 				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
 				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				344958E421416A6800C2230B /* TableComponentImageParagraph.xib in Resources */,
+				34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
@@ -1948,7 +1966,6 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/PBSegmentedControl/PBSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
@@ -1959,7 +1976,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PBSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
@@ -2158,9 +2174,11 @@
 				34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				349AA4A8212328D600E9256F /* TableComponentCheckBox.swift in Sources */,
+				34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
+				34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */,
 				34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */,

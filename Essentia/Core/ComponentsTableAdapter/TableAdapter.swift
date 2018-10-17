@@ -69,6 +69,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleSubtileDescription.self)
         tableView.register(TableComponentTableView.self)
         tableView.register(TableComponentCustomSegment.self)
+        tableView.register(TableComponentTitleImageButton.self)
     }
     
     // MARK: - Update State
@@ -255,6 +256,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
+        case .imageUrlTitle(let imageUrl,let title, let withArrow, _):
+            let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage.kf.setImage(with: imageUrl)
+            cell.titleLabel.text = title
+            cell.accessoryType = withArrow ? .disclosureIndicator : .none
+            return cell
         case .textField(let placeholder, let text, let endEditing):
             let cell: TableComponentTextField = tableView.dequeueReusableCell(for: indexPath)
             cell.textField.placeholder = placeholder
@@ -341,6 +348,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.reload(state)
             return cell
+        case .titleWithCancel(let title, let action):
+            let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.action = action
+            return cell
         default:
             fatalError()
         }
@@ -370,6 +382,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .checkBox: fallthrough
         case .search: fallthrough
         case .titleSubtitleDescription: fallthrough
+        case .imageUrlTitle: fallthrough
         case .assetBalance:
             return true
         default:
@@ -397,6 +410,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .menuTitleCheck(_, _, let action):
             action()
         case .imageTitle(_, _, _, let action):
+            action()
+        case .imageUrlTitle(_, _, _, let action):
             action()
         case .checkImageTitle(_, _, _, let action):
             action()

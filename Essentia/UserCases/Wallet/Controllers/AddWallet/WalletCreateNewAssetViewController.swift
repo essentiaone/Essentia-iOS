@@ -23,9 +23,13 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     private var store: Store = Store()
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        selectSegmentCotrolAction(0)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        selectSegmentCotrolAction(0)
         hideKeyboardWhenTappedAround()
     }
     
@@ -134,6 +138,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     }
     
     private lazy var selectWalletAction: () -> Void = {
-        
+        let wallets = self.interactor.getGeneratedWallets().filter({ return $0.coin == .ethereum })
+        (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: wallets, action: { (wallet) in
+            guard let generatedWallet = wallet as? GeneratingWalletInfo else { return }
+            self.store.etherWalletForTokens = generatedWallet
+            self.tableAdapter.simpleReload(self.state)
+        }))
     }
 }

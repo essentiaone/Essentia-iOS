@@ -21,6 +21,7 @@ enum TableComponent: Equatable {
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
     case textView(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
+    case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
@@ -53,6 +54,9 @@ enum TableComponent: Equatable {
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
     case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    
+    // MARK: - PoUp
+    case titleWithCancel(title: String, action: () -> Void)
 
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
