@@ -211,3 +211,25 @@
 "Wallet.AddTokens.SelectRoot.Title" = "Choose Wallet";
 "Wallet.AddTokens.SelectRoot.Description" = "Choose wallet you want to add tokens to";
 
+"Wallet.Detail.Balance" = "Balance";
+"Wallet.Detail.Price" = "Price";
+"Wallet.Detail.Send" = "SEND";
+"Wallet.Detail.Exchange" = "EXCHANGE";
+"Wallet.Detail.Receive" = "RECEIVE";
+"Wallet.Detail.History.Title" = "Transaction History";
+"Wallet.Detail.History.ReceivedFrom" = "Received from";
+"Wallet.Detail.History.Exchanged" = "Exchanged to";
+"Wallet.Detail.History.SendTo" = "Send to";
+
+"Wallet.TransactionInfo.Title" = "Transaction Info";
+"Wallet.TransactionInfo.ReceivedFrom" = "Received from";
+"Wallet.TransactionInfo.Status" = "Status";
+"Wallet.TransactionInfo.ReceivedTime" = "Received Time";
+"Wallet.TransactionInfo.ReceivedRate" = "Received Rate";
+"Wallet.TransactionInfo.Confirmations" = "Confirmations";
+"Wallet.TransactionInfo.Fee" = "Fee";
+"Wallet.TransactionInfo.Data" = "Data";
+"Wallet.TransactionInfo.More" = "More";
+"Wallet.TransactionInfo.TransactionId" = "Transaction ID";
+"Wallet.TransactionInfo.GoToBlockchain" = "Go to Blockchain";
+"Wallet.TransactionInfo.Close" = "CLOSE";
