@@ -27,24 +27,18 @@ class WalletMainViewController: BaseTableAdapterController {
 
     private var cashCoinsState: [TableComponent]?
     private var cashTokensState: [TableComponent]?
-    
+    private var cashNonEmptyStaticState: [TableComponent]?
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         injectRouter()
         injectInteractor()
-        
-        self.tableAdapter.reload(state())
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        (inject() as LoaderInterface).show()
-        loadData()
-        loadBalances()
-        cashState()
-        (inject() as LoaderInterface).hide()
+        self.hardReload()
     }
     
     override func viewDidLayoutSubviews() {
@@ -66,6 +60,13 @@ class WalletMainViewController: BaseTableAdapterController {
     private func cashState() {
         cashCoinsState = coinsState()
         cashTokensState = tokensState()
+        cashNonEmptyStaticState = nonEmptyStaticState()
+    }
+    
+    private func clearCash() {
+        cashCoinsState = nil
+        cashTokensState = nil
+        cashNonEmptyStaticState = nil
     }
     
     private func loadData() {
@@ -78,17 +79,17 @@ class WalletMainViewController: BaseTableAdapterController {
         if EssentiaStore.currentUser.wallet.isEmpty {
             return emptyState()
         }
+        let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
+        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState)
+        let emptySpace = store.tableHeight - contentHeight
+        let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
         return [
-            .tableWithHeight(height: 240, state: nonEmptyStaticState()),
-            .tableWithHeight(height: store.tableHeight - 240, state: assetState())
+            .tableWithHeight(height: contentHeight, state: staticState),
+            .tableWithHeight(height: bottomTableContentHeight, state: assetState())
         ]
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
-        interator.getBalanceChangePer24Hours { (changes) in
-            self.store.balanceChangedPer24Hours = changes
-            self.tableAdapter.simpleReload(self.state())
-        }
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
@@ -191,12 +192,9 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.currentSegment = $0
         DispatchQueue.global().async {
             self.loadBalances()
-            let newState = self.state()
-            DispatchQueue.main.async {
-                (inject() as LoaderInterface).hide()
-                self.tableAdapter.reload(newState)
-            }
         }
+        self.tableAdapter.simpleReload(self.state())
+        (inject() as LoaderInterface).hide()
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -204,10 +202,31 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var updateBalanceChanginPerDay: () -> Void = {
-        
+        self.hardReload()
     }
     
     // MARK: - Private
+    
+    private func hardReload() {
+        (inject() as LoaderInterface).show()
+        (inject() as CurrencyRankDaemonInterface).update(callBack: {
+            self.clearCash()
+            self.loadData()
+            self.cashState()
+            self.loadBalances()
+            self.loadBalanceChangesPer24H()
+            self.tableAdapter.simpleReload(self.state())
+            (inject() as LoaderInterface).hide()
+        })
+    }
+    
+    private func loadBalanceChangesPer24H() {
+        interator.getBalanceChangePer24Hours { (changes) in
+            self.store.balanceChangedPer24Hours = changes
+            self.cashNonEmptyStaticState = self.nonEmptyStaticState()
+            self.tableAdapter.simpleReload(self.state())
+        }
+    }
     
     private func loadBalances() {
         switch store.currentSegment {
