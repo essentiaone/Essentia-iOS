@@ -10,4 +10,5 @@ import Foundation
 
 protocol CurrencyRankDaemonInterface {
     func update()
+    func update(callBack: @escaping () -> Void)
 }

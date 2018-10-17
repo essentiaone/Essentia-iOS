@@ -209,13 +209,15 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func hardReload() {
         (inject() as LoaderInterface).show()
-        clearCash()
-        loadData()
-        cashState()
-        loadBalances()
-        loadBalanceChangesPer24H()
-        tableAdapter.simpleReload(state())
-        (inject() as LoaderInterface).hide()
+        (inject() as CurrencyRankDaemonInterface).update(callBack: {
+            self.clearCash()
+            self.loadData()
+            self.cashState()
+            self.loadBalances()
+            self.loadBalanceChangesPer24H()
+            self.tableAdapter.simpleReload(self.state())
+            (inject() as LoaderInterface).hide()
+        })
     }
     
     private func loadBalanceChangesPer24H() {
