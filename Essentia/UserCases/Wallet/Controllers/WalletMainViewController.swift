@@ -34,18 +34,11 @@ class WalletMainViewController: BaseTableAdapterController {
         super.viewDidLoad()
         injectRouter()
         injectInteractor()
-        
-        let initstate = state()
-        self.tableAdapter.reload(initstate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        (inject() as LoaderInterface).show()
-        loadData()
-        loadBalances()
-        cashState()
-        (inject() as LoaderInterface).hide()
+        self.hardReload()
     }
     
     override func viewDidLayoutSubviews() {
@@ -97,11 +90,6 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
-        interator.getBalanceChangePer24Hours { (changes) in
-            self.store.balanceChangedPer24Hours = changes
-            self.cashNonEmptyStaticState = self.nonEmptyStaticState()
-            self.tableAdapter.simpleReload(self.state())
-        }
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
@@ -204,12 +192,9 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.currentSegment = $0
         DispatchQueue.global().async {
             self.loadBalances()
-            let newState = self.state()
-            DispatchQueue.main.async {
-                (inject() as LoaderInterface).hide()
-                self.tableAdapter.reload(newState)
-            }
         }
+        self.tableAdapter.simpleReload(self.state())
+        (inject() as LoaderInterface).hide()
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -217,13 +202,29 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var updateBalanceChanginPerDay: () -> Void = {
-        (inject() as LoaderInterface).show()
-        self.clearCash()
-        self.tableAdapter.simpleReload(self.state())
-        (inject() as LoaderInterface).hide()
+        self.hardReload()
     }
     
     // MARK: - Private
+    
+    private func hardReload() {
+        (inject() as LoaderInterface).show()
+        clearCash()
+        loadData()
+        cashState()
+        loadBalances()
+        loadBalanceChangesPer24H()
+        tableAdapter.simpleReload(state())
+        (inject() as LoaderInterface).hide()
+    }
+    
+    private func loadBalanceChangesPer24H() {
+        interator.getBalanceChangePer24Hours { (changes) in
+            self.store.balanceChangedPer24Hours = changes
+            self.cashNonEmptyStaticState = self.nonEmptyStaticState()
+            self.tableAdapter.simpleReload(self.state())
+        }
+    }
     
     private func loadBalances() {
         switch store.currentSegment {

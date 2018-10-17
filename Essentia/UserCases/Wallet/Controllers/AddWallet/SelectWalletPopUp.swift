@@ -27,7 +27,7 @@ final class SelectWalletPopUp: BaseTablePopUpController {
             .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
                 .empty(height: 8, background: colorProvider.settingsCellsBackround)
             ] + walletsState + [
-            .empty(height: 15, background: colorProvider.settingsCellsBackround),
+                .empty(height: 15, background: colorProvider.settingsCellsBackround)
             ]
         state = popUpState
     }
