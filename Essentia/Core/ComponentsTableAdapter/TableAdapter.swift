@@ -378,6 +378,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitle: fallthrough
         case .textField: fallthrough
         case .textView: fallthrough
+        case .balanceChanging: fallthrough
         case .checkImageTitle: fallthrough
         case .checkBox: fallthrough
         case .search: fallthrough
@@ -433,6 +434,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .assetBalance(_, _, _, _, let action):
             action()
         case .titleSubtitleDescription(_, _, _, let action):
+            action()
+        case .balanceChanging(_, _, _,let action):
             action()
         default:
             return

@@ -1270,7 +1270,7 @@
 				34AC4E022149D5DA001C17D8 /* Search */,
 				34AC4DFD21496B45001C17D8 /* CheckImageTitle */,
 				34AC4DF821495EB2001C17D8 /* SegmentControl */,
-				34AC4DE42147BBBD001C17D8 /* tTextView */,
+				34AC4DE42147BBBD001C17D8 /* TextView */,
 				34AC4DDF21471005001C17D8 /* Shadow */,
 				349BC04D2143D6F9003AC330 /* TitleSubtitle */,
 				344958EF2141D78D00C2230B /* CenteredImage */,
@@ -1644,13 +1644,13 @@
 			path = Shadow;
 			sourceTree = "<group>";
 		};
-		34AC4DE42147BBBD001C17D8 /* tTextView */ = {
+		34AC4DE42147BBBD001C17D8 /* TextView */ = {
 			isa = PBXGroup;
 			children = (
 				34AC4DE52147C2E9001C17D8 /* TableComponentTextView.swift */,
 				34AC4DE72147C2F6001C17D8 /* TableComponentTextView.xib */,
 			);
-			path = tTextView;
+			path = TextView;
 			sourceTree = "<group>";
 		};
 		34AC4DF821495EB2001C17D8 /* SegmentControl */ = {

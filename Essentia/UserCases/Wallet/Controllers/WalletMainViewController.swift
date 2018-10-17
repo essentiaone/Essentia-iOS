@@ -27,7 +27,7 @@ class WalletMainViewController: BaseTableAdapterController {
 
     private var cashCoinsState: [TableComponent]?
     private var cashTokensState: [TableComponent]?
-    
+    private var cashNonEmptyStaticState: [TableComponent]?
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -67,6 +67,13 @@ class WalletMainViewController: BaseTableAdapterController {
     private func cashState() {
         cashCoinsState = coinsState()
         cashTokensState = tokensState()
+        cashNonEmptyStaticState = nonEmptyStaticState()
+    }
+    
+    private func clearCash() {
+        cashCoinsState = nil
+        cashTokensState = nil
+        cashNonEmptyStaticState = nil
     }
     
     private func loadData() {
@@ -79,8 +86,8 @@ class WalletMainViewController: BaseTableAdapterController {
         if EssentiaStore.currentUser.wallet.isEmpty {
             return emptyState()
         }
-        let staticState = nonEmptyStaticState()
-        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState )
+        let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
+        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState)
         let emptySpace = store.tableHeight - contentHeight
         let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
         return [
@@ -92,6 +99,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private func nonEmptyStaticState() -> [TableComponent] {
         interator.getBalanceChangePer24Hours { (changes) in
             self.store.balanceChangedPer24Hours = changes
+            self.cashNonEmptyStaticState = self.nonEmptyStaticState()
             self.tableAdapter.simpleReload(self.state())
         }
         return [
@@ -209,7 +217,10 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var updateBalanceChanginPerDay: () -> Void = {
-        
+        (inject() as LoaderInterface).show()
+        self.clearCash()
+        self.tableAdapter.simpleReload(self.state())
+        (inject() as LoaderInterface).hide()
     }
     
     // MARK: - Private
