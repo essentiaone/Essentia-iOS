@@ -19,4 +19,8 @@ extension Int {
     static postfix func--(lhs: inout Int) {
         return lhs -= 1
     }
+    
+    var string: String {
+        return "\(self)"
+    }
 }

@@ -240,6 +240,7 @@
 		34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */; };
 		34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */; };
 		34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */; };
+		34DC8B7D217786B600ACA5D2 /* IconsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DC8B7C217786B600ACA5D2 /* IconsAnimation.swift */; };
 		34ECE4882136EBF6008D9696 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */; };
 		34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
@@ -502,6 +503,7 @@
 		34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletPopUp.swift; sourceTree = "<group>"; };
 		34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleImageButton.swift; sourceTree = "<group>"; };
 		34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleImageButton.xib; sourceTree = "<group>"; };
+		34DC8B7C217786B600ACA5D2 /* IconsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconsAnimation.swift; sourceTree = "<group>"; };
 		34ECE4872136EBF6008D9696 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
 		34ECE4892136EFA3008D9696 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 				34B79651212B1CEF000B1251 /* DeviceSeries.swift */,
 				3441680D212FF468008B8A91 /* FastTernaryOperator.swift */,
 				34B27A39213047E200527F15 /* MethodSwizzle.swift */,
+				34DC8B7C217786B600ACA5D2 /* IconsAnimation.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2140,6 +2143,7 @@
 				34737BCC214FAEB7008A306F /* WalletServiceInterface.swift in Sources */,
 				3448268A211DDC4C00C19EB3 /* ComponentState.swift in Sources */,
 				3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */,
+				34DC8B7D217786B600ACA5D2 /* IconsAnimation.swift in Sources */,
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
