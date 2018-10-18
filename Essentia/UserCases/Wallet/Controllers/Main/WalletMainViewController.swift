@@ -32,8 +32,10 @@ class WalletMainViewController: BaseTableAdapterController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        (inject() as LoaderInterface).show()
         injectRouter()
         injectInteractor()
+        (inject() as LoaderInterface).hide()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -221,14 +223,14 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func reloaddAllComponents() {
-        (inject() as LoaderInterface).loaderScope {
+        (inject() as LoaderInterface).show()
             self.clearCash()
             self.loadData()
             self.cashState()
             self.loadBalances()
             self.loadBalanceChangesPer24H()
             self.tableAdapter.simpleReload(self.state())
-        }
+        (inject() as LoaderInterface).hide()
     }
     
     private func loadBalanceChangesPer24H() {
