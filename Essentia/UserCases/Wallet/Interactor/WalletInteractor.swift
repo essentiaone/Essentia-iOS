@@ -85,7 +85,7 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void) {
-        blockchainWrapper.getBalance(for: wallet.coin, address: wallet.address, balance: balance)
+        blockchainWrapper.getBalance(for: wallet.asset, address: wallet.address, balance: balance)
     }
     
     func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
@@ -94,7 +94,7 @@ class WalletInteractor: WalletInteractorInterface {
     
     func getBalanceInCurrentCurrency() -> Double {
         var currentBalance: Double = 0
-        allWallets.forEach { (wallet) in
+        allViewWallets.forEach { (wallet) in
             currentBalance += wallet.balanceInCurrentCurrency
         }
         return currentBalance
@@ -102,14 +102,23 @@ class WalletInteractor: WalletInteractorInterface {
     
     func getYesterdayBalanceInCurrentCurrency() -> Double {
         var currentBalance: Double = 0
-        allWallets.forEach { (wallet) in
+        allViewWallets.forEach { (wallet) in
             currentBalance += wallet.yesterdayBalanceInCurrentCurrency
         }
         return currentBalance
     }
     
-    var allWallets: [ViewWalletInterface] {
+    var allViewWallets: [ViewWalletInterface] {
         var wallets: [ViewWalletInterface] = getGeneratedWallets()
+        wallets.append(contentsOf: getImportedWallets())
+        getTokensByWalleets().values.forEach { (tokenWallets) in
+            wallets.append(contentsOf: tokenWallets)
+        }
+        return wallets
+    }
+    // MARK: - Duplicate
+    var allWallets: [WalletInterface] {
+        var wallets: [WalletInterface] = getGeneratedWallets()
         wallets.append(contentsOf: getImportedWallets())
         getTokensByWalleets().values.forEach { (tokenWallets) in
             wallets.append(contentsOf: tokenWallets)
@@ -125,6 +134,13 @@ class WalletInteractor: WalletInteractorInterface {
             DispatchQueue.main.async {
                 result(dif / yesterdayBalance)
             }
+        }
+    }
+    
+    func transformViewWallet(from viewWallet: ViewWalletInterface) -> WalletInterface? {
+        return allWallets.first { (wallet) -> Bool in
+            return viewWallet.address == wallet.address &&
+                   viewWallet.asset.name == wallet.asset.name
         }
     }
 }

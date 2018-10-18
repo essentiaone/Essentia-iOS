@@ -174,13 +174,14 @@ class WalletMainViewController: BaseTableAdapterController {
     func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
         var assetState: [TableComponent] = []
         wallets.forEach { (wallet) in
-            assetState.append(.assetBalance(imageUrl: wallet.iconUrl,
-                                            title: wallet.name,
-                                            value: wallet.formattedBalanceInCurrentCurrency,
-                                            currencyValue: wallet.formattedBalance,
-                                            action: {
-                                                
-            }))
+            assetState.append(
+                .assetBalance(imageUrl: wallet.iconUrl,
+                              title: wallet.name,
+                              value: wallet.formattedBalanceInCurrentCurrency,
+                              currencyValue: wallet.formattedBalance,
+                              action: { self.showWalletDetail(for: wallet) }
+                )
+            )
             assetState.append(.separator(inset: .zero))
         }
         return assetState
@@ -205,6 +206,11 @@ class WalletMainViewController: BaseTableAdapterController {
         self.hardReload()
     }
     
+    private func showWalletDetail(for wallet: ViewWalletInterface) {
+        guard let walletInfo = interator.transformViewWallet(from: wallet) else { return }
+        (inject() as WalletRouterInterface).show(.walletDetail(walletInfo))
+    }
+    
     // MARK: - Private
     
     private func hardReload() {
@@ -215,14 +221,14 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func reloaddAllComponents() {
-        (inject() as LoaderInterface).show()
-        self.clearCash()
-        self.loadData()
-        self.cashState()
-        self.loadBalances()
-        self.loadBalanceChangesPer24H()
-        self.tableAdapter.simpleReload(self.state())
-        (inject() as LoaderInterface).hide()
+        (inject() as LoaderInterface).loaderScope {
+            self.clearCash()
+            self.loadData()
+            self.cashState()
+            self.loadBalances()
+            self.loadBalanceChangesPer24H()
+            self.tableAdapter.simpleReload(self.state())
+        }
     }
     
     private func loadBalanceChangesPer24H() {

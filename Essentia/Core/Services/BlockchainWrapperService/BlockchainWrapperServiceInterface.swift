@@ -9,6 +9,5 @@
 import Foundation
 
 protocol BlockchainWrapperServiceInterface {
-    func getBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void)
-    func getBalance(for token: Token, address: String, balance: @escaping (Double) -> Void)
+    func getBalance(for asset: AssetInterface, address: String, balance: @escaping (Double) -> Void)
 }

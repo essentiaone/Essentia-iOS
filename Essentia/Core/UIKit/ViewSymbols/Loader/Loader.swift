@@ -26,4 +26,10 @@ class Loader: LoaderInterface {
     func showError(message: String) {
         SVProgressHUD.showError(withStatus: message)
     }
+    
+    func loaderScope(_ scope: () -> Void) {
+        show()
+        scope()
+        hide()
+    }
 }

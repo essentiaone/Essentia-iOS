@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct TokenWallet: Codable, ViewWalletInterface {
+struct TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     var token: Token
     var wallet: GeneratingWalletInfo
     var lastBalance: Double?
