@@ -49,6 +49,7 @@ enum TableComponent: Equatable {
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
+    case centeredImageWithUrl(url: URL, size: CGSize)
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)

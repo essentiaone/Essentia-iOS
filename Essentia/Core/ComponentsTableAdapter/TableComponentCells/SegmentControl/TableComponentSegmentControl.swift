@@ -15,16 +15,20 @@ class TableComponentSegmentControl: UITableViewCell, NibLoadable {
     
     var segmentControllerChangedAtIndex: ((Int) -> Void)?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        applyDesign()
-    }
     
-    private func applyDesign() {
+    func applySelectableDesign() {
         segmentControl.layer.cornerRadius = 3.0
         segmentControl.clipsToBounds = true
         segmentControl.backgroundColor = colorProvider.settingsCellsBackround
         segmentControl.tintColor = colorProvider.centeredButtonBackgroudColor
+    }
+    
+    func applyOneColorDesign() {
+        segmentControl.layer.cornerRadius = segmentControl.frame.height
+        segmentControl.clipsToBounds = true
+        segmentControl.backgroundColor = colorProvider.centeredButtonBackgroudColor
+        segmentControl.tintColor = colorProvider.centeredButtonTextColor
+        
     }
     
     func setTitles(_ titles: [String]) {

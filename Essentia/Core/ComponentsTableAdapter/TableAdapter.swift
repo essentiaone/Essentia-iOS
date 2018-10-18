@@ -295,6 +295,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
             return cell
+        case .centeredImageWithUrl(let url,_):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.kf.setImage(with: url)
+            return cell
         case .textView(let placeholder,let text,let endEditing):
             let cell: TableComponentTextView = tableView.dequeueReusableCell(for: indexPath)
             cell.placeholderLabel.text = placeholder

@@ -99,6 +99,8 @@ class TableAdapterHelper {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
+        case .centeredImageWithUrl(_, let size):
+            return size.height
         case .textView:
             return 77.0
         case .customSegmentControlCell: fallthrough
