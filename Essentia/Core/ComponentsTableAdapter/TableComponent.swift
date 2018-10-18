@@ -24,10 +24,12 @@ enum TableComponent: Equatable {
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
-    case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
-    case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
+    // MARK: - Navigation Bar
+    case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
+    case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
+    case navigationImageBar(left: String, right: UIImage, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void)
     case accountStrengthAction(action: () -> Void)

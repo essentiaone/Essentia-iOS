@@ -231,6 +231,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.rightAction = action
             return cell
+        case .navigationImageBar(let left, let right, let title, let lAction,let rAction):
+            let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
+            cell.rightButton.setImage(right, for: .normal)
+            cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
+            cell.leftButton.setTitle(left, for: .normal)
+            cell.titleLabel.text = title
+            cell.leftAction = lAction
+            cell.rightAction = rAction
+            return cell
         case .paragraph(let title, let description):
             let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title

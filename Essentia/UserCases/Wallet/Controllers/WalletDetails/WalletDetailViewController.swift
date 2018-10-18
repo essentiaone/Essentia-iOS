@@ -18,8 +18,6 @@ class WalletDetailViewController: BaseTableAdapterController {
     private var store: Store = Store()
     
     // MARK: - Lifecycle
-    
-    
     /*
      "Wallet.Detail.Balance" = "Balance";
      "Wallet.Detail.Price" = "Price";
@@ -52,7 +50,6 @@ class WalletDetailViewController: BaseTableAdapterController {
     private var buildTransactionState: [TableComponent] {
         return []
     }
-    
     
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
