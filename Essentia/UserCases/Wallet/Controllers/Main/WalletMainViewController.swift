@@ -24,7 +24,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
     private lazy var store: Store = Store()
-
+    
     private var cashCoinsState: [TableComponent]?
     private var cashTokensState: [TableComponent]?
     private var cashNonEmptyStaticState: [TableComponent]?
@@ -208,16 +208,21 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Private
     
     private func hardReload() {
+        reloaddAllComponents()
+        (inject() as CurrencyRankDaemonInterface).update { [weak self] in
+            self?.reloaddAllComponents()
+        }
+    }
+    
+    private func reloaddAllComponents() {
         (inject() as LoaderInterface).show()
-        (inject() as CurrencyRankDaemonInterface).update(callBack: {
-            self.clearCash()
-            self.loadData()
-            self.cashState()
-            self.loadBalances()
-            self.loadBalanceChangesPer24H()
-            self.tableAdapter.simpleReload(self.state())
-            (inject() as LoaderInterface).hide()
-        })
+        self.clearCash()
+        self.loadData()
+        self.cashState()
+        self.loadBalances()
+        self.loadBalanceChangesPer24H()
+        self.tableAdapter.simpleReload(self.state())
+        (inject() as LoaderInterface).hide()
     }
     
     private func loadBalanceChangesPer24H() {
@@ -264,7 +269,7 @@ class WalletMainViewController: BaseTableAdapterController {
             })
         }
     }
-
+    
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
         return formatter.formattedAmmount(amount: balance)
