@@ -38,12 +38,14 @@ class WalletDetailViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"),
-                           right: LS("Wallet.CreateNewAsset.Done"),
+            .navigationImageBar(left: LS("Wallet.Back"),
+                           right: #imageLiteral(resourceName: "downArrow"),
                            title: LS("Wallet.CreateNewAsset.Title"),
                            lAction: backAction,
                            rAction: detailAction),
-            .empty(height: 11, background: colorProvider.settingsCellsBackround)
+            .empty(height: 11, background: colorProvider.settingsCellsBackround),
+            .centeredImage(image: #imageLiteral(resourceName: "bitcoin")),
+            
         ] + buildTransactionState
     }
     
