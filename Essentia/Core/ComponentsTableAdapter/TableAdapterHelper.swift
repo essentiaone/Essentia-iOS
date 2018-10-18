@@ -103,6 +103,8 @@ class TableAdapterHelper {
             return size.height
         case .textView:
             return 77.0
+        case .filledSegment:
+            return 43.0
         case .customSegmentControlCell: fallthrough
         case .segmentControlCell:
             return 30.0

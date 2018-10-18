@@ -68,7 +68,11 @@ class WalletDetailViewController: BaseTableAdapterController {
             .balanceChanging(status: .idle,
                              balanceChanged: "3.85%" ,
                              perTime: "(24h)",
-                             action: {})
+                             action: {}),
+            .filledSegment(titles: [LS("Wallet.Detail.Send"),
+                                    LS("Wallet.Detail.Exchange"),
+                                    LS("Wallet.Detail.Receive")],
+                           action: walletOperationAtIndex)
             
         ] + buildTransactionState
     }
@@ -84,5 +88,17 @@ class WalletDetailViewController: BaseTableAdapterController {
     
     private lazy var detailAction: () -> Void = {
         
+    }
+    
+    private lazy var walletOperationAtIndex: (Int) -> Void = {
+        switch $0 {
+        case 0:
+            print("Show send")
+        case 1:
+            print("Show exchange")
+        case 2:
+            print("Show recive")
+        default: return
+        }
     }
 }

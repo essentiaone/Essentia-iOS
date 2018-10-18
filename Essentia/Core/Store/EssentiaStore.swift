@@ -16,6 +16,7 @@ struct EssentiaStore {
         (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
         currentUser = user
         if user != .notSigned {
+            (inject() as LoggerServiceInterface).log("User: \(user.dislayName) stored", level: .warning)
             (inject() as UserStorageServiceInterface).store(user: user)
         }
         (inject() as CurrencyRankDaemonInterface).update()

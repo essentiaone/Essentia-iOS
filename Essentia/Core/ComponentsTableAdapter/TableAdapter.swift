@@ -309,6 +309,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .segmentControlCell(let titles, let selected, let action):
             let cell: TableComponentSegmentControl = tableView.dequeueReusableCell(for: indexPath)
             cell.setTitles(titles)
+            cell.applySelectableDesign()
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
             return cell
@@ -322,6 +323,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.segmentControl.selectedSegmentIndex = selected
             cell.action = action
             cell.setNeedsLayout()
+            return cell
+        case .filledSegment(let titles, let action):
+            let cell: TableComponentSegmentControl = tableView.dequeueReusableCell(for: indexPath)
+            cell.setTitles(titles)
+            cell.applyOneColorDesign()
+            cell.segmentControllerChangedAtIndex = action
             return cell
         case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)

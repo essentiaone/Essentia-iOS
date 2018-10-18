@@ -50,13 +50,14 @@ enum TableComponent: Equatable {
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
     case centeredImageWithUrl(url: URL, size: CGSize)
-    case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
     case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    case filledSegment(titles: [String], action: (Int) -> Void)
     
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
