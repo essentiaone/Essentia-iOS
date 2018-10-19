@@ -371,6 +371,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .titleWithCancel(let title, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.font = AppFont.bold.withSize(21)
             cell.titleLabel.text = title
             cell.action = action
             return cell
@@ -384,7 +385,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .searchField(let title, let icon, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
+            cell.titleLabel.font = AppFont.bold.withSize(17)
             cell.action = action
+            cell.cancelButton.tintColor = (inject() as AppColorInterface).centeredButtonBackgroudColor
             cell.cancelButton.setImage(icon, for: .normal)
             return cell
         default:

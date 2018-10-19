@@ -76,7 +76,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     
     private var buildTransactionState: [TableComponent] {
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
-                icon: #imageLiteral(resourceName: "backWhite"),
+                icon: #imageLiteral(resourceName: "searchIcon"),
                 action: searchTransactionAction)]
     }
     
