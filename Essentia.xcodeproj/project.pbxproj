@@ -250,6 +250,10 @@
 		34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE49421383218008D9696 /* TableComponentTextField.xib */; };
 		34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */; };
 		34EE1F9B21790F9100FFC570 /* Miscs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1F9A21790F9100FFC570 /* Miscs.swift */; };
+		34EE1F9F21795E4600FFC570 /* TableComponentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1F9E21795E4600FFC570 /* TableComponentTransaction.swift */; };
+		34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */; };
+		34EE1FA4217A066000FFC570 /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FA3217A066000FFC570 /* TransactionType.swift */; };
+		34EE1FA6217A069700FFC570 /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FA5217A069700FFC570 /* TransactionStatus.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -514,6 +518,10 @@
 		34ECE49421383218008D9696 /* TableComponentTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextField.xib; sourceTree = "<group>"; };
 		34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLoginController.swift; sourceTree = "<group>"; };
 		34EE1F9A21790F9100FFC570 /* Miscs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Miscs.swift; sourceTree = "<group>"; };
+		34EE1F9E21795E4600FFC570 /* TableComponentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTransaction.swift; sourceTree = "<group>"; };
+		34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
+		34EE1FA3217A066000FFC570 /* TransactionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
+		34EE1FA5217A069700FFC570 /* TransactionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionStatus.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1126,6 +1134,7 @@
 		3448264D2113327700C19EB3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				34EE1FA2217A064C00FFC570 /* Transaction */,
 				34737BD2214FEB30008A306F /* Auth */,
 				34737BD1214FEB1B008A306F /* Wallet */,
 				344958E5214174CA00C2230B /* User */,
@@ -1266,6 +1275,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34EE1F9D21795E2D00FFC570 /* Transaction */,
 				34D8060E217631FF0079A5A5 /* TitleImageButton */,
 				3440C3292173BCC600A58465 /* CustomSegment */,
 				344DB5462162703200F7D1E2 /* TableView */,
@@ -1780,6 +1790,24 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		34EE1F9D21795E2D00FFC570 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				34EE1F9E21795E4600FFC570 /* TableComponentTransaction.swift */,
+				34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
+		34EE1FA2217A064C00FFC570 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				34EE1FA3217A066000FFC570 /* TransactionType.swift */,
+				34EE1FA5217A069700FFC570 /* TransactionStatus.swift */,
+			);
+			path = Transaction;
+			sourceTree = "<group>";
+		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1943,6 +1971,7 @@
 				344826C32121834F00C19EB3 /* TableComponentSwitch.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 				344958F32141D7C000C2230B /* TableComponentCenteredImage.xib in Resources */,
+				34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2057,6 +2086,7 @@
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */,
 				344958EE2141CC3000C2230B /* WalletMainViewController.swift in Sources */,
+				34EE1FA6217A069700FFC570 /* TransactionStatus.swift in Sources */,
 				34115E052134A25F00A54B7E /* LoggerService.swift in Sources */,
 				34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */,
 				349BC05921466591003AC330 /* Coin.swift in Sources */,
@@ -2147,6 +2177,7 @@
 				3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */,
 				344958F12141D7B500C2230B /* TableComponentCenteredImage.swift in Sources */,
 				34737BD8214FFC86008A306F /* TokenWallet.swift in Sources */,
+				34EE1F9F21795E4600FFC570 /* TableComponentTransaction.swift in Sources */,
 				34737BC5214EACF9008A306F /* TokensService.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
@@ -2198,6 +2229,7 @@
 				344826C12121833E00C19EB3 /* TableComponentSwitch.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
+				34EE1FA4217A066000FFC570 /* TransactionType.swift in Sources */,
 				3448264521107A2100C19EB3 /* EditingCell.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,

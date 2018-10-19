@@ -114,6 +114,8 @@ class TableAdapterHelper {
             return 25.0
         case .titleWithCancel:
             return 40.0
+        case .transactionDetail:
+            return 65.0
         default:
             fatalError()
         }

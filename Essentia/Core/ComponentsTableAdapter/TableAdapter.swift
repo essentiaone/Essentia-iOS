@@ -70,6 +70,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTableView.self)
         tableView.register(TableComponentCustomSegment.self)
         tableView.register(TableComponentTitleImageButton.self)
+        tableView.register(TableComponentTransaction.self)
     }
     
     // MARK: - Update State
@@ -373,6 +374,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.action = action
             return cell
+        case .transactionDetail(let icon, let title, let subtitle, let description, _):
+            let cell: TableComponentTransaction = tableView.dequeueReusableCell(for: indexPath)
+            cell.iconImageView.image = icon
+            cell.titleLabel.text = title
+            cell.subtileLabel.text = subtitle
+            cell.descriptionLabel.text = description
+            return cell
         default:
             fatalError()
         }
@@ -404,6 +412,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .search: fallthrough
         case .titleSubtitleDescription: fallthrough
         case .imageUrlTitle: fallthrough
+        case .transactionDetail: fallthrough
         case .assetBalance:
             return true
         default:
@@ -456,6 +465,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitleDescription(_, _, _, let action):
             action()
         case .balanceChanging(_, _, _,let action):
+            action()
+        case .transactionDetail(_, _, _, _, let action):
             action()
         default:
             return

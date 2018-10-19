@@ -65,15 +65,17 @@ class WalletDetailViewController: BaseTableAdapterController {
                            title: "$ 54,20013.12",
                            background: colorProvider.settingsCellsBackround),
             .separator(inset: .init(top: 0, left: 61.0, bottom: 0, right: 61.0)),
+            .empty(height: 7, background: colorProvider.settingsCellsBackround),
             .balanceChanging(status: .idle,
                              balanceChanged: "3.85%" ,
                              perTime: "(24h)",
                              action: {}),
+            .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
                                     LS("Wallet.Detail.Exchange"),
                                     LS("Wallet.Detail.Receive")],
-                           action: walletOperationAtIndex)
-            
+                           action: walletOperationAtIndex),
+            .empty(height: 28, background: colorProvider.settingsCellsBackround)
         ] + buildTransactionState
     }
     
