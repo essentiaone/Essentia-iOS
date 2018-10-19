@@ -116,6 +116,8 @@ class TableAdapterHelper {
             return 40.0
         case .transactionDetail:
             return 65.0
+        case .searchField:
+            return 42.0
         default:
             fatalError()
         }

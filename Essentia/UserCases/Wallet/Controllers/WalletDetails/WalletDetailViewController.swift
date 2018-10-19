@@ -13,6 +13,7 @@ fileprivate struct Store {
 }
 
 class WalletDetailViewController: BaseTableAdapterController {
+    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     private var store: Store
@@ -30,13 +31,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     /*
      "Wallet.Detail.Balance" = "Balance";
      "Wallet.Detail.Price" = "Price";
-     "Wallet.Detail.Send" = "SEND";
-     "Wallet.Detail.Exchange" = "EXCHANGE";
-     "Wallet.Detail.Receive" = "RECEIVE";
-     "Wallet.Detail.History.Title" = "Transaction History";
-     "Wallet.Detail.History.ReceivedFrom" = "Received from";
-     "Wallet.Detail.History.Exchanged" = "Exchanged to";
-     "Wallet.Detail.History.SendTo" = "Send to";
+    "Wallet.Detail.History.Title" = "Transaction History";
 */
     
     override func viewDidLoad() {
@@ -80,7 +75,9 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private var buildTransactionState: [TableComponent] {
-        return []
+        return [.searchField(title: LS("Wallet.Detail.History.Title"),
+                icon: #imageLiteral(resourceName: "backWhite"),
+                action: searchTransactionAction)]
     }
     
     // MARK: - Actions
@@ -89,6 +86,10 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var detailAction: () -> Void = {
+        
+    }
+    
+    private lazy var searchTransactionAction: () -> Void = {
         
     }
     

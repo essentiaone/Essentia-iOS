@@ -381,6 +381,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.subtileLabel.text = subtitle
             cell.descriptionLabel.text = description
             return cell
+        case .searchField(let title, let icon, let action):
+            let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.action = action
+            cell.cancelButton.setImage(icon, for: .normal)
+            return cell
         default:
             fatalError()
         }
