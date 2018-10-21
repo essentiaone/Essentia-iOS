@@ -249,6 +249,7 @@
 		34ECE49321383206008D9696 /* TableComponentTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49221383206008D9696 /* TableComponentTextField.swift */; };
 		34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34ECE49421383218008D9696 /* TableComponentTextField.xib */; };
 		34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */; };
+		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -512,6 +513,7 @@
 		34ECE49221383206008D9696 /* TableComponentTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextField.swift; sourceTree = "<group>"; };
 		34ECE49421383218008D9696 /* TableComponentTextField.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextField.xib; sourceTree = "<group>"; };
 		34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLoginController.swift; sourceTree = "<group>"; };
+		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -659,6 +661,7 @@
 				3441680D212FF468008B8A91 /* FastTernaryOperator.swift */,
 				34B27A39213047E200527F15 /* MethodSwizzle.swift */,
 				34DC8B7C217786B600ACA5D2 /* IconsAnimation.swift */,
+				34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2074,6 +2077,7 @@
 				344958D62141227B00C2230B /* WalletRouterInterface.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				344958D82141228600C2230B /* WalletRouter.swift in Sources */,
+				34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicService.swift in Sources */,
 				343122642124A0DA009E4A7A /* BackupType.swift in Sources */,
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
