@@ -18,7 +18,9 @@ class NotificationsPlaceholderViewController: BaseViewController {
     }
     
     private func applyDesign() {
-        placeholderImageView.image = (inject() as AppImageProviderInterface).notificationPlaceholderIcon
+        let animationPlayer = PNGAnimationPlayer(animation: .securing99toSafe, in: placeholderImageView)
+        animationPlayer.play()
+//        placeholderImageView.image = (inject() as AppImageProviderInterface).notificationPlaceholderIcon
         titleLabel.text = LS("TabBar.Notifications")
         titleLabel.font = AppFont.bold.withSize(34)
     }
