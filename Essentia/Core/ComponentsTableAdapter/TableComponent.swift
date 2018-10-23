@@ -24,10 +24,12 @@ enum TableComponent: Equatable {
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
-    case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
-    case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
+    // MARK: - Navigation Bar
+    case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
+    case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
+    case navigationImageBar(left: String, right: UIImage, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void)
     case accountStrengthAction(action: () -> Void)
@@ -47,14 +49,18 @@ enum TableComponent: Equatable {
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
-    case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    case centeredImageWithUrl(url: URL, size: CGSize)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
     case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
-    
+    case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
+    case filledSegment(titles: [String], action: (Int) -> Void)
+    // MARK: - Wallet detail
+    case transactionDetail(icon: UIImage, title: String, subtitle: String, description: String, action: () -> Void)
+    case searchField(title: String, icon: UIImage, action: () -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
 

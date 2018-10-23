@@ -23,4 +23,5 @@ protocol WalletInteractorInterface {
     func getBalanceInCurrentCurrency() -> Double
     func getYesterdayBalanceInCurrentCurrency() -> Double
     func getBalanceChangePer24Hours(result: @escaping (Double) -> Void)
+    func transformViewWallet(from viewWallet: ViewWalletInterface) -> WalletInterface?
 }

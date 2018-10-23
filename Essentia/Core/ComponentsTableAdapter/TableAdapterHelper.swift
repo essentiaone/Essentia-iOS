@@ -67,7 +67,8 @@ class TableAdapterHelper {
         case .smallCenteredButton: fallthrough
         case .centeredButton:
             return 75.0
-        case .rightNavigationButton:fallthrough
+        case .rightNavigationButton: fallthrough
+        case .navigationImageBar: fallthrough
         case .navigationBar:
             return 44
         case .password:
@@ -98,8 +99,12 @@ class TableAdapterHelper {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
+        case .centeredImageWithUrl(_, let size):
+            return size.height
         case .textView:
             return 77.0
+        case .filledSegment:
+            return 43.0
         case .customSegmentControlCell: fallthrough
         case .segmentControlCell:
             return 30.0
@@ -109,6 +114,10 @@ class TableAdapterHelper {
             return 25.0
         case .titleWithCancel:
             return 40.0
+        case .transactionDetail:
+            return 65.0
+        case .searchField:
+            return 42.0
         default:
             fatalError()
         }
