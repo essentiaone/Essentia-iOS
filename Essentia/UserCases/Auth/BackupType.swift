@@ -14,10 +14,10 @@ enum AuthType {
 }
 
 enum BackupType: Int, Codable {
-    case mnemonic = 15
-    case seed = 35
-    case keystore = 50
-    case none = 0
+    case mnemonic
+    case seed
+    case keystore
+    case none
     
     var titleString: String {
         switch self {

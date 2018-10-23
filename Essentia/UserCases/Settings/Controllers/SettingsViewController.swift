@@ -49,26 +49,27 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
-        let profile = EssentiaStore.currentUser.profile
+        let user = EssentiaStore.currentUser
+        let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
         let rawState: [TableComponent?] =
             [.empty(height: 45, background: colorProvider.settingsCellsBackround),
              .title(bold: true, title: LS("Settings.Title")),
-             (EssentiaStore.currentUser.backup.securityLevel < 50) ?
+                showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction) :
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
-             .currentAccount(icon: profile.icon,
+             .currentAccount(icon: user.profile.icon,
                              title: LS("Settings.CurrentAccountTitle"),
                              name: EssentiaStore.currentUser.dislayName,
                              action: editCurrentAccountAction),
              .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.languageIcon,
                               title: LS("Settings.Language"),
-                              detail: profile.language.titleString,
+                              detail: user.profile.language.titleString,
                               action: languageAction),
              .separator(inset: Constants.separatorInset),
              .menuTitleDetail(icon: imageProvider.currencyIcon,
                               title: LS("Settings.Currency"),
-                              detail: profile.currency.titleString,
+                              detail: user.profile.currency.titleString,
                               action: currencyAction),
              .separator(inset: Constants.separatorInset),
              .menuTitleDetail(icon: imageProvider.securityIcon,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableComponentAccountStrength: UITableViewCell, NibLoadable {
+class TableComponentAccountStrength: BaseAccountStrengthCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var iconProvider: AppImageProviderInterface = inject()
     
@@ -17,6 +17,7 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
     @IBOutlet weak var progressView: UIView!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var progressImageView: UIImageView!
     
     var resultAction: (() -> Void)?
     
@@ -37,7 +38,12 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         backButton.titleLabel?.font = AppFont.regular.withSize(16)
         
         // MARK: - Color
-        containerView.backgroundColor = containerBackgroud
+        containerView.backgroundColor = colorForCurrentSecuringStatus
+        let newSecurityLevel = EssentiaStore.currentUser.backup.secureLevel
+        let animation = animationForSecurirtyLevel(newSecurityLevel)
+        let player = PNGAnimationPlayer(animation: animation, in: progressImageView)
+        progressImageView.image = defaultImageForAnimationPlayer(player, for: newSecurityLevel)
+        
         titleLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         descriptionLabel.textColor = colorProvider.accountStrengthContainerViewTitles
         backgroundColor = colorProvider.settingsBackgroud
@@ -47,17 +53,6 @@ class TableComponentAccountStrength: UITableViewCell, NibLoadable {
         // MARK: - Layer
         backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 15)
         backButton.setImage(iconProvider.backWhiteIcon, for: .normal)
-    }
-    
-    private var containerBackgroud: UIColor {
-        switch EssentiaStore.currentUser.backup.securityLevel {
-        case 30..<50:
-            return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
-        case 50..<100:
-            return colorProvider.accountStrengthContainerViewBackgroudHightSecure
-        default:
-            return colorProvider.accountStrengthContainerViewBackgroudLowSecure
-        }
     }
     
     @IBAction func backAction(_ sender: AnyObject) {

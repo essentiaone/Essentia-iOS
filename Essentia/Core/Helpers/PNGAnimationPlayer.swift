@@ -17,24 +17,24 @@ enum PNGAnimation: String {
     case securing99toSafe
     case sendTx
     
+    private static var indexFormatter = ConstantNumberOfDigitsFormatter(digitsCount: 5)
+    
     var animationDuration: TimeInterval {
         return Double(imagesCount) / Double(framePerSecond)
     }
     
     var images: [UIImage] {
-        let numberFormatter = ConstantNumberOfDigitsFormatter(digitsCount: 5)
         return imagesRage.compactMap({
-            let name = imagePrefix + " " + numberFormatter.formateInt(int: $0)
-            return UIImage(named: name)
+           return imageAtIndex(index: $0)
         })
     }
     
-    // MARK: - Private
-    private var imagePrefix: String {
-        return rawValue.firstSimbolUppercased()
+    func imageAtIndex(index: Int) -> UIImage? {
+        let name = imagePrefix + " " + PNGAnimation.indexFormatter.formateInt(int: index)
+        return UIImage(named: name)
     }
     
-    private var imagesRage: Range<Int> {
+    var imagesRage: Range<Int> {
         switch self {
         case .exchange: fallthrough
         case .exchangeEss:
@@ -48,6 +48,11 @@ enum PNGAnimation: String {
         case .securing99toSafe:
             return 0..<210
         }
+    }
+    
+    // MARK: - Private
+    private var imagePrefix: String {
+        return rawValue.firstSimbolUppercased()
     }
     
     private var imagesCount: Int {
@@ -65,12 +70,22 @@ enum PNGAnimation: String {
 }
 
 class PNGAnimationPlayer {
-    private var animation: PNGAnimation
+    var animation: PNGAnimation
     private var imageView: UIImageView
     
     init(animation: PNGAnimation, in imageView: UIImageView) {
         self.animation = animation
         self.imageView = imageView
+    }
+    
+    var firstImage: UIImage? {
+        let index = animation.imagesRage.first ?? 0
+        return animation.imageAtIndex(index: index)
+    }
+    
+    var lastImage: UIImage? {
+        let index = animation.imagesRage.last ?? 0
+        return animation.imageAtIndex(index: index)
     }
     
     func play() {

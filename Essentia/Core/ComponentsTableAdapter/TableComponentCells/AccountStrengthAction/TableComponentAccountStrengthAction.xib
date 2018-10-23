@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,9 +32,18 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4gz-x7-cOK">
                                 <rect key="frame" x="52" y="136.5" width="255" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eMR-4Z-gM2">
+                                        <rect key="frame" x="0.0" y="0.0" width="255" height="100"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="eMR-4Z-gM2" firstAttribute="top" secondItem="4gz-x7-cOK" secondAttribute="top" id="3Ql-Vd-6XR"/>
+                                    <constraint firstAttribute="trailing" secondItem="eMR-4Z-gM2" secondAttribute="trailing" id="LCa-zZ-OTH"/>
                                     <constraint firstAttribute="height" constant="100" id="VMz-zR-abJ"/>
+                                    <constraint firstItem="eMR-4Z-gM2" firstAttribute="leading" secondItem="4gz-x7-cOK" secondAttribute="leading" id="jby-sd-IoP"/>
+                                    <constraint firstAttribute="bottom" secondItem="eMR-4Z-gM2" secondAttribute="bottom" id="qIL-Io-dhO"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRX-3E-eIn">
@@ -88,6 +97,7 @@
                 <outlet property="accountButton" destination="aRX-3E-eIn" id="heD-Lq-Mgu"/>
                 <outlet property="containerView" destination="FTY-Tv-gKE" id="KbE-o8-lrh"/>
                 <outlet property="descriptionLabel" destination="lyd-3k-8oW" id="md6-Wc-xNd"/>
+                <outlet property="progressImageView" destination="eMR-4Z-gM2" id="xcX-K0-YEX"/>
                 <outlet property="progressView" destination="4gz-x7-cOK" id="Vxf-le-cLp"/>
                 <outlet property="titleLabel" destination="oud-pw-iHx" id="Vkj-ME-8jU"/>
             </connections>
