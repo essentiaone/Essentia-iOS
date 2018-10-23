@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -31,8 +32,17 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QK2-Cc-8kt">
                                 <rect key="frame" x="52" y="268.5" width="271" height="100"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9zz-Lv-bLM">
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="100"/>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9zz-Lv-bLM" secondAttribute="trailing" id="5LT-B3-H5y"/>
+                                    <constraint firstItem="9zz-Lv-bLM" firstAttribute="top" secondItem="QK2-Cc-8kt" secondAttribute="top" id="JUN-GI-Jwt"/>
+                                    <constraint firstItem="9zz-Lv-bLM" firstAttribute="leading" secondItem="QK2-Cc-8kt" secondAttribute="leading" id="glm-Nd-Utc"/>
+                                    <constraint firstAttribute="bottom" secondItem="9zz-Lv-bLM" secondAttribute="bottom" id="l0R-Ui-aUs"/>
                                     <constraint firstAttribute="height" constant="100" id="lRm-ki-01r"/>
                                 </constraints>
                             </view>
@@ -82,10 +92,11 @@
                 <outlet property="backButton" destination="jOb-Co-Jao" id="ZqN-q0-eHf"/>
                 <outlet property="containerView" destination="R8h-Z9-CfB" id="C8h-id-Wqq"/>
                 <outlet property="descriptionLabel" destination="8Pw-Oo-0Vd" id="pKs-vV-Ypa"/>
+                <outlet property="progressImageView" destination="9zz-Lv-bLM" id="h01-N1-idH"/>
                 <outlet property="progressView" destination="QK2-Cc-8kt" id="62R-aq-MpC"/>
                 <outlet property="titleLabel" destination="vpC-eY-bQu" id="odg-NY-aeN"/>
             </connections>
-            <point key="canvasLocation" x="616" y="24"/>
+            <point key="canvasLocation" x="616" y="23.388305847076463"/>
         </tableViewCell>
     </objects>
 </document>

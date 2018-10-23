@@ -13,8 +13,11 @@ struct UserBackup: Codable {
     var loginMethod: BackupType = .none
     var keystoreUrl: URL?
     
-    var securityLevel: Int {
-        let values = currentlyBackedUp.map { return $0.rawValue }
-        return values.reduce(0, +)
+    var isSecured: Bool {
+         return currentlyBackedUp.count == 3
+    }
+    
+    var secureLevel: Int {
+        return currentlyBackedUp.count
     }
 }

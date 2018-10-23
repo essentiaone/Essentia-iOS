@@ -27,6 +27,7 @@ class UserStorageService: UserStorageServiceInterface {
     }
     
     func store(user: User) {
+        guard user != .notSigned else { return }
         do {
             _ = try fileSerice.storeFile(file: user, to: folderPath, with: user.id)
         } catch {
