@@ -24,7 +24,17 @@ class BlockchainWrapperService: BlockchainWrapperServiceInterface {
         cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
     }
     
-    func getBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
+    func getBalance(for asset: AssetInterface, address: String, balance: @escaping (Double) -> Void) {
+        switch asset {
+        case let coin as Coin:
+            getBalance(for: coin, address: address, balance: balance)
+        case let token as Token:
+            getBalance(for: token, address: address, balance: balance)
+        default: return
+        }
+    }
+    
+    private func getBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
         case .bitcoin:
             cryptoWallet.bitcoin.getBalance(for: address) { (result) in
@@ -61,7 +71,7 @@ class BlockchainWrapperService: BlockchainWrapperServiceInterface {
         }
     }
     
-    func getBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
+    private func getBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
         let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
         guard let data = try? erc20Token.generateGetBalanceParameter(toAddress: address) else {
             return

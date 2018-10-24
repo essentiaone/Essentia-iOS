@@ -10,4 +10,5 @@ import Foundation
 
 struct UserEvents: Codable {
     var isFirstlyOnWallet: Bool = true
+    var isAccountFullySecuredShown: Bool = false
 }

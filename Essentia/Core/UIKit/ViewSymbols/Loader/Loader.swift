@@ -17,13 +17,21 @@ class Loader: LoaderInterface {
     
     func show() {
         SVProgressHUD.show()
+        (inject() as LoggerServiceInterface).log("Loader showd")
     }
     
     func hide() {
         SVProgressHUD.dismiss()
+        (inject() as LoggerServiceInterface).log("Loader hidden")
     }
     
     func showError(message: String) {
         SVProgressHUD.showError(withStatus: message)
+    }
+    
+    func loaderScope(_ scope: () -> Void) {
+        show()
+        scope()
+        hide()
     }
 }

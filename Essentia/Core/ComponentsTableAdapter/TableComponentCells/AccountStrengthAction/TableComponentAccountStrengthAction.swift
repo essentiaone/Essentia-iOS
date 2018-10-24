@@ -8,13 +8,14 @@
 
 import UIKit
 
-class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
+class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var progressView: UIView!
+    @IBOutlet weak var progressImageView: UIImageView!
     @IBOutlet weak var accountButton: UIButton!
     
     var resultAction: (() -> Void)?
@@ -47,21 +48,33 @@ class TableComponentAccountStrengthAction: UITableViewCell, NibLoadable {
         accountButton.layer.cornerRadius = 5.0
     }
     
-    private var containerViewBackgroud: UIColor {
-        switch EssentiaStore.currentUser.backup.securityLevel {
-        case 30..<50:
-            return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
-        case 50..<100:
-            return colorProvider.accountStrengthContainerViewBackgroudHightSecure
-        default:
-            return colorProvider.accountStrengthContainerViewBackgroudLowSecure
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.updateProgress()
+    }
+    
+    private func updateProgress() {
+        let newSecurityLevel = EssentiaStore.currentUser.backup.secureLevel
+        let animation = animationForSecurirtyLevel(newSecurityLevel)
+        let player = PNGAnimationPlayer(animation: animation, in: progressImageView)
+        let shoudShowAnimation = currentSecurityLevel != newSecurityLevel
+        guard shoudShowAnimation else {
+            progressImageView.image = defaultImageForAnimationPlayer(player, for: newSecurityLevel)
+            containerView.backgroundColor = colorForCurrentSecuringStatus
+            return
+        }
+        currentSecurityLevel = newSecurityLevel
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            self.playAnimation(in: player)
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        containerView.backgroundColor = containerViewBackgroud
+    func playAnimation(in player: PNGAnimationPlayer) {
+        containerView.animateToColor(colorForCurrentSecuringStatus, with: player.animation.animationDuration)
+        player.play()
     }
+    
+    // MARK: - Actions
     
     @IBAction func accountAction(_ sender: AnyObject) {
         self.resultAction?()

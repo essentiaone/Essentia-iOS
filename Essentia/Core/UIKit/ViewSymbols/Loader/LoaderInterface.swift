@@ -9,6 +9,7 @@
 import Foundation
 
 protocol LoaderInterface {
+    func loaderScope(_ scope: () -> Void) 
     func show()
     func hide()
     func showError(message: String)

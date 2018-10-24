@@ -23,7 +23,6 @@ class TableComponentTitleImageButton: UITableViewCell, NibLoadable {
     }
     
     private func applyDesign() {
-        titleLabel.font = AppFont.bold.withSize(21)
         cancelButton.tintColor = colorProvider.appTitleColor
         cancelButton.setImage(imageProvider.cancelIcon, for: .normal)
     }
