@@ -22,8 +22,8 @@ class WalletInteractor: WalletInteractorInterface {
         return !alreadyContainWallet
     }
     
-    func getCoinsList() -> [AssetInterface] {
-        return Coin.allCases
+    func getCoinsList() -> [Coin] {
+        return [Coin.bitcoin, Coin.ethereum]
     }
     
     func getTokensList(result: @escaping ([AssetInterface]) -> Void) {
@@ -141,6 +141,22 @@ class WalletInteractor: WalletInteractorInterface {
         return allWallets.first { (wallet) -> Bool in
             return viewWallet.address == wallet.address &&
                    viewWallet.asset.name == wallet.asset.name
+        }
+    }
+    
+    func getTransactionsByWallet(_ wallet: WalletInterface, result: @escaping ([ViewTransaction]) -> Void) {
+        switch wallet.asset {
+        case let token as Token:
+            print("\(token.name) not done!")
+        case let coin as Coin:
+            switch coin {
+            case .bitcoin:
+                print("Not done!")
+            case .ethereum:
+                print("Not done!")
+            default: return
+            }
+        default: return
         }
     }
 }

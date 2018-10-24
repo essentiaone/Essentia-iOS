@@ -37,6 +37,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableAdapter.reload(state)
+        loadTransactions()
     }
     
     private var state: [TableComponent] {
@@ -78,6 +79,12 @@ class WalletDetailViewController: BaseTableAdapterController {
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
                 icon: #imageLiteral(resourceName: "searchIcon"),
                 action: searchTransactionAction)]
+    }
+    
+    private func loadTransactions() {
+        interactor.getTransactionsByWallet(store.wallet, result: {
+            print($0)
+        })
     }
     
     // MARK: - Actions

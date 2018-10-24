@@ -10,7 +10,7 @@ import Foundation
 
 protocol WalletInteractorInterface {
     func isValidWallet(_ wallet: ImportedWallet) -> Bool
-    func getCoinsList() -> [AssetInterface]
+    func getCoinsList() -> [Coin]
     func getTokensList(result: @escaping ([AssetInterface]) -> Void)
     @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo]
     func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo)
@@ -24,4 +24,5 @@ protocol WalletInteractorInterface {
     func getYesterdayBalanceInCurrentCurrency() -> Double
     func getBalanceChangePer24Hours(result: @escaping (Double) -> Void)
     func transformViewWallet(from viewWallet: ViewWalletInterface) -> WalletInterface?
+    func getTransactionsByWallet(_ wallet: WalletInterface, result: @escaping ([ViewTransaction]) -> Void)
 }

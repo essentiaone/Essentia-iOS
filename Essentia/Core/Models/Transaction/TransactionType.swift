@@ -9,7 +9,7 @@
 import Foundation
 
 enum TransactionType {
-    case recived
-    case sent
+    case send
+    case recive
     case exchange
 }
