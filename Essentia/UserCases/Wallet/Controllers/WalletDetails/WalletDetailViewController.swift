@@ -11,12 +11,14 @@ import EssentiaNetworkCore
 import EssentiaBridgesApi
 
 fileprivate struct Store {
-    var wallet: WalletInterface
+    var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
     var bitcoinTransactions: [BitcoinTransactionValue] = []
     var ethereumTransactions: [EthereumTransactionDetail] = []
+    var balance: Double = 0
+    var balanceChanging: Double = 0
     
-    init(wallet: WalletInterface) {
+    init(wallet: ViewWalletInterface) {
         self.wallet = wallet
     }
 }
@@ -25,14 +27,18 @@ class WalletDetailViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
-    private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
+    private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
+    private lazy var interactor: WalletInteractorInterface = inject()
     private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
     
     private var store: Store
     
-    init(wallet: WalletInterface) {
+    init(wallet: ViewWalletInterface) {
         self.store = Store(wallet: wallet)
         super.init()
+        self.store.balance = wallet.balanceInCurrentCurrency
+        self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: wallet.yesterdayBalanceInCurrentCurrency,
+                                                                   newestBalance: wallet.balanceInCurrentCurrency)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -48,6 +54,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         super.viewDidLoad()
         tableAdapter.reload(state)
         loadTransactions()
+        loadBalance()
     }
     
     private var state: [TableComponent] {
@@ -68,12 +75,11 @@ class WalletDetailViewController: BaseTableAdapterController {
                            background: colorProvider.settingsCellsBackround),
             .empty(height: 11, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(24),
-                           title: "$ 54,20013.12",
+                           title: formattedBalance(store.balance),
                            background: colorProvider.settingsCellsBackround),
             .separator(inset: .init(top: 0, left: 61.0, bottom: 0, right: 61.0)),
             .empty(height: 7, background: colorProvider.settingsCellsBackround),
-            .balanceChanging(status: .idle,
-                             balanceChanged: "3.85%" ,
+            .balanceChanging(balanceChanged: formateBalanceChanging(store.balanceChanging) ,
                              perTime: "(24h)",
                              action: {}),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -110,6 +116,28 @@ class WalletDetailViewController: BaseTableAdapterController {
         })
     }
     
+    private func loadBalance() {
+        let wallet = self.store.wallet
+        let address = wallet.address
+        switch wallet.asset {
+        case let token as Token:
+            blockchainInteractor.getTokenBalance(for: token, address: address, balance: balanceChanged)
+        case let coin as Coin:
+            blockchainInteractor.getCoinBalance(for: coin, address: address, balance: balanceChanged)
+        default: return
+        }
+    }
+    
+    private lazy var balanceChanged: (Double) -> Void = {
+        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset) ?? 0
+        let newCurrentBalance = $0 * rank
+        let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
+        self.store.balance = newCurrentBalance
+        self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: yesterdayBalance,
+                                                                   newestBalance: newCurrentBalance)
+        self.tableAdapter.simpleReload(self.state)
+    }
+    
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
         (inject() as WalletRouterInterface).pop()
@@ -143,7 +171,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         case let coin as Coin:
             switch coin {
             case .bitcoin:
-                interactor.getTxHistoryForBitcoinAddress(wallet.address) { (result) in
+                blockchainInteractor.getTxHistoryForBitcoinAddress(wallet.address) { (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.items))
@@ -152,7 +180,7 @@ class WalletDetailViewController: BaseTableAdapterController {
                     }
                 }
             case .ethereum:
-                interactor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
+                blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.result))
@@ -189,4 +217,14 @@ class WalletDetailViewController: BaseTableAdapterController {
         }))
     }
     
+    private func formattedBalance(_ balance: Double) -> String {
+        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return formatter.formattedAmmount(amount: balance)
+    }
+    
+    private func formateBalanceChanging(_ double: Double) -> String {
+        let changingInProcent = interactor.getBalanceChanging(olderBalance: self.store.wallet.yesterdayBalanceInCurrentCurrency,
+                                                              newestBalance: self.store.wallet.balanceInCurrentCurrency)
+        return ProcentsFormatter.formattedChangePer24Hours(changingInProcent)
+    }
 }

@@ -18,8 +18,8 @@ protocol WalletInteractorInterface {
     func getGeneratedWallets() -> [GeneratedWallet]
     func getImportedWallets() -> [ImportedWallet]
     func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]]
-    func getBalanceInCurrentCurrency() -> Double
-    func getYesterdayBalanceInCurrentCurrency() -> Double
+    func getTotalBalanceInCurrentCurrency() -> Double
+    func getYesterdayTotalBalanceInCurrentCurrency() -> Double
     func getBalanceChangePer24Hours(result: @escaping (Double) -> Void)
-    func transformViewWallet(from viewWallet: ViewWalletInterface) -> WalletInterface?
+    func getBalanceChanging(olderBalance: Double, newestBalance: Double) -> Double
 }

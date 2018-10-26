@@ -346,11 +346,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.searchBar.findView(type: UITextField.self)?.backgroundColor = backgroud
             cell.textChangedAction = didChangeString
             return cell
-        case .balanceChanging(let status, let balanceChanged, let perTime, _):
+        case .balanceChanging(let balanceChanged, let perTime, _):
             let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
             cell.procentTitle.text = balanceChanged
             cell.timeUpdateLabel.text = perTime
-            cell.status = status
             return cell
         case .assetBalance(let imageUrl, let title, let value, let currencyValue,_):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
@@ -473,7 +472,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .titleSubtitleDescription(_, _, _, let action):
             action()
-        case .balanceChanging(_, _, _,let action):
+        case .balanceChanging(_, _,let action):
             action()
         case .transactionDetail(_, _, _, _, let action):
             action()

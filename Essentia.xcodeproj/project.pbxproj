@@ -181,6 +181,7 @@
 		34737BE02151C1DD008A306F /* TableComponentBalanceChanging.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34737BDF2151C1DC008A306F /* TableComponentBalanceChanging.xib */; };
 		34737BE321526874008A306F /* TableComponentAssetBalance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34737BE221526874008A306F /* TableComponentAssetBalance.xib */; };
 		34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BE42152688B008A306F /* TableComponentAssetBalance.swift */; };
+		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		348BC792217EC8E000F494A8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC791217EC8E000F494A8 /* UIView+Animation.swift */; };
 		348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */; };
 		34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */; };
@@ -453,6 +454,7 @@
 		34737BDF2151C1DC008A306F /* TableComponentBalanceChanging.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentBalanceChanging.xib; sourceTree = "<group>"; };
 		34737BE221526874008A306F /* TableComponentAssetBalance.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAssetBalance.xib; sourceTree = "<group>"; };
 		34737BE42152688B008A306F /* TableComponentAssetBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAssetBalance.swift; sourceTree = "<group>"; };
+		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		348BC791217EC8E000F494A8 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
 		34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
@@ -1525,6 +1527,7 @@
 				344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */,
 				343D5C87216FF3C400E77880 /* BalanceFormatter.swift */,
 				34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */,
+				34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -2317,6 +2320,7 @@
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
 				34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */,
+				34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

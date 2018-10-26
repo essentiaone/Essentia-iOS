@@ -99,6 +99,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
+        let procents = ProcentsFormatter.formattedChangePer24Hours(store.balanceChangedPer24Hours)
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
@@ -109,10 +110,9 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(32),
-                           title: formattedBalance(interator.getBalanceInCurrentCurrency()),
+                           title: formattedBalance(interator.getTotalBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround),
-            .balanceChanging(status: .idle,
-                             balanceChanged: formattedChangePer24Hours(store.balanceChangedPer24Hours) ,
+            .balanceChanging(balanceChanged: procents,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -216,8 +216,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
-        guard let walletInfo = interator.transformViewWallet(from: wallet) else { return }
-        (inject() as WalletRouterInterface).show(.walletDetail(walletInfo))
+        (inject() as WalletRouterInterface).show(.walletDetail(wallet))
     }
     
     // MARK: - Private
@@ -288,15 +287,5 @@ class WalletMainViewController: BaseTableAdapterController {
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
         return formatter.formattedAmmount(amount: balance)
-    }
-    
-    private func formattedChangePer24Hours(_ procents: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.decimalSeparator = "."
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 2
-        formatter.allowsFloats = true
-        return formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
     }
 }
