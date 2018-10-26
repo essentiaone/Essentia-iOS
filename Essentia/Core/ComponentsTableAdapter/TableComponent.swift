@@ -59,7 +59,7 @@ enum TableComponent: Equatable {
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case filledSegment(titles: [String], action: (Int) -> Void)
     // MARK: - Wallet detail
-    case transactionDetail(icon: UIImage, title: String, subtitle: String, description: String, action: () -> Void)
+    case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
     case searchField(title: String, icon: UIImage, action: () -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)

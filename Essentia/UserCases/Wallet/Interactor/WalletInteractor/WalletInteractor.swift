@@ -12,7 +12,6 @@ import PromiseKit
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
     private lazy var tokenService: TokensServiceInterface = inject()
-    private lazy var blockchainWrapper: BlockchainWrapperServiceInterface = inject()
     
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
         let importdAssets = EssentiaStore.currentUser.wallet.importedWallets
@@ -84,14 +83,6 @@ class WalletInteractor: WalletInteractorInterface {
         return tokensByWallets
     }
     
-    func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void) {
-        blockchainWrapper.getBalance(for: wallet.asset, address: wallet.address, balance: balance)
-    }
-    
-    func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
-        blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
-    }
-    
     func getBalanceInCurrentCurrency() -> Double {
         var currentBalance: Double = 0
         allViewWallets.forEach { (wallet) in
@@ -141,22 +132,6 @@ class WalletInteractor: WalletInteractorInterface {
         return allWallets.first { (wallet) -> Bool in
             return viewWallet.address == wallet.address &&
                    viewWallet.asset.name == wallet.asset.name
-        }
-    }
-    
-    func getTransactionsByWallet(_ wallet: WalletInterface, result: @escaping ([ViewTransaction]) -> Void) {
-        switch wallet.asset {
-        case let token as Token:
-            print("\(token.name) not done!")
-        case let coin as Coin:
-            switch coin {
-            case .bitcoin:
-                print("Not done!")
-            case .ethereum:
-                print("Not done!")
-            default: return
-            }
-        default: return
         }
     }
 }

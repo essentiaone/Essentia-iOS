@@ -239,3 +239,6 @@
 "Wallet.TransactionInfo.GoToBlockchain" = "Go to Blockchain";
 "Wallet.TransactionInfo.Close" = "CLOSE";
 
+"Wallet.TransactionType.send" = "Send to";
+"Wallet.TransactionType.recive" = "Received from";
+"Wallet.TransactionType.exchange" = "Exchange to";

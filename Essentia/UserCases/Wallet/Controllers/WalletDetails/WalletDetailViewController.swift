@@ -7,15 +7,27 @@
 //
 
 import UIKit
+import EssentiaNetworkCore
+import EssentiaBridgesApi
 
 fileprivate struct Store {
     var wallet: WalletInterface
+    var transactions: [ViewTransaction] = []
+    var bitcoinTransactions: [BitcoinTransactionValue] = []
+    var ethereumTransactions: [EthereumTransactionDetail] = []
+    
+    init(wallet: WalletInterface) {
+        self.wallet = wallet
+    }
 }
 
 class WalletDetailViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var interactor: WalletInteractorInterface = inject()
+    
+    private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
+    private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
+    
     private var store: Store
     
     init(wallet: WalletInterface) {
@@ -29,10 +41,8 @@ class WalletDetailViewController: BaseTableAdapterController {
     
     // MARK: - Lifecycle
     /*
-     "Wallet.Detail.Balance" = "Balance";
      "Wallet.Detail.Price" = "Price";
-    "Wallet.Detail.History.Title" = "Transaction History";
-*/
+     */
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,14 +54,14 @@ class WalletDetailViewController: BaseTableAdapterController {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Wallet.Back"),
-                           right: #imageLiteral(resourceName: "downArrow"),
-                           title: LS("Wallet.CreateNewAsset.Title"),
-                           lAction: backAction,
-                           rAction: detailAction),
+                                right: #imageLiteral(resourceName: "downArrow"),
+                                title: store.wallet.name,
+                                lAction: backAction,
+                                rAction: detailAction),
             .empty(height: 18, background: colorProvider.settingsCellsBackround),
             .centeredImageWithUrl(url: CoinIconsUrlFormatter(name: store.wallet.asset.name,
                                                              size: .x128).url ,
-            size: CGSize(width: 120.0, height: 120.0)),
+                                  size: CGSize(width: 120.0, height: 120.0)),
             .empty(height: 20, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(20),
                            title: store.wallet.asset.name + " " + LS("Wallet.Detail.Balance"),
@@ -72,18 +82,31 @@ class WalletDetailViewController: BaseTableAdapterController {
                                     LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
-        ] + buildTransactionState
+            ] + buildTransactionState
     }
     
     private var buildTransactionState: [TableComponent] {
+        guard !store.transactions.isEmpty else { return [] }
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
-                icon: #imageLiteral(resourceName: "searchIcon"),
-                action: searchTransactionAction)]
+                             icon: UIImage(),
+                             action: searchTransactionAction)] + formattedTransactions
+    }
+    
+    private var formattedTransactions: [TableComponent] {
+        return self.store.transactions.compactMap({
+            return [.transactionDetail(icon: $0.status.iconForTxType($0.type),
+                                       title: $0.type.title ,
+                                       subtitle: $0.address,
+                                       description: $0.ammount,
+                                       action: detailAction),
+                    .separator(inset: .zero)] as [TableComponent]
+        }).joined().compactMap({ return $0 }) as [TableComponent]
     }
     
     private func loadTransactions() {
-        interactor.getTransactionsByWallet(store.wallet, result: {
-            print($0)
+        getTransactionsByWallet(store.wallet, transactions: {
+            self.store.transactions = $0
+            self.tableAdapter.simpleReload(self.state)
         })
     }
     
@@ -111,4 +134,59 @@ class WalletDetailViewController: BaseTableAdapterController {
         default: return
         }
     }
+    
+    // MARK: - Private
+    func getTransactionsByWallet(_ wallet: WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
+        switch wallet.asset {
+        case let token as Token:
+            print("\(token.name) not done!")
+        case let coin as Coin:
+            switch coin {
+            case .bitcoin:
+                interactor.getTxHistoryForBitcoinAddress(wallet.address) { (result) in
+                    switch result {
+                    case .success(let tx):
+                        transactions(self.mapTransactions(tx.items))
+                    case .failure(let error):
+                        self.showError(error)
+                    }
+                }
+            case .ethereum:
+                interactor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
+                    switch result {
+                    case .success(let tx):
+                        transactions(self.mapTransactions(tx.result))
+                    case .failure(let error):
+                        self.showError(error)
+                    }
+                }
+            default: return
+            }
+        default: return
+        }
+    }
+    
+    private func showError(_ error: EssentiaError) {
+        (inject() as LoaderInterface).showError(message: error.localizedDescription)
+    }
+    
+    private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
+        return []
+        //        return [ViewTransaction](transactions.map({
+        //            return ViewTransaction(address: $0.txid,
+        //                                   ammount: ammountFormatter.formattedAttributedAmmount(amount: $0.vin.first.),
+        //                                   status: <#TransactionStatus#>,
+        //                                   type: <#TransactionType#>)
+        //        }))
+    }
+    
+    private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
+        return  [ViewTransaction](transactions.map({
+            return ViewTransaction(address: $0.blockHash,
+                                   ammount: ammountFormatter.attributedHex(amount: $0.value),
+                                   status: $0.status,
+                                   type: $0.type(forAddress: store.wallet.address))
+        }))
+    }
+    
 }

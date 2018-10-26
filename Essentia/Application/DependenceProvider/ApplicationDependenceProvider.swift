@@ -83,13 +83,7 @@ class ApplicationDependenceProvider {
         loadLogger()
         loadTokens()
         loadWallets()
-        loadBlockchainWrapper()
         loadCurrencyConvert()
-    }
-    
-    private func loadBlockchainWrapper() {
-        let injection: BlockchainWrapperServiceInterface = BlockchainWrapperService()
-        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func loadCurrencyConvert() {

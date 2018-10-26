@@ -47,4 +47,10 @@ class AppImageProvider: AppImageProviderInterface {
     var bitcoinCashIcon: UIImage = #imageLiteral(resourceName: "bitcoinCash")
     var checkSelected: UIImage = #imageLiteral(resourceName: "walletCheckSelected")
     var checkNotSelected: UIImage = #imageLiteral(resourceName: "walletCheckNotSelected")
+    // MARK: Transaction status
+    var txStatusSend: UIImage = #imageLiteral(resourceName: "transactionSend")
+    var txStatusRecived: UIImage = #imageLiteral(resourceName: "transactionRecived")
+    var txStatusPending: UIImage = #imageLiteral(resourceName: "transactionWait")
+    var txStatusFailure: UIImage = #imageLiteral(resourceName: "transactionFailed")
+    var txStatusExchang: UIImage = #imageLiteral(resourceName: "transactionExchange")
 }

@@ -1,5 +1,5 @@
 //
-//  BlockchainWrapperService.swift
+//  WalletBlockchainWrapperInteractor.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 10/4/18.
@@ -8,33 +8,24 @@
 
 import Foundation
 import EssentiaBridgesApi
+import EssentiaNetworkCore
 import HDWalletKit
 
 fileprivate struct Constants {
     static var url = "https://b3.essentia.network"
     static var apiVersion = "/api/v1"
     static var serverUrl = url + apiVersion
-    static var ethterScanApiKey = ""
+    static var ethterScanApiKey = "IH2B5YWPTT3B19KMFYIFPMD85SQ7A12BDU"
 }
 
-class BlockchainWrapperService: BlockchainWrapperServiceInterface {
+class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterface {
     private var cryptoWallet: CryptoWallet
     
     init() {
         cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
     }
-    
-    func getBalance(for asset: AssetInterface, address: String, balance: @escaping (Double) -> Void) {
-        switch asset {
-        case let coin as Coin:
-            getBalance(for: coin, address: address, balance: balance)
-        case let token as Token:
-            getBalance(for: token, address: address, balance: balance)
-        default: return
-        }
-    }
-    
-    private func getBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
+
+    func getCoinBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
         case .bitcoin:
             cryptoWallet.bitcoin.getBalance(for: address) { (result) in
@@ -71,7 +62,7 @@ class BlockchainWrapperService: BlockchainWrapperServiceInterface {
         }
     }
     
-    private func getBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
+    func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
         let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
         guard let data = try? erc20Token.generateGetBalanceParameter(toAddress: address) else {
             return
@@ -88,5 +79,17 @@ class BlockchainWrapperService: BlockchainWrapperServiceInterface {
             default: return
             }
         }
+    }
+    
+    func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (Result<BitcoinTransactionsHistory>) -> Void) {
+        cryptoWallet.bitcoin.getTransactionsHistory(for: address, result: result)
+    }
+    
+    func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (Result<EthereumTransactionsByAddress>) -> Void) {
+        cryptoWallet.ethereum.getTxHistory(for: address, result: result)
+    }
+    
+    func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void) {
+        
     }
 }

@@ -380,7 +380,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.iconImageView.image = icon
             cell.titleLabel.text = title
             cell.subtileLabel.text = subtitle
-            cell.descriptionLabel.text = description
+            cell.descriptionLabel.attributedText = description
             return cell
         case .searchField(let title, let icon, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)

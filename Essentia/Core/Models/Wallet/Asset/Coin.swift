@@ -71,4 +71,19 @@ enum Coin: String, Codable, AssetInterface {
     static var allCases: [Coin] {
         return [.bitcoin, .ethereum, .litecoin, .bitcoinCash]
     }
+    
+    var safeConfirmationCount: Int {
+        switch self {
+        case .bitcoin:
+            return 3
+        case .ethereum:
+            return 7
+        default:
+            return 10
+        }
+    }
+    
+    func isSafeTransaction(confirmations: Int) -> Bool {
+        return safeConfirmationCount < confirmations
+    }
 }

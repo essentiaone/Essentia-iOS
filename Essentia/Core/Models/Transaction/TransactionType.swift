@@ -8,8 +8,12 @@
 
 import Foundation
 
-enum TransactionType {
+enum TransactionType: String {
     case send
     case recive
     case exchange
+    
+    var title: String {
+        return LS("Wallet.TransactionType." + rawValue )
+    }
 }

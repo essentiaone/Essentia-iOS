@@ -77,8 +77,8 @@
 		3411AEF02164DAB700AB9476 /* CoinGeckoCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */; };
 		3411AEF321650A2800AB9476 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */; };
 		3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */; };
-		3411AF062165659200AB9476 /* BlockchainWrapperService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* BlockchainWrapperService.swift */; };
-		3411AF082165659B00AB9476 /* BlockchainWrapperServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */; };
+		3411AF062165659200AB9476 /* WalletBlockchainWrapperInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */; };
+		3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -183,6 +183,7 @@
 		34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BE42152688B008A306F /* TableComponentAssetBalance.swift */; };
 		348BC792217EC8E000F494A8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC791217EC8E000F494A8 /* UIView+Animation.swift */; };
 		348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */; };
+		34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
@@ -348,8 +349,8 @@
 		3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoCurrencyModel.swift; sourceTree = "<group>"; };
 		3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
-		3411AF052165659200AB9476 /* BlockchainWrapperService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainWrapperService.swift; sourceTree = "<group>"; };
-		3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockchainWrapperServiceInterface.swift; sourceTree = "<group>"; };
+		3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractor.swift; sourceTree = "<group>"; };
+		3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractorInterface.swift; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
@@ -454,6 +455,7 @@
 		34737BE42152688B008A306F /* TableComponentAssetBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAssetBalance.swift; sourceTree = "<group>"; };
 		348BC791217EC8E000F494A8 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
+		34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -916,6 +918,7 @@
 		3401AFD521032F15006DEF49 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				34997795218312D800D85A82 /* RemoteExtensions */,
 				348BC790217EC8BF00F494A8 /* UIView */,
 				3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */,
 				3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */,
@@ -1030,13 +1033,13 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		3411AF042165655900AB9476 /* BlockchainWrapperService */ = {
+		3411AF042165655900AB9476 /* WalletBlockchainWrapperInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				3411AF052165659200AB9476 /* BlockchainWrapperService.swift */,
-				3411AF072165659B00AB9476 /* BlockchainWrapperServiceInterface.swift */,
+				3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */,
+				3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */,
 			);
-			path = BlockchainWrapperService;
+			path = WalletBlockchainWrapperInteractor;
 			sourceTree = "<group>";
 		};
 		3411AF0B2166593F00AB9476 /* AssetsRanks */ = {
@@ -1091,6 +1094,15 @@
 				3438C776218098CB0087A3BB /* TransactionStatus.swift */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		3438C77A2180E85A0087A3BB /* WalletInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				344958D22141225700C2230B /* WalletInteractor.swift */,
+				344958D02141224700C2230B /* WalletInteractorInterface.swift */,
+			);
+			path = WalletInteractor;
 			sourceTree = "<group>";
 		};
 		3440C3292173BCC600A58465 /* CustomSegment */ = {
@@ -1395,8 +1407,8 @@
 		344958CD21411FE900C2230B /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				344958D02141224700C2230B /* WalletInteractorInterface.swift */,
-				344958D22141225700C2230B /* WalletInteractor.swift */,
+				3411AF042165655900AB9476 /* WalletBlockchainWrapperInteractor */,
+				3438C77A2180E85A0087A3BB /* WalletInteractor */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1585,6 +1597,14 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		34997795218312D800D85A82 /* RemoteExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */,
+			);
+			path = RemoteExtensions;
+			sourceTree = "<group>";
+		};
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1631,7 +1651,6 @@
 		349AA4AF21242C4C00E9256F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3411AF042165655900AB9476 /* BlockchainWrapperService */,
 				3411AEE821642F6500AB9476 /* CurrencyConverterService */,
 				34737BCA214FAEA3008A306F /* WalletService */,
 				34737BC3214EACE5008A306F /* TokensService */,
@@ -2110,7 +2129,7 @@
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
-				3411AF082165659B00AB9476 /* BlockchainWrapperServiceInterface.swift in Sources */,
+				3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
 				34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */,
 				344958EE2141CC3000C2230B /* WalletMainViewController.swift in Sources */,
@@ -2118,7 +2137,7 @@
 				34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */,
 				349BC05921466591003AC330 /* Coin.swift in Sources */,
 				34737BCE214FAEBE008A306F /* WalletService.swift in Sources */,
-				3411AF062165659200AB9476 /* BlockchainWrapperService.swift in Sources */,
+				3411AF062165659200AB9476 /* WalletBlockchainWrapperInteractor.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
@@ -2292,6 +2311,7 @@
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
 				34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
+				34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */,
 				349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */,
 				34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */,
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,

@@ -23,6 +23,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
+    private lazy var blockchainInterator: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var store: Store = Store()
     
     private var cashCoinsState: [TableComponent]?
@@ -35,6 +36,7 @@ class WalletMainViewController: BaseTableAdapterController {
         (inject() as LoaderInterface).show()
         injectRouter()
         injectInteractor()
+        injectWalletInteractor()
         (inject() as LoaderInterface).hide()
     }
     
@@ -50,6 +52,11 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func injectInteractor() {
         let injection: WalletInteractorInterface = WalletInteractor()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func injectWalletInteractor() {
+        let injection: WalletBlockchainWrapperInteractorInterface = WalletBlockchainWrapperInteractor()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
@@ -252,16 +259,16 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadCoinBalances() {
-        self.store.generatedWallets.enumerated().forEach { (offset, wallet) in
-            interator.getBalance(for: wallet, balance: { (balance) in
-                self.store.generatedWallets[offset].lastBalance = balance
+        self.store.generatedWallets.enumerated().forEach { (arg) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+                self.store.generatedWallets[arg.offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
-        self.store.importedWallets.enumerated().forEach { (offset, wallet) in
-            interator.getBalance(for: wallet, balance: { (balance) in
-                self.store.importedWallets[offset].lastBalance = balance
-                EssentiaStore.currentUser.wallet.importedWallets[offset].lastBalance = balance
+        self.store.importedWallets.enumerated().forEach { (arg) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+                self.store.importedWallets[arg.offset].lastBalance = balance
+                EssentiaStore.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
@@ -270,7 +277,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadTokenBalances() {
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                interator.getBalance(for: indexedToken.element, balance: { (balance) in
+                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: indexedToken.element.address, balance: { (balance) in
                     self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
                     self.tableAdapter.simpleReload(self.state())
                 })
