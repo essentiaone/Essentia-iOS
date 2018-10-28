@@ -19,8 +19,8 @@ extension EthereumTransactionDetail {
         return .success
     }
     
-    func type(forAddress: Address) -> TransactionType {
-        switch forAddress {
+    func type(for: Address) -> TransactionType {
+        switch `for` {
         case to:
             return .recive
         case from:

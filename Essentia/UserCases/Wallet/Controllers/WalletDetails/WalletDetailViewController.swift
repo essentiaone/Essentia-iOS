@@ -38,7 +38,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         super.init()
         self.store.balance = wallet.balanceInCurrentCurrency
         self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: wallet.yesterdayBalanceInCurrentCurrency,
-                                                                   newestBalance: wallet.balanceInCurrentCurrency)
+                                                                        newestBalance: wallet.balanceInCurrentCurrency)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -134,7 +134,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
         self.store.balance = newCurrentBalance
         self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: yesterdayBalance,
-                                                                   newestBalance: newCurrentBalance)
+                                                                        newestBalance: newCurrentBalance)
         self.tableAdapter.simpleReload(self.state)
     }
     
@@ -199,21 +199,21 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
-        return []
-        //        return [ViewTransaction](transactions.map({
-        //            return ViewTransaction(address: $0.txid,
-        //                                   ammount: ammountFormatter.formattedAttributedAmmount(amount: $0.vin.first.),
-        //                                   status: <#TransactionStatus#>,
-        //                                   type: <#TransactionType#>)
-        //        }))
+        return [ViewTransaction](transactions.map({
+            let ammount = $0.transactionAmmount(for: self.store.wallet.address)
+            return ViewTransaction(address: $0.txid,
+                                   ammount: ammountFormatter.attributed(amount: ammount),
+                                   status: $0.status,
+                                   type: $0.type(for: store.wallet.address))
+        }))
     }
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
         return  [ViewTransaction](transactions.map({
-            return ViewTransaction(address: $0.blockHash,
+            return ViewTransaction(address: $0.hash,
                                    ammount: ammountFormatter.attributedHex(amount: $0.value),
                                    status: $0.status,
-                                   type: $0.type(forAddress: store.wallet.address))
+                                   type: $0.type(for: store.wallet.address))
         }))
     }
     

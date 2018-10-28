@@ -182,6 +182,8 @@
 		34737BE321526874008A306F /* TableComponentAssetBalance.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34737BE221526874008A306F /* TableComponentAssetBalance.xib */; };
 		34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BE42152688B008A306F /* TableComponentAssetBalance.swift */; };
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
+		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
+		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
 		348BC792217EC8E000F494A8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC791217EC8E000F494A8 /* UIView+Animation.swift */; };
 		348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */; };
 		34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */; };
@@ -455,6 +457,8 @@
 		34737BE221526874008A306F /* TableComponentAssetBalance.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAssetBalance.xib; sourceTree = "<group>"; };
 		34737BE42152688B008A306F /* TableComponentAssetBalance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAssetBalance.swift; sourceTree = "<group>"; };
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
+		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
+		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
 		348BC791217EC8E000F494A8 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
 		34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
@@ -930,6 +934,7 @@
 				344958F62142687000C2230B /* UIImage+UIColor.swift */,
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
+				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1604,6 +1609,7 @@
 			isa = PBXGroup;
 			children = (
 				34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */,
+				34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */,
 			);
 			path = RemoteExtensions;
 			sourceTree = "<group>";
@@ -2239,6 +2245,7 @@
 				349AA4AE21240ECC00E9256F /* TableComponentDescription.swift in Sources */,
 				34AC4E0121496B82001C17D8 /* TableComponentCheckImageTitle.swift in Sources */,
 				34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */,
+				34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
@@ -2262,6 +2269,7 @@
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
 				34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */,
 				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
+				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				344958EC21417CEC00C2230B /* UserEvents.swift in Sources */,
 				349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */,
