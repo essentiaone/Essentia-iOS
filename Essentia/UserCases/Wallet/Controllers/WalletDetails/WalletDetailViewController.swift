@@ -221,19 +221,26 @@ class WalletDetailViewController: BaseTableAdapterController {
     private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
         return [ViewTransaction](transactions.map({
             let ammount = $0.transactionAmmount(for: self.store.wallet.address)
-            return ViewTransaction(address: $0.txid,
+            return ViewTransaction(hash: $0.txid,
+                                   address: $0.txid,
                                    ammount: ammountFormatter.attributed(amount: ammount),
                                    status: $0.status,
-                                   type: $0.type(for: store.wallet.address))
+                                   type: $0.type(for: store.wallet.address),
+                                   date: TimeInterval($0.time))
         }))
     }
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
         return  [ViewTransaction](transactions.map({
-            return ViewTransaction(address: $0.hash,
+            let txType = $0.type(for: self.store.wallet.address)
+            let address = txType == .recive ? $0.from : $0.to
+            return ViewTransaction(
+                                   hash: $0.hash,
+                                   address: address,
                                    ammount: ammountFormatter.attributedHex(amount: $0.value),
                                    status: $0.status,
-                                   type: $0.type(for: store.wallet.address))
+                                   type: $0.type(for: store.wallet.address),
+                                   date: TimeInterval($0.timeStamp) ?? 0)
         }))
     }
     

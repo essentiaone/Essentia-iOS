@@ -9,8 +9,10 @@
 import Foundation
 
 struct ViewTransaction {
+    var hash: String
     var address: String
     var ammount: NSAttributedString
     var status: TransactionStatus
     var type: TransactionType
+    var date: TimeInterval
 }
