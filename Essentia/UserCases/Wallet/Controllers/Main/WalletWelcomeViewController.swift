@@ -19,6 +19,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
         tableAdapter.reload(emptyState)
     }
     
+    // MARK: - State
     private var emptyState: [TableComponent] {
         return [
             .empty(height: 59, background: .clear),

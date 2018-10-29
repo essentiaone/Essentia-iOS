@@ -28,13 +28,14 @@ fileprivate struct Store {
 class WalletDetailViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    
+
     private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
     
     private var store: Store
     
+    // MARK: - Init
     init(wallet: ViewWalletInterface) {
         self.store = Store(wallet: wallet)
         super.init()
@@ -56,6 +57,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         loadBalance()
     }
     
+    // MARK: - State
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
@@ -90,6 +92,7 @@ class WalletDetailViewController: BaseTableAdapterController {
             ] + buildTransactionState
     }
     
+    // MARK: - State Builders
     private var buildTransactionState: [TableComponent] {
         guard !store.transactions.isEmpty else { return [] }
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
@@ -131,26 +134,7 @@ class WalletDetailViewController: BaseTableAdapterController {
                  .separator(inset: .zero)]
     }
     
-    private func formattedCurrentRank() -> NSAttributedString {
-        let formatted = NSMutableAttributedString(string: LS("Wallet.Detail.Price"),
-                                                  attributes: [NSAttributedString.Key.foregroundColor:
-                                                    colorProvider.appDefaultTextColor])
-        formatted.append(NSAttributedString(string: store.currentRank,
-                                            attributes: [NSAttributedString.Key.foregroundColor:
-                                                colorProvider.appTitleColor]))
-        formatted.addAttributes([NSAttributedString.Key.font: AppFont.medium.withSize(17)],
-                                range: .init(location: 0, length: formatted.length))
-        return formatted
-    }
-    
-    private func loadTransactions() {
-        getTransactionsByWallet(store.wallet, transactions: {
-            self.store.transactions = $0
-            self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
-            self.tableAdapter.simpleReload(self.state)
-        })
-    }
-    
+    // MARK: - Network
     private func loadBalance() {
         let wallet = self.store.wallet
         let address = wallet.address
@@ -181,32 +165,6 @@ class WalletDetailViewController: BaseTableAdapterController {
         self.tableAdapter.simpleReload(self.state)
     }
     
-    // MARK: - Actions
-    private lazy var backAction: () -> Void = {
-        (inject() as WalletRouterInterface).pop()
-    }
-    
-    private lazy var detailAction: () -> Void = {
-        
-    }
-    
-    private lazy var searchTransactionAction: () -> Void = {
-        
-    }
-    
-    private lazy var walletOperationAtIndex: (Int) -> Void = {
-        switch $0 {
-        case 0:
-            print("Show send")
-        case 1:
-            print("Show exchange")
-        case 2:
-            print("Show recive")
-        default: return
-        }
-    }
-    
-    // MARK: - Private
     func getTransactionsByWallet(_ wallet: WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
         switch wallet.asset {
         case let token as Token:
@@ -236,7 +194,32 @@ class WalletDetailViewController: BaseTableAdapterController {
         default: return
         }
     }
+    // MARK: - Actions
+    private lazy var backAction: () -> Void = {
+        (inject() as WalletRouterInterface).pop()
+    }
     
+    private lazy var detailAction: () -> Void = {
+        
+    }
+    
+    private lazy var searchTransactionAction: () -> Void = {
+        
+    }
+    
+    private lazy var walletOperationAtIndex: (Int) -> Void = {
+        switch $0 {
+        case 0:
+            print("Show send")
+        case 1:
+            print("Show exchange")
+        case 2:
+            print("Show recive")
+        default: return
+        }
+    }
+    
+    // MARK: - Private
     private func showError(_ error: EssentiaError) {
         (inject() as LoaderInterface).showError(message: error.localizedDescription)
     }
@@ -265,6 +248,26 @@ class WalletDetailViewController: BaseTableAdapterController {
                 type: $0.type(for: store.wallet.address),
                 date: TimeInterval($0.timeStamp) ?? 0)
         }))
+    }
+    
+    private func formattedCurrentRank() -> NSAttributedString {
+        let formatted = NSMutableAttributedString(string: LS("Wallet.Detail.Price"),
+                                                  attributes: [NSAttributedString.Key.foregroundColor:
+                                                    colorProvider.appDefaultTextColor])
+        formatted.append(NSAttributedString(string: store.currentRank,
+                                            attributes: [NSAttributedString.Key.foregroundColor:
+                                                colorProvider.appTitleColor]))
+        formatted.addAttributes([NSAttributedString.Key.font: AppFont.medium.withSize(17)],
+                                range: .init(location: 0, length: formatted.length))
+        return formatted
+    }
+    
+    private func loadTransactions() {
+        getTransactionsByWallet(store.wallet, transactions: {
+            self.store.transactions = $0
+            self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
+            self.tableAdapter.simpleReload(self.state)
+        })
     }
     
     private func formattedBalance(_ balance: Double) -> String {

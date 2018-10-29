@@ -29,8 +29,8 @@ class WalletMainViewController: BaseTableAdapterController {
     private var cashCoinsState: [TableComponent]?
     private var cashTokensState: [TableComponent]?
     private var cashNonEmptyStaticState: [TableComponent]?
-    // MARK: - Lifecycle
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         (inject() as LoaderInterface).show()
@@ -50,6 +50,7 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.tableHeight = tableView.frame.height
     }
     
+    // MARK: - Dependences
     private func injectInteractor() {
         let injection: WalletInteractorInterface = WalletInteractor()
         prepareInjection(injection, memoryPolicy: .viewController)
@@ -66,24 +67,7 @@ class WalletMainViewController: BaseTableAdapterController {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    private func cashState() {
-        cashCoinsState = coinsState()
-        cashTokensState = tokensState()
-        cashNonEmptyStaticState = nonEmptyStaticState()
-    }
-    
-    private func clearCash() {
-        cashCoinsState = nil
-        cashTokensState = nil
-        cashNonEmptyStaticState = nil
-    }
-    
-    private func loadData() {
-        self.store.generatedWallets = interator.getGeneratedWallets()
-        self.store.importedWallets = interator.getImportedWallets()
-        self.store.tokens = interator.getTokensByWalleets()
-    }
-    
+    // MARK: - State
     private func state() -> [TableComponent] {
         if EssentiaStore.currentUser.wallet.isEmpty {
             return emptyState()
@@ -167,6 +151,7 @@ class WalletMainViewController: BaseTableAdapterController {
         return coinsTypesState
     }
     
+    // MARK: - State builders
     func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
         guard !wallets.isEmpty else { return [] }
         var sectionState: [TableComponent] = []
@@ -196,6 +181,25 @@ class WalletMainViewController: BaseTableAdapterController {
         return assetState
     }
     
+    // MARK: - Cash
+    private func cashState() {
+        cashCoinsState = coinsState()
+        cashTokensState = tokensState()
+        cashNonEmptyStaticState = nonEmptyStaticState()
+    }
+    
+    private func clearCash() {
+        cashCoinsState = nil
+        cashTokensState = nil
+        cashNonEmptyStaticState = nil
+    }
+    
+    private func loadData() {
+        self.store.generatedWallets = interator.getGeneratedWallets()
+        self.store.importedWallets = interator.getImportedWallets()
+        self.store.tokens = interator.getTokensByWalleets()
+    }
+    
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = {
         (inject() as LoaderInterface).show()
@@ -220,7 +224,6 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - Private
-    
     private func hardReload() {
         reloaddAllComponents()
         (inject() as CurrencyRankDaemonInterface).update { [weak self] in
