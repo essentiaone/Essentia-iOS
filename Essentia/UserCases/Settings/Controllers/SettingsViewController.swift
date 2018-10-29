@@ -81,7 +81,7 @@ class SettingsViewController: BaseTableAdapterController {
              .menuTitleDetail(icon: imageProvider.feedbackIcon,
                               title: LS("Settings.Feedback"),
                               detail: "",
-                              action: languageAction),
+                              action: feedbackAction),
              .separator(inset: Constants.separatorInset),
              .empty(height: 16, background: colorProvider.settingsBackgroud),
              .menuButton(title: LS("Settings.Switch"),
@@ -145,5 +145,9 @@ class SettingsViewController: BaseTableAdapterController {
     
     private lazy var editCurrentAccountAction: () -> Void = {
         (inject() as SettingsRouterInterface).show(.accountName)
+    }
+    
+    private lazy var feedbackAction: () -> Void = {
+        
     }
 }

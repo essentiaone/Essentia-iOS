@@ -29,8 +29,9 @@ extension BitcoinTransactionValue {
     func transactionAmmount(for address: String) -> Double? {
         switch type(for: address) {
         case .send:
-            let input = vin.first { $0.addr == address }
-            return input?.value
+            let input = vin.first { $0.addr == address }?.value ?? 0
+            let myOutputs = vout.first { $0.scriptPubKey.addresses.first == address }?.value ?? "0"
+            return input - (Double(myOutputs) ?? 0)
         case .recive:
             let output = vout.first { out in
                 return out.scriptPubKey.addresses.contains(where: { $0 == address })
