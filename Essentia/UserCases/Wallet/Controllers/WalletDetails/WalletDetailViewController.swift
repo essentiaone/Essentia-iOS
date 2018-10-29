@@ -17,6 +17,7 @@ fileprivate struct Store {
     var ethereumTransactions: [EthereumTransactionDetail] = []
     var balance: Double = 0
     var balanceChanging: Double = 0
+    var currentRank: String = ""
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
@@ -52,6 +53,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadRank()
         tableAdapter.reload(state)
         loadTransactions()
         loadBalance()
@@ -79,9 +81,10 @@ class WalletDetailViewController: BaseTableAdapterController {
                            background: colorProvider.settingsCellsBackround),
             .separator(inset: .init(top: 0, left: 61.0, bottom: 0, right: 61.0)),
             .empty(height: 7, background: colorProvider.settingsCellsBackround),
-            .balanceChanging(balanceChanged: formateBalanceChanging(store.balanceChanging) ,
+            .balanceChangingWithRank(rank: store.currentRank,
+                                     balanceChanged: formateBalanceChanging(store.balanceChanging) ,
                              perTime: "(24h)",
-                             action: {}),
+                             action: updateAction),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
                                     LS("Wallet.Detail.Exchange"),
@@ -130,6 +133,14 @@ class WalletDetailViewController: BaseTableAdapterController {
         }
     }
     
+    private func loadRank() {
+        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset)
+        let currentCurrency = EssentiaStore.currentUser.profile.currency
+        let formatter = BalanceFormatter(currency: currentCurrency)
+        let formattedRank = formatter.formattedAmmount(amount: rank)
+        store.currentRank = formattedRank
+    }
+    
     private lazy var balanceChanged: (Double) -> Void = {
         let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset) ?? 0
         let newCurrentBalance = $0 * rank
@@ -143,6 +154,10 @@ class WalletDetailViewController: BaseTableAdapterController {
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
         (inject() as WalletRouterInterface).pop()
+    }
+    
+    private lazy var updateAction: () -> Void = {
+        
     }
     
     private lazy var detailAction: () -> Void = {

@@ -52,7 +52,7 @@ enum TableComponent: Equatable {
     case centeredImageWithUrl(url: URL, size: CGSize)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
-    case balanceChangingWithRank(balanceChanged: String, perTime:String, action: () -> Void)
+    case balanceChangingWithRank(rank: String, balanceChanged: String, perTime:String, action: () -> Void)
     case balanceChanging(balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)

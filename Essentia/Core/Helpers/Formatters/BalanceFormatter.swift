@@ -23,7 +23,7 @@ final class BalanceFormatter {
     convenience init(currency: Currency) {
         self.init()
         balanceFormatter.currencySymbol = currency.symbol
-        balanceFormatter.minimumSignificantDigits = 1
+        balanceFormatter.maximumFractionDigits = 2
     }
     
     convenience init(asset: AssetInterface) {
