@@ -13,6 +13,7 @@ import EssentiaBridgesApi
 fileprivate struct Store {
     var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
+    var transactionsByDate: [String: [ViewTransaction]] = [:]
     var bitcoinTransactions: [BitcoinTransactionValue] = []
     var ethereumTransactions: [EthereumTransactionDetail] = []
     var balance: Double = 0
@@ -97,16 +98,37 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private var formattedTransactions: [TableComponent] {
-        return self.store.transactions.compactMap({ tx in
-            return [.transactionDetail(icon: tx.status.iconForTxType(tx.type),
-                                       title: tx.type.title ,
-                                       subtitle: tx.address,
-                                       description: tx.ammount,
-                                       action: {
-                                        (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset, txId: tx.address))
-            }),
-                    .separator(inset: .zero)] as [TableComponent]
-        }).joined().compactMap({ return $0 }) as [TableComponent]
+        return self.store.transactionsByDate.map { (transactionByDate) -> [TableComponent]  in
+            return formattedDateSection(date: transactionByDate.key) +
+                   formattedTransactionsSection(transactionByDate.value)
+        }.reduce([], + )
+    }
+    
+    private func formattedTransactionsSection(_ transactions: [ViewTransaction]) -> [TableComponent] {
+        return transactions.map {
+            return formattedTransaction($0)
+        }.reduce([], + )
+    }
+    
+    private func formattedDateSection(date: String) -> [TableComponent] {
+        return [.empty(height: 10, background: colorProvider.settingsBackgroud),
+                .descriptionWithSize(aligment: .left,
+                                     fontSize: 14,
+                                     title: date,
+                                     background: colorProvider.settingsBackgroud),
+                .empty(height: 10, background: colorProvider.settingsBackgroud)]
+    }
+    
+    private func formattedTransaction(_ tx: ViewTransaction) -> [TableComponent] {
+        return [.transactionDetail(icon: tx.status.iconForTxType(tx.type),
+                                                       title: tx.type.title ,
+                                                       subtitle: tx.address,
+                                                       description: tx.ammount,
+                                                       action: {
+                                                            (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
+                                                                                                                        txId: tx.address))
+                                                       }),
+                 .separator(inset: .zero)]
     }
     
     private func formattedCurrentRank() -> NSAttributedString {
@@ -124,6 +146,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     private func loadTransactions() {
         getTransactionsByWallet(store.wallet, transactions: {
             self.store.transactions = $0
+            self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
             self.tableAdapter.simpleReload(self.state)
         })
     }
@@ -235,12 +258,12 @@ class WalletDetailViewController: BaseTableAdapterController {
             let txType = $0.type(for: self.store.wallet.address)
             let address = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
-                                   hash: $0.hash,
-                                   address: address,
-                                   ammount: ammountFormatter.attributedHex(amount: $0.value),
-                                   status: $0.status,
-                                   type: $0.type(for: store.wallet.address),
-                                   date: TimeInterval($0.timeStamp) ?? 0)
+                hash: $0.hash,
+                address: address,
+                ammount: ammountFormatter.attributedHex(amount: $0.value),
+                status: $0.status,
+                type: $0.type(for: store.wallet.address),
+                date: TimeInterval($0.timeStamp) ?? 0)
         }))
     }
     
