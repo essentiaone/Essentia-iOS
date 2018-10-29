@@ -47,10 +47,6 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
-    /*
-     "Wallet.Detail.Price" = "Price";
-     */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadRank()
@@ -81,10 +77,9 @@ class WalletDetailViewController: BaseTableAdapterController {
                            background: colorProvider.settingsCellsBackround),
             .separator(inset: .init(top: 0, left: 61.0, bottom: 0, right: 61.0)),
             .empty(height: 7, background: colorProvider.settingsCellsBackround),
-            .balanceChangingWithRank(rank: store.currentRank,
+            .balanceChangingWithRank(rank: formattedCurrentRank(),
                                      balanceChanged: formateBalanceChanging(store.balanceChanging) ,
-                             perTime: "(24h)",
-                             action: updateAction),
+                                     perTime: "(24h)"),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
                                     LS("Wallet.Detail.Exchange"),
@@ -108,10 +103,22 @@ class WalletDetailViewController: BaseTableAdapterController {
                                        subtitle: tx.address,
                                        description: tx.ammount,
                                        action: {
-                (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset, txId: tx.address))
+                                        (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset, txId: tx.address))
             }),
                     .separator(inset: .zero)] as [TableComponent]
         }).joined().compactMap({ return $0 }) as [TableComponent]
+    }
+    
+    private func formattedCurrentRank() -> NSAttributedString {
+        let formatted = NSMutableAttributedString(string: LS("Wallet.Detail.Price"),
+                                                  attributes: [NSAttributedString.Key.foregroundColor:
+                                                    colorProvider.appDefaultTextColor])
+        formatted.append(NSAttributedString(string: store.currentRank,
+                                            attributes: [NSAttributedString.Key.foregroundColor:
+                                                colorProvider.appTitleColor]))
+        formatted.addAttributes([NSAttributedString.Key.font: AppFont.medium.withSize(17)],
+                                range: .init(location: 0, length: formatted.length))
+        return formatted
     }
     
     private func loadTransactions() {
@@ -154,10 +161,6 @@ class WalletDetailViewController: BaseTableAdapterController {
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
         (inject() as WalletRouterInterface).pop()
-    }
-    
-    private lazy var updateAction: () -> Void = {
-        
     }
     
     private lazy var detailAction: () -> Void = {

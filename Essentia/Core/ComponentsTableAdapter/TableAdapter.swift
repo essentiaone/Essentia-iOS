@@ -352,12 +352,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.timeUpdateLabel.text = perTime
             cell.action = action
             return cell
-        case .balanceChangingWithRank(let rank, let balanceChanged, let perTime, let action):
+        case .balanceChangingWithRank(let rank, let balanceChanged, let perTime):
             let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
             cell.procentTitle.text = balanceChanged
             cell.timeUpdateLabel.text = perTime
-            cell.action = action
-            cell.rankLabel.text = rank
+            cell.updateButton.isHidden = true
+            cell.rankLabel.attributedText = rank
             return cell
         case .assetBalance(let imageUrl, let title, let value, let currencyValue,_):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)

@@ -211,7 +211,7 @@
 "Wallet.AddTokens.SelectRoot.Description" = "Choose wallet you want to add tokens to";
 
 "Wallet.Detail.Balance" = "Balance";
-"Wallet.Detail.Price" = "Price";
+"Wallet.Detail.Price" = "Price: ";
 "Wallet.Detail.Send" = "SEND";
 "Wallet.Detail.Exchange" = "EXCHANGE";
 "Wallet.Detail.Receive" = "RECEIVE";
