@@ -15,4 +15,10 @@ struct ViewTransaction {
     var status: TransactionStatus
     var type: TransactionType
     var date: TimeInterval
+    
+    var stringDate: String {
+        let txDate = Date(timeIntervalSince1970: date)
+        let dateFormatter = DateFormatter(formate: DateFormat.dayMonth)
+        return dateFormatter.string(from: txDate)
+    }
 }
