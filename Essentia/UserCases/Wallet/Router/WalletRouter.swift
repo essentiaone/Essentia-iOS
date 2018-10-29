@@ -31,6 +31,24 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: SelectWalletPopUp(wallets: wallets, didSelect: action))
         case .walletDetail(let wallet):
             push(vc: WalletDetailViewController(wallet: wallet))
+        case .transactionDetail(let asset, let txId):
+            var url: URL? = nil
+            switch asset {
+            case let coin as Coin:
+                switch coin {
+                case .bitcoin:
+                    url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
+                case .ethereum:
+                    url = URL(string: "https://etherscan.io/tx/" + txId)
+                default: return
+                }
+            case is Token:
+                url = URL(string: "https://etherscan.io/tx/" + txId)
+            default: return
+            }
+            if url != nil {
+                UIApplication.shared.open(url!, options: [:])
+            }
         }
     }
 }

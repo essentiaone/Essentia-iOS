@@ -99,12 +99,14 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private var formattedTransactions: [TableComponent] {
-        return self.store.transactions.compactMap({
-            return [.transactionDetail(icon: $0.status.iconForTxType($0.type),
-                                       title: $0.type.title ,
-                                       subtitle: $0.address,
-                                       description: $0.ammount,
-                                       action: detailAction),
+        return self.store.transactions.compactMap({ tx in
+            return [.transactionDetail(icon: tx.status.iconForTxType(tx.type),
+                                       title: tx.type.title ,
+                                       subtitle: tx.address,
+                                       description: tx.ammount,
+                                       action: {
+                (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset, txId: tx.address))
+            }),
                     .separator(inset: .zero)] as [TableComponent]
         }).joined().compactMap({ return $0 }) as [TableComponent]
     }
