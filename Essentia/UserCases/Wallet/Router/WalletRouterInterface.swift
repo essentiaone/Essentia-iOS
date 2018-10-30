@@ -16,7 +16,8 @@ enum WalletRoutes {
     case succesImportingAlert
     case addAsset
     case selectEtherWallet(wallets: [ViewWalletInterface], action: (ViewWalletInterface) -> Void)
-    case walletDetail(WalletInterface)
+    case walletDetail(ViewWalletInterface)
+    case transactionDetail(asset: AssetInterface, txId: String)
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

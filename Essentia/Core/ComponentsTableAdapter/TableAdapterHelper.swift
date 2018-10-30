@@ -110,7 +110,8 @@ class TableAdapterHelper {
             return 30.0
         case .search:
             return 36.0
-        case .balanceChanging:
+        case .balanceChanging: fallthrough
+        case .balanceChangingWithRank:
             return 25.0
         case .titleWithCancel:
             return 40.0

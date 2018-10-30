@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - GCD
 func main(_ closure: @escaping () -> Void) {
     DispatchQueue.main.async(execute: closure)
 }

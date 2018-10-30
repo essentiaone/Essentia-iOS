@@ -211,7 +211,7 @@
 "Wallet.AddTokens.SelectRoot.Description" = "Choose wallet you want to add tokens to";
 
 "Wallet.Detail.Balance" = "Balance";
-"Wallet.Detail.Price" = "Price";
+"Wallet.Detail.Price" = "Price: ";
 "Wallet.Detail.Send" = "SEND";
 "Wallet.Detail.Exchange" = "EXCHANGE";
 "Wallet.Detail.Receive" = "RECEIVE";
@@ -232,3 +232,7 @@
 "Wallet.TransactionInfo.TransactionId" = "Transaction ID";
 "Wallet.TransactionInfo.GoToBlockchain" = "Go to Blockchain";
 "Wallet.TransactionInfo.Close" = "CLOSE";
+
+"Wallet.TransactionType.send" = "Send to";
+"Wallet.TransactionType.recive" = "Received from";
+"Wallet.TransactionType.exchange" = "Exchange to";

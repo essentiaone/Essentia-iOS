@@ -14,7 +14,9 @@ class TableComponentBalanceChanging: UITableViewCell, NibLoadable {
     @IBOutlet weak var procentTitle: UILabel!
     @IBOutlet weak var updateButton: UIButton!
     @IBOutlet weak var timeUpdateLabel: UILabel!
+    @IBOutlet weak var rankLabel: UILabel!
     var status: ComponentStatus = .idle
+    var action: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,12 +36,16 @@ class TableComponentBalanceChanging: UITableViewCell, NibLoadable {
     
     private func setProcentTitleColor() {
         switch procentTitle.text?.first {
-        case "0":
+        case "+":
             procentTitle.textColor = colorProvider.balanceChanged
         case "-":
             procentTitle.textColor = colorProvider.balanceChangedMinus
         default:
             procentTitle.textColor = colorProvider.balanceChangedPlus
         }
+    }
+
+    @IBAction func updateAction(_ sender: Any) {
+        action?()
     }
 }

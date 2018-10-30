@@ -52,14 +52,15 @@ enum TableComponent: Equatable {
     case centeredImageWithUrl(url: URL, size: CGSize)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
-    case balanceChanging(status: ComponentStatus, balanceChanged: String, perTime:String, action: () -> Void)
+    case balanceChangingWithRank(rank: NSAttributedString, balanceChanged: String, perTime:String)
+    case balanceChanging(balanceChanged: String, perTime:String, action: () -> Void)
     case assetBalance(imageUrl: URL, title: String, value: String, currencyValue: String, action: () -> Void)
     case titleSubtitleDescription(title: String, subtile: String, description: String, action: () -> Void)
     case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case filledSegment(titles: [String], action: (Int) -> Void)
     // MARK: - Wallet detail
-    case transactionDetail(icon: UIImage, title: String, subtitle: String, description: String, action: () -> Void)
+    case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
     case searchField(title: String, icon: UIImage, action: () -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)

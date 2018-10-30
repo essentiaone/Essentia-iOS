@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,37 +19,58 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6cy-Br-oUl">
-                        <rect key="frame" x="187.5" y="21.5" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ja-EO-L46">
-                        <rect key="frame" x="147.5" y="6" width="30" height="30"/>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQ6-2Y-YHw">
-                        <rect key="frame" x="192.5" y="22.5" width="0.0" height="0.0"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1c7-U4-eiA">
+                        <rect key="frame" x="91.5" y="0.0" width="192" height="50.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HCj-Zd-QZN">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDT-kt-nNf">
+                                <rect key="frame" x="54" y="0.0" width="30" height="50.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Qgt-WC-ycD"/>
+                                    <constraint firstAttribute="width" constant="30" id="TH5-lD-AAe"/>
+                                </constraints>
+                                <state key="normal" image="loading"/>
+                                <connections>
+                                    <action selector="updateAction:" destination="KhF-OO-3Q4" eventType="touchUpInside" id="LPa-ms-fRD"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VnL-O5-73e">
+                                <rect key="frame" x="88" y="0.0" width="50" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I94-iY-ao6">
+                                <rect key="frame" x="142" y="0.0" width="50" height="50.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="SgM-4g-TwX"/>
+                    </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="6cy-Br-oUl" firstAttribute="centerX" secondItem="buu-QO-7Kf" secondAttribute="centerX" id="0df-KE-EXg"/>
-                    <constraint firstItem="cQ6-2Y-YHw" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="7tA-Gu-Q2g"/>
-                    <constraint firstItem="cQ6-2Y-YHw" firstAttribute="leading" secondItem="6cy-Br-oUl" secondAttribute="trailing" constant="5" id="8l6-HM-zfy"/>
-                    <constraint firstItem="6cy-Br-oUl" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="A9x-6n-YOp"/>
-                    <constraint firstItem="6cy-Br-oUl" firstAttribute="leading" secondItem="8Ja-EO-L46" secondAttribute="trailing" constant="10" id="Hoj-oN-Icq"/>
-                    <constraint firstItem="8Ja-EO-L46" firstAttribute="centerY" secondItem="buu-QO-7Kf" secondAttribute="centerY" id="LyO-fg-CI7"/>
+                    <constraint firstItem="1c7-U4-eiA" firstAttribute="top" secondItem="buu-QO-7Kf" secondAttribute="top" id="78l-3n-o2b"/>
+                    <constraint firstItem="1c7-U4-eiA" firstAttribute="centerX" secondItem="buu-QO-7Kf" secondAttribute="centerX" id="E0F-Ww-ERm"/>
+                    <constraint firstAttribute="bottom" secondItem="1c7-U4-eiA" secondAttribute="bottom" id="hBE-am-c1s"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="procentTitle" destination="6cy-Br-oUl" id="EYN-rG-Mmk"/>
-                <outlet property="timeUpdateLabel" destination="cQ6-2Y-YHw" id="Ebd-9e-rfk"/>
-                <outlet property="updateButton" destination="8Ja-EO-L46" id="tcO-qq-fMW"/>
+                <outlet property="procentTitle" destination="VnL-O5-73e" id="K3b-VD-r1O"/>
+                <outlet property="rankLabel" destination="HCj-Zd-QZN" id="V6S-HS-yDq"/>
+                <outlet property="timeUpdateLabel" destination="I94-iY-ao6" id="Jxc-n7-GlE"/>
+                <outlet property="updateButton" destination="sDT-kt-nNf" id="9Iw-AD-Dnu"/>
             </connections>
-            <point key="canvasLocation" x="173" y="-44"/>
+            <point key="canvasLocation" x="172" y="-44.07796101949026"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="loading" width="12" height="12"/>
+    </resources>
 </document>

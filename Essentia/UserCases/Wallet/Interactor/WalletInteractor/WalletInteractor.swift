@@ -12,7 +12,6 @@ import PromiseKit
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
     private lazy var tokenService: TokensServiceInterface = inject()
-    private lazy var blockchainWrapper: BlockchainWrapperServiceInterface = inject()
     
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
         let importdAssets = EssentiaStore.currentUser.wallet.importedWallets
@@ -22,8 +21,8 @@ class WalletInteractor: WalletInteractorInterface {
         return !alreadyContainWallet
     }
     
-    func getCoinsList() -> [AssetInterface] {
-        return Coin.allCases
+    func getCoinsList() -> [Coin] {
+        return [Coin.bitcoin, Coin.ethereum]
     }
     
     func getTokensList(result: @escaping ([AssetInterface]) -> Void) {
@@ -84,15 +83,7 @@ class WalletInteractor: WalletInteractorInterface {
         return tokensByWallets
     }
     
-    func getBalance(for wallet: WalletInterface, balance: @escaping (Double) -> Void) {
-        blockchainWrapper.getBalance(for: wallet.asset, address: wallet.address, balance: balance)
-    }
-    
-    func getBalance(for token: TokenWallet, balance: @escaping (Double) -> Void) {
-        blockchainWrapper.getBalance(for: token.token, address: token.address, balance: balance)
-    }
-    
-    func getBalanceInCurrentCurrency() -> Double {
+    func getTotalBalanceInCurrentCurrency() -> Double {
         var currentBalance: Double = 0
         allViewWallets.forEach { (wallet) in
             currentBalance += wallet.balanceInCurrentCurrency
@@ -100,7 +91,7 @@ class WalletInteractor: WalletInteractorInterface {
         return currentBalance
     }
     
-    func getYesterdayBalanceInCurrentCurrency() -> Double {
+    func getYesterdayTotalBalanceInCurrentCurrency() -> Double {
         var currentBalance: Double = 0
         allViewWallets.forEach { (wallet) in
             currentBalance += wallet.yesterdayBalanceInCurrentCurrency
@@ -128,19 +119,18 @@ class WalletInteractor: WalletInteractorInterface {
     
     func getBalanceChangePer24Hours(result: @escaping (Double) -> Void) {
         DispatchQueue.global().async {
-            let yesterdayBalance = self.getYesterdayBalanceInCurrentCurrency()
-            let dif = self.getBalanceInCurrentCurrency() - yesterdayBalance
-            guard yesterdayBalance != 0 else { return }
+            let yesterdayBalance = self.getYesterdayTotalBalanceInCurrentCurrency()
+            let todayBalance = self.getTotalBalanceInCurrentCurrency()
+            let balanceChange = self.getBalanceChanging(olderBalance: yesterdayBalance, newestBalance: todayBalance)
             DispatchQueue.main.async {
-                result(dif / yesterdayBalance)
+                result(balanceChange)
             }
         }
     }
     
-    func transformViewWallet(from viewWallet: ViewWalletInterface) -> WalletInterface? {
-        return allWallets.first { (wallet) -> Bool in
-            return viewWallet.address == wallet.address &&
-                   viewWallet.asset.name == wallet.asset.name
-        }
+    func getBalanceChanging(olderBalance: Double, newestBalance: Double) -> Double {
+        let dif = newestBalance - olderBalance
+        guard olderBalance != 0 else { return 0 }
+        return dif / olderBalance
     }
 }

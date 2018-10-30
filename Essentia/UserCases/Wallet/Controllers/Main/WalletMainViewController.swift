@@ -23,18 +23,20 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
+    private lazy var blockchainInterator: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var store: Store = Store()
     
     private var cashCoinsState: [TableComponent]?
     private var cashTokensState: [TableComponent]?
     private var cashNonEmptyStaticState: [TableComponent]?
-    // MARK: - Lifecycle
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         (inject() as LoaderInterface).show()
         injectRouter()
         injectInteractor()
+        injectWalletInteractor()
         (inject() as LoaderInterface).hide()
     }
     
@@ -48,8 +50,14 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.tableHeight = tableView.frame.height
     }
     
+    // MARK: - Dependences
     private func injectInteractor() {
         let injection: WalletInteractorInterface = WalletInteractor()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func injectWalletInteractor() {
+        let injection: WalletBlockchainWrapperInteractorInterface = WalletBlockchainWrapperInteractor()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
@@ -59,24 +67,7 @@ class WalletMainViewController: BaseTableAdapterController {
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     
-    private func cashState() {
-        cashCoinsState = coinsState()
-        cashTokensState = tokensState()
-        cashNonEmptyStaticState = nonEmptyStaticState()
-    }
-    
-    private func clearCash() {
-        cashCoinsState = nil
-        cashTokensState = nil
-        cashNonEmptyStaticState = nil
-    }
-    
-    private func loadData() {
-        self.store.generatedWallets = interator.getGeneratedWallets()
-        self.store.importedWallets = interator.getImportedWallets()
-        self.store.tokens = interator.getTokensByWalleets()
-    }
-    
+    // MARK: - State
     private func state() -> [TableComponent] {
         if EssentiaStore.currentUser.wallet.isEmpty {
             return emptyState()
@@ -92,6 +83,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
+        let procents = ProcentsFormatter.formattedChangePer24Hours(store.balanceChangedPer24Hours)
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .rightNavigationButton(title: LS("Wallet.Title"),
@@ -102,10 +94,9 @@ class WalletMainViewController: BaseTableAdapterController {
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(32),
-                           title: formattedBalance(interator.getBalanceInCurrentCurrency()),
+                           title: formattedBalance(interator.getTotalBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround),
-            .balanceChanging(status: .idle,
-                             balanceChanged: formattedChangePer24Hours(store.balanceChangedPer24Hours) ,
+            .balanceChanging(balanceChanged: procents,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -160,6 +151,7 @@ class WalletMainViewController: BaseTableAdapterController {
         return coinsTypesState
     }
     
+    // MARK: - State builders
     func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
         guard !wallets.isEmpty else { return [] }
         var sectionState: [TableComponent] = []
@@ -189,6 +181,25 @@ class WalletMainViewController: BaseTableAdapterController {
         return assetState
     }
     
+    // MARK: - Cash
+    private func cashState() {
+        cashCoinsState = coinsState()
+        cashTokensState = tokensState()
+        cashNonEmptyStaticState = nonEmptyStaticState()
+    }
+    
+    private func clearCash() {
+        cashCoinsState = nil
+        cashTokensState = nil
+        cashNonEmptyStaticState = nil
+    }
+    
+    private func loadData() {
+        self.store.generatedWallets = interator.getGeneratedWallets()
+        self.store.importedWallets = interator.getImportedWallets()
+        self.store.tokens = interator.getTokensByWalleets()
+    }
+    
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = {
         (inject() as LoaderInterface).show()
@@ -209,12 +220,10 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
-        guard let walletInfo = interator.transformViewWallet(from: wallet) else { return }
-        (inject() as WalletRouterInterface).show(.walletDetail(walletInfo))
+        (inject() as WalletRouterInterface).show(.walletDetail(wallet))
     }
     
     // MARK: - Private
-    
     private func hardReload() {
         reloaddAllComponents()
         (inject() as CurrencyRankDaemonInterface).update { [weak self] in
@@ -252,16 +261,16 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadCoinBalances() {
-        self.store.generatedWallets.enumerated().forEach { (offset, wallet) in
-            interator.getBalance(for: wallet, balance: { (balance) in
-                self.store.generatedWallets[offset].lastBalance = balance
+        self.store.generatedWallets.enumerated().forEach { (arg) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+                self.store.generatedWallets[arg.offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
-        self.store.importedWallets.enumerated().forEach { (offset, wallet) in
-            interator.getBalance(for: wallet, balance: { (balance) in
-                self.store.importedWallets[offset].lastBalance = balance
-                EssentiaStore.currentUser.wallet.importedWallets[offset].lastBalance = balance
+        self.store.importedWallets.enumerated().forEach { (arg) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+                self.store.importedWallets[arg.offset].lastBalance = balance
+                EssentiaStore.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
@@ -270,7 +279,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadTokenBalances() {
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                interator.getBalance(for: indexedToken.element, balance: { (balance) in
+                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: indexedToken.element.address, balance: { (balance) in
                     self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
                     self.tableAdapter.simpleReload(self.state())
                 })
@@ -281,15 +290,5 @@ class WalletMainViewController: BaseTableAdapterController {
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
         return formatter.formattedAmmount(amount: balance)
-    }
-    
-    private func formattedChangePer24Hours(_ procents: Double) -> String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.decimalSeparator = "."
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 2
-        formatter.allowsFloats = true
-        return formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
     }
 }

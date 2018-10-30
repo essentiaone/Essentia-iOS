@@ -47,4 +47,10 @@ protocol AppImageProviderInterface {
     var bitcoinCashIcon: UIImage { get }
     var checkSelected: UIImage { get }
     var checkNotSelected: UIImage { get }
+    // MARK: Transaction status
+    var txStatusSend: UIImage { get }
+    var txStatusRecived: UIImage { get }
+    var txStatusPending: UIImage { get }
+    var txStatusFailure: UIImage { get }
+    var txStatusExchang: UIImage { get }
 }

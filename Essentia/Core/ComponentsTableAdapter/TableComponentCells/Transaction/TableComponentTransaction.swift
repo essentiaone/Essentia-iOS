@@ -23,9 +23,10 @@ class TableComponentTransaction: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         titleLabel.font = AppFont.regular.withSize(14)
-        subtileLabel.font = AppFont.regular.withSize(14)
+        subtileLabel.font = AppFont.bold.withSize(14)
         descriptionLabel.font = AppFont.regular.withSize(15)
         
+        subtileLabel.lineBreakMode = .byTruncatingMiddle
         titleLabel.textColor = colorProvider.settingsMenuSubtitle
         subtileLabel.textColor = colorProvider.settingsMenuTitle
     }

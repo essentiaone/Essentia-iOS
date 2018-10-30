@@ -346,11 +346,18 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.searchBar.findView(type: UITextField.self)?.backgroundColor = backgroud
             cell.textChangedAction = didChangeString
             return cell
-        case .balanceChanging(let status, let balanceChanged, let perTime, _):
+        case .balanceChanging(let balanceChanged, let perTime, let action):
             let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
             cell.procentTitle.text = balanceChanged
             cell.timeUpdateLabel.text = perTime
-            cell.status = status
+            cell.action = action
+            return cell
+        case .balanceChangingWithRank(let rank, let balanceChanged, let perTime):
+            let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
+            cell.procentTitle.text = balanceChanged
+            cell.timeUpdateLabel.text = perTime
+            cell.updateButton.isHidden = true
+            cell.rankLabel.attributedText = rank
             return cell
         case .assetBalance(let imageUrl, let title, let value, let currencyValue,_):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
@@ -380,7 +387,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.iconImageView.image = icon
             cell.titleLabel.text = title
             cell.subtileLabel.text = subtitle
-            cell.descriptionLabel.text = description
+            cell.descriptionLabel.attributedText = description
             return cell
         case .searchField(let title, let icon, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
@@ -415,7 +422,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitle: fallthrough
         case .textField: fallthrough
         case .textView: fallthrough
-        case .balanceChanging: fallthrough
         case .checkImageTitle: fallthrough
         case .checkBox: fallthrough
         case .search: fallthrough
@@ -472,8 +478,6 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .assetBalance(_, _, _, _, let action):
             action()
         case .titleSubtitleDescription(_, _, _, let action):
-            action()
-        case .balanceChanging(_, _, _,let action):
             action()
         case .transactionDetail(_, _, _, _, let action):
             action()

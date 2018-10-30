@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WalletInterface: Codable {
-    var address: String { get }
     var asset: AssetInterface { get }
+    var address: String { get }
     var name: String { get }
 }
