@@ -265,6 +265,10 @@
 		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */; };
 		34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB98A2187C66F00A88D56 /* DateFormatter.swift */; };
+		34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */; };
+		34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */; };
+		34FCB99B2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB99A2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib */; };
+		34FCB99D2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -544,6 +548,10 @@
 		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
 		34FCB98A2187C66F00A88D56 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterDetail.swift; sourceTree = "<group>"; };
+		34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterDetail.xib; sourceTree = "<group>"; };
+		34FCB99A2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterTextDetail.xib; sourceTree = "<group>"; };
+		34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterTextDetail.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1319,6 +1327,8 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34FCB9962189141F00A88D56 /* TitleCenterTextDetail */,
+				34FCB9912188C11D00A88D56 /* TitleCenterDetail */,
 				34EE1F9D21795E2D00FFC570 /* Transaction */,
 				34D8060E217631FF0079A5A5 /* TitleImageButton */,
 				3440C3292173BCC600A58465 /* CustomSegment */,
@@ -1865,6 +1875,24 @@
 			path = Transaction;
 			sourceTree = "<group>";
 		};
+		34FCB9912188C11D00A88D56 /* TitleCenterDetail */ = {
+			isa = PBXGroup;
+			children = (
+				34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */,
+				34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */,
+			);
+			path = TitleCenterDetail;
+			sourceTree = "<group>";
+		};
+		34FCB9962189141F00A88D56 /* TitleCenterTextDetail */ = {
+			isa = PBXGroup;
+			children = (
+				34FCB99A2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib */,
+				34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */,
+			);
+			path = TitleCenterTextDetail;
+			sourceTree = "<group>";
+		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2005,11 +2033,13 @@
 				34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */,
+				34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3441680C212FEDEC008B8A91 /* TableComponentCheckField.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
+				34FCB99B2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
@@ -2223,6 +2253,7 @@
 				344167EF212E168A008B8A91 /* EssentiaStore.swift in Sources */,
 				344DB53B215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
+				34FCB99D2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift in Sources */,
 				344958E92141763600C2230B /* UserBackup.swift in Sources */,
 				3445D49C2167B4550014A2B0 /* CurrencyRankDemon.swift in Sources */,
 				34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */,
@@ -2275,6 +2306,7 @@
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				344958EC21417CEC00C2230B /* UserEvents.swift in Sources */,
+				34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */,
 				349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */,
 				3411AEEC21642F9D00AB9476 /* CurrencyConverterService.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
