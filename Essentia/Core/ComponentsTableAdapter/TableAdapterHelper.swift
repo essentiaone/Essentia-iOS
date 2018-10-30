@@ -119,6 +119,8 @@ class TableAdapterHelper {
             return 65.0
         case .searchField:
             return 42.0
+        case .titleAttributedDetail:
+            return 60.0
         default:
             fatalError()
         }

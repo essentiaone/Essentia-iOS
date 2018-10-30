@@ -62,9 +62,10 @@ enum TableComponent: Equatable {
     // MARK: - Wallet detail
     case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
     case searchField(title: String, icon: UIImage, action: () -> Void)
+    case titleAttributedDetail(title: String, detail: NSAttributedString)
+    case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: () -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
-
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
         return lhs.rawValue == rhs.rawValue

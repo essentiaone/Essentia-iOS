@@ -397,6 +397,18 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.cancelButton.tintColor = (inject() as AppColorInterface).centeredButtonBackgroudColor
             cell.cancelButton.setImage(icon, for: .normal)
             return cell
+        case .titleAttributedDetail(let title, let detail):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.text = title
+            cell.detailTextLabel?.attributedText = detail
+            cell.accessoryType = .none
+            return cell
+        case .attributedTitleDetail(let title, let detail, _):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.attributedText = title
+            cell.detailTextLabel?.attributedText = detail
+            cell.accessoryType = .none
+            return cell
         default:
             fatalError()
         }
@@ -427,6 +439,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .search: fallthrough
         case .titleSubtitleDescription: fallthrough
         case .imageUrlTitle: fallthrough
+        case .attributedTitleDetail: fallthrough
         case .transactionDetail: fallthrough
         case .assetBalance:
             return true
@@ -480,6 +493,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitleDescription(_, _, _, let action):
             action()
         case .transactionDetail(_, _, _, _, let action):
+            action()
+        case .attributedTitleDetail(_, _, let action):
             action()
         default:
             return
