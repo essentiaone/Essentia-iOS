@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
+class BaseViewController: UIViewController, UINavigationControllerDelegate {
     var keyboardHeight: CGFloat = 0
     var isKeyboardShown: Bool = false
     
@@ -27,8 +27,6 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        navigationController?.interactivePopGestureRecognizer?.delegate = self
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -51,9 +49,5 @@ class BaseViewController: UIViewController, UIGestureRecognizerDelegate {
         UIView.transition(with: mainwindow, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
         }) { (_) -> Void in}
     }
-    
-    // MARK: - UIGestureRecognizerDelegate
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
+
 }
