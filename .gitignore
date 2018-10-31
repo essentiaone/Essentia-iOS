@@ -18,6 +18,7 @@ Podfile.lock
 
 ## iCloud
 *.icloud
+*.DS_Store
 
 ## Fastlane
 installer/
