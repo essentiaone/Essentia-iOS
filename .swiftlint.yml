@@ -5,6 +5,7 @@ disabled_rules:
  - weak_delegate
  - line_length
  - cyclomatic_complexity
+ - large_tuple
 excluded:
   - Pods
   - fastane

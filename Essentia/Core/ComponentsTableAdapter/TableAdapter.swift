@@ -71,6 +71,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCustomSegment.self)
         tableView.register(TableComponentTitleImageButton.self)
         tableView.register(TableComponentTransaction.self)
+        tableView.register(TableComponentSlider.self)
+        tableView.register(TableComponentTitleCenterDetail.self)
+        tableView.register(TableComponentTitleCenterTextDetail.self)
     }
     
     // MARK: - Update State
@@ -408,6 +411,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textLabel?.attributedText = title
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
+            return cell
+        case .slider(let titles, let selected, let didChange):
+            let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
+            cell.leftTitleLabel.text = titles.0
+            cell.centerTitleLabel.text = titles.1
+            cell.rightTitleLabel.text = titles.2
+            cell.slider.value = selected
+            cell.newSliderAction = didChange
             return cell
         default:
             fatalError()

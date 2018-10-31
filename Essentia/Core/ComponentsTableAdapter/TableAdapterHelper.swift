@@ -121,6 +121,8 @@ class TableAdapterHelper {
             return 42.0
         case .titleAttributedDetail:
             return 60.0
+        case .slider:
+            return 70.0
         default:
             fatalError()
         }

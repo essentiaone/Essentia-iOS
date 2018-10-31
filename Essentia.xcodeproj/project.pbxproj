@@ -269,6 +269,8 @@
 		34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */; };
 		34FCB99B2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB99A2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib */; };
 		34FCB99D2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */; };
+		34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */; };
+		34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -552,6 +554,8 @@
 		34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterDetail.xib; sourceTree = "<group>"; };
 		34FCB99A2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterTextDetail.xib; sourceTree = "<group>"; };
 		34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterTextDetail.swift; sourceTree = "<group>"; };
+		34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentSlider.xib; sourceTree = "<group>"; };
+		34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentSlider.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1327,6 +1331,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34FCB9A7218A3B1F00A88D56 /* Slider */,
 				34FCB9962189141F00A88D56 /* TitleCenterTextDetail */,
 				34FCB9912188C11D00A88D56 /* TitleCenterDetail */,
 				34EE1F9D21795E2D00FFC570 /* Transaction */,
@@ -1893,6 +1898,15 @@
 			path = TitleCenterTextDetail;
 			sourceTree = "<group>";
 		};
+		34FCB9A7218A3B1F00A88D56 /* Slider */ = {
+			isa = PBXGroup;
+			children = (
+				34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */,
+				34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */,
+			);
+			path = Slider;
+			sourceTree = "<group>";
+		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2058,6 +2072,7 @@
 				344826C32121834F00C19EB3 /* TableComponentSwitch.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 				344958F32141D7C000C2230B /* TableComponentCenteredImage.xib in Resources */,
+				34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */,
 				34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2319,6 +2334,7 @@
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
+				34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */,
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
 				344826B7212162B000C19EB3 /* UIView+Shadow.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
