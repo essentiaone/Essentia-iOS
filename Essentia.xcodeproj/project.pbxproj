@@ -273,6 +273,8 @@
 		34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */; };
 		34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */; };
 		34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */; };
+		34FCB9B2218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9B1218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift */; };
+		34FCB9B4218BB3E200A88D56 /* TableComponentTextFieldDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9B3218BB3E200A88D56 /* TableComponentTextFieldDetail.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -560,6 +562,8 @@
 		34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentSlider.swift; sourceTree = "<group>"; };
 		34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTransactionAmmountViewController.swift; sourceTree = "<group>"; };
 		34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Size.swift"; sourceTree = "<group>"; };
+		34FCB9B1218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextFieldDetail.swift; sourceTree = "<group>"; };
+		34FCB9B3218BB3E200A88D56 /* TableComponentTextFieldDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextFieldDetail.xib; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1336,6 +1340,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34FCB9B0218BB39500A88D56 /* TextFieldDetail */,
 				34FCB9A7218A3B1F00A88D56 /* Slider */,
 				34FCB9962189141F00A88D56 /* TitleCenterTextDetail */,
 				34FCB9912188C11D00A88D56 /* TitleCenterDetail */,
@@ -1913,6 +1918,15 @@
 			path = Slider;
 			sourceTree = "<group>";
 		};
+		34FCB9B0218BB39500A88D56 /* TextFieldDetail */ = {
+			isa = PBXGroup;
+			children = (
+				34FCB9B1218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift */,
+				34FCB9B3218BB3E200A88D56 /* TableComponentTextFieldDetail.xib */,
+			);
+			path = TextFieldDetail;
+			sourceTree = "<group>";
+		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -2076,6 +2090,7 @@
 				34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */,
 				344826BC212169CE00C19EB3 /* TableComponentTitleDetail.xib in Resources */,
 				344826C32121834F00C19EB3 /* TableComponentSwitch.xib in Resources */,
+				34FCB9B4218BB3E200A88D56 /* TableComponentTextFieldDetail.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 				344958F32141D7C000C2230B /* TableComponentCenteredImage.xib in Resources */,
 				34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */,
@@ -2259,6 +2274,7 @@
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				344958D82141228600C2230B /* WalletRouter.swift in Sources */,
 				34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */,
+				34FCB9B2218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift in Sources */,
 				3401AFA82100F1AC006DEF49 /* MnemonicService.swift in Sources */,
 				343122642124A0DA009E4A7A /* BackupType.swift in Sources */,
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
