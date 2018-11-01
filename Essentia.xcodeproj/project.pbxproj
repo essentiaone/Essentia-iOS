@@ -271,6 +271,8 @@
 		34FCB99D2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */; };
 		34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */; };
 		34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */; };
+		34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */; };
+		34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
 
@@ -556,6 +558,8 @@
 		34FCB99C2189159D00A88D56 /* TableComponentTitleCenterTextDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterTextDetail.swift; sourceTree = "<group>"; };
 		34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentSlider.xib; sourceTree = "<group>"; };
 		34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentSlider.swift; sourceTree = "<group>"; };
+		34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTransactionAmmountViewController.swift; sourceTree = "<group>"; };
+		34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Size.swift"; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -949,6 +953,7 @@
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
 				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
+				34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1826,6 +1831,7 @@
 		34DC8B7F21778E2000ACA5D2 /* Send */ = {
 			isa = PBXGroup;
 			children = (
+				34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */,
 			);
 			path = Send;
 			sourceTree = "<group>";
@@ -2240,6 +2246,7 @@
 				349AA4B221242CC900E9256F /* UserStorageServiceInterface.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
+				34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */,
 				344DB543216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift in Sources */,
 				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
@@ -2347,6 +2354,7 @@
 				3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
+				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,

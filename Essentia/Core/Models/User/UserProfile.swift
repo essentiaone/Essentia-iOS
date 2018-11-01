@@ -10,7 +10,7 @@ import UIKit
 
 struct UserProfile: Codable {
     var name: String?
-    var currency: Currency
+    var currency: FiatCurrency
     var imageData: Data?
     var language: LocalizationLanguage
     

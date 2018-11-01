@@ -123,6 +123,10 @@ class TableAdapterHelper {
             return 60.0
         case .slider:
             return 70.0
+        case .attributedTitleDetail(let title, let detail, _):
+            let titleHeight =  title.height(with: tableView.bounds.width)
+            let detailHeight =  detail.height(with: tableView.bounds.width)
+            return max(titleHeight, detailHeight) + 5
         default:
             fatalError()
         }

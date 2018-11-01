@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Currency: String, Codable, Equatable, Hashable {
+enum FiatCurrency: String, Codable, Equatable, Hashable {
     case usd
     case eur
     case krw
@@ -40,7 +40,7 @@ enum Currency: String, Codable, Equatable, Hashable {
         }
     }
     
-    static var cases: [Currency] {
+    static var cases: [FiatCurrency] {
         return [.usd, .eur, .krw, .cny]
     }
 }

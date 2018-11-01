@@ -151,7 +151,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset)
         let currentCurrency = EssentiaStore.currentUser.profile.currency
         let formatter = BalanceFormatter(currency: currentCurrency)
-        let formattedRank = formatter.formattedAmmount(amount: rank)
+        let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
         store.currentRank = formattedRank
     }
     
@@ -210,7 +210,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     private lazy var walletOperationAtIndex: (Int) -> Void = {
         switch $0 {
         case 0:
-            print("Show send")
+            (inject() as WalletRouterInterface).show(.enterTransactionAmmount(self.store.wallet))
         case 1:
             print("Show exchange")
         case 2:
@@ -272,7 +272,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
-        return formatter.formattedAmmount(amount: balance)
+        return formatter.formattedAmmountWithCurrency(amount: balance)
     }
     
     private func formateBalanceChanging(_ double: Double) -> String {

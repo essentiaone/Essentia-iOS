@@ -237,3 +237,22 @@
 "Wallet.TransactionType.send" = "Send to";
 "Wallet.TransactionType.recive" = "Received from";
 "Wallet.TransactionType.exchange" = "Exchange to";
+
+"Wallet.Send.Title" = "Send";
+"Wallet.Send.Available" = "Available";
+"Wallet.Send.Continue" = "CONTINUE";
+"Wallet.Send.Amount" = "Amount";
+"Wallet.Send.To" = "To";
+"Wallet.Send.Required" = "Required";
+"Wallet.Send.Data" = "Data";
+"Wallet.Send.Optional" = "Optional";
+"Wallet.Send.Fee" = "Fee";
+"Wallet.Send.InputFee" = "Input Fee";
+"Wallet.Send.Slow" = "Slow";
+"Wallet.Send.Normal" = "Normal";
+"Wallet.Send.Fast" = "Fast";
+"Wallet.Send.Mins" = "mins";
+"Wallet.Send.hours" = "hours";
+"Wallet.Send.TransactionTime" = "Transaction time";
+"Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
+

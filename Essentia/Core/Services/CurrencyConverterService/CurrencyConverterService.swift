@@ -23,19 +23,19 @@ class CurrencyConverterService: CurrencyConverterServiceInterface {
         fileStorage = LocalFilesService()
     }
     
-    func convertBalance(value: Double, from asset: AssetInterface, to currency: Currency, convertedValue: @escaping (Double) -> Void) {
+    func convertBalance(value: Double, from asset: AssetInterface, to currency: FiatCurrency, convertedValue: @escaping (Double) -> Void) {
         getPrice(for: asset, in: currency) { (price) in
             convertedValue(price * value)
         }
     }
     
-    func getPrice(for asset: AssetInterface, in currency: Currency, price: @escaping (Double) -> Void) {
+    func getPrice(for asset: AssetInterface, in currency: FiatCurrency, price: @escaping (Double) -> Void) {
         getCoinInfo(from: asset, to: currency) { (info) in
             price(info.currentPrice)
         }
     }
     
-    func getCoinInfo(from asset: AssetInterface, to currency: Currency, info: @escaping (CoinGeckoCurrencyModel) -> Void) {
+    func getCoinInfo(from asset: AssetInterface, to currency: FiatCurrency, info: @escaping (CoinGeckoCurrencyModel) -> Void) {
         let endpoint = CurrencyConverterEndpoint.getPrice(forCoin: asset.name.formattedCoinName, inCurrency: currency)
         networkManager.makeAsyncRequest(endpoint) { (result: Result<[CoinGeckoCurrencyModel]>) in
             switch result {
@@ -55,11 +55,11 @@ class CurrencyConverterService: CurrencyConverterServiceInterface {
         info(stored)
     }
     
-    private func storeCoinInfo(_ info: CoinGeckoCurrencyModel, from asset: AssetInterface, to currency: Currency) {
+    private func storeCoinInfo(_ info: CoinGeckoCurrencyModel, from asset: AssetInterface, to currency: FiatCurrency) {
         _ = try? fileStorage.storeFile(file: info, to: path(with: asset), with: currency.rawValue)
     }
     
-    private func getCoinInfoFromStorage(from asset: AssetInterface, to currency: Currency) -> CoinGeckoCurrencyModel? {
+    private func getCoinInfoFromStorage(from asset: AssetInterface, to currency: FiatCurrency) -> CoinGeckoCurrencyModel? {
         return try? fileStorage.getFile(path: path(with: asset), name: currency.rawValue)
     }
     

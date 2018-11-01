@@ -169,12 +169,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .menuSimpleTitleDetail(let title, let detail, let withArrow , _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
         case .menuTitleDetail(let icon, let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
             cell.imageView?.image = icon
@@ -402,6 +404,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .titleAttributedDetail(let title, let detail):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
             cell.textLabel?.text = title
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
@@ -450,10 +453,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .search: fallthrough
         case .titleSubtitleDescription: fallthrough
         case .imageUrlTitle: fallthrough
-        case .attributedTitleDetail: fallthrough
         case .transactionDetail: fallthrough
         case .assetBalance:
             return true
+        case .attributedTitleDetail(_, _, let action):
+            return action != nil
         default:
             return false
         }
@@ -506,7 +510,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .transactionDetail(_, _, _, _, let action):
             action()
         case .attributedTitleDetail(_, _, let action):
-            action()
+            action?()
         default:
             return
         }
