@@ -129,6 +129,8 @@ class TableAdapterHelper {
             return max(titleHeight, detailHeight) + 5
         case .textFieldTitleDetail:
             return 75.0
+        case .titleCenteredDetail:
+            return 44.0
         default:
             fatalError()
         }

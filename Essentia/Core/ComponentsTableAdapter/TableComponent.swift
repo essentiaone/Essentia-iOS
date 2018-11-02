@@ -17,6 +17,7 @@ enum TableComponent: Equatable {
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case titleWithFont(font: UIFont, title: String, background: UIColor)
+    case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)

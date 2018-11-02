@@ -434,6 +434,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleTextField.keyboardType = .decimalPad
             cell.enterAction = action
             return cell
+        case .titleCenteredDetail(let title, let detail):
+            let cell: TableComponentTitleCenterDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.detailLabel.text = detail
+            return cell
         default:
             fatalError()
         }

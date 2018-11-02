@@ -19,6 +19,7 @@ enum WalletRoutes {
     case walletDetail(ViewWalletInterface)
     case transactionDetail(asset: AssetInterface, txId: String)
     case enterTransactionAmmount(ViewWalletInterface)
+    case sendTransactionDetail(ViewWalletInterface, String)
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

@@ -9,7 +9,7 @@
 import Foundation
 
 fileprivate struct Store {
-    var wallet: ViewWalletInterface
+    let wallet: ViewWalletInterface
     var enterdValueInCurrency: String
     var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
@@ -181,7 +181,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     }
     
     private lazy var continueAction: () -> Void = {
-        
+        self.tableView.endEditing(true)
+        self.router.show(.sendTransactionDetail(self.store.wallet, self.store.enterdValueInCrypto))
     }
     
     // MARK: - Keyboard

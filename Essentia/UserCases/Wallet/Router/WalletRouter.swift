@@ -31,6 +31,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: SelectWalletPopUp(wallets: wallets, didSelect: action))
         case .walletDetail(let wallet):
             push(vc: WalletDetailViewController(wallet: wallet))
+        case .sendTransactionDetail(let wallet, let ammount):
+            push(vc: SendTransactionDetailViewController(wallet: wallet, ammount: ammount))
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):

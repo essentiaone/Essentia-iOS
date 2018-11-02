@@ -11,4 +11,13 @@ import UIKit
 class TableComponentTitleCenterDetail: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        let colorProvider: AppColorInterface = inject()
+        titleLabel.font = AppFont.regular.withSize(17)
+        detailLabel.font = AppFont.medium.withSize(17)
+        titleLabel.textColor = colorProvider.appTitleColor
+        detailLabel.textColor = colorProvider.appTitleColor
+    }
 }

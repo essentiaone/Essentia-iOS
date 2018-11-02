@@ -48,9 +48,17 @@ final class BalanceFormatter {
         return formatted + " " + currency
     }
     
+    func formattedAmmountWithCurrency(ammount: String) -> String {
+        return formattedAmmountWithCurrency(amount: Double(ammount))
+    }
+    
     func formattedAmmount(amount: Double?) -> String {
         let amount = amount ?? 0
         return balanceFormatter.string(for: amount) ?? "0"
+    }
+    
+    func formattedAmmount(ammount: String) -> String {
+        return formattedAmmount(amount: Double(ammount))
     }
     
     func attributed(amount: Double?) -> NSAttributedString {

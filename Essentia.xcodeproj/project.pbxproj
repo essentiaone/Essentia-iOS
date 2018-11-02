@@ -184,6 +184,7 @@
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
 		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
+		347CCDAF218CA75000E894DD /* SendTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */; };
 		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
 		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
 		34864022218BD52C008CA223 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864021218BD52C008CA223 /* String+Helpers.swift */; };
@@ -473,6 +474,7 @@
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
+		347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
 		34864021218BD52C008CA223 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
@@ -1458,8 +1460,6 @@
 			isa = PBXGroup;
 			children = (
 				34DC8B8421778F1900ACA5D2 /* Main */,
-				34DC8B8121778E3300ACA5D2 /* Exchange */,
-				34DC8B8021778E2400ACA5D2 /* Receive */,
 				34DC8B7F21778E2000ACA5D2 /* Send */,
 				34DC8B7E21778E1200ACA5D2 /* WalletDetails */,
 				344DB538215E4F7500F7D1E2 /* AddWallet */,
@@ -1854,22 +1854,9 @@
 			isa = PBXGroup;
 			children = (
 				34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */,
+				347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */,
 			);
 			path = Send;
-			sourceTree = "<group>";
-		};
-		34DC8B8021778E2400ACA5D2 /* Receive */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Receive;
-			sourceTree = "<group>";
-		};
-		34DC8B8121778E3300ACA5D2 /* Exchange */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Exchange;
 			sourceTree = "<group>";
 		};
 		34DC8B8421778F1900ACA5D2 /* Main */ = {
@@ -2390,6 +2377,7 @@
 				3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
+				347CCDAF218CA75000E894DD /* SendTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
@@ -2617,7 +2605,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 44;
 				DEVELOPMENT_TEAM = P8JA7643K4;
@@ -2631,7 +2619,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc essentia.Essentia";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
