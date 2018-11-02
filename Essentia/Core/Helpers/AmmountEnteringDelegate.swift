@@ -50,6 +50,7 @@ class AmmountEnteringDelegate: NSObject, UITextFieldDelegate {
         let currectPosition = sender.selectedTextRange
         sender.text = sender.text?.replacing(charactersIn: EssCharacters.ammountSeparators.set, with: Default.separator)
         sender.selectedTextRange = currectPosition
+        doneAction(sender.text ?? "")
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

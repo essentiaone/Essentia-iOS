@@ -14,6 +14,7 @@ protocol ViewWalletInterface: WalletInterface {
     var balanceInCurrentCurrency: Double { get }
     var yesterdayBalanceInCurrentCurrency: Double { get }
     var formattedBalanceInCurrentCurrency: String { get }
+    var formattedBalanceInCurrentCurrencyWithSymbol: String { get }
     var formattedBalanceWithSymbol: String { get }
     var formattedBalance: String { get }
     var lastBalance: Double? { get }
@@ -33,9 +34,13 @@ extension ViewWalletInterface {
         return currentBalance * rank
     }
     
+    var formattedBalanceInCurrentCurrencyWithSymbol: String {
+        return symbol + " " + formattedBalanceInCurrentCurrency
+    }
+    
     var formattedBalanceInCurrentCurrency: String {
-       let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
-        return  formatter.formattedAmmountWithCurrency(amount: balanceInCurrentCurrency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return  formatter.formattedAmmount(amount: balanceInCurrentCurrency)
     }
     
     var formattedBalance: String {

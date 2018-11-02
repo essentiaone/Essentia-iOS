@@ -26,7 +26,6 @@ class TableComponentCenteredButton: UITableViewCell, NibLoadable {
         titleButton.setTitleColor(colorProvider.centeredButtonTextColor, for: .normal)
         
         titleButton.drawCornerRadius()
-        titleButton.drawShadow(width: 5)
     }
     
     func setEnable(_ isEnable: Bool) {

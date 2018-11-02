@@ -85,6 +85,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.beginUpdates()
         let diff = Dwifft.diff(oldState, state)
         for step in diff  {
+            guard step.idx != selectedRow?.row else { continue }
             switch step {
             case .insert(let rowIndex, _):
                 tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
@@ -424,13 +425,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.slider.value = selected
             cell.newSliderAction = didChange
             return cell
-        case .textFieldTitleDetail(let string, let font, let color, let detail, _):
+        case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
             let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
             cell.titleTextField.text = string
             cell.titleTextField.font = font
             cell.titleTextField.textColor = color
             cell.detailLabel.attributedText = detail
             cell.titleTextField.keyboardType = .decimalPad
+            cell.enterAction = action
             return cell
         default:
             fatalError()
@@ -463,6 +465,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitleDescription: fallthrough
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
+        case .textFieldTitleDetail: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -520,6 +523,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .attributedTitleDetail(_, _, let action):
             action?()
+        case .textFieldTitleDetail:
+            let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.titleTextField)
         default:
             return
         }

@@ -22,13 +22,11 @@ final class BalanceFormatter {
     
     convenience init(currency: FiatCurrency) {
         self.init()
-        balanceFormatter.currencySymbol = currency.symbol
         balanceFormatter.maximumFractionDigits = 2
     }
     
     convenience init(asset: AssetInterface) {
         self.init()
-        balanceFormatter.currencySymbol = ""
         currencySymbol = asset.symbol
         balanceFormatter.minimumSignificantDigits = 6
     }
@@ -37,6 +35,7 @@ final class BalanceFormatter {
         balanceFormatter = NumberFormatter()
         balanceFormatter.numberStyle = .currency
         balanceFormatter.currencyGroupingSeparator = ","
+        balanceFormatter.currencySymbol = ""
         balanceFormatter.usesGroupingSeparator = true
         balanceFormatter.decimalSeparator = "."
     }

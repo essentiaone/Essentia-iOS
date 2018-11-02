@@ -171,7 +171,7 @@ class WalletMainViewController: BaseTableAdapterController {
             assetState.append(
                 .assetBalance(imageUrl: wallet.iconUrl,
                               title: wallet.name,
-                              value: wallet.formattedBalanceInCurrentCurrency,
+                              value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
                               currencyValue: wallet.formattedBalance,
                               action: { self.showWalletDetail(for: wallet) }
                 )

@@ -16,7 +16,6 @@ class CenteredButton: BaseButton {
         drawCornerRadius()
         setFont()
         setTextColor()
-        drawShadow(width: 5.0)
     }
     
     override var isEnabled: Bool {
@@ -32,11 +31,9 @@ class CenteredButton: BaseButton {
     
     private func setDisabled() {
         backgroundColor = colorProvider.centeredButtonDisabledBackgroudColor
-        drawShadow(width: 5.0)
     }
     
     private func setEnabled() {
         backgroundColor = colorProvider.centeredButtonBackgroudColor
-        drawShadow(width: 5.0)
     }
 }

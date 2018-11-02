@@ -10,18 +10,21 @@ import Foundation
 
 fileprivate struct Store {
     var wallet: ViewWalletInterface
-    var enterdValueInCurrency: String = "0"
-    var enterdValueInCrypto: String = "0"
+    var enterdValueInCurrency: String
+    var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
     let currentCurrency: FiatCurrency
     
     init(wallet: ViewWalletInterface) {
         currentCurrency = EssentiaStore.currentUser.profile.currency
         self.wallet = wallet
+        enterdValueInCrypto = wallet.formattedBalance
+        enterdValueInCurrency = wallet.formattedBalanceInCurrentCurrency
     }
     
     var isValidAmmount: Bool {
-        return false
+        guard let entered = Double(enterdValueInCrypto) else { return false }
+        return entered <= (wallet.lastBalance ?? 0)
     }
 }
 
@@ -60,7 +63,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
             .attributedTitleDetail(title: NSAttributedString(string: LS("Wallet.Send.Title"),
                                                              attributes: [NSAttributedString.Key.font: AppFont.bold.withSize(28),
                                                                           NSAttributedString.Key.strokeColor: colorProvider.appTitleColor]),
-                                   detail: availableBalanceString, action: {}),
+                                   detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .textFieldTitleDetail(string: selected.0,
                                   font: AppFont.bold.withSize(60),
@@ -76,7 +79,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                             isEnable: store.isValidAmmount,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .keyboardInset
+            .empty(height: 8, background: colorProvider.settingsCellsBackround),
+            isKeyboardShown ? .keyboardInset : .empty(height: 1, background: colorProvider.settingsCellsBackround)
         ]
     }
     
@@ -129,21 +133,59 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                                NSAttributedString.Key.foregroundColor: colorProvider.centeredButtonDisabledBackgroudColor])
     }
     
+    var fiatAmmountInCrypto: String {
+        guard let ammount = Double(store.enterdValueInCurrency),
+            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            currentRank != 0 else {
+                return ""
+        }
+        let ammountInCrypto = ammount / currentRank
+        let formatter = BalanceFormatter(asset: store.wallet.asset)
+        return formatter.formattedAmmount(amount: ammountInCrypto)
+    }
+    
+    var cryptoInFiat: String {
+        guard let ammount = Double(store.enterdValueInCrypto),
+            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            currentRank != 0 else {
+                return ""
+        }
+        let ammountInFiat = currentRank * ammount
+        let formatter = BalanceFormatter(currency: store.currentCurrency)
+        return formatter.formattedAmmount(amount: ammountInFiat)
+    }
+    
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
+        self.view.endEditing(true)
         self.router.pop()
     }
     
-    private lazy var currentlyEditedFieldChanged: (String) -> Void = { _ in
-        
+    private lazy var currentlyEditedFieldChanged: (String) -> Void = {
+        switch self.store.currentlyEdited {
+        case .fiat:
+            self.store.enterdValueInCurrency = $0
+            self.store.enterdValueInCrypto = self.fiatAmmountInCrypto
+        case .crypto:
+            self.store.enterdValueInCrypto = $0
+            self.store.enterdValueInCurrency = self.cryptoInFiat
+            
+        }
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var disabledFieldAction: () -> Void = {
+        self.tableView.endEditing(true)
         self.store.currentlyEdited = self.store.currentlyEdited.another
         self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var continueAction: () -> Void = {
         
+    }
+    
+    // MARK: - Keyboard
+    override func keyboardDidChange() {
+        self.tableAdapter.simpleReload(state)
     }
 }
