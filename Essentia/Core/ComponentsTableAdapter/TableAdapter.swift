@@ -74,6 +74,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentSlider.self)
         tableView.register(TableComponentTitleCenterDetail.self)
         tableView.register(TableComponentTitleCenterTextDetail.self)
+        tableView.register(TableComponentTextFieldDetail.self)
     }
     
     // MARK: - Update State
@@ -422,6 +423,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.rightTitleLabel.text = titles.2
             cell.slider.value = selected
             cell.newSliderAction = didChange
+            return cell
+        case .textFieldTitleDetail(let string, let font, let color, let detail, _):
+            let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleTextField.text = string
+            cell.titleTextField.font = font
+            cell.titleTextField.textColor = color
+            cell.detailLabel.attributedText = detail
+            cell.titleTextField.keyboardType = .decimalPad
             return cell
         default:
             fatalError()

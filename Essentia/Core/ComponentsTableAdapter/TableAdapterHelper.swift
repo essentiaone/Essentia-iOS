@@ -127,6 +127,8 @@ class TableAdapterHelper {
             let titleHeight =  title.height(with: tableView.bounds.width)
             let detailHeight =  detail.height(with: tableView.bounds.width)
             return max(titleHeight, detailHeight) + 5
+        case .textFieldTitleDetail:
+            return 75.0
         default:
             fatalError()
         }

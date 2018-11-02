@@ -62,9 +62,11 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                                                           NSAttributedString.Key.strokeColor: colorProvider.appTitleColor]),
                                    detail: availableBalanceString, action: {}),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
-            .attributedTitleDetail(title: formattedSelectedField(value:  selected.0),
-                                   detail: formattedSelectedCurrencyField(value: selected.1),
-                                   action: currentlyEditedFieldAction),
+            .textFieldTitleDetail(string: selected.0,
+                                  font: AppFont.bold.withSize(60),
+                                  color: colorProvider.titleColor,
+                                  detail: formattedSelectedCurrencyField(value: selected.1),
+                                  didChange: currentlyEditedFieldChanged),
             .separator(inset: .init(top: 0, left: 16, bottom: 0, right: 16)),
             .attributedTitleDetail(title: formattedDeselectedField(value:  deselected.0),
                                    detail: formattedDeselectedCurrencyField(value: deselected.1),
@@ -132,7 +134,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
         self.router.pop()
     }
     
-    private lazy var currentlyEditedFieldAction: () -> Void = {
+    private lazy var currentlyEditedFieldChanged: (String) -> Void = { _ in
         
     }
     

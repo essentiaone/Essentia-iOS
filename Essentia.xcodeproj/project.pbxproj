@@ -184,6 +184,9 @@
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
 		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
+		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
+		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
+		34864022218BD52C008CA223 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864021218BD52C008CA223 /* String+Helpers.swift */; };
 		348BC792217EC8E000F494A8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC791217EC8E000F494A8 /* UIView+Animation.swift */; };
 		348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */; };
 		34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */; };
@@ -470,6 +473,9 @@
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
+		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
+		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
+		34864021218BD52C008CA223 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		348BC791217EC8E000F494A8 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
 		34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
@@ -713,6 +719,8 @@
 				34DC8B7C217786B600ACA5D2 /* IconsAnimation.swift */,
 				34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */,
 				34EE1F9A21790F9100FFC570 /* Miscs.swift */,
+				3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */,
+				3486401E218BD235008CA223 /* EssCharacters.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -946,16 +954,15 @@
 		3401AFD521032F15006DEF49 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				34864020218BD518008CA223 /* String */,
 				34997795218312D800D85A82 /* RemoteExtensions */,
 				348BC790217EC8BF00F494A8 /* UIView */,
 				3401AFD621033005006DEF49 /* ReusableCell+Nib.swift */,
 				3401AFD821033143006DEF49 /* Collection+LoadFromXib.swift */,
 				344826BD21217EA200C19EB3 /* Int+Unary.swift */,
 				34B27A3B213048CB00527F15 /* Bundle+LS.swift */,
-				34B27A3F21305FBC00527F15 /* String+Format.swift */,
 				344958F62142687000C2230B /* UIImage+UIColor.swift */,
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
-				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
 				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
 				34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */,
 			);
@@ -1623,6 +1630,16 @@
 			path = AssetBalance;
 			sourceTree = "<group>";
 		};
+		34864020218BD518008CA223 /* String */ = {
+			isa = PBXGroup;
+			children = (
+				34B27A3F21305FBC00527F15 /* String+Format.swift */,
+				34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */,
+				34864021218BD52C008CA223 /* String+Helpers.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		348BC790217EC8BF00F494A8 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -2224,6 +2241,7 @@
 				344826A121205F0700C19EB3 /* TableComponentSeparator.swift in Sources */,
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
 				34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */,
+				3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */,
 				344958E72141754D00C2230B /* UserProfile.swift in Sources */,
 				3411AEEE216430D000AB9476 /* CurrencyConverterEndpoint.swift in Sources */,
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
@@ -2271,7 +2289,9 @@
 				3401AFD421023C7B006DEF49 /* BaseCollectionViewCell.swift in Sources */,
 				349AA4B421242CF900E9256F /* User.swift in Sources */,
 				344958D62141227B00C2230B /* WalletRouterInterface.swift in Sources */,
+				3486401F218BD235008CA223 /* EssCharacters.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
+				34864022218BD52C008CA223 /* String+Helpers.swift in Sources */,
 				344958D82141228600C2230B /* WalletRouter.swift in Sources */,
 				34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */,
 				34FCB9B2218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift in Sources */,
