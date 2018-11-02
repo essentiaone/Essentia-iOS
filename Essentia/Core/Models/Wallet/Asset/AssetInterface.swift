@@ -6,7 +6,21 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import UIKit
+import Foundation
+
+enum CurrencyType {
+    case fiat
+    case crypto
+    
+    var another: CurrencyType {
+        switch self {
+        case .fiat:
+            return .crypto
+        case .crypto:
+            return .fiat
+        }
+    }
+}
 
 protocol AssetInterface {
     var name: String { get }
