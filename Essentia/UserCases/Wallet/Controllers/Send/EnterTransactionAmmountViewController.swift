@@ -71,7 +71,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                   detail: formattedSelectedCurrencyField(value: selected.1),
                                   didChange: currentlyEditedFieldChanged),
             .separator(inset: .init(top: 0, left: 16, bottom: 0, right: 16)),
-            .attributedTitleDetail(title: formattedDeselectedField(value:  deselected.0),
+            .attributedTitleDetail(title: formattedDeselectedField(value: deselected.0),
                                    detail: formattedDeselectedCurrencyField(value: deselected.1),
                                    action: disabledFieldAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),

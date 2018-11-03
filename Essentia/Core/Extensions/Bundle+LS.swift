@@ -19,7 +19,7 @@ func SwizzleLocalizedFiles() {
 extension Bundle {
     @objc func specialLocalizedString(key: String, value: String?, table tableName: String?) -> String {
         let currentLanguage = EssentiaStore.currentUser.profile.language.localizationFileName
-        var bundle = Bundle()
+        var bundle: Bundle
         if let _path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj") {
             bundle = Bundle(path: _path)!
         } else {

@@ -71,8 +71,8 @@ class WalletInteractor: WalletInteractorInterface {
         return EssentiaStore.currentUser.wallet.importedWallets
     }
     
-    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]] {
-        var tokensByWallets: [GeneratingWalletInfo : [TokenWallet]] = [:]
+    func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]] {
+        var tokensByWallets: [GeneratingWalletInfo: [TokenWallet]] = [:]
         let tokens = EssentiaStore.currentUser.wallet.tokenWallets
         let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
         for wallet in wallets {

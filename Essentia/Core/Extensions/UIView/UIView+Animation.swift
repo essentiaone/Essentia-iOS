@@ -14,8 +14,8 @@ extension UIView {
         UIView.transition(with: self, duration: duration, options: .beginFromCurrentState, animations: {
             self.superview?.layoutSubviews()
             self.backgroundColor = color
-        }) { (complition) in
+        }, completion: { (_) in
             (inject() as LoggerServiceInterface).log("Color animation completed", level: .info)
-        }
+        })
     }
 }

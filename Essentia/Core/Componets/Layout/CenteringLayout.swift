@@ -28,7 +28,7 @@ class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
         (
         in rect: CGRect
         ) -> [UICollectionViewLayoutAttributes]? {
-        let attributes = layoutAttributes(in:rect)
+        let attributes = layoutAttributes(in: rect)
         
         calculateInset(with: attributes, type: .right)
         calculateInset(with: attributes, type: .left)

@@ -16,7 +16,7 @@ class LocalFilesService: LocalFilesServiceInterface {
         guard let file: File = try? JSONDecoder().decode(File.self, from: fileData) else {
             try removeFile(at: path, with: name)
             (inject() as LoggerServiceInterface).log("File removed at \(path.path)\(name)")
-            throw NSError(domain: "Unable to decode file", code:  401, userInfo: nil)
+            throw NSError(domain: "Unable to decode file", code: 401, userInfo: nil)
         }
         return file
     }

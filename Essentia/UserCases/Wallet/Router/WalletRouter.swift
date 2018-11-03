@@ -36,7 +36,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):
-            var url: URL? = nil
+            var url: URL?
             switch asset {
             case let coin as Coin:
                 switch coin {
