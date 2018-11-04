@@ -102,7 +102,8 @@ class SettingsViewController: BaseTableAdapterController {
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
-    private lazy var switchAccountAction: () -> Void = {
+    private lazy var switchAccountAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
