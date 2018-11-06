@@ -67,6 +67,8 @@ enum TableComponent: Equatable {
     case titleAttributedDetail(title: String, detail: NSAttributedString)
     case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: (() -> Void)?)
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
+    case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
+                                             rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
     // MARK: - Equatable

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QRCodeReader
 
 enum WalletRoutes {
     case newAssets
@@ -20,6 +21,7 @@ enum WalletRoutes {
     case transactionDetail(asset: AssetInterface, txId: String)
     case enterTransactionAmmount(ViewWalletInterface)
     case sendTransactionDetail(ViewWalletInterface, String)
+    case qrReader(QRCodeReaderViewControllerDelegate)
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

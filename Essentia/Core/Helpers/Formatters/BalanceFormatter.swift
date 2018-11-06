@@ -28,7 +28,8 @@ final class BalanceFormatter {
     convenience init(asset: AssetInterface) {
         self.init()
         currencySymbol = asset.symbol
-        balanceFormatter.minimumSignificantDigits = 6
+        balanceFormatter.minimumSignificantDigits = 1
+        balanceFormatter.maximumSignificantDigits = 8
     }
     
     private init() {

@@ -439,6 +439,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.detailLabel.text = detail
             return cell
+        case .titleCenteredDetailTextFildWithImage(let title, let text, let placeholder, let rightButtonImage, let rightButtonAction, let textFieldChanged):
+            let cell: TableComponentTitleCenterTextDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.centeredTextField.text = text
+            cell.centeredTextField.placeholder = placeholder
+            cell.rightButton.setImage(rightButtonImage, for: .normal)
+            cell.action = rightButtonAction
+            cell.enterAction = textFieldChanged
+            return cell
         default:
             fatalError()
         }
@@ -471,6 +480,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
+        case .titleCenteredDetailTextFildWithImage: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -532,6 +542,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.titleTextField)
+        case .titleCenteredDetailTextFildWithImage:
+            let cell: TableComponentTitleCenterTextDetail = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.centeredTextField)
         default:
             return
         }

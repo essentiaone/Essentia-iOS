@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QRCodeReader
 
 class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {
@@ -36,23 +37,38 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):
-            var url: URL?
-            switch asset {
-            case let coin as Coin:
-                switch coin {
-                case .bitcoin:
-                    url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
-                case .ethereum:
-                    url = URL(string: "https://etherscan.io/tx/" + txId)
-                default: return
-                }
-            case is Token:
+            showTransactionDetail(asset: asset, txId: txId)
+        case .qrReader(let delegate):
+            let builder = QRCodeReaderViewControllerBuilder { (config) in
+                config.cancelButtonTitle = LS("Back")
+                config.showCancelButton = true
+                config.handleOrientationChange = false
+                config.showTorchButton = true
+                config.showOverlayView = true
+            }
+            let vc = QRCodeReaderViewController(builder: builder)
+            vc.delegate = delegate
+            
+            popUp(vc: vc)
+        }
+    }
+    private func showTransactionDetail(asset: AssetInterface, txId: String) {
+        var url: URL?
+        switch asset {
+        case let coin as Coin:
+            switch coin {
+            case .bitcoin:
+                url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
+            case .ethereum:
                 url = URL(string: "https://etherscan.io/tx/" + txId)
             default: return
             }
-            if url != nil {
-                UIApplication.shared.open(url!, options: [:])
-            }
+        case is Token:
+            url = URL(string: "https://etherscan.io/tx/" + txId)
+        default: return
+        }
+        if url != nil {
+            UIApplication.shared.open(url!, options: [:])
         }
     }
 }
