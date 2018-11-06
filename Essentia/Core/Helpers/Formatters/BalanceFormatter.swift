@@ -16,18 +16,27 @@ extension Double {
     }
 }
 
+fileprivate enum CurrencySimpolPosition {
+    case prefix
+    case suffix
+}
+
 final class BalanceFormatter {
     private let balanceFormatter: NumberFormatter
-    private var currencySymbol: String?
+    private var currencySymbol: String
+    private var symbolPossition: CurrencySimpolPosition
     
     convenience init(currency: FiatCurrency) {
         self.init()
         balanceFormatter.maximumFractionDigits = 2
+        symbolPossition = .prefix
+        currencySymbol = currency.symbol
     }
     
     convenience init(asset: AssetInterface) {
         self.init()
         currencySymbol = asset.symbol
+        symbolPossition = .suffix
         balanceFormatter.minimumSignificantDigits = 1
         balanceFormatter.maximumSignificantDigits = 8
     }
@@ -38,15 +47,19 @@ final class BalanceFormatter {
         balanceFormatter.currencyGroupingSeparator = ","
         balanceFormatter.currencySymbol = ""
         balanceFormatter.usesGroupingSeparator = true
+        symbolPossition = .prefix
+        currencySymbol = ""
         balanceFormatter.decimalSeparator = "."
     }
     
     func formattedAmmountWithCurrency(amount: Double?) -> String {
         let formatted = formattedAmmount(amount: amount)
-        guard let currency = currencySymbol else {
-            return formatted
+        switch symbolPossition {
+        case .prefix:
+            return currencySymbol + formatted
+        case .suffix:
+            return formatted + " " + currencySymbol
         }
-        return formatted + " " + currency
     }
     
     func formattedAmmountWithCurrency(ammount: String) -> String {
