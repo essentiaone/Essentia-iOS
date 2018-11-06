@@ -20,15 +20,13 @@ final class BalanceFormatter {
     private let balanceFormatter: NumberFormatter
     private var currencySymbol: String?
     
-    convenience init(currency: Currency) {
+    convenience init(currency: FiatCurrency) {
         self.init()
-        balanceFormatter.currencySymbol = currency.symbol
         balanceFormatter.maximumFractionDigits = 2
     }
     
     convenience init(asset: AssetInterface) {
         self.init()
-        balanceFormatter.currencySymbol = ""
         currencySymbol = asset.symbol
         balanceFormatter.minimumSignificantDigits = 6
     }
@@ -37,17 +35,22 @@ final class BalanceFormatter {
         balanceFormatter = NumberFormatter()
         balanceFormatter.numberStyle = .currency
         balanceFormatter.currencyGroupingSeparator = ","
+        balanceFormatter.currencySymbol = ""
         balanceFormatter.usesGroupingSeparator = true
         balanceFormatter.decimalSeparator = "."
     }
     
-    func formattedAmmount(amount: Double?) -> String {
-        let amount = amount ?? 0
-        let formatted = balanceFormatter.string(for: amount) ?? "0"
+    func formattedAmmountWithCurrency(amount: Double?) -> String {
+        let formatted = formattedAmmount(amount: amount)
         guard let currency = currencySymbol else {
             return formatted
         }
         return formatted + " " + currency
+    }
+    
+    func formattedAmmount(amount: Double?) -> String {
+        let amount = amount ?? 0
+        return balanceFormatter.string(for: amount) ?? "0"
     }
     
     func attributed(amount: Double?) -> NSAttributedString {

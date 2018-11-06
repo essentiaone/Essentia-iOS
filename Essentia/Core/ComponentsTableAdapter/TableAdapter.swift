@@ -71,6 +71,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentCustomSegment.self)
         tableView.register(TableComponentTitleImageButton.self)
         tableView.register(TableComponentTransaction.self)
+        tableView.register(TableComponentSlider.self)
+        tableView.register(TableComponentTitleCenterDetail.self)
+        tableView.register(TableComponentTitleCenterTextDetail.self)
+        tableView.register(TableComponentTextFieldDetail.self)
     }
     
     // MARK: - Update State
@@ -81,6 +85,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.beginUpdates()
         let diff = Dwifft.diff(oldState, state)
         for step in diff  {
+            guard step.idx != selectedRow?.row else { continue }
             switch step {
             case .insert(let rowIndex, _):
                 tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
@@ -166,12 +171,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .menuSimpleTitleDetail(let title, let detail, let withArrow , _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
         case .menuTitleDetail(let icon, let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
             cell.imageView?.image = icon
@@ -397,6 +404,36 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.cancelButton.tintColor = (inject() as AppColorInterface).centeredButtonBackgroudColor
             cell.cancelButton.setImage(icon, for: .normal)
             return cell
+        case .titleAttributedDetail(let title, let detail):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.applyDesign()
+            cell.textLabel?.text = title
+            cell.detailTextLabel?.attributedText = detail
+            cell.accessoryType = .none
+            return cell
+        case .attributedTitleDetail(let title, let detail, _):
+            let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.textLabel?.attributedText = title
+            cell.detailTextLabel?.attributedText = detail
+            cell.accessoryType = .none
+            return cell
+        case .slider(let titles, let selected, let didChange):
+            let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
+            cell.leftTitleLabel.text = titles.0
+            cell.centerTitleLabel.text = titles.1
+            cell.rightTitleLabel.text = titles.2
+            cell.slider.value = selected
+            cell.newSliderAction = didChange
+            return cell
+        case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
+            let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleTextField.text = string
+            cell.titleTextField.font = font
+            cell.titleTextField.textColor = color
+            cell.detailLabel.attributedText = detail
+            cell.titleTextField.keyboardType = .decimalPad
+            cell.enterAction = action
+            return cell
         default:
             fatalError()
         }
@@ -428,8 +465,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleSubtitleDescription: fallthrough
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
+        case .textFieldTitleDetail: fallthrough
         case .assetBalance:
             return true
+        case .attributedTitleDetail(_, _, let action):
+            return action != nil
         default:
             return false
         }
@@ -481,6 +521,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             action()
         case .transactionDetail(_, _, _, _, let action):
             action()
+        case .attributedTitleDetail(_, _, let action):
+            action?()
+        case .textFieldTitleDetail:
+            let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.titleTextField)
         default:
             return
         }

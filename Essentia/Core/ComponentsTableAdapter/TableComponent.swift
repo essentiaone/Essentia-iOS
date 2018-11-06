@@ -11,6 +11,7 @@ import UIKit
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
     // MARK: - Common
+    case slider(titles: (String, String, String), selected: Float, didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
@@ -62,9 +63,11 @@ enum TableComponent: Equatable {
     // MARK: - Wallet detail
     case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
     case searchField(title: String, icon: UIImage, action: () -> Void)
+    case titleAttributedDetail(title: String, detail: NSAttributedString)
+    case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: (() -> Void)?)
+    case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
-
     // MARK: - Equatable
     static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
         return lhs.rawValue == rhs.rawValue

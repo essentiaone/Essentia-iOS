@@ -171,7 +171,7 @@ class WalletMainViewController: BaseTableAdapterController {
             assetState.append(
                 .assetBalance(imageUrl: wallet.iconUrl,
                               title: wallet.name,
-                              value: wallet.formattedBalanceInCurrentCurrency,
+                              value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
                               currencyValue: wallet.formattedBalance,
                               action: { self.showWalletDetail(for: wallet) }
                 )
@@ -289,6 +289,6 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
-        return formatter.formattedAmmount(amount: balance)
+        return formatter.formattedAmmountWithCurrency(amount: balance)
     }
 }

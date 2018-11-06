@@ -19,7 +19,7 @@ struct AssetRank {
        return getRank(for: EssentiaStore.currentUser.profile.currency, and: asset)?.yesterdayPrice
     }
     
-    mutating func setRank(for currency: Currency, and asset: AssetInterface, rank: Double, yesterdayPrice: Double) {
+    mutating func setRank(for currency: FiatCurrency, and asset: AssetInterface, rank: Double, yesterdayPrice: Double) {
         let assetPrice = AssetPrice(currency: currency, asset: asset, price: rank, yesterdayPrice: yesterdayPrice)
         guard let indexIfExiset = ranks.firstIndex(where: { $0.currency == currency && $0.asset.name == asset.name}) else {
             ranks.append(assetPrice)
@@ -28,7 +28,7 @@ struct AssetRank {
         ranks[indexIfExiset] = assetPrice
     }
     
-    private func getRank(for currency: Currency, and asset: AssetInterface) -> AssetPrice? {
+    private func getRank(for currency: FiatCurrency, and asset: AssetInterface) -> AssetPrice? {
         return ranks.first(where: { $0.currency == currency && $0.asset.name == asset.name})
     }
 }

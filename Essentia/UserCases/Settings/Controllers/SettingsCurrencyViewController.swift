@@ -41,7 +41,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
     var currenciesState: [TableComponent] {
         var currencyState: [TableComponent] = []
         let currenyCurrency = EssentiaStore.currentUser.profile.currency
-        Currency.cases.forEach { (currency) in
+        FiatCurrency.cases.forEach { (currency) in
             currencyState.append(.menuTitleCheck(
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),

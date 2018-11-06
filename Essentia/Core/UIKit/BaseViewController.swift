@@ -27,6 +27,7 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -34,12 +35,17 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
             return
         }
         let newKeyboardHeight = keyboardSize.cgRectValue.height
-        let shouldNotify = keyboardHeight != newKeyboardHeight
+        let shouldNotify = keyboardHeight != newKeyboardHeight || isKeyboardShown == false
         keyboardHeight = newKeyboardHeight
-        isKeyboardShown = keyboardHeight > 0
+        isKeyboardShown = true
         if shouldNotify {
             keyboardDidChange()
         }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        isKeyboardShown = false
+        keyboardDidChange()
     }
     
     func keyboardDidChange() {}
@@ -49,5 +55,4 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
         UIView.transition(with: mainwindow, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
         }) { (_) -> Void in}
     }
-
 }

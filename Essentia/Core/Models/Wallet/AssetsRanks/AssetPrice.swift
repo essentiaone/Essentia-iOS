@@ -9,7 +9,7 @@
 import Foundation
 
 struct AssetPrice {
-    var currency: Currency
+    var currency: FiatCurrency
     var asset: AssetInterface
     var price: Double
     var yesterdayPrice: Double

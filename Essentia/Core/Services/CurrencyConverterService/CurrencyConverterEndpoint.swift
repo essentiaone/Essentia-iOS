@@ -32,5 +32,5 @@ enum CurrencyConverterEndpoint: RequestProtocol {
         return .json
     }
     
-    case getPrice(forCoin: String, inCurrency: Currency)
+    case getPrice(forCoin: String, inCurrency: FiatCurrency)
 }

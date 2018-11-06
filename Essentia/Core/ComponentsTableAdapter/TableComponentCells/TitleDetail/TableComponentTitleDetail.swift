@@ -11,12 +11,7 @@ import UIKit
 class TableComponentTitleDetail: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        applyDesign()
-    }
-    
-    private func applyDesign() {
+    func applyDesign() {
         textLabel?.font = AppFont.regular.withSize(14)
         detailTextLabel?.font = AppFont.regular.withSize(14)
 
