@@ -54,6 +54,8 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.reload(state)
+        hideKeyboardWhenTappedAround()
+        loadInputs()
     }
     
 /*
@@ -202,5 +204,18 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         dismiss(animated: true)
+    }
+    
+    // MARK: - Network
+    
+    func loadInputs() {
+        let interactor: WalletBlockchainWrapperInteractorInterface = inject()
+        interactor.getEthGasPrice { (price) in
+            print(price)
+        }
+        
+        interactor.getEthGasEstimate(for: "0x34205555576717bBdF8158E2b2c9ed64EB1e6B85", data: "") { (estimate) in
+            print(estimate)
+        }
     }
 }

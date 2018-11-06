@@ -424,6 +424,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.rightTitleLabel.text = titles.2
             cell.slider.value = selected
             cell.newSliderAction = didChange
+            selectedRow = nil
             return cell
         case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
             let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)

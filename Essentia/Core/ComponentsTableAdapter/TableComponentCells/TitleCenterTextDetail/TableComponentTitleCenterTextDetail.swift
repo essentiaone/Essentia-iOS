@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable {
+class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var textFieldConstraint: NSLayoutConstraint!
@@ -24,6 +24,7 @@ class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         centeredTextField.isUserInteractionEnabled = false
+        centeredTextField.delegate = self
         centeredTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
     
@@ -32,6 +33,18 @@ class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable {
         let hideButton = !text.isEmpty
         enterAction?(text)
         rightButton.isHidden = hideButton
+        rightButton.isUserInteractionEnabled = !hideButton
         textFieldConstraint.constant = hideButton ? 10.0 : 42.0
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = false
     }
 }

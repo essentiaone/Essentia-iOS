@@ -53,6 +53,10 @@ class AmmountEnteringDelegate: NSObject, UITextFieldDelegate {
         doneAction(sender.text ?? "")
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newCharacter = string
         let ammountField = textField.text ?? ""

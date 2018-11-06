@@ -16,4 +16,7 @@ protocol WalletBlockchainWrapperInteractorInterface {
     func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (Result<BitcoinTransactionsHistory>) -> Void)
     func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (Result<EthereumTransactionsByAddress>) -> Void)
     func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void)
+    
+    func getEthGasPrice(gasPrice: @escaping (Double) -> Void)
+    func getEthGasEstimate(for address: String, data: String, gasLimit: @escaping (Double) -> Void)
 }
