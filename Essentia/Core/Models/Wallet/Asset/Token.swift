@@ -9,6 +9,10 @@
 import UIKit
 
 struct Token: Codable, AssetInterface {
+    func isValidAddress(_ address: String) -> Bool {
+        return true
+    }
+    
     var id: String
     var address: String
     var symbol: String

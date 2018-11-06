@@ -103,8 +103,8 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getEthGasEstimate(for address: String, data: String, gasLimit: @escaping (Double) -> Void) {
-        cryptoWallet.ethereum.getGasEstimate(to: address, data: "none") { (result) in
+    func getEthGasEstimate(fromAddress: String, toAddress: String , data: String, gasLimit: @escaping (Double) -> Void) {
+        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
            print(result)
         }
     }

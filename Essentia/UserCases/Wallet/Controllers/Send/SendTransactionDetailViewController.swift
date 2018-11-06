@@ -214,8 +214,8 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
             print(price)
         }
         
-        interactor.getEthGasEstimate(for: "0x34205555576717bBdF8158E2b2c9ed64EB1e6B85", data: "") { (estimate) in
-            print(estimate)
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: "0x") { (price) in
+            print(price)
         }
     }
 }
