@@ -130,9 +130,9 @@ class TableAdapterHelper {
         case .textFieldTitleDetail:
             return 75.0
         case .imageTitleSubtitle:
-            return 91.0
+            return 96.0
         case .centeredImageButton(let image, _):
-            return image.size.height + 10
+            return image.size.height + 25
         default:
             fatalError()
         }

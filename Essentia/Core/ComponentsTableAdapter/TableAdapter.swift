@@ -444,7 +444,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .centeredImageButton(let image, _):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
-            cell.titleImageView.contentMode = .scaleAspectFit
+            cell.titleImageView.contentMode = .center
             return cell
         default:
             fatalError()
