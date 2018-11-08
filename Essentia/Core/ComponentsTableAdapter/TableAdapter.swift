@@ -75,6 +75,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleCenterDetail.self)
         tableView.register(TableComponentTitleCenterTextDetail.self)
         tableView.register(TableComponentTextFieldDetail.self)
+        tableView.register(TableComponentImageTitleSubtitle.self)
     }
     
     // MARK: - Update State
@@ -434,6 +435,17 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleTextField.keyboardType = .decimalPad
             cell.enterAction = action
             return cell
+        case .imageTitleSubtitle(let image, let title, let subtitle):
+            let cell: TableComponentImageTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.subltitle.text = subtitle
+            cell.titleImagevView.image = image
+            return cell
+        case .centeredImageButton(let image, _):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.image = image
+            cell.titleImageView.contentMode = .center
+            return cell
         default:
             fatalError()
         }
@@ -466,6 +478,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
+        case .centeredImageButton: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -527,6 +540,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.titleTextField)
+        case .centeredImageButton(_, let action):
+            action()
         default:
             return
         }

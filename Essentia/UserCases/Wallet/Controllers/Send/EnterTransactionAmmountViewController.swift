@@ -156,12 +156,14 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         self.view.endEditing(true)
         self.router.pop()
     }
     
-    private lazy var currentlyEditedFieldChanged: (String) -> Void = {
+    private lazy var currentlyEditedFieldChanged: (String) -> Void = {  [weak self] in
+        guard let `self` = self else { return }
         switch self.store.currentlyEdited {
         case .fiat:
             self.store.enterdValueInCurrency = $0
@@ -174,7 +176,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var disabledFieldAction: () -> Void = {
+    private lazy var disabledFieldAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         self.tableView.endEditing(true)
         self.store.currentlyEdited = self.store.currentlyEdited.another
         self.tableAdapter.simpleReload(self.state)

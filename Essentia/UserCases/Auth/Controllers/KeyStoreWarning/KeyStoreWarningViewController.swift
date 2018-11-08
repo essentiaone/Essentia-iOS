@@ -41,8 +41,7 @@ class KeyStoreWarningViewController: BaseTableAdapterController {
                             isEnable: true,
                             action: saveAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 10, background: colorProvider.settingsCellsBackround),
-            .tabBarSpace
+            .empty(height: 10, background: colorProvider.settingsCellsBackround)
         ]
     }
     // MARK: - Actions
