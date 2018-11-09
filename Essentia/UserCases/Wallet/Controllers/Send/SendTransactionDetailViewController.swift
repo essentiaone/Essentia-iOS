@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HDWalletKit
 import QRCodeReader
 
 fileprivate struct Store {
@@ -17,7 +18,9 @@ fileprivate struct Store {
     var selectedFeeSlider: Float = 3
     var isFeeEnteringDirectly: Bool = false
     var enteredFee: Double = 0.0025
-    
+    var gasEstimate: Double = 21000
+    var lowGasSpeed: Double = 4.0
+    var fastGasSpeed: Double = 25.0
     var qrImage: UIImage? {
         guard address.isEmpty else { return nil }
         return UIImage(named: "qrCode")
@@ -38,6 +41,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
+    private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
     
     private var store: Store
     
@@ -56,6 +60,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
         tableAdapter.reload(state)
         hideKeyboardWhenTappedAround()
         loadInputs()
+        loadRanges()
     }
     
 /*
@@ -118,7 +123,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
         case false:
             return [.attributedTitleDetail(title: formattedFeeTitle, detail: formattedInputFeeButton, action: inputFeeAction),
                     .slider(titles: (LS("Wallet.Send.Slow"), LS("Wallet.Send.Normal"), LS("Wallet.Send.Fast")),
-                                selected: Float(store.selectedFeeSlider), didChange: feeChanged)]
+                            values: (store.lowGasSpeed, Double(store.selectedFeeSlider), store.fastGasSpeed), didChange: feeChanged)]
         }
     }
     
@@ -136,7 +141,11 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     }
     
     var formattedFeeTitle: NSAttributedString {
-        let string = LS("Wallet.Send.Fee") + "(0.000125BTC)"
+        let currentFee = Double(self.store.selectedFeeSlider) * store.gasEstimate / pow(10, 9)
+        self.store.enteredFee = currentFee
+        let numberFormatter = BalanceFormatter(asset: self.store.wallet.asset)
+        let formattedFee = numberFormatter.formattedAmmountWithCurrency(amount: currentFee)
+        let string = LS("Wallet.Send.Fee") + formattedFee
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
                                                                NSAttributedString.Key.foregroundColor: colorProvider.titleColor])
     }
@@ -174,12 +183,14 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     private lazy var addressEditingChanged: (String) -> Void = { [weak self] address in
         guard let `self` = self else { return }
         self.store.address = address
+        self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var dataEditingChanged: (String) -> Void = { [weak self] data in
         guard let `self` = self else { return }
         self.store.data = data
+        self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
     
@@ -209,13 +220,18 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     // MARK: - Network
     
     func loadInputs() {
-        let interactor: WalletBlockchainWrapperInteractorInterface = inject()
-        interactor.getEthGasPrice { (price) in
-            print(price)
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: store.data) { [weak self] (price) in
+            self?.store.gasEstimate = price
         }
-        
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: "0x") { (price) in
-            print(price)
+    }
+    
+    func loadRanges() {
+        interactor.getGasSpeed {  [weak self] (low, avarage, fast) in
+            guard let `self` = self else { return  }
+            self.store.lowGasSpeed = low
+            self.store.selectedFeeSlider = Float(avarage)
+            self.store.fastGasSpeed = fast
+            self.tableAdapter.simpleReload(self.state)
         }
     }
 }

@@ -417,12 +417,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
             return cell
-        case .slider(let titles, let selected, let didChange):
+        case .slider(let titles, let values, let didChange):
             let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
             cell.leftTitleLabel.text = titles.0
             cell.centerTitleLabel.text = titles.1
             cell.rightTitleLabel.text = titles.2
-            cell.slider.value = selected
+            cell.slider.value = Float(values.1)
+            cell.slider.minimumValue = Float(values.0)
+            cell.slider.maximumValue = Float(values.2)
             cell.newSliderAction = didChange
             selectedRow = nil
             return cell

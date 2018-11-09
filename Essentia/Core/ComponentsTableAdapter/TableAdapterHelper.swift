@@ -132,7 +132,7 @@ class TableAdapterHelper {
         case .titleCenteredDetail:
             return 44.0
         case  .titleCenteredDetailTextFildWithImage:
-            return 44.0
+            return 44.0 
         default:
             fatalError()
         }

@@ -11,7 +11,7 @@ import UIKit
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
     // MARK: - Common
-    case slider(titles: (String, String, String), selected: Float, didChange: (Float) -> Void)
+    case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
