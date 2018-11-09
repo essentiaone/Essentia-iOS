@@ -210,7 +210,10 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         dismiss(animated: true)
-        print(result)
+        if !result.value.contains(charactersIn: EssCharacters.special.set) {
+            self.store.address = result.value
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
@@ -220,7 +223,8 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     // MARK: - Network
     
     func loadInputs() {
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: store.data) { [weak self] (price) in
+        let data = self.store.data.isEmpty ? "0x" : self.store.data
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: data) { [weak self] (price) in
             self?.store.gasEstimate = price
         }
     }
