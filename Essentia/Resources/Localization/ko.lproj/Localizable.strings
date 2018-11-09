@@ -256,3 +256,30 @@
 "Wallet.Send.TransactionTime" = "Transaction time";
 "Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
 
+"Launchpad.Placeholder.Title" = "Amazing features coming soon!";
+"Launchpad.Placeholder.Swipe" = "Swipe to see";
+
+"Launchpad.Placeholder.Detail.Title" = "Features";
+"Launchpad.Placeholder.Detail.Feature0.Title" = "Automatized Trading";
+"Launchpad.Placeholder.Detail.Feature0.Detail" = "Save time and never miss a deal!";
+"Launchpad.Placeholder.Detail.Feature1.Title" = "Exchanges";
+"Launchpad.Placeholder.Detail.Feature1.Detail" = "Exchange your cryptos safely and easily!";
+"Launchpad.Placeholder.Detail.Feature2.Title" = "Intuitive Trading Experience";
+"Launchpad.Placeholder.Detail.Feature2.Detail" = "Came, saw, traded! No more complicated interfaces!";
+"Launchpad.Placeholder.Detail.Feature3.Title" = "Essentia Crypto Messenger";
+"Launchpad.Placeholder.Detail.Feature3.Detail" = "Use Essentia’s native Crypto Messenger to communicate and send cryptos!";
+"Launchpad.Placeholder.Detail.Feature4.Title" = "Offline Transactions";
+"Launchpad.Placeholder.Detail.Feature5.Detail" = "Conduct your transactions offline!";
+"Launchpad.Placeholder.Detail.Feature5.Title" = "DApp Store";
+"Launchpad.Placeholder.Detail.Feature5.Detail" = "Manage and personalize the various dApps integrated in Essentia!";
+"Launchpad.Placeholder.Detail.Feature6.Title" = "Notifications";
+"Launchpad.Placeholder.Detail.Feature6.Detail" = "Get notified in case of the price change or whenever you receive and send assets!";
+"Launchpad.Placeholder.Detail.Feature7.Title" = "News";
+"Launchpad.Placeholder.Detail.Feature7.Detail" = "Be updated about all the news in the crypto-space with Essentia!";
+"Launchpad.Placeholder.Detail.Feature8.Title" = "Market Analysis";
+"Launchpad.Placeholder.Detail.Feature8.Detail" = "Trade smartly with Essentia’s price analysis!";
+"Launchpad.Placeholder.Detail.Feature9.Title" = "Jarvis";
+"Launchpad.Placeholder.Detail.Feature9.Detail" = "Optimize your crypto-experience with Essentia’s personal AI assistant - Jarvis!";
+"Launchpad.Placeholder.Detail.Feature10.Title" = "AutoSynс";
+"Launchpad.Placeholder.Detail.Feature10.Detail" = "Connect your wallets and exchanges to synchronize your balance and transaction history!";
+

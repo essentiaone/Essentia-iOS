@@ -188,8 +188,12 @@
 		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
 		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
 		34864022218BD52C008CA223 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864021218BD52C008CA223 /* String+Helpers.swift */; };
+		34864027219319F2008CA223 /* LaunchpadPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */; };
+		34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */; };
 		348BC792217EC8E000F494A8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC791217EC8E000F494A8 /* UIView+Animation.swift */; };
 		348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */; };
+		349131E521938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 349131E421938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib */; };
+		349131E721938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349131E621938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift */; };
 		34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */; };
@@ -478,8 +482,12 @@
 		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
 		34864021218BD52C008CA223 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
+		34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadPlaceholderViewController.swift; sourceTree = "<group>"; };
+		34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadPlaceholderViewController.xib; sourceTree = "<group>"; };
 		348BC791217EC8E000F494A8 /* UIView+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
+		349131E421938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitleSubtitle.xib; sourceTree = "<group>"; };
+		349131E621938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitleSubtitle.swift; sourceTree = "<group>"; };
 		34997796218312EF00D85A82 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49C2122F47E00E9256F /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
@@ -1265,6 +1273,7 @@
 		34482668211B321000C19EB3 /* Launchpad */ = {
 			isa = PBXGroup;
 			children = (
+				34864025219319D9008CA223 /* LaunchpadPlaceholder */,
 				3448266A211B360200C19EB3 /* LaunchpadController */,
 				34482669211B345800C19EB3 /* Items */,
 			);
@@ -1349,6 +1358,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				349131E321938EC7009D5FF1 /* ImageTitleSubtitle */,
 				34FCB9B0218BB39500A88D56 /* TextFieldDetail */,
 				34FCB9A7218A3B1F00A88D56 /* Slider */,
 				34FCB9962189141F00A88D56 /* TitleCenterTextDetail */,
@@ -1640,6 +1650,15 @@
 			path = String;
 			sourceTree = "<group>";
 		};
+		34864025219319D9008CA223 /* LaunchpadPlaceholder */ = {
+			isa = PBXGroup;
+			children = (
+				34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */,
+				34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */,
+			);
+			path = LaunchpadPlaceholder;
+			sourceTree = "<group>";
+		};
 		348BC790217EC8BF00F494A8 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1648,6 +1667,15 @@
 				348BC791217EC8E000F494A8 /* UIView+Animation.swift */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		349131E321938EC7009D5FF1 /* ImageTitleSubtitle */ = {
+			isa = PBXGroup;
+			children = (
+				349131E421938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib */,
+				349131E621938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift */,
+			);
+			path = ImageTitleSubtitle;
 			sourceTree = "<group>";
 		};
 		34997795218312D800D85A82 /* RemoteExtensions */ = {
@@ -2076,9 +2104,11 @@
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
 				3401AFD2210238A4006DEF49 /* BorderedCell.xib in Resources */,
 				3441680C212FEDEC008B8A91 /* TableComponentCheckField.xib in Resources */,
+				34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				34FCB99B2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib in Resources */,
 				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
+				349131E521938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib in Resources */,
 				3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				343122752124E93E009E4A7A /* TableComponentParagraph.xib in Resources */,
@@ -2232,6 +2262,7 @@
 				34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */,
 				3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */,
 				344958E72141754D00C2230B /* UserProfile.swift in Sources */,
+				34864027219319F2008CA223 /* LaunchpadPlaceholderViewController.swift in Sources */,
 				3411AEEE216430D000AB9476 /* CurrencyConverterEndpoint.swift in Sources */,
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
 				34737BDE2151598E008A306F /* TableComponentBalanceChanging.swift in Sources */,
@@ -2374,6 +2405,7 @@
 				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				344826C12121833E00C19EB3 /* TableComponentSwitch.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
+				349131E721938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift in Sources */,
 				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
 				3448264521107A2100C19EB3 /* EditingCell.swift in Sources */,
 				3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */,

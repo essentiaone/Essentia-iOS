@@ -32,6 +32,7 @@ enum TableComponent: Equatable {
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case navigationImageBar(left: String, right: UIImage, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
+    case imageTitleSubtitle(image: UIImage, title: String, subtitle: String)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void)
     case accountStrengthAction(action: () -> Void)
@@ -48,6 +49,7 @@ enum TableComponent: Equatable {
     case password(passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace
+    case centeredImageButton(image: UIImage, action: () -> Void)
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
