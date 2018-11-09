@@ -10,7 +10,7 @@ import UIKit
 
 struct Token: Codable, AssetInterface {
     func isValidAddress(_ address: String) -> Bool {
-        return true
+        return address.count == 40 || address.count == 42
     }
     
     var id: String
