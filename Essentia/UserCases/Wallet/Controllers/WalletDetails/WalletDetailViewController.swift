@@ -85,7 +85,7 @@ class WalletDetailViewController: BaseTableAdapterController {
                                      perTime: "(24h)"),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
-                                    LS("Wallet.Detail.Exchange"),
+//                                    LS("Wallet.Detail.Exchange"),
                                     LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
@@ -211,9 +211,9 @@ class WalletDetailViewController: BaseTableAdapterController {
         switch $0 {
         case 0:
             (inject() as WalletRouterInterface).show(.enterTransactionAmmount(self.store.wallet))
+//        case 1:
+//            print("Show exchange")
         case 1:
-            print("Show exchange")
-        case 2:
             print("Show recive")
         default: return
         }
