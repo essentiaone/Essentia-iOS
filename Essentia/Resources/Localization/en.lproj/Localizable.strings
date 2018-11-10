@@ -256,6 +256,11 @@
 "Wallet.Send.TransactionTime" = "Transaction time";
 "Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
 
+"Wallet.Receive.Title" = "Receive";
+"Wallet.Receive.Wallet" = "wallet";
+"Wallet.Receive.Copy" = "Copy";
+"Wallet.Receive.Request" = "Request specific ammount";
+
 "Launchpad.Placeholder.Title" = "Amazing features coming soon!";
 "Launchpad.Placeholder.Swipe" = "Swipe to see";
 

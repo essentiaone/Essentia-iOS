@@ -168,6 +168,7 @@
 		344DB5482162705C00F7D1E2 /* TableComponentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */; };
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
 		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
+		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
 		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
 		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
@@ -462,6 +463,7 @@
 		344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTableView.swift; sourceTree = "<group>"; };
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
 		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
+		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
 		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
 		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
@@ -1469,6 +1471,7 @@
 		344958CF2141200A00C2230B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				345F1181219719410010095F /* Receive */,
 				34DC8B8421778F1900ACA5D2 /* Main */,
 				34DC8B7F21778E2000ACA5D2 /* Send */,
 				34DC8B7E21778E1200ACA5D2 /* WalletDetails */,
@@ -1580,6 +1583,14 @@
 				34FCB98A2187C66F00A88D56 /* DateFormatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		345F1181219719410010095F /* Receive */ = {
+			isa = PBXGroup;
+			children = (
+				345F11822197195E0010095F /* WallerReceiveViewController.swift */,
+			);
+			path = Receive;
 			sourceTree = "<group>";
 		};
 		34737BC3214EACE5008A306F /* TokensService */ = {
@@ -2327,6 +2338,7 @@
 				34B27A3E21304B2E00527F15 /* LocalizationLanguage.swift in Sources */,
 				34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
+				345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */,
 				349AA49D2122F47E00E9256F /* SettingsRouterInterface.swift in Sources */,
 				344167EF212E168A008B8A91 /* EssentiaStore.swift in Sources */,
 				344DB53B215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift in Sources */,

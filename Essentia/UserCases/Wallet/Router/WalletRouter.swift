@@ -50,6 +50,10 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             vc.delegate = delegate
             
             popUp(vc: vc)
+        case .receive(let wallet):
+            push(vc: WallerReceiveViewController(wallet: wallet))
+        case .enterReceiveAmmount(let asset):
+            push(vc: WalletEnterReceiveAmmount(asset: asset))
         }
     }
     private func showTransactionDetail(asset: AssetInterface, txId: String) {
