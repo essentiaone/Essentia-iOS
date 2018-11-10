@@ -20,7 +20,7 @@ fileprivate struct Store {
         guard !enterdValueInCrypto.isEmpty else {
             return wallet.address
         }
-        return wallet.asset.name.lowercased() + ":" + wallet.address + "?" + "ammount:" + enterdValueInCrypto
+        return wallet.asset.name.lowercased() + ":" + wallet.address + "?" + "value=" + enterdValueInCrypto
     }
 }
 class WallerReceiveViewController: BaseTableAdapterController {
@@ -44,11 +44,6 @@ class WallerReceiveViewController: BaseTableAdapterController {
         super.viewWillAppear(animated)
         tableAdapter.reload(state)
     }
-    
-    /*"Wallet.Receive.Title" = "Receive";
-     "Wallet.Receive.Wallet" = "wallet";
-     "Wallet.Receive.Copy" = "Copywallet";
-     "Wallet.Receive.Request" = "Request specific ammount";*/
     
     private var state: [TableComponent] {
         return [
@@ -85,7 +80,7 @@ class WallerReceiveViewController: BaseTableAdapterController {
                                 action: enterAmmoutAction)]
         }
         return [.searchField(title: store.enterdValueInCrypto + " " + store.wallet.asset.symbol,
-                                           icon: UIImage.withColor(.red) ,
+                                           icon: UIImage(named: "clearTextField") ?? UIImage() ,
                                            action: clearAction)]
     }
     
@@ -95,7 +90,7 @@ class WallerReceiveViewController: BaseTableAdapterController {
         filter.setValue(data, forKey: "inputMessage")
         filter.setValue("Q", forKey: "inputCorrectionLevel")
         guard let outputImage = filter.outputImage else { return UIImage() }
-        let transformedImage = outputImage.transformed(by: CGAffineTransform(scaleX: 6, y: 6))
+        let transformedImage = outputImage.transformed(by: CGAffineTransform(scaleX: 5, y: 5))
         
         return UIImage(ciImage: transformedImage)
     }
