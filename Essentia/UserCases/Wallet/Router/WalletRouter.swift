@@ -52,8 +52,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: vc)
         case .receive(let wallet):
             push(vc: WallerReceiveViewController(wallet: wallet))
-        case .enterReceiveAmmount(let asset):
-            push(vc: WalletEnterReceiveAmmount(asset: asset))
+        case .enterReceiveAmmount(let asset, let action):
+            push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
         }
     }
     private func showTransactionDetail(asset: AssetInterface, txId: String) {

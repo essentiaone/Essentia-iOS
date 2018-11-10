@@ -23,7 +23,7 @@ enum WalletRoutes {
     case sendTransactionDetail(ViewWalletInterface, String)
     case qrReader(QRCodeReaderViewControllerDelegate)
     case receive(ViewWalletInterface)
-    case enterReceiveAmmount(AssetInterface)
+    case enterReceiveAmmount(AssetInterface, action: (String) -> Void)
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

@@ -69,9 +69,9 @@ class WallerReceiveViewController: BaseTableAdapterController {
             .titleWithFont(font: AppFont.bold.withSize(13),
                            title: store.wallet.address,
                            background: colorProvider.settingsCellsBackround),
-            .empty(height: 20, background: colorProvider.settingsCellsBackround),
-            
-            .separator(inset: .zero),
+            .empty(height: 20, background: colorProvider.settingsCellsBackround)]
+            + ammountComponent +
+            [.separator(inset: .zero),
             .empty(height: 16, background: colorProvider.settingsCellsBackround),
             .smallCenteredButton(title: LS("Wallet.Receive.Copy"), isEnable: true, action: copyAction),
             .empty(height: 24, background: colorProvider.settingsCellsBackround)
@@ -111,7 +111,11 @@ class WallerReceiveViewController: BaseTableAdapterController {
     }
     
     private lazy var enterAmmoutAction: () -> Void = { [weak self] in
-        self.router.show(<#T##route: WalletRoutes##WalletRoutes#>)
+        guard let `self` = self else { return }
+        self.router.show(.enterReceiveAmmount(self.store.wallet.asset, action: { (ammount) in
+            self.store.enterdValueInCrypto = ammount
+            self.tableAdapter.simpleReload(self.state)
+        }))
     }
     
     private lazy var clearAction: () -> Void = { [weak self] in

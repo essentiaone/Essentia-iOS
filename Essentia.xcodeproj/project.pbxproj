@@ -169,6 +169,7 @@
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
 		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
+		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
 		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
 		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
@@ -464,6 +465,7 @@
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
 		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
+		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
 		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
 		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
@@ -1589,6 +1591,7 @@
 			isa = PBXGroup;
 			children = (
 				345F11822197195E0010095F /* WallerReceiveViewController.swift */,
+				345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */,
 			);
 			path = Receive;
 			sourceTree = "<group>";
@@ -2247,6 +2250,7 @@
 				343122732124E92D009E4A7A /* TableComponentParagraph.swift in Sources */,
 				349BC04F2143D71F003AC330 /* TableComponentTitleSubtitle.swift in Sources */,
 				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
+				345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */,
 				349BC0532143DDB1003AC330 /* BaseRouter.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,

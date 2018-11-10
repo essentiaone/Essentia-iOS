@@ -573,6 +573,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
-        
+    }
+    
+    func endEditing(_ force: Bool) {
+        self.tableView.endEditing(true)
+        self.selectedRow = nil
     }
 }
