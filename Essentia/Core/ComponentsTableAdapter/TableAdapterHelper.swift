@@ -137,6 +137,8 @@ class TableAdapterHelper {
             return 96.0
         case .centeredImageButton(let image, _):
             return image.size.height + 25
+        case .blure:
+            return tableView.frame.height
         default:
             fatalError()
         }

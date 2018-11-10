@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentBlure" id="soV-2v-h9e" customClass="TableComponentBlure" customModule="Essentia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="soV-2v-h9e" id="Kif-x9-GiD">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZnC-kF-mB9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kS3-ZB-rDl">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNc-CD-Duo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </tableView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="fNc-CD-Duo" firstAttribute="top" secondItem="kS3-ZB-rDl" secondAttribute="top" id="60a-LO-4Y8"/>
+                                <constraint firstAttribute="trailing" secondItem="fNc-CD-Duo" secondAttribute="trailing" id="O2I-Ns-rLB"/>
+                                <constraint firstAttribute="bottom" secondItem="fNc-CD-Duo" secondAttribute="bottom" id="fOR-b9-3VP"/>
+                                <constraint firstItem="fNc-CD-Duo" firstAttribute="leading" secondItem="kS3-ZB-rDl" secondAttribute="leading" id="nA9-js-izb"/>
+                            </constraints>
+                        </view>
+                        <blurEffect style="light"/>
+                    </visualEffectView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZnC-kF-mB9" secondAttribute="bottom" id="eTY-F2-wH3"/>
+                    <constraint firstItem="ZnC-kF-mB9" firstAttribute="top" secondItem="Kif-x9-GiD" secondAttribute="top" id="lBC-MP-Dxg"/>
+                    <constraint firstItem="ZnC-kF-mB9" firstAttribute="leading" secondItem="Kif-x9-GiD" secondAttribute="leading" id="mLa-fm-aq0"/>
+                    <constraint firstAttribute="trailing" secondItem="ZnC-kF-mB9" secondAttribute="trailing" id="nCf-5p-Nma"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="blureView" destination="ZnC-kF-mB9" id="J4z-qr-yL0"/>
+                <outlet property="tableView" destination="fNc-CD-Duo" id="bCs-CS-kB6"/>
+            </connections>
+            <point key="canvasLocation" x="174" y="103"/>
+        </tableViewCell>
+    </objects>
+</document>

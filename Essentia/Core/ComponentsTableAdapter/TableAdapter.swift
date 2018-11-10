@@ -463,6 +463,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleImageView.image = image
             cell.titleImageView.contentMode = .center
             return cell
+        case .blure(let state):
+            let cell: TableComponentBlure = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
         default:
             fatalError()
         }
