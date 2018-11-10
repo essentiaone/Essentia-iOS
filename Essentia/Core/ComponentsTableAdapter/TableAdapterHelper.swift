@@ -122,13 +122,17 @@ class TableAdapterHelper {
         case .titleAttributedDetail:
             return 60.0
         case .slider:
-            return 70.0
+            return 60.0
         case .attributedTitleDetail(let title, let detail, _):
             let titleHeight =  title.height(with: tableView.bounds.width)
             let detailHeight =  detail.height(with: tableView.bounds.width)
             return max(titleHeight, detailHeight) + 5
         case .textFieldTitleDetail:
             return 75.0
+        case .titleCenteredDetail:
+            return 44.0
+        case  .titleCenteredDetailTextFildWithImage:
+            return 44.0
         case .imageTitleSubtitle:
             return 96.0
         case .centeredImageButton(let image, _):

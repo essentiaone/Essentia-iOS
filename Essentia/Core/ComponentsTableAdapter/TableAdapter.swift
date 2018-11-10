@@ -418,13 +418,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
             return cell
-        case .slider(let titles, let selected, let didChange):
+        case .slider(let titles, let values, let didChange):
             let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
             cell.leftTitleLabel.text = titles.0
             cell.centerTitleLabel.text = titles.1
             cell.rightTitleLabel.text = titles.2
-            cell.slider.value = selected
+            cell.slider.value = Float(values.1)
+            cell.slider.minimumValue = Float(values.0)
+            cell.slider.maximumValue = Float(values.2)
             cell.newSliderAction = didChange
+            selectedRow = nil
             return cell
         case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
             let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
@@ -434,6 +437,20 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.detailLabel.attributedText = detail
             cell.titleTextField.keyboardType = .decimalPad
             cell.enterAction = action
+            return cell
+        case .titleCenteredDetail(let title, let detail):
+            let cell: TableComponentTitleCenterDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.detailLabel.text = detail
+            return cell
+        case .titleCenteredDetailTextFildWithImage(let title, let text, let placeholder, let rightButtonImage, let rightButtonAction, let textFieldChanged):
+            let cell: TableComponentTitleCenterTextDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.centeredTextField.text = text
+            cell.centeredTextField.placeholder = placeholder
+            cell.rightButton.setImage(rightButtonImage, for: .normal)
+            cell.action = rightButtonAction
+            cell.enterAction = textFieldChanged
             return cell
         case .imageTitleSubtitle(let image, let title, let subtitle):
             let cell: TableComponentImageTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
@@ -478,6 +495,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
+        case .titleCenteredDetailTextFildWithImage: fallthrough
         case .centeredImageButton: fallthrough
         case .assetBalance:
             return true
@@ -540,6 +558,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.titleTextField)
+        case .titleCenteredDetailTextFildWithImage:
+            let cell: TableComponentTitleCenterTextDetail = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.centeredTextField)
         case .centeredImageButton(_, let action):
             action()
         default:

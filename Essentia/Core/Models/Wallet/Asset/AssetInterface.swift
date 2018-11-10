@@ -26,6 +26,8 @@ protocol AssetInterface {
     var name: String { get }
     var symbol: String { get }
     var iconUrl: URL { get }
+    
+    func isValidAddress(_ address: String) -> Bool
 }
 
 extension AssetInterface where Self: Hashable {

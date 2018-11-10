@@ -8,19 +8,43 @@
 
 import UIKit
 
-class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable {
+class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailTextField: UITextField!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var textFieldConstraint: NSLayoutConstraint!
-    var action: (() -> Void)?
+    @IBOutlet weak var centeredTextField: UITextField!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
+    var enterAction: ((String) -> Void)?
+    var action: (() -> Void)?
     
     @IBAction func buttonAction(_ sender: Any) {
         action?()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        centeredTextField.isUserInteractionEnabled = false
+        centeredTextField.delegate = self
+        centeredTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+    }
+    
+    @objc func textFieldDidChange(_ notification: NSNotification) {
+        let text = centeredTextField.text ?? ""
+        let hideButton = !text.isEmpty
+        enterAction?(text)
+        rightButton.isHidden = hideButton
+        rightButton.isUserInteractionEnabled = !hideButton
+        textFieldConstraint.constant = hideButton ? 10.0 : 42.0
+    }
+    
+    // MARK: - UITextFieldDelegate
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        textField.isUserInteractionEnabled = false
     }
 }

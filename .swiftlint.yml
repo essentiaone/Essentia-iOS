@@ -6,6 +6,8 @@ disabled_rules:
  - line_length
  - cyclomatic_complexity
  - large_tuple
+ - private_over_fileprivate
+ - no_fallthrough_only
 excluded:
   - Pods
   - fastane

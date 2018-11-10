@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate struct Store {
-    var tokens: [GeneratingWalletInfo : [TokenWallet]] = [:]
+    var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
     var generatedWallets: [GeneratedWallet] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
@@ -73,7 +73,7 @@ class WalletMainViewController: BaseTableAdapterController {
             return emptyState()
         }
         let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
-        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState)
+        let contentHeight = tableAdapter.helper.allContentHeight(for: staticState)
         let emptySpace = store.tableHeight - contentHeight
         let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
         return [
@@ -172,7 +172,7 @@ class WalletMainViewController: BaseTableAdapterController {
                 .assetBalance(imageUrl: wallet.iconUrl,
                               title: wallet.name,
                               value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                              currencyValue: wallet.formattedBalance,
+                              currencyValue: wallet.formattedBalanceWithSymbol,
                               action: { self.showWalletDetail(for: wallet) }
                 )
             )

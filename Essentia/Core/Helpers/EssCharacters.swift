@@ -16,7 +16,7 @@ public enum EssCharacters: String {
     case ammountSeparators = ",."
     
     public var set: CharacterSet {
-        return CharacterSet(charactersIn:rawValue)
+        return CharacterSet(charactersIn: rawValue)
     }
     
     public static func combinedSet(from characters: [EssCharacters]) -> CharacterSet {

@@ -18,11 +18,11 @@ enum CurrencyConverterEndpoint: RequestProtocol {
         }
     }
     
-    var extraHeaders: [String : String]? {
+    var extraHeaders: [String: String]? {
         return nil
     }
     
-    var parameters: [String : Any]? {
+    var parameters: [String: Any]? {
         return nil
     }
     var requestType: RequestType {

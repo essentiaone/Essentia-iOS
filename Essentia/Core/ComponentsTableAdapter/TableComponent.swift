@@ -11,12 +11,13 @@ import UIKit
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
     // MARK: - Common
-    case slider(titles: (String, String, String), selected: Float, didChange: (Float) -> Void)
+    case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case titleWithFont(font: UIFont, title: String, background: UIColor)
+    case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
@@ -68,6 +69,8 @@ enum TableComponent: Equatable {
     case titleAttributedDetail(title: String, detail: NSAttributedString)
     case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: (() -> Void)?)
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
+    case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
+                                             rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
     // MARK: - Equatable

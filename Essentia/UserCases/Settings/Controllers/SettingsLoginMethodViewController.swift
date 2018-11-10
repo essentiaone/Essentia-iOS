@@ -85,9 +85,9 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private func showBackupMnemonicAlert() {
-        let alert = BackupMnemonicAlert(leftAction: {}) {
+        let alert = BackupMnemonicAlert(leftAction: {}, rightAction: {
             (inject() as SettingsRouterInterface).show(.backupMenmonic)
-        }
+        })
         present(alert, animated: true)
     }
 }

@@ -24,11 +24,11 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-zj-zWP">
-                        <rect key="frame" x="125" y="13.5" width="240" height="17"/>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="DRN-zj-zWP">
+                        <rect key="frame" x="125" y="12.5" width="240" height="19"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <textInputTraits key="textInputTraits"/>
+                        <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aH6-vg-UJY">
                         <rect key="frame" x="343" y="11" width="22" height="22"/>
@@ -53,6 +53,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="centeredTextField" destination="DRN-zj-zWP" id="nYO-XQ-4i8"/>
                 <outlet property="rightButton" destination="aH6-vg-UJY" id="mak-5U-DJ5"/>
                 <outlet property="textFieldConstraint" destination="dfg-v3-YyY" id="rwS-fx-wny"/>
                 <outlet property="titleLabel" destination="DCn-xc-xsd" id="fZF-jP-pi8"/>

@@ -9,7 +9,7 @@
 import Foundation
 
 fileprivate struct Store {
-    var wallet: ViewWalletInterface
+    let wallet: ViewWalletInterface
     var enterdValueInCurrency: String
     var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
@@ -71,7 +71,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                   detail: formattedSelectedCurrencyField(value: selected.1),
                                   didChange: currentlyEditedFieldChanged),
             .separator(inset: .init(top: 0, left: 16, bottom: 0, right: 16)),
-            .attributedTitleDetail(title: formattedDeselectedField(value:  deselected.0),
+            .attributedTitleDetail(title: formattedDeselectedField(value: deselected.0),
                                    detail: formattedDeselectedCurrencyField(value: deselected.1),
                                    action: disabledFieldAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
@@ -184,7 +184,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     }
     
     private lazy var continueAction: () -> Void = {
-        
+        self.tableView.endEditing(true)
+        self.router.show(.sendTransactionDetail(self.store.wallet, self.store.enterdValueInCrypto))
     }
     
     // MARK: - Keyboard

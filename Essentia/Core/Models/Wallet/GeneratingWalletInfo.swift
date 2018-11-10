@@ -16,4 +16,8 @@ struct GeneratingWalletInfo: Hashable, Codable, AssetInterface {
     var symbol: String {
         return coin.symbol
     }
+    
+    func isValidAddress(_ address: String) -> Bool {
+        return coin.isValidAddress(address)
+    }
 }

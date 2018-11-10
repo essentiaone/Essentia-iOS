@@ -35,7 +35,8 @@ extension ViewWalletInterface {
     }
     
     var formattedBalanceInCurrentCurrencyWithSymbol: String {
-        return symbol + " " + formattedBalanceInCurrentCurrency
+        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        return  formatter.formattedAmmountWithCurrency(amount: balanceInCurrentCurrency)
     }
     
     var formattedBalanceInCurrentCurrency: String {
