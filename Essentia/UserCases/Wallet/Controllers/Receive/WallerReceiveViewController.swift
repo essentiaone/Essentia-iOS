@@ -90,7 +90,8 @@ class WallerReceiveViewController: BaseTableAdapterController {
         filter.setValue(data, forKey: "inputMessage")
         filter.setValue("Q", forKey: "inputCorrectionLevel")
         guard let outputImage = filter.outputImage else { return UIImage() }
-        let transformedImage = outputImage.transformed(by: CGAffineTransform(scaleX: 5, y: 5))
+        let scale = view.frame.width / 2 / outputImage.extent.width
+        let transformedImage = outputImage.transformed(by: CGAffineTransform(scaleX: scale, y: scale))
         
         return UIImage(ciImage: transformedImage)
     }
