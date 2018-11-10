@@ -72,6 +72,7 @@ enum TableComponent: Equatable {
     case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
                                              rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
     case blure(state: [TableComponent])
+    case container(state: [TableComponent])
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
     // MARK: - Equatable

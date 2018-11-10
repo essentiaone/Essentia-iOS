@@ -76,6 +76,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleCenterTextDetail.self)
         tableView.register(TableComponentTextFieldDetail.self)
         tableView.register(TableComponentImageTitleSubtitle.self)
+        tableView.register(TableComponentBlure.self)
+        tableView.register(TableComponentContainer.self)
     }
     
     // MARK: - Update State
@@ -465,6 +467,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .blure(let state):
             let cell: TableComponentBlure = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
+        case .container(let state):
+            let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.simpleReload(state)
             return cell
         default:

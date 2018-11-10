@@ -139,6 +139,8 @@ class TableAdapterHelper {
             return image.size.height + 25
         case .blure:
             return tableView.frame.height
+        case .container(let state):
+            return allContentHeight(for: state)
         default:
             fatalError()
         }
