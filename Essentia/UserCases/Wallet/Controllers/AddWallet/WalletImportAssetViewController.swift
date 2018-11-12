@@ -74,11 +74,6 @@ class WalletImportAssetViewController: BaseTableAdapterController {
         return rawState.compactMap { return $0 }
     }
     
-    override func keyboardDidChange() {
-        super.keyboardDidChange()
-        self.tableAdapter.simpleReload(state)
-    }
-    
     // MARK: - Actions
     private lazy var nameEditedAction: (String) -> Void = {
         self.store.name = $0

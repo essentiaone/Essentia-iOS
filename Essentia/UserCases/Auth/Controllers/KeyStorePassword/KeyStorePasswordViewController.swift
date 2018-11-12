@@ -66,7 +66,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                             isEnable: store.isValid,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 10, background: colorProvider.settingsCellsBackround),
+            .empty(height: 50, background: colorProvider.settingsCellsBackround),
             .keyboardInset
         ]
     }
