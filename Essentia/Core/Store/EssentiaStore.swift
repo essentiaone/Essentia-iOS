@@ -8,11 +8,13 @@
 
 import Foundation
 
-struct EssentiaStore {
-    static var currentUser: User = User.notSigned
-    static var ranks: AssetRank = AssetRank()
+class EssentiaStore: NSObject {
+    static var shared: EssentiaStore = EssentiaStore()
     
-    static func setUser(_ user: User) {
+    var currentUser: User = User.notSigned
+    var ranks: AssetRank = AssetRank()
+    
+    func setUser(_ user: User) {
         (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
         currentUser = user
         (inject() as UserStorageServiceInterface).store(user: user)

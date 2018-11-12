@@ -41,7 +41,7 @@ class WalletService: WalletServiceInterface {
     }
     
     func generateAddress(_ walletInfo: GeneratingWalletInfo) -> String {
-        let seed = Data(hex: EssentiaStore.currentUser.seed)
+        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
         let wallet = self.generateWallet(seed: seed, walletInfo: walletInfo)
         return wallet.address
     }

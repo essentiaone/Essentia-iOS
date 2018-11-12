@@ -53,4 +53,8 @@ class AppImageProvider: AppImageProviderInterface {
     var txStatusPending: UIImage = #imageLiteral(resourceName: "transactionWait")
     var txStatusFailure: UIImage = #imageLiteral(resourceName: "transactionFailed")
     var txStatusExchang: UIImage = #imageLiteral(resourceName: "transactionExchange")
+    // MARK: - Options
+    var walletOptionsRename: UIImage = #imageLiteral(resourceName: "optionsRename")
+    var walletOptionsExport: UIImage = #imageLiteral(resourceName: "optionsExport")
+    var walletOptionsDelete: UIImage = #imageLiteral(resourceName: "optionsDelete")
 }

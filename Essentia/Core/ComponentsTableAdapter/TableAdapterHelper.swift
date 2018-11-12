@@ -43,6 +43,8 @@ class TableAdapterHelper {
             return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
         case .titleWithFont(let font, let title, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
+        case .titleWithFontAligment(let font, let title, _):
+            return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
         case .descriptionWithSize(_, let fontSize, let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
@@ -137,8 +139,12 @@ class TableAdapterHelper {
             return 96.0
         case .centeredImageButton(let image, _):
             return image.size.height + 25
-        default:
-            fatalError()
+        case .blure:
+            return tableView.frame.height
+        case .container(let state):
+            return allContentHeight(for: state) + 20
+        case .titleAction(let font, let title, _):
+            return title.multyLineLabelHeight(with: font, width: tableView.frame.width - 30) + 4
         }
     }
     

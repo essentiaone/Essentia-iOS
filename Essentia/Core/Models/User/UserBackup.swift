@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserBackup: Codable {
+class UserBackup: Codable {
     var currentlyBackedUp: [BackupType] = []
     var loginMethod: BackupType = .none
     var keystoreUrl: URL?

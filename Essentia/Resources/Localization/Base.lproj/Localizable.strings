@@ -261,6 +261,17 @@
 "Wallet.Send.TransactionTime" = "Transaction time";
 "Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
 
+"Wallet.Options.Title" = "Options";
+"Wallet.Options.Rename" = "Rename Wallet";
+"Wallet.Options.Export" = "Export Wallet";
+"Wallet.Options.Export.PK" = "Private Key";
+"Wallet.Options.Delete" = "Delete Wallet";
+"Wallet.Options.Delete.Warning.Title" = "Are you sure?";
+"Wallet.Options.Delete.Warning.Description1" = "Do you really want to delete";
+"Wallet.Options.Delete.Warning.Description2" = "from the wallet list?";
+"Wallet.Options.Delete.Warning.Cancel" = "CANCEL";
+"Wallet.Options.Delete.Warning.Delete" = "DELETE";
+
 "Wallet.Receive.Title" = "Receive";
 "Wallet.Receive.Wallet" = "wallet";
 "Wallet.Receive.Copy" = "Copy";

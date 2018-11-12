@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
+class ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     var address: String
     var coin: Coin
     var pk: String
@@ -29,5 +29,9 @@ struct ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     
     var asset: AssetInterface {
         return coin
+    }
+    
+    func privateKey(withSeed: String) -> String {
+        return pk
     }
 }

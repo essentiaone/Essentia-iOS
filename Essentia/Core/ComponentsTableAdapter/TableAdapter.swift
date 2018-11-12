@@ -76,6 +76,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleCenterTextDetail.self)
         tableView.register(TableComponentTextFieldDetail.self)
         tableView.register(TableComponentImageTitleSubtitle.self)
+        tableView.register(TableComponentBlure.self)
+        tableView.register(TableComponentContainer.self)
     }
     
     // MARK: - Update State
@@ -144,6 +146,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = background
             cell.titleLabel.minimumScaleFactor = 0.5
             cell.titleLabel.textAlignment = .center
+            return cell
+        case .titleWithFontAligment(let font,let title, let aligment):
+            let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.titleLabel.font = font
+            cell.titleLabel.minimumScaleFactor = 0.5
+            cell.titleLabel.textAlignment = aligment
             return cell
         case .descriptionWithSize(let aligment ,let fontSize,let title,let backgroud):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
@@ -274,6 +283,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage?.image = image
             cell.titleLabel.text = title
+            if image.size.width <= cell.titleImage.frame.size.width {
+                cell.titleImage.contentMode = .center
+            }
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
         case .imageUrlTitle(let imageUrl,let title, let withArrow, _):
@@ -287,6 +299,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textField.placeholder = placeholder
             cell.textField.text = text
             cell.textFieldAction = endEditing
+            if selectedRow == nil {
+                selectedRow = indexPath
+                focusView(view: cell.textField)
+            }
             return cell
         case .imageParagraph(let image,let paragraph):
             let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
@@ -465,8 +481,19 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleImageView.image = image
             cell.titleImageView.contentMode = .center
             return cell
-        default:
-            fatalError()
+        case .blure(let state):
+            let cell: TableComponentBlure = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
+        case .container(let state):
+            let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
+        case .titleAction(let font, let title, _):
+            let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.titleLabel.font = font
+            return cell
         }
     }
     
@@ -499,6 +526,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .textFieldTitleDetail: fallthrough
         case .titleCenteredDetailTextFildWithImage: fallthrough
         case .centeredImageButton: fallthrough
+        case .titleAction: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -566,6 +594,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             focusView(view: cell.centeredTextField)
         case .centeredImageButton(_, let action):
             action()
+        case .titleAction(_, _, let action):
+            action()
         default:
             return
         }
@@ -575,6 +605,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
+
     }
     
     func endEditing(_ force: Bool) {

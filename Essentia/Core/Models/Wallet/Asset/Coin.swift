@@ -94,6 +94,10 @@ enum Coin: String, Codable, AssetInterface {
         }
     }
     
+    var type: CryptoType {
+        return .coin
+    }
+    
     func isSafeTransaction(confirmations: Int) -> Bool {
         return safeConfirmationCount < confirmations
     }

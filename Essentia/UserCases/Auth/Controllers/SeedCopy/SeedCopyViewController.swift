@@ -51,17 +51,18 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate {
     @IBAction func copyAction(_ sender: Any) {
         copyButton.isSelected = true
         continueButton.isEnabled = true
-        UIPasteboard.general.string = EssentiaStore.currentUser.seed
+        UIPasteboard.general.string = EssentiaStore.shared.currentUser.seed
     }
     
     @IBAction func continueAction(_ sender: Any) {
         switch authType {
         case .backup:
-            EssentiaStore.currentUser.backup.currentlyBackedUp.append(.seed)
+            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.seed)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let user = User(seed: textView.text)
-            EssentiaStore.setUser(user)
+            EssentiaStore.shared.setUser(user)
             (inject() as AuthRouterInterface).showPrev()
         }
 

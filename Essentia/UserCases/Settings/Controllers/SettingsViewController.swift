@@ -49,7 +49,7 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
-        let user = EssentiaStore.currentUser
+        let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
         let rawState: [TableComponent?] =
             [.empty(height: 45, background: colorProvider.settingsCellsBackround),
@@ -59,7 +59,7 @@ class SettingsViewController: BaseTableAdapterController {
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .currentAccount(icon: user.profile.icon,
                              title: LS("Settings.CurrentAccountTitle"),
-                             name: EssentiaStore.currentUser.dislayName,
+                             name: EssentiaStore.shared.currentUser.dislayName,
                              action: editCurrentAccountAction),
              .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.languageIcon,
@@ -110,7 +110,7 @@ class SettingsViewController: BaseTableAdapterController {
         self.viewDidDisappear(true)
     }
     private lazy var logOutAction: () -> Void = {
-        guard EssentiaStore.currentUser.backup.currentlyBackedUp == [] else {
+        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp == [] else {
             self.logOutUser()
             return
         }
@@ -123,8 +123,8 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     func logOutUser() {
-        (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.currentUser)
-        EssentiaStore.setUser(.notSigned)
+        (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.shared.currentUser)
+        EssentiaStore.shared.setUser(.notSigned)
         (inject() as SettingsRouterInterface).logOut()
     }
     

@@ -148,15 +148,15 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private func loadRank() {
-        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset)
-        let currentCurrency = EssentiaStore.currentUser.profile.currency
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset)
+        let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         let formatter = BalanceFormatter(currency: currentCurrency)
         let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
         store.currentRank = formattedRank
     }
     
     private lazy var balanceChanged: (Double) -> Void = {
-        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset) ?? 0
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset) ?? 0
         let newCurrentBalance = $0 * rank
         let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
         self.store.balance = newCurrentBalance
@@ -200,7 +200,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var detailAction: () -> Void = {
-        
+        (inject() as WalletRouterInterface).show(.walletOptions(self.store.wallet))
     }
     
     private lazy var searchTransactionAction: () -> Void = {
@@ -269,7 +269,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedBalance(_ balance: Double) -> String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return formatter.formattedAmmountWithCurrency(amount: balance)
     }
     

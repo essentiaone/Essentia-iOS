@@ -39,7 +39,7 @@ class TableComponentAccountStrength: BaseAccountStrengthCell, NibLoadable {
         
         // MARK: - Color
         containerView.backgroundColor = colorForCurrentSecuringStatus
-        let newSecurityLevel = EssentiaStore.currentUser.backup.secureLevel
+        let newSecurityLevel = EssentiaStore.shared.currentUser.backup.secureLevel
         let animation = animationForSecurirtyLevel(newSecurityLevel)
         let player = PNGAnimationPlayer(animation: animation, in: progressImageView)
         progressImageView.image = defaultImageForAnimationPlayer(player, for: newSecurityLevel)

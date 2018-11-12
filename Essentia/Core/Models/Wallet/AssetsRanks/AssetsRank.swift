@@ -12,11 +12,11 @@ struct AssetRank {
     var ranks: [AssetPrice] = []
     
     func getRank(for asset: AssetInterface) -> Double? {
-        return getRank(for: EssentiaStore.currentUser.profile.currency, and: asset)?.price
+        return getRank(for: EssentiaStore.shared.currentUser.profile.currency, and: asset)?.price
     }
     
     func getYesterdayRank(for asset: AssetInterface) -> Double? {
-       return getRank(for: EssentiaStore.currentUser.profile.currency, and: asset)?.yesterdayPrice
+       return getRank(for: EssentiaStore.shared.currentUser.profile.currency, and: asset)?.yesterdayPrice
     }
     
     mutating func setRank(for currency: FiatCurrency, and asset: AssetInterface, rank: Double, yesterdayPrice: Double) {

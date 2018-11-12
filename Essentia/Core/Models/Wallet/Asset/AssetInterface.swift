@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum CryptoType {
+    case coin
+    case token
+}
+
 enum CurrencyType {
     case fiat
     case crypto
@@ -26,6 +31,7 @@ protocol AssetInterface {
     var name: String { get }
     var symbol: String { get }
     var iconUrl: URL { get }
+    var type: CryptoType { get }
     
     func isValidAddress(_ address: String) -> Bool
 }

@@ -16,7 +16,7 @@ fileprivate struct Store {
     let currentCurrency: FiatCurrency
     
     init(asset: AssetInterface) {
-        currentCurrency = EssentiaStore.currentUser.profile.currency
+        currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         self.asset = asset
         enterdValueInCrypto = ""
         enterdValueInCurrency = ""
@@ -125,7 +125,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController {
     
     var fiatAmmountInCrypto: String {
         guard let ammount = Double(store.enterdValueInCurrency),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.asset),
             currentRank != 0 else {
                 return ""
         }
@@ -136,7 +136,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController {
     
     var cryptoInFiat: String {
         guard let ammount = Double(store.enterdValueInCrypto),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.asset),
             currentRank != 0 else {
                 return ""
         }
