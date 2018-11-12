@@ -227,7 +227,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
-            cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
+            if lAction != nil {
+                cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
+            }
             cell.leftButton.setTitle(left, for: .normal)
             cell.rightButton.setTitle(right, for: .normal)
             cell.titleLabel.text = title
@@ -573,6 +575,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
-        
+    }
+    
+    func endEditing(_ force: Bool) {
+        self.tableView.endEditing(true)
+        self.selectedRow = nil
     }
 }
