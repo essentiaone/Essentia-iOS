@@ -53,4 +53,8 @@ protocol AppImageProviderInterface {
     var txStatusPending: UIImage { get }
     var txStatusFailure: UIImage { get }
     var txStatusExchang: UIImage { get }
+    // MARK: - Options
+    var walletOptionsRename: UIImage { get }
+    var walletOptionsExport: UIImage { get }
+    var walletOptionsDelete: UIImage { get }
 }

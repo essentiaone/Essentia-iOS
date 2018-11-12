@@ -17,6 +17,8 @@ enum TableComponent: Equatable {
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case titleWithFont(font: UIFont, title: String, background: UIColor)
+    case titleWithFontAligment(font: UIFont, title: String, aligment: NSTextAlignment)
+    case titleAction(font: UIFont, title: String, action: () -> Void)
     case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor)
@@ -45,7 +47,6 @@ enum TableComponent: Equatable {
     case menuSectionHeader(title:String, backgroud: UIColor)
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
-    case plainText(title: String)
     case password(passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace

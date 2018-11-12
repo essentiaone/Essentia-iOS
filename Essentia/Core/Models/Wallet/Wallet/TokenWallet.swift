@@ -8,7 +8,8 @@
 
 import UIKit
 
-struct TokenWallet: Codable, WalletInterface, ViewWalletInterface {
+class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
+    var name: String
     var token: Token
     var wallet: GeneratingWalletInfo
     var lastBalance: Double?
@@ -17,10 +18,7 @@ struct TokenWallet: Codable, WalletInterface, ViewWalletInterface {
         self.token = token
         self.wallet = wallet
         self.lastBalance = lastBalance
-    }
-    
-    var name: String {
-        return token.name
+        self.name = token.name
     }
     
     var iconUrl: URL {
@@ -37,5 +35,12 @@ struct TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     
     var address: String {
         return (inject() as WalletServiceInterface).generateAddress(wallet)
+    }
+    
+    func privateKey(withSeed: String) -> String {
+        let walletService: WalletServiceInterface = inject()
+        let seed = EssentiaStore.currentUser.seed
+        let data = Data(hex: seed)
+        return walletService.generateWallet(seed: data, walletInfo: wallet).pk
     }
 }

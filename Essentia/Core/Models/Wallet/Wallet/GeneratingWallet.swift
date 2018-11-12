@@ -32,4 +32,8 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
     var asset: AssetInterface {
         return coin
     }
+    
+    func privateKey(withSeed: String) -> String {
+        return pk
+    }
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserEvents: Codable {
+class UserEvents: Codable {
     var isFirstlyOnWallet: Bool = true
     var isAccountFullySecuredShown: Bool = false
 }

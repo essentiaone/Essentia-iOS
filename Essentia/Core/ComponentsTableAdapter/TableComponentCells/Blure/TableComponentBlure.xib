@@ -36,7 +36,7 @@
                                 <constraint firstItem="fNc-CD-Duo" firstAttribute="leading" secondItem="kS3-ZB-rDl" secondAttribute="leading" id="nA9-js-izb"/>
                             </constraints>
                         </view>
-                        <blurEffect style="light"/>
+                        <blurEffect style="extraLight"/>
                     </visualEffectView>
                 </subviews>
                 <constraints>
@@ -50,7 +50,7 @@
                 <outlet property="blureView" destination="ZnC-kF-mB9" id="J4z-qr-yL0"/>
                 <outlet property="tableView" destination="fNc-CD-Duo" id="bCs-CS-kB6"/>
             </connections>
-            <point key="canvasLocation" x="174" y="103"/>
+            <point key="canvasLocation" x="173.59999999999999" y="102.54872563718142"/>
         </tableViewCell>
     </objects>
 </document>

@@ -200,7 +200,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var detailAction: () -> Void = {
-        
+        (inject() as WalletRouterInterface).show(.walletOptions(self.store.wallet))
     }
     
     private lazy var searchTransactionAction: () -> Void = {

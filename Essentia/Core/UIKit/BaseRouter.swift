@@ -25,6 +25,7 @@ class BaseRouter {
     }
     
     func popUp(vc: UIViewController) {
+        vc.modalPresentationStyle = .custom
         navigationController?.present(vc, animated: true)
     }
     

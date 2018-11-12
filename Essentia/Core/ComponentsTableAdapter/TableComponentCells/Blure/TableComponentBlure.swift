@@ -23,5 +23,7 @@ class TableComponentBlure: UITableViewCell, NibLoadable {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.alwaysBounceVertical = false
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        backgroundColor = .clear
     }
 }

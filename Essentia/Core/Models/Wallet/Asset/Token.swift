@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct Token: Codable, AssetInterface {
+struct Token: Codable, AssetInterface {    
     func isValidAddress(_ address: String) -> Bool {
         return address.count == 40 || address.count == 42
     }
@@ -18,6 +18,10 @@ struct Token: Codable, AssetInterface {
     var symbol: String
     var name: String
     var decimals: Int
+    
+    var type: CryptoType {
+        return .token
+    }
     
     var iconUrl: URL {
         return CoinIconsUrlFormatter(name: id, size: .x128).url

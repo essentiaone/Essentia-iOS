@@ -50,7 +50,10 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             vc.delegate = delegate
             
             popUp(vc: vc)
+        case .walletOptions(let wallet):
+            popUp(vc: WalletOptionsViewController(wallet: wallet))
         }
+
     }
     private func showTransactionDetail(asset: AssetInterface, txId: String) {
         var url: URL?

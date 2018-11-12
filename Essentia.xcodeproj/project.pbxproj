@@ -164,7 +164,6 @@
 		344DB53B215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB53A215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift */; };
 		344DB53D215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB53C215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib */; };
 		344DB5412162363C00F7D1E2 /* ViewWalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */; };
-		344DB543216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */; };
 		344DB5482162705C00F7D1E2 /* TableComponentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */; };
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
 		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
@@ -245,6 +244,7 @@
 		34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E072149D98B001C17D8 /* AssetInterface.swift */; };
 		34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */; };
 		34AC4E0C214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */; };
+		34B00AEB219911DA00525F53 /* DeleteWalletWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
 		34B27A3C213048CB00527F15 /* Bundle+LS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A3B213048CB00527F15 /* Bundle+LS.swift */; };
@@ -463,7 +463,6 @@
 		344DB53A215E784F00F7D1E2 /* TableComponentTitleSubtileDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleSubtileDescription.swift; sourceTree = "<group>"; };
 		344DB53C215E78B700F7D1E2 /* TableComponentTitleSubtileDescription.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleSubtileDescription.xib; sourceTree = "<group>"; };
 		344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewWalletInterface.swift; sourceTree = "<group>"; };
-		344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTwoTabsTableAdapterController.swift; sourceTree = "<group>"; };
 		344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTableView.swift; sourceTree = "<group>"; };
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
 		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
@@ -544,6 +543,7 @@
 		34AC4E072149D98B001C17D8 /* AssetInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInterface.swift; sourceTree = "<group>"; };
 		34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
 		34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletWarningViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A382130449D00527F15 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -800,7 +800,6 @@
 				3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */,
 				349BC0522143DDB1003AC330 /* BaseRouter.swift */,
 				349BC0542143DF19003AC330 /* BaseRouterInterface.swift */,
-				344DB542216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift */,
 				34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */,
 			);
 			path = UIKit;
@@ -1905,6 +1904,7 @@
 			children = (
 				34DC8B8221778EEE00ACA5D2 /* WalletDetailViewController.swift */,
 				345F118621973FE60010095F /* WalletOptionsViewController.swift */,
+				34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */,
 			);
 			path = WalletDetails;
 			sourceTree = "<group>";
@@ -2333,7 +2333,6 @@
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
 				34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */,
-				344DB543216267CB00F7D1E2 /* BaseTwoTabsTableAdapterController.swift in Sources */,
 				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
@@ -2375,6 +2374,7 @@
 				3401AFD721033005006DEF49 /* ReusableCell+Nib.swift in Sources */,
 				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
 				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
+				34B00AEB219911DA00525F53 /* DeleteWalletWarningViewController.swift in Sources */,
 				3401AF9020FE9406006DEF49 /* BorderedButton.swift in Sources */,
 				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
 				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
