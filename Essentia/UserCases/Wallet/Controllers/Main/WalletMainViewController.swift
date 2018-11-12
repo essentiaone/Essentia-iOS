@@ -271,6 +271,7 @@ class WalletMainViewController: BaseTableAdapterController {
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
                 self.store.importedWallets[arg.offset].lastBalance = balance
                 EssentiaStore.shared.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
                 self.tableAdapter.simpleReload(self.state())
             })
         }

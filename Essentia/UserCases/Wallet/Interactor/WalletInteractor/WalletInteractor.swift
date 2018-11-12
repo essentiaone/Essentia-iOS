@@ -57,6 +57,7 @@ class WalletInteractor: WalletInteractorInterface {
         tokens.forEach { token in
             let tokenAsset = TokenWallet(token: token, wallet: wallet)
             EssentiaStore.shared.currentUser.wallet.tokenWallets.append(tokenAsset)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as CurrencyRankDaemonInterface).update()
         }
     }

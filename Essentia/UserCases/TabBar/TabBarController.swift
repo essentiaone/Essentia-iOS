@@ -83,6 +83,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
         let isFirstlyOnWallet = EssentiaStore.shared.currentUser.userEvents.isFirstlyOnWallet
         if isWalletTab && isFirstlyOnWallet {
             EssentiaStore.shared.currentUser.userEvents.isFirstlyOnWallet = false
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             present(WalletWelcomeViewController(), animated: true)
         }
     }

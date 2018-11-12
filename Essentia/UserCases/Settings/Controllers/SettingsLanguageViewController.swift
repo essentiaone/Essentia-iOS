@@ -47,6 +47,7 @@ class SettingsLanguageViewController: BaseTableAdapterController {
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: {
                     EssentiaStore.shared.currentUser.profile.language = language
+                    (inject() as UserStorageServiceInterface).storeCurrentUser()
                     self.tableAdapter.reload(self.state)
                     self.showFlipAnimation()
             }))

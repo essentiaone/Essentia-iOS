@@ -45,5 +45,9 @@ class UserStorageService: UserStorageServiceInterface {
             (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }
     }
+    
+    func storeCurrentUser() {
+        store(user: EssentiaStore.shared.currentUser)
+    }
 
 }

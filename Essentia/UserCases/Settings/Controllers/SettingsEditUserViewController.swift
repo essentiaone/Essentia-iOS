@@ -60,6 +60,7 @@ class SettingsEditUserViewController: BaseTableAdapterController {
         }
         self.view.endEditing(true)
         EssentiaStore.shared.currentUser.profile.name = self.enteredName
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.router.pop()
     }
     

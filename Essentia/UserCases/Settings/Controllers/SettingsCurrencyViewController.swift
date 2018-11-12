@@ -47,6 +47,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: {
                     EssentiaStore.shared.currentUser.profile.currency = currency
+                    (inject() as UserStorageServiceInterface).storeCurrentUser()
                     (inject() as CurrencyRankDaemonInterface).update()
                     self.tableAdapter.reload(self.state)
             }))

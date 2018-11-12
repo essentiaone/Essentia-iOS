@@ -71,16 +71,19 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
             return
         }
         EssentiaStore.shared.currentUser.backup.loginMethod = .mnemonic
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
     private lazy var seedAction: () -> Void = {
         EssentiaStore.shared.currentUser.backup.loginMethod = .seed
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
     private lazy var ketstoreAction: () -> Void = {
         EssentiaStore.shared.currentUser.backup.loginMethod = .keystore
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     

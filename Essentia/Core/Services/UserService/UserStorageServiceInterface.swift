@@ -11,5 +11,6 @@ import Foundation
 protocol UserStorageServiceInterface {
     func get() -> [User]
     func store(user: User)
+    func storeCurrentUser()
     func remove(user: User)
 }

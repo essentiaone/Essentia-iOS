@@ -120,6 +120,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                                                                                  to: path,
                                                                                  with: "\(EssentiaStore.shared.currentUser.id).txt")
                 EssentiaStore.shared.currentUser.backup.keystoreUrl = url
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
             }
@@ -132,6 +133,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
                 EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.keystore)
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
             self.present(alert, animated: true)

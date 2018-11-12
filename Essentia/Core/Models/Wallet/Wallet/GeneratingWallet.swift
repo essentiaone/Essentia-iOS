@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
+class GeneratedWallet: NSObject, WalletInterface, ViewWalletInterface {
     var name: String
     var pk: String
     var address: String

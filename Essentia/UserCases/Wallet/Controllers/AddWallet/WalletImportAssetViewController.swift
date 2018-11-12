@@ -106,6 +106,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
             return
         }
         EssentiaStore.shared.currentUser.wallet.importedWallets.append(newWallet)
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
     }
