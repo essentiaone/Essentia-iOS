@@ -76,7 +76,7 @@ final class BalanceFormatter {
     }
     
     func attributed(amount: Double?) -> NSAttributedString {
-        let formattedAmmount = self.formattedAmmount(amount: amount)
+        let formattedAmmount = self.formattedAmmountWithCurrency(amount: amount)
         let separeted = formattedAmmount.split(separator: " ")
         guard separeted.count == 2 else { return NSAttributedString() }
         let attributed = NSMutableAttributedString(string: String(separeted[0]),
