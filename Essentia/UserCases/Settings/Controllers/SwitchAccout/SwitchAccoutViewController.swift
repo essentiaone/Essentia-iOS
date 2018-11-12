@@ -89,7 +89,7 @@ class SwitchAccoutViewController: BaseViewController {
     // MARK: - SwitchAccountTableAdapterDelegate
     func loginToUser(_ user: User) {
         dismiss(animated: true)
-        EssentiaStore.setUser(user)
+        EssentiaStore.shared.setUser(user)
         callBack()
     }
     

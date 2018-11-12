@@ -130,7 +130,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private func showDeleteWarning() {
         self.present(DeleteWalletWarningViewController(wallet: wallet, leftAction: {}, rightAction: { [weak self] in
             guard let `self` = self else { return }
-            EssentiaStore.currentUser.wallet.remove(wallet: self.wallet)
+            EssentiaStore.shared.currentUser.wallet.remove(wallet: self.wallet)
             self.dismiss(animated: true, completion: {
                 (inject() as WalletRouterInterface).popToRoot()
             })
@@ -138,7 +138,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     }
     
     var privateKey: String {
-        let seed = EssentiaStore.currentUser.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         return wallet.privateKey(withSeed: seed)
     }
 }

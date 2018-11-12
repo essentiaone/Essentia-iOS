@@ -28,23 +28,23 @@ func == (lhs: ViewWalletInterface, rhs: ViewWalletInterface) -> Bool {
 extension ViewWalletInterface {
     var balanceInCurrentCurrency: Double {
         guard let currentBalance = lastBalance,
-              let rank = EssentiaStore.ranks.getRank(for: asset) else { return 0 }
+              let rank = EssentiaStore.shared.ranks.getRank(for: asset) else { return 0 }
         return currentBalance * rank
     }
     
     var yesterdayBalanceInCurrentCurrency: Double {
         guard let currentBalance = lastBalance,
-            let rank = EssentiaStore.ranks.getYesterdayRank(for: asset) else { return 0 }
+            let rank = EssentiaStore.shared.ranks.getYesterdayRank(for: asset) else { return 0 }
         return currentBalance * rank
     }
     
     var formattedBalanceInCurrentCurrencyWithSymbol: String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return  formatter.formattedAmmountWithCurrency(amount: balanceInCurrentCurrency)
     }
     
     var formattedBalanceInCurrentCurrency: String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return  formatter.formattedAmmount(amount: balanceInCurrentCurrency)
     }
     

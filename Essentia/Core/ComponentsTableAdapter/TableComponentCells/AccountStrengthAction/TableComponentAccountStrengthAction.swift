@@ -54,7 +54,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     }
     
     private func updateProgress() {
-        let newSecurityLevel = EssentiaStore.currentUser.backup.secureLevel
+        let newSecurityLevel = EssentiaStore.shared.currentUser.backup.secureLevel
         let animation = animationForSecurirtyLevel(newSecurityLevel)
         let player = PNGAnimationPlayer(animation: animation, in: progressImageView)
         let shoudShowAnimation = currentSecurityLevel != newSecurityLevel

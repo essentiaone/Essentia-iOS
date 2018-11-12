@@ -39,7 +39,7 @@ class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     
     func privateKey(withSeed: String) -> String {
         let walletService: WalletServiceInterface = inject()
-        let seed = EssentiaStore.currentUser.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let data = Data(hex: seed)
         return walletService.generateWallet(seed: data, walletInfo: wallet).pk
     }

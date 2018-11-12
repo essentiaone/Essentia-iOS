@@ -29,7 +29,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !EssentiaStore.currentUser.seed.isEmpty else {
+        guard !EssentiaStore.shared.currentUser.seed.isEmpty else {
             return
         }
         openTabBar()

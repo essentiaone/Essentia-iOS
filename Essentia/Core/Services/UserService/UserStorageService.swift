@@ -17,6 +17,9 @@ class UserStorageService: UserStorageServiceInterface {
     private lazy var fileSerice: LocalFilesServiceInterface = inject()
     let folderPath: LocalFolderPath = .final(Constants.storageFolder)
     
+    init() {
+    }
+    
     func get() -> [User] {
         do {
             return try fileSerice.getFilesInFolder(path: folderPath)
@@ -42,4 +45,5 @@ class UserStorageService: UserStorageServiceInterface {
             (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }
     }
+
 }

@@ -97,7 +97,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         let seed = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
         if let seed = seed {
             let user = User(seed: seed)
-            EssentiaStore.setUser(user)
+            EssentiaStore.shared.setUser(user)
         }
         (inject() as AuthRouterInterface).showPrev()
     }
@@ -110,7 +110,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     private func storeKeystore() {
-        guard let mneminic = EssentiaStore.currentUser.mnemonic else { return }
+        guard let mneminic = EssentiaStore.shared.currentUser.mnemonic else { return }
         DispatchQueue.global().async {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
@@ -118,8 +118,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
-                                                                                 with: "\(EssentiaStore.currentUser.id).txt")
-                EssentiaStore.currentUser.backup.keystoreUrl = url
+                                                                                 with: "\(EssentiaStore.shared.currentUser.id).txt")
+                EssentiaStore.shared.currentUser.backup.keystoreUrl = url
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
             }
@@ -131,7 +131,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
-                EssentiaStore.currentUser.backup.currentlyBackedUp.append(.keystore)
+                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.keystore)
                 (inject() as AuthRouterInterface).showNext()
             })
             self.present(alert, animated: true)

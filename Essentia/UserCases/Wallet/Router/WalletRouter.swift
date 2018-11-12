@@ -39,16 +39,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .transactionDetail(let asset, let txId):
             showTransactionDetail(asset: asset, txId: txId)
         case .qrReader(let delegate):
-            let builder = QRCodeReaderViewControllerBuilder { (config) in
-                config.cancelButtonTitle = LS("Back")
-                config.showCancelButton = true
-                config.handleOrientationChange = false
-                config.showTorchButton = true
-                config.showOverlayView = true
-            }
-            let vc = QRCodeReaderViewController(builder: builder)
-            vc.delegate = delegate
-            popUp(vc: vc)
+            showQrScaner(delegate: delegate)
         case .walletOptions(let wallet):
             popUp(vc: WalletOptionsViewController(wallet: wallet))
         case .receive(let wallet):
@@ -58,6 +49,20 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         }
 
     }
+    
+    private func showQrScaner(delegate: QRCodeReaderViewControllerDelegate) {
+        let builder = QRCodeReaderViewControllerBuilder { (config) in
+            config.cancelButtonTitle = LS("Back")
+            config.showCancelButton = true
+            config.handleOrientationChange = false
+            config.showTorchButton = true
+            config.showOverlayView = true
+        }
+        let vc = QRCodeReaderViewController(builder: builder)
+        vc.delegate = delegate
+        popUp(vc: vc)
+    }
+    
     private func showTransactionDetail(asset: AssetInterface, txId: String) {
         var url: URL?
         switch asset {

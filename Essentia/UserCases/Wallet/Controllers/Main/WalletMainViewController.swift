@@ -69,7 +69,7 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - State
     private func state() -> [TableComponent] {
-        if EssentiaStore.currentUser.wallet.isEmpty {
+        if EssentiaStore.shared.currentUser.wallet.isEmpty {
             return emptyState()
         }
         let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
@@ -270,7 +270,7 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.importedWallets.enumerated().forEach { (arg) in
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
                 self.store.importedWallets[arg.offset].lastBalance = balance
-                EssentiaStore.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
+                EssentiaStore.shared.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
@@ -288,7 +288,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func formattedBalance(_ balance: Double) -> String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return formatter.formattedAmmountWithCurrency(amount: balance)
     }
 }
