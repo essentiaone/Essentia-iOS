@@ -92,6 +92,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     // MARK: - Actions
     private lazy var backAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
+        self.tableAdapter.endEditing(true)
         self.wallet.name = self.enteredName
         self.dismiss(animated: true)
     }

@@ -225,13 +225,15 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     func loadInputs() {
         let data = self.store.data.isEmpty ? "0x" : self.store.data
         interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: data) { [weak self] (price) in
-            self?.store.gasEstimate = price
+            guard let `self` = self else { return }
+            self.store.gasEstimate = price
+            self.tableAdapter.reload(self.state)
         }
     }
     
     func loadRanges() {
         interactor.getGasSpeed {  [weak self] (low, avarage, fast) in
-            guard let `self` = self else { return  }
+            guard let `self` = self else { return }
             self.store.lowGasSpeed = low
             self.store.selectedFeeSlider = Float(avarage)
             self.store.fastGasSpeed = fast

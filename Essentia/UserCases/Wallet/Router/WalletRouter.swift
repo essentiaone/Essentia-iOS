@@ -48,10 +48,13 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             }
             let vc = QRCodeReaderViewController(builder: builder)
             vc.delegate = delegate
-            
             popUp(vc: vc)
         case .walletOptions(let wallet):
             popUp(vc: WalletOptionsViewController(wallet: wallet))
+        case .receive(let wallet):
+            push(vc: WallerReceiveViewController(wallet: wallet))
+        case .enterReceiveAmmount(let asset, let action):
+            push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
         }
 
     }

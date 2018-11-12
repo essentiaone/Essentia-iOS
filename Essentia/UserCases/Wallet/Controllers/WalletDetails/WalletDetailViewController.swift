@@ -211,10 +211,8 @@ class WalletDetailViewController: BaseTableAdapterController {
         switch $0 {
         case 0:
             (inject() as WalletRouterInterface).show(.enterTransactionAmmount(self.store.wallet))
-//        case 1:
-//            print("Show exchange")
         case 1:
-            print("Show recive")
+            (inject() as WalletRouterInterface).show(.receive(self.store.wallet))
         default: return
         }
     }

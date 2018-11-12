@@ -1,42 +1,46 @@
 //
-//  EnterTransactionAmmountViewController.swift
+//  WalletEnterReceiveAmmount.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 10/31/18.
+//  Created by Pavlo Boiko on 11/10/18.
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
 import Foundation
 
 fileprivate struct Store {
-    let wallet: ViewWalletInterface
+    let asset: AssetInterface
     var enterdValueInCurrency: String
     var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
     let currentCurrency: FiatCurrency
     
-    init(wallet: ViewWalletInterface) {
+    init(asset: AssetInterface) {
         currentCurrency = EssentiaStore.currentUser.profile.currency
-        self.wallet = wallet
-        enterdValueInCrypto = wallet.formattedBalance
-        enterdValueInCurrency = wallet.formattedBalanceInCurrentCurrency
+        self.asset = asset
+        enterdValueInCrypto = ""
+        enterdValueInCurrency = ""
     }
     
     var isValidAmmount: Bool {
-        guard let entered = Double(enterdValueInCrypto) else { return false }
-        return entered <= (wallet.lastBalance ?? 0)
+        let isNotEmpy = !enterdValueInCrypto.isEmpty
+        guard let ammountInDouble = Double(enterdValueInCrypto) else { return false }
+        let isNotNilNumber = ammountInDouble > 0
+        return isNotEmpy && isNotNilNumber
     }
 }
 
-class EnterTransactionAmmountViewController: BaseTableAdapterController {
+class WalletEnterReceiveAmmount: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
     
     private var store: Store
+    private var ammountCallback: (String) -> Void
     
-    init(wallet: ViewWalletInterface) {
-        self.store = Store(wallet: wallet)
+    init(asset: AssetInterface, ammountCallback: @escaping (String) -> Void ) {
+        self.store = Store(asset: asset)
+        self.ammountCallback = ammountCallback
         super.init()
     }
     
@@ -55,15 +59,15 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
         let deselected = fieldsFor(type: self.store.currentlyEdited.another)
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Back"),
-                           right: "",
+            .navigationBar(left: "",
+                           right: LS("Wallet.Receive.Enter.Done"),
                            title: "",
-                           lAction: backAction,
-                           rAction: nil),
-            .attributedTitleDetail(title: NSAttributedString(string: LS("Wallet.Send.Title"),
+                           lAction: nil,
+                           rAction: backAction),
+            .attributedTitleDetail(title: NSAttributedString(string: LS("Wallet.Receive.Title"),
                                                              attributes: [NSAttributedString.Key.font: AppFont.bold.withSize(28),
                                                                           NSAttributedString.Key.strokeColor: colorProvider.appTitleColor]),
-                                   detail: availableBalanceString, action: nil),
+                                   detail: NSAttributedString(), action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .textFieldTitleDetail(string: selected.0,
                                   font: AppFont.bold.withSize(60),
@@ -75,7 +79,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                    detail: formattedDeselectedCurrencyField(value: deselected.1),
                                    action: disabledFieldAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
-            .centeredButton(title: LS("Wallet.Send.Continue"),
+            .centeredButton(title: LS("Wallet.Receive.Continue"),
                             isEnable: store.isValidAmmount,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
@@ -85,25 +89,11 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     }
     
     // MARK: - Formatters
-    var availableBalanceString: NSAttributedString {
-        let availableString = NSMutableAttributedString()
-        availableString.append(NSAttributedString(string: LS("Wallet.Send.Available") + ": ",
-                                                  attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
-                                                               NSAttributedString.Key.foregroundColor: colorProvider.titleColor]))
-        availableString.append(NSAttributedString(string: self.store.wallet.formattedBalance,
-                                                  attributes: [NSAttributedString.Key.font: AppFont.bold.withSize(15),
-                                                               NSAttributedString.Key.foregroundColor: colorProvider.titleColor]))
-        availableString.append(NSAttributedString(string: " "))
-        availableString.append(NSAttributedString(string: self.store.wallet.asset.symbol,
-                                                  attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
-                                                               NSAttributedString.Key.foregroundColor: colorProvider.centeredButtonDisabledBackgroudColor]))
-        return availableString
-    }
     
     func fieldsFor(type: CurrencyType) -> (String, String) {
         switch type {
         case .crypto:
-            return (self.store.enterdValueInCrypto, self.store.wallet.asset.symbol)
+            return (self.store.enterdValueInCrypto, self.store.asset.symbol)
         case .fiat:
             return (self.store.enterdValueInCurrency, self.store.currentCurrency.titleString)
         }
@@ -135,18 +125,18 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     
     var fiatAmmountInCrypto: String {
         guard let ammount = Double(store.enterdValueInCurrency),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.ranks.getRank(for: self.store.asset),
             currentRank != 0 else {
                 return ""
         }
         let ammountInCrypto = ammount / currentRank
-        let formatter = BalanceFormatter(asset: store.wallet.asset)
+        let formatter = BalanceFormatter(asset: store.asset)
         return formatter.formattedAmmount(amount: ammountInCrypto)
     }
     
     var cryptoInFiat: String {
         guard let ammount = Double(store.enterdValueInCrypto),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.ranks.getRank(for: self.store.asset),
             currentRank != 0 else {
                 return ""
         }
@@ -183,9 +173,11 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var continueAction: () -> Void = {
+    private lazy var continueAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         self.tableAdapter.endEditing(true)
-        self.router.show(.sendTransactionDetail(self.store.wallet, self.store.enterdValueInCrypto))
+        self.router.pop()
+        self.ammountCallback(self.store.enterdValueInCrypto)
     }
     
     // MARK: - Keyboard

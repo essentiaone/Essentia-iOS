@@ -266,6 +266,15 @@
 "Wallet.Options.Delete.Warning.Cancel" = "CANCEL";
 "Wallet.Options.Delete.Warning.Delete" = "DELETE";
 
+"Wallet.Receive.Title" = "Receive";
+"Wallet.Receive.Wallet" = "wallet";
+"Wallet.Receive.Copy" = "Copy";
+"Wallet.Receive.Request" = "Request specific ammount";
+
+"Wallet.Receive.Enter.Done" = "Done";
+"Wallet.Receive.Title" = "Receive";
+"Wallet.Receive.Continue" = "Continue";
+
 "Launchpad.Placeholder.Title" = "Amazing features coming soon!";
 "Launchpad.Placeholder.Swipe" = "Swipe to see";
 
