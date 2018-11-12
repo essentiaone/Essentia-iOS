@@ -43,6 +43,7 @@ class WalletMainViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
+        reloadAllComponents()
     }
     
     override func viewDidLayoutSubviews() {
@@ -225,21 +226,20 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Private
     private func hardReload() {
-        reloaddAllComponents()
+        (inject() as LoaderInterface).show()
         (inject() as CurrencyRankDaemonInterface).update { [weak self] in
-            self?.reloaddAllComponents()
+            self?.reloadAllComponents()
+            (inject() as LoaderInterface).hide()
         }
     }
     
-    private func reloaddAllComponents() {
-        (inject() as LoaderInterface).show()
-            self.clearCash()
-            self.loadData()
-            self.cashState()
-            self.loadBalances()
-            self.loadBalanceChangesPer24H()
-            self.tableAdapter.simpleReload(self.state())
-        (inject() as LoaderInterface).hide()
+    private func reloadAllComponents() {
+        self.clearCash()
+        self.loadData()
+        self.cashState()
+        self.loadBalances()
+        self.loadBalanceChangesPer24H()
+        self.tableAdapter.simpleReload(self.state())
     }
     
     private func loadBalanceChangesPer24H() {
