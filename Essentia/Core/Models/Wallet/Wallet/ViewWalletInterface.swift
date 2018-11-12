@@ -54,7 +54,7 @@ extension ViewWalletInterface {
     }
     
     var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: name, size: .x128).url
+        return CoinIconsUrlFormatter(name: asset.name, size: .x128).url
     }
     
     var formattedBalanceWithSymbol: String {
