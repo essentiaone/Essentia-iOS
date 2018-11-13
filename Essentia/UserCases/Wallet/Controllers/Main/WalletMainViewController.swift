@@ -70,17 +70,13 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - State
     private func state() -> [TableComponent] {
-        if EssentiaStore.shared.currentUser.wallet.isEmpty {
-            return emptyState()
-        }
         let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
         let contentHeight = tableAdapter.helper.allContentHeight(for: staticState)
         let emptySpace = store.tableHeight - contentHeight
         let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
-        return [
-            .tableWithHeight(height: contentHeight, state: staticState),
-            .tableWithHeight(height: bottomTableContentHeight, state: assetState())
-        ]
+        let showWallets = !EssentiaStore.shared.currentUser.wallet.isEmpty
+        return [.tableWithHeight(height: contentHeight, state: staticState)] +
+            (showWallets ? [.tableWithHeight(height: bottomTableContentHeight, state: assetState())] : emptyState())
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
@@ -120,18 +116,11 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func emptyState() -> [TableComponent] {
         return [
-            .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .rightNavigationButton(title: "", image: imageProvider.bluePlus, action: addWalletAction),
-            .title(bold: true, title: LS("Wallet.Title")),
-            .empty(height: 52, background: colorProvider.settingsCellsBackround),
-            .centeredImage(image: imageProvider.walletPlaceholder),
-            .empty(height: 40, background: colorProvider.settingsCellsBackround),
-            .descriptionWithSize(aligment: .center,
-                                 fontSize: 17,
-                                 title: LS("Wallet.Empty.Description"),
-                                 background: colorProvider.settingsCellsBackround),
-            .empty(height: 10, background: colorProvider.settingsCellsBackround),
-            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction)
+            .empty(height: 110, background: colorProvider.settingsBackgroud),
+            .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud),
+            .calculatbleSpace(background: colorProvider.settingsBackgroud),
+            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.settingsBackgroud),
+            .empty(height: 16, background: colorProvider.settingsBackgroud)
         ]
     }
     

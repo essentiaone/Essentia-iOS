@@ -155,7 +155,7 @@
 "Wallet.Welcome.Continue" = "Continue";
 
 "Wallet.Title" = "Wallet";
-"Wallet.Empty.Description" = "You have no assets, but you can add ones";
+"Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "Essentia Assets";

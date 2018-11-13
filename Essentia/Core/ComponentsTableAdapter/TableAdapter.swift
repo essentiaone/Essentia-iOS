@@ -310,13 +310,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleImage.image = image
             cell.titleLabel.text = paragraph
             return cell
-        case .smallCenteredButton(let title,let isEnable,let action):
+        case .smallCenteredButton(let title,let isEnable,let action, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
             cell.setEnable(isEnable)
             let inset = tableView.frame.width / 4
             cell.leftInset.constant = inset
             cell.rightInset.constant = inset
+            cell.backgroundColor = background
             cell.action = action
             return cell
         case .centeredImage(let image):

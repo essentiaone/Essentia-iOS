@@ -27,7 +27,7 @@ enum TableComponent: Equatable {
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
-    case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
+    case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
     // MARK: - Navigation Bar
