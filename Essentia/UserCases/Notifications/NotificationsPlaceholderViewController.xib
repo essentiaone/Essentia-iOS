@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.30.1" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.19.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationsPlaceholderViewController" customModule="Essentia" customModuleProvider="target">
             <connections>
+                <outlet property="descriptionLabel" destination="lj1-Ub-C2k" id="r59-DA-EiU"/>
                 <outlet property="placeholderImageView" destination="SNX-pp-s4w" id="xWX-Ju-wOh"/>
                 <outlet property="titleLabel" destination="9Et-eh-PjP" id="mt4-fT-ns1"/>
                 <outlet property="view" destination="pr9-3j-7Ak" id="EVz-OW-hX7"/>
@@ -24,7 +24,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Et-eh-PjP">
-                    <rect key="frame" x="15" y="45" width="345" height="0.0"/>
+                    <rect key="frame" x="15" y="55" width="345" height="0.0"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lj1-Ub-C2k">
+                    <rect key="frame" x="24" y="511" width="327" height="135"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -38,13 +44,17 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="lj1-Ub-C2k" firstAttribute="leading" secondItem="IOa-Jz-JqC" secondAttribute="leading" constant="24" id="1Vy-Ty-gKk"/>
                 <constraint firstAttribute="trailing" secondItem="9Et-eh-PjP" secondAttribute="trailing" constant="15" id="Bw8-Pw-3Fl"/>
+                <constraint firstItem="IOa-Jz-JqC" firstAttribute="trailing" secondItem="lj1-Ub-C2k" secondAttribute="trailing" constant="24" id="ID8-t4-KYR"/>
                 <constraint firstItem="SNX-pp-s4w" firstAttribute="centerX" secondItem="pr9-3j-7Ak" secondAttribute="centerX" id="OHe-9h-cPd"/>
                 <constraint firstItem="IOa-Jz-JqC" firstAttribute="trailing" secondItem="SNX-pp-s4w" secondAttribute="trailing" constant="30" id="RhD-DF-BLo"/>
                 <constraint firstItem="SNX-pp-s4w" firstAttribute="leading" secondItem="IOa-Jz-JqC" secondAttribute="leading" constant="30" id="TEA-jD-nh5"/>
                 <constraint firstItem="SNX-pp-s4w" firstAttribute="centerY" secondItem="pr9-3j-7Ak" secondAttribute="centerY" id="afd-hA-r6T"/>
                 <constraint firstItem="9Et-eh-PjP" firstAttribute="leading" secondItem="pr9-3j-7Ak" secondAttribute="leading" constant="15" id="d33-i5-Gbw"/>
-                <constraint firstItem="9Et-eh-PjP" firstAttribute="top" secondItem="pr9-3j-7Ak" secondAttribute="top" constant="45" id="nqd-ZU-e9S"/>
+                <constraint firstItem="IOa-Jz-JqC" firstAttribute="bottom" secondItem="lj1-Ub-C2k" secondAttribute="bottom" constant="21" id="f5e-T4-K5Y"/>
+                <constraint firstItem="9Et-eh-PjP" firstAttribute="top" secondItem="pr9-3j-7Ak" secondAttribute="top" constant="55" id="nqd-ZU-e9S"/>
+                <constraint firstItem="lj1-Ub-C2k" firstAttribute="top" secondItem="SNX-pp-s4w" secondAttribute="bottom" constant="20" id="yF1-qc-9qc"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="IOa-Jz-JqC"/>
             <point key="canvasLocation" x="-45" y="-3"/>

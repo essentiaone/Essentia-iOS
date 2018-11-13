@@ -306,3 +306,5 @@
 "Settings.FullSecured.Title" = "Fully Secured!";
 "Settings.FullSecured.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
 "Settings.FullSecured.Continue" = "CONTINUE";
+
+"Notification.Placeholder.Description" = "We are working on it now, so soon you will be able to have notifications";
