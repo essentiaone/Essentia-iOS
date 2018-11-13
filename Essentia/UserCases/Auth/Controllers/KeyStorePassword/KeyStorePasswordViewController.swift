@@ -10,7 +10,12 @@ import UIKit
 
 fileprivate struct Store {
     var password: String = ""
+    var repeatPass: String = ""
     var isValid: Bool = false
+    var isValidRepeate: Bool = false
+    var isBothValid: Bool {
+        return isValid && isValidRepeate && password == repeatPass
+    }
     static var keyStoreFolder = "Keystore"
 }
 
@@ -60,10 +65,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
             .title(bold: true, title: LS("Keystore.Title")),
             .description(title: LS("Keystore.Description"), backgroud: colorProvider.settingsCellsBackround),
             .empty(height: 10.0, background: colorProvider.settingsCellsBackround),
-            .password(passwordAction: passwordAction),
+            .password(title: LS("Keystore.PasswordField.Title"), withProgress: false, passwordAction: passwordAction),
+            .password(title: LS("Keystore.PasswordField.Repeat"), withProgress: true, passwordAction: repeatAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("SeedCopy.Continue"),
-                            isEnable: store.isValid,
+                            isEnable: store.isBothValid,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
             .empty(height: 50, background: colorProvider.settingsCellsBackround),
@@ -75,6 +81,12 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     private lazy var passwordAction: (Bool, String) -> Void = {
         self.store.isValid = $0
         self.store.password = $1
+        self.updateState()
+    }
+    
+    private lazy var repeatAction: (Bool, String) -> Void = {
+        self.store.isValidRepeate = $0
+        self.store.repeatPass = $1
         self.updateState()
     }
     

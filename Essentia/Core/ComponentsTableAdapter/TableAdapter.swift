@@ -265,9 +265,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.descriptionLabel.text = description
             return cell
-        case .password(let passwordAction):
+        case .password(let title, _ ,let passwordAction):
             let cell: TableComponentPassword = tableView.dequeueReusableCell(for: indexPath)
             cell.passwordAction = passwordAction
+            cell.titleLabel.text = title
             return cell
         case .tabBarSpace: fallthrough
         case .keyboardInset:

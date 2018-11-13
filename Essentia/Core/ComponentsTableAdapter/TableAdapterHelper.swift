@@ -73,8 +73,11 @@ class TableAdapterHelper {
         case .navigationImageBar: fallthrough
         case .navigationBar:
             return 44
-        case .password:
-            return 76.0
+        case .password(_, let withProgress, _):
+            if withProgress {
+                return 76.0
+            }
+            return 44.0
         case .paragraph(let title, let description):
             let labelWidth = tableView.frame.width - 43
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(18),

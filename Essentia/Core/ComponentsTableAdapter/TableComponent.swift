@@ -47,7 +47,7 @@ enum TableComponent: Equatable {
     case menuSectionHeader(title:String, backgroud: UIColor)
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
-    case password(passwordAction: (Bool, String) -> Void)
+    case password(title: String, withProgress: Bool, passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace
     case centeredImageButton(image: UIImage, action: () -> Void)

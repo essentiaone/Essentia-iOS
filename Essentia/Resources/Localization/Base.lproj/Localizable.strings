@@ -55,6 +55,7 @@
 "Keystore.Title" = "Password";
 "Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
 "Keystore.PasswordField.Title" = "Password";
+"Keystore.PasswordField.Repeat" = "Repeat password";
 "Keystore.PasswordField.Placeholder" = "Required";
 "Keystore.PasswordField.Description" = "Minimum 8 characters";
 "Keystore.PasswordField.Status.Good" = "Good";
