@@ -37,7 +37,7 @@ fileprivate struct Store {
     
 }
 
-class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
+class SendEthereumTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
