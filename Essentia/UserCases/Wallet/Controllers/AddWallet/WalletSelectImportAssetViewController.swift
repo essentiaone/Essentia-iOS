@@ -20,12 +20,11 @@ class WalletSelectImportAssetViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"),
+            .navigationBar(left: LS("Back"),
                            right: "",
-                           title: "",
+                           title: LS("Wallet.ImportAsset.Title"),
                            lAction: backAction,
                            rAction: nil),
-            .title(bold: true, title: LS("Wallet.ImportAsset.Title")),
             .shadow(height: 16,
                     shadowColor: colorProvider.settingsShadowColor,
                     background: colorProvider.settingsBackgroud)

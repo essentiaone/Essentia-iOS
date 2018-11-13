@@ -61,7 +61,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationImageBar(left: LS("Wallet.Back"),
+            .navigationImageBar(left: LS("Back"),
                                 right: #imageLiteral(resourceName: "downArrow"),
                                 title: store.wallet.name,
                                 lAction: backAction,

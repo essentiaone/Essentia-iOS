@@ -170,7 +170,7 @@
 "Wallet.NewAsset.Token.SelectWallet.Title" = "ETH Wallet";
 "Wallet.NewAsset.Token.SelectWallet.Subtitle" = "Wallet with tokens";
 
-"Wallet.ImportAsset.Title" = "Import Asset";
+"Wallet.ImportAsset.Title" = "Import Wallet";
 "Wallet.Bitcoin" = "Bitcoin";
 "Wallet.Ethereum" = "Ethereum";
 "Wallet.Litecoin" = "Litecoin";
@@ -196,7 +196,7 @@
 "Wallet.FailImporing.LeftButton" = "CANCEL";
 "Wallet.FailImporing.RightButton" = "TRY AGAIN";
 
-"Wallet.CreateNewAsset.Title" = "New Asset";
+"Wallet.CreateNewAsset.Title" = "Create Wallet";
 "Wallet.CreateNewAsset.Done" = "Done";
 "Wallet.CreateNewAsset.Switch.Coins" = "Coins";
 "Wallet.CreateNewAsset.Switch.Tokens" = "Tokens";
