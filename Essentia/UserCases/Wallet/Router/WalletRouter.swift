@@ -13,7 +13,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {
         switch route {
         case .newAssets:
-            push(vc: WalletNewAssetViewController())
+            popUp(vc: WalletNewAssetViewController())
         case .selectImportAsset:
             push(vc: WalletSelectImportAssetViewController())
         case .importAsset(let coin):

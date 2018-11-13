@@ -163,14 +163,9 @@
 "Wallet.Main.Segment.First" = "Coins";
 "Wallet.Main.Segment.Segment" = "Tokens";
 
-"Wallet.Back" = "Back";
-"Wallet.NewAsset.Title" = "New Assets";
-"Wallet.NewAsset.Add.Title" = "Add Asset";
-"Wallet.NewAsset.Add.Subtitle" = "Choose from existing ones";
-"Wallet.NewAsset.Add.Description" = "Use this option to import ONE SINGLE ADDRESS from services like MyEtherWallet etc...";
-"Wallet.NewAsset.Import.Title" = "Import Asset";
-"Wallet.NewAsset.Import.Subtitle" = "With Private Key";
-"Wallet.NewAsset.Import.Description" = "Use this option to import ALL/SOME ADDRESSES linked to an account on services like Jaxx, Electum etc...";
+"Wallet.NewAsset.Title" = "Add Wallet";
+"Wallet.NewAsset.Add.Title" = "Create Wallet";
+"Wallet.NewAsset.Import.Title" = "Import Wallet";
 
 "Wallet.NewAsset.Token.SelectWallet.Title" = "ETH Wallet";
 "Wallet.NewAsset.Token.SelectWallet.Subtitle" = "Wallet with tokens";
