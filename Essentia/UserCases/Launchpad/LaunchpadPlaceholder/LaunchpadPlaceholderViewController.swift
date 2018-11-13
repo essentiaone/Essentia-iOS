@@ -83,7 +83,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         var features: [TableComponent] = []
         for i in 0..<11 {
             let componentName = "Launchpad.Placeholder.Detail.Feature\(i)."
-            features.append(.imageTitleSubtitle(image: UIImage.withColor(.red),
+            features.append(.imageTitleSubtitle(image: UIImage(named: "todo\(i)") ?? UIImage(),
                                                 title: LS(componentName + "Title"),
                                                 subtitle: LS(componentName + "Detail")))
             features.append(.separator(inset: UIEdgeInsets(top: 0, left: 114, bottom: 0, right: 0)))
