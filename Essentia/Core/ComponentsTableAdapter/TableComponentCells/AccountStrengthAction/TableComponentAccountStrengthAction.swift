@@ -57,8 +57,9 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
         let newUser = EssentiaStore.shared.currentUser
         let animation = animationForSecurirtyLevel(newUser.backup.secureLevel)
         let player = PNGAnimationPlayer(animation: animation, in: progressImageView)
-        let shoudShowAnimation = currentUser.backup.secureLevel != newUser.backup.secureLevel && currentUser.id == newUser.id
-        currentUser = newUser
+        let shoudShowAnimation = currentSecurity != newUser.backup.secureLevel && currentUserId == newUser.id
+        currentUserId = newUser.id
+        currentSecurity = newUser.backup.secureLevel
         guard shoudShowAnimation else {
             progressImageView.image = defaultImageForAnimationPlayer(player, for: newUser.backup.secureLevel)
             containerView.backgroundColor = colorForCurrentSecuringStatus
@@ -74,9 +75,21 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
         player.play()
     }
     
+    private func showCompleteAnimation() {
+        UIView.animate(withDuration: 0.5) {
+            let player = PNGAnimationPlayer(animation: .securing99toSafe, in: self.progressImageView)
+            self.playAnimation(in: player)
+        }
+    }
+    
     // MARK: - Actions
     
     @IBAction func accountAction(_ sender: AnyObject) {
-        self.resultAction?()
+        switch EssentiaStore.shared.currentUser.backup.secureLevel {
+//        case 3:
+//            self.showCompleteAnimation()
+        default:
+            self.resultAction?()
+        }
     }
 }
