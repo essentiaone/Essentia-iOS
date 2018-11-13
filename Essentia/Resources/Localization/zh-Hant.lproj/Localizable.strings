@@ -303,3 +303,6 @@
 "Launchpad.Placeholder.Detail.Feature10.Title" = "AutoSynс";
 "Launchpad.Placeholder.Detail.Feature10.Detail" = "Connect your wallets and exchanges to synchronize your balance and transaction history!";
 
+"Settings.FullSecured.Title" = "Fully Secured!";
+"Settings.FullSecured.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
+"Settings.FullSecured.Continue" = "CONTINUE";
