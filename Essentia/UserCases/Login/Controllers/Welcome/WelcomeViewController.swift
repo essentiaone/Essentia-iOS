@@ -53,6 +53,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func termsAction(_ sender: Any) {
+        guard let url = URL(string: EssentiaConstants.termsUrl) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     func openTabBar() {

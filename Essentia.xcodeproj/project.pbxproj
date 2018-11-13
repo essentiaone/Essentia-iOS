@@ -63,6 +63,7 @@
 		3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */; };
 		340AC000219B0A6B00DEAFF1 /* FullSecuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */; };
 		340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */; };
+		340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */; };
 		34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */; };
 		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E012134A24000A54B7E /* LoggerServiceInterface.swift */; };
@@ -366,6 +367,7 @@
 		3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSecuredViewController.swift; sourceTree = "<group>"; };
 		340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullSecuredViewController.xib; sourceTree = "<group>"; };
+		340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaConstants.swift; sourceTree = "<group>"; };
 		34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitle.swift; sourceTree = "<group>"; };
 		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		34115E012134A24000A54B7E /* LoggerServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerServiceInterface.swift; sourceTree = "<group>"; };
@@ -1191,6 +1193,7 @@
 			isa = PBXGroup;
 			children = (
 				344167EE212E168A008B8A91 /* EssentiaStore.swift */,
+				340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -2481,6 +2484,7 @@
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
 				347CCDAF218CA75000E894DD /* SendTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
+				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
