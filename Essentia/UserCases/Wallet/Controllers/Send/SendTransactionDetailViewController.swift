@@ -57,7 +57,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         hideKeyboardWhenTappedAround()
         loadInputs()
         loadRanges()
@@ -227,7 +227,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
         interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: data) { [weak self] (price) in
             guard let `self` = self else { return }
             self.store.gasEstimate = price
-            self.tableAdapter.reload(self.state)
+            self.tableAdapter.hardReload(self.state)
         }
     }
     

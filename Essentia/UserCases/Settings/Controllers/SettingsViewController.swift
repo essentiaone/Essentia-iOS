@@ -35,7 +35,7 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private func updateState() {
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private func injectRouter() {

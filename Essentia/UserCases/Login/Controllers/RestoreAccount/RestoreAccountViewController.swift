@@ -59,7 +59,7 @@ class RestoreAccountViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         applyDesign()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private func applyDesign() {

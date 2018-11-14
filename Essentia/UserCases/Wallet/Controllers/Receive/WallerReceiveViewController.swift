@@ -42,7 +42,7 @@ class WallerReceiveViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private var state: [TableComponent] {
@@ -68,7 +68,7 @@ class WallerReceiveViewController: BaseTableAdapterController {
             + ammountComponent +
             [.separator(inset: .zero),
             .empty(height: 16, background: colorProvider.settingsCellsBackround),
-            .smallCenteredButton(title: LS("Wallet.Receive.Copy"), isEnable: true, action: copyAction),
+            .smallCenteredButton(title: LS("Wallet.Receive.Copy"), isEnable: true, action: copyAction, background: colorProvider.settingsCellsBackround),
             .empty(height: 24, background: colorProvider.settingsCellsBackround)
         ]
     }

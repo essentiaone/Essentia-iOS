@@ -36,7 +36,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"),
+            .navigationBar(left: LS("Back"),
                            right: LS("Wallet.CreateNewAsset.Done"),
                            title: LS("Wallet.CreateNewAsset.Title"),
                            lAction: backAction,

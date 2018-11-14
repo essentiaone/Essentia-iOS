@@ -72,7 +72,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     private var exportPrivateKey: [TableComponent] {
         guard selected == .export else { return [] }
-        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left ),
+        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left , color: colorProvider.appTitleColor),
                 .titleAction(font: AppFont.regular.withSize(15), title: privateKey, action: copyAction)]
     }
     
@@ -80,7 +80,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -106,7 +106,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private lazy var exportAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.selected = .export
-        self.tableAdapter.reload(self.state)
+        self.tableAdapter.hardReload(self.state)
     }
     
     private lazy var deleteAction: () -> Void = { [weak self] in

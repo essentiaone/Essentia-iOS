@@ -39,23 +39,23 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
 
     private var state: [TableComponent] {
         let rawState: [TableComponent?] = [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"),
+            .navigationBar(left: LS("Back"),
                            right: "",
-                           title: "",
+                           title: LS("Wallet.Import") + " " + store.coin.name,
                            lAction: backAction,
                            rAction: nil),
-            .title(bold: true, title: LS("Wallet.Import") + " " + store.coin.name),
             .empty(height: 10, background: colorProvider.settingsBackgroud),
             .descriptionWithSize(aligment: .left,
                                                fontSize: 17,
                                                title: LS("Wallet.Import.Description"),
-                                               background: colorProvider.settingsBackgroud),
+                                               background: colorProvider.settingsBackgroud,
+                                               textColor: colorProvider.appDefaultTextColor),
             .empty(height: 8, background: colorProvider.settingsBackgroud),
             .textView(placeholder: LS("Wallet.Import.PrivateKey"),
                       text: store.privateKey,
