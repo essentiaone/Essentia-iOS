@@ -180,6 +180,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
             return cell
+        case .centeredComponentTopInstet:
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = .clear
+            return cell
         case .accountStrengthAction( let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
             cell.resultAction = action

@@ -197,7 +197,7 @@
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
 		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
-		347CCDAF218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CCDAE218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift */; };
+		347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CCDAE218CA75000E894DD /* SendEthTransactionDetailViewController.swift */; };
 		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
 		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
 		34864022218BD52C008CA223 /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864021218BD52C008CA223 /* String+Helpers.swift */; };
@@ -505,7 +505,7 @@
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
-		347CCDAE218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthereumTransactionDetailViewController.swift; sourceTree = "<group>"; };
+		347CCDAE218CA75000E894DD /* SendEthTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
 		34864021218BD52C008CA223 /* String+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
@@ -1663,7 +1663,7 @@
 		346F0B0E219A529B004B4584 /* Ether */ = {
 			isa = PBXGroup;
 			children = (
-				347CCDAE218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift */,
+				347CCDAE218CA75000E894DD /* SendEthTransactionDetailViewController.swift */,
 				346F0B0F219A52D4004B4584 /* ConfirmEthereumTransactionDetailViewController.swift */,
 			);
 			path = Ether;
@@ -2514,7 +2514,7 @@
 				3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */,
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
-				347CCDAF218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift in Sources */,
+				347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,

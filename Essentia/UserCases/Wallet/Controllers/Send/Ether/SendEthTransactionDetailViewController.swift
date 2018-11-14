@@ -1,5 +1,5 @@
 //
-//  SendTransactionDetailViewController.swift
+//  SendEthTransactionDetailViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 11/2/18.
@@ -27,7 +27,7 @@ fileprivate struct Store {
     }
     
     var isValidTransaction: Bool {
-        return false
+        return wallet.asset.isValidAddress(address)
     }
     
     init(wallet: ViewWalletInterface, transactionAmmount: String) {
@@ -37,7 +37,7 @@ fileprivate struct Store {
     
 }
 
-class SendEthereumTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
+class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
@@ -166,8 +166,11 @@ class SendEthereumTransactionDetailViewController: BaseTableAdapterController, Q
         self.router.pop()
     }
     
-    private lazy var continueAction: () -> Void = {
-        
+    private lazy var continueAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        let vc = ConfirmEthereumTransactionDetailViewController()
+        vc.modalPresentationStyle = .custom
+        self.present(vc, animated: true)
     }
     
     private lazy var inputFeeAction: () -> Void = { [weak self] in

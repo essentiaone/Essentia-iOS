@@ -31,6 +31,7 @@ enum TableComponent: Equatable {
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
+    case centeredComponentTopInstet
     case pageControl(count: Int, selected: Int)
     // MARK: - Navigation Bar
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
