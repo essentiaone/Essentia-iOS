@@ -145,14 +145,7 @@
 "EditAccount.Description" = "Create a name for your account";
 
 // MARK: - Wallet
-
-"Wallet.Welcome.Title1" = "Welcome to your";
-"Wallet.Welcome.Title2" = "Multi-wallet";
-"Wallet.Welcome.Description" = "Easier, more convenient, and even more secure";
-"Wallet.Welcome.Paragraph1" = "Completely decentralized through the blockchain";
-"Wallet.Welcome.Paragraph2" = "Only you can access";
-"Wallet.Welcome.Paragraph3" = "Exchange directly on Essentia";
-"Wallet.Welcome.Continue" = "Continue";
+"Wallet.Welcome.Continue" = "CONTINUE";
 
 "Wallet.Title" = "Wallet";
 "Wallet.Empty.Description" = "No Coins have been added yet";
@@ -304,3 +297,11 @@
 "Settings.FullSecured.Continue" = "CONTINUE";
 
 "Notification.Placeholder.Description" = "We are working on it now, so soon you will be able to have notifications";
+
+
+"Wallet.Onbording1.Title" = "Extra-secure!";
+"Wallet.Onbording1.Detail" = "Leverage the cryptography of the blockchain to keep your assets safe";
+"Wallet.Onbording2.Title" = "Superwallet!";
+"Wallet.Onbording2.Detail" = "Access your all digital assets from a single wallet across any device";
+"Wallet.Onbording3.Title" = "Lightning fast!";
+"Wallet.Onbording3.Detail" = "Don’t waste your valuable time, leave all the hard work to us!";

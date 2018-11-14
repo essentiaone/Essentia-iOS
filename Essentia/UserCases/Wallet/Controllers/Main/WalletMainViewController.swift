@@ -117,7 +117,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private func emptyState() -> [TableComponent] {
         return [
             .empty(height: 110, background: colorProvider.settingsBackgroud),
-            .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud),
+            .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
             .calculatbleSpace(background: colorProvider.settingsBackgroud),
             .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.settingsBackgroud),
             .empty(height: 16, background: colorProvider.settingsBackgroud)
@@ -149,7 +149,8 @@ class WalletMainViewController: BaseTableAdapterController {
         sectionState.append(.descriptionWithSize(aligment: .left,
                                                  fontSize: 14,
                                                  title: title,
-                                                 background: colorProvider.settingsBackgroud))
+                                                 background: colorProvider.settingsBackgroud,
+                                                 textColor: colorProvider.appDefaultTextColor))
         sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
         sectionState.append(contentsOf: buildStateForWallets(wallets))
         return sectionState
@@ -280,5 +281,9 @@ class WalletMainViewController: BaseTableAdapterController {
     private func formattedBalance(_ balance: Double) -> String {
         let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return formatter.formattedAmmountWithCurrency(amount: balance)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }

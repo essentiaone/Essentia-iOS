@@ -27,7 +27,7 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private func reloadState() {
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private var state: [TableComponent] {

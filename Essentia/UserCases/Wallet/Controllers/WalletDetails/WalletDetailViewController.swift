@@ -52,7 +52,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadRank()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         loadTransactions()
         loadBalance()
     }
@@ -118,7 +118,8 @@ class WalletDetailViewController: BaseTableAdapterController {
                 .descriptionWithSize(aligment: .left,
                                      fontSize: 14,
                                      title: date,
-                                     background: colorProvider.settingsBackgroud),
+                                     background: colorProvider.settingsBackgroud,
+                                     textColor: colorProvider.appDefaultTextColor),
                 .empty(height: 10, background: colorProvider.settingsBackgroud)]
     }
     

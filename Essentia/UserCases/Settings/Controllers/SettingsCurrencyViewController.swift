@@ -17,7 +17,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -49,7 +49,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
                     EssentiaStore.shared.currentUser.profile.currency = currency
                     (inject() as UserStorageServiceInterface).storeCurrentUser()
                     (inject() as CurrencyRankDaemonInterface).update()
-                    self.tableAdapter.reload(self.state)
+                    self.tableAdapter.hardReload(self.state)
             }))
             currencyState.append(.separator(inset: .zero))
         }

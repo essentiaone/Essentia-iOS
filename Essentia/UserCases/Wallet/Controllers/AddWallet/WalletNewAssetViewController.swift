@@ -16,7 +16,7 @@ class WalletNewAssetViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
     }

@@ -42,7 +42,7 @@ class WallerReceiveViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private var state: [TableComponent] {

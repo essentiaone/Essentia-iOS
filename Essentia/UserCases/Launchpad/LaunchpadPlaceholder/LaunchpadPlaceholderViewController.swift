@@ -35,7 +35,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         super.viewDidLoad()
         addRecognizer()
         applyDesign()
-        self.tableAdapter.reload(state)
+        self.tableAdapter.hardReload(state)
     }
 
     private func applyDesign() {

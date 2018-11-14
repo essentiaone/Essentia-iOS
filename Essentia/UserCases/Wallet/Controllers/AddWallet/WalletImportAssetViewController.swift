@@ -39,7 +39,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
 
     private var state: [TableComponent] {
@@ -54,7 +54,8 @@ class WalletImportAssetViewController: BaseTableAdapterController {
             .descriptionWithSize(aligment: .left,
                                                fontSize: 17,
                                                title: LS("Wallet.Import.Description"),
-                                               background: colorProvider.settingsBackgroud),
+                                               background: colorProvider.settingsBackgroud,
+                                               textColor: colorProvider.appDefaultTextColor),
             .empty(height: 8, background: colorProvider.settingsBackgroud),
             .textView(placeholder: LS("Wallet.Import.PrivateKey"),
                       text: store.privateKey,
