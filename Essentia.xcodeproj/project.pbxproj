@@ -61,6 +61,12 @@
 		3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFED2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift */; };
 		3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */; };
 		3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */; };
+		340AC000219B0A6B00DEAFF1 /* FullSecuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */; };
+		340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */; };
+		340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */; };
+		340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AC00E219BAC0A00DEAFF1 /* TableAdapterAnimation.swift */; };
+		340AC012219BC2F400DEAFF1 /* TableCompoentPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340AC011219BC2F400DEAFF1 /* TableCompoentPageControl.swift */; };
+		340AC014219BC30400DEAFF1 /* TableComponentPageControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340AC013219BC30400DEAFF1 /* TableComponentPageControl.xib */; };
 		34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */; };
 		34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */; };
 		34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E012134A24000A54B7E /* LoggerServiceInterface.swift */; };
@@ -363,6 +369,12 @@
 		3401AFED2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicConfirmEnteringController.swift; sourceTree = "<group>"; };
 		3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouterInterface.swift; sourceTree = "<group>"; };
 		3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSecuredViewController.swift; sourceTree = "<group>"; };
+		340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullSecuredViewController.xib; sourceTree = "<group>"; };
+		340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaConstants.swift; sourceTree = "<group>"; };
+		340AC00E219BAC0A00DEAFF1 /* TableAdapterAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterAnimation.swift; sourceTree = "<group>"; };
+		340AC011219BC2F400DEAFF1 /* TableCompoentPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableCompoentPageControl.swift; sourceTree = "<group>"; };
+		340AC013219BC30400DEAFF1 /* TableComponentPageControl.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPageControl.xib; sourceTree = "<group>"; };
 		34115DFD2134465D00A54B7E /* TableComponentImageTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitle.swift; sourceTree = "<group>"; };
 		34115DFF2134466F00A54B7E /* TableComponentImageTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitle.xib; sourceTree = "<group>"; };
 		34115E012134A24000A54B7E /* LoggerServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerServiceInterface.swift; sourceTree = "<group>"; };
@@ -1039,6 +1051,24 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		340ABFFE219B0A3600DEAFF1 /* FullSecured */ = {
+			isa = PBXGroup;
+			children = (
+				340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */,
+				340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */,
+			);
+			path = FullSecured;
+			sourceTree = "<group>";
+		};
+		340AC010219BBECB00DEAFF1 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				340AC011219BC2F400DEAFF1 /* TableCompoentPageControl.swift */,
+				340AC013219BC30400DEAFF1 /* TableComponentPageControl.xib */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		34115DFC2134462900A54B7E /* ImageTitle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1180,6 +1210,7 @@
 			isa = PBXGroup;
 			children = (
 				344167EE212E168A008B8A91 /* EssentiaStore.swift */,
+				340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1347,6 +1378,7 @@
 				34482689211DDC4C00C19EB3 /* ComponentState.swift */,
 				3448268B211DDC8F00C19EB3 /* TableComponent.swift */,
 				3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */,
+				340AC00E219BAC0A00DEAFF1 /* TableAdapterAnimation.swift */,
 			);
 			path = ComponentsTableAdapter;
 			sourceTree = "<group>";
@@ -1373,6 +1405,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				340AC010219BBECB00DEAFF1 /* PageControl */,
 				345F118F219742CD0010095F /* Container */,
 				345F11882197405F0010095F /* Blure */,
 				349131E321938EC7009D5FF1 /* ImageTitleSubtitle */,
@@ -1744,6 +1777,7 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				34B27A4C2133710700527F15 /* SwitchAccout */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
@@ -2175,6 +2209,7 @@
 				34ECE48A2136EFA3008D9696 /* QuestionAlertViewController.xib in Resources */,
 				34AC4DFC21496088001C17D8 /* TableComponentSegmentControl.xib in Resources */,
 				345F118E219740890010095F /* TableComponentBlure.xib in Resources */,
+				340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */,
@@ -2185,6 +2220,7 @@
 				34FCB9B4218BB3E200A88D56 /* TableComponentTextFieldDetail.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 				344958F32141D7C000C2230B /* TableComponentCenteredImage.xib in Resources */,
+				340AC014219BC30400DEAFF1 /* TableComponentPageControl.xib in Resources */,
 				34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */,
 				34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */,
 			);
@@ -2299,6 +2335,7 @@
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */,
+				340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */,
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
@@ -2368,6 +2405,7 @@
 				349AA4B421242CF900E9256F /* User.swift in Sources */,
 				344958D62141227B00C2230B /* WalletRouterInterface.swift in Sources */,
 				3486401F218BD235008CA223 /* EssCharacters.swift in Sources */,
+				340AC000219B0A6B00DEAFF1 /* FullSecuredViewController.swift in Sources */,
 				34482695211DDDEF00C19EB3 /* SectionedValues.swift in Sources */,
 				34864022218BD52C008CA223 /* String+Helpers.swift in Sources */,
 				344958D82141228600C2230B /* WalletRouter.swift in Sources */,
@@ -2460,6 +2498,7 @@
 				34DC8B7D217786B600ACA5D2 /* IconsAnimation.swift in Sources */,
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */,
+				340AC012219BC2F400DEAFF1 /* TableCompoentPageControl.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */,
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
@@ -2477,6 +2516,7 @@
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
 				347CCDAF218CA75000E894DD /* SendEthereumTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
+				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
@@ -2678,7 +2718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 48;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P8JA7643K4;
 				INFOPLIST_FILE = Essentia/Resources/Info.plist;
@@ -2705,7 +2745,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 47;
+				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = P8JA7643K4;
 				INFOPLIST_FILE = Essentia/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

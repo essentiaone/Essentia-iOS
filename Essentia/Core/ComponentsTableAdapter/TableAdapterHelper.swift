@@ -43,9 +43,9 @@ class TableAdapterHelper {
             return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
         case .titleWithFont(let font, let title, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
-        case .titleWithFontAligment(let font, let title, _):
+        case .titleWithFontAligment(let font, let title, _, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
-        case .descriptionWithSize(_, let fontSize, let title, _):
+        case .descriptionWithSize(_, let fontSize, let title, _, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
@@ -66,15 +66,21 @@ class TableAdapterHelper {
             return 91.0
         case .checkBox:
             return 92.0
+        case .pageControl:
+            return 20
         case .smallCenteredButton: fallthrough
+        case .actionCenteredButton: fallthrough
         case .centeredButton:
             return 75.0
         case .rightNavigationButton: fallthrough
         case .navigationImageBar: fallthrough
         case .navigationBar:
             return 44
-        case .password:
-            return 76.0
+        case .password(_, let withProgress, _):
+            if withProgress {
+                return 76.0
+            }
+            return 44.0
         case .paragraph(let title, let description):
             let labelWidth = tableView.frame.width - 43
             return title.multyLineLabelHeight(with: AppFont.bold.withSize(18),

@@ -13,7 +13,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {
         switch route {
         case .newAssets:
-            push(vc: WalletNewAssetViewController())
+            popUp(vc: WalletNewAssetViewController())
         case .selectImportAsset:
             push(vc: WalletSelectImportAssetViewController())
         case .importAsset(let coin):
@@ -33,7 +33,19 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .walletDetail(let wallet):
             push(vc: WalletDetailViewController(wallet: wallet))
         case .sendTransactionDetail(let wallet, let ammount):
-            push(vc: SendTransactionDetailViewController(wallet: wallet, ammount: ammount))
+            switch wallet.asset {
+            case let coin as Coin:
+                switch coin {
+                case .bitcoin:
+                    print("TODO")
+                case .ethereum:
+                    push(vc: SendEthereumTransactionDetailViewController(wallet: wallet, ammount: ammount))
+                default: return
+                }
+            case let token as Token:
+                print(token)
+            default: return
+            }
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):

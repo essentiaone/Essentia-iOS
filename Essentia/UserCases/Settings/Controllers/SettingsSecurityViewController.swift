@@ -17,7 +17,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     

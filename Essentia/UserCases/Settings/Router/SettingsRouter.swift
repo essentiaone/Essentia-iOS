@@ -35,6 +35,8 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
             push(vc: SettingsLoginMethodViewController())
         case .accountName:
             push(vc: SettingsEditUserViewController())
+        case .fullSecured:
+            push(vc: FullSecuredViewController())
         }
     }
     

@@ -30,7 +30,6 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         // MARK: - Localized Strings
-        titleLabel.text = LS("Keystore.PasswordField.Title")
         passwordTextField.placeholder = LS("Keystore.PasswordField.Placeholder")
         descriptionLabel.text = LS("Keystore.PasswordField.Description")
         passwordStatusLabel.text = LS("Keystore.PasswordField.Status.Good")

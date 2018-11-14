@@ -9,12 +9,5 @@
 import UIKit
 
 class TableComponentTitle: UITableViewCell, NibLoadable {
-    private lazy var colorProvider: AppColorInterface = inject()
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        titleLabel.textColor = colorProvider.appTitleColor
-    }
 }

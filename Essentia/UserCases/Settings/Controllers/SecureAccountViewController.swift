@@ -19,7 +19,7 @@ class SecureAccountViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     // MARK: - Override

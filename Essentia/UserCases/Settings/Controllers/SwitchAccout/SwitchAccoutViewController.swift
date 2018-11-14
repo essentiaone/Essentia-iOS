@@ -52,7 +52,7 @@ class SwitchAccoutViewController: BaseViewController {
         super.viewDidLoad()
         loadUsers()
         applyDesign()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     override func viewDidLayoutSubviews() {

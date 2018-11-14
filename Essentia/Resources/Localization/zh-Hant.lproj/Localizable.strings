@@ -51,6 +51,7 @@
 "Keystore.Title" = "Password";
 "Keystore.Description" = "Create a secure password to login to your Essence - safety first!";
 "Keystore.PasswordField.Title" = "Password";
+"Keystore.PasswordField.Repeat" = "Repeat password";
 "Keystore.PasswordField.Placeholder" = "Required";
 "Keystore.PasswordField.Description" = "Minimum 8 characters";
 "Keystore.PasswordField.Status.Good" = "Good";
@@ -143,17 +144,10 @@
 "EditAccount.Description" = "Create a name for your account";
 
 // MARK: - Wallet
-
-"Wallet.Welcome.Title1" = "Welcome to your";
-"Wallet.Welcome.Title2" = "Multi-wallet";
-"Wallet.Welcome.Description" = "Easier, more convenient, and even more secure";
-"Wallet.Welcome.Paragraph1" = "Completely decentralized through the blockchain";
-"Wallet.Welcome.Paragraph2" = "Only you can access";
-"Wallet.Welcome.Paragraph3" = "Exchange directly on Essentia";
-"Wallet.Welcome.Continue" = "Continue";
+"Wallet.Welcome.Continue" = "CONTINUE";
 
 "Wallet.Title" = "Wallet";
-"Wallet.Empty.Description" = "You have no assets, but you can add ones";
+"Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "Essentia Assets";
@@ -161,19 +155,14 @@
 "Wallet.Main.Segment.First" = "Coins";
 "Wallet.Main.Segment.Segment" = "Tokens";
 
-"Wallet.Back" = "Back";
-"Wallet.NewAsset.Title" = "New Assets";
-"Wallet.NewAsset.Add.Title" = "Add Asset";
-"Wallet.NewAsset.Add.Subtitle" = "Choose from existing ones";
-"Wallet.NewAsset.Add.Description" = "Use this option to import ONE SINGLE ADDRESS from services like MyEtherWallet etc...";
-"Wallet.NewAsset.Import.Title" = "Import Asset";
-"Wallet.NewAsset.Import.Subtitle" = "With Private Key";
-"Wallet.NewAsset.Import.Description" = "Use this option to import ALL/SOME ADDRESSES linked to an account on services like Jaxx, Electum etc...";
+"Wallet.NewAsset.Title" = "Add Wallet";
+"Wallet.NewAsset.Add.Title" = "Create Wallet";
+"Wallet.NewAsset.Import.Title" = "Import Wallet";
 
 "Wallet.NewAsset.Token.SelectWallet.Title" = "ETH Wallet";
 "Wallet.NewAsset.Token.SelectWallet.Subtitle" = "Wallet with tokens";
 
-"Wallet.ImportAsset.Title" = "Import Asset";
+"Wallet.ImportAsset.Title" = "Import Wallet";
 "Wallet.Bitcoin" = "Bitcoin";
 "Wallet.Ethereum" = "Ethereum";
 "Wallet.Litecoin" = "Litecoin";
@@ -199,7 +188,7 @@
 "Wallet.FailImporing.LeftButton" = "CANCEL";
 "Wallet.FailImporing.RightButton" = "TRY AGAIN";
 
-"Wallet.CreateNewAsset.Title" = "New Asset";
+"Wallet.CreateNewAsset.Title" = "Create Wallet";
 "Wallet.CreateNewAsset.Done" = "Done";
 "Wallet.CreateNewAsset.Switch.Coins" = "Coins";
 "Wallet.CreateNewAsset.Switch.Tokens" = "Tokens";
@@ -288,7 +277,7 @@
 "Launchpad.Placeholder.Detail.Feature3.Title" = "Essentia Crypto Messenger";
 "Launchpad.Placeholder.Detail.Feature3.Detail" = "Use Essentia’s native Crypto Messenger to communicate and send cryptos!";
 "Launchpad.Placeholder.Detail.Feature4.Title" = "Offline Transactions";
-"Launchpad.Placeholder.Detail.Feature5.Detail" = "Conduct your transactions offline!";
+"Launchpad.Placeholder.Detail.Feature4.Detail" = "Conduct your transactions offline!";
 "Launchpad.Placeholder.Detail.Feature5.Title" = "DApp Store";
 "Launchpad.Placeholder.Detail.Feature5.Detail" = "Manage and personalize the various dApps integrated in Essentia!";
 "Launchpad.Placeholder.Detail.Feature6.Title" = "Notifications";
@@ -302,3 +291,15 @@
 "Launchpad.Placeholder.Detail.Feature10.Title" = "AutoSynс";
 "Launchpad.Placeholder.Detail.Feature10.Detail" = "Connect your wallets and exchanges to synchronize your balance and transaction history!";
 
+"Settings.FullSecured.Title" = "Fully Secured!";
+"Settings.FullSecured.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
+"Settings.FullSecured.Continue" = "CONTINUE";
+
+"Notification.Placeholder.Description" = "We are working on it now, so soon you will be able to have notifications";
+
+"Wallet.Onbording1.Title" = "Extra-secure!";
+"Wallet.Onbording1.Detail" = "Leverage the cryptography of the blockchain to keep your assets safe";
+"Wallet.Onbording2.Title" = "Superwallet!";
+"Wallet.Onbording2.Detail" = "Access your all digital assets from a single wallet across any device";
+"Wallet.Onbording3.Title" = "Lightning fast!";
+"Wallet.Onbording3.Detail" = "Don’t waste your valuable time, leave all the hard work to us!";

@@ -75,19 +75,12 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
         player.play()
     }
     
-    private func showCompleteAnimation() {
-        UIView.animate(withDuration: 0.5) {
-            let player = PNGAnimationPlayer(animation: .securing99toSafe, in: self.progressImageView)
-            self.playAnimation(in: player)
-        }
-    }
-    
     // MARK: - Actions
     
     @IBAction func accountAction(_ sender: AnyObject) {
         switch EssentiaStore.shared.currentUser.backup.secureLevel {
-//        case 3:
-//            self.showCompleteAnimation()
+        case 3:
+            (inject() as SettingsRouterInterface).show(.fullSecured)
         default:
             self.resultAction?()
         }
