@@ -24,7 +24,7 @@ fileprivate struct Store {
     
     var isValidAmmount: Bool {
         guard let entered = Double(enterdValueInCrypto) else { return false }
-        return entered <= (wallet.lastBalance ?? 0)
+        return entered < (wallet.lastBalance ?? 0) && entered > 0
     }
 }
 
