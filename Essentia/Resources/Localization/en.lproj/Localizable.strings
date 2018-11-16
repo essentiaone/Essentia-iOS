@@ -245,6 +245,14 @@
 "Wallet.Send.TransactionTime" = "Transaction time";
 "Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
 
+"Wallet.Send.Confirm.Title" = "Confirm Transaction";
+"Wallet.Send.Confirm.ToAddress" = "To Address:";
+"Wallet.Send.Confirm.Amount" = "Amount";
+"Wallet.Send.Confirm.Fee" = "Fee";
+"Wallet.Send.Confirm.Time" = "Transaction Time";
+"Wallet.Send.Confirm.Cancel" = "Cancel";
+"Wallet.Send.Confirm.Send" = "Send";
+
 "Wallet.Receive.Title" = "Receive";
 "Wallet.Receive.Wallet" = "wallet";
 "Wallet.Receive.Copy" = "Copy";

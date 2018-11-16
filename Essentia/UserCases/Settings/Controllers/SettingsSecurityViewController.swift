@@ -84,7 +84,8 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     
     private lazy var ketstoreAction: () -> Void = {
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
-              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl else {
+              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
+              (try? Data(contentsOf: keystore)) != nil  else {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
             return
         }

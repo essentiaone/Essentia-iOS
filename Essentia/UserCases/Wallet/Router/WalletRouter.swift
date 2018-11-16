@@ -33,19 +33,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .walletDetail(let wallet):
             push(vc: WalletDetailViewController(wallet: wallet))
         case .sendTransactionDetail(let wallet, let ammount):
-            switch wallet.asset {
-            case let coin as Coin:
-                switch coin {
-                case .bitcoin:
-                    print("TODO")
-                case .ethereum:
-                    push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
-                default: return
-                }
-            case let token as Token:
-                print(token)
-            default: return
-            }
+            self.transactionDetail(wallet: wallet, ammount: ammount)
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):
@@ -59,7 +47,23 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .enterReceiveAmmount(let asset, let action):
             push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
         }
-
+        
+    }
+    
+    private func transactionDetail(wallet: ViewWalletInterface, ammount: SelectedTransacrionAmmount) {
+        switch wallet.asset {
+        case let coin as Coin:
+            switch coin {
+            case .bitcoin:
+                print("TODO")
+            case .ethereum:
+                push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
+            default: return
+            }
+        case let token as Token:
+            print(token)
+        default: return
+        }
     }
     
     private func showQrScaner(delegate: QRCodeReaderViewControllerDelegate) {

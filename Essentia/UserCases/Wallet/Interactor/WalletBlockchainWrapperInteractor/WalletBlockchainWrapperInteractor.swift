@@ -119,5 +119,34 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
            print(result)
         }
     }
-        
+    
+    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) {
+        cryptoWallet.ethereum.getTransactionCount(for: wallet.address) { (transactionCountResult) in
+            switch transactionCountResult {
+            case .success(let count):
+                guard let ammountInWei = try? WeiEthterConverter.toWei(ether: transacionDetial.ammount.inCrypto),
+                      let gasLimiyInWei = try? WeiEthterConverter.toWei(ether: String(transacionDetial.gasLimit)) else {
+                    result(.failure(.unknownError))
+                    return
+                }
+                let transaction = EthereumRawTransaction(value: ammountInWei,
+                                                         to: transacionDetial.address,
+                                                         gasPrice: transacionDetial.gasPrice,
+                                                         gasLimit: Int(gasPriceInWei.description) ?? 0,
+                                                         nonce: count.count)
+                let seed =  EssentiaStore.shared.currentUser.seed
+                
+                let pk = wallet.privateKey(withSeed: seed)
+                let dataPk = Data(hex: pk)
+                let signer = EIP155Signer.init(chainId: 1)
+                guard let txData = try? signer.sign(transaction, privateKey: dataPk) else {
+                    result(.failure(.unknownError))
+                    return
+                }
+                self.cryptoWallet.ethereum.sendTransaction(with: txData.toHexString().addHexPrefix(), result: result)
+            default:
+                result(.failure(.unknownError))
+            }
+        }
+    }
 }

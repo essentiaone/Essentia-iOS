@@ -41,7 +41,6 @@ class TableComponentSegmentControl: UITableViewCell, NibLoadable {
         segmentControl.backgroundColor = colorProvider.centeredButtonBackgroudColor
         segmentControl.tintColor = colorProvider.centeredButtonBackgroudColor
         segmentType = .filled
-        
     }
     
     func setTitles(_ titles: [String]) {

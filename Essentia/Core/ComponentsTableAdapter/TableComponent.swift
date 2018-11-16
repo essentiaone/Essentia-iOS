@@ -29,6 +29,7 @@ enum TableComponent: Equatable {
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case actionCenteredButton(title: String, action: () -> Void, backgrount: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
+    case twoButtons(lTitle: String, rTitle: String, lColor: UIColor, rColor: UIColor, lAction:() -> Void, rAction:() -> Void)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
     case centeredComponentTopInstet

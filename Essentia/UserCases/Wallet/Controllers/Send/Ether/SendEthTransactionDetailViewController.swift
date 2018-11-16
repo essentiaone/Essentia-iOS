@@ -12,7 +12,7 @@ import QRCodeReader
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
-    let ammountToSend: String
+    let ammount: SelectedTransacrionAmmount
     var address: String = ""
     var data: String = ""
     var selectedFeeSlider: Float = 3
@@ -30,9 +30,9 @@ fileprivate struct Store {
         return wallet.asset.isValidAddress(address)
     }
     
-    init(wallet: ViewWalletInterface, transactionAmmount: String) {
+    init(wallet: ViewWalletInterface, transactionAmmount: SelectedTransacrionAmmount) {
         self.wallet = wallet
-        self.ammountToSend = transactionAmmount
+        self.ammount = transactionAmmount
     }
     
 }
@@ -45,7 +45,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     
     private var store: Store
     
-    init(wallet: ViewWalletInterface, ammount: String) {
+    init(wallet: ViewWalletInterface, ammount: SelectedTransacrionAmmount) {
         self.store = Store(wallet: wallet, transactionAmmount: ammount)
         super.init()
     }
@@ -82,7 +82,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                    detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .titleCenteredDetail(title: LS("Wallet.Send.Amount"),
-                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammountToSend)),
+                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammount.inCrypto)),
             .separator(inset: .zero),
             .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.To"),
                                                   text: store.address,
@@ -168,7 +168,12 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     
     private lazy var continueAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        let vc = ConfirmEthereumTransactionDetailViewController()
+        let txInfo = EtherTxInfo(address: self.store.address,
+                                 ammount: self.store.ammount,
+                                 fee: self.store.enteredFee,
+                                 gasPrice: Int(self.store.gasEstimate),
+                                 gasLimit: Int(self.store.selectedFeeSlider))
+        let vc = ConfirmEthereumTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
     }
@@ -180,6 +185,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     private lazy var readQrAction: () -> Void = {
+        self.tableAdapter.endEditing(true)
         self.router.show(.qrReader(self))
     }
     
