@@ -59,13 +59,7 @@ enum Coin: String, Codable, AssetInterface {
     }
     
     func isValidPK(_ pk: String) -> Bool {
-        return true
-//        let regexString = "^[5KL][1-9A-HJ-NP-Za-km-z]{50,51}$"
-//        guard let regex = try? NSRegularExpression(pattern: regexString, options: .anchorsMatchLines),
-//            regex.firstMatch(in: pk, options: .anchored, range: .init(location: 0, length: pk.count)) != nil else {
-//                return false
-//        }
-//        return true
+        return !pk.isEmpty
     }
     
     func isValidAddress(_ address: String) -> Bool {
