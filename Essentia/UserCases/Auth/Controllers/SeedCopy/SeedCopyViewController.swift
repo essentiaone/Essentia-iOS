@@ -57,7 +57,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate {
     @IBAction func continueAction(_ sender: Any) {
         switch authType {
         case .backup:
-            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.seed)
+            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.seed)
             (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:

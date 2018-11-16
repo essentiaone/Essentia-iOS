@@ -144,7 +144,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
-                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.keystore)
+                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.keystore)
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
