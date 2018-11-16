@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
-    var generatedWallets: [GeneratedWallet] = []
+    var generatedWallets: [GeneratingWalletInfo] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
     var balanceChangedPer24Hours: Double = 0

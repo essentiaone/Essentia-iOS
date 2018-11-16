@@ -18,7 +18,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     @IBOutlet weak var arrowLabel: UILabel!
     
     private var swipeRecognizer: UISwipeGestureRecognizer!
-    private var scrollObserver: NSKeyValueObservation? = nil
+    private var scrollObserver: NSKeyValueObservation?
     private lazy var tableAdapter: TableAdapter = TableAdapter(tableView: tableView)
     
     override init() {

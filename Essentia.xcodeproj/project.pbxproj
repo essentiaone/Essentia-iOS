@@ -185,7 +185,6 @@
 		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
 		34737BCC214FAEB7008A306F /* WalletServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */; };
 		34737BCE214FAEBE008A306F /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCD214FAEBE008A306F /* WalletService.swift */; };
-		34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCF214FC9C9008A306F /* GeneratingWallet.swift */; };
 		34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD3214FF6EB008A306F /* WalletInterface.swift */; };
 		34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */; };
 		34737BD8214FFC86008A306F /* TokenWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD7214FFC86008A306F /* TokenWallet.swift */; };
@@ -492,7 +491,6 @@
 		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
 		34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletServiceInterface.swift; sourceTree = "<group>"; };
 		34737BCD214FAEBE008A306F /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
-		34737BCF214FC9C9008A306F /* GeneratingWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWallet.swift; sourceTree = "<group>"; };
 		34737BD3214FF6EB008A306F /* WalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInterface.swift; sourceTree = "<group>"; };
 		34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWalletInfo.swift; sourceTree = "<group>"; };
 		34737BD7214FFC86008A306F /* TokenWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWallet.swift; sourceTree = "<group>"; };
@@ -1591,9 +1589,9 @@
 		344DB53E215ED30C00F7D1E2 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 				34737BD7214FFC86008A306F /* TokenWallet.swift */,
 				34AC4DE921486293001C17D8 /* ImportedWallet.swift */,
-				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
 				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
 				344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */,
 			);
@@ -1683,7 +1681,6 @@
 				3411AF0B2166593F00AB9476 /* AssetsRanks */,
 				344DB53F215ED33100F7D1E2 /* Asset */,
 				344DB53E215ED30C00F7D1E2 /* Wallet */,
-				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2515,7 +2512,6 @@
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
 				34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */,
 				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,
-				34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				344958D32141225700C2230B /* WalletInteractor.swift in Sources */,
