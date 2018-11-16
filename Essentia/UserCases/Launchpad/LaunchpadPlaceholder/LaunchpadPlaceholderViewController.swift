@@ -81,7 +81,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     private var state: [TableComponent] {
         return [.empty(height: 48, background: RGB(183, 192, 208)),
-        .centeredImageButton(image: UIImage(named: "upArrow")!, action: swipDownAction),
+        .centeredImageButton(image: UIImage(named: "arrowDown")!, action: swipDownAction),
         .empty(height: 20, background: .white),
         .titleWithFont(font: AppFont.bold.withSize(34), title: LS("Launchpad.Placeholder.Detail.Title"), background: .white, aligment: .left),
         .empty(height: 20, background: .white)] + featuresState
