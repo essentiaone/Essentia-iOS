@@ -61,7 +61,7 @@
 "KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
 
 "TabBar.Launchpad" = "Launchpad";
-"TabBar.Wallet" = "Wallet";
+"TabBar.Wallet" = "Wallets";
 "TabBar.Notifications" = "Notifications";
 "TabBar.Settings" = "Settings";
 
@@ -146,7 +146,7 @@
 // MARK: - Wallet
 "Wallet.Welcome.Continue" = "CONTINUE";
 
-"Wallet.Title" = "Wallet";
+"Wallet.Title" = "Wallets";
 "Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
