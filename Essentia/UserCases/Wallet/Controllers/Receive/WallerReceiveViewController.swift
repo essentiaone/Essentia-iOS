@@ -59,11 +59,13 @@ class WallerReceiveViewController: BaseTableAdapterController {
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(17),
                            title: store.wallet.asset.name + " " + LS("Wallet.Receive.Wallet"),
-                           background: colorProvider.settingsCellsBackround),
+                           background: colorProvider.settingsCellsBackround,
+                           aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(13),
                            title: store.wallet.address,
-                           background: colorProvider.settingsCellsBackround),
+                           background: colorProvider.settingsCellsBackround,
+                           aligment: .center),
             .empty(height: 20, background: colorProvider.settingsCellsBackround)]
             + ammountComponent +
             [.separator(inset: .zero),
