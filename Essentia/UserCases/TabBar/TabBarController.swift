@@ -54,7 +54,7 @@ fileprivate enum TabBarTab {
         }
     }
     
-    var tabBarItem: UIViewController {
+    var tabBarItem: BaseNavigationController {
         let navigationController = BaseNavigationController(rootViewController: controller)
         navigationController.tabBarItem = UITabBarItem(title: title, image: icon, selectedImage: nil)
         navigationController.setNavigationBarHidden(true, animated: false)
@@ -69,7 +69,11 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
         super.init()
         delegate = self
         let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
-        viewControllers = items.map { return $0.tabBarItem }
+        viewControllers = items.map {
+            let nvc = $0.tabBarItem
+            loadDependences(tabBarTab: $0, nvc: nvc)
+            return nvc
+        }
         tabBar.layer.borderWidth = 0.0
         tabBar.backgroundImage = UIImage.withColor(.white)
     }
@@ -85,6 +89,18 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
             EssentiaStore.shared.currentUser.userEvents.isFirstlyOnWallet = false
             (inject() as UserStorageServiceInterface).storeCurrentUser()
             present(WalletWelcomeViewController(), animated: true)
+        }
+    }
+    
+    private func loadDependences(tabBarTab: TabBarTab, nvc: BaseNavigationController) {
+        switch tabBarTab {
+        case .settings:
+            prepareInjection(SettingsRouter(navigationController: nvc) as SettingsRouterInterface, memoryPolicy: .viewController)
+        case .wallet:
+            prepareInjection(WalletInteractor() as WalletInteractorInterface, memoryPolicy: .viewController)
+            prepareInjection(WalletBlockchainWrapperInteractor() as WalletBlockchainWrapperInteractorInterface, memoryPolicy: .viewController)
+            prepareInjection(WalletRouter(navigationController: nvc) as WalletRouterInterface, memoryPolicy: .viewController)
+        default: return
         }
     }
 }

@@ -18,11 +18,6 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        injectRouter()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
@@ -36,12 +31,6 @@ class SettingsViewController: BaseTableAdapterController {
     
     private func updateState() {
         tableAdapter.hardReload(state)
-    }
-    
-    private func injectRouter() {
-        guard let navigation = navigationController else { return }
-        let injection: SettingsRouterInterface = SettingsRouter(navigationController: navigation)
-        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func applyDesign() {

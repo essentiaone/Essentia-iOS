@@ -27,4 +27,5 @@ enum SettingsRoutes {
 protocol SettingsRouterInterface: BaseRouterInterface {
     func show(_ route: SettingsRoutes)
     func logOut()
+    var nvc: UINavigationController? { get }
 }

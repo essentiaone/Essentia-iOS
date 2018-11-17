@@ -46,6 +46,10 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         root?.showFlipAnimation()
     }
     
+    var nvc: UINavigationController? {
+        return navigationController
+    }
+    
     private func showBackupRoute(type: BackupType) {
         guard let navigation = navigationController else {
                 return

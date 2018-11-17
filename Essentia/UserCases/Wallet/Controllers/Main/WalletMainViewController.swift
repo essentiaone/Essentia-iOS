@@ -31,15 +31,6 @@ class WalletMainViewController: BaseTableAdapterController {
     private var cashNonEmptyStaticState: [TableComponent]?
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        (inject() as LoaderInterface).show()
-        injectRouter()
-        injectInteractor()
-        injectWalletInteractor()
-        (inject() as LoaderInterface).hide()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
@@ -49,23 +40,6 @@ class WalletMainViewController: BaseTableAdapterController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.store.tableHeight = tableView.frame.height
-    }
-    
-    // MARK: - Dependences
-    private func injectInteractor() {
-        let injection: WalletInteractorInterface = WalletInteractor()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func injectWalletInteractor() {
-        let injection: WalletBlockchainWrapperInteractorInterface = WalletBlockchainWrapperInteractor()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func injectRouter() {
-        guard let navigation = navigationController else { return }
-        let injection: WalletRouterInterface = WalletRouter(navigationController: navigation)
-        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     // MARK: - State
@@ -205,6 +179,14 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var addWalletAction: () -> Void = {
+        guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
+            self.present(BackupMnemonicAlert.init(leftAction: {
+            }, rightAction: {
+                
+                (inject() as WalletRouterInterface).show(.backupMenmonic)
+            }), animated: true)
+            return
+        }
         (inject() as WalletRouterInterface).show(.newAssets)
     }
     

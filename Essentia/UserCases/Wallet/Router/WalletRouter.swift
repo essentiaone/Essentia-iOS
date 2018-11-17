@@ -46,6 +46,11 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             push(vc: WallerReceiveViewController(wallet: wallet))
         case .enterReceiveAmmount(let asset, let action):
             push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
+        case .backupMenmonic:
+            guard let tabBar = navigationController?.parent as? TabBarController else { return }
+            tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
+            (inject() as SettingsRouterInterface).show(.security)
+            (inject() as SettingsRouterInterface).show(.backupMenmonic)
         }
 
     }
