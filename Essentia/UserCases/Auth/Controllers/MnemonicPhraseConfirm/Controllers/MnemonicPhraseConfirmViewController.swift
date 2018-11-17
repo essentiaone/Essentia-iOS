@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringControllerDelegate {
+class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringControllerDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: BackButton!
     @IBOutlet weak var titleLabel: UILabel!

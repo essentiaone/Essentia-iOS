@@ -16,7 +16,7 @@ fileprivate struct Store {
     var etherWalletForTokens: GeneratingWalletInfo?
 }
 
-class WalletCreateNewAssetViewController: BaseTableAdapterController {
+class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()

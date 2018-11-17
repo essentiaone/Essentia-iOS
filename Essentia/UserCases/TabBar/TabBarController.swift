@@ -55,7 +55,7 @@ fileprivate enum TabBarTab {
     }
     
     var tabBarItem: UIViewController {
-        let navigationController = UINavigationController(rootViewController: controller)
+        let navigationController = BaseNavigationController(rootViewController: controller)
         navigationController.tabBarItem = UITabBarItem(title: title, image: icon, selectedImage: nil)
         navigationController.setNavigationBarHidden(true, animated: false)
         navigationController.hidesBottomBarWhenPushed = true

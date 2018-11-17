@@ -19,7 +19,7 @@ fileprivate struct Store {
     static var keyStoreFolder = "Keystore"
 }
 
-class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrowserViewControllerDelegate {
+class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPickerDelegate, SwipeableNavigation {
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
@@ -115,10 +115,9 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     private func showFilePicker() {
-        let fileBrowser = UIDocumentBrowserViewController(forOpeningFilesWithContentTypes: ["public.plain-text"])
-        fileBrowser.allowsPickingMultipleItems = false
+        let fileBrowser = UIDocumentPickerViewController(documentTypes: ["public.plain-text"], in: .open)
         fileBrowser.delegate = self
-        present(fileBrowser, animated: true)
+        navigationController?.pushViewController(fileBrowser, animated: true)
     }
     
     private func storeKeystore() {
@@ -153,9 +152,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     // MARK: - UIDocumentBrowserViewControllerDelegate
-    func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
-        dismiss(animated: true)
-        guard let url = documentURLs.first else { return }
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        navigationController?.popViewController(animated: true)
+        guard let url = urls.first else { return }
         if url.startAccessingSecurityScopedResource() {
             NSFileCoordinator().coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { (newUrl) in
                 self.keystore = try? Data(contentsOf: newUrl)

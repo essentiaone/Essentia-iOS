@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecureAccountViewController: BaseTableAdapterController {
+class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()

@@ -25,7 +25,7 @@ fileprivate struct Store {
     }
 }
 
-class WalletDetailViewController: BaseTableAdapterController {
+class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigation {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsSecurityViewController: BaseTableAdapterController {
+class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()

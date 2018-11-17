@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsLoginMethodViewController: BaseTableAdapterController {
+class SettingsLoginMethodViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()

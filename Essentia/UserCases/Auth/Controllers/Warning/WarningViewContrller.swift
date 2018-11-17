@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WarningViewContrller: BaseViewController {
+class WarningViewContrller: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

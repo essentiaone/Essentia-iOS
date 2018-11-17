@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MnemonicPhraseCopyViewController: BaseViewController {
+class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!

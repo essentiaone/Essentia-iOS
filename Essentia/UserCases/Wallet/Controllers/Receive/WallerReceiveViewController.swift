@@ -23,7 +23,7 @@ fileprivate struct Store {
         return wallet.asset.name.lowercased() + ":" + wallet.address + "?" + "value=" + enterdValueInCrypto
     }
 }
-class WallerReceiveViewController: BaseTableAdapterController {
+class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()

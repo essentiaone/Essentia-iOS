@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeedCopyViewController: BaseViewController, UITextViewDelegate {
+class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!

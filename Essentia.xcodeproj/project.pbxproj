@@ -195,6 +195,8 @@
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
 		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
+		347AB73C219F8C4C00C3FB8A /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */; };
+		347AB73E219F8CCE00C3FB8A /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */; };
 		347CCDAF218CA75000E894DD /* SendTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */; };
 		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
 		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
@@ -501,6 +503,8 @@
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
+		347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
+		347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
@@ -815,6 +819,8 @@
 				349BC0522143DDB1003AC330 /* BaseRouter.swift */,
 				349BC0542143DF19003AC330 /* BaseRouterInterface.swift */,
 				34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */,
+				347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */,
+				347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -2436,6 +2442,7 @@
 				34EE1F9F21795E4600FFC570 /* TableComponentTransaction.swift in Sources */,
 				34737BC5214EACF9008A306F /* TokensService.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
+				347AB73C219F8C4C00C3FB8A /* BackSwipeNavigation.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
 				34EE1F9B21790F9100FFC570 /* Miscs.swift in Sources */,
 				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
@@ -2444,6 +2451,7 @@
 				34AC4E0121496B82001C17D8 /* TableComponentCheckImageTitle.swift in Sources */,
 				34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */,
 				34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */,
+				347AB73E219F8CCE00C3FB8A /* BaseNavigationController.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,

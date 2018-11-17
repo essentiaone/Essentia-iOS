@@ -30,7 +30,7 @@ fileprivate struct Store {
     }
 }
 
-class WalletEnterReceiveAmmount: BaseTableAdapterController {
+class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
