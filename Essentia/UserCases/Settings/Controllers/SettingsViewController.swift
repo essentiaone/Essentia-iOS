@@ -85,14 +85,21 @@ class SettingsViewController: BaseTableAdapterController {
         return rawState.compactMap { return $0 }
     }
     
+    private func scrollToTop() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+    }
+    
     // MARK: - Actions
     
-    private lazy var currencyAction: () -> Void = {
+    private lazy var currencyAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
     private lazy var switchAccountAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
@@ -111,23 +118,33 @@ class SettingsViewController: BaseTableAdapterController {
         
     }
     
-    private lazy var securityAction: () -> Void = {
+    private lazy var securityAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.security)
     }
     
-    private lazy var languageAction: () -> Void = {
+    private lazy var languageAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.language)
     }
     
-    private lazy var accountStrenghtAction: () -> Void = {
+    private lazy var accountStrenghtAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.accountStrength)
     }
     
-    private lazy var editCurrentAccountAction: () -> Void = {
+    private lazy var editCurrentAccountAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.accountName)
     }
     
-    private lazy var feedbackAction: () -> Void = {
+    private lazy var feedbackAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         
     }
 }
