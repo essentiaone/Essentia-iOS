@@ -65,11 +65,6 @@ class BackupDesign: BackupDesignInterface {
         vc.separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         vc.titleLabel.textColor =  colorProvider.appTitleColor
         vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
-        let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
-        let loginInset: CGFloat = isLargeKeyboard ? 10 : -25
-        let backupInset: CGFloat = isLargeKeyboard ? -35 : -25
-        let inset: CGFloat = vc.authType == .login ? loginInset : backupInset
-        vc.buttomCurrentWordConstraint.constant = vc.keyboardHeight + inset
     }
 
     func applyDesign(to vc: SeedCopyViewController) {

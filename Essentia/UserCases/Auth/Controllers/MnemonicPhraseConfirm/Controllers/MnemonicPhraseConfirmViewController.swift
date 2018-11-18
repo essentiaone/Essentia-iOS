@@ -89,4 +89,11 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     func didBeginConfirming(word: String, at index: Int) {
         currentWordLabel.text = "\(index + 1)\(LS("MnemonicPhraseConfirm.CurrentWord"))"
     }
+    
+    override func keyboardDidChange() {
+        super.keyboardDidChange()
+        let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
+        let inset: CGFloat = isLargeKeyboard ? 10 : -25
+        buttomCurrentWordConstraint.constant = 256 + inset
+    }
 }
