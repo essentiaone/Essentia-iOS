@@ -29,7 +29,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
         // MARK: - Localized Strings
         titleLabel.text = LS("Settings.AccountStrength.Title")
         descriptionLabel.text = LS("Settings.AccountStrength.Description")
-        accountButton.setTitle(LS("Settings.AccountStrength.SecureButton"), for: .normal)
+        setButtonTitle()
         
         // MARK: - Font
         titleLabel.font = AppFont.bold.withSize(24)
@@ -51,6 +51,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     override func layoutSubviews() {
         super.layoutSubviews()
         self.updateProgress()
+        self.setButtonTitle()
     }
     
     private func updateProgress() {
@@ -66,6 +67,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
             return
         }
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.4) {
+            self.setButtonTitle()
             self.playAnimation(in: player)
         }
     }
@@ -73,6 +75,15 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     func playAnimation(in player: PNGAnimationPlayer) {
         containerView.animateToColor(colorForCurrentSecuringStatus, with: player.animation.animationDuration)
         player.play()
+    }
+    
+    private func setButtonTitle() {
+        switch EssentiaStore.shared.currentUser.backup.secureLevel {
+        case 3:
+            accountButton.setTitle(LS("Settings.AccountStrength.Push"), for: .normal)
+        default:
+            accountButton.setTitle(LS("Settings.AccountStrength.SecureButton"), for: .normal)
+        }
     }
     
     // MARK: - Actions

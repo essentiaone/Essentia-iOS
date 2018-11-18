@@ -22,6 +22,7 @@ class SettingsViewController: BaseTableAdapterController {
         super.viewWillAppear(animated)
         applyDesign()
         updateState()
+        scrollToTop()
     }
     
     // MARK: - Override
