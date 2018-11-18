@@ -96,16 +96,13 @@ class SettingsViewController: BaseTableAdapterController {
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
-        self.viewDidDisappear(true)
     }
     private lazy var logOutAction: () -> Void = {
-        if EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty {
-           (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.shared.currentUser)
-        }
         self.logOutUser()
     }
     
     func logOutUser() {
+        (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.shared.currentUser)
         EssentiaStore.shared.setUser(.notSigned)
         (inject() as SettingsRouterInterface).logOut()
     }

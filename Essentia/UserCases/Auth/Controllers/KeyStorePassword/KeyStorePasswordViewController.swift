@@ -28,6 +28,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private var store = Store()
     private var keystore: Data?
     let authType: AuthType
+    private var isPickerShown: Bool = false
     
     // MARK: - Init
     required init(_ auth: AuthType) {
@@ -43,7 +44,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if authType == .login && keystore == nil {
+        if authType == .login && keystore == nil && !isPickerShown {
             showFilePicker()
             return
         }
@@ -117,7 +118,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private func showFilePicker() {
         let fileBrowser = UIDocumentPickerViewController(documentTypes: ["public.plain-text"], in: .open)
         fileBrowser.delegate = self
-        navigationController?.pushViewController(fileBrowser, animated: true)
+        isPickerShown = true
+        present(fileBrowser, animated: true)
     }
     
     private func storeKeystore() {
@@ -153,11 +155,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     // MARK: - UIDocumentBrowserViewControllerDelegate
     func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        dismiss(animated: true)
         navigationController?.popToRootViewController(animated: true)
     }
     
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
-        navigationController?.popViewController(animated: true)
         guard let url = urls.first else { return }
         if url.startAccessingSecurityScopedResource() {
             NSFileCoordinator().coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { (newUrl) in
