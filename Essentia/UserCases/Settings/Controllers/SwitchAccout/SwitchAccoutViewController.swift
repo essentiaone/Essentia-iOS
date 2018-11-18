@@ -62,8 +62,8 @@ class SwitchAccoutViewController: BaseViewController {
     
     // MARK: - Actions
     @IBAction func cancelAction(_ sender: AnyObject) {
-        callBack()
         dismiss(animated: true)
+        callBack()
     }
     
     private func setContentTopInset() {
@@ -96,14 +96,13 @@ class SwitchAccoutViewController: BaseViewController {
     private lazy var createUserAction: () -> Void = { [weak self] in
         self?.dismiss(animated: true)
         self?.generateNewUser()
-        self?.callBack()
     }
     
     private func generateNewUser() {
         (inject() as LoaderInterface).show()
         (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
             (inject() as LoaderInterface).hide()
-            self?.present(TabBarController(), animated: true)
+            self?.callBack()
         }
     }
 }

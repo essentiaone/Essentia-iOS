@@ -131,7 +131,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
-                                                                                 with: "\(EssentiaStore.shared.currentUser.id).txt")
+                                                                                 with: "\(EssentiaStore.shared.currentUser.dislayName)")
                 EssentiaStore.shared.currentUser.backup.keystoreUrl = url
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
             } catch {
