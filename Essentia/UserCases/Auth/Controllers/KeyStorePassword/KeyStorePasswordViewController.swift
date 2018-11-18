@@ -13,8 +13,17 @@ fileprivate struct Store {
     var repeatPass: String = ""
     var isValid: Bool = false
     var isValidRepeate: Bool = false
+    let authType: AuthType
+    
     var isBothValid: Bool {
+        if authType == .login {
+            return !password.isEmpty && password == repeatPass
+        }
         return isValid && isValidRepeate && password == repeatPass
+    }
+    
+    init(authType: AuthType) {
+        self.authType = authType
     }
     static var keyStoreFolder = "Keystore"
 }
@@ -25,14 +34,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - Store
-    private var store = Store()
+    private var store: Store
     private var keystore: Data?
-    let authType: AuthType
     private var isPickerShown: Bool = false
     
     // MARK: - Init
     required init(_ auth: AuthType) {
-        authType = auth
+        store = Store(authType: auth)
         super.init()
     }
     
@@ -44,7 +52,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if authType == .login && keystore == nil && !isPickerShown {
+        if store.authType == .login && keystore == nil && !isPickerShown {
             showFilePicker()
             return
         }
@@ -96,7 +104,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     private lazy var continueAction: () -> Void = {
-        switch self.authType {
+        switch self.store.authType {
         case .backup:
             (inject() as LoaderInterface).show()
             self.storeKeystore()
