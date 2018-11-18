@@ -44,15 +44,20 @@ fileprivate enum TabBarTab {
     private var controller: UIViewController {
         switch self {
         case .launchpad:
-            return LaunchpadPlaceholderViewController()
+            return TabBarTab.launchpadVC
         case .wallet:
-            return WalletMainViewController()
+            return TabBarTab.walletVC
         case .notifications:
-            return NotificationsPlaceholderViewController()
+            return TabBarTab.notificationsVC
         case .settings:
-            return SettingsViewController()
+            return TabBarTab.settingsVC
         }
     }
+    
+    private static var launchpadVC = LaunchpadViewController()
+    private static var walletVC = WalletMainViewController()
+    private static var notificationsVC = NotificationsPlaceholderViewController()
+    private static var settingsVC = SettingsViewController()
     
     var tabBarItem: BaseNavigationController {
         let navigationController = BaseNavigationController(rootViewController: controller)

@@ -39,6 +39,11 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         self.tableAdapter.hardReload(state)
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        view.removeGestureRecognizer(swipeRecognizer)
+    }
+    
     private func applyDesign() {
         titleLabel.text = LS("Launchpad.Placeholder.Title")
         arrowLabel.text = LS("Launchpad.Placeholder.Swipe")
@@ -101,7 +106,8 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     // MARK: - Actions
     
-    private lazy var swipDownAction: () -> Void = {
+    private lazy var swipDownAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         self.animatePlaceholderTopConstraint(to: -20)
         self.swipeRecognizer.isEnabled = true
     }

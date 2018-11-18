@@ -99,20 +99,13 @@ class SettingsViewController: BaseTableAdapterController {
         self.viewDidDisappear(true)
     }
     private lazy var logOutAction: () -> Void = {
-        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp == [] else {
-            self.logOutUser()
-            return
+        if EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty {
+           (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.shared.currentUser)
         }
-        let alert = ConfirmLogOutViewController(leftAction: {
-            (inject() as SettingsRouterInterface).show(.accountStrength)
-        }, rightAction: { [weak self] in
-            self?.logOutUser()
-        })
-        self.present(alert, animated: true)
+        self.logOutUser()
     }
     
     func logOutUser() {
-        (inject() as UserStorageServiceInterface).remove(user: EssentiaStore.shared.currentUser)
         EssentiaStore.shared.setUser(.notSigned)
         (inject() as SettingsRouterInterface).logOut()
     }
