@@ -286,6 +286,7 @@
 		34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */; };
 		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */; };
+		34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6921A25253009F00F2 /* TokenIcons.swift */; };
 		34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB98A2187C66F00A88D56 /* DateFormatter.swift */; };
 		34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */; };
 		34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */; };
@@ -597,6 +598,7 @@
 		34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
 		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
+		34F2EA6921A25253009F00F2 /* TokenIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIcons.swift; sourceTree = "<group>"; };
 		34FCB98A2187C66F00A88D56 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterDetail.swift; sourceTree = "<group>"; };
 		34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterDetail.xib; sourceTree = "<group>"; };
@@ -1610,6 +1612,7 @@
 				349BC05821466591003AC330 /* Coin.swift */,
 				34AC4E072149D98B001C17D8 /* AssetInterface.swift */,
 				34A37D30214D34F70022FD93 /* Token.swift */,
+				34F2EA6921A25253009F00F2 /* TokenIcons.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -2330,6 +2333,7 @@
 				340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */,
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
+				34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
 				3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
@@ -2735,7 +2739,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = P8JA7643K4;
@@ -2749,7 +2753,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc essentia.Essentia";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

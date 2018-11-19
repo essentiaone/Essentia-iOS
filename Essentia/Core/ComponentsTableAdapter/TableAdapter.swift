@@ -628,6 +628,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
+    func continueEditing() {
+        guard let index = selectedRow else { return }
+        tableView(tableView, didSelectRowAt: index)
+    }
+    
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()

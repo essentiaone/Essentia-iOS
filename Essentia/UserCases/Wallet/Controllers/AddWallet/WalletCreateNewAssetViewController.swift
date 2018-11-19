@@ -33,7 +33,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         hideKeyboardWhenTappedAround()
     }
     
-    private var state: [TableComponent] {
+    private func state() -> [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -55,7 +55,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
             .empty(height: 16, background: colorProvider.settingsBackgroud)
             ] + selectWalletState + [
             ] + assetState + [
-            .calculatbleSpace(background: colorProvider.settingsBackgroud)
+                .calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]
     }
     
@@ -86,11 +86,23 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
                 } else {
                     self.store.selectedAssets.append(asset)
                 }
-                self.tableAdapter.simpleReload(self.state)
+                self.asyncReloadState()
             }))
             coinsState.append(.separator(inset: .zero))
         }
         return coinsState
+    }
+    
+    func asyncReloadState() {
+        (inject() as LoaderInterface).show()
+        global {
+            let state = self.state()
+            main {
+                self.tableAdapter.hardReload(state)
+                self.tableAdapter.continueEditing()
+                (inject() as LoaderInterface).hide()
+            }
+        }
     }
     
     // MARK: - Actions
@@ -125,16 +137,16 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 1:
             interactor.getTokensList(result: {
                 self.store.assets = $0
-                self.tableAdapter.simpleReload(self.state)
+                self.asyncReloadState()
             })
         default: return
         }
-        self.tableAdapter.simpleReload(self.state)
+        self.asyncReloadState()
     }
     
     private lazy var searchChangedAction: (String) -> Void = {
         self.store.searchString = $0
-        self.tableAdapter.simpleReload(self.state)
+        self.asyncReloadState()
     }
     
     private lazy var selectWalletAction: () -> Void = {
@@ -142,7 +154,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: wallets, action: { (wallet) in
             guard let generatedWallet = wallet as? GeneratingWalletInfo else { return }
             self.store.etherWalletForTokens = generatedWallet
-            self.tableAdapter.simpleReload(self.state)
+            self.asyncReloadState()
         }))
     }
 }

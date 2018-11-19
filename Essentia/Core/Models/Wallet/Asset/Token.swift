@@ -18,6 +18,7 @@ struct Token: Codable, AssetInterface {
     var symbol: String
     var name: String
     var decimals: Int
+    var path: TokenIcons?
     
     var type: CryptoType {
         return .token
