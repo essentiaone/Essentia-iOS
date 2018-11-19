@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()

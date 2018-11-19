@@ -45,7 +45,7 @@ extension ViewWalletInterface {
     
     var formattedBalanceInCurrentCurrency: String {
         let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
-        return  formatter.formattedAmmount(amount: balanceInCurrentCurrency)
+        return formatter.formattedAmmount(amount: balanceInCurrentCurrency)
     }
     
     var formattedBalance: String {
@@ -55,10 +55,6 @@ extension ViewWalletInterface {
     
     var iconUrl: URL {
         return CoinIconsUrlFormatter(name: asset.name, size: .x128).url
-    }
-    
-    var formattedBalanceWithSymbol: String {
-        return formattedBalance + " " + asset.symbol
     }
     
     var formattedBalanceWithSymbol: String {

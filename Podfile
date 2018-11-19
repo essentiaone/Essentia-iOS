@@ -16,7 +16,7 @@ def pod_core
 end
 
 def pod_functional 
-   pod 'PromiseKit', '~> 6.0'
+    #pod 'PromiseKit', '~> 6.0'
 end
 
 def pod_ui

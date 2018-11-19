@@ -75,11 +75,6 @@ final class BalanceFormatter {
         return formattedAmmount(amount: Double(ammount))
     }
     
-    func formattedAmmount(amount: Double?) -> String {
-        let amount = amount ?? 0
-        return balanceFormatter.string(for: amount) ?? "0"
-    }
-    
     func attributed(amount: Double?) -> NSAttributedString {
         let formattedAmmount = self.formattedAmmountWithCurrency(amount: amount)
         let separeted = formattedAmmount.split(separator: " ")

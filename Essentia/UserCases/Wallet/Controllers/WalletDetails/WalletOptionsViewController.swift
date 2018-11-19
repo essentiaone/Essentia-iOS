@@ -72,7 +72,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     private var exportPrivateKey: [TableComponent] {
         guard selected == .export else { return [] }
-        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left , color: colorProvider.appTitleColor),
+        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left, color: colorProvider.appTitleColor),
                 .titleAction(font: AppFont.regular.withSize(15), title: privateKey, action: copyAction)]
     }
     

@@ -34,4 +34,8 @@ class ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     func privateKey(withSeed: String) -> String {
         return pk
     }
+    
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: coin.name, size: .x128).url
+    }
 }
