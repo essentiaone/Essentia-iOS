@@ -44,23 +44,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                                     withArrow: true,
                                     action: seedAction),
              .separator(inset: .zero)]
-            + keystoreState +
-        loginMetodState
-    }
-    
-    private var loginMetodState: [TableComponent] {
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
-        return [
-            .empty(height: 16.0, background: colorProvider.settingsBackgroud),
-            .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
-                                   withArrow: true,
-                                   action: loginMethodAction),
-            .separator(inset: .zero),
-            .description(title: LS("Settings.Secure.Description"),
-                         backgroud: colorProvider.settingsBackgroud)
-            
-        ]
+            + keystoreState
     }
     
     private var keystoreState: [TableComponent] {
@@ -106,9 +90,5 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                 return
         }
         (inject() as SettingsRouterInterface).show(.activity(fileUrl: keystore))
-    }
-    
-    private lazy var loginMethodAction: () -> Void = {
-        (inject() as SettingsRouterInterface).show(.loginType)
     }
 }
