@@ -55,9 +55,9 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
             .empty(height: 5, background: .clear),
             .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Fee"), background: .clear, textColor: colorProvider.appDefaultTextColor),
             .descriptionWithSize(aligment: .left, fontSize: 13, title: formattedFee(), background: .clear, textColor: colorProvider.titleColor),
-            .empty(height: 5, background: .clear),
-            .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Time"), background: .clear, textColor: colorProvider.appDefaultTextColor),
-            .descriptionWithSize(aligment: .left, fontSize: 13, title: " ~ 35 min", background: .clear, textColor: colorProvider.titleColor),
+//            .empty(height: 5, background: .clear),
+//            .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Time"), background: .clear, textColor: colorProvider.appDefaultTextColor),
+//            .descriptionWithSize(aligment: .left, fontSize: 13, title: " ~ 35 min", background: .clear, textColor: colorProvider.titleColor),
             .empty(height: 10, background: .clear),
             .separator(inset: .zero),
             .twoButtons(lTitle: LS("Wallet.Send.Confirm.Cancel"),
@@ -75,7 +75,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
         let current = EssentiaStore.shared.currentUser.profile.currency
         let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCrypto)
+        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCurrency)
         return "\(inCrypto) (\(inCurrency) \(current.symbol))"
     }
     
