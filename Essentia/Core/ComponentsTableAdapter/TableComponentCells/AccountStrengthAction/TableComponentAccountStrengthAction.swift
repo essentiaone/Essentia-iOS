@@ -34,7 +34,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
         // MARK: - Font
         titleLabel.font = AppFont.bold.withSize(24)
         descriptionLabel.font = AppFont.regular.withSize(14)
-        accountButton.titleLabel?.font = AppFont.regular.withSize(15)
+        accountButton.titleLabel?.font = AppFont.bold.withSize(15)
         
         // MARK: - Color
         titleLabel.textColor = colorProvider.accountStrengthContainerViewTitles
