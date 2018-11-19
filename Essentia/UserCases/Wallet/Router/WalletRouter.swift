@@ -50,7 +50,9 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             guard let tabBar = navigationController?.parent as? TabBarController else { return }
             tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
             (inject() as SettingsRouterInterface).show(.security)
-            (inject() as SettingsRouterInterface).show(.backupMenmonic)
+            if EssentiaStore.shared.currentUser.mnemonic != nil {
+                (inject() as SettingsRouterInterface).show(.backupMenmonic)
+            }
         }
 
     }
