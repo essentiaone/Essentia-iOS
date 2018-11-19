@@ -18,12 +18,16 @@ struct Token: Codable, AssetInterface {
     var symbol: String
     var name: String
     var decimals: Int
+    var path: TokenIcons?
     
     var type: CryptoType {
         return .token
     }
     
     var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: id, size: .x128).url
+        guard let path =  path?.x128 else {
+            return CoinIconsUrlFormatter(name: "Ethereum", size: .x128).url
+        }
+        return CoinIconsUrlFormatter.urlFromPath(path: path)
     }
 }

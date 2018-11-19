@@ -39,9 +39,9 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     // MARK: - State
     private var state: [TableComponent] {
         return [
-            .empty(height: 100, background: .clear),
-            .centeredImage(image: UIImage(named: "walletOnbording\(currentPosition)") ?? UIImage()),
             .calculatbleSpace(background: .clear),
+            .centeredImage(image: UIImage(named: "walletOnbording\(currentPosition)") ?? UIImage()),
+            .empty(height: 45, background: .clear),
             .titleWithFontAligment(font: AppFont.bold.withSize(32), title: LS("Wallet.Onbording\(currentPosition).Title"), aligment: .center, color: .white),
             .descriptionWithSize(aligment: .center,
                                  fontSize: 15,

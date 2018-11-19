@@ -8,7 +8,7 @@
 
 import Foundation
 
-class WalletSelectImportAssetViewController: BaseTableAdapterController {
+class WalletSelectImportAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     

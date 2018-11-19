@@ -49,5 +49,15 @@ class UserStorageService: UserStorageServiceInterface {
     func storeCurrentUser() {
         store(user: EssentiaStore.shared.currentUser)
     }
-
+    
+    var freeIndex: Int {
+        var index = 0
+        let users = get()
+        while true {
+            guard users.contains(where: { $0.index == index }) else {
+                return index
+            }
+            index++
+        }
+    }
 }

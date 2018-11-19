@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecureAccountViewController: BaseTableAdapterController {
+class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -36,9 +36,15 @@ class SecureAccountViewController: BaseTableAdapterController {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
         return [
             .accountStrength(backAction: backAction),
-            .shadow(height: 24,
+            .shadow(height: 10,
                     shadowColor: colorProvider.settingsShadowColor,
                     background: colorProvider.settingsBackgroud),
+            .descriptionWithSize(aligment: .center,
+                                 fontSize: 15,
+                                 title: LS("Settings.Secure.Title"),
+                                 background: colorProvider.settingsBackgroud,
+                                 textColor: colorProvider.appDefaultTextColor),
+            .empty(height: 8, background: colorProvider.settingsBackgroud),
             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.mnemonic)),
             titlePrifex: LS("Settings.Secure.Prefix.Save"),
                       title: LS("Settings.Secure.Mnemonic.Title"),
@@ -65,19 +71,19 @@ class SecureAccountViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
-        self.router.pop()
+    private lazy var backAction: () -> Void = { [weak self] in
+        self?.router.pop()
     }
     
-    private lazy var mnemonicAction: () -> Void = {
-        self.router.show(.backupMenmonic)
+    private lazy var mnemonicAction: () -> Void = { [weak self] in
+        self?.router.show(.backupMenmonic)
     }
     
-    private lazy var seedAction: () -> Void = {
-        self.router.show(.backupSeed)
+    private lazy var seedAction: () -> Void = { [weak self] in
+        self?.router.show(.backupSeed)
     }
     
-    private lazy var keyStoreAction: () -> Void = {
-        self.router.show(.backupKeystore)
+    private lazy var keyStoreAction: () -> Void = { [weak self] in
+        self?.router.show(.backupKeystore)
     }
 }

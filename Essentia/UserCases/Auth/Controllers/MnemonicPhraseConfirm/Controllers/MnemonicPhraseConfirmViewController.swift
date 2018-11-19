@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringControllerDelegate {
+class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringControllerDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: BackButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -75,7 +75,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     func didFinishConfirmingWords(mnemonic: [String]) {
         switch authType {
         case .backup:
-            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.mnemonic)
+            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.mnemonic)
             (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
@@ -88,5 +88,12 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     
     func didBeginConfirming(word: String, at index: Int) {
         currentWordLabel.text = "\(index + 1)\(LS("MnemonicPhraseConfirm.CurrentWord"))"
+    }
+    
+    override func keyboardDidChange() {
+        super.keyboardDidChange()
+        let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
+        let inset: CGFloat = isLargeKeyboard ? 10 : -25
+        buttomCurrentWordConstraint.constant = 256 + inset
     }
 }

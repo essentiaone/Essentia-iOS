@@ -10,15 +10,10 @@ import Foundation
 import HDWalletKit
 
 class WalletService: WalletServiceInterface {
-    func generateWallet(seed: Data, walletInfo: GeneratingWalletInfo) -> GeneratedWallet {
+    func generateAccount(seed: Data, walletInfo: GeneratingWalletInfo) -> Account {
         let hdwalletCoin = wrapCoin(coin: walletInfo.coin)
         let wallet = Wallet(seed: seed, coin: hdwalletCoin)
-        let account = wallet.generateAccount(at: walletInfo.derivationIndex)
-        return  GeneratedWallet(name: walletInfo.name,
-                              pk: account.rawPrivateKey,
-                              address: account.address,
-                              coin: walletInfo.coin,
-                              derivationIndex: walletInfo.derivationIndex)
+        return wallet.generateAccount(at: walletInfo.derivationIndex)
     }
     
     private func wrapCoin(coin: Coin) -> HDWalletKit.Coin {
@@ -42,7 +37,13 @@ class WalletService: WalletServiceInterface {
     
     func generateAddress(_ walletInfo: GeneratingWalletInfo) -> String {
         let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
-        let wallet = self.generateWallet(seed: seed, walletInfo: walletInfo)
-        return wallet.address
+        let account = self.generateAccount(seed: seed, walletInfo: walletInfo)
+        return account.address
+    }
+    
+    func generatePk(_ walletInfo: GeneratingWalletInfo) -> String {
+        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
+        let account = self.generateAccount(seed: seed, walletInfo: walletInfo)
+        return account.rawPrivateKey
     }
 }

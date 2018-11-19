@@ -26,7 +26,7 @@ class BaseRouter {
     
     func popUp(vc: UIViewController) {
         vc.modalPresentationStyle = .custom
-        navigationController?.present(vc, animated: true)
+        navigationController?.topViewController?.present(vc, animated: true)
     }
     
     func popToRoot() {

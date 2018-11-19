@@ -19,8 +19,7 @@ class BackButton: BaseButton {
     }
     
     private func setupTitle() {
-        setTitle(LS("Back"), for: .normal)
-        setTitleColor(colorProvider.centeredButtonBackgroudColor, for: .normal)
+        setTitle( LS("Back"), for: .normal)
         titleLabel?.font = AppFont.regular.withSize(17)
     }
     
@@ -28,5 +27,6 @@ class BackButton: BaseButton {
         setImage(imageProvider.backButtonImage, for: .normal)
         imageView?.frame.size = CGSize(width: 13, height: 22)
         imageView?.contentMode = .scaleAspectFit
+        
     }
 }

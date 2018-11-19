@@ -10,8 +10,8 @@
 "Welcome.Restore" = "RESTORE";
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
-"Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life,  at your fingertips.";
-"Welcome.Enter" = "ENTER";
+"Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life, at your fingertips.";
+"Welcome.Enter" = "START";
 "Welcome.Tersm1" = "By continuing you agree to our ";
 "Welcome.Tersm2" = "Terms of Service";
 
@@ -65,17 +65,24 @@
 "KeyStoreSaved.Description" = "Now you can login with the Keystore File in Essentia";
 
 "TabBar.Launchpad" = "Launchpad";
-"TabBar.Wallet" = "Wallet";
+"TabBar.Wallet" = "Wallets";
 "TabBar.Notifications" = "Notifications";
 "TabBar.Settings" = "Settings";
 
 // MARK: - Settings
 
 "Settings.Title" = "Settings";
-"Settings.AccountStrength.Title" = "Account Strength";
+"Settings.AccountStrength.Title" = "Account Security";
 "Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
 "Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
+"Settings.AccountStrength.Push" = "PUSH";
 "Settings.CurrentAccountTitle" = "Account Name";
+"Settings.CurrentAccountTitle.Default" = "Essentia account";
+"Settings.Title.Language" = "Language";
+"Settings.Title.General" = "GENERAL";
+"Settings.Title.Security" = "SECURITY";
+"Settings.Title.Community" = "COMMUNITY";
+"Settings.Title.Application" = "APPLICATION";
 "Settings.Language" = "Language";
 "Settings.Currency" = "Currency";
 "Settings.Security" = "Security";
@@ -89,11 +96,11 @@
 "Settings.Secure.Prefix.Save" = "Save";
 "Settings.Secure.Prefix.Show" = "Show";
 "Settings.Secure.Mnemonic.Title" = "Mnemonic Phrase";
-"Settings.Secure.Mnemonic.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Mnemonic.Description" = "Typically these come in 12-word";
 "Settings.Secure.Seed.Title" = "Seed";
-"Settings.Secure.Seed.Description" = "Typically these come in 12-word or 24-words.";
-"Settings.Secure.KeyStore.Title" = "Mnemonic Phrase";
-"Settings.Secure.KeyStore.Description" = "Typically these come in 12-word or 24-words.";
+"Settings.Secure.Seed.Description" = "Is an encrypted version of your unique private key.";
+"Settings.Secure.KeyStore.Title" = "Keystore File";
+"Settings.Secure.KeyStore.Description" = "Download your Keystore file to access to Essentia";
 "Settings.Secure.Description" = "By completing these steps you are making your account more security";
 
 "Settings.Currency.Title" = "Currency";
@@ -153,7 +160,7 @@
 
 "Wallet.Welcome.Continue" = "CONTINUE";
 
-"Wallet.Title" = "Wallet";
+"Wallet.Title" = "Wallets";
 "Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
@@ -295,7 +302,7 @@
 "Launchpad.Placeholder.Detail.Feature8.Detail" = "Trade smartly with Essentia’s price analysis!";
 "Launchpad.Placeholder.Detail.Feature9.Title" = "Jarvis";
 "Launchpad.Placeholder.Detail.Feature9.Detail" = "Optimize your crypto-experience with Essentia’s personal AI assistant - Jarvis!";
-"Launchpad.Placeholder.Detail.Feature10.Title" = "AutoSynс";
+"Launchpad.Placeholder.Detail.Feature10.Title" = "AutoSync";
 "Launchpad.Placeholder.Detail.Feature10.Detail" = "Connect your wallets and exchanges to synchronize your balance and transaction history!";
 
 "Settings.FullSecured.Title" = "Fully Secured!";

@@ -13,25 +13,34 @@ fileprivate struct Store {
     var repeatPass: String = ""
     var isValid: Bool = false
     var isValidRepeate: Bool = false
+    let authType: AuthType
+    
     var isBothValid: Bool {
+        if authType == .login {
+            return !password.isEmpty && password == repeatPass
+        }
         return isValid && isValidRepeate && password == repeatPass
+    }
+    
+    init(authType: AuthType) {
+        self.authType = authType
     }
     static var keyStoreFolder = "Keystore"
 }
 
-class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrowserViewControllerDelegate {
+class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPickerDelegate, SwipeableNavigation {
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - Store
-    private var store = Store()
+    private var store: Store
     private var keystore: Data?
-    let authType: AuthType
+    private var isPickerShown: Bool = false
     
     // MARK: - Init
     required init(_ auth: AuthType) {
-        authType = auth
+        store = Store(authType: auth)
         super.init()
     }
     
@@ -43,7 +52,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if authType == .login && keystore == nil {
+        if store.authType == .login && keystore == nil && !isPickerShown {
             showFilePicker()
             return
         }
@@ -95,7 +104,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     private lazy var continueAction: () -> Void = {
-        switch self.authType {
+        switch self.store.authType {
         case .backup:
             (inject() as LoaderInterface).show()
             self.storeKeystore()
@@ -106,18 +115,17 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     
     private func decodeKeystore() {
         guard let data = self.keystore else { return }
-        let seed = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
-        if let seed = seed {
-            let user = User(seed: seed)
+        if let mnemonic = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password) {
+            let user = User(mnemonic: mnemonic)
             EssentiaStore.shared.setUser(user)
         }
         (inject() as AuthRouterInterface).showPrev()
     }
     
     private func showFilePicker() {
-        let fileBrowser = UIDocumentBrowserViewController(forOpeningFilesWithContentTypes: ["public.plain-text"])
-        fileBrowser.allowsPickingMultipleItems = false
+        let fileBrowser = UIDocumentPickerViewController(documentTypes: ["public.data"], in: .open)
         fileBrowser.delegate = self
+        isPickerShown = true
         present(fileBrowser, animated: true)
     }
     
@@ -130,7 +138,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
-                                                                                 with: "\(EssentiaStore.shared.currentUser.id).txt")
+                                                                                 with: "\(EssentiaStore.shared.currentUser.dislayName)")
                 EssentiaStore.shared.currentUser.backup.keystoreUrl = url
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
             } catch {
@@ -144,7 +152,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
-                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.keystore)
+                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.keystore)
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
@@ -153,9 +161,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     // MARK: - UIDocumentBrowserViewControllerDelegate
-    func documentBrowser(_ controller: UIDocumentBrowserViewController, didPickDocumentURLs documentURLs: [URL]) {
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
         dismiss(animated: true)
-        guard let url = documentURLs.first else { return }
+        navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let url = urls.first else { return }
         if url.startAccessingSecurityScopedResource() {
             NSFileCoordinator().coordinate(readingItemAt: url, options: .withoutChanges, error: nil) { (newUrl) in
                 self.keystore = try? Data(contentsOf: newUrl)

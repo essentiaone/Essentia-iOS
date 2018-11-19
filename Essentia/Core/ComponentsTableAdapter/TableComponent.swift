@@ -16,7 +16,7 @@ enum TableComponent: Equatable {
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
-    case titleWithFont(font: UIFont, title: String, background: UIColor)
+    case titleWithFont(font: UIFont, title: String, background: UIColor, aligment: NSTextAlignment)
     case titleWithFontAligment(font: UIFont, title: String, aligment: NSTextAlignment, color: UIColor)
     case titleAction(font: UIFont, title: String, action: () -> Void)
     case titleCenteredDetail(title: String, detail: String)

@@ -12,6 +12,7 @@ class User: NSObject, Codable {
     static var notSigned = User(seed: "")
     
     let id: String
+    let index: Int
     var profile: UserProfile
     var backup: UserBackup = UserBackup()
     var userEvents: UserEvents = UserEvents()
@@ -34,9 +35,10 @@ class User: NSObject, Codable {
         self.id = String(Int(Date().timeIntervalSince1970))
         self.seed = seed
         self.profile = UserProfile()
+        self.index = (inject() as UserStorageServiceInterface).freeIndex
     }
     
     var dislayName: String {
-        return profile.name ?? String(seed.suffix(4))
+        return profile.name ?? (LS("Settings.CurrentAccountTitle.Default") + " (\(index))")
     }
 }

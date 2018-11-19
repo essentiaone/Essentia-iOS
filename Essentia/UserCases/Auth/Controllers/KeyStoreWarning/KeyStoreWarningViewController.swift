@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyStoreWarningViewController: BaseTableAdapterController {
+class KeyStoreWarningViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     

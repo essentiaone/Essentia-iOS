@@ -185,7 +185,6 @@
 		34737BC9214EFEEC008A306F /* TekensEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC8214EFEEC008A306F /* TekensEndpoint.swift */; };
 		34737BCC214FAEB7008A306F /* WalletServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */; };
 		34737BCE214FAEBE008A306F /* WalletService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCD214FAEBE008A306F /* WalletService.swift */; };
-		34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BCF214FC9C9008A306F /* GeneratingWallet.swift */; };
 		34737BD4214FF6EC008A306F /* WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD3214FF6EB008A306F /* WalletInterface.swift */; };
 		34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */; };
 		34737BD8214FFC86008A306F /* TokenWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BD7214FFC86008A306F /* TokenWallet.swift */; };
@@ -196,6 +195,8 @@
 		34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */; };
 		34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */; };
 		34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34789BA32183670300EB68C4 /* Date+Intervals.swift */; };
+		347AB73C219F8C4C00C3FB8A /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */; };
+		347AB73E219F8CCE00C3FB8A /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */; };
 		347CCDAF218CA75000E894DD /* SendTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */; };
 		3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */; };
 		3486401F218BD235008CA223 /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486401E218BD235008CA223 /* EssCharacters.swift */; };
@@ -285,6 +286,7 @@
 		34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */; };
 		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */; };
+		34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6921A25253009F00F2 /* TokenIcons.swift */; };
 		34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB98A2187C66F00A88D56 /* DateFormatter.swift */; };
 		34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */; };
 		34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */; };
@@ -492,7 +494,6 @@
 		34737BC8214EFEEC008A306F /* TekensEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TekensEndpoint.swift; sourceTree = "<group>"; };
 		34737BCB214FAEB7008A306F /* WalletServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletServiceInterface.swift; sourceTree = "<group>"; };
 		34737BCD214FAEBE008A306F /* WalletService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletService.swift; sourceTree = "<group>"; };
-		34737BCF214FC9C9008A306F /* GeneratingWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWallet.swift; sourceTree = "<group>"; };
 		34737BD3214FF6EB008A306F /* WalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletInterface.swift; sourceTree = "<group>"; };
 		34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratingWalletInfo.swift; sourceTree = "<group>"; };
 		34737BD7214FFC86008A306F /* TokenWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenWallet.swift; sourceTree = "<group>"; };
@@ -503,6 +504,8 @@
 		34789B9F21835DBA00EB68C4 /* ProcentsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcentsFormatter.swift; sourceTree = "<group>"; };
 		34789BA12183664F00EB68C4 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		34789BA32183670300EB68C4 /* Date+Intervals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
+		347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
+		347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		347CCDAE218CA75000E894DD /* SendTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		3486401E218BD235008CA223 /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
@@ -595,6 +598,7 @@
 		34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
 		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
+		34F2EA6921A25253009F00F2 /* TokenIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIcons.swift; sourceTree = "<group>"; };
 		34FCB98A2187C66F00A88D56 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterDetail.swift; sourceTree = "<group>"; };
 		34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterDetail.xib; sourceTree = "<group>"; };
@@ -817,6 +821,8 @@
 				349BC0522143DDB1003AC330 /* BaseRouter.swift */,
 				349BC0542143DF19003AC330 /* BaseRouterInterface.swift */,
 				34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */,
+				347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */,
+				347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1591,9 +1597,9 @@
 		344DB53E215ED30C00F7D1E2 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 				34737BD7214FFC86008A306F /* TokenWallet.swift */,
 				34AC4DE921486293001C17D8 /* ImportedWallet.swift */,
-				34737BCF214FC9C9008A306F /* GeneratingWallet.swift */,
 				34737BD3214FF6EB008A306F /* WalletInterface.swift */,
 				344DB5402162363C00F7D1E2 /* ViewWalletInterface.swift */,
 			);
@@ -1606,6 +1612,7 @@
 				349BC05821466591003AC330 /* Coin.swift */,
 				34AC4E072149D98B001C17D8 /* AssetInterface.swift */,
 				34A37D30214D34F70022FD93 /* Token.swift */,
+				34F2EA6921A25253009F00F2 /* TokenIcons.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -1683,7 +1690,6 @@
 				3411AF0B2166593F00AB9476 /* AssetsRanks */,
 				344DB53F215ED33100F7D1E2 /* Asset */,
 				344DB53E215ED30C00F7D1E2 /* Wallet */,
-				34737BD5214FF79B008A306F /* GeneratingWalletInfo.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2325,6 +2331,7 @@
 				340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */,
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
+				34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */,
 				34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */,
 				3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */,
 				3401AFDE21043C44006DEF49 /* String+Size.swift in Sources */,
@@ -2437,6 +2444,7 @@
 				34EE1F9F21795E4600FFC570 /* TableComponentTransaction.swift in Sources */,
 				34737BC5214EACF9008A306F /* TokensService.swift in Sources */,
 				3401AFD921033143006DEF49 /* Collection+LoadFromXib.swift in Sources */,
+				347AB73C219F8C4C00C3FB8A /* BackSwipeNavigation.swift in Sources */,
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
 				34EE1F9B21790F9100FFC570 /* Miscs.swift in Sources */,
 				34482693211DDDEF00C19EB3 /* Dwifft+UIKit.swift in Sources */,
@@ -2445,6 +2453,7 @@
 				34AC4E0121496B82001C17D8 /* TableComponentCheckImageTitle.swift in Sources */,
 				34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */,
 				34789BA22183664F00EB68C4 /* BitcoinTransaction+Status.swift in Sources */,
+				347AB73E219F8CCE00C3FB8A /* BaseNavigationController.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				3448267D211BA40800C19EB3 /* LaunchpadItemCell.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
@@ -2513,7 +2522,6 @@
 				344826BA212169C600C19EB3 /* TableComponentTitleDetail.swift in Sources */,
 				34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */,
 				34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */,
-				34737BD0214FC9C9008A306F /* GeneratingWallet.swift in Sources */,
 				344826B12120F6C500C19EB3 /* TableComponentAccountStrengthAction.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				344958D32141225700C2230B /* WalletInteractor.swift in Sources */,
@@ -2729,7 +2737,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 48;
 				DEVELOPMENT_TEAM = P8JA7643K4;
@@ -2743,7 +2751,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
-				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc essentia.Essentia";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

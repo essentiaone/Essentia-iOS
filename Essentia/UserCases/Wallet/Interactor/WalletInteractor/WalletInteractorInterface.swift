@@ -15,7 +15,7 @@ protocol WalletInteractorInterface {
     @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo]
     func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo)
     func addTokensToWallet(_ assets: [AssetInterface])
-    func getGeneratedWallets() -> [GeneratedWallet]
+    func getGeneratedWallets() -> [GeneratingWalletInfo]
     func getImportedWallets() -> [ImportedWallet]
     func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]]
     func getTotalBalanceInCurrentCurrency() -> Double

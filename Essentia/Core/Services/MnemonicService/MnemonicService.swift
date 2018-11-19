@@ -26,15 +26,13 @@ class MnemonicService: MnemonicServiceInterface {
     }
     
     func keyStoreFile(mnemonic: String, password: String) throws -> Data {
-        let passwordHash = password.sha256().sha256()
-        let keystore = try KeystoreV3(data: mnemonic, password: passwordHash)
+        let keystore = try KeystoreV3(data: mnemonic, password: password)
         return (try keystore?.encodedData())!
     }
     
     func mnemonic(from keystoreFile: Data, password: String) -> String? {
-        let passwordHash = password.sha256().sha256()
         guard let keystoreV3 = try? KeystoreV3(keyStore: keystoreFile),
-              let mnemonic = try? keystoreV3?.getDecriptedKeyStore(password: passwordHash) else {
+              let mnemonic = try? keystoreV3?.getDecriptedKeyStore(password: password) else {
             return nil
         }
         return mnemonic

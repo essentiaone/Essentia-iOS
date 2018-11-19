@@ -10,16 +10,15 @@ import Foundation
 import EssentiaNetworkCore
 
 class TokenService: TokensServiceInterface {
-    let networkManager: NetworkManager = NetworkManager("https://gist.githubusercontent.com")
+    let networkManager: NetworkManager = NetworkManager("https://clogos.essdev.info")
     
     func getTokensList(_ callBack: @escaping ([Token]) -> Void) {
-        (inject() as LoaderInterface).show()
-        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: Result<[String: Token]>) in
-            (inject() as LoaderInterface).hide()
+        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: Result<[Token]>) in
             switch result {
             case .success(let object):
-                let tokens = object.map { return $0.value }
-                callBack(tokens)
+                main {
+                    callBack(object)
+                }
             default: return
             }
         }
