@@ -74,7 +74,7 @@
 "Settings.Title" = "Settings";
 "Settings.AccountStrength.Title" = "Account Security";
 "Settings.AccountStrength.Description" = "Backup all three login options to access Essentia from other devices and ensure your savings are securely stored.";
-"Settings.AccountStrength.SecureButton" = "SECURE MY ACCOUNT";
+"Settings.AccountStrength.SecureButton" = "SECURE ACCOUNT";
 "Settings.AccountStrength.Push" = "PUSH";
 "Settings.CurrentAccountTitle" = "Account Name";
 "Settings.CurrentAccountTitle.Default" = "Essentia account";
@@ -258,6 +258,14 @@
 "Wallet.Send.TransactionTime" = "Transaction time";
 "Wallet.Send.GenerateTransaction" = "GENERATE TRANSACTION";
 
+"Wallet.Send.Confirm.Title" = "Confirm Transaction";
+"Wallet.Send.Confirm.ToAddress" = "To Address:";
+"Wallet.Send.Confirm.Amount" = "Amount";
+"Wallet.Send.Confirm.Fee" = "Fee";
+"Wallet.Send.Confirm.Time" = "Transaction Time";
+"Wallet.Send.Confirm.Cancel" = "Cancel";
+"Wallet.Send.Confirm.Send" = "Send";
+
 "Wallet.Options.Title" = "Options";
 "Wallet.Options.Rename" = "Rename Wallet";
 "Wallet.Options.Export" = "Export Wallet";
@@ -318,3 +326,7 @@
 "Wallet.Onbording2.Detail" = "Access your all digital assets from a single wallet across any device";
 "Wallet.Onbording3.Title" = "Lightning fast!";
 "Wallet.Onbording3.Detail" = "Don’t waste your valuable time, leave all the hard work to us!";
+
+"Wallet.Transaction.Send.Done.Title" = "Well done!";
+"Wallet.Transaction.Send.Done.Description" = "Your transactoin has been sent. Soon you will be able to see it in your transaction history.";
+"Wallet.Transaction.Send.Done.Continue" = "BACK TO WALLET";

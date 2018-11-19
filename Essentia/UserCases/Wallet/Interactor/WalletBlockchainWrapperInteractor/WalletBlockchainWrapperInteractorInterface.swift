@@ -20,4 +20,6 @@ protocol WalletBlockchainWrapperInteractorInterface {
     func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void)
     func getEthGasPrice(gasPrice: @escaping (Double) -> Void)
     func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void)
+    
+    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void)
 }

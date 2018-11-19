@@ -79,6 +79,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentBlure.self)
         tableView.register(TableComponentContainer.self)
         tableView.register(TableComponentPageControl.self)
+        tableView.register(TableComponentTwoButtons.self)
     }
     
     // MARK: - Update State
@@ -179,6 +180,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .calculatbleSpace(let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
+            return cell
+        case .centeredComponentTopInstet:
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            cell.backgroundColor = .clear
             return cell
         case .accountStrengthAction( let action):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
@@ -377,6 +382,15 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.setTitles(titles)
             cell.applyOneColorDesign()
             cell.segmentControllerChangedAtIndex = action
+            return cell
+        case .twoButtons(let lTitle, let rTitle, let lColor, let rColor, let lAction, let rAction):
+            let cell: TableComponentTwoButtons = tableView.dequeueReusableCell(for: indexPath)
+            cell.leftButton.setTitle(lTitle, for: .normal)
+            cell.rightButton.setTitle(rTitle, for: .normal)
+            cell.leftButton.setTitleColor(lColor, for: .normal)
+            cell.rightButton.setTitleColor(rColor, for: .normal)
+            cell.lAction = lAction
+            cell.rAction = rAction
             return cell
         case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)

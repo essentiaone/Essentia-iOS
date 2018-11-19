@@ -1,5 +1,5 @@
 //
-//  SendTransactionDetailViewController.swift
+//  SendEthTransactionDetailViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 11/2/18.
@@ -12,7 +12,7 @@ import QRCodeReader
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
-    let ammountToSend: String
+    let ammount: SelectedTransacrionAmmount
     var address: String = ""
     var data: String = ""
     var selectedFeeSlider: Float = 3
@@ -27,17 +27,17 @@ fileprivate struct Store {
     }
     
     var isValidTransaction: Bool {
-        return false
+        return wallet.asset.isValidAddress(address)
     }
     
-    init(wallet: ViewWalletInterface, transactionAmmount: String) {
+    init(wallet: ViewWalletInterface, transactionAmmount: SelectedTransacrionAmmount) {
         self.wallet = wallet
-        self.ammountToSend = transactionAmmount
+        self.ammount = transactionAmmount
     }
     
 }
 
-class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate, SwipeableNavigation {
+class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
@@ -45,7 +45,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     
     private var store: Store
     
-    init(wallet: ViewWalletInterface, ammount: String) {
+    init(wallet: ViewWalletInterface, ammount: SelectedTransacrionAmmount) {
         self.store = Store(wallet: wallet, transactionAmmount: ammount)
         super.init()
     }
@@ -82,7 +82,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
                                    detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .titleCenteredDetail(title: LS("Wallet.Send.Amount"),
-                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammountToSend)),
+                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammount.inCrypto)),
             .separator(inset: .zero),
             .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.To"),
                                                   text: store.address,
@@ -166,8 +166,16 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
         self.router.pop()
     }
     
-    private lazy var continueAction: () -> Void = {
-        
+    private lazy var continueAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        let txInfo = EtherTxInfo(address: self.store.address,
+                                 ammount: self.store.ammount,
+                                 fee: self.store.enteredFee,
+                                 gasPrice: Int(self.store.selectedFeeSlider * pow(10, 9)),
+                                 gasLimit: Int(self.store.gasEstimate))
+        let vc = ConfirmEthereumTxDetailViewController(self.store.wallet, tx: txInfo)
+        vc.modalPresentationStyle = .custom
+        self.present(vc, animated: true)
     }
     
     private lazy var inputFeeAction: () -> Void = { [weak self] in
@@ -177,6 +185,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     }
     
     private lazy var readQrAction: () -> Void = {
+        self.tableAdapter.endEditing(true)
         self.router.show(.qrReader(self))
     }
     
@@ -203,6 +212,7 @@ class SendTransactionDetailViewController: BaseTableAdapterController, QRCodeRea
     private lazy var feeChangedDirectly: (String) -> Void = { [weak self] fee in
         guard let `self` = self else { return }
         self.store.enteredFee = Double(fee) ?? 0
+        self.store.selectedFeeSlider = Float(self.store.enteredFee * pow(10, 9) / self.store.gasEstimate)
         self.tableAdapter.simpleReload(self.state)
     }
     

@@ -185,7 +185,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
     
     private lazy var continueAction: () -> Void = {
         self.tableAdapter.endEditing(true)
-        self.router.show(.sendTransactionDetail(self.store.wallet, self.store.enterdValueInCrypto))
+        let enteredValue = SelectedTransacrionAmmount(inCrypto: self.store.enterdValueInCrypto, inCurrency: self.store.enterdValueInCurrency)
+        self.router.show(.sendTransactionDetail(self.store.wallet, enteredValue))
     }
     
     // MARK: - Keyboard

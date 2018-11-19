@@ -21,11 +21,12 @@ enum WalletRoutes {
     case walletDetail(ViewWalletInterface)
     case transactionDetail(asset: AssetInterface, txId: String)
     case enterTransactionAmmount(ViewWalletInterface)
-    case sendTransactionDetail(ViewWalletInterface, String)
+    case sendTransactionDetail(ViewWalletInterface, SelectedTransacrionAmmount)
     case qrReader(QRCodeReaderViewControllerDelegate)
     case receive(ViewWalletInterface)
     case enterReceiveAmmount(AssetInterface, action: (String) -> Void)
     case backupMenmonic
+    case doneTx
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {

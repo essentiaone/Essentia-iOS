@@ -18,7 +18,8 @@ class TableAdapterHelper {
         var totalContentHeight: CGFloat = 0
         for (index, item) in state.enumerated() {
             switch item {
-            case .calculatbleSpace:
+            case .calculatbleSpace: fallthrough
+            case .centeredComponentTopInstet:
                 break
             default:
                 totalContentHeight += height(for: IndexPath(row: index, section: 0), in: state)
@@ -46,7 +47,7 @@ class TableAdapterHelper {
         case .titleWithFontAligment(let font, let title, _, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
         case .descriptionWithSize(_, let fontSize, let title, _, _):
-            return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 4
+            return title.multyLineLabelHeight(with: AppFont.regular.withSize(fontSize), width: tableView.frame.width - 30) + 6
         case .description(let title, _):
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
         case .tableWithHeight(let height, _):
@@ -111,6 +112,7 @@ class TableAdapterHelper {
             return size.height
         case .textView:
             return 77.0
+        case .twoButtons: fallthrough
         case .filledSegment:
             return 43.0
         case .customSegmentControlCell: fallthrough
@@ -151,6 +153,8 @@ class TableAdapterHelper {
             return allContentHeight(for: state) + 20
         case .titleAction(let font, let title, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width - 30) + 4
+        case .centeredComponentTopInstet:
+            return heightForEmptySpace(with: state) / 2
         }
     }
     

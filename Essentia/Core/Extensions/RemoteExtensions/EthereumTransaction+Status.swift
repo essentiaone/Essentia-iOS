@@ -20,10 +20,10 @@ extension EthereumTransactionDetail {
     }
     
     func type(for: Address) -> TransactionType {
-        switch `for` {
-        case to:
+        switch `for`.uppercased() {
+        case to.uppercased():
             return .recive
-        case from:
+        case from.uppercased():
             return .send
         default:
             return .recive

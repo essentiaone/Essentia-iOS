@@ -29,7 +29,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Back"),
+            .navigationBar(left: LS("Settings.Title"),
                            right: "",
                            title: "",
                            lAction: backAction,
@@ -94,7 +94,8 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     
     private lazy var ketstoreAction: () -> Void = {
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
-              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl else {
+              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
+              (try? Data(contentsOf: keystore)) != nil  else {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
             return
         }
