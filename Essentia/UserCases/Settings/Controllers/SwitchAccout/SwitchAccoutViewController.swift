@@ -63,7 +63,6 @@ class SwitchAccoutViewController: BaseViewController {
     // MARK: - Actions
     @IBAction func cancelAction(_ sender: AnyObject) {
         dismiss(animated: true)
-        callBack()
     }
     
     private func setContentTopInset() {
