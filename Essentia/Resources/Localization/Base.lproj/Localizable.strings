@@ -279,8 +279,8 @@
 
 "Wallet.Receive.Title" = "Receive";
 "Wallet.Receive.Wallet" = "wallet";
-"Wallet.Receive.Copy" = "Copy";
-"Wallet.Receive.Request" = "Request specific ammount";
+"Wallet.Receive.Copy" = "COPY";
+"Wallet.Receive.Request" = "Request specific amount";
 
 "Wallet.Receive.Enter.Done" = "Done";
 "Wallet.Receive.Title" = "Receive";
