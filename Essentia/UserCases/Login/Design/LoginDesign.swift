@@ -18,7 +18,12 @@ class LoginDesign: LoginDesignInterface {
         vc.title1Label.text = LS("Welcome.Title1")
         vc.title2Label.text = LS("Welcome.Title2")
         vc.descriptionLabel.text = LS("Welcome.Description")
-        vc.enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
+        if (inject() as UserStorageServiceInterface).get().isEmpty {
+            vc.enterButton.setTitle(LS("Welcome.Start"), for: .normal)
+        } else {
+            vc.enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
+        }
+        
         let termsAttributedText = NSMutableAttributedString()
         termsAttributedText.append(
             NSAttributedString(

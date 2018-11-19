@@ -12,7 +12,8 @@
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
 "Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life, at your fingertips.";
-"Welcome.Enter" = "START";
+"Welcome.Enter" = "ENTER";
+"Welcome.Start" = "START";
 "Welcome.Tersm1" = "By continuing you agree to our ";
 "Welcome.Tersm2" = "Terms of Service";
 
