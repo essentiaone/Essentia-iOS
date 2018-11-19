@@ -53,6 +53,6 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
     func showFlipAnimation() {
         guard let mainwindow = UIApplication.shared.delegate?.window as? UIWindow else { return }
         UIView.transition(with: mainwindow, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
-        }) { (_) -> Void in}
+        }, completion: { (_) -> Void in})
     }
 }

@@ -17,7 +17,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -40,15 +40,16 @@ class SettingsCurrencyViewController: BaseTableAdapterController {
     
     var currenciesState: [TableComponent] {
         var currencyState: [TableComponent] = []
-        let currenyCurrency = EssentiaStore.currentUser.profile.currency
+        let currenyCurrency = EssentiaStore.shared.currentUser.profile.currency
         FiatCurrency.cases.forEach { (currency) in
             currencyState.append(.menuTitleCheck(
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: {
-                    EssentiaStore.currentUser.profile.currency = currency
+                    EssentiaStore.shared.currentUser.profile.currency = currency
+                    (inject() as UserStorageServiceInterface).storeCurrentUser()
                     (inject() as CurrencyRankDaemonInterface).update()
-                    self.tableAdapter.reload(self.state)
+                    self.tableAdapter.hardReload(self.state)
             }))
             currencyState.append(.separator(inset: .zero))
         }

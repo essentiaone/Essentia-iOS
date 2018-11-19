@@ -27,11 +27,11 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private func reloadState() {
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private var state: [TableComponent] {
-        let loginType = EssentiaStore.currentUser.backup.loginMethod
+        let loginType = EssentiaStore.shared.currentUser.backup.loginMethod
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -66,28 +66,31 @@ class SettingsLoginMethodViewController: BaseTableAdapterController {
     }
     
     private lazy var mnemonicAction: () -> Void = {
-        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
+        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             self.showBackupMnemonicAlert()
             return
         }
-        EssentiaStore.currentUser.backup.loginMethod = .mnemonic
+        EssentiaStore.shared.currentUser.backup.loginMethod = .mnemonic
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
     private lazy var seedAction: () -> Void = {
-        EssentiaStore.currentUser.backup.loginMethod = .seed
+        EssentiaStore.shared.currentUser.backup.loginMethod = .seed
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
     private lazy var ketstoreAction: () -> Void = {
-        EssentiaStore.currentUser.backup.loginMethod = .keystore
+        EssentiaStore.shared.currentUser.backup.loginMethod = .keystore
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
     private func showBackupMnemonicAlert() {
-        let alert = BackupMnemonicAlert(leftAction: {}) {
+        let alert = BackupMnemonicAlert(leftAction: {}, rightAction: {
             (inject() as SettingsRouterInterface).show(.backupMenmonic)
-        }
+        })
         present(alert, animated: true)
     }
 }

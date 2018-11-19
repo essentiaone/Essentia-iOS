@@ -9,7 +9,7 @@
 import UIKit
 
 fileprivate struct Store {
-    var tokens: [GeneratingWalletInfo : [TokenWallet]] = [:]
+    var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
     var generatedWallets: [GeneratedWallet] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
@@ -43,6 +43,7 @@ class WalletMainViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
+        reloadAllComponents()
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,17 +70,13 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - State
     private func state() -> [TableComponent] {
-        if EssentiaStore.currentUser.wallet.isEmpty {
-            return emptyState()
-        }
         let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
-        let contentHeight = tableAdapter.helper.allContentHeight(for:staticState)
+        let contentHeight = tableAdapter.helper.allContentHeight(for: staticState)
         let emptySpace = store.tableHeight - contentHeight
         let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
-        return [
-            .tableWithHeight(height: contentHeight, state: staticState),
-            .tableWithHeight(height: bottomTableContentHeight, state: assetState())
-        ]
+        let showWallets = !EssentiaStore.shared.currentUser.wallet.isEmpty
+        return [.tableWithHeight(height: contentHeight, state: staticState)] +
+            (showWallets ? [.tableWithHeight(height: bottomTableContentHeight, state: assetState())] : emptyState())
     }
     
     private func nonEmptyStaticState() -> [TableComponent] {
@@ -119,18 +116,11 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func emptyState() -> [TableComponent] {
         return [
-            .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .rightNavigationButton(title: "", image: imageProvider.bluePlus, action: addWalletAction),
-            .title(bold: true, title: LS("Wallet.Title")),
-            .empty(height: 52, background: colorProvider.settingsCellsBackround),
-            .centeredImage(image: imageProvider.walletPlaceholder),
-            .empty(height: 40, background: colorProvider.settingsCellsBackround),
-            .descriptionWithSize(aligment: .center,
-                                 fontSize: 17,
-                                 title: LS("Wallet.Empty.Description"),
-                                 background: colorProvider.settingsCellsBackround),
-            .empty(height: 10, background: colorProvider.settingsCellsBackround),
-            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction)
+            .empty(height: 110, background: colorProvider.settingsBackgroud),
+            .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
+            .calculatbleSpace(background: colorProvider.settingsBackgroud),
+            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.settingsBackgroud),
+            .empty(height: 16, background: colorProvider.settingsBackgroud)
         ]
     }
     
@@ -159,7 +149,8 @@ class WalletMainViewController: BaseTableAdapterController {
         sectionState.append(.descriptionWithSize(aligment: .left,
                                                  fontSize: 14,
                                                  title: title,
-                                                 background: colorProvider.settingsBackgroud))
+                                                 background: colorProvider.settingsBackgroud,
+                                                 textColor: colorProvider.appDefaultTextColor))
         sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
         sectionState.append(contentsOf: buildStateForWallets(wallets))
         return sectionState
@@ -172,7 +163,7 @@ class WalletMainViewController: BaseTableAdapterController {
                 .assetBalance(imageUrl: wallet.iconUrl,
                               title: wallet.name,
                               value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                              currencyValue: wallet.formattedBalance,
+                              currencyValue: wallet.formattedBalanceWithSymbol,
                               action: { self.showWalletDetail(for: wallet) }
                 )
             )
@@ -225,21 +216,20 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Private
     private func hardReload() {
-        reloaddAllComponents()
+        (inject() as LoaderInterface).show()
         (inject() as CurrencyRankDaemonInterface).update { [weak self] in
-            self?.reloaddAllComponents()
+            self?.reloadAllComponents()
+            (inject() as LoaderInterface).hide()
         }
     }
     
-    private func reloaddAllComponents() {
-        (inject() as LoaderInterface).show()
-            self.clearCash()
-            self.loadData()
-            self.cashState()
-            self.loadBalances()
-            self.loadBalanceChangesPer24H()
-            self.tableAdapter.simpleReload(self.state())
-        (inject() as LoaderInterface).hide()
+    private func reloadAllComponents() {
+        self.clearCash()
+        self.loadData()
+        self.cashState()
+        self.loadBalances()
+        self.loadBalanceChangesPer24H()
+        self.tableAdapter.simpleReload(self.state())
     }
     
     private func loadBalanceChangesPer24H() {
@@ -270,7 +260,8 @@ class WalletMainViewController: BaseTableAdapterController {
         self.store.importedWallets.enumerated().forEach { (arg) in
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
                 self.store.importedWallets[arg.offset].lastBalance = balance
-                EssentiaStore.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
+                EssentiaStore.shared.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
                 self.tableAdapter.simpleReload(self.state())
             })
         }
@@ -288,7 +279,11 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func formattedBalance(_ balance: Double) -> String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return formatter.formattedAmmountWithCurrency(amount: balance)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
 }

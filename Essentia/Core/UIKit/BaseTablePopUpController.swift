@@ -52,7 +52,7 @@ class BaseTablePopUpController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private func applyDesign() {

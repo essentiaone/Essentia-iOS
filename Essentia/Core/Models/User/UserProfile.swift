@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct UserProfile: Codable {
+class UserProfile: Codable {
     var name: String?
     var currency: FiatCurrency
     var imageData: Data?
@@ -20,7 +20,7 @@ struct UserProfile: Codable {
         self.imageData = UIImage(named: "testAvatar")!.jpegData(compressionQuality: 1.0)!
     }
     
-    init(image: UIImage, name: String) {
+    convenience init(image: UIImage, name: String) {
         self.init()
         self.name = name
         self.imageData = image.jpegData(compressionQuality: 1.0)

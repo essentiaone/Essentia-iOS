@@ -25,7 +25,7 @@ enum PNGAnimation: String {
     
     var images: [UIImage] {
         return imagesRage.compactMap({
-           return imageAtIndex(index: $0)
+            return imageAtIndex(index: $0)
         })
     }
     

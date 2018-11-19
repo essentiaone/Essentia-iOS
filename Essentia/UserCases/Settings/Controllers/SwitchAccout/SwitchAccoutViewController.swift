@@ -36,13 +36,11 @@ class SwitchAccoutViewController: BaseViewController {
     
     private var state: [TableComponent] {
         let usersState = users.map({ (user) -> [TableComponent] in
-            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: {
-                        self.loginToUser(user)
+            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: { [weak self] in
+                        self?.loginToUser(user)
                     }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
-        }).flatMap {
-            return $0
-        }
+        }).flatMap { return $0 }
         return usersState + [.imageTitle(image: imageProvider.plusIcon,
                                          title: LS("Settings.Accounts.CreateNew"),
                                          withArrow: false,
@@ -54,7 +52,7 @@ class SwitchAccoutViewController: BaseViewController {
         super.viewDidLoad()
         loadUsers()
         applyDesign()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,7 +89,7 @@ class SwitchAccoutViewController: BaseViewController {
     // MARK: - SwitchAccountTableAdapterDelegate
     func loginToUser(_ user: User) {
         dismiss(animated: true)
-        EssentiaStore.setUser(user)
+        EssentiaStore.shared.setUser(user)
         callBack()
     }
     
@@ -103,7 +101,7 @@ class SwitchAccoutViewController: BaseViewController {
     
     private func generateNewUser() {
         (inject() as LoaderInterface).show()
-        (inject() as LoginInteractorInterface).generateNewUser {  [weak self] in
+        (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
             (inject() as LoaderInterface).hide()
             self?.present(TabBarController(), animated: true)
         }

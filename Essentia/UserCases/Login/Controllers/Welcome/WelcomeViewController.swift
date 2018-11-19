@@ -20,6 +20,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     // MARK: - Dependences
     private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
+    private lazy var userService: UserStorageServiceInterface = inject()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -29,7 +30,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard !EssentiaStore.currentUser.seed.isEmpty else {
+        guard !EssentiaStore.shared.currentUser.seed.isEmpty else {
             return
         }
         openTabBar()
@@ -41,6 +42,10 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func enterAction(_ sender: Any) {
+        guard !userService.get().isEmpty else {
+            generateNewUser()
+            return
+        }
         let switchAccount =  SwitchAccoutViewController { [weak self] in
             self?.openTabBar()
         }
@@ -48,6 +53,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     @IBAction func termsAction(_ sender: Any) {
+        guard let url = URL(string: EssentiaConstants.termsUrl) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
     func openTabBar() {
@@ -66,4 +73,11 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
                          memoryPolicy: .viewController)
     }
     
+    private func generateNewUser() {
+        (inject() as LoaderInterface).show()
+        (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
+            (inject() as LoaderInterface).hide()
+            self?.present(TabBarController(), animated: true)
+        }
+    }
 }

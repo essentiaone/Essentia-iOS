@@ -47,7 +47,8 @@ class CurrencyConverterService: CurrencyConverterServiceInterface {
                 switch error {
                 case .error(let errorMessage):
                     (inject() as LoaderInterface).showError(message: errorMessage.error)
-                default: return
+                default:
+                    (inject() as LoaderInterface).hide()
                 }
             }
         }

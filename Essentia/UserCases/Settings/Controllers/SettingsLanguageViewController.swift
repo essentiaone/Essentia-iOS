@@ -17,7 +17,7 @@ class SettingsLanguageViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -40,14 +40,15 @@ class SettingsLanguageViewController: BaseTableAdapterController {
     
     var languageState: [TableComponent] {
         var languageComponent: [TableComponent] = []
-        let currenyLanguage = EssentiaStore.currentUser.profile.language
+        let currenyLanguage = EssentiaStore.shared.currentUser.profile.language
         LocalizationLanguage.cases.forEach { (language) in
             languageComponent.append(.menuTitleCheck(
                 title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: {
-                    EssentiaStore.currentUser.profile.language = language
-                    self.tableAdapter.reload(self.state)
+                    EssentiaStore.shared.currentUser.profile.language = language
+                    (inject() as UserStorageServiceInterface).storeCurrentUser()
+                    self.tableAdapter.hardReload(self.state)
                     self.showFlipAnimation()
             }))
             languageComponent.append(.separator(inset: .zero))

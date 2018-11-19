@@ -19,7 +19,7 @@ class SecureAccountViewController: BaseTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     // MARK: - Override
@@ -33,7 +33,7 @@ class SecureAccountViewController: BaseTableAdapterController {
     }
     
     private var state: [TableComponent] {
-        let currentUserBackups = EssentiaStore.currentUser.backup.currentlyBackedUp
+        let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
         return [
             .accountStrength(backAction: backAction),
             .shadow(height: 24,

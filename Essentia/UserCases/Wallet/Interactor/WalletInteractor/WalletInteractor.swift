@@ -14,7 +14,7 @@ class WalletInteractor: WalletInteractorInterface {
     private lazy var tokenService: TokensServiceInterface = inject()
     
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
-        let importdAssets = EssentiaStore.currentUser.wallet.importedWallets
+        let importdAssets = EssentiaStore.shared.currentUser.wallet.importedWallets
         let alreadyContainWallet = importdAssets.contains {
             return $0.name == wallet.name || $0.pk == wallet.pk
         }
@@ -33,7 +33,7 @@ class WalletInteractor: WalletInteractorInterface {
     
     @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo] {
         guard let coins = assets as? [Coin] else { return [] }
-        var currentlyAddedWallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+        var currentlyAddedWallets = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
         coins.forEach { coin in
             let currentCoinAssets = currentlyAddedWallets.filter({ return $0.coin == coin })
             let nextDerivationIndex = currentCoinAssets.count
@@ -42,7 +42,7 @@ class WalletInteractor: WalletInteractorInterface {
                                                   derivationIndex: UInt32(nextDerivationIndex))
             currentlyAddedWallets.append(walletInfo)
         }
-        EssentiaStore.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
+        EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
         (inject() as CurrencyRankDaemonInterface).update()
         return currentlyAddedWallets
     }
@@ -56,25 +56,26 @@ class WalletInteractor: WalletInteractorInterface {
         guard let tokens = assets as? [Token] else { return }
         tokens.forEach { token in
             let tokenAsset = TokenWallet(token: token, wallet: wallet)
-            EssentiaStore.currentUser.wallet.tokenWallets.append(tokenAsset)
+            EssentiaStore.shared.currentUser.wallet.tokenWallets.append(tokenAsset)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as CurrencyRankDaemonInterface).update()
         }
     }
     
     func getGeneratedWallets() -> [GeneratedWallet] {
-        let walletsInfo = EssentiaStore.currentUser.wallet.generatedWalletsInfo
-        let seed = Data(hex: EssentiaStore.currentUser.seed)
+        let walletsInfo = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
+        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
         return walletsInfo.map({ return walletService.generateWallet(seed: seed, walletInfo: $0) })
     }
     
     func getImportedWallets() -> [ImportedWallet] {
-        return EssentiaStore.currentUser.wallet.importedWallets
+        return EssentiaStore.shared.currentUser.wallet.importedWallets
     }
     
-    func getTokensByWalleets() -> [GeneratingWalletInfo : [TokenWallet]] {
-        var tokensByWallets: [GeneratingWalletInfo : [TokenWallet]] = [:]
-        let tokens = EssentiaStore.currentUser.wallet.tokenWallets
-        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo
+    func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]] {
+        var tokensByWallets: [GeneratingWalletInfo: [TokenWallet]] = [:]
+        let tokens = EssentiaStore.shared.currentUser.wallet.tokenWallets
+        let wallets = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
         for wallet in wallets {
             let tokensByCurrentWallet = tokens.filter({ return $0.wallet == wallet })
             guard !tokensByCurrentWallet.isEmpty else { continue }

@@ -68,6 +68,17 @@ enum Coin: String, Codable, AssetInterface {
 //        return true
     }
     
+    func isValidAddress(_ address: String) -> Bool {
+        switch self {
+        case .bitcoin:
+            return address.count > 27
+        case .ethereum:
+            return address.count > 40
+        default:
+            return true
+        }
+    }
+    
     static var allCases: [Coin] {
         return [.bitcoin, .ethereum, .litecoin, .bitcoinCash]
     }
@@ -81,6 +92,10 @@ enum Coin: String, Codable, AssetInterface {
         default:
             return 10
         }
+    }
+    
+    var type: CryptoType {
+        return .coin
     }
     
     func isSafeTransaction(confirmations: Int) -> Bool {

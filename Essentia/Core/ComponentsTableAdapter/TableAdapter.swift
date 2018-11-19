@@ -75,34 +75,42 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentTitleCenterDetail.self)
         tableView.register(TableComponentTitleCenterTextDetail.self)
         tableView.register(TableComponentTextFieldDetail.self)
+        tableView.register(TableComponentImageTitleSubtitle.self)
+        tableView.register(TableComponentBlure.self)
+        tableView.register(TableComponentContainer.self)
+        tableView.register(TableComponentPageControl.self)
     }
     
     // MARK: - Update State
     public func simpleReload(_ state:[TableComponent]) {
-        let oldState = self.tableState
-        self.tableState = state
         UIView.setAnimationsEnabled(false)
-        tableView.beginUpdates()
-        let diff = Dwifft.diff(oldState, state)
-        for step in diff  {
-            guard step.idx != selectedRow?.row else { continue }
-            switch step {
-            case .insert(let rowIndex, _):
-                tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
-            case .delete(let rowIndex, _):
-                tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)], with: .none)
-            }
-        }
-        tableView.endUpdates()
+        performTableUpdate(newState: state, withAnimation: .none)
         UIView.setAnimationsEnabled(true)
-
         guard let indexPath = selectedRow else { return }
         tableView(tableView, didSelectRowAt: indexPath)
     }
     
-    func reload(_ state: [TableComponent]) {
+    func hardReload(_ state: [TableComponent]) {
         self.tableState = state
         tableView.reloadData()
+    }
+    
+    func performTableUpdate(newState: [TableComponent], withAnimation: TableAdapterAnimation) {
+        let oldState = self.tableState
+        self.tableState = newState
+        tableView.beginUpdates()
+        for step in Dwifft.diff(oldState, newState) {
+            guard step.idx != selectedRow?.row else { continue }
+            switch step {
+            case .insert(let rowIndex, _):
+                tableView.insertRows(at: [IndexPath(row: rowIndex, section: 0)],
+                                     with: withAnimation.insertAnimation(step.value) )
+            case .delete(let rowIndex, _):
+                tableView.deleteRows(at: [IndexPath(row: rowIndex, section: 0)],
+                                     with: withAnimation.deleteAnimation(step.value) )
+            }
+        }
+        tableView.endUpdates()
     }
     
     private func setTableViewInset(_ inset:CGFloat) {
@@ -134,6 +142,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             let font = bold ? AppFont.bold : AppFont.regular
+            cell.backgroundColor = .clear
             cell.titleLabel.font = font.withSize(34)
             return cell
         case .titleWithFont(let font, let title, let background):
@@ -144,11 +153,21 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.minimumScaleFactor = 0.5
             cell.titleLabel.textAlignment = .center
             return cell
-        case .descriptionWithSize(let aligment ,let fontSize,let title,let backgroud):
+        case .titleWithFontAligment(let font,let title, let aligment, let color):
+            let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.titleLabel.font = font
+            cell.titleLabel.minimumScaleFactor = 0.5
+            cell.titleLabel.textAlignment = aligment
+            cell.titleLabel.textColor = color
+            cell.backgroundColor = .clear
+            return cell
+        case .descriptionWithSize(let aligment ,let fontSize,let title,let backgroud, let textColor):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.backgroundColor = backgroud
             cell.titleLabel.textAlignment = aligment
+            cell.titleLabel.textColor = textColor
             cell.titleLabel.font = AppFont.regular.withSize(fontSize)
             return cell
         case .description(let title, let backgroud):
@@ -224,9 +243,19 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = background
             cell.action = action
             return cell
+        case .actionCenteredButton(let title, let action, let background):
+            let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.setTitle(title, for: .normal)
+            cell.titleButton.backgroundColor = background
+            cell.action = action
+            cell.titleButton.setTitleColor((inject() as AppColorInterface).appTitleColor, for: .normal)
+            cell.backgroundColor = .clear
+            return cell
         case .navigationBar(let left, let right, let title, let lAction,let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
-            cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
+            if lAction != nil {
+                cell.leftButton.setImage(imageProvider.backButtonImage, for: .normal)
+            }
             cell.leftButton.setTitle(left, for: .normal)
             cell.rightButton.setTitle(right, for: .normal)
             cell.titleLabel.text = title
@@ -253,9 +282,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.descriptionLabel.text = description
             return cell
-        case .password(let passwordAction):
+        case .password(let title, _ ,let passwordAction):
             let cell: TableComponentPassword = tableView.dequeueReusableCell(for: indexPath)
             cell.passwordAction = passwordAction
+            cell.titleLabel.text = title
             return cell
         case .tabBarSpace: fallthrough
         case .keyboardInset:
@@ -271,6 +301,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage?.image = image
             cell.titleLabel.text = title
+            if image.size.width <= cell.titleImage.frame.size.width {
+                cell.titleImage.contentMode = .center
+            }
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
         case .imageUrlTitle(let imageUrl,let title, let withArrow, _):
@@ -284,28 +317,35 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.textField.placeholder = placeholder
             cell.textField.text = text
             cell.textFieldAction = endEditing
+            if selectedRow == nil {
+                selectedRow = indexPath
+                focusView(view: cell.textField)
+            }
             return cell
         case .imageParagraph(let image,let paragraph):
             let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage.image = image
             cell.titleLabel.text = paragraph
             return cell
-        case .smallCenteredButton(let title,let isEnable,let action):
+        case .smallCenteredButton(let title,let isEnable,let action, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
             cell.setEnable(isEnable)
             let inset = tableView.frame.width / 4
             cell.leftInset.constant = inset
             cell.rightInset.constant = inset
+            cell.backgroundColor = background
             cell.action = action
             return cell
         case .centeredImage(let image):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            cell.backgroundColor = .clear
             return cell
         case .centeredImageWithUrl(let url,_):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: url)
+            cell.backgroundColor = .clear
             return cell
         case .textView(let placeholder,let text,let endEditing):
             let cell: TableComponentTextView = tableView.dequeueReusableCell(for: indexPath)
@@ -381,7 +421,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .tableWithHeight(_, let state):
             let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
-            cell.tableAdapter.reload(state)
+            cell.tableAdapter.hardReload(state)
             return cell
         case .titleWithCancel(let title, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
@@ -417,13 +457,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
             return cell
-        case .slider(let titles, let selected, let didChange):
+        case .slider(let titles, let values, let didChange):
             let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
             cell.leftTitleLabel.text = titles.0
             cell.centerTitleLabel.text = titles.1
             cell.rightTitleLabel.text = titles.2
-            cell.slider.value = selected
+            cell.slider.value = Float(values.1)
+            cell.slider.minimumValue = Float(values.0)
+            cell.slider.maximumValue = Float(values.2)
             cell.newSliderAction = didChange
+            selectedRow = nil
             return cell
         case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
             let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
@@ -434,8 +477,49 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleTextField.keyboardType = .decimalPad
             cell.enterAction = action
             return cell
-        default:
-            fatalError()
+        case .titleCenteredDetail(let title, let detail):
+            let cell: TableComponentTitleCenterDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.detailLabel.text = detail
+            return cell
+        case .titleCenteredDetailTextFildWithImage(let title, let text, let placeholder, let rightButtonImage, let rightButtonAction, let textFieldChanged):
+            let cell: TableComponentTitleCenterTextDetail = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.centeredTextField.text = text
+            cell.centeredTextField.placeholder = placeholder
+            cell.rightButton.setImage(rightButtonImage, for: .normal)
+            cell.action = rightButtonAction
+            cell.enterAction = textFieldChanged
+            return cell
+        case .imageTitleSubtitle(let image, let title, let subtitle):
+            let cell: TableComponentImageTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.subltitle.text = subtitle
+            cell.titleImagevView.image = image
+            return cell
+        case .centeredImageButton(let image, _):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.image = image
+            cell.titleImageView.contentMode = .center
+            return cell
+        case .blure(let state):
+            let cell: TableComponentBlure = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
+        case .container(let state):
+            let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
+        case .titleAction(let font, let title, _):
+            let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.text = title
+            cell.titleLabel.font = font
+            return cell
+        case .pageControl(let count, let selected):
+            let cell: TableComponentPageControl = tableView.dequeueReusableCell(for: indexPath)
+            cell.pageControl.currentPage = selected
+            cell.pageControl.numberOfPages = count
+            return cell
         }
     }
     
@@ -466,6 +550,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .imageUrlTitle: fallthrough
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
+        case .titleCenteredDetailTextFildWithImage: fallthrough
+        case .centeredImageButton: fallthrough
+        case .titleAction: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -527,6 +614,14 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentTextFieldDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.titleTextField)
+        case .titleCenteredDetailTextFildWithImage:
+            let cell: TableComponentTitleCenterTextDetail = tableView.cellForRow(at: indexPath)
+            selectedRow = indexPath
+            focusView(view: cell.centeredTextField)
+        case .centeredImageButton(_, let action):
+            action()
+        case .titleAction(_, _, let action):
+            action()
         default:
             return
         }
@@ -537,5 +632,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
         
+    }
+    
+    func endEditing(_ force: Bool) {
+        self.tableView.endEditing(true)
+        self.selectedRow = nil
     }
 }

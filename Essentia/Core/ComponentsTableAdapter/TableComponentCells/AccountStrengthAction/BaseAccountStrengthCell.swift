@@ -10,7 +10,8 @@ import UIKit
 
 class BaseAccountStrengthCell: UITableViewCell {
     private lazy var colorProvider: AppColorInterface = inject()
-    var currentSecurityLevel: Int = EssentiaStore.currentUser.backup.secureLevel
+    var currentUserId = EssentiaStore.shared.currentUser.id
+    var currentSecurity = EssentiaStore.shared.currentUser.backup.secureLevel
     
     func animationForSecurirtyLevel(_ level: Int) -> PNGAnimation {
         switch level {
@@ -33,7 +34,7 @@ class BaseAccountStrengthCell: UITableViewCell {
     }
     
     var colorForCurrentSecuringStatus: UIColor {
-        switch currentSecurityLevel {
+        switch currentSecurity {
         case 2:
             return colorProvider.accountStrengthContainerViewBackgroudMediumSecure
         case 3:

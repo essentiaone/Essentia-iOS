@@ -52,21 +52,21 @@ class Storage: StorageInterface {
     
     func add(object: RegisteredObject, key: String) {
         self.threadSaveOperation {
-            self.storage.setObject(object, forKey: NSString(string:key))
+            self.storage.setObject(object, forKey: NSString(string: key))
         }
     }
     
     func object(key: String) -> RegisteredObject? {
-        var object: RegisteredObject? = nil
+        var object: RegisteredObject?
         self.threadSaveOperation {
-            object = self.storage.object(forKey: NSString(string:key))
+            object = self.storage.object(forKey: NSString(string: key))
         }
         return object
     }
     
     func remove(key: String) {
         self.threadSaveOperation {
-            self.storage.removeObject(forKey:  NSString(string:key))
+            self.storage.removeObject(forKey: NSString(string: key))
         }
     }
     

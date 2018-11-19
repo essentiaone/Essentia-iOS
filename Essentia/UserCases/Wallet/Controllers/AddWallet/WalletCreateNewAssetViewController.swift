@@ -36,7 +36,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"),
+            .navigationBar(left: LS("Back"),
                            right: LS("Wallet.CreateNewAsset.Done"),
                            title: LS("Wallet.CreateNewAsset.Title"),
                            lAction: backAction,
@@ -61,7 +61,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController {
     
     var selectWalletState: [TableComponent] {
         guard store.selectedComponent != 0 else { return [] }
-        let wallets = EssentiaStore.currentUser.wallet.generatedWalletsInfo.filter({ return $0.coin == Coin.ethereum })
+        let wallets = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo.filter({ return $0.coin == Coin.ethereum })
         guard wallets.count > 1 else { return [] }
         let selectedWallet = store.etherWalletForTokens ?? wallets.first!
         return [

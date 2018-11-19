@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import QRCodeReader
 
 class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {
         switch route {
         case .newAssets:
-            push(vc: WalletNewAssetViewController())
+            popUp(vc: WalletNewAssetViewController())
         case .selectImportAsset:
             push(vc: WalletSelectImportAssetViewController())
         case .importAsset(let coin):
@@ -31,26 +32,54 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: SelectWalletPopUp(wallets: wallets, didSelect: action))
         case .walletDetail(let wallet):
             push(vc: WalletDetailViewController(wallet: wallet))
+        case .sendTransactionDetail(let wallet, let ammount):
+            push(vc: SendTransactionDetailViewController(wallet: wallet, ammount: ammount))
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
         case .transactionDetail(let asset, let txId):
-            var url: URL? = nil
-            switch asset {
-            case let coin as Coin:
-                switch coin {
-                case .bitcoin:
-                    url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
-                case .ethereum:
-                    url = URL(string: "https://etherscan.io/tx/" + txId)
-                default: return
-                }
-            case is Token:
+            showTransactionDetail(asset: asset, txId: txId)
+        case .qrReader(let delegate):
+            showQrScaner(delegate: delegate)
+        case .walletOptions(let wallet):
+            popUp(vc: WalletOptionsViewController(wallet: wallet))
+        case .receive(let wallet):
+            push(vc: WallerReceiveViewController(wallet: wallet))
+        case .enterReceiveAmmount(let asset, let action):
+            push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
+        }
+
+    }
+    
+    private func showQrScaner(delegate: QRCodeReaderViewControllerDelegate) {
+        let builder = QRCodeReaderViewControllerBuilder { (config) in
+            config.cancelButtonTitle = LS("Back")
+            config.showCancelButton = true
+            config.handleOrientationChange = false
+            config.showTorchButton = true
+            config.showOverlayView = true
+        }
+        let vc = QRCodeReaderViewController(builder: builder)
+        vc.delegate = delegate
+        popUp(vc: vc)
+    }
+    
+    private func showTransactionDetail(asset: AssetInterface, txId: String) {
+        var url: URL?
+        switch asset {
+        case let coin as Coin:
+            switch coin {
+            case .bitcoin:
+                url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
+            case .ethereum:
                 url = URL(string: "https://etherscan.io/tx/" + txId)
             default: return
             }
-            if url != nil {
-                UIApplication.shared.open(url!, options: [:])
-            }
+        case is Token:
+            url = URL(string: "https://etherscan.io/tx/" + txId)
+        default: return
+        }
+        if url != nil {
+            UIApplication.shared.open(url!, options: [:])
         }
     }
 }

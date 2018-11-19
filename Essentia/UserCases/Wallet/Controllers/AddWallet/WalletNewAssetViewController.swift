@@ -16,46 +16,39 @@ class WalletNewAssetViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
+        view.backgroundColor = .clear
+        tableView.backgroundColor = .clear
     }
 
     private var state: [TableComponent] {
-        return [
-            .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Wallet.Back"), right: "", title: "", lAction: backAction, rAction: nil),
-            .title(bold: true, title: LS("Wallet.NewAsset.Title")),
-            .empty(height: 16, background: colorProvider.settingsBackgroud),
-            .titleSubtitle(title: LS("Wallet.NewAsset.Add.Title"),
-                           detail: LS("Wallet.NewAsset.Add.Subtitle"),
-                           action: addAssetAction),
-            .separator(inset: .zero),
-            .descriptionWithSize(aligment: .left,
-                                 fontSize: 13,
-                                 title: LS("Wallet.NewAsset.Add.Description"),
-                                 background: colorProvider.settingsBackgroud),
-            .empty(height: 16, background: colorProvider.settingsBackgroud),
-            .titleSubtitle(title: LS("Wallet.NewAsset.Import.Title"),
-                           detail: LS("Wallet.NewAsset.Import.Subtitle"),
-                           action: importAssetAction),
-            .separator(inset: .zero),
-            .descriptionWithSize(aligment: .left,
-                                 fontSize: 13,
-                                 title: LS("Wallet.NewAsset.Import.Description"),
-                                 background:colorProvider.settingsBackgroud),
-            .calculatbleSpace(background: colorProvider.settingsBackgroud)
-        ]
+        return [.blure(state: [
+            .calculatbleSpace(background: .clear),
+            .container(state: containerState),
+            .empty(height: 18, background: .clear)
+            ]
+        )]
+    }
+    
+    private var containerState: [TableComponent] {
+        return
+            [.titleWithCancel(title: LS("Wallet.NewAsset.Title"), action: backAction),
+             .imageTitle(image: imageProvider.walletOptionsRename, title: LS("Wallet.NewAsset.Add.Title"), withArrow: false, action: addAssetAction),
+             .imageTitle(image: imageProvider.walletOptionsExport, title: LS("Wallet.NewAsset.Import.Title"), withArrow: false, action: importAssetAction)]
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = {
-        (inject() as WalletRouterInterface).pop()
+    private lazy var backAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
     }
     
-    private lazy var addAssetAction: () -> Void = {
+    private lazy var addAssetAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
         (inject() as WalletRouterInterface).show(.addAsset)
     }
     
-    private lazy var importAssetAction: () -> Void = {
+    private lazy var importAssetAction: () -> Void = { [weak self] in
+        self?.dismiss(animated: true)
         (inject() as WalletRouterInterface).show(.selectImportAsset)
     }
 }

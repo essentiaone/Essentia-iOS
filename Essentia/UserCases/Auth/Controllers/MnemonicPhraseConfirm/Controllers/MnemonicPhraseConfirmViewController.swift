@@ -75,12 +75,13 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     func didFinishConfirmingWords(mnemonic: [String]) {
         switch authType {
         case .backup:
-            EssentiaStore.currentUser.backup.currentlyBackedUp.append(.mnemonic)
+            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.mnemonic)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let mnemonic = mnemonic.joined(separator: " ")
             let user = User(mnemonic: mnemonic)
-            EssentiaStore.setUser(user)
+            EssentiaStore.shared.setUser(user)
             (inject() as AuthRouterInterface).showPrev()
         }
     }

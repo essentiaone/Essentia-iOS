@@ -17,7 +17,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -55,7 +55,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
             .separator(inset: .zero),
             .empty(height: 16.0, background: colorProvider.settingsBackgroud),
             .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.currentUser.backup.loginMethod.titleString,
+                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
                                    withArrow: true,
                                    action: loginMethodAction),
             .separator(inset: .zero),
@@ -72,7 +72,7 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     }
     
     private lazy var mnemonicAction: () -> Void = {
-        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
+        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
             return
         }
@@ -83,8 +83,8 @@ class SettingsSecurityViewController: BaseTableAdapterController {
     }
     
     private lazy var ketstoreAction: () -> Void = {
-        guard EssentiaStore.currentUser.backup.currentlyBackedUp.contains(.keystore),
-              let keystore = EssentiaStore.currentUser.backup.keystoreUrl else {
+        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
+              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl else {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
             return
         }

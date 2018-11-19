@@ -10,7 +10,12 @@ import UIKit
 
 fileprivate struct Store {
     var password: String = ""
+    var repeatPass: String = ""
     var isValid: Bool = false
+    var isValidRepeate: Bool = false
+    var isBothValid: Bool {
+        return isValid && isValidRepeate && password == repeatPass
+    }
     static var keyStoreFolder = "Keystore"
 }
 
@@ -60,13 +65,14 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
             .title(bold: true, title: LS("Keystore.Title")),
             .description(title: LS("Keystore.Description"), backgroud: colorProvider.settingsCellsBackround),
             .empty(height: 10.0, background: colorProvider.settingsCellsBackround),
-            .password(passwordAction: passwordAction),
+            .password(title: LS("Keystore.PasswordField.Title"), withProgress: false, passwordAction: passwordAction),
+            .password(title: LS("Keystore.PasswordField.Repeat"), withProgress: true, passwordAction: repeatAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("SeedCopy.Continue"),
-                            isEnable: store.isValid,
+                            isEnable: store.isBothValid,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 10, background: colorProvider.settingsCellsBackround),
+            .empty(height: 50, background: colorProvider.settingsCellsBackround),
             .keyboardInset
         ]
     }
@@ -75,6 +81,12 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     private lazy var passwordAction: (Bool, String) -> Void = {
         self.store.isValid = $0
         self.store.password = $1
+        self.updateState()
+    }
+    
+    private lazy var repeatAction: (Bool, String) -> Void = {
+        self.store.isValidRepeate = $0
+        self.store.repeatPass = $1
         self.updateState()
     }
     
@@ -97,7 +109,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         let seed = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
         if let seed = seed {
             let user = User(seed: seed)
-            EssentiaStore.setUser(user)
+            EssentiaStore.shared.setUser(user)
         }
         (inject() as AuthRouterInterface).showPrev()
     }
@@ -110,7 +122,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
     }
     
     private func storeKeystore() {
-        guard let mneminic = EssentiaStore.currentUser.mnemonic else { return }
+        guard let mneminic = EssentiaStore.shared.currentUser.mnemonic else { return }
         DispatchQueue.global().async {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
@@ -118,8 +130,9 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
                                                                                        password: self.store.password)
                 let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
                                                                                  to: path,
-                                                                                 with: "\(EssentiaStore.currentUser.id).txt")
-                EssentiaStore.currentUser.backup.keystoreUrl = url
+                                                                                 with: "\(EssentiaStore.shared.currentUser.id).txt")
+                EssentiaStore.shared.currentUser.backup.keystoreUrl = url
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
             }
@@ -131,7 +144,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentBrow
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
-                EssentiaStore.currentUser.backup.currentlyBackedUp.append(.keystore)
+                EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.keystore)
+                (inject() as UserStorageServiceInterface).storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
             self.present(alert, animated: true)

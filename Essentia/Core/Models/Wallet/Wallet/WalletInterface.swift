@@ -11,5 +11,5 @@ import Foundation
 protocol WalletInterface: Codable {
     var asset: AssetInterface { get }
     var address: String { get }
-    var name: String { get }
+    var name: String { get set }
 }

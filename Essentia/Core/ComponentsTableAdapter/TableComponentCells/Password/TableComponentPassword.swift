@@ -30,7 +30,6 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         // MARK: - Localized Strings
-        titleLabel.text = LS("Keystore.PasswordField.Title")
         passwordTextField.placeholder = LS("Keystore.PasswordField.Placeholder")
         descriptionLabel.text = LS("Keystore.PasswordField.Description")
         passwordStatusLabel.text = LS("Keystore.PasswordField.Status.Good")
@@ -47,7 +46,7 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         passwordStatusLabel.textColor = colorProvider.validPasswordIndicator
         separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         
-        passwordTextField.isSecureTextEntry = true
+        passwordTextField.textContentType = .password
         passwordTextField.addTarget(self, action: #selector(passwordDidChange(_:)), for: .editingChanged)
         passwordStatusView.layer.cornerRadius = 2.0
         

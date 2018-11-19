@@ -9,14 +9,14 @@
 import Foundation
 
 fileprivate struct Store {
-    var wallet: ViewWalletInterface
+    let wallet: ViewWalletInterface
     var enterdValueInCurrency: String
     var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
     let currentCurrency: FiatCurrency
     
     init(wallet: ViewWalletInterface) {
-        currentCurrency = EssentiaStore.currentUser.profile.currency
+        currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         self.wallet = wallet
         enterdValueInCrypto = wallet.formattedBalance
         enterdValueInCurrency = wallet.formattedBalanceInCurrentCurrency
@@ -47,7 +47,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
     }
     
     private var state: [TableComponent] {
@@ -71,7 +71,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
                                   detail: formattedSelectedCurrencyField(value: selected.1),
                                   didChange: currentlyEditedFieldChanged),
             .separator(inset: .init(top: 0, left: 16, bottom: 0, right: 16)),
-            .attributedTitleDetail(title: formattedDeselectedField(value:  deselected.0),
+            .attributedTitleDetail(title: formattedDeselectedField(value: deselected.0),
                                    detail: formattedDeselectedCurrencyField(value: deselected.1),
                                    action: disabledFieldAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
@@ -135,7 +135,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     
     var fiatAmmountInCrypto: String {
         guard let ammount = Double(store.enterdValueInCurrency),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
             currentRank != 0 else {
                 return ""
         }
@@ -146,7 +146,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     
     var cryptoInFiat: String {
         guard let ammount = Double(store.enterdValueInCrypto),
-            let currentRank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
             currentRank != 0 else {
                 return ""
         }
@@ -156,12 +156,14 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = {
-        self.view.endEditing(true)
+    private lazy var backAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.tableAdapter.endEditing(true)
         self.router.pop()
     }
     
-    private lazy var currentlyEditedFieldChanged: (String) -> Void = {
+    private lazy var currentlyEditedFieldChanged: (String) -> Void = {  [weak self] in
+        guard let `self` = self else { return }
         switch self.store.currentlyEdited {
         case .fiat:
             self.store.enterdValueInCurrency = $0
@@ -174,14 +176,16 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController {
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var disabledFieldAction: () -> Void = {
-        self.tableView.endEditing(true)
+    private lazy var disabledFieldAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.tableAdapter.endEditing(true)
         self.store.currentlyEdited = self.store.currentlyEdited.another
         self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var continueAction: () -> Void = {
-        
+        self.tableAdapter.endEditing(true)
+        self.router.show(.sendTransactionDetail(self.store.wallet, self.store.enterdValueInCrypto))
     }
     
     // MARK: - Keyboard

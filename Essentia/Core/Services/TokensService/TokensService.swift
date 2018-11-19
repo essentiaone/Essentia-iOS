@@ -14,7 +14,7 @@ class TokenService: TokensServiceInterface {
     
     func getTokensList(_ callBack: @escaping ([Token]) -> Void) {
         (inject() as LoaderInterface).show()
-        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: Result<[String:Token]>) in
+        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: Result<[String: Token]>) in
             (inject() as LoaderInterface).hide()
             switch result {
             case .success(let object):

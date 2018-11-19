@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserWallet: Codable {
+class UserWallet: Codable {
     var importedWallets: [ImportedWallet] = []
     var generatedWalletsInfo: [GeneratingWalletInfo] = []
     var tokenWallets: [TokenWallet] = []
@@ -28,5 +28,11 @@ struct UserWallet: Codable {
             unique.append(asset)
         }
         return unique
+    }
+    
+    func remove(wallet: ViewWalletInterface) {
+        importedWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
+        generatedWalletsInfo.removeAll { return ($0 as ViewWalletInterface) == wallet }
+        tokenWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
     }
 }

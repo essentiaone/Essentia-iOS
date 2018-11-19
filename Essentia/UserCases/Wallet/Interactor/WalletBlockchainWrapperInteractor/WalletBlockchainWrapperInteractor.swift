@@ -24,7 +24,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
     init() {
         cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
     }
-
+    
     func getCoinBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
         case .bitcoin:
@@ -92,4 +92,32 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
     func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void) {
         
     }
+    
+    func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void) {
+        cryptoWallet.ethereum.getGasSpeed { (result) in
+            switch result {
+            case .success(let object):
+                let gasPrices = object.result
+                prices(gasPrices.safeLow, gasPrices.average, gasPrices.fast)
+            default: return
+            }
+        }
+    }
+    
+    func getEthGasPrice(gasPrice: @escaping (Double) -> Void) {
+        cryptoWallet.ethereum.getGasPrice { (result) in
+            switch result {
+            case .success(let object):
+                gasPrice(object.value)
+            default: return
+            }
+        }
+    }
+    
+    func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
+        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
+           print(result)
+        }
+    }
+        
 }

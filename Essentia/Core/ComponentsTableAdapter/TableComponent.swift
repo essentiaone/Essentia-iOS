@@ -11,26 +11,32 @@ import UIKit
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
     // MARK: - Common
-    case slider(titles: (String, String, String), selected: Float, didChange: (Float) -> Void)
+    case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
     case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case titleWithFont(font: UIFont, title: String, background: UIColor)
+    case titleWithFontAligment(font: UIFont, title: String, aligment: NSTextAlignment, color: UIColor)
+    case titleAction(font: UIFont, title: String, action: () -> Void)
+    case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
-    case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor)
+    case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor, textColor: UIColor)
     case textField(placeholder: String, text: String, endEditing: (String) -> Void)
     case textView(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
-    case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void)
+    case actionCenteredButton(title: String, action: () -> Void, backgrount: UIColor)
+    case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case paragraph(title: String, description: String)
     case calculatbleSpace(background: UIColor)
+    case pageControl(count: Int, selected: Int)
     // MARK: - Navigation Bar
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case navigationImageBar(left: String, right: UIImage, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
+    case imageTitleSubtitle(image: UIImage, title: String, subtitle: String)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void)
     case accountStrengthAction(action: () -> Void)
@@ -43,10 +49,10 @@ enum TableComponent: Equatable {
     case menuSectionHeader(title:String, backgroud: UIColor)
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
-    case plainText(title: String)
-    case password(passwordAction: (Bool, String) -> Void)
+    case password(title: String, withProgress: Bool, passwordAction: (Bool, String) -> Void)
     case keyboardInset
     case tabBarSpace
+    case centeredImageButton(image: UIImage, action: () -> Void)
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
@@ -66,6 +72,10 @@ enum TableComponent: Equatable {
     case titleAttributedDetail(title: String, detail: NSAttributedString)
     case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: (() -> Void)?)
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
+    case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
+                                             rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
+    case blure(state: [TableComponent])
+    case container(state: [TableComponent])
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
     // MARK: - Equatable

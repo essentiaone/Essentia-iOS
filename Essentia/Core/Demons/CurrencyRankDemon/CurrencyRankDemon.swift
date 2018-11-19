@@ -26,15 +26,19 @@ class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     
     private func updateRanks(callBack: (() -> Void)? = nil) {
         global {
-            self.assets = EssentiaStore.currentUser.wallet.uniqueAssets
-            let currency = EssentiaStore.currentUser.profile.currency
+            self.assets = EssentiaStore.shared.currentUser.wallet.uniqueAssets
+            let currency = EssentiaStore.shared.currentUser.profile.currency
+            let group = DispatchGroup()
+            group.notify(queue: .main, execute: {
+                callBack?()
+            })
             self.assets.forEach { asset in
+                group.enter()
+                group.enter()
                 self.converterService.getCoinInfo(from: asset, to: currency, info: { (info) in
                     let yesterdayPrice = info.currentPrice + info.priceChange24h
-                    EssentiaStore.ranks.setRank(for: currency, and: asset, rank: info.currentPrice, yesterdayPrice: yesterdayPrice)
-                    main {
-                        callBack?()
-                    }
+                    EssentiaStore.shared.ranks.setRank(for: currency, and: asset, rank: info.currentPrice, yesterdayPrice: yesterdayPrice)
+                    group.leave()
                 })
             }
         }

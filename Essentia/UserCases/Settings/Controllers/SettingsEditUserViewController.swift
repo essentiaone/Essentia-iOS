@@ -12,13 +12,13 @@ class SettingsEditUserViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
-    private var enteredName: String = EssentiaStore.currentUser.dislayName
+    private var enteredName: String = EssentiaStore.shared.currentUser.dislayName
     
     // MARK: - Lifecycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -36,7 +36,7 @@ class SettingsEditUserViewController: BaseTableAdapterController {
                            lAction: backAction,
                            rAction: doneAction),
             .empty(height: 15, background: colorProvider.settingsBackgroud),
-            .textField(placeholder: LS("EditAccount.Placeholder") + EssentiaStore.currentUser.dislayName,
+            .textField(placeholder: LS("EditAccount.Placeholder") + EssentiaStore.shared.currentUser.dislayName,
                        text: enteredName,
                        endEditing: nameAction),
             .separator(inset: .zero),
@@ -59,7 +59,8 @@ class SettingsEditUserViewController: BaseTableAdapterController {
             return
         }
         self.view.endEditing(true)
-        EssentiaStore.currentUser.profile.name = self.enteredName
+        EssentiaStore.shared.currentUser.profile.name = self.enteredName
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.router.pop()
     }
     

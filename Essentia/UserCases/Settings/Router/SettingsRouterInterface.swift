@@ -21,6 +21,7 @@ enum SettingsRoutes {
     case activity(fileUrl: URL)
     case loginType
     case accountName
+    case fullSecured
 }
 
 protocol SettingsRouterInterface: BaseRouterInterface {

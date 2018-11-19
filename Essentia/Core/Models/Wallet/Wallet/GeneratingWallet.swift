@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
+class GeneratedWallet: NSObject, WalletInterface, ViewWalletInterface {
     var name: String
     var pk: String
     var address: String
@@ -31,5 +31,9 @@ struct GeneratedWallet: Hashable, WalletInterface, ViewWalletInterface {
     
     var asset: AssetInterface {
         return coin
+    }
+    
+    func privateKey(withSeed: String) -> String {
+        return pk
     }
 }

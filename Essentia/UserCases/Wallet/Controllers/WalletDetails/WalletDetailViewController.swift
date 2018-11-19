@@ -52,7 +52,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadRank()
-        tableAdapter.reload(state)
+        tableAdapter.hardReload(state)
         loadTransactions()
         loadBalance()
     }
@@ -61,7 +61,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationImageBar(left: LS("Wallet.Back"),
+            .navigationImageBar(left: LS("Back"),
                                 right: #imageLiteral(resourceName: "downArrow"),
                                 title: store.wallet.name,
                                 lAction: backAction,
@@ -85,7 +85,7 @@ class WalletDetailViewController: BaseTableAdapterController {
                                      perTime: "(24h)"),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
-                                    LS("Wallet.Detail.Exchange"),
+//                                    LS("Wallet.Detail.Exchange"),
                                     LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
@@ -118,7 +118,8 @@ class WalletDetailViewController: BaseTableAdapterController {
                 .descriptionWithSize(aligment: .left,
                                      fontSize: 14,
                                      title: date,
-                                     background: colorProvider.settingsBackgroud),
+                                     background: colorProvider.settingsBackgroud,
+                                     textColor: colorProvider.appDefaultTextColor),
                 .empty(height: 10, background: colorProvider.settingsBackgroud)]
     }
     
@@ -148,15 +149,15 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private func loadRank() {
-        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset)
-        let currentCurrency = EssentiaStore.currentUser.profile.currency
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset)
+        let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         let formatter = BalanceFormatter(currency: currentCurrency)
         let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
         store.currentRank = formattedRank
     }
     
     private lazy var balanceChanged: (Double) -> Void = {
-        let rank = EssentiaStore.ranks.getRank(for: self.store.wallet.asset) ?? 0
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset) ?? 0
         let newCurrentBalance = $0 * rank
         let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
         self.store.balance = newCurrentBalance
@@ -200,7 +201,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var detailAction: () -> Void = {
-        
+        (inject() as WalletRouterInterface).show(.walletOptions(self.store.wallet))
     }
     
     private lazy var searchTransactionAction: () -> Void = {
@@ -212,9 +213,7 @@ class WalletDetailViewController: BaseTableAdapterController {
         case 0:
             (inject() as WalletRouterInterface).show(.enterTransactionAmmount(self.store.wallet))
         case 1:
-            print("Show exchange")
-        case 2:
-            print("Show recive")
+            (inject() as WalletRouterInterface).show(.receive(self.store.wallet))
         default: return
         }
     }
@@ -271,7 +270,7 @@ class WalletDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedBalance(_ balance: Double) -> String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
         return formatter.formattedAmmountWithCurrency(amount: balance)
     }
     
