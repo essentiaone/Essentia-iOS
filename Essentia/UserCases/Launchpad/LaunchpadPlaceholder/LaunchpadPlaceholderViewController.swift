@@ -63,7 +63,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         topPlaceholderView.addGestureRecognizer(swipeRecognizer)
         scrollObserver = tableView.observe(\.contentOffset, options: .new) { (_, change) in
             guard let newValue = change.newValue,
-                newValue.y < -15,
+                newValue.y < -80,
                 !self.swipeRecognizer.isEnabled else { return }
             self.swipDownAction()
         }
