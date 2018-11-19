@@ -57,6 +57,8 @@ class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation 
     }
     
     @IBAction func continueAction(_ sender: Any) {
+        EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.mnemonic)
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
         (inject() as AuthRouterInterface).showNext()
     }
     

@@ -53,8 +53,7 @@ class AuthRouter: AuthRouterInterface {
                 }
                 routes = [
                     .warning,
-                    .phraseCopy(mnemonic: mnemonic),
-                    .phraseConfirm(mnemonic: mnemonic)
+                    .phraseCopy(mnemonic: mnemonic)
                 ]
             case .seed:
                 routes = [
