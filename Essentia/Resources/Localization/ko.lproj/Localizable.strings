@@ -80,6 +80,7 @@
 "Settings.Application" = "APPLICATION";
 "Settings.Currency" = "Currency";
 "Settings.Security" = "Security";
+"Settings.Language" = "Language";
 "Settings.DarkTheme" = "Dark Theme";
 "Settings.Feedback" = "Feedback";
 "Settings.Switch" = "Switch Account";
