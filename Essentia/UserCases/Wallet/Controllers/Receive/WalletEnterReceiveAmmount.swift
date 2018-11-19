@@ -148,7 +148,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     // MARK: - Actions
     private lazy var backAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        self.view.endEditing(true)
+        self.tableAdapter.endEditing(true)
         self.router.pop()
     }
     
