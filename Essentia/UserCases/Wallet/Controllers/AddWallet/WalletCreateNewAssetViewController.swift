@@ -94,13 +94,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     func asyncReloadState() {
-        (inject() as LoaderInterface).show()
         global {
             let state = self.state()
             main {
                 self.tableAdapter.hardReload(state)
                 self.tableAdapter.continueEditing()
-                (inject() as LoaderInterface).hide()
             }
         }
     }
