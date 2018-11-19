@@ -78,6 +78,11 @@
 "Settings.AccountStrength.Push" = "PUSH";
 "Settings.CurrentAccountTitle" = "Account Name";
 "Settings.CurrentAccountTitle.Default" = "Essentia account";
+"Settings.Title.Language" = "Language";
+"Settings.Title.General" = "GENERAL";
+"Settings.Title.Security" = "SECURITY";
+"Settings.Title.Community" = "COMMUNITY";
+"Settings.Title.Application" = "APPLICATION";
 "Settings.Language" = "Language";
 "Settings.Currency" = "Currency";
 "Settings.Security" = "Security";

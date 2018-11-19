@@ -73,6 +73,11 @@
 "Settings.CurrentAccountTitle" = "Account Name";
 "Settings.CurrentAccountTitle.Default" = "Essentia account";
 "Settings.Language" = "Language";
+"Settings.Title.Language" = "Language";
+"Settings.Title.General" = "GENERAL";
+"Settings.Title.Security" = "SECURITY";
+"Settings.Title.Community" = "COMMUNITY";
+"Settings.Title.Application" = "APPLICATION";
 "Settings.Currency" = "Currency";
 "Settings.Security" = "Security";
 "Settings.DarkTheme" = "Dark Theme";
