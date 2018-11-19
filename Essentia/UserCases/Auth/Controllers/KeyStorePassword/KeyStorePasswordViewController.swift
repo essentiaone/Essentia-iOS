@@ -115,9 +115,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     private func decodeKeystore() {
         guard let data = self.keystore else { return }
-        let seed = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
-        if let seed = seed {
-            let user = User(seed: seed)
+        if let mnemonic = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password) {
+            let user = User(mnemonic: mnemonic)
             EssentiaStore.shared.setUser(user)
         }
         (inject() as AuthRouterInterface).showPrev()
