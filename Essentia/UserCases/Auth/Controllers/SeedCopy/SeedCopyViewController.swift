@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SeedCopyViewController: BaseViewController, UITextViewDelegate {
+class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
@@ -57,7 +57,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate {
     @IBAction func continueAction(_ sender: Any) {
         switch authType {
         case .backup:
-            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.append(.seed)
+            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.seed)
             (inject() as UserStorageServiceInterface).storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:

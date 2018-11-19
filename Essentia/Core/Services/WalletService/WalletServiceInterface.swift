@@ -9,7 +9,7 @@
 import Foundation
 
 protocol WalletServiceInterface {
-    func generateWallet(seed: Data, walletInfo: GeneratingWalletInfo) -> GeneratedWallet
     func generateAddress(_ walletInfo: GeneratingWalletInfo) -> String
     func generateAddress(from pk: String, coin: Coin) -> String
+    func generatePk(_ walletInfo: GeneratingWalletInfo) -> String
 }

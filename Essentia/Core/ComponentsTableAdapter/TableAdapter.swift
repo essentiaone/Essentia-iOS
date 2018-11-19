@@ -145,13 +145,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = .clear
             cell.titleLabel.font = font.withSize(34)
             return cell
-        case .titleWithFont(let font, let title, let background):
+        case .titleWithFont(let font, let title, let background, let aligment):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.titleLabel.font = font
             cell.backgroundColor = background
             cell.titleLabel.minimumScaleFactor = 0.5
-            cell.titleLabel.textAlignment = .center
+            cell.titleLabel.textAlignment = aligment
             return cell
         case .titleWithFontAligment(let font,let title, let aligment, let color):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
@@ -626,6 +626,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func continueEditing() {
+        guard let index = selectedRow else { return }
+        tableView(tableView, didSelectRowAt: index)
     }
     
     func focusView(view: UIView) {

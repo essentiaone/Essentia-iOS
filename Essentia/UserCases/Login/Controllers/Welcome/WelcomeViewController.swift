@@ -21,6 +21,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: UserStorageServiceInterface = inject()
+    private var tabBar = TabBarController()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -58,7 +59,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     func openTabBar() {
-        self.present(TabBarController(), animated: true)
+        self.present(tabBar, animated: true)
     }
     
     // MARK: - RestoreAccountDelegate

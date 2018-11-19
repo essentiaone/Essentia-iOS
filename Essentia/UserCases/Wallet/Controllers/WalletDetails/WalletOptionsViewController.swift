@@ -72,7 +72,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     private var exportPrivateKey: [TableComponent] {
         guard selected == .export else { return [] }
-        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left , color: colorProvider.appTitleColor),
+        return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left, color: colorProvider.appTitleColor),
                 .titleAction(font: AppFont.regular.withSize(15), title: privateKey, action: copyAction)]
     }
     
@@ -94,6 +94,8 @@ class WalletOptionsViewController: BaseTableAdapterController {
         guard let `self` = self else { return }
         self.tableAdapter.endEditing(true)
         self.wallet.name = self.enteredName
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        
         self.dismiss(animated: true)
     }
     
@@ -131,6 +133,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
         self.present(DeleteWalletWarningViewController(wallet: wallet, leftAction: {}, rightAction: { [weak self] in
             guard let `self` = self else { return }
             EssentiaStore.shared.currentUser.wallet.remove(wallet: self.wallet)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
             self.dismiss(animated: true, completion: {
                 (inject() as WalletRouterInterface).popToRoot()
             })

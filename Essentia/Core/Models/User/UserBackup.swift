@@ -9,7 +9,7 @@
 import Foundation
 
 class UserBackup: Codable {
-    var currentlyBackedUp: [BackupType] = []
+    var currentlyBackedUp: Set<BackupType> = []
     var loginMethod: BackupType = .none
     var keystoreUrl: URL?
     

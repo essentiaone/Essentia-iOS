@@ -18,6 +18,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     @IBOutlet weak var arrowLabel: UILabel!
     
     private var swipeRecognizer: UISwipeGestureRecognizer!
+    private var scrollObserver: NSKeyValueObservation?
     private lazy var tableAdapter: TableAdapter = TableAdapter(tableView: tableView)
     
     override init() {
@@ -38,12 +39,18 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         self.tableAdapter.hardReload(state)
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        view.removeGestureRecognizer(swipeRecognizer)
+    }
+    
     private func applyDesign() {
         titleLabel.text = LS("Launchpad.Placeholder.Title")
         arrowLabel.text = LS("Launchpad.Placeholder.Swipe")
         
         titleLabel.textColor = (inject() as AppColorInterface).appTitleColor
         arrowLabel.textColor = (inject() as AppColorInterface).centeredButtonBackgroudColor
+        tableView.backgroundColor = RGB(183, 192, 208)
         
         titleLabel.font = AppFont.bold.withSize(34)
         arrowLabel.font = AppFont.medium.withSize(16)
@@ -54,6 +61,12 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     private func addRecognizer() {
         topPlaceholderView.addGestureRecognizer(swipeRecognizer)
+        scrollObserver = tableView.observe(\.contentOffset, options: .new) { (_, change) in
+            guard let newValue = change.newValue,
+                newValue.y < -15,
+                !self.swipeRecognizer.isEnabled else { return }
+            self.swipDownAction()
+        }
     }
     
     @objc func handleGesture(gesture: UISwipeGestureRecognizer) {
@@ -73,9 +86,9 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     private var state: [TableComponent] {
         return [.empty(height: 48, background: RGB(183, 192, 208)),
-        .centeredImageButton(image: UIImage(named: "upArrow")!, action: swipDownAction),
+        .centeredImageButton(image: UIImage(named: "arrowDown")!, action: swipDownAction),
         .empty(height: 20, background: .white),
-        .title(bold: true, title: LS("Launchpad.Placeholder.Detail.Title")),
+        .titleWithFont(font: AppFont.bold.withSize(34), title: LS("Launchpad.Placeholder.Detail.Title"), background: .white, aligment: .left),
         .empty(height: 20, background: .white)] + featuresState
     }
     
@@ -93,7 +106,8 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     // MARK: - Actions
     
-    private lazy var swipDownAction: () -> Void = {
+    private lazy var swipDownAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
         self.animatePlaceholderTopConstraint(to: -20)
         self.swipeRecognizer.isEnabled = true
     }

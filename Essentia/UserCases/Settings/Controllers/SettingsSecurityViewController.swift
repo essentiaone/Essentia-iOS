@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsSecurityViewController: BaseTableAdapterController {
+class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
@@ -37,23 +37,15 @@ class SettingsSecurityViewController: BaseTableAdapterController {
             .title(bold: true, title: LS("Settings.Security.Title")),
             .empty(height: 22.0, background: colorProvider.settingsBackgroud),
             .menuSectionHeader(title: LS("Settings.Security.SectionHeader"),
-                               backgroud: colorProvider.settingsBackgroud),
-            .menuSimpleTitleDetail(title: LS("Settings.Security.Mnemonic.Title"),
-                                   detail: LS("Settings.Security.Mnemonic.Detail"),
-                                   withArrow: true,
-                                   action: mnemonicAction),
-            .separator(inset: .zero),
-            .menuSimpleTitleDetail(title: LS("Settings.Security.Seed.Title"),
+                               backgroud: colorProvider.settingsBackgroud)]
+            + mnemonicState +
+            [.menuSimpleTitleDetail(title: LS("Settings.Security.Seed.Title"),
                                    detail: LS("Settings.Security.Seed.Detail"),
                                    withArrow: true,
                                    action: seedAction),
-            .separator(inset: .zero),
-            .menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
-                                   detail: LS("Settings.Security.Keystore.Detail"),
-                                   withArrow: false,
-                                   action: ketstoreAction),
-            .separator(inset: .zero),
-            .empty(height: 16.0, background: colorProvider.settingsBackgroud),
+            .separator(inset: .zero)]
+            + keystoreState +
+            [.empty(height: 16.0, background: colorProvider.settingsBackgroud),
             .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
                                    detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
                                    withArrow: true,
@@ -63,6 +55,24 @@ class SettingsSecurityViewController: BaseTableAdapterController {
                          backgroud: colorProvider.settingsBackgroud)
 
             ]
+    }
+    
+    var keystoreState: [TableComponent] {
+        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        return [.menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
+                                       detail: LS("Settings.Security.Keystore.Detail"),
+                                       withArrow: false,
+                                       action: ketstoreAction),
+                .separator(inset: .zero)]
+    }
+    
+    var mnemonicState: [TableComponent] {
+        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        return [ .menuSimpleTitleDetail(title: LS("Settings.Security.Mnemonic.Title"),
+                                        detail: LS("Settings.Security.Mnemonic.Detail"),
+                                        withArrow: true,
+                                        action: mnemonicAction),
+                 .separator(inset: .zero)]
     }
     
     // MARK: - Actions

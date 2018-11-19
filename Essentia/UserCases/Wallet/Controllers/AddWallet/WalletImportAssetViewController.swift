@@ -22,7 +22,7 @@ fileprivate struct Store {
     }
 }
 
-class WalletImportAssetViewController: BaseTableAdapterController {
+class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     
@@ -69,7 +69,7 @@ class WalletImportAssetViewController: BaseTableAdapterController {
                             action: importAction,
                             background: colorProvider.settingsBackgroud),
             .empty(height: 8, background: colorProvider.settingsBackgroud),
-            isKeyboardShown ?! .keyboardInset
+            .keyboardInset
         ]
         return rawState.compactMap { return $0 }
     }
