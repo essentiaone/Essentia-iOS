@@ -34,6 +34,7 @@
                         <constraint firstAttribute="width" constant="80" id="i4z-3f-gMc"/>
                         <constraint firstAttribute="height" constant="35" id="xXf-Z4-XjA"/>
                     </constraints>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
                     <connections>
                         <action selector="backAction:" destination="-1" eventType="touchUpInside" id="bOz-Yr-Et7"/>

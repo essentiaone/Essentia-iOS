@@ -75,7 +75,6 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                  .separator(inset: .zero)]
     }
     
-    
     // MARK: - Actions
     
     private lazy var backAction: () -> Void = {
