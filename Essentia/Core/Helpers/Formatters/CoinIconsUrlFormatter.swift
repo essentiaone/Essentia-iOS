@@ -44,4 +44,9 @@ class CoinIconsUrlFormatter {
         let urlString = Constants.imagesUrl + size.sizeIdentifire + formattedName + Constants.imageUrlPostfix
         return URL(string: urlString)!
     }
+    
+    static func urlFromPath(path: String) -> URL {
+        let urlString = Constants.imagesUrl + path
+        return URL(string: urlString)!
+    }
 }

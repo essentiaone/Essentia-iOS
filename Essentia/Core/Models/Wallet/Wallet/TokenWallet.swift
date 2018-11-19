@@ -22,7 +22,7 @@ class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     }
     
     var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: token.id, size: .x128).url
+        return token.iconUrl
     }
     
     var symbol: String {

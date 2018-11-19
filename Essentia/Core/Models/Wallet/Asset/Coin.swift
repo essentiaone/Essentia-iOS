@@ -95,4 +95,8 @@ enum Coin: String, Codable, AssetInterface {
     func isSafeTransaction(confirmations: Int) -> Bool {
         return safeConfirmationCount < confirmations
     }
+    
+    var iconUrl: URL {
+        return CoinIconsUrlFormatter(name: name, size: .x128).url
+    }
 }
