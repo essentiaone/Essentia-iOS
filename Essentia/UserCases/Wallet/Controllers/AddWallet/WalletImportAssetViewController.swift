@@ -22,7 +22,7 @@ fileprivate struct Store {
     }
 }
 
-class WalletImportAssetViewController: BaseTableAdapterController {
+class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     

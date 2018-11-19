@@ -15,16 +15,13 @@ class BackupDesign: BackupDesignInterface {
     func applyDesign(to vc: WarningViewContrller) {
         // MARK: - Localized Strings
         vc.titleLabel.text = LS("Warning.Title")
-        vc.descriptionLabel.text = LS("Warning.Description")
         vc.doneButton.setTitle(LS("Warning.Done"), for: .normal)
         
         // MARK: - Colors
         vc.titleLabel.textColor =  colorProvider.appTitleColor
-        vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
         
         // MARK: - Fonts
         vc.titleLabel.font = AppFont.bold.withSize(32)
-        vc.descriptionLabel.font = AppFont.regular.withSize(18)
 
         vc.imageView.image = imageProvider.warningPrivacyIcon
     }
@@ -65,11 +62,6 @@ class BackupDesign: BackupDesignInterface {
         vc.separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         vc.titleLabel.textColor =  colorProvider.appTitleColor
         vc.descriptionLabel.textColor = colorProvider.appDefaultTextColor
-        let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
-        let loginInset: CGFloat = isLargeKeyboard ? 10 : -25
-        let backupInset: CGFloat = isLargeKeyboard ? -35 : -25
-        let inset: CGFloat = vc.authType == .login ? loginInset : backupInset
-        vc.buttomCurrentWordConstraint.constant = vc.keyboardHeight + inset
     }
 
     func applyDesign(to vc: SeedCopyViewController) {
@@ -103,6 +95,6 @@ class BackupDesign: BackupDesignInterface {
         vc.copyButton.isSelected = false
         vc.continueButton.isEnabled = false
         
-        vc.continueButtomConstraint.constant = vc.authType == .login ? vc.keyboardHeight - 35 : 20
+        vc.continueButtomConstraint.constant = vc.authType == .login ? 256 - 35 : 20
     }
 }

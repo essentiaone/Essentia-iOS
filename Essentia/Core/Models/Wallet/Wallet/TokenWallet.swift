@@ -22,7 +22,7 @@ class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     }
     
     var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: token.id, size: .x128).url
+        return token.iconUrl
     }
     
     var symbol: String {
@@ -39,8 +39,6 @@ class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
     
     func privateKey(withSeed: String) -> String {
         let walletService: WalletServiceInterface = inject()
-        let seed = EssentiaStore.shared.currentUser.seed
-        let data = Data(hex: seed)
-        return walletService.generateWallet(seed: data, walletInfo: wallet).pk
+        return walletService.generatePk(wallet)
     }
 }

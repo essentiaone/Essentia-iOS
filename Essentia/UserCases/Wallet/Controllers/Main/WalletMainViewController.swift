@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
-    var generatedWallets: [GeneratedWallet] = []
+    var generatedWallets: [GeneratingWalletInfo] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
     var balanceChangedPer24Hours: Double = 0
@@ -31,15 +31,6 @@ class WalletMainViewController: BaseTableAdapterController {
     private var cashNonEmptyStaticState: [TableComponent]?
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        (inject() as LoaderInterface).show()
-        injectRouter()
-        injectInteractor()
-        injectWalletInteractor()
-        (inject() as LoaderInterface).hide()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
@@ -49,23 +40,6 @@ class WalletMainViewController: BaseTableAdapterController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.store.tableHeight = tableView.frame.height
-    }
-    
-    // MARK: - Dependences
-    private func injectInteractor() {
-        let injection: WalletInteractorInterface = WalletInteractor()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func injectWalletInteractor() {
-        let injection: WalletBlockchainWrapperInteractorInterface = WalletBlockchainWrapperInteractor()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func injectRouter() {
-        guard let navigation = navigationController else { return }
-        let injection: WalletRouterInterface = WalletRouter(navigationController: navigation)
-        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     // MARK: - State
@@ -89,10 +63,12 @@ class WalletMainViewController: BaseTableAdapterController {
             .empty(height: 20, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(20),
                            title: LS("Wallet.Main.Balance.Title"),
-                           background: colorProvider.settingsCellsBackround),
+                           background: colorProvider.settingsCellsBackround,
+                          aligment: .center),
             .titleWithFont(font: AppFont.bold.withSize(32),
                            title: formattedBalance(interator.getTotalBalanceInCurrentCurrency()),
-                           background: colorProvider.settingsCellsBackround),
+                           background: colorProvider.settingsCellsBackround,
+                           aligment: .center),
             .balanceChanging(balanceChanged: procents,
                              perTime: "(24h)",
                              action: updateBalanceChanginPerDay),
@@ -203,6 +179,13 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var addWalletAction: () -> Void = {
+        guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
+            self.present(BackupMnemonicAlert.init(leftAction: {
+            }, rightAction: {
+                (inject() as WalletRouterInterface).show(.backupMenmonic)
+            }), animated: true)
+            return
+        }
         (inject() as WalletRouterInterface).show(.newAssets)
     }
     

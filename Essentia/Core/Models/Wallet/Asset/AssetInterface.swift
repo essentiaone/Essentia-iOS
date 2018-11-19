@@ -41,9 +41,3 @@ extension AssetInterface where Self: Hashable {
         return name.djb2hash
     }
 }
-
-extension AssetInterface {
-    var iconUrl: URL {
-        return CoinIconsUrlFormatter(name: name, size: .x128).url
-    }
-}

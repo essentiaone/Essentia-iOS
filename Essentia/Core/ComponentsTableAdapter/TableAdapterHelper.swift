@@ -42,7 +42,7 @@ class TableAdapterHelper {
         case .title(let bold, let title):
             let font = bold ? AppFont.bold : AppFont.regular
             return title.multyLineLabelHeight(with: font.withSize(34), width: tableView.frame.width)
-        case .titleWithFont(let font, let title, _):
+        case .titleWithFont(let font, let title, _, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)
         case .titleWithFontAligment(let font, let title, _, _):
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width)

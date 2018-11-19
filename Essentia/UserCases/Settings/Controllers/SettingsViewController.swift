@@ -18,15 +18,11 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        injectRouter()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyDesign()
         updateState()
+        scrollToTop()
     }
     
     // MARK: - Override
@@ -36,12 +32,6 @@ class SettingsViewController: BaseTableAdapterController {
     
     private func updateState() {
         tableAdapter.hardReload(state)
-    }
-    
-    private func injectRouter() {
-        guard let navigation = navigationController else { return }
-        let injection: SettingsRouterInterface = SettingsRouter(navigationController: navigation)
-        prepareInjection(injection, memoryPolicy: .viewController)
     }
     
     private func applyDesign() {
@@ -62,6 +52,12 @@ class SettingsViewController: BaseTableAdapterController {
                              name: EssentiaStore.shared.currentUser.dislayName,
                              action: editCurrentAccountAction),
              .empty(height: 16.0, background: colorProvider.settingsBackgroud),
+             .descriptionWithSize(aligment: .left,
+                                  fontSize: 13,
+                                  title: LS("Settings.Title.General"),
+                                  background: colorProvider.settingsBackgroud,
+                                  textColor: colorProvider.appDefaultTextColor),
+             .empty(height: 5.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.languageIcon,
                               title: LS("Settings.Language"),
                               detail: user.profile.language.titleString,
@@ -72,18 +68,37 @@ class SettingsViewController: BaseTableAdapterController {
                               detail: user.profile.currency.titleString,
                               action: currencyAction),
              .separator(inset: Constants.separatorInset),
+             .empty(height: 16, background: colorProvider.settingsBackgroud),
+             .descriptionWithSize(aligment: .left,
+                                  fontSize: 13,
+                                  title: LS("Settings.Title.Security"),
+                                  background: colorProvider.settingsBackgroud,
+                                  textColor: colorProvider.appDefaultTextColor),
+             .empty(height: 5.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.securityIcon,
                               title: LS("Settings.Security"),
                               detail: "",
                               action: securityAction),
              .separator(inset: Constants.separatorInset),
              .empty(height: 16, background: colorProvider.settingsBackgroud),
+             .descriptionWithSize(aligment: .left,
+                                  fontSize: 13,
+                                  title: LS("Settings.Title.Community"),
+                                  background: colorProvider.settingsBackgroud,
+                                  textColor: colorProvider.appDefaultTextColor),
+             .empty(height: 5.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.feedbackIcon,
                               title: LS("Settings.Feedback"),
                               detail: "",
                               action: feedbackAction),
              .separator(inset: Constants.separatorInset),
              .empty(height: 16, background: colorProvider.settingsBackgroud),
+             .descriptionWithSize(aligment: .left,
+                                  fontSize: 13,
+                                  title: LS("Settings.Title.Application"),
+                                  background: colorProvider.settingsBackgroud,
+                                  textColor: colorProvider.appDefaultTextColor),
+             .empty(height: 5.0, background: colorProvider.settingsBackgroud),
              .menuButton(title: LS("Settings.Switch"),
                          color: colorProvider.settingsMenuSwitchAccount,
                          action: switchAccountAction),
@@ -92,34 +107,31 @@ class SettingsViewController: BaseTableAdapterController {
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
              .calculatbleSpace(background: colorProvider.settingsBackgroud),
-             .empty(height: 10, background: colorProvider.settingsBackgroud )]
+             .empty(height: 24, background: colorProvider.settingsBackgroud )]
         return rawState.compactMap { return $0 }
+    }
+    
+    private func scrollToTop() {
+        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
     
     // MARK: - Actions
     
-    private lazy var currencyAction: () -> Void = {
+    private lazy var currencyAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
     private lazy var switchAccountAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
-        self.viewDidDisappear(true)
     }
     private lazy var logOutAction: () -> Void = {
-        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp == [] else {
-            self.logOutUser()
-            return
-        }
-        let alert = ConfirmLogOutViewController(leftAction: {
-            (inject() as SettingsRouterInterface).show(.accountStrength)
-        }, rightAction: { [weak self] in
-            self?.logOutUser()
-        })
-        self.present(alert, animated: true)
+        self.logOutUser()
     }
     
     func logOutUser() {
@@ -132,23 +144,33 @@ class SettingsViewController: BaseTableAdapterController {
         
     }
     
-    private lazy var securityAction: () -> Void = {
+    private lazy var securityAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.security)
     }
     
-    private lazy var languageAction: () -> Void = {
+    private lazy var languageAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.language)
     }
     
-    private lazy var accountStrenghtAction: () -> Void = {
+    private lazy var accountStrenghtAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.accountStrength)
     }
     
-    private lazy var editCurrentAccountAction: () -> Void = {
+    private lazy var editCurrentAccountAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.accountName)
     }
     
-    private lazy var feedbackAction: () -> Void = {
+    private lazy var feedbackAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.scrollToTop()
         
     }
 }

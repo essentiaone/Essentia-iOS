@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SettingsLanguageViewController: BaseTableAdapterController {
+class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()

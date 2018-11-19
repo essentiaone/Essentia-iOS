@@ -13,4 +13,5 @@ protocol UserStorageServiceInterface {
     func store(user: User)
     func storeCurrentUser()
     func remove(user: User)
+    var freeIndex: Int { get }
 }

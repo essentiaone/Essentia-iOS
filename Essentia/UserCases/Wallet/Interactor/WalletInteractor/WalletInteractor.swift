@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import PromiseKit
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
@@ -62,10 +61,8 @@ class WalletInteractor: WalletInteractorInterface {
         }
     }
     
-    func getGeneratedWallets() -> [GeneratedWallet] {
-        let walletsInfo = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
-        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
-        return walletsInfo.map({ return walletService.generateWallet(seed: seed, walletInfo: $0) })
+    func getGeneratedWallets() -> [GeneratingWalletInfo] {
+        return EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
     }
     
     func getImportedWallets() -> [ImportedWallet] {

@@ -132,7 +132,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
                 let transaction = EthereumRawTransaction(value: ammountInWei,
                                                          to: transacionDetial.address,
                                                          gasPrice: transacionDetial.gasPrice,
-                                                         gasLimit: Int(gasPriceInWei.description) ?? 0,
+                                                         gasLimit: Int(gasLimiyInWei.description) ?? 0,
                                                          nonce: count.count)
                 let seed =  EssentiaStore.shared.currentUser.seed
                 

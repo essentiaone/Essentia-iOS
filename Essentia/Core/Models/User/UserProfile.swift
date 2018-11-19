@@ -8,6 +8,8 @@
 
 import UIKit
 
+fileprivate var defaultImage = UIImage(named: "testAvatar")!
+
 class UserProfile: Codable {
     var name: String?
     var currency: FiatCurrency
@@ -17,10 +19,10 @@ class UserProfile: Codable {
     init() {
         self.currency = .usd
         self.language = LocalizationLanguage.defaultLanguage
-        self.imageData = UIImage(named: "testAvatar")!.jpegData(compressionQuality: 1.0)!
+        self.imageData = defaultImage.pngData()
     }
     
-    convenience init(image: UIImage, name: String) {
+    convenience init(image: UIImage = defaultImage, name: String) {
         self.init()
         self.name = name
         self.imageData = image.jpegData(compressionQuality: 1.0)

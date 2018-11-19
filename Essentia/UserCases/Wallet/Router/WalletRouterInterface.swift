@@ -25,6 +25,7 @@ enum WalletRoutes {
     case qrReader(QRCodeReaderViewControllerDelegate)
     case receive(ViewWalletInterface)
     case enterReceiveAmmount(AssetInterface, action: (String) -> Void)
+    case backupMenmonic
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {
