@@ -34,7 +34,7 @@ class SettingsLoginMethodViewController: BaseTableAdapterController, SwipeableNa
         let loginType = EssentiaStore.shared.currentUser.backup.loginMethod
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Back"),
+            .navigationBar(left: LS("Settings.Title"),
                            right: "",
                            title: "",
                            lAction: backAction,
