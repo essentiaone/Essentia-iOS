@@ -91,10 +91,18 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     
     private lazy var confirmAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
+        (inject() as LoaderInterface).show()
         self.interactor.sendEthTransaction(wallet: self.wallet,
-                                      transacionDetial: self.tx) { (result) in
-                                        
-             self.dismiss(animated: true)
+                                      transacionDetial: self.tx) {
+                                        (inject() as LoaderInterface).hide()
+                                        switch $0 {
+                                        case .success(let object):
+                                            (inject() as LoggerServiceInterface).log(object)
+                                            self.dismiss(animated: true)
+                                            (inject() as WalletRouterInterface).show(.doneTx)
+                                        case .failure(let error):
+                                            (inject() as LoaderInterface).showError(message: error.localizedDescription)
+                                        }
         }
     }
 }

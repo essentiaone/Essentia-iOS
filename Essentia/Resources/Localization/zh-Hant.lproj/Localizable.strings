@@ -318,3 +318,7 @@
 "Wallet.Onbording2.Detail" = "Access your all digital assets from a single wallet across any device";
 "Wallet.Onbording3.Title" = "Lightning fast!";
 "Wallet.Onbording3.Detail" = "Don’t waste your valuable time, leave all the hard work to us!";
+
+"Wallet.Transaction.Send.Done.Title" = "Well done!";
+"Wallet.Transaction.Send.Done.Description" = "Your transactoin has been sent. Soon you will be able to see it in your transaction history.";
+"Wallet.Transaction.Send.Done.Continue" = "BACK TO WALLET";

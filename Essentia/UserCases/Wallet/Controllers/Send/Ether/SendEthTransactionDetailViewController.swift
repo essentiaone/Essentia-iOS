@@ -171,8 +171,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         let txInfo = EtherTxInfo(address: self.store.address,
                                  ammount: self.store.ammount,
                                  fee: self.store.enteredFee,
-                                 gasPrice: Int(self.store.gasEstimate),
-                                 gasLimit: Int(self.store.selectedFeeSlider))
+                                 gasPrice: Int(self.store.selectedFeeSlider * pow(10, 9)),
+                                 gasLimit: Int(self.store.gasEstimate))
         let vc = ConfirmEthereumTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)

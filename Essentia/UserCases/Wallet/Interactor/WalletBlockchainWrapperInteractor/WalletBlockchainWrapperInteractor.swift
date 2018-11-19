@@ -124,15 +124,14 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         cryptoWallet.ethereum.getTransactionCount(for: wallet.address) { (transactionCountResult) in
             switch transactionCountResult {
             case .success(let count):
-                guard let ammountInWei = try? WeiEthterConverter.toWei(ether: transacionDetial.ammount.inCrypto),
-                      let gasLimiyInWei = try? WeiEthterConverter.toWei(ether: String(transacionDetial.gasLimit)) else {
+                guard let ammountInWei = try? WeiEthterConverter.toWei(ether: transacionDetial.ammount.inCrypto) else {
                     result(.failure(.unknownError))
                     return
                 }
                 let transaction = EthereumRawTransaction(value: ammountInWei,
                                                          to: transacionDetial.address,
                                                          gasPrice: transacionDetial.gasPrice,
-                                                         gasLimit: Int(gasLimiyInWei.description) ?? 0,
+                                                         gasLimit: transacionDetial.gasLimit,
                                                          nonce: count.count)
                 let seed =  EssentiaStore.shared.currentUser.seed
                 
@@ -143,7 +142,14 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
                     result(.failure(.unknownError))
                     return
                 }
-                self.cryptoWallet.ethereum.sendTransaction(with: txData.toHexString().addHexPrefix(), result: result)
+                self.cryptoWallet.ethereum.sendTransaction(with: txData.toHexString().addHexPrefix(), result: {
+                    switch $0 {
+                    case .success(let object):
+                        result(.success(object.txId))
+                    case .failure(let error):
+                        result(.failure(error))
+                    }
+                })
             default:
                 result(.failure(.unknownError))
             }

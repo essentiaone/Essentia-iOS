@@ -312,10 +312,13 @@
 
 "Notification.Placeholder.Description" = "We are working on it now, so soon you will be able to have notifications";
 
-
 "Wallet.Onbording1.Title" = "Extra-secure!";
 "Wallet.Onbording1.Detail" = "Leverage the cryptography of the blockchain to keep your assets safe";
 "Wallet.Onbording2.Title" = "Superwallet!";
 "Wallet.Onbording2.Detail" = "Access your all digital assets from a single wallet across any device";
 "Wallet.Onbording3.Title" = "Lightning fast!";
 "Wallet.Onbording3.Detail" = "Don’t waste your valuable time, leave all the hard work to us!";
+
+"Wallet.Transaction.Send.Done.Title" = "Well done!";
+"Wallet.Transaction.Send.Done.Description" = "Your transactoin has been sent. Soon you will be able to see it in your transaction history.";
+"Wallet.Transaction.Send.Done.Continue" = "BACK TO WALLET";

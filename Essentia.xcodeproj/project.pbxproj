@@ -292,6 +292,8 @@
 		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */; };
 		34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6921A25253009F00F2 /* TokenIcons.swift */; };
+		34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */; };
+		34F2EA7321A28D46009F00F2 /* DoneTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */; };
 		34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB98A2187C66F00A88D56 /* DateFormatter.swift */; };
 		34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */; };
 		34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */; };
@@ -609,6 +611,8 @@
 		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
 		34F2EA6921A25253009F00F2 /* TokenIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIcons.swift; sourceTree = "<group>"; };
+		34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTransactionViewController.swift; sourceTree = "<group>"; };
+		34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneTransactionViewController.xib; sourceTree = "<group>"; };
 		34FCB98A2187C66F00A88D56 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		34FCB9922188C16700A88D56 /* TableComponentTitleCenterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleCenterDetail.swift; sourceTree = "<group>"; };
 		34FCB9942188C17C00A88D56 /* TableComponentTitleCenterDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleCenterDetail.xib; sourceTree = "<group>"; };
@@ -1987,6 +1991,7 @@
 		34DC8B7F21778E2000ACA5D2 /* Send */ = {
 			isa = PBXGroup;
 			children = (
+				34F2EA7121A28D39009F00F2 /* DoneTransaction */,
 				346F0B0E219A529B004B4584 /* Ether */,
 				34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */,
 				34E706E5219CFCFF002A52E3 /* SelectedTransacrionAmmount.swift */,
@@ -2037,6 +2042,15 @@
 				34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		34F2EA7121A28D39009F00F2 /* DoneTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */,
+				34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */,
+			);
+			path = DoneTransaction;
 			sourceTree = "<group>";
 		};
 		34FCB9912188C11D00A88D56 /* TitleCenterDetail */ = {
@@ -2230,6 +2244,7 @@
 				3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
 				343122752124E93E009E4A7A /* TableComponentParagraph.xib in Resources */,
+				34F2EA7321A28D46009F00F2 /* DoneTransactionViewController.xib in Resources */,
 				349AA4AA212328DF00E9256F /* TableComponentCheckBox.xib in Resources */,
 				344826B32120F6CC00C19EB3 /* TableComponentAccountStrengthAction.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
@@ -2517,6 +2532,7 @@
 				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
+				34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */,
 				344958EC21417CEC00C2230B /* UserEvents.swift in Sources */,
 				34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */,
 				349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */,

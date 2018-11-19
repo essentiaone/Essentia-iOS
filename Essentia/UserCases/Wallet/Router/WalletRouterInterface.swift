@@ -26,6 +26,7 @@ enum WalletRoutes {
     case receive(ViewWalletInterface)
     case enterReceiveAmmount(AssetInterface, action: (String) -> Void)
     case backupMenmonic
+    case doneTx
 }
 
 protocol WalletRouterInterface: BaseRouterInterface {
