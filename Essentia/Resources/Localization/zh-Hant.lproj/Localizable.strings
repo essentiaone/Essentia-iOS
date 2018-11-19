@@ -95,7 +95,7 @@
 "Settings.Secure.Seed.Description" = "Is an encrypted version of your unique private key.";
 "Settings.Secure.KeyStore.Title" = "Keystore File";
 "Settings.Secure.KeyStore.Description" = "Download your Keystore file to access to Essentia";
-"Settings.Secure.Description" = "By completing these steps you are making your account more security";
+"Settings.Secure.Description" = "By completing these steps you are making your account more secure";
 
 "Settings.Currency.Title" = "Currency";
 "Settings.Language.Title" = "語言";
