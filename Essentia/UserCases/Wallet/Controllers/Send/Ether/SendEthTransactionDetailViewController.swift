@@ -212,6 +212,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     private lazy var feeChangedDirectly: (String) -> Void = { [weak self] fee in
         guard let `self` = self else { return }
         self.store.enteredFee = Double(fee) ?? 0
+        self.store.selectedFeeSlider = Float(self.store.enteredFee * pow(10, 9) / self.store.gasEstimate)
         self.tableAdapter.simpleReload(self.state)
     }
     
