@@ -11,7 +11,6 @@ import UIKit
 class WarningViewContrller: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var doneButton: CenteredButton!
     @IBOutlet weak var imageView: UIImageView!
     
