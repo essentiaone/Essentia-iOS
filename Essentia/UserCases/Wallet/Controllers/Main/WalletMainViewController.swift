@@ -182,7 +182,7 @@ class WalletMainViewController: BaseTableAdapterController {
         guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
             self.present(BackupMnemonicAlert.init(leftAction: {
             }, rightAction: {
-                (inject() as WalletRouterInterface).show(.backupMenmonic)
+                (inject() as WalletRouterInterface).show(.backupKeystore)
             }), animated: true)
             return
         }

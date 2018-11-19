@@ -134,8 +134,8 @@
 "LogOutAction.LeftButton" = "BACKUP";
 "LogOutAction.RightButton" = "LOG OUT";
 
-"MnemonicBackupWarning.Title" = "You need to backup your Mnemonic Phrase";
-"MnemonicBackupWarning.Description" = "In order to use this login method as primary one, you need to make a backup of it";
+"MnemonicBackupWarning.Title" = "You need to backup you KeyStore File";
+"MnemonicBackupWarning.Description" = "In order to use your Wallet, you need to Backup a KeyStore File.";
 "MnemonicBackupWarning.LeftButton" = "CANCEL";
 "MnemonicBackupWarning.RightButton" = "BACKUP";
 
