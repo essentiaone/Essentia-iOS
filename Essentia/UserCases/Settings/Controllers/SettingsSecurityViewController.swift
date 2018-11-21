@@ -6,7 +6,7 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -89,6 +89,6 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                 (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
                 return
         }
-        (inject() as SettingsRouterInterface).show(.activity(fileUrl: keystore))
+        self.present(UIActivityViewController(activityItems: [keystore], applicationActivities: nil), animated: true)
     }
 }

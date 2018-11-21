@@ -18,7 +18,6 @@ enum SettingsRoutes {
     case security 
     case switchAccount(callBack: () -> Void)
     case backup(type: BackupType)
-    case activity(fileUrl: URL)
     case loginType
     case accountName
     case fullSecured

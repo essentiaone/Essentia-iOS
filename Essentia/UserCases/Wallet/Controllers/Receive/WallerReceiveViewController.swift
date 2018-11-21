@@ -49,7 +49,11 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationImageBar(left: LS("Back"), right: UIImage(named: "optionsExport")!, title: "", lAction: backAction, rAction: shareAction),
+            .navigationImageBar(left: LS("Back"),
+                                right: UIImage(named: "optionsExport")!,
+                                title: "",
+                                lAction: backAction,
+                                rAction: shareAction),
             .title(bold: true, title:  LS("Wallet.Receive.Title")),
             .empty(height: 30, background: colorProvider.settingsCellsBackround),
             .centeredImage(image: qrImageForText(store.qrText)),
@@ -103,7 +107,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     
     private lazy var shareAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        self.router.pop()
+        self.present(UIActivityViewController(activityItems: [self.store.wallet.address], applicationActivities: nil), animated: true)
     }
     
     private lazy var copyAction: () -> Void = { [weak self] in

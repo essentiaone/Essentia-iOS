@@ -29,8 +29,6 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
             push(vc: SettingsSecurityViewController())
         case .backup(let type):
             showBackupRoute(type: type)
-        case .activity(let fileUrl):
-            popUp(vc: UIActivityViewController(activityItems: [fileUrl], applicationActivities: nil))
         case .loginType:
             push(vc: SettingsLoginMethodViewController())
         case .accountName:
