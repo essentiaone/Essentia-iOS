@@ -54,6 +54,7 @@ class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation 
         copyButton.isSelected = true
         continueButton.isEnabled = true
         UIPasteboard.general.string = mnemonic
+        TopAlert(alertType: .info, title: "Mnemonic Phrase сopied", inView: self.view).show()
     }
     
     @IBAction func continueAction(_ sender: Any) {

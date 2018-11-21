@@ -84,7 +84,8 @@ class AuthRouter: AuthRouterInterface {
             default: routes = []
             }
         }
-        self.navigationController.pushViewController(routes.first!.controller, animated: true)
+        guard let controller = routes.first?.controller else { return }
+        self.navigationController.pushViewController(controller, animated: true)
     }
     
     func showNext() {

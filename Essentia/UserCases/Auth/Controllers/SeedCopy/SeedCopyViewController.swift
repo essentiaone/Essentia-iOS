@@ -52,6 +52,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
         copyButton.isSelected = true
         continueButton.isEnabled = true
         UIPasteboard.general.string = EssentiaStore.shared.currentUser.seed
+        TopAlert(alertType: .info, title: "Seed сopied", inView: self.view).show()
     }
     
     @IBAction func continueAction(_ sender: Any) {
