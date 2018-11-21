@@ -126,9 +126,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
         case .topAlert(let type, let string):
-            let alert = TopAlert(alertType: type, title: string)
             if let superView = tableView.superview {
-                alert.show(in: superView)
+                let alert = TopAlert(alertType: type, title: string, inView: superView)
+                alert.show()
             }
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             return cell

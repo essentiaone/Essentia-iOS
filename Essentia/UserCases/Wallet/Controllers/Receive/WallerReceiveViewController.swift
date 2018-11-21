@@ -27,6 +27,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
+    private lazy var alert = TopAlert(alertType: .info, title: "Address сopied", inView: self.view)
     
     private var store: Store
     
@@ -105,7 +106,9 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var copyAction: () -> Void = { [weak self] in
-        
+        guard let `self` = self else { return }
+        UIPasteboard.general.string = self.store.wallet.address
+        self.alert.show()
     }
     
     private lazy var enterAmmoutAction: () -> Void = { [weak self] in

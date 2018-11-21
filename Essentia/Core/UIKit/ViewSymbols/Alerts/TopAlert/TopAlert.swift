@@ -34,20 +34,23 @@ enum AlertType {
 class TopAlert: UIView {
     private var label = UILabel()
     private let alertType: AlertType
+    private var isAnimating: Bool = false
+    private var containerView: UIView
     
-    init(alertType: AlertType, title: String) {
+    init(alertType: AlertType, title: String, inView: UIView) {
+        self.containerView = inView
         self.alertType = alertType
-        let screenWidth = UIScreen.main.bounds.width
+        super.init(frame: CGRect(x: alertType.insets, y: -40, width: inView.frame.width - alertType.insets * 2, height: 40))
         switch alertType {
         case .error:
-            super.init(frame: CGRect(x: 16, y: -40, width: screenWidth - 32, height: 40))
             setGradientBackground(first: RGB(255, 56, 0), second: RGB(255, 56, 60), type: .topToBottom)
         case .info:
-            super.init(frame: CGRect(x: 31, y: 28, width: screenWidth - 62, height: 40))
             backgroundColor = RGB(59, 207, 85)
         }
+        
         applyTitle(title: title, image: alertType.prefixImage)
         applyDesign()
+        inView.addSubview(self)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,22 +87,19 @@ class TopAlert: UIView {
     }
     
     // MARK: - Actions
-    func show(in view: UIView) {
-        frame.size.width = view.frame.width - alertType.insets * 2
-        let transition = CATransition()
-        transition.duration = 0.5
-        transition.type = .moveIn
-        self.layer.add(transition, forKey: nil)
-        view.addSubview(self)
+    func show() {
+        guard !isAnimating else { return }
+        isAnimating = true
+        frame.origin.y = -40
+        setPosition(position: 28, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { [weak self] in
             self?.hide()
         }
     }
     
     @objc func hide() {
-        setPosition(position: -40, completion: { [weak self] _ in
-            self?.removeFromSuperview()
-        })
+        isAnimating = false
+        setPosition(position: -40, completion: nil)
     }
     
     func setPosition(position: CGFloat, completion: ((Bool) -> Void)?) {
