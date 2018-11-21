@@ -9,7 +9,7 @@
 import UIKit
 
 class User: NSObject, Codable {
-    static var notSigned = User(seed: "")
+    static var notSigned = User()
     
     let id: String
     let index: Int
@@ -36,6 +36,13 @@ class User: NSObject, Codable {
         self.seed = seed
         self.profile = UserProfile()
         self.index = (inject() as UserStorageServiceInterface).freeIndex
+    }
+    
+    override init() {
+        self.id = ""
+        self.seed = ""
+        self.profile = UserProfile()
+        self.index = -1
     }
     
     var dislayName: String {

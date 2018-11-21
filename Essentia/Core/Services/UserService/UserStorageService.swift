@@ -53,6 +53,7 @@ class UserStorageService: UserStorageServiceInterface {
     var freeIndex: Int {
         var index = 0
         let users = get()
+        guard !users.isEmpty else { return 0 }
         while true {
             guard users.contains(where: { $0.index == index }) else {
                 return index
