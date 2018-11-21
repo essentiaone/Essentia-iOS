@@ -188,8 +188,8 @@
 "Wallet.Import.ImportButton" = "导入";
 
 "Wallet.DoneImporting.Title" = "做得很好！";
-"Wallet.DoneImporting.Description" = "The wallet was successfully imported! Enjoy the freedom of your Essentia Wallet!钱包已成功导入！ 享受Essentia钱包的自由！";
-"Wallet.DoneImporting.Button" = "BACK TO WALLET返回到钱包";
+"Wallet.DoneImporting.Description" = "钱包已成功导入！ 享受Essentia钱包的自由！";
+"Wallet.DoneImporting.Button" = "返回到钱包";
 
 "Wallet.FailImporing.Title" = "Oops哎呀";
 "Wallet.FailImporing.Description" = "似乎出了点问题。别担心，请仔细检查您输入的信息，然后重试！ 我们保证不会花很长时间。";
