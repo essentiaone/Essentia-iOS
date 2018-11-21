@@ -50,7 +50,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Back"),
-                                right: UIImage(named: "optionsExport")!,
+                                right: UIImage(named: "shareIcon")!,
                                 title: "",
                                 lAction: backAction,
                                 rAction: shareAction),
