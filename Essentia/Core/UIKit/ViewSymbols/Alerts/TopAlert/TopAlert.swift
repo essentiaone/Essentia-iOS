@@ -40,7 +40,7 @@ class TopAlert: UIView {
         let screenWidth = UIScreen.main.bounds.width
         switch alertType {
         case .error:
-            super.init(frame: CGRect(x: 16, y: 28, width: screenWidth - 32, height: 40))
+            super.init(frame: CGRect(x: 16, y: -40, width: screenWidth - 32, height: 40))
             setGradientBackground(first: RGB(255, 56, 0), second: RGB(255, 56, 60), type: .topToBottom)
         case .info:
             super.init(frame: CGRect(x: 31, y: 28, width: screenWidth - 62, height: 40))
@@ -85,10 +85,12 @@ class TopAlert: UIView {
     
     // MARK: - Actions
     func show(in view: UIView) {
-        frame.origin.y = -40
         frame.size.width = view.frame.width - alertType.insets * 2
+        let transition = CATransition()
+        transition.duration = 0.5
+        transition.type = .moveIn
+        self.layer.add(transition, forKey: nil)
         view.addSubview(self)
-        setPosition(position: 28, completion: nil)
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) { [weak self] in
             self?.hide()
         }

@@ -155,6 +155,8 @@ class TableAdapterHelper {
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width - 30) + 4
         case .centeredComponentTopInstet:
             return heightForEmptySpace(with: state) / 2
+        case .topAlert:
+            return 0
         }
     }
     

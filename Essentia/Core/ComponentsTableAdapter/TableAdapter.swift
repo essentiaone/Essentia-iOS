@@ -125,6 +125,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
+        case .topAlert(let type, let string):
+            let alert = TopAlert(alertType: type, title: string)
+            if let superView = tableView.superview {
+                alert.show(in: superView)
+            }
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background

@@ -34,6 +34,7 @@ enum TableComponent: Equatable {
     case calculatbleSpace(background: UIColor)
     case centeredComponentTopInstet
     case pageControl(count: Int, selected: Int)
+    case topAlert(alertType: AlertType, title: String)
     // MARK: - Navigation Bar
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
