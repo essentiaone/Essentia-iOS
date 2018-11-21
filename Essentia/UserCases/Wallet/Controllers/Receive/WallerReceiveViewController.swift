@@ -59,7 +59,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
             .centeredImage(image: qrImageForText(store.qrText)),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(17),
-                           title: store.wallet.asset.name + " " + LS("Wallet.Receive.Wallet"),
+                           title: store.wallet.asset.localizedName + " " + LS("Wallet.Receive.Wallet"),
                            background: colorProvider.settingsCellsBackround,
                            aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),

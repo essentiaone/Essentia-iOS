@@ -72,7 +72,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                   size: CGSize(width: 120.0, height: 120.0)),
             .empty(height: 20, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(20),
-                           title: store.wallet.asset.name + " " + LS("Wallet.Detail.Balance"),
+                           title: store.wallet.asset.localizedName + " " + LS("Wallet.Detail.Balance"),
                            background: colorProvider.settingsCellsBackround,
                          aligment: .center),
             .empty(height: 11, background: colorProvider.settingsCellsBackround),

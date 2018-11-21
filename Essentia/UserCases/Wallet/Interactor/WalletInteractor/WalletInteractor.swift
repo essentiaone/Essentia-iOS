@@ -36,7 +36,7 @@ class WalletInteractor: WalletInteractorInterface {
         coins.forEach { coin in
             let currentCoinAssets = currentlyAddedWallets.filter({ return $0.coin == coin })
             let nextDerivationIndex = currentCoinAssets.count
-            let walletInfo = GeneratingWalletInfo(name: coin.name,
+            let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                   coin: coin,
                                                   derivationIndex: UInt32(nextDerivationIndex))
             currentlyAddedWallets.append(walletInfo)

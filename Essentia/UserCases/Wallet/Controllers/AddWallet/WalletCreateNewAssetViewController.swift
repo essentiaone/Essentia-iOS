@@ -80,7 +80,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         filteredStore.forEach { (asset) in
             let selectedIndex = self.store.selectedAssets.index(where: { $0.name.lowercased() == asset.name.lowercased() })
             let isSelected = selectedIndex != nil
-            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.name, isSelected: isSelected, action: {
+            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.localizedName, isSelected: isSelected, action: {
                 if isSelected {
                     self.store.selectedAssets.remove(at: selectedIndex!)
                 } else {

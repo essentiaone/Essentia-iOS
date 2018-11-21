@@ -187,6 +187,5 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var feedbackAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.scrollToTop()
-        
     }
 }

@@ -65,7 +65,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     private var editTextField: [TableComponent] {
         guard selected == .rename else { return [] }
-        return [.textField(placeholder: wallet.asset.name,
+        return [.textField(placeholder: wallet.asset.localizedName,
                            text: enteredName,
                            endEditing: nameAction),
                 .empty(height: 12, background: .white)

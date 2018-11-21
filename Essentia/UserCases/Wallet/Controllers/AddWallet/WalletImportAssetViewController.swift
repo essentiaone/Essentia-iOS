@@ -47,7 +47,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
                            right: "",
-                           title: LS("Wallet.Import") + " " + store.coin.name,
+            title: LS("Wallet.Import") + " " + store.coin.localizedName,
                            lAction: backAction,
                            rAction: nil),
             .empty(height: 10, background: colorProvider.settingsBackgroud),
@@ -94,7 +94,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     
     private lazy var importAction: () -> Void = {
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
-        let walletName = self.store.name.isEmpty ? self.store.coin.name : self.store.name
+        let walletName = self.store.name.isEmpty ? self.store.coin.localizedName : self.store.name
         let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0)
         guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)

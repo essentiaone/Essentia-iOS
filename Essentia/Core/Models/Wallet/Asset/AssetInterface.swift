@@ -29,6 +29,7 @@ enum CurrencyType {
 
 protocol AssetInterface {
     var name: String { get }
+    var localizedName: String { get }
     var symbol: String { get }
     var iconUrl: URL { get }
     var type: CryptoType { get }
