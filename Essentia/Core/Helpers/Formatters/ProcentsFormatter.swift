@@ -16,6 +16,10 @@ class ProcentsFormatter {
         formatter.minimumFractionDigits = 1
         formatter.maximumFractionDigits = 2
         formatter.allowsFloats = true
-        return formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
+        let formatted = formatter.string(from: NSNumber(value: procents)) ?? "0.00%"
+        guard procents > 0 else {
+            return formatted
+        }
+        return "+" + formatted
     }
 }
