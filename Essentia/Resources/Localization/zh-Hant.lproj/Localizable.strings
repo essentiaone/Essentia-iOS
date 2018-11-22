@@ -192,7 +192,7 @@
 "Wallet.DoneImporting.Button" = "返回到钱包";
 
 "Wallet.DoneGenerating.Title" = "做得很好！";
-"Wallet.DoneGenerating.Description" = "Your wallets have been successfully added. You can see them inside the wallet.";
+"Wallet.DoneGenerating.Description" = "您的钱包已成功添加。";
 "Wallet.DoneGenerating.Button" = "返回到钱包";
 
 "Wallet.FailImporing.Title" = "Oops哎呀";
@@ -267,7 +267,7 @@
 "Wallet.Receive.Title" = "接收";
 "Wallet.Receive.Wallet" = "钱包";
 "Wallet.Receive.Copy" = "复制";
-"Wallet.Receive.Copied" = "Address сopied";
+"Wallet.Receive.Copied" = "私钥已复制";
 "Wallet.Receive.Request" = "要求具体数量";
 
 "Wallet.Receive.Enter.Done" = "完成";
@@ -281,7 +281,7 @@
 "Wallet.Options.Rename" = "重命名钱包";
 "Wallet.Options.Export" = "导出钱包";
 "Wallet.Options.Export.PK" = "私钥";
-"Wallet.Options.Export.Copied" = "Private Key copied";
+"Wallet.Options.Export.Copied" = "地址已复制";
 "Wallet.Options.Delete" = "删除钱包";
 "Wallet.Options.Delete.Warning.Title" = "您确定吗？";
 "Wallet.Options.Delete.Warning.Description1" = "您真的想要从";
