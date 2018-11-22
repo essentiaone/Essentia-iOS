@@ -111,13 +111,13 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 1:
             guard let wallet = self.store.etherWalletForTokens else {
                 (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
-                (inject() as WalletRouterInterface).show(.succesImportingAlert)
+                (inject() as WalletRouterInterface).show(.successGeneratingAlert)
                 return
             }
             (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
-        (inject() as WalletRouterInterface).show(.succesImportingAlert)
+        (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     
     private lazy var backAction: () -> Void = {

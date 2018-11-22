@@ -15,6 +15,7 @@ enum WalletRoutes {
     case importAsset(Coin)
     case failImportingAlert
     case succesImportingAlert
+    case successGeneratingAlert
     case addAsset
     case selectEtherWallet(wallets: [ViewWalletInterface], action: (ViewWalletInterface) -> Void)
     case walletOptions(ViewWalletInterface)

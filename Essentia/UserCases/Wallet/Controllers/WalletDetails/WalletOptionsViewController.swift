@@ -81,7 +81,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private var exportAlert: [TableComponent] {
         guard selected == .exportTap else { return [] }
         self.selected = .export
-        return [.topAlert(alertType: .info, title: "Private Key copied")]
+        return [.topAlert(alertType: .info, title: LS("Wallet.Options.Export.Copied"))]
     }
     
     // MARK: - Lifecycle

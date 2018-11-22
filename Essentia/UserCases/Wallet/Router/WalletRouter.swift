@@ -26,6 +26,10 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: WalletDoneImportingAlert(okAction: {
                 self.popToRoot()
             }))
+        case .successGeneratingAlert:
+            popUp(vc: WalletDoneGeneratingAlert(okAction: {
+                self.popToRoot()
+            }))
         case .addAsset:
             push(vc: WalletCreateNewAssetViewController())
         case .selectEtherWallet(let wallets, let action):

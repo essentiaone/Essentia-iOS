@@ -27,7 +27,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
-    private lazy var alert = TopAlert(alertType: .info, title: "Address сopied", inView: self.view)
+    private lazy var alert = TopAlert(alertType: .info, title: LS("Wallet.Receive.Copied"), inView: self.view)
     
     private var store: Store
     

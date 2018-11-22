@@ -257,6 +257,7 @@
 		34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */; };
 		34AC4E0C214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */; };
 		34AFF93D21A656B300C7FFEF /* EssentiaLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */; };
+		34AFF93F21A683E300C7FFEF /* WalletDoneGeneratingAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFF93E21A683E300C7FFEF /* WalletDoneGeneratingAlert.swift */; };
 		34B00AEB219911DA00525F53 /* DeleteWalletWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
@@ -576,6 +577,7 @@
 		34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
 		34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
 		34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaLoader.swift; sourceTree = "<group>"; };
+		34AFF93E21A683E300C7FFEF /* WalletDoneGeneratingAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDoneGeneratingAlert.swift; sourceTree = "<group>"; };
 		34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletWarningViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1603,6 +1605,7 @@
 				349BC0562146553C003AC330 /* WalletSelectImportAssetViewController.swift */,
 				349BC04B2142C618003AC330 /* WalletNewAssetViewController.swift */,
 				34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */,
+				34AFF93E21A683E300C7FFEF /* WalletDoneGeneratingAlert.swift */,
 			);
 			path = AddWallet;
 			sourceTree = "<group>";
@@ -2383,6 +2386,7 @@
 				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
 				348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */,
 				3441680A212FEDDF008B8A91 /* TableComponentCheckField.swift in Sources */,
+				34AFF93F21A683E300C7FFEF /* WalletDoneGeneratingAlert.swift in Sources */,
 				349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */,
 				343122732124E92D009E4A7A /* TableComponentParagraph.swift in Sources */,
 				349BC04F2143D71F003AC330 /* TableComponentTitleSubtitle.swift in Sources */,

@@ -191,6 +191,10 @@
 "Wallet.DoneImporting.Description" = "钱包已成功导入！ 享受Essentia钱包的自由！";
 "Wallet.DoneImporting.Button" = "返回到钱包";
 
+"Wallet.DoneGenerating.Title" = "做得很好！";
+"Wallet.DoneGenerating.Description" = "Your wallets have been successfully added. You can see them inside the wallet.";
+"Wallet.DoneGenerating.Button" = "返回到钱包";
+
 "Wallet.FailImporing.Title" = "Oops哎呀";
 "Wallet.FailImporing.Description" = "似乎出了点问题。别担心，请仔细检查您输入的信息，然后重试！ 我们保证不会花很长时间。";
 "Wallet.FailImporing.LeftButton" = "取消";
@@ -263,6 +267,7 @@
 "Wallet.Receive.Title" = "接收";
 "Wallet.Receive.Wallet" = "钱包";
 "Wallet.Receive.Copy" = "复制";
+"Wallet.Receive.Copied" = "Address сopied";
 "Wallet.Receive.Request" = "要求具体数量";
 
 "Wallet.Receive.Enter.Done" = "完成";
@@ -276,6 +281,7 @@
 "Wallet.Options.Rename" = "重命名钱包";
 "Wallet.Options.Export" = "导出钱包";
 "Wallet.Options.Export.PK" = "私钥";
+"Wallet.Options.Export.Copied" = "Private Key copied";
 "Wallet.Options.Delete" = "删除钱包";
 "Wallet.Options.Delete.Warning.Title" = "您确定吗？";
 "Wallet.Options.Delete.Warning.Description1" = "您真的想要从";
