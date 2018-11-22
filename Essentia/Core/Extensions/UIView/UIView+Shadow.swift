@@ -14,8 +14,8 @@ fileprivate struct Constants {
 }
 
 extension UIView {
-    func drawShadow(width: CGFloat) {
-        layer.shadowColor = backgroundColor?.cgColor ?? UIColor.black.cgColor
+    func drawShadow(width: CGFloat, color: UIColor? = nil) {
+        layer.shadowColor = color?.cgColor ?? (backgroundColor?.cgColor ?? UIColor.black.cgColor)
         layer.shadowOpacity = Constants.shadowOpacity
         layer.shadowRadius = Constants.shadowWidth
         layer.masksToBounds =  false

@@ -108,6 +108,8 @@ class TableAdapterHelper {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
+        case .centeredCorneredImageWithUrl(_, let size, _):
+            return size.height
         case .centeredImageWithUrl(_, let size):
             return size.height
         case .textView:

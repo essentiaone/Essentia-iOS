@@ -60,6 +60,7 @@ enum TableComponent: Equatable {
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
     case centeredImageWithUrl(url: URL, size: CGSize)
+    case centeredCorneredImageWithUrl(url: URL, size: CGSize, shadowColor: UIColor)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChangingWithRank(rank: NSAttributedString, balanceChanged: String, perTime:String)

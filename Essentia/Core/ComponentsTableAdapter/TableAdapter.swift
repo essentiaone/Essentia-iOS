@@ -354,6 +354,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleImageView.image = image
             cell.backgroundColor = .clear
             return cell
+        case .centeredCorneredImageWithUrl(let url, let size, let color):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.kf.setImage(with: url)
+            cell.titleImageView.layer.cornerRadius = size.height
+            cell.titleImageView.drawShadow(width: 20, color: color)
+            cell.titleImageView.clipsToBounds = false
+            cell.verticalInset.constant = 20.0
+            cell.verticalInsetBottom.constant = 20.0
+            cell.backgroundColor = .clear
+            return cell
         case .centeredImageWithUrl(let url,_):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: url)

@@ -9,5 +9,7 @@
 import UIKit
 
 class TableComponentCenteredImage: UITableViewCell, NibLoadable {
+    @IBOutlet weak var verticalInset: NSLayoutConstraint!
+    @IBOutlet weak var verticalInsetBottom: NSLayoutConstraint!
     @IBOutlet weak var titleImageView: UIImageView!
 }
