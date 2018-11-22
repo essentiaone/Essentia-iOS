@@ -20,6 +20,10 @@ struct Token: Codable, AssetInterface {
     var decimals: Int
     var path: TokenIcons?
     
+    var shadowColor: UIColor {
+        return .lightGray
+    }
+    
     var localizedName: String {
         return name
     }

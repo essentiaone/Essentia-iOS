@@ -53,6 +53,16 @@ enum Coin: String, Codable, AssetInterface {
         }
     }
     
+    var shadowColor: UIColor {
+        switch self {
+        case .bitcoin:
+            return RGB(246, 137, 35)
+        case .ethereum:
+            return .lightGray
+        default: return .lightGray
+        }
+    }
+    
     func setIcon(in imageView: UIImageView) {
         imageView.image = icon
     }
