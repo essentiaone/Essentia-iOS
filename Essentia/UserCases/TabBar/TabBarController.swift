@@ -64,6 +64,7 @@ fileprivate enum TabBarTab {
 }
 
 class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
+    static var shared: TabBarController = TabBarController()
     // MARK: - Init
     override init() {
         super.init()
@@ -90,6 +91,10 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
             (inject() as UserStorageServiceInterface).storeCurrentUser()
             present(WalletWelcomeViewController(), animated: true)
         }
+    }
+    
+    func selectTab(at index: Int) {
+        tabBar.selectedItem = tabBar.items?[index]
     }
     
     private func loadDependences(tabBarTab: TabBarTab, nvc: BaseNavigationController) {

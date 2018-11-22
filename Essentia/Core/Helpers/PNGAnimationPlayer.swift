@@ -15,6 +15,7 @@ enum PNGAnimation: String {
     case securing30to70
     case securing70to99
     case securing99toSafe
+    case preLoader
     case sendTx
     
     private static var indexFormatter = ConstantNumberOfDigitsFormatter(digitsCount: 5)
@@ -47,6 +48,8 @@ enum PNGAnimation: String {
             return 0..<120
         case .securing99toSafe:
             return 0..<210
+        case .preLoader:
+            return 0..<89
         }
     }
     
@@ -61,6 +64,7 @@ enum PNGAnimation: String {
     
     private var framePerSecond: Int {
         switch self {
+        case .preLoader: fallthrough
         case .securing99toSafe:
             return 30
         default:

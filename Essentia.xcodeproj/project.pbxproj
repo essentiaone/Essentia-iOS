@@ -256,6 +256,7 @@
 		34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E072149D98B001C17D8 /* AssetInterface.swift */; };
 		34AC4E0A214AA3A5001C17D8 /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */; };
 		34AC4E0C214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */; };
+		34AFF93D21A656B300C7FFEF /* EssentiaLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */; };
 		34B00AEB219911DA00525F53 /* DeleteWalletWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A39213047E200527F15 /* MethodSwizzle.swift */; };
@@ -574,6 +575,7 @@
 		34AC4E072149D98B001C17D8 /* AssetInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetInterface.swift; sourceTree = "<group>"; };
 		34AC4E09214AA3A5001C17D8 /* UIView+FindSubview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
 		34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaLoader.swift; sourceTree = "<group>"; };
 		34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletWarningViewController.swift; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1953,6 +1955,7 @@
 			children = (
 				34B27A4821336B4D00527F15 /* LoaderInterface.swift */,
 				34B27A4A21336B5900527F15 /* Loader.swift */,
+				34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */,
 			);
 			path = Loader;
 			sourceTree = "<group>";
@@ -2603,6 +2606,7 @@
 				34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */,
+				34AFF93D21A656B300C7FFEF /* EssentiaLoader.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
 				34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
