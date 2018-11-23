@@ -10,7 +10,7 @@ import UIKit
 
 fileprivate struct Constants {
     static var shadowWidth: CGFloat = 8.0
-    static var shadowOpacity: Float = 0.35
+    static var shadowOpacity: Float = 0.6
 }
 
 extension UIView {

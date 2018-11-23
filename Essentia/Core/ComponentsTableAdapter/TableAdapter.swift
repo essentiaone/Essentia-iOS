@@ -358,7 +358,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: url)
             cell.titleImageView.layer.cornerRadius = size.height
-            cell.titleImageView.drawShadow(width: 20, color: color)
+            cell.titleImageView.drawShadow(width: 60, color: color)
             cell.titleImageView.clipsToBounds = false
             cell.verticalInset.constant = 20.0
             cell.verticalInsetBottom.constant = 20.0
