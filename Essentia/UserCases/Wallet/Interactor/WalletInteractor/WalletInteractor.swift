@@ -47,8 +47,10 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
-        guard let wallet = addCoinsToWallet([Coin.ethereum]).first else { return }
-        addTokensToWallet(assets, for: wallet)
+        let wallet = addCoinsToWallet([Coin.ethereum]).first {
+            return $0.coin == Coin.ethereum
+        }
+        addTokensToWallet(assets, for: wallet!)
     }
     
     func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo) {
