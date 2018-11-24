@@ -165,8 +165,8 @@
 "Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
-"Wallet.Main.Coins.Essntia" = "Essentia Assets";
-"Wallet.Main.Coins.Imported" = "Imported Assets";
+"Wallet.Main.Coins.Essntia" = "ESSENTIA ASSETS";
+"Wallet.Main.Coins.Imported" = "IMPORTED ASSETS";
 "Wallet.Main.Segment.First" = "Coins";
 "Wallet.Main.Segment.Segment" = "Tokens";
 
