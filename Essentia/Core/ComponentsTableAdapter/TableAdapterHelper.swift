@@ -108,6 +108,8 @@ class TableAdapterHelper {
             return 35.0
         case .centeredImage(let image):
             return image.size.height
+        case .centeredCorneredImageWithUrl(_, let size, _):
+            return size.height
         case .centeredImageWithUrl(_, let size):
             return size.height
         case .textView:
@@ -155,6 +157,8 @@ class TableAdapterHelper {
             return title.multyLineLabelHeight(with: font, width: tableView.frame.width - 30) + 4
         case .centeredComponentTopInstet:
             return heightForEmptySpace(with: state) / 2
+        case .topAlert:
+            return 0
         }
     }
     

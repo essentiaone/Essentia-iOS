@@ -21,7 +21,6 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: UserStorageServiceInterface = inject()
-    private var tabBar = TabBarController()
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -59,7 +58,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     func openTabBar() {
-        self.present(tabBar, animated: true)
+        self.present(TabBarController.shared, animated: true)
     }
     
     // MARK: - RestoreAccountDelegate
@@ -75,10 +74,11 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     private func generateNewUser() {
-        (inject() as LoaderInterface).show()
+        EssentiaLoader.show()
         (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
-            (inject() as LoaderInterface).hide()
-            self?.present(TabBarController(), animated: true)
+            guard let self = self else { return }
+            TabBarController.shared.selectedIndex = 0
+            self.present(TabBarController.shared, animated: true)
         }
     }
 }

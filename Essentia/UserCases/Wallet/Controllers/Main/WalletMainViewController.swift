@@ -139,7 +139,7 @@ class WalletMainViewController: BaseTableAdapterController {
                 .assetBalance(imageUrl: wallet.iconUrl,
                               title: wallet.name,
                               value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                              currencyValue: wallet.formattedBalanceWithSymbol,
+                              currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
                               action: { self.showWalletDetail(for: wallet) }
                 )
             )
@@ -182,7 +182,7 @@ class WalletMainViewController: BaseTableAdapterController {
         guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
             self.present(BackupMnemonicAlert.init(leftAction: {
             }, rightAction: {
-                (inject() as WalletRouterInterface).show(.backupMenmonic)
+                (inject() as WalletRouterInterface).show(.backupKeystore)
             }), animated: true)
             return
         }

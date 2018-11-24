@@ -15,6 +15,7 @@ enum WalletRoutes {
     case importAsset(Coin)
     case failImportingAlert
     case succesImportingAlert
+    case successGeneratingAlert
     case addAsset
     case selectEtherWallet(wallets: [ViewWalletInterface], action: (ViewWalletInterface) -> Void)
     case walletOptions(ViewWalletInterface)
@@ -25,7 +26,7 @@ enum WalletRoutes {
     case qrReader(QRCodeReaderViewControllerDelegate)
     case receive(ViewWalletInterface)
     case enterReceiveAmmount(AssetInterface, action: (String) -> Void)
-    case backupMenmonic
+    case backupKeystore
     case doneTx
 }
 

@@ -19,13 +19,11 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .importAsset(let coin):
             push(vc: WalletImportAssetViewController(coin: coin))
         case .failImportingAlert:
-            popUp(vc: FailImportingAlert(leftAction: {
-                self.popToRoot()
-            }, rightAction: {}))
+            popUp(vc: FailImportingAlert(leftAction: { self.popToRoot() }, rightAction: {}))
         case .succesImportingAlert:
-            popUp(vc: WalletDoneImportingAlert(okAction: {
-                self.popToRoot()
-            }))
+            popUp(vc: WalletDoneImportingAlert(okAction: { self.popToRoot() }))
+        case .successGeneratingAlert:
+            popUp(vc: WalletDoneGeneratingAlert(okAction: { self.popToRoot() }))
         case .addAsset:
             push(vc: WalletCreateNewAssetViewController())
         case .selectEtherWallet(let wallets, let action):
@@ -46,19 +44,18 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             push(vc: WallerReceiveViewController(wallet: wallet))
         case .enterReceiveAmmount(let asset, let action):
             push(vc: WalletEnterReceiveAmmount(asset: asset, ammountCallback: action))
-        case .backupMenmonic:
-            self.showBackupMnemonic()
+        case .backupKeystore:
+            self.showBackupKeystore()
         case .doneTx:
             push(vc: DoneTransactionViewController())
         }
     }
     
-    private func showBackupMnemonic() {
-        guard let tabBar = navigationController?.parent as? TabBarController else { return }
-        tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
+    private func showBackupKeystore() {
+        TabBarController.shared.selectedViewController = (inject() as SettingsRouterInterface).nvc
         (inject() as SettingsRouterInterface).show(.security)
         if EssentiaStore.shared.currentUser.mnemonic != nil {
-            (inject() as SettingsRouterInterface).show(.backupMenmonic)
+            (inject() as SettingsRouterInterface).show(.backupKeystore)
         }
     }
     

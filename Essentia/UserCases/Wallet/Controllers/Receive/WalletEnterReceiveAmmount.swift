@@ -93,7 +93,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     func fieldsFor(type: CurrencyType) -> (String, String) {
         switch type {
         case .crypto:
-            return (self.store.enterdValueInCrypto, self.store.asset.symbol)
+            return (self.store.enterdValueInCrypto, self.store.asset.symbol.uppercased())
         case .fiat:
             return (self.store.enterdValueInCurrency, self.store.currentCurrency.titleString)
         }
@@ -148,7 +148,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     // MARK: - Actions
     private lazy var backAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        self.view.endEditing(true)
+        self.tableAdapter.endEditing(true)
         self.router.pop()
     }
     

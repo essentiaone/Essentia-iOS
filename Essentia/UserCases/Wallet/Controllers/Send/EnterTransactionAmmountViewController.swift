@@ -18,8 +18,8 @@ fileprivate struct Store {
     init(wallet: ViewWalletInterface) {
         currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         self.wallet = wallet
-        enterdValueInCrypto = wallet.formattedBalance
-        enterdValueInCurrency = wallet.formattedBalanceInCurrentCurrency
+        enterdValueInCrypto = "0"
+        enterdValueInCurrency = "0"
     }
     
     var isValidAmmount: Bool {
@@ -103,7 +103,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
     func fieldsFor(type: CurrencyType) -> (String, String) {
         switch type {
         case .crypto:
-            return (self.store.enterdValueInCrypto, self.store.wallet.asset.symbol)
+            return (self.store.enterdValueInCrypto, self.store.wallet.asset.symbol.uppercased())
         case .fiat:
             return (self.store.enterdValueInCurrency, self.store.currentCurrency.titleString)
         }

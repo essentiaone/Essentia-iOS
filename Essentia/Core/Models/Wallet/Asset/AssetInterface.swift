@@ -6,7 +6,7 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum CryptoType {
     case coin
@@ -29,9 +29,11 @@ enum CurrencyType {
 
 protocol AssetInterface {
     var name: String { get }
+    var localizedName: String { get }
     var symbol: String { get }
     var iconUrl: URL { get }
     var type: CryptoType { get }
+    var shadowColor: UIColor { get }
     
     func isValidAddress(_ address: String) -> Bool
 }

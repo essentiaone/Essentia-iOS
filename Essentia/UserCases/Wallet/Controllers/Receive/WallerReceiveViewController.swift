@@ -27,6 +27,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
+    private lazy var alert = TopAlert(alertType: .info, title: LS("Wallet.Receive.Copied"), inView: self.view)
     
     private var store: Store
     
@@ -48,17 +49,17 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Back"),
-                           right: "",
-                           title: "",
-                           lAction: backAction,
-                           rAction: nil),
+            .navigationImageBar(left: LS("Back"),
+                                right: UIImage(named: "shareIcon")!,
+                                title: "",
+                                lAction: backAction,
+                                rAction: shareAction),
             .title(bold: true, title:  LS("Wallet.Receive.Title")),
             .empty(height: 30, background: colorProvider.settingsCellsBackround),
             .centeredImage(image: qrImageForText(store.qrText)),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(17),
-                           title: store.wallet.asset.name + " " + LS("Wallet.Receive.Wallet"),
+                           title: store.wallet.asset.localizedName + " " + LS("Wallet.Receive.Wallet"),
                            background: colorProvider.settingsCellsBackround,
                            aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),
@@ -104,8 +105,15 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
         self.router.pop()
     }
     
+    private lazy var shareAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.present(UIActivityViewController(activityItems: [self.store.wallet.address], applicationActivities: nil), animated: true)
+    }
+    
     private lazy var copyAction: () -> Void = { [weak self] in
-        
+        guard let `self` = self else { return }
+        UIPasteboard.general.string = self.store.wallet.address
+        self.alert.show()
     }
     
     private lazy var enterAmmoutAction: () -> Void = { [weak self] in

@@ -6,7 +6,7 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -40,24 +40,14 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                                backgroud: colorProvider.settingsBackgroud)]
             + mnemonicState +
             [.menuSimpleTitleDetail(title: LS("Settings.Security.Seed.Title"),
-                                   detail: LS("Settings.Security.Seed.Detail"),
-                                   withArrow: true,
-                                   action: seedAction),
-            .separator(inset: .zero)]
-            + keystoreState +
-            [.empty(height: 16.0, background: colorProvider.settingsBackgroud),
-            .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
-                                   withArrow: true,
-                                   action: loginMethodAction),
-            .separator(inset: .zero),
-            .description(title: LS("Settings.Secure.Description"),
-                         backgroud: colorProvider.settingsBackgroud)
-
-            ]
+                                    detail: LS("Settings.Security.Seed.Detail"),
+                                    withArrow: true,
+                                    action: seedAction),
+             .separator(inset: .zero)]
+            + keystoreState
     }
     
-    var keystoreState: [TableComponent] {
+    private var keystoreState: [TableComponent] {
         guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
         return [.menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
                                        detail: LS("Settings.Security.Keystore.Detail"),
@@ -94,15 +84,11 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     
     private lazy var ketstoreAction: () -> Void = {
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
-              let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
-              (try? Data(contentsOf: keystore)) != nil  else {
-            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
-            return
+            let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
+            (try? Data(contentsOf: keystore)) != nil  else {
+                (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
+                return
         }
-        (inject() as SettingsRouterInterface).show(.activity(fileUrl: keystore))
-    }
-    
-    private lazy var loginMethodAction: () -> Void = {
-        (inject() as SettingsRouterInterface).show(.loginType)
+        self.present(UIActivityViewController(activityItems: [keystore], applicationActivities: nil), animated: true)
     }
 }

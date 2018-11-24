@@ -37,11 +37,11 @@ class TableComponentBalanceChanging: UITableViewCell, NibLoadable {
     private func setProcentTitleColor() {
         switch procentTitle.text?.first {
         case "+":
-            procentTitle.textColor = colorProvider.balanceChanged
+            procentTitle.textColor = colorProvider.balanceChangedPlus
         case "-":
             procentTitle.textColor = colorProvider.balanceChangedMinus
         default:
-            procentTitle.textColor = colorProvider.balanceChangedPlus
+            procentTitle.textColor = colorProvider.balanceChanged
         }
     }
 

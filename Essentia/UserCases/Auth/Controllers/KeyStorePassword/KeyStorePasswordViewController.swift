@@ -17,7 +17,7 @@ fileprivate struct Store {
     
     var isBothValid: Bool {
         if authType == .login {
-            return !password.isEmpty && password == repeatPass
+            return !password.isEmpty
         }
         return isValid && isValidRepeate && password == repeatPass
     }
@@ -73,10 +73,9 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                            rAction: nil),
             .title(bold: true, title: LS("Keystore.Title")),
             .description(title: LS("Keystore.Description"), backgroud: colorProvider.settingsCellsBackround),
-            .empty(height: 10.0, background: colorProvider.settingsCellsBackround),
-            .password(title: LS("Keystore.PasswordField.Title"), withProgress: false, passwordAction: passwordAction),
-            .password(title: LS("Keystore.PasswordField.Repeat"), withProgress: true, passwordAction: repeatAction),
-            .calculatbleSpace(background: colorProvider.settingsCellsBackround),
+            .empty(height: 10.0, background: colorProvider.settingsCellsBackround)]
+            + passwordState +
+            [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .centeredButton(title: LS("SeedCopy.Continue"),
                             isEnable: store.isBothValid,
                             action: continueAction,
@@ -84,6 +83,16 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             .empty(height: 50, background: colorProvider.settingsCellsBackround),
             .keyboardInset
         ]
+    }
+    
+    private var passwordState: [TableComponent] {
+        switch store.authType {
+        case .login:
+            return [.password(title: LS("Keystore.PasswordField.Title"), withProgress: true, passwordAction: passwordAction)]
+        case .backup:
+            return [.password(title: LS("Keystore.PasswordField.Title"), withProgress: false, passwordAction: passwordAction),
+                    .password(title: LS("Keystore.PasswordField.Repeat"), withProgress: true, passwordAction: repeatAction)]
+        }
     }
     
     // MARK: - Actions

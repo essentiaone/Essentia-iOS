@@ -12,7 +12,8 @@
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
 "Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life, at your fingertips.";
-"Welcome.Enter" = "START";
+"Welcome.Enter" = "ENTER";
+"Welcome.Start" = "START";
 "Welcome.Tersm1" = "By continuing you agree to our ";
 "Welcome.Tersm2" = "Terms of Service";
 
@@ -79,6 +80,7 @@
 "Settings.Title.Community" = "COMMUNITY";
 "Settings.Title.Application" = "APPLICATION";
 "Settings.Currency" = "Currency";
+"Settings.Language" = "Language";
 "Settings.Security" = "Security";
 "Settings.DarkTheme" = "Dark Theme";
 "Settings.Feedback" = "Feedback";
@@ -133,8 +135,8 @@
 "LogOutAction.LeftButton" = "BACKUP";
 "LogOutAction.RightButton" = "LOG OUT";
 
-"MnemonicBackupWarning.Title" = "You need to backup your Mnemonic Phrase";
-"MnemonicBackupWarning.Description" = "In order to use this login method as primary one, you need to make a backup of it";
+"MnemonicBackupWarning.Title" = "You need to backup you KeyStore File";
+"MnemonicBackupWarning.Description" = "In order to use your Wallet, you need to Backup a KeyStore File.";
 "MnemonicBackupWarning.LeftButton" = "CANCEL";
 "MnemonicBackupWarning.RightButton" = "BACKUP";
 
@@ -157,8 +159,8 @@
 "Wallet.Empty.Description" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
-"Wallet.Main.Coins.Essntia" = "Essentia Assets";
-"Wallet.Main.Coins.Imported" = "Imported Assets";
+"Wallet.Main.Coins.Essntia" = "ESSENTIA ASSETS";
+"Wallet.Main.Coins.Imported" = "IMPORTED ASSETS";
 "Wallet.Main.Segment.First" = "Coins";
 "Wallet.Main.Segment.Segment" = "Tokens";
 
@@ -184,11 +186,15 @@
 "Wallet.Import.Description" = "Name your wallet and enter your private key - that’s all there is to it!";
 "Wallet.Import.PrivateKey" = "Private Key";
 "Wallet.Import.Name" = "Name";
-"Wallet.Import.ImportButton" = "Import";
+"Wallet.Import.ImportButton" = "IMPORT";
 
 "Wallet.DoneImporting.Title" = "Well done!";
 "Wallet.DoneImporting.Description" = "The wallet was successfully imported! Enjoy the freedom of your Essentia Wallet!";
 "Wallet.DoneImporting.Button" = "BACK TO WALLET";
+
+"Wallet.DoneGenerating.Title" = "Well done!";
+"Wallet.DoneGenerating.Description" = "Your wallets have been successfully added. You can see them inside the wallet.";
+"Wallet.DoneGenerating.Button" = "BACK TO WALLET";
 
 "Wallet.FailImporing.Title" = "Oops";
 "Wallet.FailImporing.Description" = "It seems like something went wrong. Don’t worry, double check the info you entered and try again! It won’t take long, we promise.";
@@ -261,8 +267,9 @@
 
 "Wallet.Receive.Title" = "Receive";
 "Wallet.Receive.Wallet" = "wallet";
-"Wallet.Receive.Copy" = "Copy";
-"Wallet.Receive.Request" = "Request specific ammount";
+"Wallet.Receive.Copy" = "COPY";
+"Wallet.Receive.Copied" = "Address сopied";
+"Wallet.Receive.Request" = "Request specific amount";
 
 "Wallet.Receive.Enter.Done" = "Done";
 "Wallet.Receive.Title" = "Receive";
@@ -275,6 +282,7 @@
 "Wallet.Options.Rename" = "Rename Wallet";
 "Wallet.Options.Export" = "Export Wallet";
 "Wallet.Options.Export.PK" = "Private Key";
+"Wallet.Options.Export.Copied" = "Private Key copied";
 "Wallet.Options.Delete" = "Delete Wallet";
 "Wallet.Options.Delete.Warning.Title" = "Are you sure?";
 "Wallet.Options.Delete.Warning.Description1" = "Do you really want to delete";

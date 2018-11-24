@@ -80,7 +80,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         filteredStore.forEach { (asset) in
             let selectedIndex = self.store.selectedAssets.index(where: { $0.name.lowercased() == asset.name.lowercased() })
             let isSelected = selectedIndex != nil
-            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.name, isSelected: isSelected, action: {
+            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.localizedName, isSelected: isSelected, action: {
                 if isSelected {
                     self.store.selectedAssets.remove(at: selectedIndex!)
                 } else {
@@ -94,13 +94,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     func asyncReloadState() {
-        (inject() as LoaderInterface).show()
         global {
             let state = self.state()
             main {
                 self.tableAdapter.hardReload(state)
                 self.tableAdapter.continueEditing()
-                (inject() as LoaderInterface).hide()
             }
         }
     }
@@ -113,13 +111,13 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 1:
             guard let wallet = self.store.etherWalletForTokens else {
                 (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
-                (inject() as WalletRouterInterface).show(.succesImportingAlert)
+                (inject() as WalletRouterInterface).show(.successGeneratingAlert)
                 return
             }
             (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
-        (inject() as WalletRouterInterface).show(.succesImportingAlert)
+        (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     
     private lazy var backAction: () -> Void = {

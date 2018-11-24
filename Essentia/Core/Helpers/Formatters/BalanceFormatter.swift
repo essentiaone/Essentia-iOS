@@ -37,8 +37,8 @@ final class BalanceFormatter {
         self.init()
         currencySymbol = asset.symbol
         symbolPossition = .suffix
-        balanceFormatter.minimumSignificantDigits = 1
-        balanceFormatter.maximumSignificantDigits = 8
+        balanceFormatter.minimumFractionDigits = 1
+        balanceFormatter.maximumFractionDigits = 8
     }
     
     private init() {
@@ -75,7 +75,7 @@ final class BalanceFormatter {
         return formattedAmmount(amount: Double(ammount))
     }
     
-    func attributed(amount: Double?) -> NSAttributedString {
+    func attributed(amount: Double?, type: TransactionType) -> NSAttributedString {
         let formattedAmmount = self.formattedAmmountWithCurrency(amount: amount)
         let separeted = formattedAmmount.split(separator: " ")
         guard separeted.count == 2 else { return NSAttributedString() }
@@ -84,14 +84,22 @@ final class BalanceFormatter {
         attributed.append(NSAttributedString(string: " "))
         attributed.append(NSAttributedString(string: String(separeted[1]),
                                              attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15)]))
+        switch type {
+        case .recive:
+            attributed.addAttributes([NSAttributedString.Key.foregroundColor: RGB(59, 207, 85)], range: NSRange(location: 0, length: attributed.length))
+        case .send:
+            print("Send")
+        case .exchange:
+            print("Exchange")
+        }
         return attributed
     }
     
-    func attributedHex(amount: String) -> NSAttributedString {
+    func attributedHex(amount: String, type: TransactionType) -> NSAttributedString {
         guard let wei = BInt(amount, radix: 10),
               let etherAmmount = try? WeiEthterConverter.toEther(wei: wei) else {
             return NSAttributedString()
         }
-        return attributed(amount: (etherAmmount as NSDecimalNumber).doubleValue)
+        return attributed(amount: (etherAmmount as NSDecimalNumber).doubleValue, type: type)
     }
 }

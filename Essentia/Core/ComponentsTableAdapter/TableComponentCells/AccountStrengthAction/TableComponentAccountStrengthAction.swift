@@ -78,6 +78,8 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     }
     
     private func setButtonTitle() {
+        titleLabel.text = LS("Settings.AccountStrength.Title")
+        descriptionLabel.text = LS("Settings.AccountStrength.Description")
         switch EssentiaStore.shared.currentUser.backup.secureLevel {
         case 3:
             accountButton.setTitle(LS("Settings.AccountStrength.Push"), for: .normal)

@@ -13,8 +13,8 @@ enum Coin: String, Codable, AssetInterface {
     case ethereum
     case litecoin
     case bitcoinCash
-    
-    var name: String {
+
+    var localizedName: String {
         switch self {
         case .bitcoin:
             return LS("Wallet.Bitcoin")
@@ -24,6 +24,19 @@ enum Coin: String, Codable, AssetInterface {
             return LS("Wallet.Litecoin")
         case .bitcoinCash:
             return LS("Wallet.BitcoinCash")
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .bitcoin:
+            return "Bitcoin"
+        case .ethereum:
+            return "Ethereum"
+        case .litecoin:
+            return "Litecoin"
+        case .bitcoinCash:
+            return "Bitcoin Cash"
         }
     }
     
@@ -37,6 +50,16 @@ enum Coin: String, Codable, AssetInterface {
             return LS("Wallet.Litecoin.Short")
         case .bitcoinCash:
             return LS("Wallet.BitcoinCash.Short")
+        }
+    }
+    
+    var shadowColor: UIColor {
+        switch self {
+        case .bitcoin:
+            return RGB(246, 137, 35)
+        case .ethereum:
+            return .lightGray
+        default: return .lightGray
         }
     }
     

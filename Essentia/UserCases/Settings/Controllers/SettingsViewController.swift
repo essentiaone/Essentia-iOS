@@ -79,8 +79,9 @@ class SettingsViewController: BaseTableAdapterController {
                               title: LS("Settings.Security"),
                               detail: "",
                               action: securityAction),
-             .separator(inset: Constants.separatorInset),
-             .empty(height: 16, background: colorProvider.settingsBackgroud),
+             .separator(inset: Constants.separatorInset)]
+             + loginMetodState +
+             [.empty(height: 16, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .left,
                                   fontSize: 13,
                                   title: LS("Settings.Title.Community"),
@@ -111,11 +112,26 @@ class SettingsViewController: BaseTableAdapterController {
         return rawState.compactMap { return $0 }
     }
     
+    private var loginMetodState: [TableComponent] {
+        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        return [
+            .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
+                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
+                                   withArrow: true,
+                                   action: loginMethodAction),
+            .separator(inset: Constants.separatorInset)
+        ]
+    }
+    
     private func scrollToTop() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
     }
     
     // MARK: - Actions
+    
+    private lazy var loginMethodAction: () -> Void = {
+        (inject() as SettingsRouterInterface).show(.loginType)
+    }
     
     private lazy var currencyAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
@@ -171,6 +187,5 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var feedbackAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.scrollToTop()
-        
     }
 }

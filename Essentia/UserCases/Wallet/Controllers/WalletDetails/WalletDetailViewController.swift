@@ -67,12 +67,12 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                 lAction: backAction,
                                 rAction: detailAction),
             .empty(height: 18, background: colorProvider.settingsCellsBackround),
-            .centeredImageWithUrl(url: CoinIconsUrlFormatter(name: store.wallet.asset.name,
-                                                             size: .x128).url ,
-                                  size: CGSize(width: 120.0, height: 120.0)),
+            .centeredCorneredImageWithUrl(url: store.wallet.asset.iconUrl,
+                                          size: CGSize(width: 120.0, height: 120.0),
+                                          shadowColor: store.wallet.asset.shadowColor),
             .empty(height: 20, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(20),
-                           title: store.wallet.asset.name + " " + LS("Wallet.Detail.Balance"),
+                           title: store.wallet.asset.localizedName + " " + LS("Wallet.Detail.Balance"),
                            background: colorProvider.settingsCellsBackround,
                          aligment: .center),
             .empty(height: 11, background: colorProvider.settingsCellsBackround),
@@ -228,11 +228,12 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
         return [ViewTransaction](transactions.map({
             let ammount = $0.transactionAmmount(for: self.store.wallet.address)
+            let type = $0.type(for: store.wallet.address)
             return ViewTransaction(hash: $0.txid,
                                    address: $0.txid,
-                                   ammount: ammountFormatter.attributed(amount: ammount),
+                                   ammount: ammountFormatter.attributed(amount: ammount, type: type),
                                    status: $0.status,
-                                   type: $0.type(for: store.wallet.address),
+                                   type: type,
                                    date: TimeInterval($0.time))
         }))
     }
@@ -244,7 +245,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
             return ViewTransaction(
                 hash: $0.hash,
                 address: address,
-                ammount: ammountFormatter.attributedHex(amount: $0.value),
+                ammount: ammountFormatter.attributedHex(amount: $0.value, type: txType),
                 status: $0.status,
                 type: $0.type(for: store.wallet.address),
                 date: TimeInterval($0.timeStamp) ?? 0)

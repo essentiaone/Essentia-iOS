@@ -8,6 +8,7 @@ disabled_rules:
  - large_tuple
  - private_over_fileprivate
  - no_fallthrough_only
+ - empty_enum_arguments
 excluded:
   - Pods
   - fastane

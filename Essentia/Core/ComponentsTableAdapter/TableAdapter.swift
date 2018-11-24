@@ -125,6 +125,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
+        case .topAlert(let type, let string):
+            if let superView = tableView.superview {
+                let alert = TopAlert(alertType: type, title: string, inView: superView)
+                alert.show()
+            }
+            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
@@ -345,6 +352,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .centeredImage(let image):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            cell.backgroundColor = .clear
+            return cell
+        case .centeredCorneredImageWithUrl(let url, let size, let color):
+            let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImageView.kf.setImage(with: url)
+            cell.titleImageView.layer.cornerRadius = size.height
+            cell.titleImageView.drawShadow(width: 60, color: color)
+            cell.titleImageView.clipsToBounds = false
+            cell.verticalInset.constant = 20.0
+            cell.verticalInsetBottom.constant = 20.0
             cell.backgroundColor = .clear
             return cell
         case .centeredImageWithUrl(let url,_):

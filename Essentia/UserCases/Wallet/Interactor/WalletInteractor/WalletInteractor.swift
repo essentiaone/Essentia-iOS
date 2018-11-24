@@ -36,7 +36,7 @@ class WalletInteractor: WalletInteractorInterface {
         coins.forEach { coin in
             let currentCoinAssets = currentlyAddedWallets.filter({ return $0.coin == coin })
             let nextDerivationIndex = currentCoinAssets.count
-            let walletInfo = GeneratingWalletInfo(name: coin.name,
+            let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                   coin: coin,
                                                   derivationIndex: UInt32(nextDerivationIndex))
             currentlyAddedWallets.append(walletInfo)
@@ -47,8 +47,10 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
-        guard let wallet = addCoinsToWallet([Coin.ethereum]).first else { return }
-        addTokensToWallet(assets, for: wallet)
+        let wallet = addCoinsToWallet([Coin.ethereum]).first {
+            return $0.coin == Coin.ethereum
+        }
+        addTokensToWallet(assets, for: wallet!)
     }
     
     func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo) {

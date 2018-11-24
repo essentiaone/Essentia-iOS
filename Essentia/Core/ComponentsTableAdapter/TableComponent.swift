@@ -34,6 +34,7 @@ enum TableComponent: Equatable {
     case calculatbleSpace(background: UIColor)
     case centeredComponentTopInstet
     case pageControl(count: Int, selected: Int)
+    case topAlert(alertType: AlertType, title: String)
     // MARK: - Navigation Bar
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
@@ -59,6 +60,7 @@ enum TableComponent: Equatable {
     case imageParagraph(image: UIImage, paragraph: String)
     case centeredImage(image: UIImage)
     case centeredImageWithUrl(url: URL, size: CGSize)
+    case centeredCorneredImageWithUrl(url: URL, size: CGSize, shadowColor: UIColor)
     case checkImageTitle(imageUrl: URL, title: String, isSelected: Bool, action: () -> Void)
     case search(title: String, placeholder: String, tint: UIColor, backgroud: UIColor, didChange: (String) -> Void)
     case balanceChangingWithRank(rank: NSAttributedString, balanceChanged: String, perTime:String)
