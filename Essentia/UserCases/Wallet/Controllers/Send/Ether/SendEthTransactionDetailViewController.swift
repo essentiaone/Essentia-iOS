@@ -63,7 +63,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         loadRanges()
     }
     
-/*
+    /*
      "Wallet.Send.Mins" = "mins";
      "Wallet.Send.hours" = "hours";
      "Wallet.Send.TransactionTime" = "Transaction time";*/
@@ -99,20 +99,19 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                                   textFieldChanged: dataEditingChanged)]
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround),
-            isKeyboardShown ? .keyboardInset : .empty(height: 1, background: colorProvider.settingsCellsBackround),
-            .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
-                                          isEnable: store.isValidTransaction,
-                                          action: continueAction,
-                                          background: colorProvider.settingsCellsBackround),
-            .empty(height: 16, background: colorProvider.settingsCellsBackround)
+             .empty(height: 8, background: colorProvider.settingsCellsBackround),
+             isKeyboardShown ? .keyboardInset : .empty(height: 1, background: colorProvider.settingsCellsBackround),
+             .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
+                             isEnable: store.isValidTransaction,
+                             action: continueAction,
+                             background: colorProvider.settingsCellsBackround),
+             .empty(height: 16, background: colorProvider.settingsCellsBackround)
         ]
     }
     
     var feeComponents: [TableComponent] {
         let ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
-        switch store.isFeeEnteringDirectly {
-        case true:
+        if store.isFeeEnteringDirectly {
             return [.separator(inset: .zero),
                     .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Fee"),
                                                           text:ammountFormatter.formattedAmmount(amount: store.enteredFee),
@@ -120,11 +119,10 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                                           rightButtonImage: nil,
                                                           rightButtonAction: nil,
                                                           textFieldChanged: feeChangedDirectly)]
-        case false:
-            return [.attributedTitleDetail(title: formattedFeeTitle, detail: formattedInputFeeButton, action: inputFeeAction),
-                    .slider(titles: (LS("Wallet.Send.Slow"), LS("Wallet.Send.Normal"), LS("Wallet.Send.Fast")),
-                            values: (store.lowGasSpeed, Double(store.selectedFeeSlider), store.fastGasSpeed), didChange: feeChanged)]
         }
+        return [.attributedTitleDetail(title: formattedFeeTitle, detail: formattedInputFeeButton, action: inputFeeAction),
+                .slider(titles: (LS("Wallet.Send.Slow"), LS("Wallet.Send.Normal"), LS("Wallet.Send.Fast")),
+                        values: (store.lowGasSpeed, Double(store.selectedFeeSlider), store.fastGasSpeed), didChange: feeChanged)]
     }
     
     // MARK: - Formatters
@@ -149,7 +147,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
                                                                NSAttributedString.Key.foregroundColor: colorProvider.titleColor])
     }
-
+    
     var formattedInputFeeButton: NSAttributedString {
         return NSAttributedString(string: LS("Wallet.Send.InputFee"),
                                   attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(12),
