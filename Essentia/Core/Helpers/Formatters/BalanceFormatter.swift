@@ -37,8 +37,8 @@ final class BalanceFormatter {
         self.init()
         currencySymbol = asset.symbol
         symbolPossition = .suffix
-        balanceFormatter.minimumSignificantDigits = 1
-        balanceFormatter.maximumSignificantDigits = 8
+        balanceFormatter.minimumFractionDigits = 1
+        balanceFormatter.maximumFractionDigits = 8
     }
     
     private init() {
