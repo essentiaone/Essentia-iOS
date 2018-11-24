@@ -18,8 +18,8 @@ fileprivate struct Store {
     init(wallet: ViewWalletInterface) {
         currentCurrency = EssentiaStore.shared.currentUser.profile.currency
         self.wallet = wallet
-        enterdValueInCrypto = wallet.formattedBalance
-        enterdValueInCurrency = wallet.formattedBalanceInCurrentCurrency
+        enterdValueInCrypto = "0"
+        enterdValueInCurrency = "0"
     }
     
     var isValidAmmount: Bool {
