@@ -23,8 +23,9 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     private lazy var userService: UserStorageServiceInterface = inject()
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         design.applyDesign(to: self)
     }
     
