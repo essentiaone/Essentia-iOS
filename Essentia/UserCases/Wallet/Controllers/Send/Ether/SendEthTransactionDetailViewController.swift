@@ -145,7 +145,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         self.store.enteredFee = currentFee
         let numberFormatter = BalanceFormatter(asset: self.store.wallet.asset)
         let formattedFee = numberFormatter.formattedAmmountWithCurrency(amount: currentFee)
-        let string = LS("Wallet.Send.Fee") + formattedFee
+        let string = LS("Wallet.Send.Fee") + " (\(formattedFee))"
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
                                                                NSAttributedString.Key.foregroundColor: colorProvider.titleColor])
     }
