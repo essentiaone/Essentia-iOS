@@ -19,17 +19,11 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
         case .importAsset(let coin):
             push(vc: WalletImportAssetViewController(coin: coin))
         case .failImportingAlert:
-            popUp(vc: FailImportingAlert(leftAction: {
-                self.popToRoot()
-            }, rightAction: {}))
+            popUp(vc: FailImportingAlert(leftAction: { self.popToRoot() }, rightAction: {}))
         case .succesImportingAlert:
-            popUp(vc: WalletDoneImportingAlert(okAction: {
-                self.popToRoot()
-            }))
+            popUp(vc: WalletDoneImportingAlert(okAction: { self.popToRoot() }))
         case .successGeneratingAlert:
-            popUp(vc: WalletDoneGeneratingAlert(okAction: {
-                self.popToRoot()
-            }))
+            popUp(vc: WalletDoneGeneratingAlert(okAction: { self.popToRoot() }))
         case .addAsset:
             push(vc: WalletCreateNewAssetViewController())
         case .selectEtherWallet(let wallets, let action):
