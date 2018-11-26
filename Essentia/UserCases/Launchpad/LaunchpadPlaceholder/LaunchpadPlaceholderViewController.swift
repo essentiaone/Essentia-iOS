@@ -38,6 +38,13 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         applyDesign()
         self.tableAdapter.hardReload(state)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        view.insertSubview(topView!, at: 0)
+        view.insertSubview(bottomView!, at: 0)
+        addLastCellBackgroundContents(topColor: RGB(183, 192, 208), bottomColor: .white)
+    }
 
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
@@ -50,7 +57,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         
         titleLabel.textColor = (inject() as AppColorInterface).appTitleColor
         arrowLabel.textColor = (inject() as AppColorInterface).centeredButtonBackgroudColor
-        tableView.backgroundColor = RGB(183, 192, 208)
+        tableView.backgroundColor = .clear
         
         titleLabel.font = AppFont.bold.withSize(34)
         arrowLabel.font = AppFont.medium.withSize(16)
