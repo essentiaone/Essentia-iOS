@@ -27,6 +27,7 @@ class SettingsViewController: BaseTableAdapterController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.addLastCellBackgroundContents(topColor: .white, bottomColor: colorProvider.settingsBackgroud)
+        tableView.backgroundColor = .clear
     }
     
     // MARK: - Override
