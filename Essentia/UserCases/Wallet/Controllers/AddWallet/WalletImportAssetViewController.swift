@@ -80,6 +80,10 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     }
 
     private lazy var privateKeyAction: (String) -> Void = {
+        guard $0.last != "\n" else {
+            self.tableAdapter.simpleReload(self.state)
+            return
+        }
         let wasValid = self.store.isValid
         self.store.privateKey = $0
         let isValid = self.store.isValid
