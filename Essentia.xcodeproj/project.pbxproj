@@ -1808,8 +1808,8 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				34B27A4C2133710700527F15 /* SwitchAccout */,
+				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
@@ -2813,7 +2813,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = P8JA7643K4;
@@ -2827,7 +2827,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore essentia.Essentia";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;

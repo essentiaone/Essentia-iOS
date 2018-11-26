@@ -20,9 +20,13 @@ class SettingsViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        applyDesign()
         updateState()
         scrollToTop()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.addLastCellBackgroundContents(topColor: .white, bottomColor: colorProvider.settingsBackgroud)
     }
     
     // MARK: - Override
@@ -34,16 +38,15 @@ class SettingsViewController: BaseTableAdapterController {
         tableAdapter.hardReload(state)
     }
     
-    private func applyDesign() {
-        tableView.backgroundColor = colorProvider.settingsCellsBackround
-    }
-    
     private var state: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
         let rawState: [TableComponent?] =
             [.empty(height: 45, background: colorProvider.settingsCellsBackround),
-             .title(bold: true, title: LS("Settings.Title")),
+             .titleWithFont(font: AppFont.bold.withSize(34),
+                            title: LS("Settings.Title"),
+                            background: colorProvider.settingsCellsBackround,
+                            aligment: .left),
                 showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction) :
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
