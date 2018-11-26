@@ -174,6 +174,7 @@
 		344DB5482162705C00F7D1E2 /* TableComponentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */; };
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
 		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
+		3451601321AC901B0007451D /* KeyboardHeightObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601221AC901B0007451D /* KeyboardHeightObserver.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -494,6 +495,7 @@
 		344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTableView.swift; sourceTree = "<group>"; };
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
 		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
+		3451601221AC901B0007451D /* KeyboardHeightObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightObserver.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -783,6 +785,7 @@
 				34EE1F9A21790F9100FFC570 /* Miscs.swift */,
 				3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */,
 				3486401E218BD235008CA223 /* EssCharacters.swift */,
+				3451601221AC901B0007451D /* KeyboardHeightObserver.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -2591,6 +2594,7 @@
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
 				34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */,
+				3451601321AC901B0007451D /* KeyboardHeightObserver.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,

@@ -17,6 +17,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     private var tableState: [TableComponent] = []
     private var tableView: UITableView
     var helper: TableAdapterHelper
+    private var textEntries:[UIResponder] = []
+    private var currentFirstResponder: UIResponder?
     
     private var selectedRow: IndexPath? = nil
     
@@ -296,11 +298,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .password(let title, _ ,let passwordAction):
             let cell: TableComponentPassword = tableView.dequeueReusableCell(for: indexPath)
+            textEntries.append(cell.passwordTextField)
             cell.passwordAction = passwordAction
             cell.titleLabel.text = title
             return cell
-        case .tabBarSpace: fallthrough
-        case .keyboardInset:
+        case .tabBarSpace:
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = .clear
             return cell
@@ -326,13 +328,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .textField(let placeholder, let text, let endEditing):
             let cell: TableComponentTextField = tableView.dequeueReusableCell(for: indexPath)
+            textEntries.append(cell.textField)
             cell.textField.placeholder = placeholder
             cell.textField.text = text
             cell.textFieldAction = endEditing
-            if selectedRow == nil {
-                selectedRow = indexPath
-                focusView(view: cell.textField)
-            }
             return cell
         case .imageParagraph(let image,let paragraph):
             let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
@@ -371,6 +370,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .textView(let placeholder,let text,let endEditing):
             let cell: TableComponentTextView = tableView.dequeueReusableCell(for: indexPath)
+            textEntries.append(cell.textView)
             cell.placeholderLabel.text = placeholder
             cell.textView.text = text
             cell.textFieldAction = endEditing
@@ -501,6 +501,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             return cell
         case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
             let cell: TableComponentTextFieldDetail = tableView.dequeueReusableCell(for: indexPath)
+            textEntries.append(cell.titleTextField)
             cell.titleTextField.text = string
             cell.titleTextField.font = font
             cell.titleTextField.textColor = color
@@ -516,6 +517,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .titleCenteredDetailTextFildWithImage(let title, let text, let placeholder, let rightButtonImage, let rightButtonAction, let textFieldChanged):
             let cell: TableComponentTitleCenterTextDetail = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
+            textEntries.append(cell.centeredTextField)
             cell.centeredTextField.text = text
             cell.centeredTextField.placeholder = placeholder
             cell.rightButton.setImage(rightButtonImage, for: .normal)
@@ -667,11 +669,27 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
-        
+        currentFirstResponder = view
     }
     
     func endEditing(_ force: Bool) {
         self.tableView.endEditing(true)
         self.selectedRow = nil
+    }
+    
+    func focusFirstField() {
+        guard let first = textEntries.first else { return }
+        currentFirstResponder = first
+        first.becomeFirstResponder()
+    }
+    
+    func focusNextField() {
+        guard let current = currentFirstResponder,
+              let currentIndex = textEntries.firstIndex(of: current),
+                textEntries.count != currentIndex else {
+                return
+        }
+        currentFirstResponder = textEntries[currentIndex + 1]
+        currentFirstResponder?.becomeFirstResponder()
     }
 }

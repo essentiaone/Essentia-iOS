@@ -24,6 +24,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private var wallet: ViewWalletInterface
     private var selected: SelectedOption
     private var enteredName: String
+    private var keyboardHeight: CGFloat = 0
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
@@ -49,7 +50,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private var keyboardIfNeedState: [TableComponent] {
         guard selected == .rename else { return [] }
         return [.empty(height: 15, background: .clear),
-                .keyboardInset]
+                .empty(height: keyboardHeight, background: colorProvider.settingsBackgroud)]
     }
     
     private var containerState: [TableComponent] {
@@ -90,6 +91,10 @@ class WalletOptionsViewController: BaseTableAdapterController {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
         applyDesign()
+        keyboardObserver.animateKeyboard = { newValue in
+            self.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     private func applyDesign() {

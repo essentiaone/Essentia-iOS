@@ -47,6 +47,15 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     }
     
     // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        keyboardObserver.animateKeyboard = { newValue in
+            let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
+            let inset: CGFloat = isLargeKeyboard ? 10 : -25
+            self.buttomCurrentWordConstraint.constant = newValue + inset
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         design.applyDesign(to: self)
@@ -88,12 +97,5 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     
     func didBeginConfirming(word: String, at index: Int) {
         currentWordLabel.text = "\(index + 1)\(LS("MnemonicPhraseConfirm.CurrentWord"))"
-    }
-    
-    override func keyboardDidChange() {
-        super.keyboardDidChange()
-        let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
-        let inset: CGFloat = isLargeKeyboard ? 10 : -25
-        buttomCurrentWordConstraint.constant = 256 + inset
     }
 }

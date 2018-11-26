@@ -14,6 +14,7 @@ fileprivate struct Store {
     var isValid: Bool = false
     var isValidRepeate: Bool = false
     let authType: AuthType
+    var keyboardHeight: CGFloat = 0
     
     var isBothValid: Bool {
         if authType == .login {
@@ -56,6 +57,10 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             showFilePicker()
             return
         }
+        keyboardObserver.animateKeyboard = { newValue in
+            self.store.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
         updateState()
     }
     
@@ -81,7 +86,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
             .empty(height: 50, background: colorProvider.settingsCellsBackround),
-            .keyboardInset
+            .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
     

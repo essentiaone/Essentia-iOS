@@ -6,11 +6,12 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct Store {
     var privateKey: String = ""
     var name: String = ""
+    var keyboardHeight: CGFloat = 0
     var coin: Coin
     
     init(coin: Coin) {
@@ -40,6 +41,11 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
+        tableAdapter.focusFirstField()
+        keyboardObserver.animateKeyboard = { newValue in
+            self.store.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
 
     private var state: [TableComponent] {
@@ -68,8 +74,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
                             isEnable: store.isValid,
                             action: importAction,
                             background: colorProvider.settingsBackgroud),
-            .empty(height: 8, background: colorProvider.settingsBackgroud),
-            .keyboardInset
+            .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
         return rawState.compactMap { return $0 }
     }
@@ -82,6 +87,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     private lazy var privateKeyAction: (String) -> Void = {
         guard $0.last != "\n" else {
             self.tableAdapter.simpleReload(self.state)
+            self.tableAdapter.focusNextField()
             return
         }
         let wasValid = self.store.isValid

@@ -50,10 +50,6 @@ class BaseTableAdapterController: BaseViewController {
         }
     }
     
-    override func keyboardDidChange() {
-        super.keyboardDidChange()
-    }
-    
     func addLastCellBackgroundContents(topColor: UIColor, bottomColor: UIColor) {
         let oneViewHeight = tableView.frame.height / 2
         topView?.frame = CGRect(x: 0, y: 0, width: tableView.frame.width, height: oneViewHeight)

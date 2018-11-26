@@ -9,10 +9,11 @@
 import UIKit
 
 class BaseViewController: UIViewController, UINavigationControllerDelegate {
-    var keyboardHeight: CGFloat = 0
+    var keyboardObserver: KeyboardHeightObserver
     var isKeyboardShown: Bool = false
     
     public init() {
+        keyboardObserver = KeyboardHeightObserver()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,29 +27,12 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        keyboardObserver.start()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else {
-            return
-        }
-        let newKeyboardHeight = keyboardSize.cgRectValue.height
-        let shouldNotify = keyboardHeight != newKeyboardHeight || isKeyboardShown == false
-        keyboardHeight = newKeyboardHeight
-        isKeyboardShown = true
-        if shouldNotify {
-            keyboardDidChange()
-        }
+    override func viewWillDisappear(_ animated: Bool) {
+        keyboardObserver.stop()
     }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        isKeyboardShown = false
-        keyboardDidChange()
-    }
-    
-    func keyboardDidChange() {}
     
     func showFlipAnimation() {
         guard let mainwindow = UIApplication.shared.delegate?.window as? UIWindow else { return }
