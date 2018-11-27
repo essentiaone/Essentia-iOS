@@ -38,7 +38,9 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
             .empty(height: 15, background: colorProvider.settingsBackgroud),
             .textField(placeholder: LS("EditAccount.Placeholder") + EssentiaStore.shared.currentUser.dislayName,
                        text: enteredName,
-                       endEditing: nameAction),
+                       endEditing: nameAction,
+                       isFirstResponder: true
+                    ),
             .separator(inset: .zero),
             .description(title: LS("EditAccount.Description"), backgroud: colorProvider.settingsBackgroud)
             ]

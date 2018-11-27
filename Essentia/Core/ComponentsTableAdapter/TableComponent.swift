@@ -22,7 +22,7 @@ enum TableComponent: Equatable {
     case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor, textColor: UIColor)
-    case textField(placeholder: String, text: String, endEditing: (String) -> Void)
+    case textField(placeholder: String, text: String, endEditing: (String) -> Void, isFirstResponder: Bool)
     case textView(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)

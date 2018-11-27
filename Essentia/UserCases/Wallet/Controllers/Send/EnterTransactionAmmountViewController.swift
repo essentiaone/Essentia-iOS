@@ -84,7 +84,6 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
                             isEnable: store.isValidAmmount,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround),
             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
@@ -142,7 +141,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
         guard let ammount = Double(store.enterdValueInCurrency),
             let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
             currentRank != 0 else {
-                return ""
+                return "0"
         }
         let ammountInCrypto = ammount / currentRank
         let formatter = BalanceFormatter(asset: store.wallet.asset)
@@ -153,7 +152,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
         guard let ammount = Double(store.enterdValueInCrypto),
             let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
             currentRank != 0 else {
-                return ""
+                return "0"
         }
         let ammountInFiat = currentRank * ammount
         let formatter = BalanceFormatter(currency: store.currentCurrency)

@@ -67,7 +67,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
                       text: store.privateKey,
                       endEditing: privateKeyAction),
             .separator(inset: .zero),
-            .textField(placeholder: LS("Wallet.Import.Name"), text: store.name, endEditing: nameEditedAction),
+            .textField(placeholder: LS("Wallet.Import.Name"), text: store.name, endEditing: nameEditedAction, isFirstResponder: false),
             .separator(inset: .zero),
             .calculatbleSpace(background:  colorProvider.settingsBackgroud),
             .centeredButton(title: LS("Wallet.Import.ImportButton"),

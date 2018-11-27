@@ -88,7 +88,6 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
                             isEnable: store.isValidAmmount,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround),
             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }

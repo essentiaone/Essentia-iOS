@@ -26,8 +26,7 @@ enum BasePopUpPosition {
     }
 }
 
-class BaseTablePopUpController: BaseViewController {
-    private var blureView: UIVisualEffectView
+class BaseTablePopUpController: BaseBluredController {
     private var tableView: UITableView
     private let position: BasePopUpPosition
     var state: [TableComponent] = []
@@ -36,7 +35,6 @@ class BaseTablePopUpController: BaseViewController {
     
     init(position: BasePopUpPosition) {
         self.position = position
-        self.blureView = UIVisualEffectView(frame: UIScreen.main.bounds)
         self.tableView = UITableView()
         super.init()
     }
@@ -56,9 +54,6 @@ class BaseTablePopUpController: BaseViewController {
     }
     
     private func applyDesign() {
-        blureView.effect = UIBlurEffect(style: .light)
-        view.addSubview(blureView)
-        tableView.addSubview(blureView.contentView)
         blureView.contentView.addSubview(tableView)
         tableView.layer.cornerRadius = 14.0
         applyConstranints()

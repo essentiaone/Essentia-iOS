@@ -57,11 +57,16 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             showFilePicker()
             return
         }
+        updateState()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        keyboardObserver.start()
         keyboardObserver.animateKeyboard = { newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
-        updateState()
     }
     
     private func updateState() {
@@ -85,7 +90,6 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                             isEnable: store.isBothValid,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 50, background: colorProvider.settingsCellsBackround),
             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }

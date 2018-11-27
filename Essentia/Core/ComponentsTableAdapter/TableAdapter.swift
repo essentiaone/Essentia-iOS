@@ -326,12 +326,17 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
-        case .textField(let placeholder, let text, let endEditing):
+        case .textField(let placeholder, let text, let endEditing, let isFirstResponder):
             let cell: TableComponentTextField = tableView.dequeueReusableCell(for: indexPath)
             textEntries.append(cell.textField)
+            cell.textField.isUserInteractionEnabled = false
             cell.textField.placeholder = placeholder
             cell.textField.text = text
             cell.textFieldAction = endEditing
+            if isFirstResponder {
+                focusView(view: cell.textField)
+                selectedRow = indexPath
+            }
             return cell
         case .imageParagraph(let image,let paragraph):
             let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
@@ -669,6 +674,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
         view.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            view.becomeFirstResponder()
+        }
         currentFirstResponder = view
     }
     

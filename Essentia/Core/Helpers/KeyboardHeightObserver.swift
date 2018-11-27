@@ -53,6 +53,7 @@ public final class KeyboardHeightObserver: NSObject {
                        delay: TimeInterval(0),
                        options: UIView.AnimationOptions(rawValue: animationCurveRawNSN.uintValue),
                        animations: { [weak self] in
+                        if isShowing && correctedHeight == 0 { return }
                         self?.animateKeyboard?(correctedHeight)
             },
                        completion: nil

@@ -26,7 +26,7 @@ class BaseTableAdapterController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        observeKeyboardInsets()
+        observeScrollInsets()
     }
     
     private func setupTableView() {
@@ -40,7 +40,7 @@ class BaseTableAdapterController: BaseViewController {
         }
     }
     
-    private func observeKeyboardInsets() {
+    private func observeScrollInsets() {
         view.insertSubview(topView!, at: 0)
         view.insertSubview(bottomView!, at: 0)
         scrollObserver = tableView.observe(\.contentOffset, options: .new) { [weak self] (_, change) in
