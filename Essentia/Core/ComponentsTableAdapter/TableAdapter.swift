@@ -673,11 +673,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     func focusView(view: UIView) {
         view.isUserInteractionEnabled = true
-        view.becomeFirstResponder()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            view.becomeFirstResponder()
-        }
-        currentFirstResponder = view
+        becomeFirstResponder(view)
     }
     
     func endEditing(_ force: Bool) {
@@ -685,19 +681,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         self.selectedRow = nil
     }
     
-    func focusFirstField() {
-        guard let first = textEntries.first else { return }
-        currentFirstResponder = first
-        first.becomeFirstResponder()
-    }
-    
-    func focusNextField() {
-        guard let current = currentFirstResponder,
-              let currentIndex = textEntries.firstIndex(of: current),
-                textEntries.count != currentIndex else {
-                return
+    func becomeFirstResponder(_ responder: UIResponder) {
+        currentFirstResponder = responder
+        responder.becomeFirstResponder()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+            responder.becomeFirstResponder()
         }
-        currentFirstResponder = textEntries[currentIndex + 1]
-        currentFirstResponder?.becomeFirstResponder()
     }
 }

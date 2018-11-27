@@ -41,13 +41,12 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
-        tableAdapter.focusFirstField()
         keyboardObserver.animateKeyboard = { newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
     }
-
+    
     private var state: [TableComponent] {
         let rawState: [TableComponent?] = [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
@@ -85,11 +84,6 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     }
 
     private lazy var privateKeyAction: (String) -> Void = {
-        guard $0.last != "\n" else {
-            self.tableAdapter.simpleReload(self.state)
-            self.tableAdapter.focusNextField()
-            return
-        }
         let wasValid = self.store.isValid
         self.store.privateKey = $0
         let isValid = self.store.isValid

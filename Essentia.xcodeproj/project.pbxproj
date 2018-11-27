@@ -177,6 +177,7 @@
 		3451601321AC901B0007451D /* KeyboardHeightObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601221AC901B0007451D /* KeyboardHeightObserver.swift */; };
 		3451601521AD761C0007451D /* BaseBluredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601421AD761C0007451D /* BaseBluredController.swift */; };
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
+		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -500,6 +501,7 @@
 		3451601221AC901B0007451D /* KeyboardHeightObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightObserver.swift; sourceTree = "<group>"; };
 		3451601421AD761C0007451D /* BaseBluredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredController.swift; sourceTree = "<group>"; };
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
+		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -1037,6 +1039,7 @@
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
 				34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */,
+				3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -2564,6 +2567,7 @@
 				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
+				3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */,
 				34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */,
 				344958EC21417CEC00C2230B /* UserEvents.swift in Sources */,
 				34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */,
