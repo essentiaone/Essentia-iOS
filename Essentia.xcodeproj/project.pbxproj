@@ -2819,7 +2819,7 @@
 				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -2845,7 +2845,7 @@
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore essentia.Essentia";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = arm64;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

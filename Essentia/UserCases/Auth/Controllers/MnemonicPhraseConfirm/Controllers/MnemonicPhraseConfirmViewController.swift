@@ -50,9 +50,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardObserver.animateKeyboard = { newValue in
-            let isLargeKeyboard = DeviceSeries.currentSeries == .iPhoneX
-            let inset: CGFloat = isLargeKeyboard ? 10 : -25
-            self.buttomCurrentWordConstraint.constant = newValue + inset
+            self.buttomCurrentWordConstraint.constant = newValue + 8
         }
     }
     
