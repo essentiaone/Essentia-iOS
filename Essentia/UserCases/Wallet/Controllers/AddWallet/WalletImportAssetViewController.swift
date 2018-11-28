@@ -6,11 +6,12 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct Store {
     var privateKey: String = ""
     var name: String = ""
+    var keyboardHeight: CGFloat = 0
     var coin: Coin
     
     init(coin: Coin) {
@@ -40,8 +41,12 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
+        keyboardObserver.animateKeyboard = { newValue in
+            self.store.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
-
+    
     private var state: [TableComponent] {
         let rawState: [TableComponent?] = [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
@@ -61,15 +66,14 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
                       text: store.privateKey,
                       endEditing: privateKeyAction),
             .separator(inset: .zero),
-            .textField(placeholder: LS("Wallet.Import.Name"), text: store.name, endEditing: nameEditedAction),
+            .textField(placeholder: LS("Wallet.Import.Name"), text: store.name, endEditing: nameEditedAction, isFirstResponder: false),
             .separator(inset: .zero),
             .calculatbleSpace(background:  colorProvider.settingsBackgroud),
             .centeredButton(title: LS("Wallet.Import.ImportButton"),
                             isEnable: store.isValid,
                             action: importAction,
                             background: colorProvider.settingsBackgroud),
-            .empty(height: 8, background: colorProvider.settingsBackgroud),
-            .keyboardInset
+            .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
         return rawState.compactMap { return $0 }
     }

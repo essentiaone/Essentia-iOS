@@ -21,6 +21,7 @@ fileprivate struct Store {
     var gasEstimate: Double = 21000
     var lowGasSpeed: Double = 4.0
     var fastGasSpeed: Double = 25.0
+    var keyboardHeight: CGFloat = 0
     var qrImage: UIImage? {
         guard address.isEmpty else { return nil }
         return UIImage(named: "qrCode")
@@ -61,6 +62,10 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         hideKeyboardWhenTappedAround()
         loadInputs()
         loadRanges()
+        keyboardObserver.animateKeyboard = { newValue in
+            self.store.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     /*
@@ -100,7 +105,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
              .empty(height: 8, background: colorProvider.settingsCellsBackround),
-             isKeyboardShown ? .keyboardInset : .empty(height: 1, background: colorProvider.settingsCellsBackround),
+             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud),
              .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
                              isEnable: store.isValidTransaction,
                              action: continueAction,

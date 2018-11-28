@@ -15,7 +15,7 @@ fileprivate enum SelectedOption {
     case export
 }
 
-class WalletOptionsViewController: BaseTableAdapterController {
+class WalletOptionsViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -24,6 +24,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private var wallet: ViewWalletInterface
     private var selected: SelectedOption
     private var enteredName: String
+    private var keyboardHeight: CGFloat = 216
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
@@ -38,36 +39,34 @@ class WalletOptionsViewController: BaseTableAdapterController {
     
     private var state: [TableComponent] {
         return [
-            .blure(state: [
-                .calculatbleSpace(background: .clear),
-                .container(state: containerState),
-                .empty(height: 18, background: .clear)
-                ] + keyboardIfNeedState
-            )]
+            .calculatbleSpace(background: .clear),
+            .container(state: containerState),
+            .empty(height: 18, background: .clear)
+            ] + keyboardIfNeedState
     }
     
     private var keyboardIfNeedState: [TableComponent] {
         guard selected == .rename else { return [] }
-        return [.empty(height: 15, background: .clear),
-                .keyboardInset]
+        return [.empty(height: keyboardHeight, background:.clear)]
     }
     
     private var containerState: [TableComponent] {
         return
             exportAlert +
-            [.titleWithCancel(title: LS("Wallet.Options.Title"), action: backAction),
-             .imageTitle(image: imageProvider.walletOptionsRename, title: LS("Wallet.Options.Rename"), withArrow: false, action: renameAction)]
-             + editTextField +
-            [.imageTitle(image: imageProvider.walletOptionsExport, title: LS("Wallet.Options.Export"), withArrow: false, action: exportAction)]
-            + exportPrivateKey +
-             [.imageTitle(image: imageProvider.walletOptionsDelete, title: LS("Wallet.Options.Delete"), withArrow: false, action: deleteAction)]
+                [.titleWithCancel(title: LS("Wallet.Options.Title"), action: backAction),
+                 .imageTitle(image: imageProvider.walletOptionsRename, title: LS("Wallet.Options.Rename"), withArrow: false, action: renameAction)]
+                + editTextField +
+                [.imageTitle(image: imageProvider.walletOptionsExport, title: LS("Wallet.Options.Export"), withArrow: false, action: exportAction)]
+                + exportPrivateKey +
+                [.imageTitle(image: imageProvider.walletOptionsDelete, title: LS("Wallet.Options.Delete"), withArrow: false, action: deleteAction)]
     }
     
     private var editTextField: [TableComponent] {
         guard selected == .rename else { return [] }
         return [.textField(placeholder: wallet.asset.localizedName,
                            text: enteredName,
-                           endEditing: nameAction),
+                           endEditing: nameAction,
+                           isFirstResponder: true),
                 .empty(height: 12, background: .white)
         ]
     }
@@ -90,6 +89,12 @@ class WalletOptionsViewController: BaseTableAdapterController {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
         applyDesign()
+        keyboardObserver.animateKeyboard = { newValue in
+            if newValue != 0 {
+                self.keyboardHeight = newValue
+                self.tableAdapter.simpleReload(self.state)
+            }
+        }
     }
     
     private func applyDesign() {
@@ -103,7 +108,6 @@ class WalletOptionsViewController: BaseTableAdapterController {
         self.tableAdapter.endEditing(true)
         self.wallet.name = self.enteredName
         (inject() as UserStorageServiceInterface).storeCurrentUser()
-        
         self.dismiss(animated: true)
     }
     
@@ -122,6 +126,7 @@ class WalletOptionsViewController: BaseTableAdapterController {
     private lazy var deleteAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.selected = .none
+        self.tableAdapter.endEditing(true)
         self.showDeleteWarning()
         self.tableAdapter.simpleReload(self.state)
     }

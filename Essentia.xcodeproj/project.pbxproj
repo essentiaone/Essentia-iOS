@@ -174,6 +174,10 @@
 		344DB5482162705C00F7D1E2 /* TableComponentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */; };
 		344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */; };
 		344DB54D21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */; };
+		3451601321AC901B0007451D /* KeyboardHeightObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601221AC901B0007451D /* KeyboardHeightObserver.swift */; };
+		3451601521AD761C0007451D /* BaseBluredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601421AD761C0007451D /* BaseBluredController.swift */; };
+		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
+		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -494,6 +498,10 @@
 		344DB5472162705C00F7D1E2 /* TableComponentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTableView.swift; sourceTree = "<group>"; };
 		344DB5492162708B00F7D1E2 /* TableComponentTableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTableView.xib; sourceTree = "<group>"; };
 		344DB54C21630E3C00F7D1E2 /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
+		3451601221AC901B0007451D /* KeyboardHeightObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightObserver.swift; sourceTree = "<group>"; };
+		3451601421AD761C0007451D /* BaseBluredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredController.swift; sourceTree = "<group>"; };
+		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
+		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -783,6 +791,7 @@
 				34EE1F9A21790F9100FFC570 /* Miscs.swift */,
 				3486401C218BD0CB008CA223 /* AmmountEnteringDelegate.swift */,
 				3486401E218BD235008CA223 /* EssCharacters.swift */,
+				3451601221AC901B0007451D /* KeyboardHeightObserver.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -845,6 +854,8 @@
 				34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */,
 				347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */,
 				347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */,
+				3451601421AD761C0007451D /* BaseBluredController.swift */,
+				3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1028,6 +1039,7 @@
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
 				34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */,
+				3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1808,8 +1820,8 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				34B27A4C2133710700527F15 /* SwitchAccout */,
+				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
@@ -2382,6 +2394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3431226E2124E754009E4A7A /* TableComponentNavigationBar.swift in Sources */,
+				3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */,
 				34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */,
 				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
 				348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */,
@@ -2460,6 +2473,7 @@
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
 				34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */,
+				3451601521AD761C0007451D /* BaseBluredController.swift in Sources */,
 				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
 				34482686211DDC1800C19EB3 /* TableAdapter.swift in Sources */,
@@ -2553,6 +2567,7 @@
 				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
+				3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */,
 				34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */,
 				344958EC21417CEC00C2230B /* UserEvents.swift in Sources */,
 				34FCB9932188C16700A88D56 /* TableComponentTitleCenterDetail.swift in Sources */,
@@ -2591,6 +2606,7 @@
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
 				34AC4DE62147C2E9001C17D8 /* TableComponentTextView.swift in Sources */,
+				3451601321AC901B0007451D /* KeyboardHeightObserver.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
 				34115DFE2134465D00A54B7E /* TableComponentImageTitle.swift in Sources */,
 				3401AF8920FD3E66006DEF49 /* DIRegisteredObject.swift in Sources */,
@@ -2813,7 +2829,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 52;
 				DEVELOPMENT_TEAM = P8JA7643K4;
@@ -2827,7 +2843,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = essentia.Essentia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore essentia.Essentia";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = arm64;

@@ -88,8 +88,6 @@ class TableAdapterHelper {
                                               width: labelWidth) +
                 description.multyLineLabelHeight(with: AppFont.regular.withSize(17),
                                                  width: labelWidth) + 20
-        case .keyboardInset:
-            return DeviceSeries.currentSeries == .iPhoneX ? 280 : 200.0
         case .tabBarSpace:
             return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
         case .menuTitleCheck:

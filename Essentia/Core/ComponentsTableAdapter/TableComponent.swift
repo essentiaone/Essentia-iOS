@@ -22,7 +22,7 @@ enum TableComponent: Equatable {
     case titleCenteredDetail(title: String, detail: String)
     case description(title: String, backgroud: UIColor)
     case descriptionWithSize(aligment: NSTextAlignment, fontSize: CGFloat, title: String, background: UIColor, textColor: UIColor)
-    case textField(placeholder: String, text: String, endEditing: (String) -> Void)
+    case textField(placeholder: String, text: String, endEditing: (String) -> Void, isFirstResponder: Bool)
     case textView(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
@@ -53,7 +53,6 @@ enum TableComponent: Equatable {
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
     case password(title: String, withProgress: Bool, passwordAction: (Bool, String) -> Void)
-    case keyboardInset
     case tabBarSpace
     case centeredImageButton(image: UIImage, action: () -> Void)
     // MARK: - Wallet

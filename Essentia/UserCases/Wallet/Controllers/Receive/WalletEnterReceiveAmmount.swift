@@ -6,7 +6,7 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 fileprivate struct Store {
     let asset: AssetInterface
@@ -14,6 +14,7 @@ fileprivate struct Store {
     var enterdValueInCrypto: String
     var currentlyEdited: CurrencyType = .crypto
     let currentCurrency: FiatCurrency
+    var keyboardHeight: CGFloat = 0
     
     init(asset: AssetInterface) {
         currentCurrency = EssentiaStore.shared.currentUser.profile.currency
@@ -52,6 +53,10 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
+        keyboardObserver.animateKeyboard = { newValue in
+            self.store.keyboardHeight = newValue
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     private var state: [TableComponent] {
@@ -83,8 +88,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
                             isEnable: store.isValidAmmount,
                             action: continueAction,
                             background: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround),
-            isKeyboardShown ? .keyboardInset : .empty(height: 1, background: colorProvider.settingsCellsBackround)
+            .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
     
@@ -178,10 +182,5 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
         self.tableAdapter.endEditing(true)
         self.router.pop()
         self.ammountCallback(self.store.enterdValueInCrypto)
-    }
-    
-    // MARK: - Keyboard
-    override func keyboardDidChange() {
-        self.tableAdapter.simpleReload(state)
     }
 }

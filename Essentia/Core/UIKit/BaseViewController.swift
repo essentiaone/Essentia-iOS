@@ -9,10 +9,13 @@
 import UIKit
 
 class BaseViewController: UIViewController, UINavigationControllerDelegate {
-    var keyboardHeight: CGFloat = 0
+    var keyboardObserver: KeyboardHeightObserver
     var isKeyboardShown: Bool = false
+    var topView: UIView?
+    var bottomView: UIView?
     
     public init() {
+        keyboardObserver = KeyboardHeightObserver()
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -26,33 +29,33 @@ class BaseViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(BaseViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        keyboardObserver.start()
+        setupScrollInsets()
     }
     
-    @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue else {
-            return
-        }
-        let newKeyboardHeight = keyboardSize.cgRectValue.height
-        let shouldNotify = keyboardHeight != newKeyboardHeight || isKeyboardShown == false
-        keyboardHeight = newKeyboardHeight
-        isKeyboardShown = true
-        if shouldNotify {
-            keyboardDidChange()
-        }
+    private func setupScrollInsets() {
+        let oneViewHeight = view.frame.height / 2
+        topView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: oneViewHeight))
+        bottomView = UIView(frame: CGRect(x: 0, y: oneViewHeight, width: view.frame.width, height: oneViewHeight))
+        topView?.isUserInteractionEnabled = false
+        bottomView?.isUserInteractionEnabled = false
     }
     
-    @objc func keyboardWillHide(notification: NSNotification) {
-        isKeyboardShown = false
-        keyboardDidChange()
+    override func viewWillDisappear(_ animated: Bool) {
+        keyboardObserver.stop()
     }
-    
-    func keyboardDidChange() {}
     
     func showFlipAnimation() {
         guard let mainwindow = UIApplication.shared.delegate?.window as? UIWindow else { return }
         UIView.transition(with: mainwindow, duration: 0.55001, options: .transitionFlipFromLeft, animations: { () -> Void in
         }, completion: { (_) -> Void in})
+    }
+    
+    func addLastCellBackgroundContents(topColor: UIColor, bottomColor: UIColor) {
+        let oneViewHeight = view.frame.height / 2
+        topView?.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: oneViewHeight)
+        bottomView?.frame = CGRect(x: 0, y: oneViewHeight, width: view.frame.width, height: oneViewHeight)
+        topView?.backgroundColor = topColor
+        bottomView?.backgroundColor = bottomColor
     }
 }
