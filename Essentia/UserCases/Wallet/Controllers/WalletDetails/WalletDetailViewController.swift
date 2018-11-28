@@ -187,6 +187,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                 blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
                     switch result {
                     case .success(let tx):
+    
                         transactions(self.mapTransactions(tx.result))
                     case .failure(let error):
                         self.showError(error)

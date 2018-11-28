@@ -277,6 +277,7 @@
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
 		34C1535421A3683F00DDC4F5 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1535321A3683F00DDC4F5 /* TopAlert.swift */; };
+		34C5B2B321AEE98800B1EFB3 /* TransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C5B2B221AEE98800B1EFB3 /* TransactionDetailViewController.swift */; };
 		34D805FA2175D65C0079A5A5 /* BaseTablePopUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */; };
 		34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */; };
 		34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */; };
@@ -604,6 +605,7 @@
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
 		34C1535321A3683F00DDC4F5 /* TopAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlert.swift; sourceTree = "<group>"; };
+		34C5B2B221AEE98800B1EFB3 /* TransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailViewController.swift; sourceTree = "<group>"; };
 		34D805F92175D65C0079A5A5 /* BaseTablePopUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTablePopUpController.swift; sourceTree = "<group>"; };
 		34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletPopUp.swift; sourceTree = "<group>"; };
 		34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleImageButton.swift; sourceTree = "<group>"; };
@@ -2016,6 +2018,7 @@
 				34DC8B8221778EEE00ACA5D2 /* WalletDetailViewController.swift */,
 				345F118621973FE60010095F /* WalletOptionsViewController.swift */,
 				34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */,
+				34C5B2B221AEE98800B1EFB3 /* TransactionDetailViewController.swift */,
 			);
 			path = WalletDetails;
 			sourceTree = "<group>";
@@ -2594,6 +2597,7 @@
 				34E706E6219CFCFF002A52E3 /* SelectedTransacrionAmmount.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				349131E721938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift in Sources */,
+				34C5B2B321AEE98800B1EFB3 /* TransactionDetailViewController.swift in Sources */,
 				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
 				3448264521107A2100C19EB3 /* EditingCell.swift in Sources */,
 				3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */,
