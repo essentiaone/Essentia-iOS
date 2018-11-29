@@ -96,6 +96,7 @@
 		343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */; };
 		3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */; };
 		3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */; };
+		3432696321B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */; };
 		3438C777218098CC0087A3BB /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C774218098CB0087A3BB /* TransactionType.swift */; };
 		3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C775218098CB0087A3BB /* ViewTransaction.swift */; };
 		3438C779218098CC0087A3BB /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C776218098CB0087A3BB /* TransactionStatus.swift */; };
@@ -421,6 +422,7 @@
 		343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentCenteredButton.xib; sourceTree = "<group>"; };
 		3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCenteredButton.swift; sourceTree = "<group>"; };
 		3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterHelper.swift; sourceTree = "<group>"; };
+		3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleMultyLineDetail.swift; sourceTree = "<group>"; };
 		3438C774218098CB0087A3BB /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		3438C775218098CB0087A3BB /* ViewTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransaction.swift; sourceTree = "<group>"; };
 		3438C776218098CB0087A3BB /* TransactionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionStatus.swift; sourceTree = "<group>"; };
@@ -1218,6 +1220,14 @@
 			path = CenteredButton;
 			sourceTree = "<group>";
 		};
+		3432696121B02ED900C5CD7D /* TitleMultyLineDetail */ = {
+			isa = PBXGroup;
+			children = (
+				3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */,
+			);
+			path = TitleMultyLineDetail;
+			sourceTree = "<group>";
+		};
 		3438C773218098CB0087A3BB /* Transaction */ = {
 			isa = PBXGroup;
 			children = (
@@ -1446,6 +1456,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3432696121B02ED900C5CD7D /* TitleMultyLineDetail */,
 				34E706E0219CF215002A52E3 /* TwoButtons */,
 				340AC010219BBECB00DEAFF1 /* PageControl */,
 				345F118F219742CD0010095F /* Container */,
@@ -2636,6 +2647,7 @@
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */,
 				349BC0572146553C003AC330 /* WalletSelectImportAssetViewController.swift in Sources */,
+				3432696321B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift in Sources */,
 				34737BE52152688B008A306F /* TableComponentAssetBalance.swift in Sources */,
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
