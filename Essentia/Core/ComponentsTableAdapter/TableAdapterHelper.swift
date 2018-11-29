@@ -127,7 +127,7 @@ class TableAdapterHelper {
             return 40.0
         case .transactionDetail:
             return 65.0
-        case .searchField:
+        case .titleWithActionButton:
             return 42.0
         case .titleAttributedDetail:
             return 60.0

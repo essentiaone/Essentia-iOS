@@ -71,7 +71,7 @@ enum TableComponent: Equatable {
     case filledSegment(titles: [String], action: (Int) -> Void)
     // MARK: - Wallet detail
     case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
-    case searchField(title: String, icon: UIImage, action: () -> Void)
+    case titleWithActionButton(title: String, icon: UIImage, action: () -> Void)
     case titleAttributedDetail(title: String, detail: NSAttributedString)
     case attributedTitleDetail(title: NSAttributedString, detail: NSAttributedString, action: (() -> Void)?)
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)

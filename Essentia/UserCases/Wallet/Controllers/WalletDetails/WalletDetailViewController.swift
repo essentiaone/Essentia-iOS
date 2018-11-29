@@ -97,7 +97,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - State Builders
     private var buildTransactionState: [TableComponent] {
         guard !store.transactions.isEmpty else { return [] }
-        return [.searchField(title: LS("Wallet.Detail.History.Title"),
+        return [.titleWithActionButton(title: LS("Wallet.Detail.History.Title"),
                              icon: UIImage(),
                              action: searchTransactionAction)] + formattedTransactions
     }

@@ -82,7 +82,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                                 color: colorProvider.appDefaultTextColor,
                                 action: enterAmmoutAction)]
         }
-        return [.searchField(title: store.enterdValueInCrypto + " " + store.wallet.asset.symbol,
+        return [.titleWithActionButton(title: store.enterdValueInCrypto + " " + store.wallet.asset.symbol,
                                            icon: UIImage(named: "clearTextField") ?? UIImage() ,
                                            action: clearAction)]
     }
