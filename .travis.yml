@@ -1,4 +1,4 @@
-language: 
+glanguage: 
   - objective-c
 
 osx_image: 
@@ -7,4 +7,4 @@ cache:
   - bundler
   - cocoapods
 script:
-  - xcodebuild -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.0'
+  -  xcodebuild -workspace Essentia.xcworkspace -scheme Essentia build -quiet

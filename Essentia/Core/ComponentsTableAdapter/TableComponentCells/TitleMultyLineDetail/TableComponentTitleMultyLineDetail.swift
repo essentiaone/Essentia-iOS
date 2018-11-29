@@ -6,4 +6,8 @@
 //  Copyright © 2018 Essentia-One. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class TableComponentTitleMultyLineDetail: UITableViewCell {
+ 
+}
