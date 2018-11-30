@@ -69,7 +69,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     override init() {
         super.init()
         delegate = self
-        let items: [TabBarTab] = [.launchpad, .wallet, .notifications, .settings]
+        let items: [TabBarTab] = [.wallet, .notifications, .settings]
         viewControllers = items.map {
             let nvc = $0.tabBarItem
             loadDependences(tabBarTab: $0, nvc: nvc)
