@@ -97,6 +97,7 @@
 		3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */; };
 		3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */; };
 		3432696321B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */; };
+		3432696521B0425600C5CD7D /* TableComponentTitleMultyLineDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3432696421B0425600C5CD7D /* TableComponentTitleMultyLineDetail.xib */; };
 		3438C777218098CC0087A3BB /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C774218098CB0087A3BB /* TransactionType.swift */; };
 		3438C778218098CC0087A3BB /* ViewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C775218098CB0087A3BB /* ViewTransaction.swift */; };
 		3438C779218098CC0087A3BB /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3438C776218098CB0087A3BB /* TransactionStatus.swift */; };
@@ -312,7 +313,6 @@
 		34FCB9AA218A3B1F00A88D56 /* TableComponentSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */; };
 		34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */; };
 		34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */; };
-		34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */; };
 		34FCB9B2218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9B1218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift */; };
 		34FCB9B4218BB3E200A88D56 /* TableComponentTextFieldDetail.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FCB9B3218BB3E200A88D56 /* TableComponentTextFieldDetail.xib */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
@@ -423,6 +423,7 @@
 		3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentCenteredButton.swift; sourceTree = "<group>"; };
 		3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableAdapterHelper.swift; sourceTree = "<group>"; };
 		3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleMultyLineDetail.swift; sourceTree = "<group>"; };
+		3432696421B0425600C5CD7D /* TableComponentTitleMultyLineDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleMultyLineDetail.xib; sourceTree = "<group>"; };
 		3438C774218098CB0087A3BB /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
 		3438C775218098CB0087A3BB /* ViewTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTransaction.swift; sourceTree = "<group>"; };
 		3438C776218098CB0087A3BB /* TransactionStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionStatus.swift; sourceTree = "<group>"; };
@@ -641,7 +642,6 @@
 		34FCB9A8218A3B1F00A88D56 /* TableComponentSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentSlider.xib; sourceTree = "<group>"; };
 		34FCB9A9218A3B1F00A88D56 /* TableComponentSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentSlider.swift; sourceTree = "<group>"; };
 		34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTransactionAmmountViewController.swift; sourceTree = "<group>"; };
-		34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttributedString+Size.swift"; sourceTree = "<group>"; };
 		34FCB9B1218BB3BD00A88D56 /* TableComponentTextFieldDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTextFieldDetail.swift; sourceTree = "<group>"; };
 		34FCB9B3218BB3E200A88D56 /* TableComponentTextFieldDetail.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTextFieldDetail.xib; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
@@ -786,7 +786,6 @@
 				344DB54B21630E2400F7D1E2 /* Formatters */,
 				3401AF4F20F7DE06006DEF49 /* RGB.swift */,
 				3401AF6420F826B3006DEF49 /* LocalizedStrings.swift */,
-				3401AFDD21043C44006DEF49 /* String+Size.swift */,
 				34B79651212B1CEF000B1251 /* DeviceSeries.swift */,
 				3441680D212FF468008B8A91 /* FastTernaryOperator.swift */,
 				34B27A39213047E200527F15 /* MethodSwizzle.swift */,
@@ -1032,6 +1031,7 @@
 		3401AFD521032F15006DEF49 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				3401AFDD21043C44006DEF49 /* String+Size.swift */,
 				34864020218BD518008CA223 /* String */,
 				34997795218312D800D85A82 /* RemoteExtensions */,
 				348BC790217EC8BF00F494A8 /* UIView */,
@@ -1042,7 +1042,6 @@
 				344958F62142687000C2230B /* UIImage+UIColor.swift */,
 				34AC4E0B214AAE49001C17D8 /* UIViewController+DismissKeyboard.swift */,
 				34789BA32183670300EB68C4 /* Date+Intervals.swift */,
-				34FCB9AE218A531B00A88D56 /* AttributedString+Size.swift */,
 				3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */,
 			);
 			path = Extensions;
@@ -1224,6 +1223,7 @@
 			isa = PBXGroup;
 			children = (
 				3432696221B02FA000C5CD7D /* TableComponentTitleMultyLineDetail.swift */,
+				3432696421B0425600C5CD7D /* TableComponentTitleMultyLineDetail.xib */,
 			);
 			path = TitleMultyLineDetail;
 			sourceTree = "<group>";
@@ -2276,6 +2276,7 @@
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
 				344DB54A2162708B00F7D1E2 /* TableComponentTableView.xib in Resources */,
 				34FCB9952188C17C00A88D56 /* TableComponentTitleCenterDetail.xib in Resources */,
+				3432696521B0425600C5CD7D /* TableComponentTitleMultyLineDetail.xib in Resources */,
 				34E706E4219CF22D002A52E3 /* TableComponentTwoButtons.xib in Resources */,
 				349AA4A521230CE000E9256F /* TableComponentAccountStrength.xib in Resources */,
 				344826CE212190AC00C19EB3 /* TableComponentCurrentAccount.xib in Resources */,
@@ -2615,7 +2616,6 @@
 				3401AF8B20FD3FD0006DEF49 /* DependenceCore.swift in Sources */,
 				3441680E212FF468008B8A91 /* FastTernaryOperator.swift in Sources */,
 				347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */,
-				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,

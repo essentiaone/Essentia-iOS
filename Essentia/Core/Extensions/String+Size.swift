@@ -22,3 +22,14 @@ extension String {
         return boundingBox.height
     }
 }
+
+extension NSAttributedString {
+    func singleLineLabelWidth() -> CGFloat {
+        return size().width
+    }
+    
+    func heightForLabel(width: CGFloat) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        return boundingRect(with: constraintRect, options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).height
+    }
+}
