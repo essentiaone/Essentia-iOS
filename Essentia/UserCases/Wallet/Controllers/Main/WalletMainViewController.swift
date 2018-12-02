@@ -15,6 +15,7 @@ fileprivate struct Store {
     var currentSegment: Int = 0
     var balanceChangedPer24Hours: Double = 0
     var tableHeight: CGFloat = 0
+    static var isWalletOpened = "isWalletOpened"
     
 }
 
@@ -31,10 +32,20 @@ class WalletMainViewController: BaseTableAdapterController {
     private var cashNonEmptyStaticState: [TableComponent]?
     
     // MARK: - Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
         reloadAllComponents()
+        showOnbordingIfNeeded()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -115,6 +126,15 @@ class WalletMainViewController: BaseTableAdapterController {
         coinsTypesState.append(contentsOf: buildSection(title: LS("Wallet.Main.Coins.Imported"),
                                                         wallets: store.importedWallets))
         return coinsTypesState
+    }
+    
+    private func showOnbordingIfNeeded() {
+        let isWalletOpened = UserDefaults.standard.bool(forKey: Store.isWalletOpened)
+        if !isWalletOpened {
+            UserDefaults.standard.set(true, forKey: Store.isWalletOpened)
+            (inject() as UserStorageServiceInterface).storeCurrentUser()
+            present(WalletWelcomeViewController(), animated: true)
+        }
     }
     
     // MARK: - State builders

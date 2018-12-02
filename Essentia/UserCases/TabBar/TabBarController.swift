@@ -8,6 +8,10 @@
 
 import UIKit
 
+fileprivate enum Constants: String {
+    case walletOnbordingKey
+}
+
 fileprivate enum TabBarTab {
     case launchpad
     case wallet
@@ -81,16 +85,6 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        let isWalletTab = item.title == LS("TabBar.Wallet")
-        let isFirstlyOnWallet = EssentiaStore.shared.currentUser.userEvents.isFirstlyOnWallet
-        if isWalletTab && isFirstlyOnWallet {
-            EssentiaStore.shared.currentUser.userEvents.isFirstlyOnWallet = false
-            (inject() as UserStorageServiceInterface).storeCurrentUser()
-            present(WalletWelcomeViewController(), animated: true)
-        }
     }
     
     func selectTab(at index: Int) {

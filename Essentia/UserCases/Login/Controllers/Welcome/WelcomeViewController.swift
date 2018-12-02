@@ -75,11 +75,10 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
     }
     
     private func generateNewUser() {
-        EssentiaLoader.show()
-        (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
-            guard let self = self else { return }
+        EssentiaLoader.show {
             TabBarController.shared.selectedIndex = 0
             self.present(TabBarController.shared, animated: true)
         }
+        (inject() as LoginInteractorInterface).generateNewUser {}
     }
 }
