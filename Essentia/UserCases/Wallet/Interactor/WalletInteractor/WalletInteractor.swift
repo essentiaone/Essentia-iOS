@@ -21,7 +21,7 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func getCoinsList() -> [Coin] {
-        return [Coin.bitcoin, Coin.ethereum]
+        return [Coin.ethereum]
     }
     
     func getTokensList(result: @escaping ([AssetInterface]) -> Void) {
