@@ -98,11 +98,11 @@ class SwitchAccoutViewController: BaseViewController {
     }
     
     private func generateNewUser() {
-        EssentiaLoader.show()
-        (inject() as LoginInteractorInterface).generateNewUser { [weak self] in
+        EssentiaLoader.show {
+            self.callBack()
             TabBarController.shared.selectedIndex = 0
-            self?.callBack()
         }
+        (inject() as LoginInteractorInterface).generateNewUser {}
     }
 
 }

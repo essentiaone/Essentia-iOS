@@ -9,7 +9,7 @@
 import UIKit
 
 class EssentiaLoader {
-    static func show() {
+    static func show(callBack: @escaping () -> Void) {
         let contentView = UIView(frame: UIScreen.main.bounds)
         contentView.backgroundColor = .white
         let imageView = UIImageView(frame: contentView.frame)
@@ -27,6 +27,7 @@ class EssentiaLoader {
             UIView.animate(withDuration: 0.3, animations: {
                 contentView.layer.opacity = 0
             }, completion: { _ in
+                callBack()
                 contentView.removeFromSuperview()
             })
         }
