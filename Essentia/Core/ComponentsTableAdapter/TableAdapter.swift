@@ -82,6 +82,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentContainer.self)
         tableView.register(TableComponentPageControl.self)
         tableView.register(TableComponentTwoButtons.self)
+        tableView.register(TableComponentTitleMultyLineDetail.self)
     }
     
     // MARK: - Update State
@@ -557,6 +558,11 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentPageControl = tableView.dequeueReusableCell(for: indexPath)
             cell.pageControl.currentPage = selected
             cell.pageControl.numberOfPages = count
+            return cell
+        case .expandingTitleDetail(let title, let detail, let action):
+            let cell: TableComponentTitleMultyLineDetail = tableView.dequeueReusableCell(for: indexPath)
+            print(tableView.frame.width)
+            cell.set(title: title, detail: detail, width: tableView.frame.width)
             return cell
         }
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import QRCodeReader
+import EssentiaBridgesApi
 
 enum WalletRoutes {
     case newAssets
@@ -20,7 +21,8 @@ enum WalletRoutes {
     case selectEtherWallet(wallets: [ViewWalletInterface], action: (ViewWalletInterface) -> Void)
     case walletOptions(ViewWalletInterface)
     case walletDetail(ViewWalletInterface)
-    case transactionDetail(asset: AssetInterface, txId: String)
+    case transactionDetailWeb(asset: AssetInterface, txId: String)
+    case transactionDetail(viewTx: ViewTransaction, tx: EthereumTransactionDetail)
     case enterTransactionAmmount(ViewWalletInterface)
     case sendTransactionDetail(ViewWalletInterface, SelectedTransacrionAmmount)
     case qrReader(QRCodeReaderViewControllerDelegate)

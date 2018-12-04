@@ -77,6 +77,7 @@ enum TableComponent: Equatable {
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
     case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
                                              rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
+    case expandingTitleDetail(title: String, detail: String, action: (() -> Void)?)
     case blure(state: [TableComponent])
     case container(state: [TableComponent])
     // MARK: - PoUp

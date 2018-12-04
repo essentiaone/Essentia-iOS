@@ -28,7 +28,7 @@ fileprivate struct Store {
 class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigation {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-
+    
     private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
@@ -74,7 +74,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
             .titleWithFont(font: AppFont.regular.withSize(20),
                            title: store.wallet.asset.localizedName + " " + LS("Wallet.Detail.Balance"),
                            background: colorProvider.settingsCellsBackround,
-                         aligment: .center),
+                           aligment: .center),
             .empty(height: 11, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(24),
                            title: formattedBalance(store.balance),
@@ -87,8 +87,8 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                      perTime: "(24h)"),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
             .filledSegment(titles: [LS("Wallet.Detail.Send"),
-//                                    LS("Wallet.Detail.Exchange"),
-                                    LS("Wallet.Detail.Receive")],
+                                    //                                    LS("Wallet.Detail.Exchange"),
+                LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
             ] + buildTransactionState
@@ -98,21 +98,21 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     private var buildTransactionState: [TableComponent] {
         guard !store.transactions.isEmpty else { return [] }
         return [.titleWithActionButton(title: LS("Wallet.Detail.History.Title"),
-                             icon: UIImage(),
-                             action: searchTransactionAction)] + formattedTransactions
+                                       icon: UIImage(),
+                                       action: searchTransactionAction)] + formattedTransactions
     }
     
     private var formattedTransactions: [TableComponent] {
         return self.store.transactionsByDate.map { (transactionByDate) -> [TableComponent]  in
             return formattedDateSection(date: transactionByDate.key) +
-                   formattedTransactionsSection(transactionByDate.value)
-        }.reduce([], + )
+                formattedTransactionsSection(transactionByDate.value)
+            }.reduce([], + )
     }
     
     private func formattedTransactionsSection(_ transactions: [ViewTransaction]) -> [TableComponent] {
         return transactions.map {
             return formattedTransaction($0)
-        }.reduce([], + )
+            }.reduce([], + )
     }
     
     private func formattedDateSection(date: String) -> [TableComponent] {
@@ -127,14 +127,27 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func formattedTransaction(_ tx: ViewTransaction) -> [TableComponent] {
         return [.transactionDetail(icon: tx.status.iconForTxType(tx.type),
-                                                       title: tx.type.title ,
-                                                       subtitle: tx.address,
-                                                       description: tx.ammount,
-                                                       action: {
-                                                            (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
-                                                                                                                        txId: tx.address))
-                                                       }),
-                 .separator(inset: .zero)]
+                                   title: tx.type.title ,
+                                   subtitle: tx.address,
+                                   description: tx.ammount,
+                                   action: { self.didSelectTx(viewTx: tx) }),
+                .separator(inset: .zero)]
+    }
+    
+    private func didSelectTx(viewTx: ViewTransaction) {
+        switch self.store.wallet.asset {
+        case let coin as Coin:
+            switch coin {
+            case .ethereum:
+                guard let tx = self.store.ethereumTransactions.first(where: { viewTx.hash == $0.hash }) else { return }
+                (inject() as WalletRouterInterface).show(.transactionDetail(viewTx: viewTx, tx: tx))
+            default:
+                print("TODO \(coin)!")
+            }
+        case let token as Token:
+            print("TODO \(token)!")
+        default: return
+        }
     }
     
     // MARK: - Network
@@ -187,7 +200,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                 blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
                     switch result {
                     case .success(let tx):
-    
+                        self.store.ethereumTransactions = tx.result
                         transactions(self.mapTransactions(tx.result))
                     case .failure(let error):
                         self.showError(error)

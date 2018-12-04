@@ -235,6 +235,10 @@
 "Wallet.TransactionInfo.GoToBlockchain" = "Go to Blockchain";
 "Wallet.TransactionInfo.Close" = "CLOSE";
 
+"Wallet.Transaction.Status.Failed" = "Failed";
+"Wallet.Transaction.Status.Success" = "Success";
+"Wallet.Transaction.Status.Pending" = "Pending";
+
 "Wallet.TransactionType.send" = "Send to";
 "Wallet.TransactionType.recive" = "Received from";
 "Wallet.TransactionType.exchange" = "Exchange to";

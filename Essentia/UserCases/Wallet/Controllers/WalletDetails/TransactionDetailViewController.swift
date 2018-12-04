@@ -17,7 +17,7 @@ class TransactionDetailViewController: BaseTablePopUpController {
     
     convenience init(transaction: EthereumTransactionDetail, viewTransaction: ViewTransaction) {
         self.init()
-        state = containerState(viewTx: viewTransaction)
+        state = containerState(viewTx: viewTransaction, tx: transaction)
     }
     
     init() {
@@ -40,14 +40,30 @@ class TransactionDetailViewController: BaseTablePopUpController {
      "Wallet.TransactionInfo.GoToBlockchain" = "Go to Blockchain";
      = "CLOSE";
      */
-    private func containerState(viewTx: ViewTransaction) -> [TableComponent] {
-        return [.titleWithActionButton(title: LS("Wallet.TransactionInfo.Title"), icon: UIImage(named: "shareIcon")!, action: shareAction),
+    private func containerState(viewTx: ViewTransaction, tx: EthereumTransactionDetail) -> [TableComponent] {
+        return [.empty(height: 10, background: colorProvider.settingsCellsBackround),
+                .titleWithActionButton(title: LS("Wallet.TransactionInfo.Title"), icon: UIImage(named: "shareIcon")!, action: shareAction),
                 .transactionDetail(icon: viewTx.status.iconForTxType(viewTx.type),
                                    title: viewTx.type.title ,
                                    subtitle: viewTx.address,
                                    description: viewTx.ammount,
                                    action: {}),
                 .separator(inset: UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)),
+                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.Status"), detail: viewTx.status.localized, action: nil),
+                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.ReceivedTime"), detail: formattedTimeStamp(timeStamp: tx.timeStamp), action: nil),
+//                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.ReceivedRate"), detail: viewTx.status.localized, action: nil),
+//                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.Confirmations"), detail: tx.confirmations, action: nil),
+//                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.Fee"), detail: tx.gasUsed, action: nil),
+//                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.Data"), detail: tx.contractAddress, action: nil),
+//                .empty(height: 10, background: colorProvider.settingsCellsBackround),
+//                .expandingTitleDetail(title: LS("Wallet.TransactionInfo.TransactionId"), detail: tx.blockHash, action: nil),
+                .empty(height: 10, background: colorProvider.settingsCellsBackround),
                 .separator(inset: .zero),
                 .actionCenteredButton(title: LS("Wallet.TransactionInfo.Close"), action: cancelAction, backgrount: .clear)]
     }
@@ -60,7 +76,6 @@ class TransactionDetailViewController: BaseTablePopUpController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
         applyDesign()
     }
     
@@ -77,10 +92,16 @@ class TransactionDetailViewController: BaseTablePopUpController {
     }
     
     private lazy var shareAction: () -> Void = { [weak self] in
-        
+        self?.present(UIActivityViewController(activityItems: ["url"], applicationActivities: nil), animated: true)
     }
     
     private lazy var cancelAction: () -> Void = { [weak self] in
-        
+        self?.dismiss(animated: true)
+    }
+    
+    // MARK: - Private
+    func formattedTimeStamp(timeStamp: String) -> String {
+        guard let detaFormatter = DeteFormatter(timeStamp: timeStamp) else { return "" }
+        return detaFormatter.formate(to: .transactionfullDate)
     }
 }

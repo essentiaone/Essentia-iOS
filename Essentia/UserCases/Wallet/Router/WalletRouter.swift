@@ -34,8 +34,10 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             self.transactionDetail(wallet: wallet, ammount: ammount)
         case .enterTransactionAmmount(let wallet):
             push(vc: EnterTransactionAmmountViewController(wallet: wallet))
-        case .transactionDetail(let asset, let txId):
+        case .transactionDetailWeb(let asset, let txId):
             showTransactionDetail(asset: asset, txId: txId)
+        case .transactionDetail(let viewTx, let tx):
+            popUp(vc: TransactionDetailViewController(transaction: tx, viewTransaction: viewTx))
         case .qrReader(let delegate):
             showQrScaner(delegate: delegate)
         case .walletOptions(let wallet):

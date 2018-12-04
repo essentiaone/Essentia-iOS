@@ -157,6 +157,8 @@ class TableAdapterHelper {
             return heightForEmptySpace(with: state) / 2
         case .topAlert:
             return 0
+        case .expandingTitleDetail(let title, let detail, _):
+            return TableComponentTitleMultyLineDetail.cellHeght(title: title, detail: detail, width: tableView.frame.width)
         }
     }
     

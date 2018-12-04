@@ -45,12 +45,9 @@ class BaseTablePopUpController: BaseBluredController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyDesign()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        view.layoutIfNeeded()
         tableAdapter.hardReload(state)
+        applyDesign()
     }
     
     private func applyDesign() {
@@ -72,6 +69,7 @@ class BaseTablePopUpController: BaseBluredController {
             blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .centerY, relatedBy: .equal, toItem: blureView.contentView, attribute: .centerY, multiplier: 1, constant: 0))
         }
         let contentHeight = tableAdapter.helper.allContentHeight(for: state)
+        print(contentHeight)
         let maxContentHeight = blureView.frame.height - position.verticalInset
         let height = contentHeight <= maxContentHeight ? contentHeight : maxContentHeight
         blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height))
