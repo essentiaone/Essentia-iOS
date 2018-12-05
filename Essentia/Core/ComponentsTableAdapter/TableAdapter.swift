@@ -686,7 +686,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         currentFirstResponder = responder
         responder.becomeFirstResponder()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            responder.becomeFirstResponder()
+            self.currentFirstResponder?.becomeFirstResponder()
         }
     }
 }
