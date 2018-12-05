@@ -60,6 +60,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
         hideKeyboardWhenTappedAround()
+        addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
         loadInputs()
         loadRanges()
         keyboardObserver.animateKeyboard = { newValue in
@@ -105,12 +106,11 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
              .empty(height: 8, background: colorProvider.settingsCellsBackround),
-             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud),
              .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
                              isEnable: store.isValidTransaction,
                              action: continueAction,
                              background: colorProvider.settingsCellsBackround),
-             .empty(height: 16, background: colorProvider.settingsCellsBackround)
+             .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
         ]
     }
     
