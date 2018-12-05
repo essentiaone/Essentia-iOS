@@ -677,8 +677,9 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func endEditing(_ force: Bool) {
-        self.tableView.endEditing(true)
         self.selectedRow = nil
+        self.currentFirstResponder = nil
+        self.tableView.endEditing(true)
     }
     
     func becomeFirstResponder(_ responder: UIResponder) {

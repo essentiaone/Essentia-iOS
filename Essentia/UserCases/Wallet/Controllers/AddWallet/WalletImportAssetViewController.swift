@@ -38,8 +38,8 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         tableAdapter.hardReload(state)
         keyboardObserver.animateKeyboard = { newValue in
             self.store.keyboardHeight = newValue
@@ -96,7 +96,10 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         (inject() as WalletRouterInterface).pop()
     }
     
-    private lazy var importAction: () -> Void = {
+    private lazy var importAction: () -> Void = { [weak self] in
+        guard let self = self else { return }
+        self.keyboardObserver.stop()
+        self.tableAdapter.endEditing(true)
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
         let walletName = self.store.name.isEmpty ? self.store.coin.localizedName : self.store.name
         let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0)
