@@ -87,6 +87,7 @@ class SwitchAccoutViewController: BaseViewController {
     
     // MARK: - SwitchAccountTableAdapterDelegate
     func loginToUser(_ user: User) {
+        TabBarController.shared.selectedIndex = 0
         dismiss(animated: true)
         EssentiaStore.shared.setUser(user)
         callBack()
@@ -98,9 +99,9 @@ class SwitchAccoutViewController: BaseViewController {
     }
     
     private func generateNewUser() {
+        TabBarController.shared.selectedIndex = 0
         EssentiaLoader.show {
             self.callBack()
-            TabBarController.shared.selectedIndex = 0
         }
         (inject() as LoginInteractorInterface).generateNewUser {}
     }
