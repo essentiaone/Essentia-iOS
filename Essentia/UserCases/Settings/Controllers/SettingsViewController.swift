@@ -112,7 +112,9 @@ class SettingsViewController: BaseTableAdapterController {
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
              .calculatbleSpace(background: colorProvider.settingsBackgroud),
-             .empty(height: 24, background: colorProvider.settingsBackgroud )]
+             .empty(height: 8, background: colorProvider.settingsBackgroud),
+             .description(title: appVersion, backgroud: colorProvider.settingsBackgroud),
+             .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
     
@@ -129,6 +131,11 @@ class SettingsViewController: BaseTableAdapterController {
     
     private func scrollToTop() {
         tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+    }
+    
+    private var appVersion: String {
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else { return "v.404" }
+        return "v.\(version)"
     }
     
     // MARK: - Actions
