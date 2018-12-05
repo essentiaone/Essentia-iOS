@@ -139,7 +139,6 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    
     private lazy var loginMethodAction: () -> Void = {
         (inject() as SettingsRouterInterface).show(.loginType)
     }
@@ -196,6 +195,8 @@ class SettingsViewController: BaseTableAdapterController {
     
     private lazy var feedbackAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
+        guard let url = URL(string: EssentiaConstants.reviewUrl) else { return }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
         self.scrollToTop()
     }
 }
