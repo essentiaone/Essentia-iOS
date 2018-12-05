@@ -77,7 +77,6 @@ class WalletWelcomeViewController: BaseTableAdapterController {
         currentPosition--
         self.tableAdapter.performTableUpdate(newState: state, withAnimation: .toLeft)
         animateBackground()
-
     }
     
     private func animateBackground() {
@@ -105,6 +104,12 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var continueAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+        guard let self = self else { return }
+        switch self.currentPosition {
+        case 3:
+            self.dismiss(animated: true)
+        default:
+            self.leftSwipeGesture(gesture: self.leftSwipeRecognizer)
+        }
     }
 }
