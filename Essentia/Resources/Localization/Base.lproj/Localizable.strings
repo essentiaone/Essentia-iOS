@@ -202,6 +202,11 @@
 "Wallet.DoneGenerating.Description" = "Your wallets have been successfully added. You can see them inside the wallet.";
 "Wallet.DoneGenerating.Button" = "BACK TO WALLET";
 
+"Wallet.Deleted.Title" = "Well done!";
+"Wallet.Deleted.Description1" = "Your ";
+"Wallet.Deleted.Description2" = " Wallet successfully deleted.";
+"Wallet.Deleted.Button" = "BACK TO WALLET";
+
 "Wallet.FailImporing.Title" = "Oops";
 "Wallet.FailImporing.Description" = "It seems like something went wrong. Don’t worry, double check the info you entered and try again! It won’t take long, we promise.";
 "Wallet.FailImporing.LeftButton" = "CANCEL";
