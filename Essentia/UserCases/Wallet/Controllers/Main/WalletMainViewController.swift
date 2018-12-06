@@ -34,18 +34,14 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        (inject() as LoaderInterface).show()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
-        reloadAllComponents()
+        hardReload()
         showOnbordingIfNeeded()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     override func viewDidLayoutSubviews() {
