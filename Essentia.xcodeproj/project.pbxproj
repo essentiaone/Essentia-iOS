@@ -273,7 +273,6 @@
 		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
 		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
 		34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */; };
-		34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -599,7 +598,6 @@
 		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccoutViewController.swift; sourceTree = "<group>"; };
-		34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchAccoutViewController.xib; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
@@ -1820,7 +1818,7 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34B27A4C2133710700527F15 /* SwitchAccout */,
+				34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */,
 				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
@@ -1973,15 +1971,6 @@
 				34AFF93C21A656B300C7FFEF /* EssentiaLoader.swift */,
 			);
 			path = Loader;
-			sourceTree = "<group>";
-		};
-		34B27A4C2133710700527F15 /* SwitchAccout */ = {
-			isa = PBXGroup;
-			children = (
-				34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */,
-				34B27A4F2133712A00527F15 /* SwitchAccoutViewController.xib */,
-			);
-			path = SwitchAccout;
 			sourceTree = "<group>";
 		};
 		34B7965A212C085A000B1251 /* Password */ = {
@@ -2289,7 +2278,6 @@
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				34ECE49521383218008D9696 /* TableComponentTextField.xib in Resources */,
 				343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */,
-				34B27A502133712A00527F15 /* SwitchAccoutViewController.xib in Resources */,
 				344826BC212169CE00C19EB3 /* TableComponentTitleDetail.xib in Resources */,
 				344826C32121834F00C19EB3 /* TableComponentSwitch.xib in Resources */,
 				34FCB9B4218BB3E200A88D56 /* TableComponentTextFieldDetail.xib in Resources */,

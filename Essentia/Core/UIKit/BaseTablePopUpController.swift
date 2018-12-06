@@ -37,6 +37,7 @@ class BaseTablePopUpController: BaseBluredController {
         self.position = position
         self.tableView = UITableView()
         super.init()
+        self.modalPresentationStyle = .custom
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -72,7 +73,7 @@ class BaseTablePopUpController: BaseBluredController {
             blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .centerY, relatedBy: .equal, toItem: blureView.contentView, attribute: .centerY, multiplier: 1, constant: 0))
         }
         let contentHeight = tableAdapter.helper.allContentHeight(for: state)
-        let maxContentHeight = blureView.frame.height - position.verticalInset
+        let maxContentHeight = blureView.frame.height - position.verticalInset * 2
         let height = contentHeight <= maxContentHeight ? contentHeight : maxContentHeight
         blureView.contentView.addConstraint(NSLayoutConstraint(item: tableView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: height))
     }

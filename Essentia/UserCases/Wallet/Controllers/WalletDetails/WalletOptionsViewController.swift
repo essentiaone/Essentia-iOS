@@ -88,18 +88,12 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
-        applyDesign()
         keyboardObserver.animateKeyboard = { newValue in
             if newValue != 0 {
                 self.keyboardHeight = newValue
                 self.tableAdapter.simpleReload(self.state)
             }
         }
-    }
-    
-    private func applyDesign() {
-        self.view.backgroundColor = .clear
-        self.tableView.backgroundColor = .clear
     }
     
     // MARK: - Actions

@@ -31,8 +31,6 @@ enum TableComponent: Equatable {
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case twoButtons(lTitle: String, rTitle: String, lColor: UIColor, rColor: UIColor, lAction:() -> Void, rAction:() -> Void)
     case paragraph(title: String, description: String)
-    case calculatbleSpace(background: UIColor)
-    case centeredComponentTopInstet
     case pageControl(count: Int, selected: Int)
     case topAlert(alertType: AlertType, title: String)
     // MARK: - Navigation Bar
@@ -53,7 +51,6 @@ enum TableComponent: Equatable {
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)
     case password(title: String, withProgress: Bool, passwordAction: (Bool, String) -> Void)
-    case tabBarSpace
     case centeredImageButton(image: UIImage, action: () -> Void)
     // MARK: - Wallet
     case imageParagraph(image: UIImage, paragraph: String)
@@ -77,6 +74,11 @@ enum TableComponent: Equatable {
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
     case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
                                              rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
+    // MARK: - Insets
+    case tabBarSpace
+    case calculatbleSpace(background: UIColor)
+    case centeredComponentTopInstet
+    // MARK: - Containers
     case blure(state: [TableComponent])
     case container(state: [TableComponent])
     // MARK: - PoUp
