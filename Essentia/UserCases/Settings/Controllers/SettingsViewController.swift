@@ -18,10 +18,10 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         updateState()
-        scrollToTop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -149,7 +149,8 @@ class SettingsViewController: BaseTableAdapterController {
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
-    private lazy var switchAccountAction: () -> Void = {
+    private lazy var switchAccountAction: () -> Void = { [weak self] in
+        self?.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))
