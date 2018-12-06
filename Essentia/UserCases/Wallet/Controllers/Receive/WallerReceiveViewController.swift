@@ -56,7 +56,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                                 rAction: shareAction),
             .title(bold: true, title:  LS("Wallet.Receive.Title")),
             .empty(height: 30, background: colorProvider.settingsCellsBackround),
-            .centeredImage(image: qrImageForText(store.qrText)),
+            .centeredImageButton(image: qrImageForText(store.qrText), action: copyAction),
             .calculatbleSpace(background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(17),
                            title: store.wallet.asset.localizedName + " " + LS("Wallet.Receive.Wallet"),

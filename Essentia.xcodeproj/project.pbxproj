@@ -85,6 +85,7 @@
 		3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */; };
 		3411AF062165659200AB9476 /* WalletBlockchainWrapperInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */; };
 		3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */; };
+		3416054621B842C90058851F /* WalletDeletedWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */; };
 		3418A292219C788C00249E8C /* EtherTxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418A291219C788C00249E8C /* EtherTxInfo.swift */; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
@@ -409,6 +410,7 @@
 		3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
 		3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractor.swift; sourceTree = "<group>"; };
 		3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractorInterface.swift; sourceTree = "<group>"; };
+		3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDeletedWarningViewController.swift; sourceTree = "<group>"; };
 		3418A291219C788C00249E8C /* EtherTxInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherTxInfo.swift; sourceTree = "<group>"; };
 		343122632124A0DA009E4A7A /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
@@ -2014,6 +2016,7 @@
 				34DC8B8221778EEE00ACA5D2 /* WalletDetailViewController.swift */,
 				345F118621973FE60010095F /* WalletOptionsViewController.swift */,
 				34B00AEA219911DA00525F53 /* DeleteWalletWarningViewController.swift */,
+				3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */,
 			);
 			path = WalletDetails;
 			sourceTree = "<group>";
@@ -2424,6 +2427,7 @@
 				3461D93E21A44734003846B9 /* UIView+Gradient.swift in Sources */,
 				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				34AC4E082149D98B001C17D8 /* AssetInterface.swift in Sources */,
+				3416054621B842C90058851F /* WalletDeletedWarningViewController.swift in Sources */,
 				3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */,
 				343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */,
 				344826CC2121906D00C19EB3 /* TableComponentCurrentAccount.swift in Sources */,

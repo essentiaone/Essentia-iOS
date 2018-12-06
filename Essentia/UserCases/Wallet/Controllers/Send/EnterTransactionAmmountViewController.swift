@@ -53,6 +53,8 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
+        self.keyboardObserver.start()
+        
     }
     
     private var state: [TableComponent] {
@@ -189,6 +191,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
     
     private lazy var continueAction: () -> Void = {
         self.tableAdapter.endEditing(true)
+        self.keyboardObserver.stop()
         let enteredValue = SelectedTransacrionAmmount(inCrypto: self.store.enterdValueInCrypto, inCurrency: self.store.enterdValueInCurrency)
         self.router.show(.sendTransactionDetail(self.store.wallet, enteredValue))
     }

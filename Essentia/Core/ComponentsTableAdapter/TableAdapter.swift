@@ -677,15 +677,16 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     }
     
     func endEditing(_ force: Bool) {
-        self.tableView.endEditing(true)
         self.selectedRow = nil
+        self.currentFirstResponder = nil
+        self.tableView.endEditing(true)
     }
     
     func becomeFirstResponder(_ responder: UIResponder) {
         currentFirstResponder = responder
         responder.becomeFirstResponder()
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
-            responder.becomeFirstResponder()
+            self.currentFirstResponder?.becomeFirstResponder()
         }
     }
 }

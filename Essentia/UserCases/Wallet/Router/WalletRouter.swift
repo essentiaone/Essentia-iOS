@@ -22,6 +22,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: FailImportingAlert(leftAction: { self.popToRoot() }, rightAction: {}))
         case .succesImportingAlert:
             popUp(vc: WalletDoneImportingAlert(okAction: { self.popToRoot() }))
+        case .walletDeleted(let wallet):
+            popUp(vc: WalletDeletedWarningViewController(wallet: wallet, okAction: { self.popToRoot() }))
         case .successGeneratingAlert:
             popUp(vc: WalletDoneGeneratingAlert(okAction: { self.popToRoot() }))
         case .addAsset:

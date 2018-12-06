@@ -46,7 +46,6 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         passwordStatusLabel.textColor = colorProvider.validPasswordIndicator
         separatorView.backgroundColor = colorProvider.separatorBackgroundColor
         
-        passwordTextField.textContentType = .password
         passwordTextField.addTarget(self, action: #selector(passwordDidChange(_:)), for: .editingChanged)
         passwordStatusView.layer.cornerRadius = 2.0
         

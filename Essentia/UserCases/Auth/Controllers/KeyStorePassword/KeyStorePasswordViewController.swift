@@ -58,11 +58,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             return
         }
         updateState()
+        keyboardObserver.start()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        keyboardObserver.start()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         keyboardObserver.animateKeyboard = { newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)

@@ -59,13 +59,14 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
-        hideKeyboardWhenTappedAround()
+        addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
         loadInputs()
         loadRanges()
         keyboardObserver.animateKeyboard = { newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
+        keyboardObserver.start()
     }
     
     /*
@@ -105,12 +106,11 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
              .empty(height: 8, background: colorProvider.settingsCellsBackround),
-             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud),
              .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
                              isEnable: store.isValidTransaction,
                              action: continueAction,
                              background: colorProvider.settingsCellsBackround),
-             .empty(height: 16, background: colorProvider.settingsCellsBackround)
+             .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
         ]
     }
     
@@ -170,6 +170,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     private lazy var continueAction: () -> Void = { [weak self] in
+        self?.keyboardObserver.stop()
+        self?.tableAdapter.endEditing(true)
         guard let `self` = self else { return }
         let txInfo = EtherTxInfo(address: self.store.address,
                                  ammount: self.store.ammount,
@@ -187,7 +189,9 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var readQrAction: () -> Void = {
+    private lazy var readQrAction: () -> Void = { [weak self] in
+        guard let `self` = self else { return }
+        self.keyboardObserver.stop()
         self.tableAdapter.endEditing(true)
         self.router.show(.qrReader(self))
     }
@@ -222,6 +226,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     // MARK: - QRCodeReaderViewControllerDelegate (Move to wrapper class)
     
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        keyboardObserver.start()
         dismiss(animated: true)
         if !result.value.contains(charactersIn: EssCharacters.special.set) {
             self.store.address = result.value
@@ -230,6 +235,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        keyboardObserver.start()
         dismiss(animated: true)
     }
     
