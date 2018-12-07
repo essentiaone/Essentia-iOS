@@ -18,10 +18,10 @@ class SettingsViewController: BaseTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     // MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         updateState()
+        scrollToTop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
