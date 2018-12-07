@@ -296,9 +296,12 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.titleLabel.text = title
             cell.descriptionLabel.text = description
             return cell
-        case .password(let title, _ ,let passwordAction):
+        case .password(let title, let withProgress ,let passwordAction):
             let cell: TableComponentPassword = tableView.dequeueReusableCell(for: indexPath)
             textEntries.append(cell.passwordTextField)
+            if !withProgress {
+                cell.passwordTextField.becomeFirstResponder()
+            }
             cell.passwordAction = passwordAction
             cell.titleLabel.text = title
             return cell

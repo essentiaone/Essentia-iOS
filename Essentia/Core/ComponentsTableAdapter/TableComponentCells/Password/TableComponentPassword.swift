@@ -48,8 +48,6 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         
         passwordTextField.addTarget(self, action: #selector(passwordDidChange(_:)), for: .editingChanged)
         passwordStatusView.layer.cornerRadius = 2.0
-        
-        passwordTextField.becomeFirstResponder()
     }
     
     @objc func passwordDidChange(_ textField: UITextField) {
