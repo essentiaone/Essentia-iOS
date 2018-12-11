@@ -113,7 +113,11 @@ class SettingsViewController: BaseTableAdapterController {
                          action: logOutAction),
              .calculatbleSpace(background: colorProvider.settingsBackgroud),
              .empty(height: 8, background: colorProvider.settingsBackgroud),
-             .description(title: appVersion, backgroud: colorProvider.settingsBackgroud),
+             .descriptionWithSize(aligment: .center,
+                                  fontSize: 14,
+                                  title: appVersion,
+                                  background: colorProvider.settingsBackgroud,
+                                  textColor: colorProvider.appDefaultTextColor),
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
@@ -135,7 +139,7 @@ class SettingsViewController: BaseTableAdapterController {
     
     private var appVersion: String {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else { return "v.404" }
-        return "v.\(version)"
+        return "v. \(version)"
     }
     
     // MARK: - Actions
