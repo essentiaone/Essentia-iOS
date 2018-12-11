@@ -187,6 +187,7 @@
 		345F1191219742DF0010095F /* TableComponentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F1190219742DF0010095F /* TableComponentContainer.swift */; };
 		345F1193219742E90010095F /* TableComponentContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345F1192219742E90010095F /* TableComponentContainer.xib */; };
 		3461D93E21A44734003846B9 /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3461D93D21A44734003846B9 /* UIView+Gradient.swift */; };
+		3465688121BDD5DC00251E8B /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3465688021BDD5DC00251E8B /* Error.swift */; };
 		346F0B10219A52D4004B4584 /* ConfirmEthereumTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346F0B0F219A52D4004B4584 /* ConfirmEthereumTransactionDetailViewController.swift */; };
 		34737BC5214EACF9008A306F /* TokensService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC4214EACF9008A306F /* TokensService.swift */; };
 		34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */; };
@@ -510,6 +511,7 @@
 		345F1190219742DF0010095F /* TableComponentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentContainer.swift; sourceTree = "<group>"; };
 		345F1192219742E90010095F /* TableComponentContainer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentContainer.xib; sourceTree = "<group>"; };
 		3461D93D21A44734003846B9 /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		3465688021BDD5DC00251E8B /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		346F0B0F219A52D4004B4584 /* ConfirmEthereumTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmEthereumTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		34737BC4214EACF9008A306F /* TokensService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensService.swift; sourceTree = "<group>"; };
 		34737BC6214EAD0C008A306F /* TokensServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokensServiceInterface.swift; sourceTree = "<group>"; };
@@ -1299,6 +1301,7 @@
 				34737BD2214FEB30008A306F /* Auth */,
 				34737BD1214FEB1B008A306F /* Wallet */,
 				344958E5214174CA00C2230B /* User */,
+				3465688021BDD5DC00251E8B /* Error.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2622,6 +2625,7 @@
 				344958E221416A6000C2230B /* TableComponentImageParagraph.swift in Sources */,
 				349AA4BD21246A1F00E9256F /* LocalFilesService.swift in Sources */,
 				34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */,
+				3465688121BDD5DC00251E8B /* Error.swift in Sources */,
 				34789BA021835DBA00EB68C4 /* ProcentsFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -150,6 +150,6 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     
     var privateKey: String {
         let seed = EssentiaStore.shared.currentUser.seed
-        return wallet.privateKey(withSeed: seed)
+        return wallet.privateKey(withSeed: seed) ?? ""
     }
 }

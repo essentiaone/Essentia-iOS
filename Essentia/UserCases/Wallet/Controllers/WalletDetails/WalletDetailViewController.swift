@@ -221,7 +221,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     // MARK: - Private
-    private func showError(_ error: EssentiaError) {
+    private func showError(_ error: EssentiaNetworkError) {
         (inject() as LoaderInterface).showError(message: error.localizedDescription)
     }
     

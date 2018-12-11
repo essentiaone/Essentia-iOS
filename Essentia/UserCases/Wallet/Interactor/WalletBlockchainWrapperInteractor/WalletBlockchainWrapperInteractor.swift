@@ -120,7 +120,11 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) {
+    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) throws {
+        let seed =  EssentiaStore.shared.currentUser.seed
+        guard let pk = wallet.privateKey(withSeed: seed) else {
+            throw EssentiaError.txError(.invalidPk)
+        }
         cryptoWallet.ethereum.getTransactionCount(for: wallet.address) { (transactionCountResult) in
             switch transactionCountResult {
             case .success(let count):
@@ -133,9 +137,6 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
                                                          gasPrice: transacionDetial.gasPrice,
                                                          gasLimit: transacionDetial.gasLimit,
                                                          nonce: count.count)
-                let seed =  EssentiaStore.shared.currentUser.seed
-                
-                let pk = wallet.privateKey(withSeed: seed)
                 let dataPk = Data(hex: pk)
                 let signer = EIP155Signer.init(chainId: 1)
                 guard let txData = try? signer.sign(transaction, privateKey: dataPk) else {

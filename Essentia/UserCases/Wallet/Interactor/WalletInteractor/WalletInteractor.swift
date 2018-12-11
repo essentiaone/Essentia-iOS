@@ -15,7 +15,7 @@ class WalletInteractor: WalletInteractorInterface {
     func isValidWallet(_ wallet: ImportedWallet) -> Bool {
         let importdAssets = EssentiaStore.shared.currentUser.wallet.importedWallets
         let alreadyContainWallet = importdAssets.contains {
-            return $0.name == wallet.name || $0.pk == wallet.pk
+            return $0.name == wallet.name || $0.encodedPk == wallet.encodedPk
         }
         return !alreadyContainWallet
     }

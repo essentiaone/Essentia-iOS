@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssentiaNetworkCore
 
 class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences
@@ -55,9 +56,9 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
             .empty(height: 5, background: .clear),
             .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Fee"), background: .clear, textColor: colorProvider.appDefaultTextColor),
             .descriptionWithSize(aligment: .left, fontSize: 13, title: formattedFee(), background: .clear, textColor: colorProvider.titleColor),
-//            .empty(height: 5, background: .clear),
-//            .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Time"), background: .clear, textColor: colorProvider.appDefaultTextColor),
-//            .descriptionWithSize(aligment: .left, fontSize: 13, title: " ~ 35 min", background: .clear, textColor: colorProvider.titleColor),
+            //            .empty(height: 5, background: .clear),
+            //            .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Time"), background: .clear, textColor: colorProvider.appDefaultTextColor),
+            //            .descriptionWithSize(aligment: .left, fontSize: 13, title: " ~ 35 min", background: .clear, textColor: colorProvider.titleColor),
             .empty(height: 10, background: .clear),
             .separator(inset: .zero),
             .twoButtons(lTitle: LS("Wallet.Send.Confirm.Cancel"),
@@ -92,17 +93,22 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     private lazy var confirmAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         (inject() as LoaderInterface).show()
-        self.interactor.sendEthTransaction(wallet: self.wallet,
-                                      transacionDetial: self.tx) {
-                                        (inject() as LoaderInterface).hide()
-                                        switch $0 {
-                                        case .success(let object):
-                                            (inject() as LoggerServiceInterface).log(object)
-                                            self.dismiss(animated: true)
-                                            (inject() as WalletRouterInterface).show(.doneTx)
-                                        case .failure(let error):
-                                            (inject() as LoaderInterface).showError(message: error.localizedDescription)
-                                        }
+        do {
+            try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
+        } catch {
+            (inject() as LoaderInterface).showError(message: error.localizedDescription)
+        }
+    }
+    
+    private lazy var responceTransaction: (Result<String>) -> Void = {
+        (inject() as LoaderInterface).hide()
+        switch $0 {
+        case .success(let object):
+            (inject() as LoggerServiceInterface).log(object)
+            self.dismiss(animated: true)
+            (inject() as WalletRouterInterface).show(.doneTx)
+        case .failure(let error):
+            (inject() as LoaderInterface).showError(message: error.localizedDescription)
         }
     }
 }
