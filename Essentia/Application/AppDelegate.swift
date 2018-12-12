@@ -27,4 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwizzleLocalizedFiles()
         return true
     }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+    
+    }
 }

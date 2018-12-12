@@ -113,11 +113,7 @@ class SettingsViewController: BaseTableAdapterController {
                          action: logOutAction),
              .calculatbleSpace(background: colorProvider.settingsBackgroud),
              .empty(height: 8, background: colorProvider.settingsBackgroud),
-             .descriptionWithSize(aligment: .center,
-                                  fontSize: 14,
-                                  title: appVersion,
-                                  background: colorProvider.settingsBackgroud,
-                                  textColor: colorProvider.appDefaultTextColor),
+             .description(title: appVersion, backgroud: colorProvider.settingsBackgroud),
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
