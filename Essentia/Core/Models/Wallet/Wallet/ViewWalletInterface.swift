@@ -18,7 +18,7 @@ protocol ViewWalletInterface: WalletInterface {
     var formattedBalanceWithSymbol: String { get }
     var formattedBalance: String { get }
     var lastBalance: Double? { get }
-    func privateKey(withSeed: String) -> String
+    func privateKey(withSeed: String) -> String?
 }
 
 func == (lhs: ViewWalletInterface, rhs: ViewWalletInterface) -> Bool {

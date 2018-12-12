@@ -17,6 +17,7 @@ class BaseBluredTableAdapterController: BaseBluredController {
     public override init() {
         tableView = UITableView()
         super.init()
+        self.modalPresentationStyle = .custom
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -26,6 +27,12 @@ class BaseBluredTableAdapterController: BaseBluredController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
+        applyDesign()
+    }
+    
+    private func applyDesign() {
+        self.view.backgroundColor = .clear
+        self.tableView.backgroundColor = .clear
     }
     
     private func setupTableView() {

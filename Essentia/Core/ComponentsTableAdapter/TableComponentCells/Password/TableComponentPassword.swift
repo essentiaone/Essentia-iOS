@@ -15,6 +15,8 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
     @IBOutlet weak var separatorView: UIView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var passwordStatusLabel: UILabel!
+    @IBOutlet weak var passwordVisibleButton: UIButton!
+    var isSecure: Bool = true
     
     var passwordAction: ((Bool, String) -> Void)?
     
@@ -45,11 +47,15 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         descriptionLabel.textColor = colorProvider.appTitleColor
         passwordStatusLabel.textColor = colorProvider.validPasswordIndicator
         separatorView.backgroundColor = colorProvider.separatorBackgroundColor
+        passwordVisibleButton.setImage(UIImage(named: "passwordVisible"), for: .normal)
+        passwordVisibleButton.isSelected = false
+        passwordVisibleButton.backgroundColor = .clear
+        passwordTextField.isSecureTextEntry = true
+        updatePasswordTextField()
+        passwordVisibleButton.tintColor = colorProvider.appDefaultTextColor
         
         passwordTextField.addTarget(self, action: #selector(passwordDidChange(_:)), for: .editingChanged)
         passwordStatusView.layer.cornerRadius = 2.0
-        
-        passwordTextField.becomeFirstResponder()
     }
     
     @objc func passwordDidChange(_ textField: UITextField) {
@@ -66,5 +72,20 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         passwordStatusLabel.isHidden = !isValid
         let indicatorColor = isValid ? colorProvider.validPasswordIndicator : colorProvider.notValidPasswordIndicator
         passwordStatusView.backgroundColor = indicatorColor
+    }
+    
+    @IBAction func passwordVisibleAction(_ sender: UIButton) {
+        isSecure = !isSecure
+        passwordTextField.isSecureTextEntry = isSecure
+        updatePasswordTextField()
+        passwordVisibleButton.tintColor = isSecure ? colorProvider.appDefaultTextColor : colorProvider.appTitleColor
+    }
+    
+    func updatePasswordTextField() {
+        if #available(iOS 12.0, *) {
+            passwordTextField.textContentType = .oneTimeCode
+        } else {
+            passwordTextField.textContentType = UITextContentType(rawValue: "")
+        }
     }
 }

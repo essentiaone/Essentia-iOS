@@ -34,18 +34,14 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        (inject() as LoaderInterface).show()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.hardReload()
-        reloadAllComponents()
+        hardReload()
         showOnbordingIfNeeded()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -256,14 +252,14 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadCoinBalances() {
         self.store.generatedWallets.enumerated().forEach { (arg) in
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
-                self.store.generatedWallets[arg.offset].lastBalance = balance
+                self.store.generatedWallets[safe: arg.offset]?.lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
         self.store.importedWallets.enumerated().forEach { (arg) in
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
-                self.store.importedWallets[arg.offset].lastBalance = balance
-                EssentiaStore.shared.currentUser.wallet.importedWallets[arg.offset].lastBalance = balance
+                self.store.importedWallets[safe: arg.offset]?.lastBalance = balance
+                EssentiaStore.shared.currentUser.wallet.importedWallets[safe: arg.offset]?.lastBalance = balance
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
                 self.tableAdapter.simpleReload(self.state())
             })

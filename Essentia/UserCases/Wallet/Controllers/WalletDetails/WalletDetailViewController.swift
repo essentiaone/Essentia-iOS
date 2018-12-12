@@ -102,10 +102,18 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                              action: searchTransactionAction)] + formattedTransactions
     }
     
+    // Refactor?
     private var formattedTransactions: [TableComponent] {
-        return self.store.transactionsByDate.map { (transactionByDate) -> [TableComponent]  in
-            return formattedDateSection(date: transactionByDate.key) +
-                   formattedTransactionsSection(transactionByDate.value)
+        let txByDate = self.store.transactionsByDate
+        let keys = txByDate.keys.sorted { (lhs, rhs) -> Bool in
+            let dateFormatter = DateFormatter(formate: DateFormat.dayMonth)
+            let lhsDate = dateFormatter.date(from: lhs) ?? Date()
+            let rhsDate = dateFormatter.date(from: rhs) ?? Date()
+            return lhsDate > rhsDate
+        }
+        return keys.map { (key) -> [TableComponent]  in
+            return formattedDateSection(date: key) +
+                   formattedTransactionsSection(txByDate[key] ?? [])
         }.reduce([], + )
     }
     
@@ -221,7 +229,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     // MARK: - Private
-    private func showError(_ error: EssentiaError) {
+    private func showError(_ error: EssentiaNetworkError) {
         (inject() as LoaderInterface).showError(message: error.localizedDescription)
     }
     

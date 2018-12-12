@@ -37,7 +37,7 @@ class TokenWallet: Codable, WalletInterface, ViewWalletInterface {
         return (inject() as WalletServiceInterface).generateAddress(wallet)
     }
     
-    func privateKey(withSeed: String) -> String {
+    func privateKey(withSeed: String) -> String? {
         let walletService: WalletServiceInterface = inject()
         return walletService.generatePk(wallet)
     }

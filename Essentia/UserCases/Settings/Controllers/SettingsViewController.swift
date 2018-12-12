@@ -135,7 +135,7 @@ class SettingsViewController: BaseTableAdapterController {
     
     private var appVersion: String {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else { return "v.404" }
-        return "v.\(version)"
+        return "v. \(version)"
     }
     
     // MARK: - Actions
@@ -150,8 +150,7 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var switchAccountAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
-        self.scrollToTop()
+        self?.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
             self?.updateState()
         }))

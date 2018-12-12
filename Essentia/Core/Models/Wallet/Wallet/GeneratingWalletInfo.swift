@@ -14,7 +14,7 @@ class GeneratingWalletInfo: Hashable, Codable, ViewWalletInterface {
     var derivationIndex: UInt32
     var lastBalance: Double?
     
-    func privateKey(withSeed: String) -> String {
+    func privateKey(withSeed: String) -> String? {
         return (inject() as  WalletServiceInterface).generatePk(self)
     }
     
