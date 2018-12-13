@@ -2,4 +2,4 @@ language: objective-c
 osx_image: 
   - xcode10.1
 script:
-  - xcodebuild -quiet -workspace 'Essentia.xcworkspace' -scheme 'Essentia' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.1'
+  - xcodebuild -quiet -workspace 'Essentia.xcworkspace' -scheme 'EssentiaTests' -destination 'platform=iOS Simulator,name=iPhone 7,OS=12.1' test
