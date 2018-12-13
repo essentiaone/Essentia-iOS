@@ -1,5 +1,5 @@
 //
-//  ConfirmTransactionViewController.swift
+//  ConfirmBitcoinTransactionViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 11/13/18.
