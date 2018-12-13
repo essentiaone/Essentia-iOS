@@ -67,12 +67,11 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         guard let data = try? erc20Token.generateGetBalanceParameter(toAddress: address) else {
             return
         }
-        let smartContract = EthereumSmartContract(to: address, data: data.toHexString().addHexPrefix())
+        let smartContract = EthereumSmartContract(to: token.address, data: data.toHexString().addHexPrefix())
         cryptoWallet.ethereum.getTokenBalance(info: smartContract) { (result) in
             switch result {
             case .success(let object):
-                guard let weiBalance = Wei(object.balance, radix: 16),
-                    let etherBalance = try? WeiEthterConverter.toEther(wei: weiBalance) as NSDecimalNumber else {
+                guard let etherBalance = try? WeiEthterConverter.toToken(balance: object.balance, decimals: token.decimals) as NSDecimalNumber else {
                         return
                 }
                 balance(etherBalance.doubleValue)
