@@ -10,7 +10,7 @@ import XCTest
 @testable import Essentia
 
 class LocalFileStrageTests: XCTestCase {
-    
+
     func testMnemonicProviderWordCountAndSymolsInWord() {
         let mnemonicProvider: MnemonicServiceInterface = MnemonicService()
         let wordList = mnemonicProvider.newMnemonic(with: .english).split(separator: " ")

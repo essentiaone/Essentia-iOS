@@ -81,7 +81,6 @@
 		3411AEEC21642F9D00AB9476 /* CurrencyConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */; };
 		3411AEEE216430D000AB9476 /* CurrencyConverterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */; };
 		3411AEF02164DAB700AB9476 /* CoinGeckoCurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */; };
-		3411AEF321650A2800AB9476 /* CurrencyConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */; };
 		3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */; };
 		3411AF062165659200AB9476 /* WalletBlockchainWrapperInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */; };
 		3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */; };
@@ -405,7 +404,6 @@
 		3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterService.swift; sourceTree = "<group>"; };
 		3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterEndpoint.swift; sourceTree = "<group>"; };
 		3411AEEF2164DAB700AB9476 /* CoinGeckoCurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoCurrencyModel.swift; sourceTree = "<group>"; };
-		3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterTests.swift; sourceTree = "<group>"; };
 		3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
 		3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractor.swift; sourceTree = "<group>"; };
 		3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractorInterface.swift; sourceTree = "<group>"; };
@@ -1154,7 +1152,6 @@
 		3411AEF121650A0200AB9476 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				3411AEF221650A2800AB9476 /* CurrencyConverterTests.swift */,
 				3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */,
 			);
 			path = Services;
@@ -2635,7 +2632,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */,
-				3411AEF321650A2800AB9476 /* CurrencyConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
