@@ -140,7 +140,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                                        description: tx.ammount,
                                                        action: {
                                                             (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
-                                                                                                                        txId: tx.address))
+                                                                                                                        txId: tx.hash))
                                                        }),
                  .separator(inset: .zero)]
     }
