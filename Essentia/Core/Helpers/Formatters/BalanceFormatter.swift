@@ -102,4 +102,11 @@ final class BalanceFormatter {
         }
         return attributed(amount: (etherAmmount as NSDecimalNumber).doubleValue, type: type)
     }
+    
+    func attributedHex(amount: String, type: TransactionType, decimals: Int) -> NSAttributedString {
+        guard let convertedAmmount = try? WeiEthterConverter.toToken(balance: amount, decimals: decimals, radix: 10) else {
+                return NSAttributedString()
+        }
+        return attributed(amount: (convertedAmmount as NSDecimalNumber).doubleValue, type: type)
+    }
 }

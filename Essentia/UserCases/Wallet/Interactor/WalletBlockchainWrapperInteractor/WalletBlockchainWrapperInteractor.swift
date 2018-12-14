@@ -71,13 +71,17 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         cryptoWallet.ethereum.getTokenBalance(info: smartContract) { (result) in
             switch result {
             case .success(let object):
-                guard let etherBalance = try? WeiEthterConverter.toToken(balance: object.balance, decimals: token.decimals) as NSDecimalNumber else {
+                guard let etherBalance = try? WeiEthterConverter.toToken(balance: object.balance, decimals: token.decimals, radix: 16) as NSDecimalNumber else {
                         return
                 }
                 balance(etherBalance.doubleValue)
             default: return
             }
         }
+    }
+    
+    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void) {
+        cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
     
     func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (Result<BitcoinTransactionsHistory>) -> Void) {

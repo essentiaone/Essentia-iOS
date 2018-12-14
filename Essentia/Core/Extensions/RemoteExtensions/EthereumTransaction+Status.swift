@@ -30,3 +30,23 @@ extension EthereumTransactionDetail {
         }
     }
 }
+
+extension EthereumTokenTransactionDetail {
+    var status: TransactionStatus {
+        if (Int(confirmations) ?? 0) < 5 {
+            return .pending
+        }
+        return .success
+    }
+    
+    func type(for: Address) -> TransactionType {
+        switch `for`.uppercased() {
+        case to.uppercased():
+            return .recive
+        case from.uppercased():
+            return .send
+        default:
+            return .recive
+        }
+    }
+}
