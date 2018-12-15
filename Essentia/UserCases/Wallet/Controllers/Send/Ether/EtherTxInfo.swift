@@ -11,6 +11,7 @@ import Foundation
 struct EtherTxInfo {
     var address: String
     var ammount: SelectedTransacrionAmmount
+    var data: String
     var fee: Double
     var gasPrice: Int
     var gasLimit: Int

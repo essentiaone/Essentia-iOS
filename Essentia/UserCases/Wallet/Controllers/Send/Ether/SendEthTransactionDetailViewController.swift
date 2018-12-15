@@ -36,6 +36,10 @@ fileprivate struct Store {
         self.ammount = transactionAmmount
     }
     
+    var isToken: Bool {
+        return wallet.asset is Token
+    }
+    
 }
 
 class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
@@ -146,7 +150,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     var formattedFeeTitle: NSAttributedString {
         let currentFee = Double(self.store.selectedFeeSlider) * store.gasEstimate / pow(10, 9)
         self.store.enteredFee = currentFee
-        let numberFormatter = BalanceFormatter(asset: self.store.wallet.asset)
+        let numberFormatter = BalanceFormatter(asset: Coin.ethereum)
         let formattedFee = numberFormatter.formattedAmmountWithCurrency(amount: currentFee)
         let string = LS("Wallet.Send.Fee") + " (\(formattedFee))"
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
@@ -175,6 +179,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         guard let `self` = self else { return }
         let txInfo = EtherTxInfo(address: self.store.address,
                                  ammount: self.store.ammount,
+                                 data: self.store.data,
                                  fee: self.store.enteredFee,
                                  gasPrice: Int(self.store.selectedFeeSlider * pow(10, 9)),
                                  gasLimit: Int(self.store.gasEstimate))

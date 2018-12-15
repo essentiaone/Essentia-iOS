@@ -80,6 +80,13 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
+    func sendTokens(token: Token, address: String, ammount: String, result: @escaping (Result<String>) -> Void) {
+        let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
+        guard let data = try? erc20Token.generateSendBalanceParameter(toAddress: address, amount: ammount) else { return }
+        let smartContract = EthereumSmartContract(to: token.address, data: data.toHexString())
+        cryptoWallet.ethereum.callSmartContract(info: smartContract, result: result)
+    }
+    
     func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void) {
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }

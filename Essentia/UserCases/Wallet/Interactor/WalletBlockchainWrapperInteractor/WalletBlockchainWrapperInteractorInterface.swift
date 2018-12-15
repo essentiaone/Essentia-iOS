@@ -13,7 +13,7 @@ import EssentiaBridgesApi
 protocol WalletBlockchainWrapperInteractorInterface {
     func getCoinBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void)
     func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void)
-    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void) 
+    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void)
     func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (Result<BitcoinTransactionsHistory>) -> Void)
     func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (Result<EthereumTransactionsByAddress>) -> Void)
     func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void)
@@ -22,5 +22,6 @@ protocol WalletBlockchainWrapperInteractorInterface {
     func getEthGasPrice(gasPrice: @escaping (Double) -> Void)
     func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void)
     
+    func sendTokens(token: Token, address: String, ammount: String, result: @escaping (Result<String>) -> Void)
     func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) throws
 }
