@@ -100,13 +100,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                                   rightButtonImage: store.qrImage,
                                                   rightButtonAction: readQrAction,
                                                   textFieldChanged: addressEditingChanged),
-            .separator(inset: .zero),
-            .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Data"),
-                                                  text: store.data,
-                                                  placeholder: LS("Wallet.Send.Optional"),
-                                                  rightButtonImage: nil,
-                                                  rightButtonAction: nil,
-                                                  textFieldChanged: dataEditingChanged)]
+            .separator(inset: .zero)]
+            + dataComponent
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
              .empty(height: 8, background: colorProvider.settingsCellsBackround),
@@ -116,6 +111,18 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                              background: colorProvider.settingsCellsBackround),
              .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
         ]
+    }
+    
+    var dataComponent: [TableComponent] {
+        if !self.store.isToken {
+            return [.titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Data"),
+                                                          text: store.data,
+                                                          placeholder: LS("Wallet.Send.Optional"),
+                                                          rightButtonImage: nil,
+                                                          rightButtonAction: nil,
+                                                          textFieldChanged: dataEditingChanged)]
+        }
+        return []
     }
     
     var feeComponents: [TableComponent] {
