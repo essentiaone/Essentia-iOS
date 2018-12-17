@@ -71,8 +71,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
                 push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
             default: return
             }
-        case let token as Token:
-            print(token)
+        case is Token:
+            push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
         default: return
         }
     }

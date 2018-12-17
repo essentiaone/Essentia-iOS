@@ -140,7 +140,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                                        description: tx.ammount,
                                                        action: {
                                                             (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
-                                                                                                                        txId: tx.address))
+                                                                                                                        txId: tx.hash))
                                                        }),
                  .separator(inset: .zero)]
     }
@@ -179,7 +179,14 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     func getTransactionsByWallet(_ wallet: WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
         switch wallet.asset {
         case let token as Token:
-            print("\(token.name) not done!")
+            blockchainInteractor.getTokenTxHistory(address: wallet.address, smartContract: token.address) { (result) in
+                switch result {
+                case .success(let tx):
+                    transactions(self.mapTransactions(tx.result, forToken: token))
+                case .failure(let error):
+                    self.showError(error)
+                }
+            }
         case let coin as Coin:
             switch coin {
             case .bitcoin:
@@ -254,6 +261,20 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                 hash: $0.hash,
                 address: address,
                 ammount: ammountFormatter.attributedHex(amount: $0.value, type: txType),
+                status: $0.status,
+                type: $0.type(for: store.wallet.address),
+                date: TimeInterval($0.timeStamp) ?? 0)
+        }))
+    }
+    
+    private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], forToken: Token) -> [ViewTransaction] {
+        return  [ViewTransaction](transactions.map({
+            let txType = $0.type(for: self.store.wallet.address)
+            let address = txType == .recive ? $0.from : $0.to
+            return ViewTransaction(
+                hash: $0.hash,
+                address: address,
+                ammount: ammountFormatter.attributedHex(amount: $0.value, type: txType, decimals: forToken.decimals),
                 status: $0.status,
                 type: $0.type(for: store.wallet.address),
                 date: TimeInterval($0.timeStamp) ?? 0)

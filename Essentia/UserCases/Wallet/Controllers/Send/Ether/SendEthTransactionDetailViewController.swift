@@ -18,7 +18,7 @@ fileprivate struct Store {
     var selectedFeeSlider: Float = 3
     var isFeeEnteringDirectly: Bool = false
     var enteredFee: Double = 0.0025
-    var gasEstimate: Double = 21000
+    var gasEstimate: Double = 0
     var lowGasSpeed: Double = 4.0
     var fastGasSpeed: Double = 25.0
     var keyboardHeight: CGFloat = 0
@@ -28,12 +28,16 @@ fileprivate struct Store {
     }
     
     var isValidTransaction: Bool {
-        return wallet.asset.isValidAddress(address)
+        return wallet.asset.isValidAddress(address) && gasEstimate != 0
     }
     
     init(wallet: ViewWalletInterface, transactionAmmount: SelectedTransacrionAmmount) {
         self.wallet = wallet
         self.ammount = transactionAmmount
+    }
+    
+    var isToken: Bool {
+        return wallet.asset is Token
     }
     
 }
@@ -96,13 +100,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                                   rightButtonImage: store.qrImage,
                                                   rightButtonAction: readQrAction,
                                                   textFieldChanged: addressEditingChanged),
-            .separator(inset: .zero),
-            .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Data"),
-                                                  text: store.data,
-                                                  placeholder: LS("Wallet.Send.Optional"),
-                                                  rightButtonImage: nil,
-                                                  rightButtonAction: nil,
-                                                  textFieldChanged: dataEditingChanged)]
+            .separator(inset: .zero)]
+            + dataComponent
             + feeComponents +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
              .empty(height: 8, background: colorProvider.settingsCellsBackround),
@@ -112,6 +111,18 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                              background: colorProvider.settingsCellsBackround),
              .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
         ]
+    }
+    
+    var dataComponent: [TableComponent] {
+        if !self.store.isToken {
+            return [.titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Data"),
+                                                          text: store.data,
+                                                          placeholder: LS("Wallet.Send.Optional"),
+                                                          rightButtonImage: nil,
+                                                          rightButtonAction: nil,
+                                                          textFieldChanged: dataEditingChanged)]
+        }
+        return []
     }
     
     var feeComponents: [TableComponent] {
@@ -138,7 +149,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         availableString.append(NSAttributedString(string: self.store.wallet.formattedBalance,
                                                   attributes: titleAttributes))
         availableString.append(NSAttributedString(string: " "))
-        availableString.append(NSAttributedString(string: self.store.wallet.asset.symbol,
+        availableString.append(NSAttributedString(string: self.store.wallet.asset.symbol.uppercased(),
                                                   attributes: titleAttributes))
         return availableString
     }
@@ -146,7 +157,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     var formattedFeeTitle: NSAttributedString {
         let currentFee = Double(self.store.selectedFeeSlider) * store.gasEstimate / pow(10, 9)
         self.store.enteredFee = currentFee
-        let numberFormatter = BalanceFormatter(asset: self.store.wallet.asset)
+        let numberFormatter = BalanceFormatter(asset: Coin.ethereum)
         let formattedFee = numberFormatter.formattedAmmountWithCurrency(amount: currentFee)
         let string = LS("Wallet.Send.Fee") + " (\(formattedFee))"
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
@@ -170,17 +181,21 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     private lazy var continueAction: () -> Void = { [weak self] in
-        self?.keyboardObserver.stop()
-        self?.tableAdapter.endEditing(true)
         guard let `self` = self else { return }
+        self.keyboardObserver.stop()
+        self.tableAdapter.endEditing(true)
         let txInfo = EtherTxInfo(address: self.store.address,
                                  ammount: self.store.ammount,
+                                 data: self.store.data,
                                  fee: self.store.enteredFee,
                                  gasPrice: Int(self.store.selectedFeeSlider * pow(10, 9)),
                                  gasLimit: Int(self.store.gasEstimate))
         let vc = ConfirmEthereumTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
+        self.keyboardObserver.start()
+        self.store.keyboardHeight = 0
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var inputFeeAction: () -> Void = { [weak self] in
@@ -199,6 +214,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     private lazy var addressEditingChanged: (String) -> Void = { [weak self] address in
         guard let `self` = self else { return }
         self.store.address = address
+        self.store.gasEstimate = 0
         self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
@@ -243,10 +259,13 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     
     func loadInputs() {
         let data = self.store.data.isEmpty ? "0x" : self.store.data
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: data) { [weak self] (price) in
+        guard let rawParametrs = try? interactor.txRawParametrs(for: store.wallet.asset, toAddress: store.address, ammountInCrypto: store.ammount.inCrypto, data: Data(hex: data)) else {
+            return
+        }
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [weak self] (price) in
             guard let `self` = self else { return }
             self.store.gasEstimate = price
-            self.tableAdapter.hardReload(self.state)
+            self.tableAdapter.simpleReload(self.state)
         }
     }
     
