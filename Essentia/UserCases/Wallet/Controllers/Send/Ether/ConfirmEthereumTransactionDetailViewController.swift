@@ -100,7 +100,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         }
     }
     
-    private lazy var responceTransaction: (Result<String>) -> Void = {
+    private lazy var responceTransaction: (NetworkResult<String>) -> Void = {
         (inject() as LoaderInterface).hide()
         switch $0 {
         case .success(let object):
