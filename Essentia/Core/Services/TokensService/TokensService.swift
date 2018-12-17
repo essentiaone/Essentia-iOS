@@ -13,7 +13,7 @@ class TokenService: TokensServiceInterface {
     let networkManager: NetworkManager = NetworkManager("https://clogos.essdev.info")
     
     func getTokensList(_ callBack: @escaping ([Token]) -> Void) {
-        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: Result<[Token]>) in
+        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: NetworkResult<[Token]>) in
             switch result {
             case .success(let object):
                 main {

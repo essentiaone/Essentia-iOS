@@ -80,15 +80,15 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void) {
+    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
     
-    func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (Result<BitcoinTransactionsHistory>) -> Void) {
+    func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<BitcoinTransactionsHistory>) -> Void) {
         cryptoWallet.bitcoin.getTransactionsHistory(for: address, result: result)
     }
     
-    func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (Result<EthereumTransactionsByAddress>) -> Void) {
+    func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (NetworkResult<EthereumTransactionsByAddress>) -> Void) {
         cryptoWallet.ethereum.getTxHistory(for: address, result: result)
     }
     
@@ -144,7 +144,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) throws {
+    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (NetworkResult<String>) -> Void) throws {
         let txRwDetails = try txRawParametrs(for: wallet.asset,
                                              toAddress: transacionDetial.address,
                                              ammountInCrypto: transacionDetial.ammount.inCrypto,
