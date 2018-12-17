@@ -80,13 +80,6 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func sendTokens(token: Token, address: String, ammount: String, result: @escaping (Result<String>) -> Void) {
-        let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
-        guard let data = try? erc20Token.generateSendBalanceParameter(toAddress: address, amount: ammount) else { return }
-        let smartContract = EthereumSmartContract(to: token.address, data: data.toHexString())
-        cryptoWallet.ethereum.callSmartContract(info: smartContract, result: result)
-    }
-    
     func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (Result<EthereumTokenTransactionByAddress>) -> Void) {
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
@@ -126,11 +119,36 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
     
     func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
         cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
-           print(result)
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let object):
+                gasLimit(object.value)
+            }
+        }
+    }
+    
+    func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {
+        switch asset {
+        case let token as Token:
+            let value = Wei(integerLiteral: 0)
+            let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
+            let data = try Data(hex: erc20Token.generateSendBalanceParameter(toAddress: toAddress,
+                                                                    amount: ammountInCrypto).toHexString().addHexPrefix())
+            return (value: value, token.address, data: data)
+        case is Coin:
+            let value = try WeiEthterConverter.toWei(ether: ammountInCrypto)
+            let data = data
+            return (value: value, address: toAddress, data: data)
+        default: throw EssentiaError.unknownError
         }
     }
     
     func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) throws {
+        let txRwDetails = try txRawParametrs(for: wallet.asset,
+                                             toAddress: transacionDetial.address,
+                                             ammountInCrypto: transacionDetial.ammount.inCrypto,
+                                             data: Data(hex: transacionDetial.data))
         let seed =  EssentiaStore.shared.currentUser.seed
         guard let pk = wallet.privateKey(withSeed: seed) else {
             throw EssentiaError.txError(.invalidPk)
@@ -138,15 +156,12 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         cryptoWallet.ethereum.getTransactionCount(for: wallet.address) { (transactionCountResult) in
             switch transactionCountResult {
             case .success(let count):
-                guard let ammountInWei = try? WeiEthterConverter.toWei(ether: transacionDetial.ammount.inCrypto) else {
-                    result(.failure(.unknownError))
-                    return
-                }
-                let transaction = EthereumRawTransaction(value: ammountInWei,
-                                                         to: transacionDetial.address,
+                let transaction = EthereumRawTransaction(value: txRwDetails.value,
+                                                         to: txRwDetails.address,
                                                          gasPrice: transacionDetial.gasPrice,
                                                          gasLimit: transacionDetial.gasLimit,
-                                                         nonce: count.count)
+                                                         nonce: count.count,
+                                                         data: txRwDetails.data)
                 let dataPk = Data(hex: pk)
                 let signer = EIP155Signer.init(chainId: 1)
                 guard let txData = try? signer.sign(transaction, privateKey: dataPk) else {
@@ -164,6 +179,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
             default:
                 result(.failure(.unknownError))
             }
+            
         }
     }
 }

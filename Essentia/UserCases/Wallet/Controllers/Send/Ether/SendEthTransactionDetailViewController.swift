@@ -255,7 +255,10 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     
     func loadInputs() {
         let data = self.store.data.isEmpty ? "0x" : self.store.data
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: store.address, data: data) { [weak self] (price) in
+        guard let rawParametrs = try? interactor.txRawParametrs(for: store.wallet.asset, toAddress: store.address, ammountInCrypto: store.ammount.inCrypto, data: Data(hex: data)) else {
+            return
+        }
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [weak self] (price) in
             guard let `self` = self else { return }
             self.store.gasEstimate = price
             self.tableAdapter.hardReload(self.state)

@@ -9,6 +9,7 @@
 import Foundation
 import EssentiaNetworkCore
 import EssentiaBridgesApi
+import HDWalletKit
 
 protocol WalletBlockchainWrapperInteractorInterface {
     func getCoinBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void)
@@ -22,6 +23,6 @@ protocol WalletBlockchainWrapperInteractorInterface {
     func getEthGasPrice(gasPrice: @escaping (Double) -> Void)
     func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void)
     
-    func sendTokens(token: Token, address: String, ammount: String, result: @escaping (Result<String>) -> Void)
+    func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data)
     func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (Result<String>) -> Void) throws
 }
