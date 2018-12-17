@@ -15,4 +15,5 @@ public enum EssentiaError: Error {
     }
     case txError(TxError)
     case unknownError
+    case unexpectedBehavior
 }

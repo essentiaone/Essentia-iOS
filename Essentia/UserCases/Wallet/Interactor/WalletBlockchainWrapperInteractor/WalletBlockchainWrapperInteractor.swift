@@ -140,7 +140,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
             let value = try WeiEthterConverter.toWei(ether: ammountInCrypto)
             let data = data
             return (value: value, address: toAddress, data: data)
-        default: throw EssentiaError.unknownError
+        default: throw EssentiaError.unexpectedBehavior
         }
     }
     
