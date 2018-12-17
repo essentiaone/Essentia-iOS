@@ -18,7 +18,7 @@ fileprivate struct Store {
     var selectedFeeSlider: Float = 3
     var isFeeEnteringDirectly: Bool = false
     var enteredFee: Double = 0.0025
-    var gasEstimate: Double = 21000
+    var gasEstimate: Double = 0
     var lowGasSpeed: Double = 4.0
     var fastGasSpeed: Double = 25.0
     var keyboardHeight: CGFloat = 0
@@ -28,7 +28,7 @@ fileprivate struct Store {
     }
     
     var isValidTransaction: Bool {
-        return wallet.asset.isValidAddress(address)
+        return wallet.asset.isValidAddress(address) && gasEstimate != 0
     }
     
     init(wallet: ViewWalletInterface, transactionAmmount: SelectedTransacrionAmmount) {
@@ -149,7 +149,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         availableString.append(NSAttributedString(string: self.store.wallet.formattedBalance,
                                                   attributes: titleAttributes))
         availableString.append(NSAttributedString(string: " "))
-        availableString.append(NSAttributedString(string: self.store.wallet.asset.symbol,
+        availableString.append(NSAttributedString(string: self.store.wallet.asset.symbol.uppercased(),
                                                   attributes: titleAttributes))
         return availableString
     }
@@ -181,9 +181,9 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     private lazy var continueAction: () -> Void = { [weak self] in
-        self?.keyboardObserver.stop()
-        self?.tableAdapter.endEditing(true)
         guard let `self` = self else { return }
+        self.keyboardObserver.stop()
+        self.tableAdapter.endEditing(true)
         let txInfo = EtherTxInfo(address: self.store.address,
                                  ammount: self.store.ammount,
                                  data: self.store.data,
@@ -193,6 +193,9 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         let vc = ConfirmEthereumTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
+        self.keyboardObserver.start()
+        self.store.keyboardHeight = 0
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private lazy var inputFeeAction: () -> Void = { [weak self] in
@@ -211,6 +214,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     private lazy var addressEditingChanged: (String) -> Void = { [weak self] address in
         guard let `self` = self else { return }
         self.store.address = address
+        self.store.gasEstimate = 0
         self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
@@ -261,7 +265,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [weak self] (price) in
             guard let `self` = self else { return }
             self.store.gasEstimate = price
-            self.tableAdapter.hardReload(self.state)
+            self.tableAdapter.simpleReload(self.state)
         }
     }
     

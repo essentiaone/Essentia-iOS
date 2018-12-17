@@ -58,7 +58,7 @@ final class BalanceFormatter {
         case .prefix:
             return currencySymbol + formatted
         case .suffix:
-            return formatted + " " + currencySymbol
+            return formatted + " " + currencySymbol.uppercased()
         }
     }
     

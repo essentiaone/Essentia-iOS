@@ -81,7 +81,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedFee() -> String {
-        let ammountFormatter = BalanceFormatter(asset: wallet.asset)
+        let ammountFormatter = BalanceFormatter(asset: Coin.ethereum)
         return ammountFormatter.formattedAmmountWithCurrency(amount: tx.fee)
     }
     
