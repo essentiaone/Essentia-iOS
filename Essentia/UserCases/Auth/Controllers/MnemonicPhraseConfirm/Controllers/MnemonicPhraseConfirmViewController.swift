@@ -60,7 +60,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         phraseEnteingController?.setViews([wordEntering, wordIndicator])
         setupFakeTextField()
         setupPhraseEnteringController()
-        
+        checkPasteboard()
     }
     
     private func setupPhraseEnteringController() {
@@ -70,6 +70,27 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     private func setupFakeTextField() {
         fakeTextField.fakeDelegate = phraseEnteingController
         fakeTextField.becomeFirstResponder()
+    }
+
+    private func checkPasteboard() {
+        guard let pasteboardString = UIPasteboard.general.string else { return }
+        let isMnemonic = pasteboardString.split(separator: " ").count == 12
+        if isMnemonic {
+            let button = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45))
+            button.setTitle(pasteboardString, for: .normal)
+            button.backgroundColor = .lightGray
+            fakeTextField.inputAccessoryView = button
+            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        } else {
+            fakeTextField.inputAccessoryView = nil
+        }
+    }
+    
+    @objc func buttonAction(sender: UIButton!) {
+        guard let pasteboardString = sender.titleLabel?.text else { return }
+        (inject() as LoaderInterface).show()
+        let mnemonic = pasteboardString.split(separator: " ").map { return String(describing: $0) }
+        didFinishConfirmingWords(mnemonic: mnemonic)
     }
     
     // MARK: - Actions
