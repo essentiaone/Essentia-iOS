@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-public class AppStateEventProxy: IAppStateEventProxy {
+public class AppStateEventProxy: AppStateEventProxyInterface {
     private var eventSubscribers: [AppStates: [AppStateEventHandler]] = [:]
     public init() {}
     

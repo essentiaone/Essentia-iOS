@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     // MARK: - Dependencies
-    private lazy var appStateEventProxy: IAppStateEventProxy = inject()
+    private lazy var appStateEventProxy: AppStateEventProxyInterface = inject()
     
     func application
     (

@@ -29,7 +29,7 @@ public protocol AppEvents: class {
     func applicationWillResignActive(_ application: UIApplication)
 }
 
-public protocol IAppStateEventProxy: AppEvents {
+public protocol AppStateEventProxyInterface: AppEvents {
     func add(subscriber: AppStateEventHandler, for events: [AppStates])
     func remove(subscriber: AppStateEventHandler, for events: [AppStates])
 }

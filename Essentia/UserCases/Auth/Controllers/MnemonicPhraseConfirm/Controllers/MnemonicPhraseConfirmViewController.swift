@@ -50,6 +50,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardObserver.animateKeyboard = { newValue in
+            self.checkPasteboard()
             self.buttomCurrentWordConstraint.constant = newValue + 8
         }
     }
@@ -82,7 +83,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
             fakeTextField.inputAccessoryView = button
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         } else {
-            fakeTextField.inputAccessoryView = nil
+            fakeTextField.inputAccessoryView = UIView()
         }
     }
     
@@ -91,6 +92,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         (inject() as LoaderInterface).show()
         let mnemonic = pasteboardString.split(separator: " ").map { return String(describing: $0) }
         didFinishConfirmingWords(mnemonic: mnemonic)
+        (inject() as LoaderInterface).hide()
     }
     
     // MARK: - Actions
