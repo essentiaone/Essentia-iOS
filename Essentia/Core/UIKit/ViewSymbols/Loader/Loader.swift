@@ -26,7 +26,8 @@ class Loader: LoaderInterface {
     }
     
     func showError(message: String) {
-        SVProgressHUD.showError(withStatus: message)
+        guard let topView = UIApplication.shared.keyWindow?.subviews.last else { return }
+        TopAlert(alertType: .error, title: message, inView: topView).show()
     }
     
     func loaderScope(_ scope: () -> Void) {
