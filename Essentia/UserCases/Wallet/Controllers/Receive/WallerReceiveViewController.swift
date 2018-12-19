@@ -63,10 +63,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                            background: colorProvider.settingsCellsBackround,
                            aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),
-            .titleWithFont(font: AppFont.bold.withSize(13),
-                           title: store.wallet.address,
-                           background: colorProvider.settingsCellsBackround,
-                           aligment: .center),
+            .titleAction(font: AppFont.bold.withSize(15), title: store.wallet.address, action: copyAction),
             .empty(height: 20, background: colorProvider.settingsCellsBackround)]
             + ammountComponent +
             [.separator(inset: .zero),
