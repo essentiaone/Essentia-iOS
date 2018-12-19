@@ -30,8 +30,12 @@ class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable, UITextF
     
     @objc func textFieldDidChange(_ notification: NSNotification) {
         let text = centeredTextField.text ?? ""
-        let hideButton = !text.isEmpty
+        updateQrButton(text)
         enterAction?(text)
+    }
+    
+    func updateQrButton(_ text: String) {
+        let hideButton = !text.isEmpty
         rightButton.isHidden = hideButton
         rightButton.isUserInteractionEnabled = !hideButton
         textFieldConstraint.constant = hideButton ? 10.0 : 42.0

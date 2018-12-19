@@ -22,9 +22,8 @@ fileprivate struct Store {
     var lowGasSpeed: Double = 4.0
     var fastGasSpeed: Double = 25.0
     var keyboardHeight: CGFloat = 0
-    var qrImage: UIImage? {
-        guard address.isEmpty else { return nil }
-        return UIImage(named: "qrCode")
+    var qrImage: UIImage {
+        return UIImage(named: "qrCode")!
     }
     
     var isValidTransaction: Bool {
@@ -246,6 +245,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         dismiss(animated: true)
         if !result.value.contains(charactersIn: EssCharacters.special.set) {
             self.store.address = result.value
+            self.loadInputs()
             self.tableAdapter.simpleReload(self.state)
         }
     }
@@ -259,10 +259,12 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     
     func loadInputs() {
         let data = self.store.data.isEmpty ? "0x" : self.store.data
-        guard let rawParametrs = try? interactor.txRawParametrs(for: store.wallet.asset, toAddress: store.address, ammountInCrypto: store.ammount.inCrypto, data: Data(hex: data)) else {
+        guard let rawParametrs = try? interactor.txRawParametrs(for: store.wallet.asset, toAddress: store.address, ammountInCrypto: store.ammount.inCrypto, data: Data(hex: data)),
+            !self.store.address.isEmpty else {
             return
         }
         interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [weak self] (price) in
+            (inject() as LoaderInterface).hide()
             guard let `self` = self else { return }
             self.store.gasEstimate = price
             self.tableAdapter.simpleReload(self.state)

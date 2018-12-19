@@ -529,6 +529,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.centeredTextField.text = text
             cell.centeredTextField.placeholder = placeholder
             cell.rightButton.setImage(rightButtonImage, for: .normal)
+            cell.updateQrButton(text)
             cell.action = rightButtonAction
             cell.enterAction = textFieldChanged
             return cell

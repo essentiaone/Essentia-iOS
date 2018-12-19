@@ -121,6 +121,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
             switch result {
             case .failure(let error):
+                (inject() as LoaderInterface).hide()
                 print(error)
             case .success(let object):
                 gasLimit(object.value)
