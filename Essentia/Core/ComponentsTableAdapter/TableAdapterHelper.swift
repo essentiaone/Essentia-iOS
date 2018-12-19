@@ -19,6 +19,7 @@ class TableAdapterHelper {
         for (index, item) in state.enumerated() {
             switch item {
             case .calculatbleSpace: fallthrough
+            case .tableWithCalculatableSpace: fallthrough
             case .centeredComponentTopInstet:
                 break
             default:
@@ -157,6 +158,8 @@ class TableAdapterHelper {
             return heightForEmptySpace(with: state) / 2
         case .topAlert:
             return 0
+        case .tableWithCalculatableSpace:
+            return heightForEmptySpace(with: state)
         }
     }
     

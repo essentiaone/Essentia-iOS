@@ -562,6 +562,10 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.pageControl.currentPage = selected
             cell.pageControl.numberOfPages = count
             return cell
+        case .tableWithCalculatableSpace(let state):
+            let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.hardReload(state)
+            return cell
         }
     }
     
