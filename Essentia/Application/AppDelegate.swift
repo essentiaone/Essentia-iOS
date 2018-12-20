@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    // MARK: - Dependencies
+    private lazy var appStateEventProxy: AppStateEventProxyInterface = inject()
+    
     func application
     (
         _ application: UIApplication,
@@ -21,10 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     ) -> Bool {
         Fabric.with([Crashlytics.self])
         
+        appStateEventProxy.didFinishLaunching(application)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = WelcomeViewController()
         SwizzleLocalizedFiles()
         return true
+    }
+    
+    // MARK: - AppEvents
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        appStateEventProxy.applicationDidEnterBackground(application)
+    }
+    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        appStateEventProxy.applicationWillEnterForeground(application)
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        appStateEventProxy.applicationDidBecomeActive(application)
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        appStateEventProxy.applicationWillResignActive(application)
     }
 }

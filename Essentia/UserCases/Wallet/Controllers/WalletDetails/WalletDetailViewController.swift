@@ -11,6 +11,7 @@ import EssentiaNetworkCore
 import EssentiaBridgesApi
 
 fileprivate struct Store {
+    var isLoadingTransactions: Bool = false
     var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
     var transactionsByDate: [String: [ViewTransaction]] = [:]
@@ -28,7 +29,7 @@ fileprivate struct Store {
 class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigation {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-
+    
     private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
@@ -51,30 +52,42 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRank()
+        global {
+            self.loadRank()
+            self.loadTransactions()
+            self.loadBalance()
+        }
         tableAdapter.hardReload(state)
-        loadTransactions()
-        loadBalance()
     }
     
     // MARK: - State
     private var state: [TableComponent] {
         return [
+            .tableWithHeight(height: 69, state: staticContent),
+            .tableWithCalculatableSpace(state: dynamicContent)
+        ]
+    }
+    
+    private var staticContent: [TableComponent] {
+        return  [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Back"),
                                 right: #imageLiteral(resourceName: "downArrow"),
                                 title: store.wallet.name,
                                 lAction: backAction,
-                                rAction: detailAction),
-            .empty(height: 18, background: colorProvider.settingsCellsBackround),
+                                rAction: detailAction)
+        ]
+    }
+    
+    private var dynamicContent: [TableComponent] {
+        return [
             .centeredCorneredImageWithUrl(url: store.wallet.asset.iconUrl,
                                           size: CGSize(width: 120.0, height: 120.0),
                                           shadowColor: store.wallet.asset.shadowColor),
-            .empty(height: 20, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.regular.withSize(20),
                            title: store.wallet.asset.localizedName + " " + LS("Wallet.Detail.Balance"),
                            background: colorProvider.settingsCellsBackround,
-                         aligment: .center),
+                           aligment: .center),
             .empty(height: 11, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(24),
                            title: formattedBalance(store.balance),
@@ -86,15 +99,22 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                      balanceChanged: formateBalanceChanging(store.balanceChanging) ,
                                      perTime: "(24h)"),
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
-            .filledSegment(titles: [LS("Wallet.Detail.Send"),
-//                                    LS("Wallet.Detail.Exchange"),
-                                    LS("Wallet.Detail.Receive")],
+            .filledSegment(titles: [
+                LS("Wallet.Detail.Send"),
+                LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
-            ] + buildTransactionState
+            ] + buildTransactionState +
+            loaderStateIfNeeded
     }
     
     // MARK: - State Builders
+    private var loaderStateIfNeeded: [TableComponent] {
+        guard store.isLoadingTransactions else { return [] }
+        return [.empty(height: 28, background: colorProvider.settingsCellsBackround),
+                .loader]
+    }
+    
     private var buildTransactionState: [TableComponent] {
         guard !store.transactions.isEmpty else { return [] }
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
@@ -113,14 +133,14 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         }
         return keys.map { (key) -> [TableComponent]  in
             return formattedDateSection(date: key) +
-                   formattedTransactionsSection(txByDate[key] ?? [])
-        }.reduce([], + )
+                formattedTransactionsSection(txByDate[key] ?? [])
+            }.reduce([], + )
     }
     
     private func formattedTransactionsSection(_ transactions: [ViewTransaction]) -> [TableComponent] {
         return transactions.map {
             return formattedTransaction($0)
-        }.reduce([], + )
+            }.reduce([], + )
     }
     
     private func formattedDateSection(date: String) -> [TableComponent] {
@@ -135,14 +155,14 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func formattedTransaction(_ tx: ViewTransaction) -> [TableComponent] {
         return [.transactionDetail(icon: tx.status.iconForTxType(tx.type),
-                                                       title: tx.type.title ,
-                                                       subtitle: tx.address,
-                                                       description: tx.ammount,
-                                                       action: {
-                                                            (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
-                                                                                                                        txId: tx.hash))
-                                                       }),
-                 .separator(inset: .zero)]
+                                   title: tx.type.title ,
+                                   subtitle: tx.address,
+                                   description: tx.ammount,
+                                   action: {
+                                    (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
+                                                                                                txId: tx.hash))
+        }),
+                .separator(inset: .zero)]
     }
     
     // MARK: - Network
@@ -254,7 +274,8 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
-        return  [ViewTransaction](transactions.map({
+        let nonTokenTx = transactions.filter({ return $0.value != "0" })
+        return  [ViewTransaction](nonTokenTx.map({
             let txType = $0.type(for: self.store.wallet.address)
             let address = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
@@ -294,9 +315,11 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func loadTransactions() {
+        self.store.isLoadingTransactions = true
         getTransactionsByWallet(store.wallet, transactions: {
             self.store.transactions = $0
             self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
+            self.store.isLoadingTransactions = false
             self.tableAdapter.simpleReload(self.state)
         })
     }

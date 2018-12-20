@@ -82,6 +82,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
         tableView.register(TableComponentContainer.self)
         tableView.register(TableComponentPageControl.self)
         tableView.register(TableComponentTwoButtons.self)
+        tableView.register(TableComponentLoader.self)
     }
     
     // MARK: - Update State
@@ -529,6 +530,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.centeredTextField.text = text
             cell.centeredTextField.placeholder = placeholder
             cell.rightButton.setImage(rightButtonImage, for: .normal)
+            cell.updateQrButton(text)
             cell.action = rightButtonAction
             cell.enterAction = textFieldChanged
             return cell
@@ -560,6 +562,13 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             let cell: TableComponentPageControl = tableView.dequeueReusableCell(for: indexPath)
             cell.pageControl.currentPage = selected
             cell.pageControl.numberOfPages = count
+            return cell
+        case .tableWithCalculatableSpace(let state):
+            let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.hardReload(state)
+            return cell
+        case .loader:
+            let cell: TableComponentLoader = tableView.dequeueReusableCell(for: indexPath)
             return cell
         }
     }

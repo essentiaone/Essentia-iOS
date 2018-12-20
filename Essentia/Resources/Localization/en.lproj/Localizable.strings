@@ -273,7 +273,7 @@
 "Wallet.Receive.Title" = "Receive";
 "Wallet.Receive.Wallet" = "wallet";
 "Wallet.Receive.Copy" = "COPY";
-"Wallet.Receive.Copied" = "Address сopied";
+"Wallet.Receive.Copied" = "Address copied";
 "Wallet.Receive.Request" = "Request specific amount";
 
 "Wallet.Receive.Enter.Done" = "Done";

@@ -53,9 +53,7 @@ class SettingsLoginMethodViewController: BaseTableAdapterController, SwipeableNa
             .separator(inset: .zero),
             .menuTitleCheck(title: LS("Settings.Security.Keystore.Title"),
                             state: ComponentState(defaultValue: loginType == .keystore),
-                            action: ketstoreAction),
-            .description(title: LS("Settings.Secure.Description"),
-                         backgroud: colorProvider.settingsBackgroud)
+                            action: ketstoreAction)
         ]
     }
     

@@ -164,6 +164,10 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     func logOutUser() {
+        let currentUser = EssentiaStore.shared.currentUser
+        if currentUser.backup.currentlyBackedUp.isEmpty {
+            (inject() as UserStorageServiceInterface).remove(user: currentUser)
+        }
         EssentiaStore.shared.setUser(.notSigned)
         (inject() as SettingsRouterInterface).logOut()
     }

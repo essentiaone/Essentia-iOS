@@ -10,6 +10,7 @@ import UIKit
 
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
+    case tableWithCalculatableSpace(state: [TableComponent])
     // MARK: - Common
     case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
@@ -74,6 +75,7 @@ enum TableComponent: Equatable {
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
     case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
                                              rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
+    case loader
     // MARK: - Insets
     case tabBarSpace
     case calculatbleSpace(background: UIColor)

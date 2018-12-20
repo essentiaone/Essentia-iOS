@@ -10,6 +10,7 @@ import Foundation
 
 class ApplicationDependenceProvider {
     func loadDependences() {
+        loadAppStateEventProxy()
         loadCoreDependences()
         loadDesignDependences()
         loadLoginDependences()
@@ -29,6 +30,10 @@ class ApplicationDependenceProvider {
     private func loadDesignDependences() {
         loadLoginDesign()
         loadBackupDesign()
+    }
+    
+    private func loadAppStateEventProxy() {
+        prepareInjection(AppStateEventProxy() as AppStateEventProxyInterface, memoryPolicy: .viewController)
     }
     
     // MARK: - Assets
