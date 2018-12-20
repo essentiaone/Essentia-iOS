@@ -129,7 +129,7 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func getBalanceChanging(olderBalance: Double, newestBalance: Double) -> Double {
-        let dif = newestBalance - olderBalance
+        let dif = olderBalance - newestBalance
         guard olderBalance != 0 else { return 0 }
         return dif / olderBalance
     }

@@ -39,7 +39,6 @@ class WalletMainViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.hardReload()
         hardReload()
         showOnbordingIfNeeded()
     }
