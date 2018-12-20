@@ -178,6 +178,7 @@
 		3451601521AD761C0007451D /* BaseBluredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601421AD761C0007451D /* BaseBluredController.swift */; };
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
 		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
+		345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -503,6 +504,7 @@
 		3451601421AD761C0007451D /* BaseBluredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredController.swift; sourceTree = "<group>"; };
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
 		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
+		345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentLoader.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -1444,6 +1446,7 @@
 		3448269F21205EE000C19EB3 /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				345EA48521CB9BE300AF9303 /* Loader */,
 				34E706E0219CF215002A52E3 /* TwoButtons */,
 				340AC010219BBECB00DEAFF1 /* PageControl */,
 				345F118F219742CD0010095F /* Container */,
@@ -1673,6 +1676,14 @@
 				34FCB98A2187C66F00A88D56 /* DateFormatter.swift */,
 			);
 			path = Formatters;
+			sourceTree = "<group>";
+		};
+		345EA48521CB9BE300AF9303 /* Loader */ = {
+			isa = PBXGroup;
+			children = (
+				345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */,
+			);
+			path = Loader;
 			sourceTree = "<group>";
 		};
 		345F1181219719410010095F /* Receive */ = {
@@ -2560,6 +2571,7 @@
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
+				345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */,
 				34AC4DEA21486293001C17D8 /* ImportedWallet.swift in Sources */,
 				3445D4A42167C94E0014A2B0 /* AssetPrice.swift in Sources */,
 				34416807212F711E008B8A91 /* Currencies.swift in Sources */,

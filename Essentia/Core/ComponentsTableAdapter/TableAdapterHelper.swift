@@ -160,6 +160,8 @@ class TableAdapterHelper {
             return 0
         case .tableWithCalculatableSpace:
             return heightForEmptySpace(with: state)
+        case .loader:
+            return 40
         }
     }
     

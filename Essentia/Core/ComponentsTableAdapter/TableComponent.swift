@@ -75,6 +75,7 @@ enum TableComponent: Equatable {
     case textFieldTitleDetail(string: String, font: UIFont, color: UIColor, detail: NSAttributedString, didChange: (String) -> Void)
     case titleCenteredDetailTextFildWithImage(title: String, text: String, placeholder: String, rightButtonImage: UIImage?,
                                              rightButtonAction: (() -> Void)?, textFieldChanged: (String) -> Void)
+    case loader
     // MARK: - Insets
     case tabBarSpace
     case calculatbleSpace(background: UIColor)
