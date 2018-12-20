@@ -264,7 +264,8 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
-        return  [ViewTransaction](transactions.map({
+        let nonTokenTx = transactions.filter({ return $0.value != "0" })
+        return  [ViewTransaction](nonTokenTx.map({
             let txType = $0.type(for: self.store.wallet.address)
             let address = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
