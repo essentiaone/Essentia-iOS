@@ -179,6 +179,8 @@
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
 		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
 		345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */; };
+		345EA49021CBF92500AF9303 /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */; };
+		345EA49121CBF92500AF9303 /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -278,8 +280,6 @@
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
 		34C1535421A3683F00DDC4F5 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C1535321A3683F00DDC4F5 /* TopAlert.swift */; };
-		34D7D73D21CAAAC40020824E /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D7D73C21CAAAC40020824E /* AppStateEventProxyInterface.swift */; };
-		34D7D73F21CAAB040020824E /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D7D73E21CAAB040020824E /* AppStateEventProxy.swift */; };
 		34D805FE2175EE280079A5A5 /* SelectWalletPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */; };
 		34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */; };
 		34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */; };
@@ -505,6 +505,8 @@
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
 		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentLoader.swift; sourceTree = "<group>"; };
+		345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
+		345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -605,8 +607,6 @@
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
 		34C1535321A3683F00DDC4F5 /* TopAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopAlert.swift; sourceTree = "<group>"; };
-		34D7D73C21CAAAC40020824E /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
-		34D7D73E21CAAB040020824E /* AppStateEventProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStateEventProxy.swift; path = /Users/pavloboiko/Code/Essentia/Essentia/Essentia/Application/ApplicationStateInteractor/AppStateEventProxy.swift; sourceTree = "<absolute>"; };
 		34D805FD2175EE280079A5A5 /* SelectWalletPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectWalletPopUp.swift; sourceTree = "<group>"; };
 		34D8060F2176323F0079A5A5 /* TableComponentTitleImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentTitleImageButton.swift; sourceTree = "<group>"; };
 		34D806112176324F0079A5A5 /* TableComponentTitleImageButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTitleImageButton.xib; sourceTree = "<group>"; };
@@ -2006,8 +2006,8 @@
 		34D7D73921CAAA910020824E /* ApplicationStateInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				34D7D73E21CAAB040020824E /* AppStateEventProxy.swift */,
-				34D7D73C21CAAAC40020824E /* AppStateEventProxyInterface.swift */,
+				345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */,
+				345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */,
 			);
 			path = ApplicationStateInteractor;
 			sourceTree = "<group>";
@@ -2406,7 +2406,6 @@
 			files = (
 				3431226E2124E754009E4A7A /* TableComponentNavigationBar.swift in Sources */,
 				3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */,
-				34D7D73D21CAAAC40020824E /* AppStateEventProxyInterface.swift in Sources */,
 				34737BC7214EAD0C008A306F /* TokensServiceInterface.swift in Sources */,
 				3448267A211BA20F00C19EB3 /* BaseTabBarController.swift in Sources */,
 				348BC794217F0F6000F494A8 /* BaseAccountStrengthCell.swift in Sources */,
@@ -2454,6 +2453,7 @@
 				34737BDE2151598E008A306F /* TableComponentBalanceChanging.swift in Sources */,
 				344958DA21412CA400C2230B /* WalletWelcomeViewController.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
+				345EA49121CBF92500AF9303 /* AppStateEventProxyInterface.swift in Sources */,
 				34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */,
 				34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */,
 				34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */,
@@ -2565,8 +2565,8 @@
 				34C1535421A3683F00DDC4F5 /* TopAlert.swift in Sources */,
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
-				34D7D73F21CAAB040020824E /* AppStateEventProxy.swift in Sources */,
 				345F1191219742DF0010095F /* TableComponentContainer.swift in Sources */,
+				345EA49021CBF92500AF9303 /* AppStateEventProxy.swift in Sources */,
 				34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
