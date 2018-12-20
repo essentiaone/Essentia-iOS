@@ -26,8 +26,8 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
             popUp(vc: WalletDeletedWarningViewController(wallet: wallet, okAction: { self.popToRoot() }))
         case .successGeneratingAlert:
             popUp(vc: WalletDoneGeneratingAlert(okAction: { self.popToRoot() }))
-        case .addAsset:
-            push(vc: WalletCreateNewAssetViewController())
+        case .addAsset(let assetType):
+            push(vc: WalletCreateNewAssetViewController(defaultCryptoType: assetType))
         case .selectEtherWallet(let wallets, let action):
             popUp(vc: SelectWalletPopUp(wallets: wallets, didSelect: action))
         case .walletDetail(let wallet):

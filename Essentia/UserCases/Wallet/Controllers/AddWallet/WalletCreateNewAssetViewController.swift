@@ -22,10 +22,24 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     private lazy var interactor: WalletInteractorInterface = inject()
     private var store: Store = Store()
     
+    init(defaultCryptoType: CryptoType) {
+        switch defaultCryptoType {
+        case .coin:
+            self.store.selectedComponent = 0
+        case .token:
+            self.store.selectedComponent = 1
+        }
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectSegmentCotrolAction(0)
+        selectSegmentCotrolAction(self.store.selectedComponent)
     }
     
     override func viewWillAppear(_ animated: Bool) {

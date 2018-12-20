@@ -44,7 +44,7 @@ class WalletNewAssetViewController: BaseTableAdapterController, SwipeableNavigat
     
     private lazy var addAssetAction: () -> Void = { [weak self] in
         self?.dismiss(animated: true)
-        (inject() as WalletRouterInterface).show(.addAsset)
+        (inject() as WalletRouterInterface).show(.addAsset(.coin))
     }
     
     private lazy var importAssetAction: () -> Void = { [weak self] in
