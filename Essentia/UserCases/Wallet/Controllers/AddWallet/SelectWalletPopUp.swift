@@ -27,19 +27,17 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
 
     private var state: [TableComponent] {
         return [.centeredComponentTopInstet,
-                .empty(height: 20, background: .white),
-                .container(state: containerState),
-                .empty(height: 20, background: .white)]
+                .container(state: containerState)]
     }
     
     private var containerState: [TableComponent] {
          return [
-            .empty(height: 17, background: colorProvider.settingsCellsBackround),
+            .empty(height: 5, background: colorProvider.settingsCellsBackround),
             .titleWithCancel(title: LS("Wallet.AddTokens.SelectRoot.Title"), action: cancelAction),
             .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
             .empty(height: 8, background: colorProvider.settingsCellsBackround)
             ] + walletsState + [
-            .empty(height: 15, background: colorProvider.settingsCellsBackround)
+            .empty(height: 5, background: colorProvider.settingsCellsBackround)
         ]
     }
     
