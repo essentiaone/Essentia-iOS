@@ -9,14 +9,9 @@
 import UIKit
 
 class TableComponentLoader: UITableViewCell {
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        showLoader()
-    }
-    
-    func showLoader() {
-        let indicator = UIActivityIndicatorView(frame: frame)
-        indicator.style = .white
+    override func layoutSubviews() {
+        let indicator = UIActivityIndicatorView(frame: bounds)
+        indicator.style = .gray
         addSubview(indicator)
         indicator.startAnimating()
     }

@@ -568,7 +568,8 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
             cell.tableAdapter.hardReload(state)
             return cell
         case .loader:
-            return tableView.cellForRow(at: indexPath) as TableComponentLoader
+            let cell: TableComponentLoader = tableView.dequeueReusableCell(for: indexPath)
+            return cell
         }
     }
     

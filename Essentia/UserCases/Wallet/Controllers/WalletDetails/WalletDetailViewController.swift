@@ -11,6 +11,7 @@ import EssentiaNetworkCore
 import EssentiaBridgesApi
 
 fileprivate struct Store {
+    var isLoadingTransactions: Bool = false
     var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
     var transactionsByDate: [String: [ViewTransaction]] = [:]
@@ -51,10 +52,12 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadRank()
+        global {
+            self.loadRank()
+            self.loadTransactions()
+            self.loadBalance()
+        }
         tableAdapter.hardReload(state)
-        loadTransactions()
-        loadBalance()
     }
     
     // MARK: - State
@@ -101,10 +104,17 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                 LS("Wallet.Detail.Receive")],
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
-            ] + buildTransactionState
+            ] + buildTransactionState +
+            loaderStateIfNeeded
     }
     
     // MARK: - State Builders
+    private var loaderStateIfNeeded: [TableComponent] {
+        guard store.isLoadingTransactions else { return [] }
+        return [.empty(height: 28, background: colorProvider.settingsCellsBackround),
+                .loader]
+    }
+    
     private var buildTransactionState: [TableComponent] {
         guard !store.transactions.isEmpty else { return [] }
         return [.searchField(title: LS("Wallet.Detail.History.Title"),
@@ -305,9 +315,11 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func loadTransactions() {
+        self.store.isLoadingTransactions = true
         getTransactionsByWallet(store.wallet, transactions: {
             self.store.transactions = $0
             self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
+            self.store.isLoadingTransactions = false
             self.tableAdapter.simpleReload(self.state)
         })
     }
