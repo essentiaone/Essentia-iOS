@@ -51,7 +51,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
     @IBAction func copyAction(_ sender: Any) {
         copyButton.isSelected = true
         continueButton.isEnabled = true
-        UIPasteboard.general.string = EssentiaStore.shared.currentUser.seed
+        UIPasteboard.general.string = EssentiaStore.shared.currentCredentials.seed
         TopAlert(alertType: .info, title: "Seed сopied", inView: self.view).show()
     }
     

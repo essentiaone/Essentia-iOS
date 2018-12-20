@@ -149,7 +149,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     private func storeKeystore() {
-        guard let mneminic = EssentiaStore.shared.currentUser.mnemonic else { return }
+        guard let mneminic = EssentiaStore.shared.currentCredentials.mnemonic else { return }
         DispatchQueue.global().async {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
@@ -170,6 +170,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private func showSuccess() {
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
+            self.encodeCurrentUser()
             let alert = KeystoreSavedAlert(okAction: {
                 EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.keystore)
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
@@ -177,6 +178,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             })
             self.present(alert, animated: true)
         }
+    }
+    
+    private func encodeCurrentUser() {
+        guard let currentSeed = EssentiaStore.shared.currentUser.seed(withPassword: defaultPassword) else { return }
+        EssentiaStore.shared.currentUser.encodedSeed = User.encrypt(data: currentSeed, password: self.store.password)
+        guard let currentMnemonic = EssentiaStore.shared.currentUser.mnemonic(withPassword: defaultPassword) else { return }
+        EssentiaStore.shared.currentUser.encodedSeed = User.encrypt(data: currentMnemonic, password: self.store.password)
     }
     
     // MARK: - UIDocumentBrowserViewControllerDelegate

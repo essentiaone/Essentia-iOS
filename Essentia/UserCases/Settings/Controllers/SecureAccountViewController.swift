@@ -66,7 +66,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     
     private var mnemonicState: [TableComponent] {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
             .descriptionWithSize(aligment: .center,
                                  fontSize: 15,
@@ -84,7 +84,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     
     private var keystoreState: [TableComponent] {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
             .empty(height: 1, background: colorProvider.settingsBackgroud),
             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.keystore)),
@@ -102,11 +102,19 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var mnemonicAction: () -> Void = { [weak self] in
-        self?.router.show(.backupMenmonic)
+        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+            self?.router.show(.backupKeystore)
+        } else {
+            self?.router.show(.backupMenmonic)
+        }
     }
     
     private lazy var seedAction: () -> Void = { [weak self] in
-        self?.router.show(.backupSeed)
+        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+            self?.router.show(.backupKeystore)
+        } else {
+            self?.router.show(.backupSeed)
+        }
     }
     
     private lazy var keyStoreAction: () -> Void = { [weak self] in

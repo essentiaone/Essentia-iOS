@@ -13,6 +13,7 @@ class EssentiaStore: NSObject {
     
     var currentUser: User = User.notSigned
     var ranks: AssetRank = AssetRank()
+    var currentCredentials: CurrentCredentials = .none
     
     func setUser(_ user: User) {
         (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)

@@ -47,7 +47,7 @@ class AuthRouter: AuthRouterInterface {
         case .backup:
             switch type {
             case .mnemonic:
-                guard let mnemonic = EssentiaStore.shared.currentUser.mnemonic else {
+                guard let mnemonic = EssentiaStore.shared.currentCredentials.mnemonic else {
                     routes = []
                     break
                 }

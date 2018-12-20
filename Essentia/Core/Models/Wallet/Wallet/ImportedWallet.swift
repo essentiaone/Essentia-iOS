@@ -22,7 +22,7 @@ class ImportedWallet: Codable, WalletInterface, ViewWalletInterface {
     init?(address: String, coin: Coin, pk: String, name: String, lastBalance: Double? = nil) {
         self.address = address
         self.coin = coin
-        let seed = EssentiaStore.shared.currentUser.seed
+        let seed = EssentiaStore.shared.currentCredentials.seed
         guard let aesInstance = ImportedWallet.aesInstance(withSeed: seed),
               let encodedBytes = try? aesInstance.encrypt(pk.bytes)  else { return nil }
         self.encodedPk = Data(bytes: encodedBytes)

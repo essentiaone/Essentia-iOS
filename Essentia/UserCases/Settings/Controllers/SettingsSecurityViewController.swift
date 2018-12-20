@@ -48,7 +48,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private var keystoreState: [TableComponent] {
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [.menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
                                        detail: LS("Settings.Security.Keystore.Detail"),
                                        withArrow: false,
@@ -57,7 +57,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     var mnemonicState: [TableComponent] {
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [ .menuSimpleTitleDetail(title: LS("Settings.Security.Mnemonic.Title"),
                                         detail: LS("Settings.Security.Mnemonic.Detail"),
                                         withArrow: true,

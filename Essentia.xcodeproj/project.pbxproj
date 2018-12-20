@@ -179,6 +179,7 @@
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
 		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
 		345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */; };
+		345EA48D21CBE82500AF9303 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -505,6 +506,7 @@
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
 		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentLoader.swift; sourceTree = "<group>"; };
+		345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -1250,6 +1252,7 @@
 			children = (
 				344167EE212E168A008B8A91 /* EssentiaStore.swift */,
 				340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */,
+				345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -2422,6 +2425,7 @@
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */,
 				340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */,
+				345EA48D21CBE82500AF9303 /* CurrentCredentials.swift in Sources */,
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */,

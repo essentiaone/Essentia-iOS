@@ -123,7 +123,7 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private var loginMetodState: [TableComponent] {
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
             .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
                                    detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,

@@ -56,7 +56,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
     private func showBackupKeystore() {
         TabBarController.shared.selectedViewController = (inject() as SettingsRouterInterface).nvc
         (inject() as SettingsRouterInterface).show(.security)
-        if EssentiaStore.shared.currentUser.mnemonic != nil {
+        if EssentiaStore.shared.currentCredentials.mnemonic != nil {
             (inject() as SettingsRouterInterface).show(.backupKeystore)
         }
     }
