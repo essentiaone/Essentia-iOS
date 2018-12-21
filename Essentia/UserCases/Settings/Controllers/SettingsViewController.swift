@@ -83,9 +83,8 @@ class SettingsViewController: BaseTableAdapterController {
                               title: LS("Settings.Security"),
                               detail: "",
                               action: securityAction),
-             .separator(inset: Constants.separatorInset)]
-             + loginMetodState +
-             [.empty(height: 16, background: colorProvider.settingsBackgroud),
+             .separator(inset: Constants.separatorInset),
+             .empty(height: 16, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .left,
                                   fontSize: 13,
                                   title: LS("Settings.Title.Community"),
