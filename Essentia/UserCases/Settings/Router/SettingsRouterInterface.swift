@@ -16,7 +16,7 @@ enum SettingsRoutes {
     case language
     case currency
     case security 
-    case switchAccount(callBack: () -> Void)
+    case switchAccount(SelectAccountDelegate)
     case backup(type: BackupType)
     case loginType
     case accountName

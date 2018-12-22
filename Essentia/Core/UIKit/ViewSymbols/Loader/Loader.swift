@@ -8,6 +8,7 @@
 
 import Foundation
 import SVProgressHUD
+import EssentiaNetworkCore
 
 class Loader: LoaderInterface {
     init() {
@@ -25,7 +26,18 @@ class Loader: LoaderInterface {
         (inject() as LoggerServiceInterface).log("Loader hidden")
     }
     
-    func showError(message: String) {
+    func showError(_ error: Error) {
+        switch error {
+        case let essError as EssentiaError:
+            showError(essError.localizedDescription)
+        case let networkError as EssentiaNetworkError:
+            showError(networkError.localizedDescription)
+        default:
+            showError(EssentiaError.unknownError.localizedDescription)
+        }
+    }
+    
+    func showError(_ message: String) {
         guard let topView = UIApplication.shared.keyWindow?.subviews.last else { return }
         TopAlert(alertType: .error, title: message, inView: topView).show()
     }

@@ -274,7 +274,7 @@
 		34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A42213064E500527F15 /* MnemonicLanguage.swift */; };
 		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
 		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
-		34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */; };
+		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -603,7 +603,7 @@
 		34B27A42213064E500527F15 /* MnemonicLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLanguage.swift; sourceTree = "<group>"; };
 		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccoutViewController.swift; sourceTree = "<group>"; };
+		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
@@ -1837,7 +1837,7 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */,
+				34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */,
 				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
@@ -2491,7 +2491,7 @@
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
 				349AA4B221242CC900E9256F /* UserStorageServiceInterface.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
-				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
+				34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */,
 				34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */,
 				3451601521AD761C0007451D /* BaseBluredController.swift in Sources */,
 				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,

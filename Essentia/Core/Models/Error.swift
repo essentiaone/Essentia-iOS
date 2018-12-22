@@ -16,4 +16,21 @@ public enum EssentiaError: Error {
     case txError(TxError)
     case unknownError
     case unexpectedBehavior
+    case wrongPassword
+    
+    public var localizedDescription: String {
+        switch self {
+        case .txError(let txError):
+            switch txError {
+            case .invalidPk:
+                return "Invalid private key"
+            }
+        case .unknownError:
+            return "Something wrong"
+        case .unexpectedBehavior:
+            return "Unexpected behavour, write to support"
+        case .wrongPassword:
+            return "Wrong password, try again!"
+        }
+    }
 }

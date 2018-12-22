@@ -12,7 +12,7 @@ fileprivate struct Constants {
     static var separatorInset = UIEdgeInsets(top: 0, left: 65, bottom: 0, right: 0)
 }
 
-class SettingsViewController: BaseTableAdapterController {
+class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -154,13 +154,12 @@ class SettingsViewController: BaseTableAdapterController {
     }
     
     private lazy var switchAccountAction: () -> Void = { [weak self] in
-        self?.scrollToTop()
-        (inject() as SettingsRouterInterface).show(.switchAccount(callBack: { [weak self] in
-            self?.updateState()
-        }))
+        guard let self = self else { return }
+        self.scrollToTop()
+        (inject() as SettingsRouterInterface).show(.switchAccount(self))
     }
-    private lazy var logOutAction: () -> Void = {
-        self.logOutUser()
+    private lazy var logOutAction: () -> Void = { [weak self] in
+        self?.logOutUser()
     }
     
     func logOutUser() {
@@ -168,7 +167,7 @@ class SettingsViewController: BaseTableAdapterController {
         if currentUser.backup.currentlyBackedUp.isEmpty {
             (inject() as UserStorageServiceInterface).remove(user: currentUser)
         }
-        EssentiaStore.shared.setUser(.notSigned)
+        try? EssentiaStore.shared.setUser(.notSigned, password: "")
         (inject() as SettingsRouterInterface).logOut()
     }
     
@@ -205,5 +204,24 @@ class SettingsViewController: BaseTableAdapterController {
         guard let url = URL(string: EssentiaConstants.reviewUrl) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         self.scrollToTop()
+    }
+    
+    // MARK: - SelectAccountDelegate
+    func didSelectUser(_ user: User) {
+        present(LoginPasswordViewController(password: { (pass) in
+            do {
+                try EssentiaStore.shared.setUser(user, password: pass)
+            } catch {
+                (inject() as LoaderInterface).showError(error)
+                return false
+            }
+            return true
+        }, cancel: {}), animated: true)
+    }
+    
+    func createNewUser() {
+        EssentiaLoader.show {}
+        TabBarController.shared.selectedIndex = 0
+        (inject() as LoginInteractorInterface).generateNewUser {}
     }
 }

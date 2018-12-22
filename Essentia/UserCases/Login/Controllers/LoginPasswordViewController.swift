@@ -21,11 +21,11 @@ class LoginPasswordViewController: BaseTableAdapterController {
     
     // MARK: - Store
     private var store = Store()
-    private var passwordCallback: ((String) -> Void)?
+    private var passwordCallback: ((String) -> Bool)?
     private var cancelCallback: (() -> Void)?
     
     // MARK: - Init
-    required init(password: @escaping (String) -> Void, cancel: @escaping () -> Void) {
+    required init(password: @escaping (String) -> Bool, cancel: @escaping () -> Void) {
         self.passwordCallback = password
         self.cancelCallback = cancel
         super.init()
@@ -39,6 +39,7 @@ class LoginPasswordViewController: BaseTableAdapterController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableAdapter.hardReload(state)
         keyboardObserver.start()
     }
     
@@ -83,12 +84,16 @@ class LoginPasswordViewController: BaseTableAdapterController {
     
     private lazy var backAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        (inject() as AuthRouterInterface).showPrev()
+        self.tableAdapter.endEditing(true)
         self.cancelCallback?()
     }
     
     private lazy var continueAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
-        self.passwordCallback?(self.store.password)
+        guard let `self` = self,
+        let validatePasswordCallback = self.passwordCallback else { return }
+        if validatePasswordCallback(self.store.password) {
+            self.keyboardObserver.stop()
+            self.tableAdapter.endEditing(true)
+        }
     }
 }

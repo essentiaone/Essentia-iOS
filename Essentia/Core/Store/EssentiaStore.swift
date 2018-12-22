@@ -15,10 +15,21 @@ class EssentiaStore: NSObject {
     var ranks: AssetRank = AssetRank()
     var currentCredentials: CurrentCredentials = .none
     
-    func setUser(_ user: User) {
+    func setUser(_ user: User, password: String) throws {
         (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
         currentUser = user
+        if user != .notSigned {
+            try createCredentials(to: user, with: password)
+        }
         (inject() as UserStorageServiceInterface).store(user: user)
         (inject() as CurrencyRankDaemonInterface).update()
+    }
+    
+    func createCredentials(to user: User, with password: String) throws {
+        guard let seed = user.seed(withPassword: password) else {
+            throw EssentiaError.wrongPassword
+        }
+        let mnemonic = user.mnemonic(withPassword: password)
+        currentCredentials = CurrentCredentials(seed: seed, mnemonic: mnemonic)
     }
 }

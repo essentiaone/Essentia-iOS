@@ -12,13 +12,13 @@ class LoginInteractor: LoginInteractorInterface {
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var mnemonicService: MnemonicServiceInterface = inject()
     
-    func generateNewUser(callBack:@escaping () -> Void) {
+    func generateNewUser(callBack: @escaping () -> Void) {
         DispatchQueue.global().async {
             let currentLocaleLanguage = self.mnemonicService.languageForCurrentLocale()
             let mnemonic = self.mnemonicService.newMnemonic(with: currentLocaleLanguage)
             DispatchQueue.main.async {
                 let user = User(mnemonic: mnemonic)
-                EssentiaStore.shared.setUser(user)
+                try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
                 callBack()
             }
         }

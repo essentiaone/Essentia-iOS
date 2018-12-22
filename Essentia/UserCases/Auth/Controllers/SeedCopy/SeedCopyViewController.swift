@@ -64,7 +64,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
         case .login:
             let user = User(seed: textView.text)
             user.backup.currentlyBackedUp = [.seed]
-            EssentiaStore.shared.setUser(user)
+            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
             (inject() as AuthRouterInterface).showPrev()
         }
 

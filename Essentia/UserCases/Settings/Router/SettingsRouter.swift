@@ -23,8 +23,8 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
             push(vc: SettingsCurrencyViewController())
         case .language:
             push(vc: SettingsLanguageViewController())
-        case .switchAccount(let callBack):
-            popUp(vc: SwitchAccoutViewController(callBack))
+        case .switchAccount(let delegate):
+            popUp(vc: SelectAccoutViewController(delegate))
         case .security:
             push(vc: SettingsSecurityViewController())
         case .backup(let type):

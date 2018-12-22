@@ -112,7 +112,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
             let mnemonic = mnemonic.joined(separator: " ")
             let user = User(mnemonic: mnemonic)
             user.backup.currentlyBackedUp = [.mnemonic]
-            EssentiaStore.shared.setUser(user)
+            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
             (inject() as AuthRouterInterface).showPrev()
         }
     }

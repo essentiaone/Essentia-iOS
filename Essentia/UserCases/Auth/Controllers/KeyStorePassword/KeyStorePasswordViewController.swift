@@ -136,7 +136,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         if let mnemonic = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password) {
             let user = User(mnemonic: mnemonic)
             user.backup.currentlyBackedUp = [.keystore]
-            EssentiaStore.shared.setUser(user)
+            do {
+                try EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            } catch {
+                (inject() as LoaderInterface).showError(error)
+            }
         }
         (inject() as AuthRouterInterface).showPrev()
     }
@@ -181,10 +185,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     private func encodeCurrentUser() {
-        guard let currentSeed = EssentiaStore.shared.currentUser.seed(withPassword: defaultPassword) else { return }
+        guard let currentSeed = EssentiaStore.shared.currentUser.seed(withPassword: User.defaultPassword) else { return }
         EssentiaStore.shared.currentUser.encodedSeed = User.encrypt(data: currentSeed, password: self.store.password)
-        guard let currentMnemonic = EssentiaStore.shared.currentUser.mnemonic(withPassword: defaultPassword) else { return }
-        EssentiaStore.shared.currentUser.encodedSeed = User.encrypt(data: currentMnemonic, password: self.store.password)
+        EssentiaStore.shared.currentUser.seed = nil
+        guard let currentMnemonic = EssentiaStore.shared.currentUser.mnemonic(withPassword: User.defaultPassword) else { return }
+        EssentiaStore.shared.currentUser.encodedMnemonic = User.encrypt(data: currentMnemonic, password: self.store.password)
+        EssentiaStore.shared.currentUser.mnemonic = nil
+        (inject() as UserStorageServiceInterface).storeCurrentUser()
     }
     
     // MARK: - UIDocumentBrowserViewControllerDelegate
