@@ -65,6 +65,12 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: User) {
+        guard user.seed == nil else {
+            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            user.backup.currentlyBackedUp = []
+            showTabBar()
+            return
+        }
         present(LoginPasswordViewController(password: { (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
@@ -73,8 +79,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
                 return false
             }
             self.dismiss(animated: true, completion: {
-                TabBarController.shared.selectedIndex = 0
-                self.present(TabBarController.shared, animated: true)
+                self.showTabBar()
             })
             return true
         }, cancel: {
@@ -82,10 +87,14 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
         }), animated: true)
     }
     
+    func showTabBar() {
+        TabBarController.shared.selectedIndex = 0
+        self.present(TabBarController.shared, animated: true)
+    }
+    
     func createNewUser() {
         EssentiaLoader.show {
-            TabBarController.shared.selectedIndex = 0
-            self.present(TabBarController.shared, animated: true)
+            self.showTabBar()
         }
         (inject() as LoginInteractorInterface).generateNewUser {}
     }

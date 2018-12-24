@@ -62,11 +62,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                                   background: colorProvider.settingsBackgroud,
                                   textColor: colorProvider.appDefaultTextColor),
              .empty(height: 5.0, background: colorProvider.settingsBackgroud),
-//             .menuTitleDetail(icon: imageProvider.languageIcon,
-//                              title: LS("Settings.Language"),
-//                              detail: user.profile.language.titleString,
-//                              action: languageAction),
-//             .separator(inset: Constants.separatorInset),
              .menuTitleDetail(icon: imageProvider.currencyIcon,
                               title: LS("Settings.Currency"),
                               detail: user.profile.currency.titleString,
@@ -163,22 +158,19 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     func logOutUser() {
-        let currentUser = EssentiaStore.shared.currentUser
-        if currentUser.backup.currentlyBackedUp.isEmpty {
-            (inject() as UserStorageServiceInterface).remove(user: currentUser)
-        }
+        removeCurrentUserIfNeeded()
         try? EssentiaStore.shared.setUser(.notSigned, password: "")
         (inject() as SettingsRouterInterface).logOut()
-    }
-    
-    private lazy var darkThemeAction: (Bool) -> Void = { isOn in
-        
     }
     
     private lazy var securityAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.scrollToTop()
-        (inject() as SettingsRouterInterface).show(.security)
+        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+            (inject() as SettingsRouterInterface).show(.backupKeystore)
+        } else {
+            (inject() as SettingsRouterInterface).show(.security)
+        }
     }
     
     private lazy var languageAction: () -> Void = { [weak self] in
@@ -190,7 +182,11 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var accountStrenghtAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
         self.scrollToTop()
-        (inject() as SettingsRouterInterface).show(.accountStrength)
+        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+            (inject() as SettingsRouterInterface).show(.backupKeystore)
+        } else {
+            (inject() as SettingsRouterInterface).show(.accountStrength)
+        }
     }
     
     private lazy var editCurrentAccountAction: () -> Void = { [weak self] in
@@ -208,6 +204,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: User) {
+        removeCurrentUserIfNeeded()
+        guard user.seed == nil else {
+            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            user.backup.currentlyBackedUp = []
+            return
+        }
         present(LoginPasswordViewController(password: { (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
@@ -215,11 +217,24 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                 (inject() as LoaderInterface).showError(error)
                 return false
             }
+            self.dismiss(animated: true)
             return true
-        }, cancel: {}), animated: true)
+        }, cancel: {
+            self.dismiss(animated: true)
+        }), animated: true)
+    }
+    
+    func removeCurrentUserIfNeeded() {
+        let currentUser = EssentiaStore.shared.currentUser
+        let isOldAccount = EssentiaStore.shared.currentUser.seed != nil
+        let isNotBackuped = currentUser.backup.currentlyBackedUp.isEmpty
+        if isNotBackuped && !isOldAccount {
+            (inject() as UserStorageServiceInterface).remove(user: currentUser)
+        }
     }
     
     func createNewUser() {
+        removeCurrentUserIfNeeded()
         EssentiaLoader.show {}
         TabBarController.shared.selectedIndex = 0
         (inject() as LoginInteractorInterface).generateNewUser {}

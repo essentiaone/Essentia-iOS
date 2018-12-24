@@ -78,7 +78,6 @@ class User: NSObject, Codable {
     
     func mnemonic(withPassword: String) -> String? {
         if let mnemonic = mnemonic {
-            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.remove(.keystore)
             return mnemonic
         }
         guard let aesInstance = User.aesInstance(withPassword: withPassword),
