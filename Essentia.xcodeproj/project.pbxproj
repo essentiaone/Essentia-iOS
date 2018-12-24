@@ -178,6 +178,8 @@
 		3451601521AD761C0007451D /* BaseBluredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601421AD761C0007451D /* BaseBluredController.swift */; };
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
 		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
+		3458F92821D17D0C00AC186D /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */; };
+		3458F92921D17D0C00AC186D /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */; };
 		345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */; };
 		345EA48D21CBE82500AF9303 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
@@ -275,8 +277,6 @@
 		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
 		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
-		34B6E38E21CE2F920031C015 /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6E38C21CE2F920031C015 /* AppStateEventProxy.swift */; };
-		34B6E38F21CE2F920031C015 /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B6E38D21CE2F920031C015 /* AppStateEventProxyInterface.swift */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -506,6 +506,8 @@
 		3451601421AD761C0007451D /* BaseBluredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredController.swift; sourceTree = "<group>"; };
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
 		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
+		3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
+		3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
 		345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentLoader.swift; sourceTree = "<group>"; };
 		345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
@@ -604,8 +606,6 @@
 		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
-		34B6E38C21CE2F920031C015 /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
-		34B6E38D21CE2F920031C015 /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
@@ -2012,8 +2012,8 @@
 		34D7D73921CAAA910020824E /* ApplicationStateInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				34B6E38C21CE2F920031C015 /* AppStateEventProxy.swift */,
-				34B6E38D21CE2F920031C015 /* AppStateEventProxyInterface.swift */,
+				3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */,
+				3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */,
 			);
 			path = ApplicationStateInteractor;
 			sourceTree = "<group>";
@@ -2452,7 +2452,6 @@
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
 				34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */,
 				3486401D218BD0CB008CA223 /* AmmountEnteringDelegate.swift in Sources */,
-				34B6E38E21CE2F920031C015 /* AppStateEventProxy.swift in Sources */,
 				344958E72141754D00C2230B /* UserProfile.swift in Sources */,
 				34E706E2219CF224002A52E3 /* TableComponentTwoButtons.swift in Sources */,
 				34864027219319F2008CA223 /* LaunchpadPlaceholderViewController.swift in Sources */,
@@ -2575,7 +2574,6 @@
 				345F1191219742DF0010095F /* TableComponentContainer.swift in Sources */,
 				34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
-				34B6E38F21CE2F920031C015 /* AppStateEventProxyInterface.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34B27A3A213047E200527F15 /* MethodSwizzle.swift in Sources */,
 				345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */,
@@ -2605,6 +2603,7 @@
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */,
 				340AC012219BC2F400DEAFF1 /* TableCompoentPageControl.swift in Sources */,
+				3458F92821D17D0C00AC186D /* AppStateEventProxyInterface.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */,
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
@@ -2624,6 +2623,7 @@
 				347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
+				3458F92921D17D0C00AC186D /* AppStateEventProxy.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
@@ -2824,7 +2824,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = P8JA7643K4;
 				INFOPLIST_FILE = Essentia/Resources/Info.plist;
@@ -2851,7 +2851,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 59;
+				CURRENT_PROJECT_VERSION = 61;
 				DEVELOPMENT_TEAM = P8JA7643K4;
 				INFOPLIST_FILE = Essentia/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
