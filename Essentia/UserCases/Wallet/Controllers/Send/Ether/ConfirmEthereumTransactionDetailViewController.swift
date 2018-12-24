@@ -96,7 +96,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         do {
             try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
         } catch {
-            (inject() as LoaderInterface).showError(message: error.localizedDescription)
+            (inject() as LoaderInterface).showError(error)
         }
     }
     
@@ -108,7 +108,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
             self.dismiss(animated: true)
             (inject() as WalletRouterInterface).show(.doneTx)
         case .failure(let error):
-            (inject() as LoaderInterface).showError(message: error.localizedDescription)
+            (inject() as LoaderInterface).showError(error)
         }
     }
 }

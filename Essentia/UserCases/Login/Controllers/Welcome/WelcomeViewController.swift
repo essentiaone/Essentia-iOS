@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
+class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
@@ -29,28 +29,17 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
         design.applyDesign(to: self)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        guard !EssentiaStore.shared.currentUser.seed.isEmpty else {
-            return
-        }
-        openTabBar()
-    }
-    
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
         present(RestoreAccountViewController(delegate: self), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        guard !userService.get().isEmpty else {
-            generateNewUser()
+        if userService.get().isEmpty {
+            createNewUser()
             return
         }
-        let switchAccount =  SwitchAccoutViewController { [weak self] in
-            self?.openTabBar()
-        }
-        present(switchAccount, animated: true)
+        present(SelectAccoutViewController(self), animated: true)
     }
     
     @IBAction func termsAction(_ sender: Any) {
@@ -74,10 +63,38 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate {
                          memoryPolicy: .viewController)
     }
     
-    private func generateNewUser() {
+    // MARK: - SelectAccountDelegate
+    func didSelectUser(_ user: User) {
+        guard user.seed == nil else {
+            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            user.backup.currentlyBackedUp = []
+            showTabBar()
+            return
+        }
+        present(LoginPasswordViewController(password: { (pass) in
+            do {
+                try EssentiaStore.shared.setUser(user, password: pass)
+            } catch {
+                (inject() as LoaderInterface).showError(error)
+                return false
+            }
+            self.dismiss(animated: true, completion: {
+                self.showTabBar()
+            })
+            return true
+        }, cancel: {
+            self.dismiss(animated: true)
+        }), animated: true)
+    }
+    
+    func showTabBar() {
+        TabBarController.shared.selectedIndex = 0
+        self.present(TabBarController.shared, animated: true)
+    }
+    
+    func createNewUser() {
         EssentiaLoader.show {
-            TabBarController.shared.selectedIndex = 0
-            self.present(TabBarController.shared, animated: true)
+            self.showTabBar()
         }
         (inject() as LoginInteractorInterface).generateNewUser {}
     }

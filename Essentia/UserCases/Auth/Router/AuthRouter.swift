@@ -37,17 +37,15 @@ fileprivate enum AuthRoutes {
     }
 }
 
-class AuthRouter: AuthRouterInterface {
-    let navigationController: UINavigationController
+class AuthRouter: BaseRouter, AuthRouterInterface {
     fileprivate let routes: [AuthRoutes]
     var current: Int = 0
     required init(navigationController: UINavigationController, type: BackupType, auth: AuthType) {
-        self.navigationController = navigationController
         switch auth {
         case .backup:
             switch type {
             case .mnemonic:
-                guard let mnemonic = EssentiaStore.shared.currentUser.mnemonic else {
+                guard let mnemonic = EssentiaStore.shared.currentCredentials.mnemonic else {
                     routes = []
                     break
                 }
@@ -84,28 +82,33 @@ class AuthRouter: AuthRouterInterface {
             default: routes = []
             }
         }
+        super.init(navigationController: navigationController)
         guard let controller = routes.first?.controller else { return }
-        self.navigationController.pushViewController(controller, animated: true)
+        push(vc: controller)
+    }
+    
+    required init(navigationController: UINavigationController) {
+        fatalError("init(navigationController:) has not been implemented")
     }
     
     func showNext() {
         current++
         guard current != routes.count else {
-            navigationController.popToRootViewController(animated: true)
+            popToRoot()
             relese(self as AuthRouterInterface)
             return
         }
         let nextController = routes[current].controller
-        navigationController.pushViewController(nextController, animated: true)
+        push(vc: nextController)
     }
     
     func showPrev() {
         current--
-        if navigationController.viewControllers.count == 1 {
-            navigationController.view.endEditing(true)
-            navigationController.dismiss(animated: true)
+        if navigationController?.viewControllers.count == 1 {
+            navigationController?.view.endEditing(true)
+            navigationController?.dismiss(animated: true)
         } else {
-            navigationController.popViewController(animated: true)
+            pop()
         }
         guard current >= 0 else {
             relese(self as AuthRouterInterface)

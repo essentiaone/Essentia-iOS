@@ -12,12 +12,14 @@ fileprivate struct Constants {
     static var storageFolder = "Users"
 }
 
-class UserStorageService: UserStorageServiceInterface {
+class UserStorageService: UserStorageServiceInterface, AppStateEventHandler {
     // MARK: - Dependences
     private lazy var fileSerice: LocalFilesServiceInterface = inject()
+    private lazy var appEventProxy: AppStateEventProxyInterface = inject()
     let folderPath: LocalFolderPath = .final(Constants.storageFolder)
     
     init() {
+        appEventProxy.add(subscriber: self, for: [.willResignActive])
     }
     
     func get() -> [User] {
@@ -59,6 +61,17 @@ class UserStorageService: UserStorageServiceInterface {
                 return index
             }
             index++
+        }
+    }
+    
+    // MARK: - AppStateEventHandler
+    func receive(event: AppStates) {
+        switch event {
+        case .willResignActive:
+            if EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty {
+                remove(user: EssentiaStore.shared.currentUser)
+            }
+        default: return
         }
     }
 }

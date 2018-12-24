@@ -178,9 +178,10 @@
 		3451601521AD761C0007451D /* BaseBluredController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601421AD761C0007451D /* BaseBluredController.swift */; };
 		3451601721AD8F5F0007451D /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */; };
 		3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */; };
+		3458F92821D17D0C00AC186D /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */; };
+		3458F92921D17D0C00AC186D /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */; };
 		345EA48721CB9C3700AF9303 /* TableComponentLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */; };
-		345EA49021CBF92500AF9303 /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */; };
-		345EA49121CBF92500AF9303 /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */; };
+		345EA48D21CBE82500AF9303 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */; };
 		345F11832197195E0010095F /* WallerReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11822197195E0010095F /* WallerReceiveViewController.swift */; };
 		345F11852197256C0010095F /* WalletEnterReceiveAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */; };
 		345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345F118621973FE60010095F /* WalletOptionsViewController.swift */; };
@@ -275,7 +276,7 @@
 		34B27A43213064E500527F15 /* MnemonicLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A42213064E500527F15 /* MnemonicLanguage.swift */; };
 		34B27A4921336B4D00527F15 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4821336B4D00527F15 /* LoaderInterface.swift */; };
 		34B27A4B21336B5900527F15 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4A21336B5900527F15 /* Loader.swift */; };
-		34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */; };
+		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
 		34B79652212B1CEF000B1251 /* DeviceSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79651212B1CEF000B1251 /* DeviceSeries.swift */; };
 		34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B79658212C084B000B1251 /* TableComponentPassword.swift */; };
 		34B7965C212C086A000B1251 /* TableComponentPassword.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34B7965B212C086A000B1251 /* TableComponentPassword.xib */; };
@@ -301,6 +302,7 @@
 		34EE1FA121795E6C00FFC570 /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */; };
 		34EE1FAF217D413E00FFC570 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */; };
 		34EE1FB1217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */; };
+		34F2884421CCD1BF0098E4CF /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */; };
 		34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6921A25253009F00F2 /* TokenIcons.swift */; };
 		34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */; };
 		34F2EA7321A28D46009F00F2 /* DoneTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */; };
@@ -504,9 +506,10 @@
 		3451601421AD761C0007451D /* BaseBluredController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredController.swift; sourceTree = "<group>"; };
 		3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
 		3451601821AD9B0C0007451D /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
+		3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
+		3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
 		345EA48621CB9C3700AF9303 /* TableComponentLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentLoader.swift; sourceTree = "<group>"; };
-		345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
-		345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
+		345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
 		345F11822197195E0010095F /* WallerReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallerReceiveViewController.swift; sourceTree = "<group>"; };
 		345F11842197256C0010095F /* WalletEnterReceiveAmmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletEnterReceiveAmmount.swift; sourceTree = "<group>"; };
 		345F118621973FE60010095F /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -602,7 +605,7 @@
 		34B27A42213064E500527F15 /* MnemonicLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLanguage.swift; sourceTree = "<group>"; };
 		34B27A4821336B4D00527F15 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
-		34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAccoutViewController.swift; sourceTree = "<group>"; };
+		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
 		34B79651212B1CEF000B1251 /* DeviceSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSeries.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
 		34B7965B212C086A000B1251 /* TableComponentPassword.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentPassword.xib; sourceTree = "<group>"; };
@@ -628,6 +631,7 @@
 		34EE1FA021795E6C00FFC570 /* TableComponentTransaction.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
 		34EE1FAE217D413E00FFC570 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34EE1FB0217DEF1A00FFC570 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
+		34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		34F2EA6921A25253009F00F2 /* TokenIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenIcons.swift; sourceTree = "<group>"; };
 		34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTransactionViewController.swift; sourceTree = "<group>"; };
 		34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneTransactionViewController.xib; sourceTree = "<group>"; };
@@ -875,6 +879,7 @@
 			children = (
 				34AA4E8E2136A783004C25ED /* RestoreAccount */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
+				34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1250,6 +1255,7 @@
 			children = (
 				344167EE212E168A008B8A91 /* EssentiaStore.swift */,
 				340AC003219B86D200DEAFF1 /* EssentiaConstants.swift */,
+				345EA48C21CBE82500AF9303 /* CurrentCredentials.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -1831,7 +1837,7 @@
 		349AA4942122F0F600E9256F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34B27A4D2133712200527F15 /* SwitchAccoutViewController.swift */,
+				34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */,
 				340ABFFE219B0A3600DEAFF1 /* FullSecured */,
 				349AA49A2122F15000E9256F /* SecureAccountViewController.swift */,
 				344826C621218C9C00C19EB3 /* SettingsViewController.swift */,
@@ -2006,8 +2012,8 @@
 		34D7D73921CAAA910020824E /* ApplicationStateInteractor */ = {
 			isa = PBXGroup;
 			children = (
-				345EA48E21CBF92500AF9303 /* AppStateEventProxy.swift */,
-				345EA48F21CBF92500AF9303 /* AppStateEventProxyInterface.swift */,
+				3458F92721D17D0C00AC186D /* AppStateEventProxy.swift */,
+				3458F92621D17D0B00AC186D /* AppStateEventProxyInterface.swift */,
 			);
 			path = ApplicationStateInteractor;
 			sourceTree = "<group>";
@@ -2421,6 +2427,7 @@
 				3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */,
 				3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */,
 				340AC00F219BAC0A00DEAFF1 /* TableAdapterAnimation.swift in Sources */,
+				345EA48D21CBE82500AF9303 /* CurrentCredentials.swift in Sources */,
 				3438C777218098CC0087A3BB /* TransactionType.swift in Sources */,
 				349AA4BB2124604B00E9256F /* LocalFilesServiceInterface.swift in Sources */,
 				34F2EA6A21A25253009F00F2 /* TokenIcons.swift in Sources */,
@@ -2453,7 +2460,6 @@
 				34737BDE2151598E008A306F /* TableComponentBalanceChanging.swift in Sources */,
 				344958DA21412CA400C2230B /* WalletWelcomeViewController.swift in Sources */,
 				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
-				345EA49121CBF92500AF9303 /* AppStateEventProxyInterface.swift in Sources */,
 				34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */,
 				34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */,
 				34737BD6214FF79B008A306F /* GeneratingWalletInfo.swift in Sources */,
@@ -2484,7 +2490,7 @@
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
 				349AA4B221242CC900E9256F /* UserStorageServiceInterface.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
-				34B27A4E2133712200527F15 /* SwitchAccoutViewController.swift in Sources */,
+				34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */,
 				34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */,
 				3451601521AD761C0007451D /* BaseBluredController.swift in Sources */,
 				3445D4A22167C48A0014A2B0 /* AssetsRank.swift in Sources */,
@@ -2566,7 +2572,6 @@
 				3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */,
 				349AA4B921245C2D00E9256F /* UserStorageService.swift in Sources */,
 				345F1191219742DF0010095F /* TableComponentContainer.swift in Sources */,
-				345EA49021CBF92500AF9303 /* AppStateEventProxy.swift in Sources */,
 				34AC4DFA2149603E001C17D8 /* TableComponentSegmentControl.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
@@ -2598,6 +2603,7 @@
 				34B79659212C084B000B1251 /* TableComponentPassword.swift in Sources */,
 				34FCB98B2187C66F00A88D56 /* DateFormatter.swift in Sources */,
 				340AC012219BC2F400DEAFF1 /* TableCompoentPageControl.swift in Sources */,
+				3458F92821D17D0C00AC186D /* AppStateEventProxyInterface.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				34FCB9AB218A3B1F00A88D56 /* TableComponentSlider.swift in Sources */,
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
@@ -2617,6 +2623,7 @@
 				347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */,
 				34FCB9AF218A531B00A88D56 /* AttributedString+Size.swift in Sources */,
 				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
+				3458F92921D17D0C00AC186D /* AppStateEventProxy.swift in Sources */,
 				3401AFEB2109F5CB006DEF49 /* FakeTextField.swift in Sources */,
 				3401AF8720FD3E22006DEF49 /* DIStorageInterface.swift in Sources */,
 				344826BE21217EA200C19EB3 /* Int+Unary.swift in Sources */,
@@ -2642,6 +2649,7 @@
 				34AC4DEC21492189001C17D8 /* UserWallet.swift in Sources */,
 				34AFF93D21A656B300C7FFEF /* EssentiaLoader.swift in Sources */,
 				344958F72142687000C2230B /* UIImage+UIColor.swift in Sources */,
+				34F2884421CCD1BF0098E4CF /* LoginPasswordViewController.swift in Sources */,
 				34D806102176323F0079A5A5 /* TableComponentTitleImageButton.swift in Sources */,
 				3448265E2119A10600C19EB3 /* KeyStorePasswordViewController.swift in Sources */,
 				34997797218312EF00D85A82 /* EthereumTransaction+Status.swift in Sources */,

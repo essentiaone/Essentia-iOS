@@ -32,7 +32,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
         applyDesign()
         tableAdapter.hardReload(cashState)
     }
-
+    
     // MARK: - Override
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -52,21 +52,21 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
                     background: colorProvider.settingsBackgroud)]
             + mnemonicState +
             [.empty(height: 1, background: colorProvider.settingsBackgroud),
-            .checkBox(state: ComponentState(defaultValue: currentUserBackups.contains(.seed)),
-                      titlePrifex: LS("Settings.Secure.Prefix.Show"),
-                      title: LS("Settings.Secure.Seed.Title"),
-                      subtitle: LS("Settings.Secure.Seed.Description"),
-                      action: seedAction)]
+             .checkBox(state: ComponentState(defaultValue: currentUserBackups.contains(.seed)),
+                       titlePrifex: LS("Settings.Secure.Prefix.Show"),
+                       title: LS("Settings.Secure.Seed.Title"),
+                       subtitle: LS("Settings.Secure.Seed.Description"),
+                       action: seedAction)]
             + keystoreState +
             [.empty(height: 8, background: colorProvider.settingsBackgroud),
-            .description(title: LS("Settings.Secure.Description"),
-                         backgroud: colorProvider.settingsBackgroud),
-            .calculatbleSpace(background: colorProvider.settingsBackgroud)]
+             .description(title: LS("Settings.Secure.Description"),
+                          backgroud: colorProvider.settingsBackgroud),
+             .calculatbleSpace(background: colorProvider.settingsBackgroud)]
     }
     
     private var mnemonicState: [TableComponent] {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
             .descriptionWithSize(aligment: .center,
                                  fontSize: 15,
@@ -84,7 +84,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     
     private var keystoreState: [TableComponent] {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
             .empty(height: 1, background: colorProvider.settingsBackgroud),
             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contains(.keystore)),

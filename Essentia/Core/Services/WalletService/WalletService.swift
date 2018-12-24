@@ -36,13 +36,13 @@ class WalletService: WalletServiceInterface {
     }
     
     func generateAddress(_ walletInfo: GeneratingWalletInfo) -> String {
-        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
+        let seed = Data(hex: EssentiaStore.shared.currentCredentials.seed)
         let account = self.generateAccount(seed: seed, walletInfo: walletInfo)
         return account.address
     }
     
     func generatePk(_ walletInfo: GeneratingWalletInfo) -> String {
-        let seed = Data(hex: EssentiaStore.shared.currentUser.seed)
+        let seed = Data(hex: EssentiaStore.shared.currentCredentials.seed)
         let account = self.generateAccount(seed: seed, walletInfo: walletInfo)
         return account.rawPrivateKey
     }

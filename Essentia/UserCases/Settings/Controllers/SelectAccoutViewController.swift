@@ -1,5 +1,5 @@
 //
-//  SwitchAccoutViewController.swift
+//  SelectAccoutViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 27.08.18.
@@ -8,16 +8,21 @@
 
 import UIKit
 
-class SwitchAccoutViewController: BaseBluredTableAdapterController {
+protocol SelectAccountDelegate: class {
+    func didSelectUser(_ user: User)
+    func createNewUser()
+}
+
+class SelectAccoutViewController: BaseBluredTableAdapterController {
     var users: [User] = []
-    var callBack: () -> Void
+    weak var delegate: SelectAccountDelegate?
     
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
-    init(_ callBack: @escaping () -> Void) {
-        self.callBack = callBack
+    init(_ delegate: SelectAccountDelegate) {
+        self.delegate = delegate
         super.init()
     }
     
@@ -37,7 +42,8 @@ class SwitchAccoutViewController: BaseBluredTableAdapterController {
     private var containerState: [TableComponent] {
         let usersState = userService.get().map({ (user) -> [TableComponent] in
             return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: { [weak self] in
-                        self?.loginToUser(user)
+                        self?.dismiss(animated: true)
+                        self?.delegate?.didSelectUser(user)
                     }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
         }).flatMap { return $0 }
@@ -63,26 +69,9 @@ class SwitchAccoutViewController: BaseBluredTableAdapterController {
         self?.dismiss(animated: true)
     }
     
-    // MARK: - SwitchAccountTableAdapterDelegate
-    func loginToUser(_ user: User) {
-        dismiss(animated: true)
-        EssentiaStore.shared.setUser(user)
-        TabBarController.shared.selectedIndex = 0
-        callBack()
-    }
-    
     private lazy var createUserAction: () -> Void = { [weak self] in
         self?.dismiss(animated: true)
-        self?.generateNewUser()
-    }
-    
-    private func generateNewUser() {
-        EssentiaLoader.show {
-            self.callBack()
-        }
-        (inject() as LoginInteractorInterface).generateNewUser {
-            TabBarController.shared.selectedIndex = 0
-        }
+        self?.delegate?.createNewUser()
     }
 
 }
