@@ -47,7 +47,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         hideKeyboardWhenTappedAround()
     }
     
-    private func state() -> [TableComponent] {
+    private var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -108,13 +108,8 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     func asyncReloadState() {
-        global { [unowned self] in
-            let state = self.state()
-            main {
-                self.tableAdapter.hardReload(state)
-                self.tableAdapter.continueEditing()
-            }
-        }
+        self.tableAdapter.hardReload(state)
+        self.tableAdapter.continueEditing()
     }
     
     // MARK: - Actions
@@ -147,7 +142,9 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 0:
             self.store.assets = interactor.getCoinsList()
         case 1:
-            interactor.getTokensList(result: { [unowned self] in
+            (inject() as LoaderInterface).show()
+                interactor.getTokensList(result: { [unowned self] in
+                (inject() as LoaderInterface).hide()
                 self.store.assets = $0
                 self.asyncReloadState()
             })
@@ -163,7 +160,9 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
         let wallets = self.interactor.getGeneratedWallets().filter({ return $0.coin == .ethereum })
+        (inject() as LoaderInterface).show()
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: wallets, action: { (wallet) in
+            (inject() as LoaderInterface).hide()
             guard let generatedWallet = wallet as? GeneratingWalletInfo else { return }
             self.store.etherWalletForTokens = generatedWallet
             self.asyncReloadState()
