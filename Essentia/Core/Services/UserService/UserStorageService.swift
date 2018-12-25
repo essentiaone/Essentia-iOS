@@ -42,7 +42,9 @@ class UserStorageService: UserStorageServiceInterface, AppStateEventHandler {
     
     func remove(user: User) {
         do {
-            try fileSerice.removeFile(at: folderPath, with: user.id)
+            if fileSerice.storageContainFile(at: folderPath, with: user.id) {
+                try fileSerice.removeFile(at: folderPath, with: user.id)
+            }
         } catch {
             (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }

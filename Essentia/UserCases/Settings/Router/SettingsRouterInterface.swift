@@ -10,15 +10,11 @@ import UIKit
 
 enum SettingsRoutes {
     case accountStrength
-    case backupMenmonic
-    case backupSeed
-    case backupKeystore
     case language
     case currency
     case security 
     case switchAccount(SelectAccountDelegate)
     case backup(type: BackupType)
-    case loginType
     case accountName
     case fullSecured
 }

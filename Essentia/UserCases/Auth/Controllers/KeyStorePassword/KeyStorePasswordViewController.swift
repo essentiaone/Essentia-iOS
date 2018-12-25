@@ -38,10 +38,12 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private var store: Store
     private var keystore: Data?
     private var isPickerShown: Bool = false
+    private weak var delegate: SelectAccountDelegate?
     
     // MARK: - Init
-    required init(_ auth: AuthType) {
+    required init(_ auth: AuthType, delegate: SelectAccountDelegate) {
         store = Store(authType: auth)
+        self.delegate = delegate
         super.init()
     }
     
@@ -86,11 +88,11 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             .empty(height: 10.0, background: colorProvider.settingsCellsBackround)]
             + passwordState +
             [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
-            .centeredButton(title: LS("SeedCopy.Continue"),
-                            isEnable: store.isBothValid,
-                            action: continueAction,
-                            background: colorProvider.settingsCellsBackround),
-            .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
+             .centeredButton(title: LS("SeedCopy.Continue"),
+                             isEnable: store.isBothValid,
+                             action: continueAction,
+                             background: colorProvider.settingsCellsBackround),
+             .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
     
@@ -124,7 +126,6 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private lazy var continueAction: () -> Void = { [unowned self] in
         switch self.store.authType {
         case .backup:
-            (inject() as LoaderInterface).show()
             self.storeKeystore()
         case .login:
             self.decodeKeystore()
@@ -133,16 +134,17 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     private func decodeKeystore() {
         guard let data = self.keystore else { return }
-        if let mnemonic = (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password) {
+        do {
+            let mnemonic = try (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
             let user = User(mnemonic: mnemonic)
+            try EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            encodeCurrentUser()
             user.backup.currentlyBackedUp = [.keystore]
-            do {
-                try EssentiaStore.shared.setUser(user, password: User.defaultPassword)
-            } catch {
-                (inject() as LoaderInterface).showError(error)
-            }
+            (inject() as AuthRouterInterface).showPrev()
+            delegate?.didSetUser()
+        } catch {
+            (inject() as LoaderInterface).showError(error)
         }
-        (inject() as AuthRouterInterface).showPrev()
     }
     
     private func showFilePicker() {
@@ -153,16 +155,19 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     private func storeKeystore() {
-        guard let mneminic = EssentiaStore.shared.currentCredentials.mnemonic else { return }
+        (inject() as LoaderInterface).show()
         DispatchQueue.global().async { [unowned self] in
-            let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
-                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mneminic,
-                                                                                       password: self.store.password)
-                let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
-                                                                                 to: path,
-                                                                                 with: "\(EssentiaStore.shared.currentUser.dislayName)")
-                EssentiaStore.shared.currentUser.backup.keystoreUrl = url
+                let path = LocalFolderPath.final(Store.keyStoreFolder)
+                if let mnemonic = EssentiaStore.shared.currentCredentials.mnemonic {
+                    let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mnemonic,
+                                                                                           password: self.store.password)
+                    let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
+                                                                                     to: path,
+                                                                                     with: "\(EssentiaStore.shared.currentUser.dislayName)")
+                    EssentiaStore.shared.currentUser.backup.keystoreUrl = url
+                }
+                self.encodeCurrentUser()
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)

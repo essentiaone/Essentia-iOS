@@ -28,8 +28,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         super.viewDidAppear(animated)
         self.addLastCellBackgroundContents(topColor: .white, bottomColor: colorProvider.settingsBackgroud)
         tableView.backgroundColor = .clear
+        updateState()
     }
-    
+
     // MARK: - Override
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -40,15 +41,24 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private var state: [TableComponent] {
+        return
+            staticContent +
+            [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
+    }
+    
+    private var staticContent: [TableComponent] {
+        return [.empty(height: 45, background: colorProvider.settingsCellsBackround),
+                .titleWithFont(font: AppFont.bold.withSize(34),
+                               title: LS("Settings.Title"),
+                               background: colorProvider.settingsCellsBackround,
+                               aligment: .left)]
+    }
+    
+    private var dynamicContent: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
         let rawState: [TableComponent?] =
-            [.empty(height: 45, background: colorProvider.settingsCellsBackround),
-             .titleWithFont(font: AppFont.bold.withSize(34),
-                            title: LS("Settings.Title"),
-                            background: colorProvider.settingsCellsBackround,
-                            aligment: .left),
-                showSecureStatus ?
+            [showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction) :
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .currentAccount(icon: user.profile.icon,
@@ -115,20 +125,11 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
-    
-    private var loginMetodState: [TableComponent] {
-        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
-        return [
-            .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
-                                   withArrow: true,
-                                   action: loginMethodAction),
-            .separator(inset: Constants.separatorInset)
-        ]
-    }
-    
+
     private func scrollToTop() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+        UIView.setAnimationsEnabled(false)
+        tableView.contentOffset = .zero
+        UIView.setAnimationsEnabled(true)
     }
     
     private var appVersion: String {
@@ -137,20 +138,17 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     // MARK: - Actions
-    private lazy var loginMethodAction: () -> Void = {
-        (inject() as SettingsRouterInterface).show(.loginType)
-    }
-    
     private lazy var currencyAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
     private lazy var switchAccountAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(self))
     }
+    
     private lazy var logOutAction: () -> Void = { [unowned self] in
+        self.scrollToTop()
         self.logOutUser()
     }
     
@@ -163,7 +161,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var securityAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
-            (inject() as SettingsRouterInterface).show(.backupKeystore)
+            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
             (inject() as SettingsRouterInterface).show(.security)
         }
@@ -177,7 +175,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
-            (inject() as SettingsRouterInterface).show(.backupKeystore)
+            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
             (inject() as SettingsRouterInterface).show(.accountStrength)
         }
@@ -196,6 +194,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: User) {
+        guard user.id != EssentiaStore.shared.currentUser.id else {
+            return
+        }
+        scrollToTop()
         removeCurrentUserIfNeeded()
         guard user.seed == nil else {
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
@@ -205,6 +207,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
+                TabBarController.shared.selectedIndex = 0
             } catch {
                 (inject() as LoaderInterface).showError(error)
                 return false
@@ -225,7 +228,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }
     }
     
+    func didSetUser() {
+        TabBarController.shared.selectedIndex = 0
+    }
+    
     func createNewUser() {
+        scrollToTop()
         removeCurrentUserIfNeeded()
         EssentiaLoader.show {}
         TabBarController.shared.selectedIndex = 0

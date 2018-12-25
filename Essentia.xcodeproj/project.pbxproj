@@ -74,9 +74,7 @@
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */; };
 		34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */; };
-		34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
-		34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */; };
 		3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */; };
 		3411AEEC21642F9D00AB9476 /* CurrencyConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */; };
 		3411AEEE216430D000AB9476 /* CurrencyConverterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */; };
@@ -244,7 +242,6 @@
 		349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC05A21467344003AC330 /* TableComponentShadow.swift */; };
 		34A37D31214D34F70022FD93 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D30214D34F70022FD93 /* Token.swift */; };
 		34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */; };
-		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
 		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34AC4DE12147101A001C17D8 /* TableComponentShadow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */; };
 		34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */; };
@@ -402,9 +399,7 @@
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSectionTitle.swift; sourceTree = "<group>"; };
 		34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSectionTitle.xib; sourceTree = "<group>"; };
-		34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoginMethodViewController.swift; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
-		34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsPlaceholderViewController.xib; sourceTree = "<group>"; };
 		3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterServiceInterface.swift; sourceTree = "<group>"; };
 		3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterService.swift; sourceTree = "<group>"; };
 		3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterEndpoint.swift; sourceTree = "<group>"; };
@@ -572,7 +567,6 @@
 		349BC05A21467344003AC330 /* TableComponentShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentShadow.swift; sourceTree = "<group>"; };
 		34A37D30214D34F70022FD93 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+bjd2+sbdm.swift"; sourceTree = "<group>"; };
-		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
 		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentShadow.xib; sourceTree = "<group>"; };
 		34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportAssetViewController.swift; sourceTree = "<group>"; };
@@ -877,7 +871,7 @@
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34AA4E8E2136A783004C25ED /* RestoreAccount */,
+				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
 				34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */,
 			);
@@ -1145,7 +1139,6 @@
 			isa = PBXGroup;
 			children = (
 				34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */,
-				34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -1844,7 +1837,6 @@
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
 				34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */,
 				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
-				34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */,
 				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
 				34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */,
 			);
@@ -1926,15 +1918,6 @@
 				349BC0502143D72A003AC330 /* TableComponentTitleSubtitle.xib */,
 			);
 			path = TitleSubtitle;
-			sourceTree = "<group>";
-		};
-		34AA4E8E2136A783004C25ED /* RestoreAccount */ = {
-			isa = PBXGroup;
-			children = (
-				34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */,
-				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
-			);
-			path = RestoreAccount;
 			sourceTree = "<group>";
 		};
 		34AC4DDF21471005001C17D8 /* Shadow */ = {
@@ -2270,11 +2253,9 @@
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				349BC0512143D72A003AC330 /* TableComponentTitleSubtitle.xib in Resources */,
-				34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */,
 				34737BE02151C1DD008A306F /* TableComponentBalanceChanging.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
-				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				344958E421416A6800C2230B /* TableComponentImageParagraph.xib in Resources */,
 				34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
@@ -2584,7 +2565,6 @@
 				34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
 				34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */,
-				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 enum TableComponent: Equatable {
     case tableWithHeight(height:CGFloat, state: [TableComponent])
-    case tableWithCalculatableSpace(state: [TableComponent])
+    case tableWithCalculatableSpace(state: [TableComponent], background: UIColor)
     // MARK: - Common
     case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)

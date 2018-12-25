@@ -12,9 +12,9 @@ fileprivate enum AuthRoutes {
     case warning
     case phraseCopy(mnemonic: String)
     case phraseConfirm(mnemonic: String)
-    case mnemonicLogin
-    case seedAuth(auth: AuthType)
-    case keyStorePassword(auth: AuthType)
+    case mnemonicLogin(delegate: SelectAccountDelegate)
+    case seedAuth(auth: AuthType, delegate: SelectAccountDelegate)
+    case keyStorePassword(auth: AuthType, delegate: SelectAccountDelegate)
     case keyStoreWarning
     
     var controller: UIViewController {
@@ -25,14 +25,14 @@ fileprivate enum AuthRoutes {
             return MnemonicPhraseCopyViewController(mnemonic: mnemonic)
         case .phraseConfirm(let mnemonic):
             return MnemonicPhraseConfirmViewController(mnemonic: mnemonic)
-        case .seedAuth(let auth):
-            return SeedCopyViewController(auth)
-        case .keyStorePassword(let auth):
-            return KeyStorePasswordViewController(auth)
+        case .seedAuth(let auth, let delegate):
+            return SeedCopyViewController(auth, delegate: delegate)
+        case .keyStorePassword(let auth, let delegate):
+            return KeyStorePasswordViewController(auth, delegate: delegate)
         case .keyStoreWarning:
             return KeyStoreWarningViewController()
-        case .mnemonicLogin:
-            return MnemonicPhraseConfirmViewController()
+        case .mnemonicLogin(let delegate):
+            return MnemonicPhraseConfirmViewController(delegate: delegate)
         }
     }
 }
@@ -40,7 +40,7 @@ fileprivate enum AuthRoutes {
 class AuthRouter: BaseRouter, AuthRouterInterface {
     fileprivate let routes: [AuthRoutes]
     var current: Int = 0
-    required init(navigationController: UINavigationController, type: BackupType, auth: AuthType) {
+    required init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate) {
         switch auth {
         case .backup:
             switch type {
@@ -56,12 +56,12 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
             case .seed:
                 routes = [
                     .warning,
-                    .seedAuth(auth:auth)
+                    .seedAuth(auth:auth, delegate: delegate)
                 ]
             case .keystore:
                 routes = [
                     .keyStoreWarning,
-                    .keyStorePassword(auth: auth)
+                    .keyStorePassword(auth: auth, delegate: delegate)
                 ]
             default: routes = []
             }
@@ -69,15 +69,15 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
             switch type {
             case .mnemonic:
                 routes = [
-                    .mnemonicLogin
+                    .mnemonicLogin(delegate: delegate)
                 ]
             case .seed:
                 routes = [
-                    .seedAuth(auth:auth)
+                    .seedAuth(auth:auth, delegate: delegate)
                 ]
             case .keystore:
                 routes = [
-                    .keyStorePassword(auth: auth)
+                    .keyStorePassword(auth: auth, delegate: delegate)
                 ]
             default: routes = []
             }

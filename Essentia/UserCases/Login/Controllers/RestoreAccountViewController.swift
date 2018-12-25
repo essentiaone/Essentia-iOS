@@ -12,16 +12,9 @@ protocol RestoreAccountDelegate: class {
     func showBackup(type: BackupType)
 }
 
-class RestoreAccountViewController: BaseViewController {
-    @IBOutlet weak var contenttableview: UITableView!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var contentView: UIView!
-    
+class RestoreAccountViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
-    private lazy var tableAdapter = TableAdapter(tableView: contenttableview)
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     private weak var delegate: RestoreAccountDelegate?
@@ -39,6 +32,15 @@ class RestoreAccountViewController: BaseViewController {
     // MARK: - State
     private var state: [TableComponent] {
         return [
+            .calculatbleSpace(background: .clear),
+            .container(state: containerState),
+            .empty(height: 18, background: .clear)]
+    }
+    
+    private var containerState: [TableComponent] {
+        return [
+            .empty(height: 10, background: .white),
+            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),
                         withArrow: true,
@@ -54,30 +56,15 @@ class RestoreAccountViewController: BaseViewController {
                         withArrow: true,
                         action: keystoreAction)]
     }
-    
     // MARK: - Lifecycly
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyDesign()
         tableAdapter.hardReload(state)
     }
     
-    private func applyDesign() {
-        contentView.layer.cornerRadius = 10.0
-        titleLabel.text = LS("Restore.Title")
-        detailLabel.text = LS("Restore.Description")
-        
-        titleLabel.font = AppFont.bold.withSize(21)
-        detailLabel.font = AppFont.regular.withSize(15)
-        
-        titleLabel.textColor = colorProvider.titleColor
-        detailLabel.textColor = colorProvider.appDefaultTextColor
-        cancelButton.setImage(imageProvider.cancelIcon, for: .normal)
-    }
-    
     // MARK: - Actions
-    @IBAction func cancelAction(_ sender: AnyObject) {
-        dismiss(animated: true)
+    private lazy var cancelAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
     private lazy var keystoreAction: () -> Void = { [unowned self] in
