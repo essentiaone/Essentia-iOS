@@ -18,7 +18,6 @@ enum SettingsRoutes {
     case security 
     case switchAccount(SelectAccountDelegate)
     case backup(type: BackupType)
-    case loginType
     case accountName
     case fullSecured
 }

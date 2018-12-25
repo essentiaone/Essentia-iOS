@@ -74,7 +74,6 @@
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */; };
 		34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */; };
-		34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
 		34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */; };
 		3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */; };
@@ -402,7 +401,6 @@
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSectionTitle.swift; sourceTree = "<group>"; };
 		34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSectionTitle.xib; sourceTree = "<group>"; };
-		34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLoginMethodViewController.swift; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
 		34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsPlaceholderViewController.xib; sourceTree = "<group>"; };
 		3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterServiceInterface.swift; sourceTree = "<group>"; };
@@ -1844,7 +1842,6 @@
 				34416804212F6F33008B8A91 /* SettingsCurrencyViewController.swift */,
 				34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */,
 				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
-				34115E0F2135ECCC00A54B7E /* SettingsLoginMethodViewController.swift */,
 				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
 				34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */,
 			);
@@ -2584,7 +2581,6 @@
 				34AC4DEE214939B4001C17D8 /* WalletDoneImportingAlert.swift in Sources */,
 				3401AFAC21012BB4006DEF49 /* MnemonicServiceInterface.swift in Sources */,
 				34115E022134A24000A54B7E /* LoggerServiceInterface.swift in Sources */,
-				34115E102135ECCC00A54B7E /* SettingsLoginMethodViewController.swift in Sources */,
 				34789BA42183670300EB68C4 /* Date+Intervals.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				3451601921AD9B0C0007451D /* Collection+SafeSubscript.swift in Sources */,

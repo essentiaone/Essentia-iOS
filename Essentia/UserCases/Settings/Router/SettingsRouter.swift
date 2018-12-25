@@ -29,8 +29,6 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
             push(vc: SettingsSecurityViewController())
         case .backup(let type):
             showBackupRoute(type: type)
-        case .loginType:
-            push(vc: SettingsLoginMethodViewController())
         case .accountName:
             push(vc: SettingsEditUserViewController())
         case .fullSecured:

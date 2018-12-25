@@ -126,17 +126,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         return rawState.compactMap { return $0 }
     }
 
-    private var loginMetodState: [TableComponent] {
-        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
-        return [
-            .menuSimpleTitleDetail(title: LS("Settings.Security.LoginMethod.Title"),
-                                   detail: EssentiaStore.shared.currentUser.backup.loginMethod.titleString,
-                                   withArrow: true,
-                                   action: loginMethodAction),
-            .separator(inset: Constants.separatorInset)
-        ]
-    }
-    
     private func scrollToTop() {
         UIView.setAnimationsEnabled(false)
         tableView.contentOffset = .zero
@@ -149,10 +138,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     // MARK: - Actions
-    private lazy var loginMethodAction: () -> Void = {
-        (inject() as SettingsRouterInterface).show(.loginType)
-    }
-    
     private lazy var currencyAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
