@@ -41,7 +41,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     override func viewDidLoad() {
         super.viewDidLoad()
         tableAdapter.hardReload(state)
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
@@ -79,11 +79,11 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     }
     
     // MARK: - Actions
-    private lazy var nameEditedAction: (String) -> Void = {
+    private lazy var nameEditedAction: (String) -> Void = { [unowned self] in
         self.store.name = $0
     }
 
-    private lazy var privateKeyAction: (String) -> Void = {
+    private lazy var privateKeyAction: (String) -> Void = { [unowned self] in
         let wasValid = self.store.isValid
         self.store.privateKey = $0
         let isValid = self.store.isValid
@@ -92,12 +92,11 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         }
     }
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).pop()
     }
     
-    private lazy var importAction: () -> Void = { [weak self] in
-        guard let self = self else { return }
+    private lazy var importAction: () -> Void = { [unowned self] in
         self.keyboardObserver.stop()
         self.tableAdapter.endEditing(true)
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)

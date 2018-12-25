@@ -37,7 +37,7 @@ class WalletSelectImportAssetViewController: BaseTableAdapterController, Swipeab
         var coinsState: [TableComponent] = []
         let coins: [Coin] = (inject() as WalletInteractorInterface).getCoinsList()
         coins.forEach { (coin) in
-            coinsState.append(.imageUrlTitle(imageUrl: coin.iconUrl, title: coin.localizedName, withArrow: true, action: {
+            coinsState.append(.imageUrlTitle(imageUrl: coin.iconUrl, title: coin.localizedName, withArrow: true, action: { [unowned self] in
                 self.importCoin(coin)
             }))
             coinsState.append(.separator(inset: .zero))

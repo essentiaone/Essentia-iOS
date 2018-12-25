@@ -80,15 +80,15 @@ class RestoreAccountViewController: BaseViewController {
         dismiss(animated: true)
     }
     
-    private lazy var keystoreAction: () -> Void = {
+    private lazy var keystoreAction: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .keystore)
     }
     
-    private lazy var seedAction: () -> Void = {
+    private lazy var seedAction: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .seed)
     }
     
-    private lazy var mnemonicAction: () -> Void = {
+    private lazy var mnemonicAction: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .mnemonic)
     }
 }

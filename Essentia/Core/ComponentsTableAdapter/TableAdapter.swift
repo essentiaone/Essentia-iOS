@@ -15,7 +15,7 @@ class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - State
     private var tableState: [TableComponent] = []
-    private var tableView: UITableView
+    private weak var tableView: UITableView!
     var helper: TableAdapterHelper
     private var textEntries:[UIResponder] = []
     private var currentFirstResponder: UIResponder?

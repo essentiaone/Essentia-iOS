@@ -97,32 +97,27 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var shareAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var shareAction: () -> Void = { [unowned self] in
         self.present(UIActivityViewController(activityItems: [self.store.wallet.address], applicationActivities: nil), animated: true)
     }
     
-    private lazy var copyAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var copyAction: () -> Void = { [unowned self] in
         UIPasteboard.general.string = self.store.wallet.address
         self.alert.show()
     }
     
-    private lazy var enterAmmoutAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var enterAmmoutAction: () -> Void = { [unowned self] in
         self.router.show(.enterReceiveAmmount(self.store.wallet.asset, action: { (ammount) in
             self.store.enterdValueInCrypto = ammount
             self.tableAdapter.simpleReload(self.state)
         }))
     }
     
-    private lazy var clearAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var clearAction: () -> Void = { [unowned self] in
         self.store.enterdValueInCrypto = ""
         self.tableAdapter.simpleReload(self.state)
     }

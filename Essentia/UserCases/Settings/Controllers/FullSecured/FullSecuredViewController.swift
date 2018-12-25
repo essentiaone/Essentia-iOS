@@ -45,7 +45,7 @@ class FullSecuredViewController: BaseViewController {
         let animation = PNGAnimation.securing99toSafe
         let player = PNGAnimationPlayer(animation: animation, in: animationImageView)
         player.play()
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + animation.animationDuration - 0.63) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + animation.animationDuration - 0.63) { [unowned self] in
             UIView.animate(withDuration: 0.63, animations: {
                 self.buttomViewContstraint.constant = 0
                 self.view.layoutIfNeeded()

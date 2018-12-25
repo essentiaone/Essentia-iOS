@@ -45,7 +45,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
             currencyState.append(.menuTitleCheck(
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
-                action: {
+                action: { [unowned self] in
                     EssentiaStore.shared.currentUser.profile.currency = currency
                     (inject() as UserStorageServiceInterface).storeCurrentUser()
                     (inject() as CurrencyRankDaemonInterface).update()
@@ -58,11 +58,11 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
     
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var keyStoreAction: () -> Void = {
+    private lazy var keyStoreAction: () -> Void = { [unowned self] in
         self.router.show(.backupKeystore)
     }
 }

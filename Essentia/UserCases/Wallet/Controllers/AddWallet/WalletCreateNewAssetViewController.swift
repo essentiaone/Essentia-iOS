@@ -94,7 +94,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         filteredStore.forEach { (asset) in
             let selectedIndex = self.store.selectedAssets.index(where: { $0.name.lowercased() == asset.name.lowercased() })
             let isSelected = selectedIndex != nil
-            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.localizedName, isSelected: isSelected, action: {
+            coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.localizedName, isSelected: isSelected, action: { [unowned self] in
                 if isSelected {
                     self.store.selectedAssets.remove(at: selectedIndex!)
                 } else {
@@ -108,7 +108,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     func asyncReloadState() {
-        global {
+        global { [unowned self] in
             let state = self.state()
             main {
                 self.tableAdapter.hardReload(state)
@@ -118,7 +118,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     // MARK: - Actions
-    private lazy var doneAction: () -> Void = {
+    private lazy var doneAction: () -> Void = { [unowned self] in
         switch self.store.selectedComponent {
         case 0:
             (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets)
@@ -134,11 +134,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).pop()
     }
     
-    private lazy var selectSegmentCotrolAction: (Int) -> Void = {
+    private lazy var selectSegmentCotrolAction: (Int) -> Void = { [unowned self] in
         self.store.selectedAssets = []
         self.store.assets = []
         let interactor: WalletInteractorInterface = inject()
@@ -147,7 +147,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 0:
             self.store.assets = interactor.getCoinsList()
         case 1:
-            interactor.getTokensList(result: {
+            interactor.getTokensList(result: { [unowned self] in
                 self.store.assets = $0
                 self.asyncReloadState()
             })
@@ -156,12 +156,12 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         self.asyncReloadState()
     }
     
-    private lazy var searchChangedAction: (String) -> Void = {
+    private lazy var searchChangedAction: (String) -> Void = { [unowned self] in
         self.store.searchString = $0
         self.asyncReloadState()
     }
     
-    private lazy var selectWalletAction: () -> Void = {
+    private lazy var selectWalletAction: () -> Void = { [unowned self] in
         let wallets = self.interactor.getGeneratedWallets().filter({ return $0.coin == .ethereum })
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: wallets, action: { (wallet) in
             guard let generatedWallet = wallet as? GeneratingWalletInfo else { return }

@@ -71,18 +71,18 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
             showTabBar()
             return
         }
-        present(LoginPasswordViewController(password: { (pass) in
+        present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
             } catch {
                 (inject() as LoaderInterface).showError(error)
                 return false
             }
-            self.dismiss(animated: true, completion: {
+            self.dismiss(animated: true, completion: { [unowned self] in
                 self.showTabBar()
             })
             return true
-        }, cancel: {
+        }, cancel: { [unowned self] in
             self.dismiss(animated: true)
         }), animated: true)
     }

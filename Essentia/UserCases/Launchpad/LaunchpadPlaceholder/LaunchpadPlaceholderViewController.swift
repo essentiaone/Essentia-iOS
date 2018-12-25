@@ -68,7 +68,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     private func addRecognizer() {
         topPlaceholderView.addGestureRecognizer(swipeRecognizer)
-        scrollObserver = tableView.observe(\.contentOffset, options: .new) { (_, change) in
+        scrollObserver = tableView.observe(\.contentOffset, options: .new) { [unowned self] (_, change) in
             guard let newValue = change.newValue,
                 newValue.y < -80,
                 !self.swipeRecognizer.isEnabled else { return }
@@ -113,8 +113,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     // MARK: - Actions
     
-    private lazy var swipDownAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var swipDownAction: () -> Void = { [unowned self] in
         self.animatePlaceholderTopConstraint(to: -20)
         self.swipeRecognizer.isEnabled = true
     }

@@ -45,7 +45,7 @@ class LoginPasswordViewController: BaseTableAdapterController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
@@ -77,20 +77,18 @@ class LoginPasswordViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var passwordAction: (Bool, String) -> Void = {
+    private lazy var passwordAction: (Bool, String) -> Void = { [unowned self] in
         self.store.password = $1
         self.updateState()
     }
     
-    private lazy var backAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.tableAdapter.endEditing(true)
         self.cancelCallback?()
     }
     
-    private lazy var continueAction: () -> Void = { [weak self] in
-        guard let `self` = self,
-        let validatePasswordCallback = self.passwordCallback else { return }
+    private lazy var continueAction: () -> Void = { [unowned self] in
+        guard let validatePasswordCallback = self.passwordCallback else { return }
         if validatePasswordCallback(self.store.password) {
             self.keyboardObserver.stop()
             self.tableAdapter.endEditing(true)

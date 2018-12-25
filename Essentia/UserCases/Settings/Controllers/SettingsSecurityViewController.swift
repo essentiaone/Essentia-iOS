@@ -67,22 +67,22 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var mnemonicAction: () -> Void = {
+    private lazy var mnemonicAction: () -> Void = { [unowned self] in
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
             return
         }
     }
     
-    private lazy var seedAction: () -> Void = {
+    private lazy var seedAction: () -> Void = { [unowned self] in
         (inject() as SettingsRouterInterface).show(.backup(type: .seed))
     }
     
-    private lazy var ketstoreAction: () -> Void = {
+    private lazy var ketstoreAction: () -> Void = { [unowned self] in
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
             let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
             (try? Data(contentsOf: keystore)) != nil  else {

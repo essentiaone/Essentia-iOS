@@ -46,15 +46,15 @@ class KeyStoreWarningViewController: BaseTableAdapterController, SwipeableNaviga
     }
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         (inject() as AuthRouterInterface).showPrev()
     }
     
-    private lazy var skipAction: () -> Void = {
+    private lazy var skipAction: () -> Void = { [unowned self] in
         (inject() as AuthRouterInterface).showPrev()
     }
     
-    private lazy var saveAction: () -> Void = {
+    private lazy var saveAction: () -> Void = { [unowned self] in
         (inject() as AuthRouterInterface).showNext()
     }
 }

@@ -141,19 +141,17 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         (inject() as SettingsRouterInterface).show(.loginType)
     }
     
-    private lazy var currencyAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var currencyAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
-    private lazy var switchAccountAction: () -> Void = { [weak self] in
-        guard let self = self else { return }
+    private lazy var switchAccountAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(self))
     }
-    private lazy var logOutAction: () -> Void = { [weak self] in
-        self?.logOutUser()
+    private lazy var logOutAction: () -> Void = { [unowned self] in
+        self.logOutUser()
     }
     
     func logOutUser() {
@@ -162,8 +160,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         (inject() as SettingsRouterInterface).logOut()
     }
     
-    private lazy var securityAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var securityAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
             (inject() as SettingsRouterInterface).show(.backupKeystore)
@@ -172,14 +169,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }
     }
     
-    private lazy var languageAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var languageAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.language)
     }
     
-    private lazy var accountStrenghtAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
             (inject() as SettingsRouterInterface).show(.backupKeystore)
@@ -188,14 +183,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }
     }
     
-    private lazy var editCurrentAccountAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var editCurrentAccountAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.accountName)
     }
     
-    private lazy var feedbackAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var feedbackAction: () -> Void = { [unowned self] in
         guard let url = URL(string: EssentiaConstants.reviewUrl) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         self.scrollToTop()
@@ -212,7 +205,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             user.backup.currentlyBackedUp = []
             return
         }
-        present(LoginPasswordViewController(password: { (pass) in
+        present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
             } catch {
@@ -221,7 +214,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             }
             self.dismiss(animated: true)
             return true
-        }, cancel: {
+        }, cancel: { [unowned self] in
             self.dismiss(animated: true)
         }), animated: true)
     }

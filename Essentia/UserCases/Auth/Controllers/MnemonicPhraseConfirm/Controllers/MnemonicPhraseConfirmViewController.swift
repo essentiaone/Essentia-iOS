@@ -49,7 +49,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.checkPasteboard()
             self.buttomCurrentWordConstraint.constant = newValue + 8
         }
