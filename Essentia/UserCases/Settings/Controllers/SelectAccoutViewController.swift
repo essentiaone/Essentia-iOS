@@ -41,9 +41,9 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         let usersState = userService.get().map({ (user) -> [TableComponent] in
-            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: { [weak self] in
-                        self?.dismiss(animated: true)
-                        self?.delegate?.didSelectUser(user)
+            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: { [unowned self] in
+                        self.dismiss(animated: true)
+                        self.delegate?.didSelectUser(user)
                     }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
         }).flatMap { return $0 }
@@ -65,13 +65,13 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var cancelAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+    private lazy var cancelAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
-    private lazy var createUserAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
-        self?.delegate?.createNewUser()
+    private lazy var createUserAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
+        self.delegate?.createNewUser()
     }
 
 }

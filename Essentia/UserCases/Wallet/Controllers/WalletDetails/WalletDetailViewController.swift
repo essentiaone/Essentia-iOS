@@ -199,7 +199,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     func getTransactionsByWallet(_ wallet: WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
         switch wallet.asset {
         case let token as Token:
-            blockchainInteractor.getTokenTxHistory(address: wallet.address, smartContract: token.address) { (result) in
+            blockchainInteractor.getTokenTxHistory(address: wallet.address, smartContract: token.address) { [unowned self] (result) in
                 switch result {
                 case .success(let tx):
                     transactions(self.mapTransactions(tx.result, forToken: token))
@@ -210,7 +210,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         case let coin as Coin:
             switch coin {
             case .bitcoin:
-                blockchainInteractor.getTxHistoryForBitcoinAddress(wallet.address) { (result) in
+                blockchainInteractor.getTxHistoryForBitcoinAddress(wallet.address) { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.items))
@@ -219,7 +219,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                     }
                 }
             case .ethereum:
-                blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { (result) in
+                blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.result))
@@ -237,7 +237,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         (inject() as WalletRouterInterface).pop()
     }
     
-    private lazy var detailAction: () -> Void = {
+    private lazy var detailAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).show(.walletOptions(self.store.wallet))
     }
     
@@ -245,7 +245,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         
     }
     
-    private lazy var walletOperationAtIndex: (Int) -> Void = {
+    private lazy var walletOperationAtIndex: (Int) -> Void = { [unowned self] in
         switch $0 {
         case 0:
             (inject() as WalletRouterInterface).show(.enterTransactionAmmount(self.store.wallet))
@@ -316,7 +316,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func loadTransactions() {
         self.store.isLoadingTransactions = true
-        getTransactionsByWallet(store.wallet, transactions: {
+        getTransactionsByWallet(store.wallet, transactions: { [unowned self] in
             self.store.transactions = $0
             self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
             self.store.isLoadingTransactions = false

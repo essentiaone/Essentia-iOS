@@ -48,15 +48,15 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
 
     // MARK: - Actions
     
-    private lazy var nameAction: (String) -> Void = {
+    private lazy var nameAction: (String) -> Void = { [unowned self] in
         self.enteredName = $0
     }
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var doneAction: () -> Void = {
+    private lazy var doneAction: () -> Void = { [unowned self] in
         guard !self.enteredName.isEmpty else {
             return
         }
@@ -66,7 +66,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
         self.router.pop()
     }
     
-    private lazy var keyStoreAction: () -> Void = {
+    private lazy var keyStoreAction: () -> Void = { [unowned self] in
         self.router.show(.backupKeystore)
     }
 }

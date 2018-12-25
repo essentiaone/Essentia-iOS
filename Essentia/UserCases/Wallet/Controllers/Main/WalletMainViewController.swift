@@ -70,7 +70,7 @@ class WalletMainViewController: BaseTableAdapterController {
             .titleWithFont(font: AppFont.regular.withSize(20),
                            title: LS("Wallet.Main.Balance.Title"),
                            background: colorProvider.settingsCellsBackround,
-                          aligment: .center),
+                           aligment: .center),
             .titleWithFont(font: AppFont.bold.withSize(32),
                            title: formattedBalance(interator.getTotalBalanceInCurrentCurrency()),
                            background: colorProvider.settingsCellsBackround,
@@ -155,8 +155,10 @@ class WalletMainViewController: BaseTableAdapterController {
                               title: wallet.name,
                               value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
                               currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
-                              action: { self.showWalletDetail(for: wallet) }
-                )
+                              action: { [unowned self] in
+                                self.showWalletDetail(for: wallet)
+                                
+                })
             )
             assetState.append(.separator(inset: .zero))
         }
@@ -183,7 +185,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var segmentControlAction: (Int) -> Void = {
+    private lazy var segmentControlAction: (Int) -> Void = { [unowned self] in
         (inject() as LoaderInterface).show()
         self.store.currentSegment = $0
         DispatchQueue.global().async {
@@ -195,9 +197,9 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private lazy var addWalletAction: () -> Void = {
         guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
-            self.present(BackupMnemonicAlert.init(leftAction: {
-            }, rightAction: {
-                (inject() as WalletRouterInterface).show(.backupKeystore)
+            self.present(BackupMnemonicAlert.init(leftAction: {},
+                                                  rightAction: {
+                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
             }), animated: true)
             return
         }
@@ -210,7 +212,7 @@ class WalletMainViewController: BaseTableAdapterController {
         }
     }
     
-    private lazy var updateBalanceChanginPerDay: () -> Void = {
+    private lazy var updateBalanceChanginPerDay: () -> Void = { [unowned self] in
         self.hardReload()
     }
     
@@ -221,8 +223,8 @@ class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Private
     private func hardReload() {
         (inject() as LoaderInterface).show()
-        (inject() as CurrencyRankDaemonInterface).update { [weak self] in
-            self?.reloadAllComponents()
+        (inject() as CurrencyRankDaemonInterface).update { [unowned self] in
+            self.reloadAllComponents()
             (inject() as LoaderInterface).hide()
         }
     }
@@ -237,7 +239,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadBalanceChangesPer24H() {
-        interator.getBalanceChangePer24Hours { (changes) in
+        interator.getBalanceChangePer24Hours { [unowned self] (changes) in
             self.store.balanceChangedPer24Hours = changes
             self.cashNonEmptyStaticState = self.nonEmptyStaticState()
             self.tableAdapter.simpleReload(self.state())
@@ -256,13 +258,13 @@ class WalletMainViewController: BaseTableAdapterController {
     
     private func loadCoinBalances() {
         self.store.generatedWallets.enumerated().forEach { (arg) in
-            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
                 self.store.generatedWallets[safe: arg.offset]?.lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
         }
         self.store.importedWallets.enumerated().forEach { (arg) in
-            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { (balance) in
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
                 self.store.importedWallets[safe: arg.offset]?.lastBalance = balance
                 EssentiaStore.shared.currentUser.wallet.importedWallets[safe: arg.offset]?.lastBalance = balance
                 (inject() as UserStorageServiceInterface).storeCurrentUser()
@@ -274,7 +276,7 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadTokenBalances() {
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: indexedToken.element.address, balance: { (balance) in
+                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: indexedToken.element.address, balance: { [unowned self] (balance) in
                     self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
                     self.tableAdapter.simpleReload(self.state())
                 })

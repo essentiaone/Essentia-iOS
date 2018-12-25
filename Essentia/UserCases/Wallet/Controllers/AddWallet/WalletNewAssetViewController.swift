@@ -38,17 +38,17 @@ class WalletNewAssetViewController: BaseTableAdapterController, SwipeableNavigat
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+    private lazy var backAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
-    private lazy var addAssetAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+    private lazy var addAssetAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
         (inject() as WalletRouterInterface).show(.addAsset(.coin))
     }
     
-    private lazy var importAssetAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+    private lazy var importAssetAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
         (inject() as WalletRouterInterface).show(.selectImportAsset)
     }
 }

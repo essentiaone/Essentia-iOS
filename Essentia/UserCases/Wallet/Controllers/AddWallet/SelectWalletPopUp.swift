@@ -43,9 +43,9 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
     
     private var walletsState: [TableComponent] {
         return wallets.map({ wallet -> [TableComponent] in
-            return [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [weak self] in
-                        self?.didSelect(wallet)
-                        self?.dismiss(animated: true)
+            return [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [unowned self] in
+                        self.didSelect(wallet)
+                        self.dismiss(animated: true)
                     }),
                     .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
         }).flatMap { return $0 }
@@ -58,7 +58,7 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
         self.tableAdapter.hardReload(state)
     }
     
-    private lazy var cancelAction: () -> Void = {
+    private lazy var cancelAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
     }
 }

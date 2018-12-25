@@ -65,7 +65,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
         loadInputs()
         loadRanges()
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
@@ -174,13 +174,12 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                 NSAttributedString.Key.foregroundColor: colorProvider.titleColor]
     }
     // MARK: - Actions
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.view.endEditing(true)
         self.router.pop()
     }
     
-    private lazy var continueAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var continueAction: () -> Void = { [unowned self] in
         self.keyboardObserver.stop()
         self.tableAdapter.endEditing(true)
         let txInfo = EtherTxInfo(address: self.store.address,
@@ -197,42 +196,36 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var inputFeeAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var inputFeeAction: () -> Void = { [unowned self] in
         self.store.isFeeEnteringDirectly = true
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var readQrAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var readQrAction: () -> Void = { [unowned self] in
         self.keyboardObserver.stop()
         self.tableAdapter.endEditing(true)
         self.router.show(.qrReader(self))
     }
     
-    private lazy var addressEditingChanged: (String) -> Void = { [weak self] address in
-        guard let `self` = self else { return }
+    private lazy var addressEditingChanged: (String) -> Void = { [unowned self] address in
         self.store.address = address
         self.store.gasEstimate = 0
         self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var dataEditingChanged: (String) -> Void = { [weak self] data in
-        guard let `self` = self else { return }
+    private lazy var dataEditingChanged: (String) -> Void = { [unowned self] data in
         self.store.data = data
         self.loadInputs()
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var feeChanged: (Float) -> Void = { [weak self] fee in
-        guard let `self` = self else { return }
+    private lazy var feeChanged: (Float) -> Void = { [unowned self] fee in
         self.store.selectedFeeSlider = fee
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var feeChangedDirectly: (String) -> Void = { [weak self] fee in
-        guard let `self` = self else { return }
+    private lazy var feeChangedDirectly: (String) -> Void = { [unowned self] fee in
         self.store.enteredFee = Double(fee) ?? 0
         self.store.selectedFeeSlider = Float(self.store.enteredFee * pow(10, 9) / self.store.gasEstimate)
         self.tableAdapter.simpleReload(self.state)
@@ -263,17 +256,15 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             !self.store.address.isEmpty else {
             return
         }
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [weak self] (price) in
+        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
             (inject() as LoaderInterface).hide()
-            guard let `self` = self else { return }
             self.store.gasEstimate = price
             self.tableAdapter.simpleReload(self.state)
         }
     }
     
     func loadRanges() {
-        interactor.getGasSpeed {  [weak self] (low, avarage, fast) in
-            guard let `self` = self else { return }
+        interactor.getGasSpeed { [unowned self] (low, avarage, fast) in
             self.store.lowGasSpeed = low
             self.store.selectedFeeSlider = Float(avarage)
             self.store.fastGasSpeed = fast

@@ -63,7 +63,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
@@ -105,13 +105,13 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     // MARK: - Actions
-    private lazy var passwordAction: (Bool, String) -> Void = {
+    private lazy var passwordAction: (Bool, String) -> Void = { [unowned self] in
         self.store.isValid = $0
         self.store.password = $1
         self.updateState()
     }
     
-    private lazy var repeatAction: (Bool, String) -> Void = {
+    private lazy var repeatAction: (Bool, String) -> Void = { [unowned self] in
         self.store.isValidRepeate = $0
         self.store.repeatPass = $1
         self.updateState()
@@ -121,7 +121,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         (inject() as AuthRouterInterface).showPrev()
     }
     
-    private lazy var continueAction: () -> Void = {
+    private lazy var continueAction: () -> Void = { [unowned self] in
         switch self.store.authType {
         case .backup:
             (inject() as LoaderInterface).show()
@@ -154,7 +154,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     private func storeKeystore() {
         guard let mneminic = EssentiaStore.shared.currentCredentials.mnemonic else { return }
-        DispatchQueue.global().async {
+        DispatchQueue.global().async { [unowned self] in
             let path = LocalFolderPath.final(Store.keyStoreFolder)
             do {
                 let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mneminic,
