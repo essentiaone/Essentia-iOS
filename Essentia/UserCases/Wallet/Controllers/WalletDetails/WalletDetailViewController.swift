@@ -64,7 +64,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     private var state: [TableComponent] {
         return [
             .tableWithHeight(height: 69, state: staticContent),
-            .tableWithCalculatableSpace(state: dynamicContent)
+            .tableWithCalculatableSpace(state: dynamicContent, background: .white)
         ]
     }
     

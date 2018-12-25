@@ -41,8 +41,8 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     private var state: [TableComponent] {
         return [
-            .tableWithHeight(height: 91, state: staticContent),
-            .tableWithCalculatableSpace(state: dynamicContent)
+            .tableWithHeight(height: 95, state: staticContent),
+            .tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)
         ]
     }
     
