@@ -207,6 +207,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 try EssentiaStore.shared.setUser(user, password: pass)
+                TabBarController.shared.selectedIndex = 0
             } catch {
                 (inject() as LoaderInterface).showError(error)
                 return false
@@ -227,7 +228,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }
     }
     
-    func didSetUser() {}
+    func didSetUser() {
+        TabBarController.shared.selectedIndex = 0
+    }
     
     func createNewUser() {
         scrollToTop()
