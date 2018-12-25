@@ -45,7 +45,7 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
             languageComponent.append(.menuTitleCheck(
                 title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
-                action: {
+                action: { [unowned self] in
                     EssentiaStore.shared.currentUser.profile.language = language
                     (inject() as UserStorageServiceInterface).storeCurrentUser()
                     self.tableAdapter.hardReload(self.state)
@@ -58,11 +58,11 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
     
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var keyStoreAction: () -> Void = {
+    private lazy var keyStoreAction: () -> Void = { [unowned self] in
         self.router.show(.backupKeystore)
     }
 }

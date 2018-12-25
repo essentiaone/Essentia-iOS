@@ -9,7 +9,7 @@
 import UIKit
 
 class TableAdapterHelper {
-    let tableView: UITableView
+    private weak var tableView: UITableView!
     init(tableView: UITableView) {
         self.tableView = tableView
     }

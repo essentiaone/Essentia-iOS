@@ -80,7 +80,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     }
     
     private func animateBackground() {
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.3, animations: { [unowned self] in
             self.tableView.backgroundColor = self.colorForCurrentSegment()
         })
     }
@@ -103,8 +103,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var continueAction: () -> Void = { [weak self] in
-        guard let self = self else { return }
+    private lazy var continueAction: () -> Void = { [unowned self] in
         switch self.currentPosition {
         case 3:
             self.dismiss(animated: true)

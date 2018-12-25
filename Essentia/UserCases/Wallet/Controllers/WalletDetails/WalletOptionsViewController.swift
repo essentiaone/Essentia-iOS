@@ -88,7 +88,7 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             if newValue != 0 {
                 self.keyboardHeight = newValue
                 self.tableAdapter.simpleReload(self.state)

@@ -59,11 +59,11 @@ class SettingsLoginMethodViewController: BaseTableAdapterController, SwipeableNa
     
     // MARK: - Actions
     
-    private lazy var backAction: () -> Void = {
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }
     
-    private lazy var mnemonicAction: () -> Void = {
+    private lazy var mnemonicAction: () -> Void = { [unowned self] in
         guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
             self.showBackupMnemonicAlert()
             return
@@ -73,19 +73,19 @@ class SettingsLoginMethodViewController: BaseTableAdapterController, SwipeableNa
         self.reloadState()
     }
     
-    private lazy var seedAction: () -> Void = {
+    private lazy var seedAction: () -> Void = { [unowned self] in
         EssentiaStore.shared.currentUser.backup.loginMethod = .seed
         (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
-    private lazy var ketstoreAction: () -> Void = {
+    private lazy var ketstoreAction: () -> Void = { [unowned self] in
         EssentiaStore.shared.currentUser.backup.loginMethod = .keystore
         (inject() as UserStorageServiceInterface).storeCurrentUser()
         self.reloadState()
     }
     
-    private func showBackupMnemonicAlert() {
+    private func showBackupMnemonicAlert() { 
         let alert = BackupMnemonicAlert(leftAction: {}, rightAction: {
             (inject() as SettingsRouterInterface).show(.backupMenmonic)
         })

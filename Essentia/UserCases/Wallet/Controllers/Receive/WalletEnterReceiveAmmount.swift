@@ -53,7 +53,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableAdapter.hardReload(state)
-        keyboardObserver.animateKeyboard = { newValue in
+        keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
         }
@@ -150,14 +150,12 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
     }
     
     // MARK: - Actions
-    private lazy var backAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var backAction: () -> Void = { [unowned self] in
         self.tableAdapter.endEditing(true)
         self.router.pop()
     }
     
-    private lazy var currentlyEditedFieldChanged: (String) -> Void = {  [weak self] in
-        guard let `self` = self else { return }
+    private lazy var currentlyEditedFieldChanged: (String) -> Void = { [unowned self] in
         switch self.store.currentlyEdited {
         case .fiat:
             self.store.enterdValueInCurrency = $0
@@ -170,15 +168,13 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var disabledFieldAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var disabledFieldAction: () -> Void = { [unowned self] in
         self.tableAdapter.endEditing(true)
         self.store.currentlyEdited = self.store.currentlyEdited.another
         self.tableAdapter.simpleReload(self.state)
     }
     
-    private lazy var continueAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var continueAction: () -> Void = { [unowned self] in
         self.tableAdapter.endEditing(true)
         self.router.pop()
         self.ammountCallback(self.store.enterdValueInCrypto)

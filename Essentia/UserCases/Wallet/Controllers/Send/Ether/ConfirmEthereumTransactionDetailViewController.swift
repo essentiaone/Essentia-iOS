@@ -86,12 +86,11 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var  cancelAction: () -> Void = { [weak self] in
-        self?.dismiss(animated: true)
+    private lazy var  cancelAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
-    private lazy var confirmAction: () -> Void = { [weak self] in
-        guard let `self` = self else { return }
+    private lazy var confirmAction: () -> Void = { [unowned self] in
         (inject() as LoaderInterface).show()
         do {
             try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
@@ -100,7 +99,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         }
     }
     
-    private lazy var responceTransaction: (NetworkResult<String>) -> Void = {
+    private lazy var responceTransaction: (NetworkResult<String>) -> Void = { [unowned self] in
         (inject() as LoaderInterface).hide()
         switch $0 {
         case .success(let object):
