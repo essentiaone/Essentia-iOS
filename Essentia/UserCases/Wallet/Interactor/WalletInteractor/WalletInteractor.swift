@@ -39,6 +39,8 @@ class WalletInteractor: WalletInteractorInterface {
             let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                   coin: coin,
                                                   derivationIndex: UInt32(nextDerivationIndex))
+            let generatedName = walletInfo.name + " " + walletInfo.address.suffix(4)
+            walletInfo.name = generatedName
             currentlyAddedWallets.append(walletInfo)
         }
         EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
