@@ -8,22 +8,31 @@
 
 import UIKit
 
-class NotificationsPlaceholderViewController: BaseViewController {
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var placeholderImageView: UIImageView!
-    @IBOutlet weak var descriptionLabel: UILabel!
+class NotificationsPlaceholderViewController: BaseTableAdapterController {
+    // MARK: - Dependences
+    private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var imageProvider: AppImageProviderInterface = inject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyDesign()
+        self.tableAdapter.simpleReload(state)
     }
     
-    private func applyDesign() {
-        placeholderImageView.image = (inject() as AppImageProviderInterface).notificationPlaceholderIcon
-        titleLabel.text = LS("TabBar.Notifications")
-        titleLabel.font = AppFont.bold.withSize(34)
-        descriptionLabel.text = LS("Notification.Placeholder.Description")
-        descriptionLabel.font = AppFont.regular.withSize(17)
-        descriptionLabel.textColor = (inject() as AppColorInterface).appDefaultTextColor
+    private var state: [TableComponent] {
+        return [
+            .empty(height: 45, background: colorProvider.settingsCellsBackround),
+            .titleWithFont(font: AppFont.bold.withSize(34),
+                           title: LS("TabBar.Notifications"),
+                           background: colorProvider.settingsCellsBackround,
+                           aligment: .left),
+            .empty(height: 70, background: colorProvider.settingsCellsBackround),
+            .centeredImage(image: imageProvider.notificationPlaceholderIcon),
+            .empty(height: 30, background: colorProvider.settingsCellsBackround),
+            .descriptionWithSize(aligment: .center,
+                                 fontSize: 17,
+                                 title: LS("Notification.Placeholder.Description"),
+                                 background: .white,
+                                 textColor: colorProvider.appDefaultTextColor)
+        ]
     }
 }

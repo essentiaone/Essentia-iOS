@@ -75,7 +75,6 @@
 		34115E0C2134B26D00A54B7E /* TableComponentSectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */; };
 		34115E0E2134B27600A54B7E /* TableComponentSectionTitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
-		34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */; };
 		3411AEEA21642F8F00AB9476 /* CurrencyConverterServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */; };
 		3411AEEC21642F9D00AB9476 /* CurrencyConverterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */; };
 		3411AEEE216430D000AB9476 /* CurrencyConverterEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */; };
@@ -402,7 +401,6 @@
 		34115E0B2134B26D00A54B7E /* TableComponentSectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentSectionTitle.swift; sourceTree = "<group>"; };
 		34115E0D2134B27600A54B7E /* TableComponentSectionTitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentSectionTitle.xib; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
-		34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsPlaceholderViewController.xib; sourceTree = "<group>"; };
 		3411AEE921642F8F00AB9476 /* CurrencyConverterServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterServiceInterface.swift; sourceTree = "<group>"; };
 		3411AEEB21642F9D00AB9476 /* CurrencyConverterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterService.swift; sourceTree = "<group>"; };
 		3411AEED216430D000AB9476 /* CurrencyConverterEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyConverterEndpoint.swift; sourceTree = "<group>"; };
@@ -1143,7 +1141,6 @@
 			isa = PBXGroup;
 			children = (
 				34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */,
-				34115E1421368EC800A54B7E /* NotificationsPlaceholderViewController.xib */,
 			);
 			path = Notifications;
 			sourceTree = "<group>";
@@ -2267,7 +2264,6 @@
 				3448267F211BA40F00C19EB3 /* LaunchpadItemCell.xib in Resources */,
 				349AA4C0212495E300E9256F /* TableComponentDescription.xib in Resources */,
 				349BC0512143D72A003AC330 /* TableComponentTitleSubtitle.xib in Resources */,
-				34115E1521368EC800A54B7E /* NotificationsPlaceholderViewController.xib in Resources */,
 				34737BE02151C1DD008A306F /* TableComponentBalanceChanging.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
