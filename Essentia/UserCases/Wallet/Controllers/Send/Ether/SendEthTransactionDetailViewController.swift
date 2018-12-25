@@ -156,9 +156,13 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     var formattedFeeTitle: NSAttributedString {
         let currentFee = Double(self.store.selectedFeeSlider) * store.gasEstimate / pow(10, 9)
         self.store.enteredFee = currentFee
-        let numberFormatter = BalanceFormatter(asset: Coin.ethereum)
-        let formattedFee = numberFormatter.formattedAmmountWithCurrency(amount: currentFee)
-        let string = LS("Wallet.Send.Fee") + " (\(formattedFee))"
+        let feeFormatter = BalanceFormatter(asset: Coin.ethereum)
+        let formattedFee = feeFormatter.formattedAmmountWithCurrency(amount: currentFee)
+        let currentRank = EssentiaStore.shared.ranks.getRank(for: Coin.ethereum) ?? 0
+        let feeInCurrency = currentFee * currentRank
+        let currency = EssentiaStore.shared.currentUser.profile.currency
+        let formattedFeeInCurrency = BalanceFormatter(currency: currency).formattedAmmountWithCurrency(amount: feeInCurrency)
+        let string = LS("Wallet.Send.Fee") + " \(formattedFee) (\(formattedFeeInCurrency))"
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
                                                                NSAttributedString.Key.foregroundColor: colorProvider.titleColor])
     }
