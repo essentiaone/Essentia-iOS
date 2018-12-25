@@ -128,7 +128,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private func scrollToTop() {
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .bottom, animated: true)
+        UIView.setAnimationsEnabled(false)
+        tableView.contentOffset = .zero
+        UIView.setAnimationsEnabled(true)
     }
     
     private var appVersion: String {
@@ -147,10 +149,11 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var switchAccountAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.switchAccount(self))
     }
+    
     private lazy var logOutAction: () -> Void = { [unowned self] in
+        self.scrollToTop()
         self.logOutUser()
     }
     
@@ -199,6 +202,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         guard user.id != EssentiaStore.shared.currentUser.id else {
             return
         }
+        scrollToTop()
         removeCurrentUserIfNeeded()
         guard user.seed == nil else {
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
@@ -229,6 +233,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     func createNewUser() {
+        scrollToTop()
         removeCurrentUserIfNeeded()
         EssentiaLoader.show {}
         TabBarController.shared.selectedIndex = 0
