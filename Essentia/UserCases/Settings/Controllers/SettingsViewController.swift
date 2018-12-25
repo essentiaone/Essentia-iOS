@@ -28,13 +28,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         super.viewDidAppear(animated)
         self.addLastCellBackgroundContents(topColor: .white, bottomColor: colorProvider.settingsBackgroud)
         tableView.backgroundColor = .clear
+        updateState()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tableAdapter.simpleReload([])
-    }
-    
+
     // MARK: - Override
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
