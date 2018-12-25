@@ -27,10 +27,6 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var blockchainInterator: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var store: Store = Store()
     
-    private var cashCoinsState: [TableComponent]?
-    private var cashTokensState: [TableComponent]?
-    private var cashNonEmptyStaticState: [TableComponent]?
-    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +46,18 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - State
     private func state() -> [TableComponent] {
-        let staticState = cashNonEmptyStaticState ?? nonEmptyStaticState()
-        let contentHeight = tableAdapter.helper.allContentHeight(for: staticState)
-        let emptySpace = store.tableHeight - contentHeight
-        let bottomTableContentHeight = emptySpace > 0 ? emptySpace : 0
-        let showWallets = !EssentiaStore.shared.currentUser.wallet.isEmpty
-        return [.tableWithHeight(height: contentHeight, state: staticState)] +
-            (showWallets ? [.tableWithHeight(height: bottomTableContentHeight, state: assetState())] : emptyState())
+        return staticState + dynamicState
     }
     
-    private func nonEmptyStaticState() -> [TableComponent] {
+    private var dynamicState: [TableComponent] {
+        let showWallets = !EssentiaStore.shared.currentUser.wallet.isEmpty
+        if showWallets {
+            return [.tableWithCalculatableSpace(state: assetState, background: .white)]
+        }
+        return emptyState
+    }
+    
+    private var staticState: [TableComponent] {
         let procents = ProcentsFormatter.formattedChangePer24Hours(store.balanceChangedPer24Hours)
         return [
             .empty(height: 24, background: colorProvider.settingsCellsBackround),
@@ -86,17 +84,17 @@ class WalletMainViewController: BaseTableAdapterController {
         ]
     }
     
-    private func assetState() -> [TableComponent] {
+    private var assetState: [TableComponent] {
         switch store.currentSegment {
         case 0:
-            return cashCoinsState ?? coinsState()
+            return coinsState()
         case 1:
-            return cashTokensState ?? tokensState()
+            return tokensState()
         default: return []
         }
     }
     
-    private func emptyState() -> [TableComponent] {
+    private var emptyState: [TableComponent] {
         return [
             .empty(height: 110, background: colorProvider.settingsBackgroud),
             .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
@@ -166,18 +164,6 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - Cash
-    private func cashState() {
-        cashCoinsState = coinsState()
-        cashTokensState = tokensState()
-        cashNonEmptyStaticState = nonEmptyStaticState()
-    }
-    
-    private func clearCash() {
-        cashCoinsState = nil
-        cashTokensState = nil
-        cashNonEmptyStaticState = nil
-    }
-    
     private func loadData() {
         self.store.generatedWallets = interator.getGeneratedWallets()
         self.store.importedWallets = interator.getImportedWallets()
@@ -186,13 +172,13 @@ class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = { [unowned self] in
-        (inject() as LoaderInterface).show()
         self.store.currentSegment = $0
         DispatchQueue.global().async {
             self.loadBalances()
         }
-        self.tableAdapter.simpleReload(self.state())
-        (inject() as LoaderInterface).hide()
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
+            self.tableAdapter.simpleReload(self.state())
+        })
     }
     
     private lazy var addWalletAction: () -> Void = {
@@ -230,9 +216,7 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func reloadAllComponents() {
-        self.clearCash()
         self.loadData()
-        self.cashState()
         self.loadBalances()
         self.loadBalanceChangesPer24H()
         self.tableAdapter.simpleReload(self.state())
@@ -241,7 +225,6 @@ class WalletMainViewController: BaseTableAdapterController {
     private func loadBalanceChangesPer24H() {
         interator.getBalanceChangePer24Hours { [unowned self] (changes) in
             self.store.balanceChangedPer24Hours = changes
-            self.cashNonEmptyStaticState = self.nonEmptyStaticState()
             self.tableAdapter.simpleReload(self.state())
         }
     }
