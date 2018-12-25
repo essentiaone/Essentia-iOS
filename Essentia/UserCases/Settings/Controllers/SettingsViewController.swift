@@ -203,6 +203,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: User) {
+        guard user.id != EssentiaStore.shared.currentUser.id else {
+            return
+        }
         removeCurrentUserIfNeeded()
         guard user.seed == nil else {
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
