@@ -40,15 +40,25 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private var state: [TableComponent] {
+        return [
+            .tableWithHeight(height: 91, state: staticContent),
+            .tableWithCalculatableSpace(state: dynamicContent)
+        ]
+    }
+    
+    private var staticContent: [TableComponent] {
+        return [.empty(height: 45, background: colorProvider.settingsCellsBackround),
+                .titleWithFont(font: AppFont.bold.withSize(34),
+                               title: LS("Settings.Title"),
+                               background: colorProvider.settingsCellsBackround,
+                               aligment: .left)]
+    }
+    
+    private var dynamicContent: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
         let rawState: [TableComponent?] =
-            [.empty(height: 45, background: colorProvider.settingsCellsBackround),
-             .titleWithFont(font: AppFont.bold.withSize(34),
-                            title: LS("Settings.Title"),
-                            background: colorProvider.settingsCellsBackround,
-                            aligment: .left),
-                showSecureStatus ?
+            [showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction) :
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .currentAccount(icon: user.profile.icon,
@@ -115,7 +125,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
-    
+
     private var loginMetodState: [TableComponent] {
         guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
         return [
