@@ -13,12 +13,6 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         switch route {
         case .accountStrength:
             push(vc: SecureAccountViewController())
-        case .backupMenmonic:
-            showBackupRoute(type: .mnemonic)
-        case .backupSeed:
-            showBackupRoute(type: .seed)
-        case .backupKeystore:
-            showBackupRoute(type: .keystore)
         case .currency:
             push(vc: SettingsCurrencyViewController())
         case .language:
@@ -28,7 +22,8 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         case .security:
             push(vc: SettingsSecurityViewController())
         case .backup(let type):
-            showBackupRoute(type: type)
+            guard let delegate = navigationController?.viewControllers.first as? SelectAccountDelegate else { return }
+            showBackupRoute(type: type, delegate: delegate)
         case .accountName:
             push(vc: SettingsEditUserViewController())
         case .fullSecured:
@@ -46,10 +41,10 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         return navigationController
     }
     
-    private func showBackupRoute(type: BackupType) {
+    private func showBackupRoute(type: BackupType, delegate: SelectAccountDelegate) {
         guard let navigation = navigationController else {
                 return
         }
-        prepareInjection(AuthRouter(navigationController: navigation, type: type, auth: .backup) as AuthRouterInterface, memoryPolicy: .viewController)
+        prepareInjection(AuthRouter(navigationController: navigation, type: type, auth: .backup, delegate: delegate) as AuthRouterInterface, memoryPolicy: .viewController)
     }
 }

@@ -22,10 +22,12 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
     let authType: AuthType
+    private weak var delegate: SelectAccountDelegate?
     
     // MARK: - Init
-    required init(_ auth: AuthType) {
+    required init(_ auth: AuthType, delegate: SelectAccountDelegate) {
         authType = auth
+        self.delegate = delegate
         super.init()
     }
     required override init() {
@@ -63,9 +65,9 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let user = User(seed: textView.text)
-            user.backup.currentlyBackedUp = [.seed]
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
             (inject() as AuthRouterInterface).showPrev()
+            delegate?.didSetUser()
         }
 
     }

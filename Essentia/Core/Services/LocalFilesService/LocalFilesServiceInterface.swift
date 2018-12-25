@@ -28,5 +28,6 @@ protocol LocalFilesServiceInterface {
     func getFilesInFolder<File: Codable>(path: LocalFolderPath) throws -> [File]
     func storeFile<File: Codable>(file: File, to path: LocalFolderPath, with name: String) throws -> URL
     func storeData(_ data: Data, to path: LocalFolderPath, with name: String) throws -> URL
+    func storageContainFile(at path: LocalFolderPath, with name: String) -> Bool
     func removeFile(at path: LocalFolderPath, with name: String) throws
 }

@@ -27,16 +27,18 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     private lazy var wordEntering = PhraseConfirmCollectionViewAdapter(collectionView: confirmWordsCollectionView)
     private var phraseEnteingController: MnemonicPhraseConfirmViewControllerInterface?
     let authType: AuthType
+    private weak var delegate: SelectAccountDelegate?
     
     // MARK: - Init
-    required init(mnemonic: String) {
+    init(mnemonic: String) {
         authType = .backup
         super.init()
         phraseEnteingController = MnemonicConfirmEnteringController(delegate: self,
                                                                     mnemonic: mnemonic)
     }
     
-    override init() {
+    init(delegate: SelectAccountDelegate) {
+        self.delegate = delegate
         authType = .login
         super.init()
         phraseEnteingController = MnemonicLoginController(delegate: self)
@@ -111,9 +113,9 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         case .login:
             let mnemonic = mnemonic.joined(separator: " ")
             let user = User(mnemonic: mnemonic)
-            user.backup.currentlyBackedUp = [.mnemonic]
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
             (inject() as AuthRouterInterface).showPrev()
+            delegate?.didSetUser()
         }
     }
     

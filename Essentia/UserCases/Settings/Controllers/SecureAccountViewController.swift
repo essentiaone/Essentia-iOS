@@ -102,14 +102,14 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        self.router.show(.backupMenmonic)
+        self.router.show(.backup(type: .mnemonic))
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
-        self.router.show(.backupSeed)
+        self.router.show(.backup(type: .seed))
     }
     
     private lazy var keyStoreAction: () -> Void = { [unowned self] in
-        self.router.show(.backupKeystore)
+        self.router.show(.backup(type: .keystore))
     }
 }

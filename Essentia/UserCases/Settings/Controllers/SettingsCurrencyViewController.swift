@@ -63,6 +63,6 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var keyStoreAction: () -> Void = { [unowned self] in
-        self.router.show(.backupKeystore)
+        self.router.show(.backup(type: .keystore))
     }
 }

@@ -53,6 +53,12 @@ class LocalFilesService: LocalFilesServiceInterface {
         try FileManager.default.removeItem(at: url)
     }
     
+    func storageContainFile(at path: LocalFolderPath, with name: String) -> Bool {
+        if name.isEmpty { return false }
+        let url = fileUrl(fromPath: path.path, name: name)
+        return FileManager.default.fileExists(atPath: url.path)
+    }
+    
     private func directoryPath(currentPath: String) -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
         return documentPath.appending(currentPath)

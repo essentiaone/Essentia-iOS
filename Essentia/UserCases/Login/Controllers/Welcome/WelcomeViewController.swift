@@ -47,10 +47,6 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
-    func openTabBar() {
-        self.present(TabBarController.shared, animated: true)
-    }
-    
     // MARK: - RestoreAccountDelegate
     func showBackup(type: BackupType) {
         dismiss(animated: true)
@@ -59,7 +55,8 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
         self.present(nvc, animated: true)
         prepareInjection(AuthRouter(navigationController: nvc,
                                     type: type,
-                                    auth: .login) as AuthRouterInterface,
+                                    auth: .login,
+                                    delegate: self) as AuthRouterInterface,
                          memoryPolicy: .viewController)
     }
     
@@ -85,6 +82,10 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
         }, cancel: { [unowned self] in
             self.dismiss(animated: true)
         }), animated: true)
+    }
+    
+    func didSetUser() {
+        showTabBar()
     }
     
     func showTabBar() {

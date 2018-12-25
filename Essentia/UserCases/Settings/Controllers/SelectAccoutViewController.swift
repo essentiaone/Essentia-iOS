@@ -10,6 +10,7 @@ import UIKit
 
 protocol SelectAccountDelegate: class {
     func didSelectUser(_ user: User)
+    func didSetUser()
     func createNewUser()
 }
 

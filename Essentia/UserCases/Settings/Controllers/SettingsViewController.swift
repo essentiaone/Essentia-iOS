@@ -161,7 +161,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var securityAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
-            (inject() as SettingsRouterInterface).show(.backupKeystore)
+            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
             (inject() as SettingsRouterInterface).show(.security)
         }
@@ -175,7 +175,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
         self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
-            (inject() as SettingsRouterInterface).show(.backupKeystore)
+            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
             (inject() as SettingsRouterInterface).show(.accountStrength)
         }
@@ -226,6 +226,8 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             (inject() as UserStorageServiceInterface).remove(user: currentUser)
         }
     }
+    
+    func didSetUser() {}
     
     func createNewUser() {
         scrollToTop()

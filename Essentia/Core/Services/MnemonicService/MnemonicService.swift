@@ -30,12 +30,13 @@ class MnemonicService: MnemonicServiceInterface {
         return (try keystore?.encodedData())!
     }
     
-    func mnemonic(from keystoreFile: Data, password: String) -> String? {
-        guard let keystoreV3 = try? KeystoreV3(keyStore: keystoreFile),
-              let mnemonic = try? keystoreV3?.getDecriptedKeyStore(password: password) else {
-            return nil
+    func mnemonic(from keystoreFile: Data, password: String) throws -> String {
+        let keystoreV3 = try KeystoreV3(keyStore: keystoreFile)
+        guard let keystore = keystoreV3,
+              let decripted = try keystore.getDecriptedKeyStore(password: password) else {
+            throw EssentiaError.unexpectedBehavior
         }
-        return mnemonic
+        return decripted
     }
     
     func languageForCurrentLocale() -> MnemonicLanguage {
