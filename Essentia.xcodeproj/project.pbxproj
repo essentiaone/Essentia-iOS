@@ -242,7 +242,6 @@
 		349BC05B21467344003AC330 /* TableComponentShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349BC05A21467344003AC330 /* TableComponentShadow.swift */; };
 		34A37D31214D34F70022FD93 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D30214D34F70022FD93 /* Token.swift */; };
 		34A37D33214D375A0022FD93 /* String+bjd2+sbdm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */; };
-		34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */; };
 		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
 		34AC4DE12147101A001C17D8 /* TableComponentShadow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */; };
 		34AC4DE32147B0F5001C17D8 /* WalletImportAssetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */; };
@@ -568,7 +567,6 @@
 		349BC05A21467344003AC330 /* TableComponentShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentShadow.swift; sourceTree = "<group>"; };
 		34A37D30214D34F70022FD93 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		34A37D32214D375A0022FD93 /* String+bjd2+sbdm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+bjd2+sbdm.swift"; sourceTree = "<group>"; };
-		34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreAccountViewController.xib; sourceTree = "<group>"; };
 		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
 		34AC4DE02147101A001C17D8 /* TableComponentShadow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentShadow.xib; sourceTree = "<group>"; };
 		34AC4DE22147B0F5001C17D8 /* WalletImportAssetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletImportAssetViewController.swift; sourceTree = "<group>"; };
@@ -873,7 +871,7 @@
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34AA4E8E2136A783004C25ED /* RestoreAccount */,
+				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
 				34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */,
 			);
@@ -1922,15 +1920,6 @@
 			path = TitleSubtitle;
 			sourceTree = "<group>";
 		};
-		34AA4E8E2136A783004C25ED /* RestoreAccount */ = {
-			isa = PBXGroup;
-			children = (
-				34AA4E8F2136ABC4004C25ED /* RestoreAccountViewController.xib */,
-				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
-			);
-			path = RestoreAccount;
-			sourceTree = "<group>";
-		};
 		34AC4DDF21471005001C17D8 /* Shadow */ = {
 			isa = PBXGroup;
 			children = (
@@ -2267,7 +2256,6 @@
 				34737BE02151C1DD008A306F /* TableComponentBalanceChanging.xib in Resources */,
 				34482665211A61FE00C19EB3 /* InfoAlertViewController.xib in Resources */,
 				34AC4E062149D7B0001C17D8 /* TableComponentSearch.xib in Resources */,
-				34AA4E902136ABC5004C25ED /* RestoreAccountViewController.xib in Resources */,
 				344958E421416A6800C2230B /* TableComponentImageParagraph.xib in Resources */,
 				34D806122176324F0079A5A5 /* TableComponentTitleImageButton.xib in Resources */,
 				34115E002134466F00A54B7E /* TableComponentImageTitle.xib in Resources */,
