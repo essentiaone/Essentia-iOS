@@ -48,28 +48,35 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     private var state: [TableComponent] {
-        return [
-            .empty(height: 25, background: colorProvider.settingsCellsBackround),
-            .navigationBar(left: LS("Back"),
-                           right: LS("Wallet.CreateNewAsset.Done"),
-                           title: LS("Wallet.CreateNewAsset.Title"),
-                           lAction: backAction,
-                           rAction: doneAction),
-            .empty(height: 11, background: colorProvider.settingsCellsBackround),
-            .segmentControlCell(titles: [LS("Wallet.CreateNewAsset.Switch.Coins"),
-                                         LS("Wallet.CreateNewAsset.Switch.Tokens")],
-                                selected: store.selectedComponent, action: selectSegmentCotrolAction),
-            .empty(height: 16, background: colorProvider.settingsCellsBackround),
-            .search(title: store.searchString,
-                    placeholder: LS("Wallet.CreateNewAsset.SearchPlaceholder"),
-                    tint: colorProvider.settingsCellsBackround,
-                    backgroud: colorProvider.settingsBackgroud,
-                    didChange: searchChangedAction),
-            .empty(height: 16, background: colorProvider.settingsCellsBackround),
-            .empty(height: 16, background: colorProvider.settingsBackgroud)
-            ] + selectWalletState + [
-            ] + assetState + [
-                .calculatbleSpace(background: colorProvider.settingsBackgroud)
+        return
+             staticContent +
+            [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
+    }
+    
+    private var staticContent: [TableComponent] {
+        return [.empty(height: 25, background: colorProvider.settingsCellsBackround),
+                .navigationBar(left: LS("Back"),
+                               right: LS("Wallet.CreateNewAsset.Done"),
+                               title: LS("Wallet.CreateNewAsset.Title"),
+                               lAction: backAction,
+                               rAction: doneAction),
+                .empty(height: 11, background: colorProvider.settingsCellsBackround),
+                .segmentControlCell(titles: [LS("Wallet.CreateNewAsset.Switch.Coins"),
+                                             LS("Wallet.CreateNewAsset.Switch.Tokens")],
+                                    selected: store.selectedComponent, action: selectSegmentCotrolAction),
+                .empty(height: 16, background: colorProvider.settingsCellsBackround),
+                .search(title: store.searchString,
+                        placeholder: LS("Wallet.CreateNewAsset.SearchPlaceholder"),
+                        tint: colorProvider.settingsCellsBackround,
+                        backgroud: colorProvider.settingsBackgroud,
+                        didChange: searchChangedAction),
+                .empty(height: 16, background: colorProvider.settingsCellsBackround)]
+    }
+    
+    private var dynamicContent: [TableComponent] {
+        return  [.empty(height: 16, background: colorProvider.settingsBackgroud)]
+                + selectWalletState + assetState +
+                [.calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]
     }
     
