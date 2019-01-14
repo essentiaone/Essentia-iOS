@@ -1,6 +1,9 @@
 # Uncomment the next line to define a global platform for your project
  platform :ios, '11.0'
  inhibit_all_warnings!
+ENV['COCOAPODS_DISABLE_STATS'] = "true"
+
+workspace 'Essentia.xcworkspace'
 
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/essentiaone/ess-cocoapodspec.git'
@@ -29,6 +32,19 @@ end
 
 def pod_debug
     pod 'CocoaLumberjack/Swift'
+end
+
+target 'EssModel' do
+    project 'Modules/EssModel/EssModel.xcodeproj'
+    use_frameworks!
+    pod_core
+end
+
+target 'EssCore' do 
+    project 'Modules/EssCore/EssCore.xcodeproj'
+    use_frameworks!
+    pod_core
+    pod_debug
 end
 
 target 'Essentia' do

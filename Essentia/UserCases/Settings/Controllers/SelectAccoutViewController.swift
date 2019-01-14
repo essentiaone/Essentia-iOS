@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 protocol SelectAccountDelegate: class {
     func didSelectUser(_ user: User)

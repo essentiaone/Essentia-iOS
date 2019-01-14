@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class WalletSelectImportAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences

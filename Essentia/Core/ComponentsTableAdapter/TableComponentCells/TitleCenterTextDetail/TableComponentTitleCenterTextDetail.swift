@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentTitleCenterTextDetail: UITableViewCell, NibLoadable, UITextFieldDelegate {
     @IBOutlet weak var titleLabel: UILabel!

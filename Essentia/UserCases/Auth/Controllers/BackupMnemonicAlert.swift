@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssCore
 
 class BackupMnemonicAlert: QuestionAlertViewController {
     override func viewDidLoad() {

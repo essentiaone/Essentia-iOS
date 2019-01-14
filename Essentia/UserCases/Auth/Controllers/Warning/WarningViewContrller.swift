@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class WarningViewContrller: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet

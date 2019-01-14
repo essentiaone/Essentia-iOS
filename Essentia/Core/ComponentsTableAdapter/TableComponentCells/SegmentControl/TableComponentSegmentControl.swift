@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssModel
+import EssCore
 
 fileprivate enum SegmentType {
     case filled

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentTextView: UITableViewCell, NibLoadable, UITextViewDelegate {
     @IBOutlet weak var textView: UITextView!

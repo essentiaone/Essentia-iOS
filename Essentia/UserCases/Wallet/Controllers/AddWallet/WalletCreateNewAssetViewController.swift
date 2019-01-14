@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssModel
+import EssCore
 
 fileprivate struct Store {
     var selectedComponent: Int = 0
@@ -133,6 +135,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
             (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
+        storeCurrentUser()
         (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     

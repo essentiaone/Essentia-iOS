@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import EssCore
 
 fileprivate struct Store {
     var password: String = ""

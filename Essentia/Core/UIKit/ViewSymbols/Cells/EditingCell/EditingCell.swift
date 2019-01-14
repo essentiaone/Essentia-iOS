@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class EditingCell: BaseCollectionViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()

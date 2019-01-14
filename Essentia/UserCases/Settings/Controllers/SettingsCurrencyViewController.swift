@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -47,7 +49,7 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: { [unowned self] in
                     EssentiaStore.shared.currentUser.profile.currency = currency
-                    (inject() as UserStorageServiceInterface).storeCurrentUser()
+                    storeCurrentUser()
                     (inject() as CurrencyRankDaemonInterface).update()
                     self.tableAdapter.hardReload(self.state)
             }))

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 fileprivate struct Constants {
     static var cornerRadius: CGFloat = 5.0

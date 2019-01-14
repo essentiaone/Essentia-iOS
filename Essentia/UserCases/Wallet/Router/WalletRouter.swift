@@ -8,6 +8,8 @@
 
 import UIKit
 import QRCodeReader
+import EssModel
+import EssCore
 
 class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {

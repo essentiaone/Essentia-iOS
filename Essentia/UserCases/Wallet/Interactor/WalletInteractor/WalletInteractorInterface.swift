@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssModel
 
 protocol WalletInteractorInterface {
     func isValidWallet(_ wallet: ImportedWallet) -> Bool

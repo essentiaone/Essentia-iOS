@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentCheckBox: UITableViewCell, NibLoadable {
     @IBOutlet weak var checkBoxImageView: UIImageView!

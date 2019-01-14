@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class BaseAccountStrengthCell: UITableViewCell {
     private lazy var colorProvider: AppColorInterface = inject()

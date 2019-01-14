@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences

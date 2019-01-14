@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class LaunchpadPlaceholderViewController: BaseViewController {
     @IBOutlet weak var topPlaceholderView: UIView!

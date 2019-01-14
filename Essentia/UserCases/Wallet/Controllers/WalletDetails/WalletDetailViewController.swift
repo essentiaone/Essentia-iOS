@@ -9,6 +9,9 @@
 import UIKit
 import EssentiaNetworkCore
 import EssentiaBridgesApi
+import EssCore
+import HDWalletKit
+import EssModel
 
 fileprivate struct Store {
     var isLoadingTransactions: Bool = false
@@ -29,10 +32,8 @@ fileprivate struct Store {
 class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigation {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    
     private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
-    private lazy var ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
     
     private var store: Store
     
@@ -167,26 +168,28 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Network
     private func loadBalance() {
         let wallet = self.store.wallet
-        let address = wallet.address
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = wallet.address(withSeed: seed)
         switch wallet.asset {
         case let token as Token:
             blockchainInteractor.getTokenBalance(for: token, address: address, balance: balanceChanged)
-        case let coin as Coin:
+        case let coin as EssModel.Coin:
             blockchainInteractor.getCoinBalance(for: coin, address: address, balance: balanceChanged)
         default: return
         }
     }
     
     private func loadRank() {
-        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset)
         let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency)
         let formatter = BalanceFormatter(currency: currentCurrency)
         let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
         store.currentRank = formattedRank
     }
     
     private lazy var balanceChanged: (Double) -> Void = {
-        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset) ?? 0
+        let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
+        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency) ?? 0
         let newCurrentBalance = $0 * rank
         let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
         self.store.balance = newCurrentBalance
@@ -195,10 +198,12 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         self.tableAdapter.simpleReload(self.state)
     }
     
-    func getTransactionsByWallet(_ wallet: WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
+    func getTransactionsByWallet(_ wallet: EssModel.WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = wallet.address(withSeed: seed)
         switch wallet.asset {
         case let token as Token:
-            blockchainInteractor.getTokenTxHistory(address: wallet.address, smartContract: token.address) { [unowned self] (result) in
+            blockchainInteractor.getTokenTxHistory(address: address, smartContract: token.address) { [unowned self] (result) in
                 switch result {
                 case .success(let tx):
                     transactions(self.mapTransactions(tx.result, forToken: token))
@@ -206,10 +211,10 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                     self.showError(error)
                 }
             }
-        case let coin as Coin:
+        case let coin as EssModel.Coin:
             switch coin {
             case .bitcoin:
-                blockchainInteractor.getTxHistoryForBitcoinAddress(wallet.address) { [unowned self] (result) in
+                blockchainInteractor.getTxHistoryForBitcoinAddress(address) { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.items))
@@ -218,7 +223,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                     }
                 }
             case .ethereum:
-                blockchainInteractor.getTxHistoryForEthereumAddress(wallet.address) { [unowned self] (result) in
+                blockchainInteractor.getTxHistoryForEthereumAddress(address) { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.result))
@@ -260,12 +265,14 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = store.wallet.address(withSeed: seed)
         return [ViewTransaction](transactions.map({
-            let ammount = $0.transactionAmmount(for: self.store.wallet.address)
-            let type = $0.type(for: store.wallet.address)
+            let ammount = $0.transactionAmmount(for: address)
+            let type = $0.type(for: address)
             return ViewTransaction(hash: $0.txid,
                                    address: $0.txid,
-                                   ammount: ammountFormatter.attributed(amount: ammount, type: type),
+                                   ammount: CryptoFormatter.formattedAmmount(amount: ammount, type: type, asset: self.store.wallet.asset),
                                    status: $0.status,
                                    type: type,
                                    date: TimeInterval($0.time))
@@ -274,29 +281,33 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
         let nonTokenTx = transactions.filter({ return $0.value != "0" })
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = store.wallet.address(withSeed: seed)
         return  [ViewTransaction](nonTokenTx.map({
-            let txType = $0.type(for: self.store.wallet.address)
+            let txType = $0.type(for: address)
             let address = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
                 hash: $0.hash,
                 address: address,
-                ammount: ammountFormatter.attributedHex(amount: $0.value, type: txType),
+                ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, asset: self.store.wallet.asset),
                 status: $0.status,
-                type: $0.type(for: store.wallet.address),
+                type: $0.type(for: address),
                 date: TimeInterval($0.timeStamp) ?? 0)
         }))
     }
     
     private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], forToken: Token) -> [ViewTransaction] {
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = store.wallet.address(withSeed: seed)
         return  [ViewTransaction](transactions.map({
-            let txType = $0.type(for: self.store.wallet.address)
+            let txType = $0.type(for: address)
             let address = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
                 hash: $0.hash,
                 address: address,
-                ammount: ammountFormatter.attributedHex(amount: $0.value, type: txType, decimals: forToken.decimals),
+                ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, decimals: forToken.decimals, asset: self.store.wallet.asset),
                 status: $0.status,
-                type: $0.type(for: store.wallet.address),
+                type: $0.type(for: address),
                 date: TimeInterval($0.timeStamp) ?? 0)
         }))
     }

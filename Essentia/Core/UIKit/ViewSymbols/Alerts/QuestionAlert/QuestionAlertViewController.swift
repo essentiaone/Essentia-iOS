@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class QuestionAlertViewController: UIViewController {
     // MARK: - IBOutlet

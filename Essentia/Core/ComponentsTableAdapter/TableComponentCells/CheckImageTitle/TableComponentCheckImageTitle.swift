@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentCheckImageTitle: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!

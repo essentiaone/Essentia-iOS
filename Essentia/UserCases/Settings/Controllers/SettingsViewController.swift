@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import EssCore
+import EssModel
+import EssCore
 fileprivate struct Constants {
     static var separatorInset = UIEdgeInsets(top: 0, left: 65, bottom: 0, right: 0)
 }
@@ -21,14 +23,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         updateState()
-        scrollToTop()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.addLastCellBackgroundContents(topColor: .white, bottomColor: colorProvider.settingsBackgroud)
-        tableView.backgroundColor = .clear
-        updateState()
+        UIView.performWithoutAnimation {
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
     }
 
     // MARK: - Override
@@ -125,12 +123,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
     }
-
-    private func scrollToTop() {
-        UIView.setAnimationsEnabled(false)
-        tableView.contentOffset = .zero
-        UIView.setAnimationsEnabled(true)
-    }
     
     private var appVersion: String {
         guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] else { return "v.404" }
@@ -139,7 +131,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - Actions
     private lazy var currencyAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.currency)
     }
     
@@ -148,7 +139,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var logOutAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         self.logOutUser()
     }
     
@@ -159,7 +149,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var securityAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
@@ -168,12 +157,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var languageAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         (inject() as SettingsRouterInterface).show(.language)
     }
     
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
         if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         } else {
@@ -182,14 +169,14 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var editCurrentAccountAction: () -> Void = { [unowned self] in
-        self.scrollToTop()
-        (inject() as SettingsRouterInterface).show(.accountName)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.35) {
+            (inject() as SettingsRouterInterface).show(.accountName)
+        }
     }
     
     private lazy var feedbackAction: () -> Void = { [unowned self] in
         guard let url = URL(string: EssentiaConstants.reviewUrl) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        self.scrollToTop()
     }
     
     // MARK: - SelectAccountDelegate
@@ -197,7 +184,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         guard user.id != EssentiaStore.shared.currentUser.id else {
             return
         }
-        scrollToTop()
         removeCurrentUserIfNeeded()
         guard user.seed == nil else {
             try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
@@ -233,7 +219,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     func createNewUser() {
-        scrollToTop()
         removeCurrentUserIfNeeded()
         EssentiaLoader.show {}
         TabBarController.shared.selectedIndex = 0

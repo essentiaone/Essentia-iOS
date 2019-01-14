@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssModel
+import EssCore
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
@@ -125,7 +127,7 @@ class WalletMainViewController: BaseTableAdapterController {
         let isWalletOpened = UserDefaults.standard.bool(forKey: Store.isWalletOpened)
         if !isWalletOpened {
             UserDefaults.standard.set(true, forKey: Store.isWalletOpened)
-            (inject() as UserStorageServiceInterface).storeCurrentUser()
+            storeCurrentUser()
             present(WalletWelcomeViewController(), animated: true)
         }
     }
@@ -240,8 +242,10 @@ class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadCoinBalances() {
+        let seed = EssentiaStore.shared.currentCredentials.seed
         self.store.generatedWallets.enumerated().forEach { (arg) in
-            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
+            let address = arg.element.address(withSeed: seed)
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: address, balance: { [unowned self] (balance) in
                 self.store.generatedWallets[safe: arg.offset]?.lastBalance = balance
                 self.tableAdapter.simpleReload(self.state())
             })
@@ -250,16 +254,18 @@ class WalletMainViewController: BaseTableAdapterController {
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
                 self.store.importedWallets[safe: arg.offset]?.lastBalance = balance
                 EssentiaStore.shared.currentUser.wallet.importedWallets[safe: arg.offset]?.lastBalance = balance
-                (inject() as UserStorageServiceInterface).storeCurrentUser()
+                storeCurrentUser()
                 self.tableAdapter.simpleReload(self.state())
             })
         }
     }
     
     private func loadTokenBalances() {
+        let seed = EssentiaStore.shared.currentCredentials.seed
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: indexedToken.element.address, balance: { [unowned self] (balance) in
+                let address = indexedToken.element.address(withSeed: seed)
+                blockchainInterator.getTokenBalance(for: indexedToken.element.token, address: address, balance: { [unowned self] (balance) in
                     self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
                     self.tableAdapter.simpleReload(self.state())
                 })

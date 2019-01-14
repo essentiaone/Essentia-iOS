@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     var assets: [AssetInterface] = []

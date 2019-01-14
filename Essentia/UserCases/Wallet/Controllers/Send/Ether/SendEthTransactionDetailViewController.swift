@@ -9,6 +9,8 @@
 import UIKit
 import HDWalletKit
 import QRCodeReader
+import EssCore
+import EssModel
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
@@ -156,11 +158,11 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     var formattedFeeTitle: NSAttributedString {
         let currentFee = Double(self.store.selectedFeeSlider) * store.gasEstimate / pow(10, 9)
         self.store.enteredFee = currentFee
-        let feeFormatter = BalanceFormatter(asset: Coin.ethereum)
+        let feeFormatter = BalanceFormatter(asset: EssModel.Coin.ethereum)
         let formattedFee = feeFormatter.formattedAmmountWithCurrency(amount: currentFee)
-        let currentRank = EssentiaStore.shared.ranks.getRank(for: Coin.ethereum) ?? 0
-        let feeInCurrency = currentFee * currentRank
         let currency = EssentiaStore.shared.currentUser.profile.currency
+        let currentRank = EssentiaStore.shared.ranks.getRank(for: Coin.ethereum, on: currency) ?? 0
+        let feeInCurrency = currentFee * currentRank
         let formattedFeeInCurrency = BalanceFormatter(currency: currency).formattedAmmountWithCurrency(amount: feeInCurrency)
         let string = LS("Wallet.Send.Fee") + " \(formattedFee) (\(formattedFeeInCurrency))"
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
@@ -260,7 +262,9 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             !self.store.address.isEmpty else {
             return
         }
-        interactor.getEthGasEstimate(fromAddress: store.wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let address = store.wallet.address(withSeed: seed)
+        interactor.getEthGasEstimate(fromAddress: address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
             (inject() as LoaderInterface).hide()
             self.store.gasEstimate = price
             self.tableAdapter.simpleReload(self.state)

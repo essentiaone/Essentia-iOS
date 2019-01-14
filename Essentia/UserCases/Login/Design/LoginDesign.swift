@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class LoginDesign: LoginDesignInterface {
     

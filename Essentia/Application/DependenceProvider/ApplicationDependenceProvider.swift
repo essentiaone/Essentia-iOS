@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssCore
 
 class ApplicationDependenceProvider {
     func loadDependences() {

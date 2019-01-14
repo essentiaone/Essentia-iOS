@@ -9,6 +9,7 @@
 import UIKit
 import Crashlytics
 import Fabric
+import EssCore
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
