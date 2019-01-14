@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class WalletDeletedWarningViewController: InfoAlertViewController {
     private var walletName: String

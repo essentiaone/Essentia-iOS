@@ -8,6 +8,7 @@
 
 import UIKit
 import QRCodeReader
+import EssModel
 
 enum WalletRoutes {
     case newAssets

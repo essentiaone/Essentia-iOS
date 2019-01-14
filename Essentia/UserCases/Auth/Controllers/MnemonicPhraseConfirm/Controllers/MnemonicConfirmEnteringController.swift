@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssCore
 
 fileprivate struct Constants {
     static var confirmationNeeded: Int = 4

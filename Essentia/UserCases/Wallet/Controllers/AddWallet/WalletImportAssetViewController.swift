@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 fileprivate struct Store {
     var privateKey: String = ""
@@ -101,14 +103,15 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         self.tableAdapter.endEditing(true)
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
         let walletName = self.store.name.isEmpty ? self.store.coin.localizedName : self.store.name
-        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0)
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0, seed: seed)
         guard let wallet = newWallet,
             (inject() as WalletInteractorInterface).isValidWallet(wallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return
         }
         EssentiaStore.shared.currentUser.wallet.importedWallets.append(wallet)
-        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        storeCurrentUser()
         (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
     }

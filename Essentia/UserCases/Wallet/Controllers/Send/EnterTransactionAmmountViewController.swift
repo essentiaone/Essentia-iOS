@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
@@ -141,7 +143,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
     
     var fiatAmmountInCrypto: String {
         guard let ammount = Double(store.enterdValueInCurrency),
-            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: store.currentCurrency),
             currentRank != 0 else {
                 return "0"
         }
@@ -152,7 +154,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
     
     var cryptoInFiat: String {
         guard let ammount = Double(store.enterdValueInCrypto),
-            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset),
+            let currentRank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: store.currentCurrency),
             currentRank != 0 else {
                 return "0"
         }

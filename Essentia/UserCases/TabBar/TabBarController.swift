@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 fileprivate enum Constants: String {
     case walletOnbordingKey

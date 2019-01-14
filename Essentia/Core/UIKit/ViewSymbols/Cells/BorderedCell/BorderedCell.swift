@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class BorderedCell: BaseCollectionViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!

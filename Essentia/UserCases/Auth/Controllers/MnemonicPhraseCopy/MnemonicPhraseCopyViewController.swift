@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet
@@ -59,7 +60,7 @@ class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation 
     
     @IBAction func continueAction(_ sender: Any) {
         EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.mnemonic)
-        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        storeCurrentUser()
         (inject() as AuthRouterInterface).showNext()
     }
     

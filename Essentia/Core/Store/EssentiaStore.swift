@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
+
+func storeCurrentUser() {
+    let user = EssentiaStore.shared.currentUser
+    (inject() as UserStorageServiceInterface).store(user: user)
+}
 
 class EssentiaStore: NSObject {
     static var shared: EssentiaStore = EssentiaStore()
-    
     var currentUser: User = User.notSigned
     var ranks: AssetRank = AssetRank()
     var currentCredentials: CurrentCredentials = .none

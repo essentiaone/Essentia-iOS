@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 fileprivate struct Store {
     var password: String = ""
@@ -168,7 +170,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                     EssentiaStore.shared.currentUser.backup.keystoreUrl = url
                 }
                 self.encodeCurrentUser()
-                (inject() as UserStorageServiceInterface).storeCurrentUser()
+                storeCurrentUser()
             } catch {
                 (inject() as LoggerServiceInterface).log(error.localizedDescription)
             }
@@ -182,7 +184,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             self.encodeCurrentUser()
             let alert = KeystoreSavedAlert(okAction: {
                 EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.keystore)
-                (inject() as UserStorageServiceInterface).storeCurrentUser()
+                storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
             self.present(alert, animated: true)
@@ -196,7 +198,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         guard let currentMnemonic = EssentiaStore.shared.currentUser.mnemonic(withPassword: User.defaultPassword) else { return }
         EssentiaStore.shared.currentUser.encodedMnemonic = User.encrypt(data: currentMnemonic, password: self.store.password)
         EssentiaStore.shared.currentUser.mnemonic = nil
-        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        storeCurrentUser()
     }
     
     // MARK: - UIDocumentBrowserViewControllerDelegate

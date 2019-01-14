@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentTwoButtons: UITableViewCell, NibLoadable {
     @IBOutlet weak var leftButton: UIButton!

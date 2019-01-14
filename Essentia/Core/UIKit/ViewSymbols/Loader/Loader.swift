@@ -9,6 +9,8 @@
 import Foundation
 import SVProgressHUD
 import EssentiaNetworkCore
+import EssCore
+import EssModel
 
 class Loader: LoaderInterface {
     init() {
@@ -18,12 +20,10 @@ class Loader: LoaderInterface {
     
     func show() {
         SVProgressHUD.show()
-        (inject() as LoggerServiceInterface).log("Loader showd")
     }
     
     func hide() {
         SVProgressHUD.dismiss()
-        (inject() as LoggerServiceInterface).log("Loader hidden")
     }
     
     func showError(_ error: Error) {

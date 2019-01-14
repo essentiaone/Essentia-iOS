@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class WalletWelcomeViewController: BaseTableAdapterController {
     // MARK: - Dependences

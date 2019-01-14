@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssModel
+import EssCore
 
 enum AlertType {
     case error

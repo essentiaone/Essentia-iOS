@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentTitleImageButton: UITableViewCell, NibLoadable {
     private lazy var imageProvider: AppImageProviderInterface = inject()

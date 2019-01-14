@@ -10,7 +10,7 @@ import UIKit
 
 class BaseTableAdapterController: BaseViewController {
     // MARK: - Init
-    let tableView: UITableView
+    var tableView: UITableView
     lazy var tableAdapter = TableAdapter(tableView: tableView)
     private var scrollObserver: NSKeyValueObservation?
     
@@ -25,6 +25,10 @@ class BaseTableAdapterController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareTableView()
+    }
+    
+    private func prepareTableView() {
         setupTableView()
         observeScrollInsets()
     }
@@ -53,5 +57,14 @@ class BaseTableAdapterController: BaseViewController {
                 self.tableView.isScrollEnabled = !overTopScroll && !overBottomScroll
             })
         }
+    }
+    
+    func fullRebuildTableView() {
+        self.tableView.delegate = nil
+        self.tableView.dataSource = nil
+        
+        self.tableView = UITableView()
+        self.tableAdapter = TableAdapter(tableView: self.tableView)
+        prepareTableView()
     }
 }

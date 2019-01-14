@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import EssCore
 
-func SwizzleLocalizedFiles() {
+public func SwizzleLocalizedFiles() {
     MethodSwizzleGivenClassName (
         cls: Bundle.self,
         originalSelector: #selector(Bundle.localizedString(forKey:value:table:)),

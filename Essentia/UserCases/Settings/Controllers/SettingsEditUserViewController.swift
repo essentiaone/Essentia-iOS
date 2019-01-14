@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssCore
 
 class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -62,7 +63,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
         }
         self.view.endEditing(true)
         EssentiaStore.shared.currentUser.profile.name = self.enteredName
-        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        storeCurrentUser()
         self.router.pop()
     }
     

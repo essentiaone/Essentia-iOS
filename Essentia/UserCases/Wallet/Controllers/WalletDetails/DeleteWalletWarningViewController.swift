@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class DeleteWalletWarningViewController: QuestionAlertViewController {
     private var wallet: ViewWalletInterface

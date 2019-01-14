@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 class TableComponentCurrentAccount: UITableViewCell, NibLoadable {
     @IBOutlet weak var accountImageView: UIImageView!

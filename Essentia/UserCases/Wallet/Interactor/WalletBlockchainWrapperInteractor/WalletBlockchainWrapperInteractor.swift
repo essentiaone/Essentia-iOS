@@ -10,6 +10,8 @@ import Foundation
 import EssentiaBridgesApi
 import EssentiaNetworkCore
 import HDWalletKit
+import EssCore
+import EssModel
 
 fileprivate struct Constants {
     static var url = "https://b3.essentia.network"
@@ -25,7 +27,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
     }
     
-    func getCoinBalance(for coin: Coin, address: String, balance: @escaping (Double) -> Void) {
+    func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
         case .bitcoin:
             cryptoWallet.bitcoin.getBalance(for: address) { (result) in
@@ -137,7 +139,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
             let data = try Data(hex: erc20Token.generateSendBalanceParameter(toAddress: toAddress,
                                                                     amount: ammountInCrypto).toHexString().addHexPrefix())
             return (value: value, token.address, data: data)
-        case is Coin:
+        case is EssModel.Coin:
             let value = try WeiEthterConverter.toWei(ether: ammountInCrypto)
             let data = data
             return (value: value, address: toAddress, data: data)
@@ -154,7 +156,8 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         guard let pk = wallet.privateKey(withSeed: seed) else {
             throw EssentiaError.txError(.invalidPk)
         }
-        cryptoWallet.ethereum.getTransactionCount(for: wallet.address) { (transactionCountResult) in
+        let address = wallet.address(withSeed: seed)
+        cryptoWallet.ethereum.getTransactionCount(for: address) { (transactionCountResult) in
             switch transactionCountResult {
             case .success(let count):
                 let transaction = EthereumRawTransaction(value: txRwDetails.value,

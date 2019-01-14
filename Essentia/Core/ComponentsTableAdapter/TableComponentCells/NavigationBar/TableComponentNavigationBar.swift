@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentNavigationBar: UITableViewCell, NibLoadable {
     // MARK: - Dependences

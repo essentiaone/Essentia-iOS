@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 fileprivate struct Constans {
     static var cellInset: CGFloat = 5.0

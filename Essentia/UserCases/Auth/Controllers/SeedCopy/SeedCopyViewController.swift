@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
@@ -61,7 +63,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
         switch authType {
         case .backup:
             EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.seed)
-            (inject() as UserStorageServiceInterface).storeCurrentUser()
+            storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let user = User(seed: textView.text)

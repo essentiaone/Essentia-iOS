@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssModel
 
 protocol AuthRouterInterface: class {
     init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate)

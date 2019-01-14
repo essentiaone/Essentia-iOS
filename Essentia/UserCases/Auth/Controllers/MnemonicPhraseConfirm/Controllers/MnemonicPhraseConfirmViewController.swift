@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringControllerDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
@@ -108,7 +110,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         switch authType {
         case .backup:
             EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.mnemonic)
-            (inject() as UserStorageServiceInterface).storeCurrentUser()
+            storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let mnemonic = mnemonic.joined(separator: " ")

@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 fileprivate enum SelectedOption {
     case none
@@ -101,7 +103,7 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
         guard let `self` = self else { return }
         self.tableAdapter.endEditing(true)
         self.wallet.name = self.enteredName
-        (inject() as UserStorageServiceInterface).storeCurrentUser()
+        storeCurrentUser()
         self.dismiss(animated: true)
     }
     
@@ -141,7 +143,7 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
         self.present(DeleteWalletWarningViewController(wallet: wallet, leftAction: {}, rightAction: { [weak self] in
                 guard let `self` = self else { return }
                 EssentiaStore.shared.currentUser.wallet.remove(wallet: self.wallet)
-                (inject() as UserStorageServiceInterface).storeCurrentUser()
+                storeCurrentUser()
                 self.dismiss(animated: true, completion: {
                     (inject() as WalletRouterInterface).show(.walletDeleted(wallet: self.wallet))
                 })

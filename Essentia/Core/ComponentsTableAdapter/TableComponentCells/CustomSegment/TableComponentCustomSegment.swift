@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentCustomSegment: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()

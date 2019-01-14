@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssModel
+import EssCore
 
 class WalletDoneGeneratingAlert: InfoAlertViewController {
     override func viewDidLoad() {

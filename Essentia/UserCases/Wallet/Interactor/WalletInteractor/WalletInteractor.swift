@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import EssCore
+import EssModel
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
@@ -39,7 +41,9 @@ class WalletInteractor: WalletInteractorInterface {
             let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                   coin: coin,
                                                   derivationIndex: UInt32(nextDerivationIndex))
-            let generatedName = walletInfo.name + " " + walletInfo.address.suffix(4)
+            let seed = EssentiaStore.shared.currentCredentials.seed
+            let address = walletInfo.address(withSeed: seed)
+            let generatedName = walletInfo.name + " " + address.suffix(4)
             walletInfo.name = generatedName
             currentlyAddedWallets.append(walletInfo)
         }
@@ -49,8 +53,8 @@ class WalletInteractor: WalletInteractorInterface {
     }
     
     func addTokensToWallet(_ assets: [AssetInterface]) {
-        let wallet = addCoinsToWallet([Coin.ethereum]).first {
-            return $0.coin == Coin.ethereum
+        let wallet = addCoinsToWallet([EssModel.Coin.ethereum]).first {
+            return $0.coin == EssModel.Coin.ethereum
         }
         addTokensToWallet(assets, for: wallet!)
     }
@@ -60,7 +64,7 @@ class WalletInteractor: WalletInteractorInterface {
         tokens.forEach { token in
             let tokenAsset = TokenWallet(token: token, wallet: wallet)
             EssentiaStore.shared.currentUser.wallet.tokenWallets.append(tokenAsset)
-            (inject() as UserStorageServiceInterface).storeCurrentUser()
+            storeCurrentUser()
             (inject() as CurrencyRankDaemonInterface).update()
         }
     }

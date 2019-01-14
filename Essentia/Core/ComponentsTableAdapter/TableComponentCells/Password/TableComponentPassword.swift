@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentPassword: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class EssentiaLoader {
     static func show(callBack: @escaping () -> Void) {

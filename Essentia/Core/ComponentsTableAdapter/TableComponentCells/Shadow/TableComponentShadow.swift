@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentShadow: UITableViewCell, NibLoadable {
     @IBOutlet weak var shadowView: UIView!

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class CopyButton: BaseButton {
     private lazy var colorProvider: AppColorInterface = inject()

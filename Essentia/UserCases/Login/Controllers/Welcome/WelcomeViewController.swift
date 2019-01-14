@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssCore
+import EssModel
 
 class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
     // MARK: - IBOutlet

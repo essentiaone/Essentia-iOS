@@ -7,20 +7,25 @@
 //
 
 import UIKit
-
+import EssCore
+import EssModel
 fileprivate struct Store {
     let wallet: ViewWalletInterface
     var enterdValueInCrypto: String = ""
+    let address: String
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
+        let seed = EssentiaStore.shared.currentCredentials.seed
+        address = wallet.address(withSeed: seed)
+        
     }
     
     var qrText: String {
         guard !enterdValueInCrypto.isEmpty else {
-            return wallet.address
+            return address
         }
-        return wallet.asset.name.lowercased() + ":" + wallet.address + "?" + "value=" + enterdValueInCrypto
+        return wallet.asset.name.lowercased() + ":" + address + "?" + "value=" + enterdValueInCrypto
     }
 }
 class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigation {
@@ -63,7 +68,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                            background: colorProvider.settingsCellsBackround,
                            aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),
-            .titleAction(font: AppFont.bold.withSize(15), title: store.wallet.address, action: copyAction),
+            .titleAction(font: AppFont.bold.withSize(15), title: store.address, action: copyAction),
             .empty(height: 20, background: colorProvider.settingsCellsBackround)]
             + ammountComponent +
             [.separator(inset: .zero),
@@ -106,7 +111,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var copyAction: () -> Void = { [unowned self] in
-        UIPasteboard.general.string = self.store.wallet.address
+        UIPasteboard.general.string = self.store.address
         self.alert.show()
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssCore
 
 class TableComponentTextFieldDetail: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleTextField: UITextField!
