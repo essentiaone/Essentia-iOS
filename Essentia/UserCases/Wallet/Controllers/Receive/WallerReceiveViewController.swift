@@ -9,6 +9,8 @@
 import UIKit
 import EssCore
 import EssModel
+import EssResources
+
 fileprivate struct Store {
     let wallet: ViewWalletInterface
     var enterdValueInCrypto: String = ""
@@ -55,7 +57,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Back"),
-                                right: UIImage(named: "shareIcon")!,
+                                right: (inject() as AppImageProviderInterface).shareIcon,
                                 title: "",
                                 lAction: backAction,
                                 rAction: shareAction),
@@ -85,7 +87,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                                 action: enterAmmoutAction)]
         }
         return [.searchField(title: store.enterdValueInCrypto + " " + store.wallet.asset.symbol,
-                                           icon: UIImage(named: "clearTextField") ?? UIImage() ,
+                                           icon: (inject() as AppImageProviderInterface).clearTextField,
                                            action: clearAction)]
     }
     

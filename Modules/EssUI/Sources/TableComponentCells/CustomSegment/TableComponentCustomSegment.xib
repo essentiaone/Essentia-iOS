@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentCustomSegment" rowHeight="62" id="BjM-hC-Yzj" customClass="TableComponentCustomSegment" customModule="Essentia" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="62"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BjM-hC-Yzj" id="V20-0g-2U2">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="o3d-ob-Mqd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="62.5"/>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                        <connections>
+                            <action selector="didSelectSegment:" destination="BjM-hC-Yzj" eventType="valueChanged" id="5nP-OS-Gpp"/>
+                        </connections>
+                    </segmentedControl>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XaH-ho-h8c">
+                        <rect key="frame" x="44" y="59.5" width="240" height="2"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="o3d-ob-Mqd" secondAttribute="bottom" id="M6H-78-4oZ"/>
+                    <constraint firstItem="o3d-ob-Mqd" firstAttribute="top" secondItem="V20-0g-2U2" secondAttribute="top" id="bd8-dm-WM2"/>
+                    <constraint firstAttribute="trailing" secondItem="o3d-ob-Mqd" secondAttribute="trailing" id="vxE-VN-RBQ"/>
+                    <constraint firstItem="o3d-ob-Mqd" firstAttribute="leading" secondItem="V20-0g-2U2" secondAttribute="leading" id="xfL-NK-flH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="indicatorView" destination="XaH-ho-h8c" id="49M-fv-4tQ"/>
+                <outlet property="segmentControl" destination="o3d-ob-Mqd" id="AKo-OI-uAT"/>
+            </connections>
+            <point key="canvasLocation" x="231" y="74"/>
+        </tableViewCell>
+    </objects>
+</document>

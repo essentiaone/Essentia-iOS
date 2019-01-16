@@ -10,9 +10,6 @@
 		3401AF2620F7C2CA006DEF49 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */; };
 		3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */; };
 		3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */; };
-		3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4120F7D0F1006DEF49 /* AppFont.swift */; };
-		3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4520F7D669006DEF49 /* AppColorInterface.swift */; };
-		3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */; };
 		3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */; };
 		3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF5620F80822006DEF49 /* WelcomeViewController.xib */; };
 		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
@@ -21,7 +18,6 @@
 		3401AF6720F8299A006DEF49 /* CopyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6620F8299A006DEF49 /* CopyButton.swift */; };
 		3401AF6A20F82AB5006DEF49 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6920F82AB5006DEF49 /* BaseViewController.swift */; };
 		3401AF6C20F82CB7006DEF49 /* BaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF6B20F82CB7006DEF49 /* BaseButton.swift */; };
-		3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF7420FD20AD006DEF49 /* Localizable.strings */; };
 		3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */; };
 		3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */; };
 		3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */; };
@@ -29,8 +25,6 @@
 		3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */; };
 		3401AF9820FFF605006DEF49 /* WarningViewContrller.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */; };
 		3401AF9A20FFF678006DEF49 /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9920FFF678006DEF49 /* BackButton.swift */; };
-		3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */; };
-		3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */; };
 		3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA121000078006DEF49 /* BackupDesign.swift */; };
 		3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */; };
 		3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */; };
@@ -65,6 +59,8 @@
 		3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */; };
 		3416054621B842C90058851F /* WalletDeletedWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */; };
 		3418A292219C788C00249E8C /* EtherTxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3418A291219C788C00249E8C /* EtherTxInfo.swift */; };
+		3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347DB23421ED55C8004420FA /* EssResources.framework */; };
+		3426963221ED5BB40063E2D8 /* EssResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 347DB23421ED55C8004420FA /* EssResources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		343122642124A0DA009E4A7A /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122632124A0DA009E4A7A /* BackupType.swift */; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
 		3431226B2124AEDF009E4A7A /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431226A2124AEDF009E4A7A /* BaseTableAdapterController.swift */; };
@@ -75,7 +71,6 @@
 		343122792124EA49009E4A7A /* TableComponentCenteredButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 343122782124EA49009E4A7A /* TableComponentCenteredButton.xib */; };
 		3431227B2124EA51009E4A7A /* TableComponentCenteredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227A2124EA51009E4A7A /* TableComponentCenteredButton.swift */; };
 		3431227D2125D1A3009E4A7A /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3431227C2125D1A3009E4A7A /* TableAdapterHelper.swift */; };
-		343C84F421D50617000FEE9A /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 343C84F321D50617000FEE9A /* libEssModel.a */; };
 		343C84F521D50617000FEE9A /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1436D21D3C9C700EC06AE /* libEssCore.a */; };
 		3440C32B2173BCE200A58465 /* TableComponentCustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3440C32A2173BCE200A58465 /* TableComponentCustomSegment.swift */; };
 		3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3440C32D2173BD0A00A58465 /* TableComponentCustomSegment.xib */; };
@@ -264,15 +259,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		3426963321ED5BB40063E2D8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3426963221ED5BB40063E2D8 /* EssResources.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		3401AF2220F7C2CA006DEF49 /* Essentia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Essentia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3401AF2520F7C2CA006DEF49 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3401AF2F20F7C2CD006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3401AF3120F7C2CD006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3401AF4120F7D0F1006DEF49 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
-		3401AF4520F7D669006DEF49 /* AppColorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorInterface.swift; sourceTree = "<group>"; };
-		3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultColorSheme.swift; sourceTree = "<group>"; };
 		3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		3401AF5620F80822006DEF49 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -281,7 +287,6 @@
 		3401AF6620F8299A006DEF49 /* CopyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyButton.swift; sourceTree = "<group>"; };
 		3401AF6920F82AB5006DEF49 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3401AF6B20F82CB7006DEF49 /* BaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseButton.swift; sourceTree = "<group>"; };
-		3401AF7520FD20B9006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesignInterface.swift; sourceTree = "<group>"; };
 		3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesign.swift; sourceTree = "<group>"; };
 		3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependenceProvider.swift; sourceTree = "<group>"; };
@@ -289,8 +294,6 @@
 		3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewContrller.swift; sourceTree = "<group>"; };
 		3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WarningViewContrller.xib; sourceTree = "<group>"; };
 		3401AF9920FFF678006DEF49 /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
-		3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageProviderInterface.swift; sourceTree = "<group>"; };
-		3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppImageProvider.swift; sourceTree = "<group>"; };
 		3401AFA121000078006DEF49 /* BackupDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesign.swift; sourceTree = "<group>"; };
 		3401AFA32100008B006DEF49 /* BackupDesingInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesingInterface.swift; sourceTree = "<group>"; };
 		3401AFB121012D93006DEF49 /* EssentiaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentiaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,6 +423,7 @@
 		347AB73B219F8C4C00C3FB8A /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		347AB73D219F8CCE00C3FB8A /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		347CCDAE218CA75000E894DD /* SendEthTransactionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendEthTransactionDetailViewController.swift; sourceTree = "<group>"; };
+		347DB23421ED55C8004420FA /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadPlaceholderViewController.swift; sourceTree = "<group>"; };
 		34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadPlaceholderViewController.xib; sourceTree = "<group>"; };
 		348BC793217F0F6000F494A8 /* BaseAccountStrengthCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAccountStrengthCell.swift; sourceTree = "<group>"; };
@@ -462,7 +466,6 @@
 		34B1436D21D3C9C700EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1444321D3DFC900EC06AE /* EssentiaStore+ViewWalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EssentiaStore+ViewWalletInterface.swift"; sourceTree = "<group>"; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
-		34B27A37213043A900527F15 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		34B27A4A21336B5900527F15 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
 		34B79658212C084B000B1251 /* TableComponentPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentPassword.swift; sourceTree = "<group>"; };
@@ -527,7 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				343C84F521D50617000FEE9A /* libEssCore.a in Frameworks */,
-				343C84F421D50617000FEE9A /* libEssModel.a in Frameworks */,
+				3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */,
 				E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,7 +606,6 @@
 		3401AF3920F7C3BC006DEF49 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3401AF6F20FD2043006DEF49 /* Localization */,
 				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
 				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
 				3401AF3120F7C2CD006DEF49 /* Info.plist */,
@@ -627,26 +629,8 @@
 			isa = PBXGroup;
 			children = (
 				3401AFDA21033B0A006DEF49 /* Layout */,
-				3401AF9B20FFF763006DEF49 /* AssetsProviders */,
 			);
 			path = Componets;
-			sourceTree = "<group>";
-		};
-		3401AF4720F7DC9F006DEF49 /* Font */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF4120F7D0F1006DEF49 /* AppFont.swift */,
-			);
-			path = Font;
-			sourceTree = "<group>";
-		};
-		3401AF4820F7DCAA006DEF49 /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF4520F7D669006DEF49 /* AppColorInterface.swift */,
-				3401AF4920F7DD88006DEF49 /* DefaultColorSheme.swift */,
-			);
-			path = Color;
 			sourceTree = "<group>";
 		};
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
@@ -710,14 +694,6 @@
 				3451601621AD8F5F0007451D /* BaseBluredTableAdapterController.swift */,
 			);
 			path = UIKit;
-			sourceTree = "<group>";
-		};
-		3401AF6F20FD2043006DEF49 /* Localization */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF7420FD20AD006DEF49 /* Localizable.strings */,
-			);
-			path = Localization;
 			sourceTree = "<group>";
 		};
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
@@ -789,25 +765,6 @@
 				3401AF9720FFF605006DEF49 /* WarningViewContrller.xib */,
 			);
 			path = Warning;
-			sourceTree = "<group>";
-		};
-		3401AF9B20FFF763006DEF49 /* AssetsProviders */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF9C20FFF771006DEF49 /* Image */,
-				3401AF4720F7DC9F006DEF49 /* Font */,
-				3401AF4820F7DCAA006DEF49 /* Color */,
-			);
-			path = AssetsProviders;
-			sourceTree = "<group>";
-		};
-		3401AF9C20FFF771006DEF49 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF9D20FFF78E006DEF49 /* AppImageProviderInterface.swift */,
-				3401AF9F20FFF797006DEF49 /* AppImageProvider.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		3401AFB221012D93006DEF49 /* EssentiaTests */ = {
@@ -1827,6 +1784,7 @@
 		E89F81E827245E426E0DF11A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				347DB23421ED55C8004420FA /* EssResources.framework */,
 				343C84F321D50617000FEE9A /* libEssModel.a */,
 				34B1436D21D3C9C700EC06AE /* libEssCore.a */,
 				A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */,
@@ -1848,6 +1806,7 @@
 				3401AF5F20F81011006DEF49 /* Swift Lint */,
 				3401AF6020F81284006DEF49 /* Fabric */,
 				4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */,
+				3426963321ED5BB40063E2D8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1954,7 +1913,6 @@
 				34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */,
 				3448264721107A4B00C19EB3 /* EditingCell.xib in Resources */,
 				34FCB99B2189158D00A88D56 /* TableComponentTitleCenterTextDetail.xib in Resources */,
-				3401AF7220FD20AD006DEF49 /* Localizable.strings in Resources */,
 				349131E521938EE2009D5FF1 /* TableComponentImageTitleSubtitle.xib in Resources */,
 				345F1193219742E90010095F /* TableComponentContainer.xib in Resources */,
 				3440C32E2173BD0A00A58465 /* TableComponentCustomSegment.xib in Resources */,
@@ -2005,7 +1963,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		3401AF6020F81284006DEF49 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2113,7 +2071,6 @@
 				3401AFA42100008B006DEF49 /* BackupDesingInterface.swift in Sources */,
 				34737BDE2151598E008A306F /* TableComponentBalanceChanging.swift in Sources */,
 				344958DA21412CA400C2230B /* WalletWelcomeViewController.swift in Sources */,
-				3401AF9E20FFF78E006DEF49 /* AppImageProviderInterface.swift in Sources */,
 				34482694211DDDEF00C19EB3 /* Dwifft.swift in Sources */,
 				34482667211A620C00C19EB3 /* InfoAlertViewController.swift in Sources */,
 				344826A32120B1B700C19EB3 /* TableComponentEmpty.swift in Sources */,
@@ -2132,7 +2089,6 @@
 				3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */,
 				3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */,
 				3401AF5920F80B21006DEF49 /* main.swift in Sources */,
-				3401AF4A20F7DD88006DEF49 /* DefaultColorSheme.swift in Sources */,
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
 				349AA4A221230CCE00E9256F /* TableComponentAccountStrength.swift in Sources */,
 				34EB0B7021E76CD800F4B46F /* TransactionStatus+Assets.swift in Sources */,
@@ -2152,7 +2108,6 @@
 				343122642124A0DA009E4A7A /* BackupType.swift in Sources */,
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
 				345F118A2197406E0010095F /* TableComponentBlure.swift in Sources */,
-				3401AF4220F7D0F1006DEF49 /* AppFont.swift in Sources */,
 				34DC8B8321778EEE00ACA5D2 /* WalletDetailViewController.swift in Sources */,
 				345F118721973FE60010095F /* WalletOptionsViewController.swift in Sources */,
 				344826A62120B4A200C19EB3 /* TableComponentTitle.swift in Sources */,
@@ -2219,13 +2174,11 @@
 				3445D49E2167B6020014A2B0 /* CurrencyRankDemonInterface.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */,
-				3401AF4620F7D669006DEF49 /* AppColorInterface.swift in Sources */,
 				344826C12121833E00C19EB3 /* TableComponentSwitch.swift in Sources */,
 				34EB0B9821E7721500F4B46F /* GeneratedWallet+WalletInterface.swift in Sources */,
 				34E706E6219CFCFF002A52E3 /* SelectedTransacrionAmmount.swift in Sources */,
 				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				349131E721938EFD009D5FF1 /* TableComponentImageTitleSubtitle.swift in Sources */,
-				3401AFA020FFF797006DEF49 /* AppImageProvider.swift in Sources */,
 				3448264521107A2100C19EB3 /* EditingCell.swift in Sources */,
 				347CCDAF218CA75000E894DD /* SendEthTransactionDetailViewController.swift in Sources */,
 				340AC004219B86D200DEAFF1 /* EssentiaConstants.swift in Sources */,
@@ -2288,15 +2241,6 @@
 				3401AF2F20F7C2CD006DEF49 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		3401AF7420FD20AD006DEF49 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3401AF7520FD20B9006DEF49 /* Base */,
-				34B27A37213043A900527F15 /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssResources
 
 class TableComponentMenuButton: UITableViewCell {
     override func awakeFromNib() {

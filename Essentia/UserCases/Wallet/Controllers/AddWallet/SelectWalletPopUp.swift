@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssResources
 
 final class SelectWalletPopUp: BaseBluredTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()

@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class BackButton: BaseButton {
     private lazy var colorProvider: AppColorInterface = inject()

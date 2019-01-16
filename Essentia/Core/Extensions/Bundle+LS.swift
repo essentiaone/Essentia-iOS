@@ -19,14 +19,20 @@ public func SwizzleLocalizedFiles() {
 
 extension Bundle {
     @objc func specialLocalizedString(key: String, value: String?, table tableName: String?) -> String {
-        let currentLanguage = EssentiaStore.shared.currentUser.profile.language.localizationFileName
-        var bundle: Bundle
-        if let _path = Bundle.main.path(forResource: currentLanguage, ofType: "lproj") {
-            bundle = Bundle(path: _path)!
-        } else {
-            let _path = Bundle.main.path(forResource: "Base", ofType: "lproj")!
-            bundle = Bundle(path: _path)!
+        guard let bundle = Bundle(path: pathForCurrentLanguageResources) else {
+            fatalError("Resource framework is not connected!")
         }
-        return (bundle.specialLocalizedString(key: key, value: value, table: tableName))
+        return bundle.specialLocalizedString(key: key, value: value, table: tableName)
+    }
+    
+    private var pathForCurrentLanguageResources: String {
+        let currentLanguage = EssentiaStore.shared.currentUser.profile.language.localizationFileName
+        guard let resourcesBundle = Bundle(identifier: "Essentia.EssResources") else {
+            fatalError("Resource framework is not connected!")
+        }
+        guard let path = resourcesBundle.path(forResource: currentLanguage, ofType: "lproj") else {
+            return resourcesBundle.path(forResource: "Base", ofType: "lproj") ?? ""
+        }
+        return path
     }
 }

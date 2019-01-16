@@ -8,7 +8,7 @@
 
 import UIKit
 import EssCore
-
+import EssResources
 class TableComponentCustomSegment: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()
     @IBOutlet weak var segmentControl: UISegmentedControl!

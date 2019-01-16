@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()

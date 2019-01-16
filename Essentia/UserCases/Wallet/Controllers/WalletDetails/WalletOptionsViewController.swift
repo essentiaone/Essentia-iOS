@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssResources
 
 fileprivate enum SelectedOption {
     case none

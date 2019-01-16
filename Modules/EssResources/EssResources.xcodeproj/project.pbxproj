@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3419F76721ED590500E65287 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3419F75D21ED590500E65287 /* EssResources.framework */; };
+		3419F76C21ED590500E65287 /* EssResourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3419F76B21ED590500E65287 /* EssResourcesTests.swift */; };
+		3426962A21ED59980063E2D8 /* EssResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 3426962221ED59980063E2D8 /* EssResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3426962C21ED59980063E2D8 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3426962521ED59980063E2D8 /* Localizable.strings */; };
+		34DF5CD921EDEC2C006E440B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34DF5CD821EDEC2C006E440B /* Assets.xcassets */; };
+		34DF5CE221EE8D75006E440B /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CDB21EE8D75006E440B /* AppFont.swift */; };
+		34DF5CE321EE8D75006E440B /* AppImageProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CDD21EE8D75006E440B /* AppImageProviderInterface.swift */; };
+		34DF5CE421EE8D75006E440B /* AppImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CDE21EE8D75006E440B /* AppImageProvider.swift */; };
+		34DF5CE521EE8D75006E440B /* DefaultColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */; };
+		34DF5CE621EE8D75006E440B /* AppColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CE121EE8D75006E440B /* AppColorInterface.swift */; };
+		551D59C85F97CA98ABBF75EE /* Pods_EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F50C456BC0C79F10C0253A /* Pods_EssResources.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3419F76821ED590500E65287 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3419F75421ED590500E65287 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3419F75C21ED590500E65287;
+			remoteInfo = EssResources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		12F50C456BC0C79F10C0253A /* Pods_EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3419F75D21ED590500E65287 /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3419F76621ED590500E65287 /* EssResourcesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssResourcesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3419F76B21ED590500E65287 /* EssResourcesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssResourcesTests.swift; sourceTree = "<group>"; };
+		3419F76D21ED590500E65287 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3426962221ED59980063E2D8 /* EssResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EssResources.h; sourceTree = "<group>"; };
+		3426962621ED59980063E2D8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3426962721ED59980063E2D8 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3426962821ED59980063E2D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3426962921ED59980063E2D8 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3426962D21ED5A0D0063E2D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		34DF5CD821EDEC2C006E440B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		34DF5CDB21EE8D75006E440B /* AppFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
+		34DF5CDD21EE8D75006E440B /* AppImageProviderInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageProviderInterface.swift; sourceTree = "<group>"; };
+		34DF5CDE21EE8D75006E440B /* AppImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageProvider.swift; sourceTree = "<group>"; };
+		34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorSheme.swift; sourceTree = "<group>"; };
+		34DF5CE121EE8D75006E440B /* AppColorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorInterface.swift; sourceTree = "<group>"; };
+		56C7D9A010A9287AA8716A42 /* Pods-EssResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssResources.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssResources/Pods-EssResources.release.xcconfig"; sourceTree = "<group>"; };
+		68FDD8434312EC3728A27B39 /* Pods-EssResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssResources.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssResources/Pods-EssResources.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3419F75A21ED590500E65287 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				551D59C85F97CA98ABBF75EE /* Pods_EssResources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3419F76321ED590500E65287 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3419F76721ED590500E65287 /* EssResources.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3419F75321ED590500E65287 = {
+			isa = PBXGroup;
+			children = (
+				3426962121ED59980063E2D8 /* Resources */,
+				3426962021ED59970063E2D8 /* Sources */,
+				3419F76A21ED590500E65287 /* EssResourcesTests */,
+				3419F75E21ED590500E65287 /* Products */,
+				D85A5F3B8E5E23CDB279C5F6 /* Pods */,
+				A7A21F8FF7342D2726132EC9 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3419F75E21ED590500E65287 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3419F75D21ED590500E65287 /* EssResources.framework */,
+				3419F76621ED590500E65287 /* EssResourcesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3419F76A21ED590500E65287 /* EssResourcesTests */ = {
+			isa = PBXGroup;
+			children = (
+				3419F76B21ED590500E65287 /* EssResourcesTests.swift */,
+				3419F76D21ED590500E65287 /* Info.plist */,
+			);
+			path = EssResourcesTests;
+			sourceTree = "<group>";
+		};
+		3426962021ED59970063E2D8 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				34DF5CDF21EE8D75006E440B /* Color */,
+				34DF5CDA21EE8D75006E440B /* Font */,
+				34DF5CDC21EE8D75006E440B /* Image */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3426962121ED59980063E2D8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3426962D21ED5A0D0063E2D8 /* Info.plist */,
+				3426962221ED59980063E2D8 /* EssResources.h */,
+				3426962421ED59980063E2D8 /* Localization */,
+				34DF5CD821EDEC2C006E440B /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3426962421ED59980063E2D8 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				3426962521ED59980063E2D8 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		34DF5CDA21EE8D75006E440B /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				34DF5CDB21EE8D75006E440B /* AppFont.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		34DF5CDC21EE8D75006E440B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				34DF5CDD21EE8D75006E440B /* AppImageProviderInterface.swift */,
+				34DF5CDE21EE8D75006E440B /* AppImageProvider.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		34DF5CDF21EE8D75006E440B /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */,
+				34DF5CE121EE8D75006E440B /* AppColorInterface.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		A7A21F8FF7342D2726132EC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				12F50C456BC0C79F10C0253A /* Pods_EssResources.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D85A5F3B8E5E23CDB279C5F6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				68FDD8434312EC3728A27B39 /* Pods-EssResources.debug.xcconfig */,
+				56C7D9A010A9287AA8716A42 /* Pods-EssResources.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3419F75821ED590500E65287 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3426962A21ED59980063E2D8 /* EssResources.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		3419F75C21ED590500E65287 /* EssResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3419F77121ED590500E65287 /* Build configuration list for PBXNativeTarget "EssResources" */;
+			buildPhases = (
+				F105ABF6A816194805716033 /* [CP] Check Pods Manifest.lock */,
+				3419F75821ED590500E65287 /* Headers */,
+				3419F75921ED590500E65287 /* Sources */,
+				3419F75A21ED590500E65287 /* Frameworks */,
+				3419F75B21ED590500E65287 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EssResources;
+			productName = EssResources;
+			productReference = 3419F75D21ED590500E65287 /* EssResources.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3419F76521ED590500E65287 /* EssResourcesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3419F77421ED590500E65287 /* Build configuration list for PBXNativeTarget "EssResourcesTests" */;
+			buildPhases = (
+				3419F76221ED590500E65287 /* Sources */,
+				3419F76321ED590500E65287 /* Frameworks */,
+				3419F76421ED590500E65287 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3419F76921ED590500E65287 /* PBXTargetDependency */,
+			);
+			name = EssResourcesTests;
+			productName = EssResourcesTests;
+			productReference = 3419F76621ED590500E65287 /* EssResourcesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3419F75421ED590500E65287 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Pavlo Boiko";
+				TargetAttributes = {
+					3419F75C21ED590500E65287 = {
+						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
+					};
+					3419F76521ED590500E65287 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 3419F75721ED590500E65287 /* Build configuration list for PBXProject "EssResources" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ko,
+				Base,
+				"zh-Hant",
+			);
+			mainGroup = 3419F75321ED590500E65287;
+			productRefGroup = 3419F75E21ED590500E65287 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3419F75C21ED590500E65287 /* EssResources */,
+				3419F76521ED590500E65287 /* EssResourcesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3419F75B21ED590500E65287 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34DF5CD921EDEC2C006E440B /* Assets.xcassets in Resources */,
+				3426962C21ED59980063E2D8 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3419F76421ED590500E65287 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F105ABF6A816194805716033 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EssResources-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3419F75921ED590500E65287 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34DF5CE521EE8D75006E440B /* DefaultColorSheme.swift in Sources */,
+				34DF5CE321EE8D75006E440B /* AppImageProviderInterface.swift in Sources */,
+				34DF5CE221EE8D75006E440B /* AppFont.swift in Sources */,
+				34DF5CE421EE8D75006E440B /* AppImageProvider.swift in Sources */,
+				34DF5CE621EE8D75006E440B /* AppColorInterface.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3419F76221ED590500E65287 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3419F76C21ED590500E65287 /* EssResourcesTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3419F76921ED590500E65287 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3419F75C21ED590500E65287 /* EssResources */;
+			targetProxy = 3419F76821ED590500E65287 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3426962521ED59980063E2D8 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3426962621ED59980063E2D8 /* en */,
+				3426962721ED59980063E2D8 /* ko */,
+				3426962821ED59980063E2D8 /* Base */,
+				3426962921ED59980063E2D8 /* zh-Hant */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3419F76F21ED590500E65287 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3419F77021ED590500E65287 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3419F77221ED590500E65287 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68FDD8434312EC3728A27B39 /* Pods-EssResources.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_NAME = EssResources;
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssResources;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3419F77321ED590500E65287 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 56C7D9A010A9287AA8716A42 /* Pods-EssResources.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULE_NAME = EssResources;
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssResources;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "$(SWIFT_MODULE_NAME)-Swift.h";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3419F77521ED590500E65287 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				INFOPLIST_FILE = EssResourcesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssResourcesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3419F77621ED590500E65287 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				INFOPLIST_FILE = EssResourcesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssResourcesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3419F75721ED590500E65287 /* Build configuration list for PBXProject "EssResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3419F76F21ED590500E65287 /* Debug */,
+				3419F77021ED590500E65287 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3419F77121ED590500E65287 /* Build configuration list for PBXNativeTarget "EssResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3419F77221ED590500E65287 /* Debug */,
+				3419F77321ED590500E65287 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3419F77421ED590500E65287 /* Build configuration list for PBXNativeTarget "EssResourcesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3419F77521ED590500E65287 /* Debug */,
+				3419F77621ED590500E65287 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3419F75421ED590500E65287 /* Project object */;
+}

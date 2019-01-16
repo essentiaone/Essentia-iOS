@@ -9,6 +9,7 @@
 import UIKit
 import EssModel
 import EssCore
+import EssResources
 
 enum AlertType {
     case error
@@ -17,9 +18,9 @@ enum AlertType {
     var prefixImage: UIImage {
         switch self {
         case .info:
-            return UIImage(named: "topAlertInfo")!
+            return (inject() as AppImageProviderInterface).topAlertInfo
         case .error:
-            return UIImage(named: "topAlertCancel")!
+            return (inject() as AppImageProviderInterface).topAlertCancel
         }
     }
     

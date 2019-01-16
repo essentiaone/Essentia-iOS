@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class WalletWelcomeViewController: BaseTableAdapterController {
     // MARK: - Dependences
@@ -39,9 +40,10 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     
     // MARK: - State
     private var state: [TableComponent] {
+        let currentImage = AppImageProvider.image(name: "walletOnbording\(currentPosition)")
         return [
             .calculatbleSpace(background: .clear),
-            .centeredImage(image: UIImage(named: "walletOnbording\(currentPosition)") ?? UIImage()),
+            .centeredImage(image: currentImage),
             .empty(height: 45, background: .clear),
             .titleWithFontAligment(font: AppFont.bold.withSize(32), title: LS("Wallet.Onbording\(currentPosition).Title"), aligment: .center, color: .white),
             .descriptionWithSize(aligment: .center,

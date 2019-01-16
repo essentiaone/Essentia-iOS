@@ -9,6 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
+import EssResources
 
 extension User {
     convenience init(mnemonic: String) {
@@ -20,6 +21,8 @@ extension User {
     convenience init(seed: String) {
         let index = (inject() as UserStorageServiceInterface).freeIndex
         let name = LS("Settings.CurrentAccountTitle.Default") + " (\(index))"
-        self.init(seed: seed, index: index, name: name)
+        let icon = (inject() as AppImageProviderInterface).testAvatar
+        self.init(seed: seed, index: index, image: icon, name: name)
+        
     }
 }

@@ -29,21 +29,16 @@ public class User: NSObject, Codable {
     public var seed: String?
     public var mnemonic: String?
     
-    public convenience init(mnemonic: String, seed: String, index: Int, name: String) {
-      self.init(seed: seed, index: index, name: name)
+    public convenience init(mnemonic: String, seed: String, index: Int, image: UIImage, name: String) {
+      self.init(seed: seed, index: index, image: image, name: name)
       self.encodedMnemonic = User.encrypt(data: mnemonic, password: User.defaultPassword)
     }
     
-    public convenience init(seed: String, image: UIImage, name: String, index: Int) {
-        self.init(seed: seed, index: index, name: name)
-        self.profile = UserProfile(image: image, name: name)
-    }
-    
-    public init(seed: String, index: Int, name: String) {
+    public init(seed: String, index: Int, image: UIImage, name: String) {
         // That mean you shold re-encode mnemonic and seed before you close app
         User.defaultPassword = Mnemonic.create().md5()
         self.id = String(Int(Date().timeIntervalSince1970))
-        self.profile = UserProfile()
+        self.profile = UserProfile(image: image, name: name)
         self.index = index
         self.encodedSeed = User.encrypt(data: seed, password: User.defaultPassword)
     }
@@ -51,7 +46,7 @@ public class User: NSObject, Codable {
     public override init() {
         self.id = ""
         self.encodedSeed = Data()
-        self.profile = UserProfile()
+        self.profile = UserProfile(image: UIImage(), name: "")
         self.index = -1
     }
     

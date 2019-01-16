@@ -11,6 +11,7 @@ import HDWalletKit
 import QRCodeReader
 import EssCore
 import EssModel
+import EssResources
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
@@ -25,7 +26,7 @@ fileprivate struct Store {
     var fastGasSpeed: Double = 25.0
     var keyboardHeight: CGFloat = 0
     var qrImage: UIImage {
-        return UIImage(named: "qrCode")!
+        return (inject() as AppImageProviderInterface).qrCode
     }
     
     var isValidTransaction: Bool {

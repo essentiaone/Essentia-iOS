@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableAdapterHelper {
     private weak var tableView: UITableView!

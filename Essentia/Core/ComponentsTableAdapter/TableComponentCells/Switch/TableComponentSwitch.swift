@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentSwitch: UITableViewCell, NibLoadable {
     @IBOutlet weak var switchView: UISwitch!

@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentTitleImageButton: UITableViewCell, NibLoadable {
     private lazy var imageProvider: AppImageProviderInterface = inject()

@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class LaunchpadPlaceholderViewController: BaseViewController {
     @IBOutlet weak var topPlaceholderView: UIView!
@@ -63,8 +64,8 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         titleLabel.font = AppFont.bold.withSize(34)
         arrowLabel.font = AppFont.medium.withSize(16)
         
-        titleImageView.image = UIImage(named: "launchpadPlaceholder")
-        arrowImageView.image = UIImage(named: "upArrow")
+        titleImageView.image = (inject() as AppImageProviderInterface).launchpadPlaceholder
+        arrowImageView.image = (inject() as AppImageProviderInterface).upArrow
     }
     
     private func addRecognizer() {
@@ -94,7 +95,7 @@ class LaunchpadPlaceholderViewController: BaseViewController {
     
     private var state: [TableComponent] {
         return [.empty(height: 48, background: RGB(183, 192, 208)),
-        .centeredImageButton(image: UIImage(named: "arrowDown")!, action: swipDownAction),
+        .centeredImageButton(image:  (inject() as AppImageProviderInterface).arrowDown, action: swipDownAction),
         .empty(height: 20, background: .white),
         .titleWithFont(font: AppFont.bold.withSize(34), title: LS("Launchpad.Placeholder.Detail.Title"), background: .white, aligment: .left),
         .empty(height: 20, background: .white)] + featuresState
@@ -104,7 +105,8 @@ class LaunchpadPlaceholderViewController: BaseViewController {
         var features: [TableComponent] = []
         for i in 0..<11 {
             let componentName = "Launchpad.Placeholder.Detail.Feature\(i)."
-            features.append(.imageTitleSubtitle(image: UIImage(named: "todo\(i)") ?? UIImage(),
+            let image = AppImageProvider.image(name: "todo\(i)")
+            features.append(.imageTitleSubtitle(image: image,
                                                 title: LS(componentName + "Title"),
                                                 subtitle: LS(componentName + "Detail")))
             features.append(.separator(inset: UIEdgeInsets(top: 0, left: 114, bottom: 0, right: 0)))

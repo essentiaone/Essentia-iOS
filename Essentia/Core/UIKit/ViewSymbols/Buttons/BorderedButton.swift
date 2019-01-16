@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class BorderedButton: BaseButton {
     private lazy var colorProvider: AppColorInterface = inject()
