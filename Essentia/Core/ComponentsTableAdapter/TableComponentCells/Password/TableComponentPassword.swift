@@ -49,7 +49,7 @@ class TableComponentPassword: UITableViewCell, NibLoadable {
         descriptionLabel.textColor = colorProvider.appTitleColor
         passwordStatusLabel.textColor = colorProvider.validPasswordIndicator
         separatorView.backgroundColor = colorProvider.separatorBackgroundColor
-        passwordVisibleButton.setImage((inject() as AppImageProvider).passwordVisible, for: .normal)
+        passwordVisibleButton.setImage((inject() as AppImageProviderInterface).passwordVisible, for: .normal)
         passwordVisibleButton.isSelected = false
         passwordVisibleButton.backgroundColor = .clear
         passwordTextField.isSecureTextEntry = true
