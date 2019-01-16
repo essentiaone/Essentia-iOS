@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssResources
 
 class TableComponentCurrentAccount: UITableViewCell, NibLoadable {
     @IBOutlet weak var accountImageView: UIImageView!

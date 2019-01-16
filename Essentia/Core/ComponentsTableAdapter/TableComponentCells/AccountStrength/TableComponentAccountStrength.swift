@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentAccountStrength: BaseAccountStrengthCell, NibLoadable {
     private lazy var colorProvider: AppColorInterface = inject()

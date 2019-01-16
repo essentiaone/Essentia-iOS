@@ -8,7 +8,7 @@
 
 import UIKit
 import EssCore
-
+import EssResources
 class TableComponentCheckField: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var checkImageView: UIImageView!

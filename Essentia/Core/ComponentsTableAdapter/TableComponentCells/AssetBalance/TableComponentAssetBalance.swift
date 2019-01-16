@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentAssetBalance: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleImage: UIImageView!

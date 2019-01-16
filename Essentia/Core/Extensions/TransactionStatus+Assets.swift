@@ -9,6 +9,7 @@
 import UIKit
 import EssModel
 import EssCore
+import EssResources
 
 extension TransactionStatus {
     func iconForTxType(_ type: TransactionType) -> UIImage {

@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class CenteredButton: BaseButton {
     private lazy var colorProvider: AppColorInterface = inject()

@@ -10,6 +10,7 @@ import Foundation
 import EssentiaNetworkCore
 import EssCore
 import EssModel
+import EssResources
 
 class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences

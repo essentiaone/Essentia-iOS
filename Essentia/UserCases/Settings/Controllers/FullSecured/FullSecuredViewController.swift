@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssResources
 
 class FullSecuredViewController: BaseViewController {
     @IBOutlet weak var animationImageView: UIImageView!

@@ -12,6 +12,7 @@ import EssentiaBridgesApi
 import EssCore
 import HDWalletKit
 import EssModel
+import EssResources
 
 fileprivate struct Store {
     var isLoadingTransactions: Bool = false

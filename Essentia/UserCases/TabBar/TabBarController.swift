@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 fileprivate enum Constants: String {
     case walletOnbordingKey

@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import EssCore
+import EssResources
 
 class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Dependences

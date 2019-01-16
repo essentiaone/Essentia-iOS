@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentTitleCenterDetail: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!

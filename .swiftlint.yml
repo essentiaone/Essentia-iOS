@@ -15,5 +15,7 @@ excluded:
   - installer
   - vendor/
   - Essentia/Third-Party
+  - Modules/EssUI/Sources/TableAdapter.swift
+  - Modules/EssUI/Sources/TableAdapterHelper.swift
   - Essentia/Core/ComponentsTableAdapter/TableAdapter.swift
   - Essentia/Core/ComponentsTableAdapter/TableAdapterHelper.swift

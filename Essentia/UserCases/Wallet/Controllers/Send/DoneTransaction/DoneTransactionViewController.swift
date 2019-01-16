@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class DoneTransactionViewController: BaseViewController {
     @IBOutlet weak var animationImageView: UIImageView!

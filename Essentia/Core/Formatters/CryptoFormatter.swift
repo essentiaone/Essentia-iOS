@@ -12,6 +12,7 @@ import EssentiaBridgesApi
 import HDWalletKit
 import EssCore
 import EssModel
+import EssResources
 
 class CryptoFormatter {
     static func formattedAmmount(amount: Double?, type: TransactionType, asset: AssetInterface) -> NSAttributedString {

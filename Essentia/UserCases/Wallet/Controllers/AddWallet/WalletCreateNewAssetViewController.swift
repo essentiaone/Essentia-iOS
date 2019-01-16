@@ -9,6 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
+import EssResources
 
 fileprivate struct Store {
     var selectedComponent: Int = 0

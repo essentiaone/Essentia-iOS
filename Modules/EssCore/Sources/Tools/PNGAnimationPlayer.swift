@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssResources
 
 public enum PNGAnimation: String {
     case exchange
@@ -32,7 +33,7 @@ public enum PNGAnimation: String {
     
     public func imageAtIndex(index: Int) -> UIImage? {
         let name = imagePrefix + " " + PNGAnimation.indexFormatter.formateInt(int: index)
-        return UIImage(named: name)
+        return AppImageProvider.image(name: name)
     }
     
     public var imagesRage: Range<Int> {

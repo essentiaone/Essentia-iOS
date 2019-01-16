@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class TableComponentCheckBox: UITableViewCell, NibLoadable {
     @IBOutlet weak var checkBoxImageView: UIImageView!
@@ -40,6 +41,7 @@ class TableComponentCheckBox: UITableViewCell, NibLoadable {
         titleLabel.textColor = colorProvider.settingsMenuTitle
         descriptionLabel.textColor = colorProvider.settingsMenuSubtitle
         
+
         descriptionLabel.font = AppFont.regular.withSize(14)
     }
 }

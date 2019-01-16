@@ -8,6 +8,7 @@
 
 import UIKit
 import EssCore
+import EssResources
 
 class LaunchpadViewController: BaseViewController, LaunchpadCollectionViewAdapterDelegate {
     // MARK: - IBOutlet
