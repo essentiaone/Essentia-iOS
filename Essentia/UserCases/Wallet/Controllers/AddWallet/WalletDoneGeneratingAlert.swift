@@ -9,6 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
+import EssUI
 
 class WalletDoneGeneratingAlert: InfoAlertViewController {
     override func viewDidLoad() {

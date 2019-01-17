@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EssUI
 
 fileprivate struct Constants {
     static var cellsPerRow: Int = 3

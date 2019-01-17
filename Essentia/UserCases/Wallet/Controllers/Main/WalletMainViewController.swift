@@ -10,6 +10,7 @@ import UIKit
 import EssModel
 import EssCore
 import EssResources
+import EssUI
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]

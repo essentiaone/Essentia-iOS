@@ -8,6 +8,7 @@
 
 import Foundation
 import EssCore
+import EssUI
 
 class KeystoreSavedAlert: InfoAlertViewController {
     override func viewDidLoad() {

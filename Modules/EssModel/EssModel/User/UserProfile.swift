@@ -24,7 +24,7 @@ public class UserProfile: Codable {
     public var icon: UIImage {
         guard let data = imageData,
             let image = UIImage(data: data) else {
-                return #imageLiteral(resourceName: "testAvatar")
+                return UIImage()
         }
         return image
     }

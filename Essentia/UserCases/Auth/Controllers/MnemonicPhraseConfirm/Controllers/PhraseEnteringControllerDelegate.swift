@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssUI
 
 protocol PhraseEnteringControllerDelegate: class {
     func didBeginConfirming(word: String, at index: Int)

@@ -10,6 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssResources
+import EssUI
 
 protocol SelectAccountDelegate: class {
     func didSelectUser(_ user: User)

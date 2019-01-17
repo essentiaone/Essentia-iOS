@@ -10,6 +10,7 @@ import Foundation
 import EssCore
 import EssModel
 import EssResources
+import EssUI
 
 class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences

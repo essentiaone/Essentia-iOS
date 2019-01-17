@@ -14,8 +14,8 @@ excluded:
   - fastane
   - installer
   - vendor/
-  - Essentia/Third-Party
-  - Modules/EssUI/Sources/TableAdapter.swift
-  - Modules/EssUI/Sources/TableAdapterHelper.swift
+  - Modules/EssUI/Sources/Third-Party
+  - Modules/EssUI/Sources/TableAdapterCore/TableAdapter.swift
+  - Modules/EssUI/Sources/TableAdapterCore/TableAdapterHelper.swift
   - Essentia/Core/ComponentsTableAdapter/TableAdapter.swift
   - Essentia/Core/ComponentsTableAdapter/TableAdapterHelper.swift

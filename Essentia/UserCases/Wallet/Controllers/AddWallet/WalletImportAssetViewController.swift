@@ -10,6 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssResources
+import EssUI
 
 fileprivate struct Store {
     var privateKey: String = ""
