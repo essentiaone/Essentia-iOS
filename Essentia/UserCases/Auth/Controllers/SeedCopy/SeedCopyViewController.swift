@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssUI
 
 class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet

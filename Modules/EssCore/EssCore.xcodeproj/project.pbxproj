@@ -13,9 +13,9 @@
 		343C851121D53428000FEE9A /* DIDependencyProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850B21D53428000FEE9A /* DIDependencyProviderInterface.swift */; };
 		343C851221D53428000FEE9A /* DependenceCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850C21D53428000FEE9A /* DependenceCore.swift */; };
 		343C851321D53428000FEE9A /* DIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850D21D53428000FEE9A /* DIEngine.swift */; };
+		345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345D6DB621EF84CD00C59398 /* EssResources.framework */; };
 		34B1437621D3D6BD00EC06AE /* EssCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1437521D3D6BD00EC06AE /* EssCoreTests.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
-		34B143B521D3D95A00EC06AE /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A321D3D95A00EC06AE /* PNGAnimationPlayer.swift */; };
 		34B143B621D3D95A00EC06AE /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */; };
 		34B143B721D3D95A00EC06AE /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A521D3D95A00EC06AE /* RGB.swift */; };
 		34B143B921D3D95A00EC06AE /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A721D3D95A00EC06AE /* String+Size.swift */; };
@@ -23,7 +23,6 @@
 		34B143BB21D3D95A00EC06AE /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */; };
 		34B143BC21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */; };
 		34B143BD21D3D95A00EC06AE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AC21D3D95A00EC06AE /* DateFormatter.swift */; };
-		34B143BE21D3D95A00EC06AE /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AD21D3D95A00EC06AE /* ConstantNumberOfDigitsFormatter.swift */; };
 		34B143BF21D3D95A00EC06AE /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AE21D3D95A00EC06AE /* LocalizedStrings.swift */; };
 		34B143C021D3D95A00EC06AE /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AF21D3D95A00EC06AE /* EssCharacters.swift */; };
 		34B143C121D3D95A00EC06AE /* FastTernaryOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143B021D3D95A00EC06AE /* FastTernaryOperator.swift */; };
@@ -101,12 +100,12 @@
 		343C850C21D53428000FEE9A /* DependenceCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependenceCore.swift; sourceTree = "<group>"; };
 		343C850D21D53428000FEE9A /* DIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIEngine.swift; sourceTree = "<group>"; };
 		343D98EF21E86DDF00BE0034 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		345D6DB621EF84CD00C59398 /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssCore-Bridging-Header.h"; sourceTree = "<group>"; };
 		34B1437321D3D6BD00EC06AE /* EssCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1437521D3D6BD00EC06AE /* EssCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCoreTests.swift; sourceTree = "<group>"; };
 		34B1437721D3D6BD00EC06AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34B143A321D3D95A00EC06AE /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		34B143A521D3D95A00EC06AE /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		34B143A721D3D95A00EC06AE /* String+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
@@ -114,7 +113,6 @@
 		34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceFormatter.swift; sourceTree = "<group>"; };
 		34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoinIconsUrlFormatter.swift; sourceTree = "<group>"; };
 		34B143AC21D3D95A00EC06AE /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		34B143AD21D3D95A00EC06AE /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
 		34B143AE21D3D95A00EC06AE /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		34B143AF21D3D95A00EC06AE /* EssCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
 		34B143B021D3D95A00EC06AE /* FastTernaryOperator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastTernaryOperator.swift; sourceTree = "<group>"; };
@@ -170,6 +168,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */,
 				34CA775521ECF445003612EE /* libEssModel.a in Frameworks */,
 				4605108144C901485312FAC8 /* Pods_EssCore.framework in Frameworks */,
 			);
@@ -252,7 +251,6 @@
 				343C850721D53428000FEE9A /* DependencyInjection */,
 				34B143A821D3D95A00EC06AE /* Formatters */,
 				34B143F021D3DA0300EC06AE /* Sugar */,
-				34B143EF21D3D97E00EC06AE /* Tools */,
 				34B143EE21D3D97000EC06AE /* Delegates */,
 				34B143C621D3D96400EC06AE /* Extensions */,
 				34B143A221D3D95A00EC06AE /* Helpers */,
@@ -295,7 +293,6 @@
 				34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */,
 				34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */,
 				34B143AC21D3D95A00EC06AE /* DateFormatter.swift */,
-				34B143AD21D3D95A00EC06AE /* ConstantNumberOfDigitsFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -337,14 +334,6 @@
 				34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */,
 			);
 			path = Delegates;
-			sourceTree = "<group>";
-		};
-		34B143EF21D3D97E00EC06AE /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				34B143A321D3D95A00EC06AE /* PNGAnimationPlayer.swift */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		34B143F021D3DA0300EC06AE /* Sugar */ = {
@@ -461,6 +450,7 @@
 		C6B5E936FB404FEEE6AEC0A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				345D6DB621EF84CD00C59398 /* EssResources.framework */,
 				34CA775421ECF445003612EE /* libEssModel.a */,
 				343D98EF21E86DDF00BE0034 /* libEssModel.a */,
 				34B1446E21D3EA3A00EC06AE /* libEssModel.a */,
@@ -605,7 +595,6 @@
 				34B143EA21D3D96400EC06AE /* String+Helpers.swift in Sources */,
 				34B143F221D3DA5000EC06AE /* GCD.swift in Sources */,
 				34B143BC21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift in Sources */,
-				34B143BE21D3D95A00EC06AE /* ConstantNumberOfDigitsFormatter.swift in Sources */,
 				34F00A5521D6807800B01C99 /* TekensEndpoint.swift in Sources */,
 				34F00A5921D6807800B01C99 /* LoggerServiceInterface.swift in Sources */,
 				34B143BD21D3D95A00EC06AE /* DateFormatter.swift in Sources */,
@@ -613,7 +602,6 @@
 				34B143E821D3D96400EC06AE /* String+Format.swift in Sources */,
 				34B143DC21D3D96400EC06AE /* UIViewController+DismissKeyboard.swift in Sources */,
 				34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */,
-				34B143B521D3D95A00EC06AE /* PNGAnimationPlayer.swift in Sources */,
 				34F00A5721D6807800B01C99 /* WalletService.swift in Sources */,
 				343C851321D53428000FEE9A /* DIEngine.swift in Sources */,
 				34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */,

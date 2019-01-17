@@ -40,12 +40,12 @@ target 'EssModel' do
     pod_core
 end
 
-#target 'EssUI' do
-#    project 'Modules/EssUI/EssUI.xcodeproj'
-#    use_frameworks!
-#    pod_ui
-#    pod_core
-#end
+target 'EssUI' do
+    project 'Modules/EssUI/EssUI.xcodeproj'
+    use_frameworks!
+    pod_ui
+    pod_core
+end
 
 target 'EssResources' do
     project 'Modules/EssResources/EssResources.xcodeproj'

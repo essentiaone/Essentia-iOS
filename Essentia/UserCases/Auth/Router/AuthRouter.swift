@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssUI
 
 fileprivate enum AuthRoutes {
     case warning

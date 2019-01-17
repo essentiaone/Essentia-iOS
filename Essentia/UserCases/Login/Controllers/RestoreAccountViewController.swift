@@ -10,6 +10,7 @@ import UIKit
 import EssModel
 import EssCore
 import EssResources
+import EssUI
 
 protocol RestoreAccountDelegate: class {
     func showBackup(type: BackupType)

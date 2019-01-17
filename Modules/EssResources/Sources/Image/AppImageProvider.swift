@@ -57,8 +57,10 @@ public class AppImageProvider: AppImageProviderInterface {
     public var qrCode: UIImage = image(name: "qrCode")
     public var launchpadPlaceholder: UIImage = image(name: "launchpadPlaceholder")
     public var upArrow: UIImage = image(name: "upArrow")
-    public var arrowDown: UIImage = image(name: "arrowDown")
+    public var downArrow: UIImage = image(name: "downArrow")
     public var passwordVisible: UIImage = image(name: "passwordVisible")
+    public var loading: UIImage = image(name: "loading")
+    
     // MARK: Transaction status
     public var txStatusSend: UIImage = image(name: "transactionSend")
     public var txStatusRecived: UIImage = image(name: "transactionRecived")

@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssResources
+import EssUI
 
 class WalletWelcomeViewController: BaseTableAdapterController {
     // MARK: - Dependences

@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssResources
+import EssUI
 
 class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -47,8 +48,9 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     
     private var state: [TableComponent] {
         let currentUserBackups = EssentiaStore.shared.currentUser.backup.currentlyBackedUp
+        let secureLevel = EssentiaStore.shared.currentUser.backup.secureLevel
         return [
-            .accountStrength(backAction: backAction),
+            .accountStrength(backAction: backAction, currentLevel: secureLevel),
             .shadow(height: 10,
                     shadowColor: colorProvider.settingsShadowColor,
                     background: colorProvider.settingsBackgroud)]

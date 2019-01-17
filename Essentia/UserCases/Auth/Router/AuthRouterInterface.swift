@@ -8,6 +8,7 @@
 
 import UIKit
 import EssModel
+import EssUI
 
 protocol AuthRouterInterface: class {
     init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate)

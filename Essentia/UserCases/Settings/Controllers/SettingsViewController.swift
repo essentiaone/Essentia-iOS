@@ -11,6 +11,8 @@ import EssCore
 import EssModel
 import EssCore
 import EssResources
+import EssUI
+
 fileprivate struct Constants {
     static var separatorInset = UIEdgeInsets(top: 0, left: 65, bottom: 0, right: 0)
 }
@@ -19,6 +21,8 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private var currentUserId = EssentiaStore.shared.currentUser.id
+    private var currentSecurity = EssentiaStore.shared.currentUser.backup.secureLevel
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -56,9 +60,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private var dynamicContent: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
+        let secureLevel = EssentiaStore.shared.currentUser.backup.secureLevel
         let rawState: [TableComponent?] =
             [showSecureStatus ?
-                .accountStrengthAction(action: accountStrenghtAction) :
+                .accountStrengthAction(action: accountStrenghtAction, status: secureAnimationStatus, currentLevel: secureLevel):
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .currentAccount(icon: user.profile.icon,
                              title: LS("Settings.CurrentAccountTitle"),
@@ -130,6 +135,17 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         return "v. \(version)"
     }
     
+    private var secureAnimationStatus: AnimationState {
+        let newUser = EssentiaStore.shared.currentUser
+        let shoudShowAnimation = currentSecurity != newUser.backup.secureLevel && currentUserId == newUser.id
+        currentUserId = newUser.id
+        currentSecurity = newUser.backup.secureLevel
+        if shoudShowAnimation {
+            return .updating
+        }
+        return .idle
+    }
+    
     // MARK: - Actions
     private lazy var currencyAction: () -> Void = { [unowned self] in
         (inject() as SettingsRouterInterface).show(.currency)
@@ -150,9 +166,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var securityAction: () -> Void = { [unowned self] in
-        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+        switch EssentiaStore.shared.currentUser.backup.currentlyBackedUp {
+        case []:
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
-        } else {
+        default:
             (inject() as SettingsRouterInterface).show(.security)
         }
     }
@@ -162,9 +179,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
-        if !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore) {
+        switch EssentiaStore.shared.currentUser.backup.currentlyBackedUp {
+        case [.keystore, .seed, .mnemonic]:
+            (inject() as SettingsRouterInterface).show(.fullSecured)
+        case []:
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
-        } else {
+        default:
             (inject() as SettingsRouterInterface).show(.accountStrength)
         }
     }

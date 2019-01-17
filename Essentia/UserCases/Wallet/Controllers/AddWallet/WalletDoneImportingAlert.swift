@@ -8,6 +8,8 @@
 
 import Foundation
 import EssCore
+import EssUI
+import EssResources
 
 class WalletDoneImportingAlert: InfoAlertViewController {
     override func viewDidLoad() {

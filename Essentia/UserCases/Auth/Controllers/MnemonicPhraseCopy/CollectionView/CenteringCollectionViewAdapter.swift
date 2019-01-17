@@ -8,6 +8,7 @@
 
 import UIKit
 import EssResources
+import EssUI
 
 fileprivate struct Constants {
     static var cellHeight: CGFloat = 30

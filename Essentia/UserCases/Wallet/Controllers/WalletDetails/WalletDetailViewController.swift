@@ -13,6 +13,7 @@ import EssCore
 import HDWalletKit
 import EssModel
 import EssResources
+import EssUI
 
 fileprivate struct Store {
     var isLoadingTransactions: Bool = false
@@ -73,7 +74,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         return  [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Back"),
-                                right: #imageLiteral(resourceName: "downArrow"),
+                                right: imageProvider.downArrow,
                                 title: store.wallet.name,
                                 lAction: backAction,
                                 rAction: detailAction)

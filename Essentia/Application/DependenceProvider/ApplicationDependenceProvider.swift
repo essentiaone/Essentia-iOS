@@ -9,6 +9,7 @@
 import Foundation
 import EssCore
 import EssResources
+import EssUI
 
 class ApplicationDependenceProvider {
     func loadDependences() {

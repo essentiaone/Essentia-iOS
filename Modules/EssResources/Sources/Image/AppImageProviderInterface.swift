@@ -40,7 +40,7 @@ public protocol AppImageProviderInterface {
     var clearTextField: UIImage { get }
     var launchpadPlaceholder: UIImage { get }
     var upArrow: UIImage { get }
-    var arrowDown: UIImage { get }
+    var downArrow: UIImage { get }
     var passwordVisible: UIImage { get }
     var topAlertInfo: UIImage { get }
     var topAlertCancel: UIImage { get }
@@ -57,6 +57,7 @@ public protocol AppImageProviderInterface {
     var checkSelected: UIImage { get }
     var checkNotSelected: UIImage { get }
     var qrCode: UIImage { get }
+    var loading: UIImage { get }
     // MARK: Transaction status
     var txStatusSend: UIImage { get }
     var txStatusRecived: UIImage { get }

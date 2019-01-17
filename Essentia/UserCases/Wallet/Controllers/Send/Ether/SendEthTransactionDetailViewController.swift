@@ -11,6 +11,7 @@ import HDWalletKit
 import QRCodeReader
 import EssCore
 import EssModel
+import EssUI
 import EssResources
 
 fileprivate struct Store {

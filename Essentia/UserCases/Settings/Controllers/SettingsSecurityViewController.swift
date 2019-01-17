@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssResources
+import EssUI
 
 class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences

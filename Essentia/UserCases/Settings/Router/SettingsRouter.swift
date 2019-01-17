@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssModel
+import EssUI
 
 class SettingsRouter: BaseRouter, SettingsRouterInterface {
     func show(_ route: SettingsRoutes) {
