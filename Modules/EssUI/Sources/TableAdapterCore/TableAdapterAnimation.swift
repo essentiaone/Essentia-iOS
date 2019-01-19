@@ -12,6 +12,7 @@ public enum TableAdapterAnimation {
     case none
     case toRight
     case toLeft
+    case toTop
     
     func insertAnimation(_ component: TableComponent) -> UITableView.RowAnimation {
         guard canAnimation(component) else { return .none }
@@ -22,6 +23,8 @@ public enum TableAdapterAnimation {
             return .left
         case .toRight:
             return .right
+        case .toTop:
+            return .bottom
         }
     }
     
@@ -34,6 +37,8 @@ public enum TableAdapterAnimation {
             return .right
         case .toRight:
             return .left
+        case .toTop:
+            return .bottom  
         }
     }
     

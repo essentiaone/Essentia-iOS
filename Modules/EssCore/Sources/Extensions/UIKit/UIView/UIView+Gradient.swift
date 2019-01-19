@@ -29,6 +29,15 @@ public enum GradientType {
             return CGPoint(x: 1.1, y: 1.0)
         }
     }
+    
+    public func gradientLayer(first: UIColor, second: UIColor, size: CGSize) -> CAGradientLayer {
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = [first.cgColor, second.cgColor]
+        gradientLayer.frame.size = size
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+        return gradientLayer
+    }
 }
 
 public extension UIView {
@@ -36,6 +45,8 @@ public extension UIView {
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.frame.size = self.frame.size
         gradientLayer.colors = [first.cgColor, second.cgColor]
+        gradientLayer.startPoint = type.startPoint
+        gradientLayer.endPoint = type.endPoint
         layer.addSublayer(gradientLayer)
     }
 }

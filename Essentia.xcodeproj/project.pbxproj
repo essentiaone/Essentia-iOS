@@ -123,7 +123,6 @@
 		34EDA75D21E626EA009C8ED0 /* ViewWallet+EssStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EDA75C21E626EA009C8ED0 /* ViewWallet+EssStore.swift */; };
 		34F2884421CCD1BF0098E4CF /* LoginPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */; };
 		34F2EA7021A28D00009F00F2 /* DoneTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */; };
-		34F2EA7321A28D46009F00F2 /* DoneTransactionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */; };
 		34FCB9AD218A451A00A88D56 /* EnterTransactionAmmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */; };
 		E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */; };
 /* End PBXBuildFile section */
@@ -273,7 +272,6 @@
 		34EDA75C21E626EA009C8ED0 /* ViewWallet+EssStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewWallet+EssStore.swift"; sourceTree = "<group>"; };
 		34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPasswordViewController.swift; sourceTree = "<group>"; };
 		34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneTransactionViewController.swift; sourceTree = "<group>"; };
-		34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoneTransactionViewController.xib; sourceTree = "<group>"; };
 		34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterTransactionAmmountViewController.swift; sourceTree = "<group>"; };
 		8A4CA8F6982BE5CA1B1027D8 /* Pods-Essentia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Essentia.release.xcconfig"; path = "Pods/Target Support Files/Pods-Essentia/Pods-Essentia.release.xcconfig"; sourceTree = "<group>"; };
 		A1ADBFCB3F2F751F6B1420DB /* Pods_Essentia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Essentia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -844,7 +842,7 @@
 		34DC8B7F21778E2000ACA5D2 /* Send */ = {
 			isa = PBXGroup;
 			children = (
-				34F2EA7121A28D39009F00F2 /* DoneTransaction */,
+				34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */,
 				346F0B0E219A529B004B4584 /* Ether */,
 				34FCB9AC218A451A00A88D56 /* EnterTransactionAmmountViewController.swift */,
 				34E706E5219CFCFF002A52E3 /* SelectedTransacrionAmmount.swift */,
@@ -924,15 +922,6 @@
 				34EB0B9A21E78D1C00F4B46F /* CryptoFormatter.swift */,
 			);
 			path = Formatters;
-			sourceTree = "<group>";
-		};
-		34F2EA7121A28D39009F00F2 /* DoneTransaction */ = {
-			isa = PBXGroup;
-			children = (
-				34F2EA6F21A28D00009F00F2 /* DoneTransactionViewController.swift */,
-				34F2EA7221A28D46009F00F2 /* DoneTransactionViewController.xib */,
-			);
-			path = DoneTransaction;
 			sourceTree = "<group>";
 		};
 		734BB9C102E6709C3C2DC5E0 /* Pods */ = {
@@ -1060,7 +1049,6 @@
 				3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */,
 				34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */,
 				3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */,
-				34F2EA7321A28D46009F00F2 /* DoneTransactionViewController.xib in Resources */,
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,

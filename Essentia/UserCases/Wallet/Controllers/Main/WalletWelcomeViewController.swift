@@ -55,7 +55,10 @@ class WalletWelcomeViewController: BaseTableAdapterController {
             .empty(height: 30, background: .clear),
             .pageControl(count: 3, selected: currentPosition - 1 ),
             .empty(height: 30, background: .clear),
-            .actionCenteredButton(title: LS("Wallet.Welcome.Continue"), action: continueAction, backgrount: .white),
+            .actionCenteredButton(title: LS("Wallet.Welcome.Continue"),
+                                  action: continueAction,
+                                  textColor: colorProvider.appTitleColor,
+                                  backgrount: .white),
             .empty(height: 16, background: .clear)
         ]
     }

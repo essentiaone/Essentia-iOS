@@ -85,6 +85,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentPageControl.self)
         tableView.register(TableComponentTwoButtons.self)
         tableView.register(TableComponentLoader.self)
+        tableView.register(TableComponentAnimation.self)
     }
     
     // MARK: - Update State
@@ -130,6 +131,13 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
+        case .animation(let animation, _):
+            let cell: TableComponentAnimation = tableView.dequeueReusableCell(for: indexPath)
+            cell.playAnimation(animation)
+            cell.backgroundColor = .clear
+            cell.animateImageView.backgroundColor = .clear
+            cell.animateImageView.contentMode = .scaleAspectFit
+            return cell
         case .topAlert(let type, let string):
             if let superView = tableView.superview {
                 let alert = TopAlert(alertType: type, title: string, inView: superView)
@@ -262,12 +270,12 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.backgroundColor = background
             cell.action = action
             return cell
-        case .actionCenteredButton(let title, let action, let background):
+        case .actionCenteredButton(let title, let action, let textColor, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
             cell.titleButton.backgroundColor = background
             cell.action = action
-            cell.titleButton.setTitleColor((inject() as AppColorInterface).appTitleColor, for: .normal)
+            cell.titleButton.setTitleColor(textColor, for: .normal)
             cell.backgroundColor = .clear
             return cell
         case .navigationBar(let left, let right, let title, let lAction, let rAction):

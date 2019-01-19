@@ -28,7 +28,7 @@ public enum TableComponent: Equatable {
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
-    case actionCenteredButton(title: String, action: () -> Void, backgrount: UIColor)
+    case actionCenteredButton(title: String, action: () -> Void, textColor: UIColor, backgrount: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case twoButtons(lTitle: String, rTitle: String, lColor: UIColor, rColor: UIColor, lAction:() -> Void, rAction:() -> Void)
     case paragraph(title: String, description: String)
@@ -67,6 +67,7 @@ public enum TableComponent: Equatable {
     case customSegmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case segmentControlCell(titles: [String], selected: Int, action: (Int) -> Void)
     case filledSegment(titles: [String], action: (Int) -> Void)
+    case animation(PNGAnimation, height: CGFloat)
     // MARK: - Wallet detail
     case transactionDetail(icon: UIImage, title: String, subtitle: String, description: NSAttributedString, action: () -> Void)
     case searchField(title: String, icon: UIImage, action: () -> Void)
