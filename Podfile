@@ -8,6 +8,8 @@ workspace 'Essentia.xcworkspace'
 source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/essentiaone/ess-cocoapodspec.git'
 
+# Pods def
+
 def pod_analytics
     pod 'Fabric'
     pod 'Crashlytics'
@@ -18,6 +20,7 @@ def pod_core
    pod 'essentia-bridges-api-ios'
    pod 'essentia-network-core-ios'
 end
+
 
 def pod_functional 
     #pod 'PromiseKit', '~> 6.0'
@@ -33,6 +36,12 @@ end
 def pod_debug
     pod 'CocoaLumberjack/Swift'
 end
+
+def pod_database
+    pod 'Realm'
+end
+
+# Core functionality
 
 target 'EssModel' do
     project 'Modules/EssModel/EssModel.xcodeproj'
@@ -64,6 +73,7 @@ end
 target 'EssStore' do 
     project 'Modules/EssStore/EssStore.xcodeproj'
     use_frameworks!
+    pod_database
 end
 
 # dApps

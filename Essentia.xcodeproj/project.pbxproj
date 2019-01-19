@@ -36,7 +36,6 @@
 		340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */; };
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
-		3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */; };
 		3411AF062165659200AB9476 /* WalletBlockchainWrapperInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */; };
 		3411AF082165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */; };
 		3416054621B842C90058851F /* WalletDeletedWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */; };
@@ -165,7 +164,6 @@
 		340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullSecuredViewController.xib; sourceTree = "<group>"; };
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
-		3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
 		3411AF052165659200AB9476 /* WalletBlockchainWrapperInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractor.swift; sourceTree = "<group>"; };
 		3411AF072165659B00AB9476 /* WalletBlockchainWrapperInteractorInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletBlockchainWrapperInteractorInterface.swift; sourceTree = "<group>"; };
 		3416054521B842C90058851F /* WalletDeletedWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDeletedWarningViewController.swift; sourceTree = "<group>"; };
@@ -440,7 +438,6 @@
 		3401AFB221012D93006DEF49 /* EssentiaTests */ = {
 			isa = PBXGroup;
 			children = (
-				3411AEF121650A0200AB9476 /* Services */,
 				3401AFB521012D93006DEF49 /* Info.plist */,
 			);
 			path = EssentiaTests;
@@ -516,14 +513,6 @@
 				34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */,
 			);
 			path = Notifications;
-			sourceTree = "<group>";
-		};
-		3411AEF121650A0200AB9476 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				3411AEF421650A5D00AB9476 /* LocalFileStrageTests.swift */,
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		3411AF042165655900AB9476 /* WalletBlockchainWrapperInteractor */ = {
@@ -1112,7 +1101,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3411AEF521650A5D00AB9476 /* LocalFileStrageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
