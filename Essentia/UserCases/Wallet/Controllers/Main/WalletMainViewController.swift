@@ -11,6 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
+import EssStore
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]

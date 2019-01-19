@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssUI
+import EssStore
 
 class MnemonicPhraseCopyViewController: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet

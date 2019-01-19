@@ -10,6 +10,8 @@ import UIKit
 import EssCore
 import EssModel
 import EssUI
+import EssStore
+import EssStore
 
 class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet

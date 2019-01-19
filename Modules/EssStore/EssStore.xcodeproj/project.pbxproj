@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23D7C2C43BAFC76EC3D33C2E /* Pods_EssStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E9F0BEBB6783967BB067CB /* Pods_EssStore.framework */; };
+		34F6DCCC21F3BCAF00935A23 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCC921F3BCAF00935A23 /* CurrentCredentials.swift */; };
+		34F6DCCD21F3BCAF00935A23 /* EssentiaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCCA21F3BCAF00935A23 /* EssentiaStore.swift */; };
+		34F6DCCE21F3BCAF00935A23 /* EssentiaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCCB21F3BCAF00935A23 /* EssentiaConstants.swift */; };
+		34F6DCD421F3BD4900935A23 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F6DCD321F3BD4900935A23 /* libEssModel.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		347A3BA021F3BBCE0053C2F3 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2B8CAF657CE7A0016E487365 /* Pods-EssStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssStore.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssStore/Pods-EssStore.release.xcconfig"; sourceTree = "<group>"; };
+		347A3BA221F3BBCE0053C2F3 /* libEssStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		34F6DCC921F3BCAF00935A23 /* CurrentCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
+		34F6DCCA21F3BCAF00935A23 /* EssentiaStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssentiaStore.swift; sourceTree = "<group>"; };
+		34F6DCCB21F3BCAF00935A23 /* EssentiaConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssentiaConstants.swift; sourceTree = "<group>"; };
+		34F6DCD121F3BD4900935A23 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		34F6DCD321F3BD4900935A23 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		97CFA39F085324295778E9DB /* Pods-EssStore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssStore.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssStore/Pods-EssStore.debug.xcconfig"; sourceTree = "<group>"; };
+		A4E9F0BEBB6783967BB067CB /* Pods_EssStore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssStore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		347A3B9F21F3BBCE0053C2F3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34F6DCD421F3BD4900935A23 /* libEssModel.a in Frameworks */,
+				23D7C2C43BAFC76EC3D33C2E /* Pods_EssStore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		18FC0BA39CED8689EC0036D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				34F6DCD121F3BD4900935A23 /* libEssCore.a */,
+				34F6DCD321F3BD4900935A23 /* libEssModel.a */,
+				A4E9F0BEBB6783967BB067CB /* Pods_EssStore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		347A3B9921F3BBCE0053C2F3 = {
+			isa = PBXGroup;
+			children = (
+				34F6DCC721F3BC8600935A23 /* Sources */,
+				347A3BA321F3BBCE0053C2F3 /* Products */,
+				9AE5FB67B46E1019F822EE61 /* Pods */,
+				18FC0BA39CED8689EC0036D8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		347A3BA321F3BBCE0053C2F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				347A3BA221F3BBCE0053C2F3 /* libEssStore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		34F6DCC721F3BC8600935A23 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				34F6DCC821F3BC9800935A23 /* FolderStore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		34F6DCC821F3BC9800935A23 /* FolderStore */ = {
+			isa = PBXGroup;
+			children = (
+				34F6DCCA21F3BCAF00935A23 /* EssentiaStore.swift */,
+				34F6DCCB21F3BCAF00935A23 /* EssentiaConstants.swift */,
+				34F6DCC921F3BCAF00935A23 /* CurrentCredentials.swift */,
+			);
+			path = FolderStore;
+			sourceTree = "<group>";
+		};
+		9AE5FB67B46E1019F822EE61 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97CFA39F085324295778E9DB /* Pods-EssStore.debug.xcconfig */,
+				2B8CAF657CE7A0016E487365 /* Pods-EssStore.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		347A3BA121F3BBCE0053C2F3 /* EssStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 347A3BA921F3BBCE0053C2F3 /* Build configuration list for PBXNativeTarget "EssStore" */;
+			buildPhases = (
+				2453D6A73453A199C982DFAA /* [CP] Check Pods Manifest.lock */,
+				347A3B9E21F3BBCE0053C2F3 /* Sources */,
+				347A3B9F21F3BBCE0053C2F3 /* Frameworks */,
+				347A3BA021F3BBCE0053C2F3 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EssStore;
+			productName = EssStore;
+			productReference = 347A3BA221F3BBCE0053C2F3 /* libEssStore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		347A3B9A21F3BBCE0053C2F3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Pavlo Boiko";
+				TargetAttributes = {
+					347A3BA121F3BBCE0053C2F3 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 347A3B9D21F3BBCE0053C2F3 /* Build configuration list for PBXProject "EssStore" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 347A3B9921F3BBCE0053C2F3;
+			productRefGroup = 347A3BA321F3BBCE0053C2F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				347A3BA121F3BBCE0053C2F3 /* EssStore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2453D6A73453A199C982DFAA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EssStore-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		347A3B9E21F3BBCE0053C2F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				34F6DCCC21F3BCAF00935A23 /* CurrentCredentials.swift in Sources */,
+				34F6DCCD21F3BCAF00935A23 /* EssentiaStore.swift in Sources */,
+				34F6DCCE21F3BCAF00935A23 /* EssentiaConstants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		347A3BA721F3BBCE0053C2F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		347A3BA821F3BBCE0053C2F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		347A3BAA21F3BBCE0053C2F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97CFA39F085324295778E9DB /* Pods-EssStore.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		347A3BAB21F3BBCE0053C2F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B8CAF657CE7A0016E487365 /* Pods-EssStore.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P8JA7643K4;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		347A3B9D21F3BBCE0053C2F3 /* Build configuration list for PBXProject "EssStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				347A3BA721F3BBCE0053C2F3 /* Debug */,
+				347A3BA821F3BBCE0053C2F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		347A3BA921F3BBCE0053C2F3 /* Build configuration list for PBXNativeTarget "EssStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				347A3BAA21F3BBCE0053C2F3 /* Debug */,
+				347A3BAB21F3BBCE0053C2F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 347A3B9A21F3BBCE0053C2F3 /* Project object */;
+}

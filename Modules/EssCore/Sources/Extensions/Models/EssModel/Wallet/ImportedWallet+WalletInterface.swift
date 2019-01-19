@@ -36,4 +36,8 @@ extension ImportedWallet: WalletInterface, ViewWalletInterface {
         let key = withSeed.sha256().md5()
         return try? AES(key: key, iv: iv)
     }
+    
+    public func address(withSeed: String) -> String {
+        return address
+    }
 }

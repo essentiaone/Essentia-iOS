@@ -13,6 +13,7 @@ import EssCore
 import EssModel
 import EssUI
 import EssResources
+import EssStore
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface

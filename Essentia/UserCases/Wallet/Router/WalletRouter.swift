@@ -11,6 +11,7 @@ import QRCodeReader
 import EssModel
 import EssCore
 import EssUI
+import EssStore
 
 class WalletRouter: BaseRouter, WalletRouterInterface {
     func show(_ route: WalletRoutes) {

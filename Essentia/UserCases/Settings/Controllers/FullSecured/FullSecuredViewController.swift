@@ -11,6 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
+import EssStore
 
 class FullSecuredViewController: BaseViewController {
     @IBOutlet weak var animationImageView: UIImageView!

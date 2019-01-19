@@ -9,6 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
+import EssStore
 
 class LoginInteractor: LoginInteractorInterface {
     private lazy var userService: UserStorageServiceInterface = inject()
