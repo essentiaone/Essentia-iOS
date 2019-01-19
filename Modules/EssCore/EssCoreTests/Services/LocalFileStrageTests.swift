@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import Essentia
+@testable import EssCore
 
 class LocalFileStrageTests: XCTestCase {
 

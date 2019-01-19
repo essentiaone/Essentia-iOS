@@ -30,7 +30,6 @@
 		347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */; };
 		347A3B9421F3BA790053C2F3 /* User+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */; };
 		347A3B9521F3BA790053C2F3 /* UserWallet+UniqueAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */; };
-		34B1437621D3D6BD00EC06AE /* EssCoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1437521D3D6BD00EC06AE /* EssCoreTests.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
 		34B143B621D3D95A00EC06AE /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */; };
 		34B143B721D3D95A00EC06AE /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A521D3D95A00EC06AE /* RGB.swift */; };
@@ -84,6 +83,7 @@
 		34F00A6321D6815000B01C99 /* AppStateEventProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A6121D6815000B01C99 /* AppStateEventProxy.swift */; };
 		34F00A6421D6815000B01C99 /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A6221D6815000B01C99 /* AppStateEventProxyInterface.swift */; };
 		34F6DCD621F3BEB000935A23 /* libEssStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F6DCD521F3BEB000935A23 /* libEssStore.a */; };
+		34F6DCDC21F3CAC000935A23 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCDB21F3CAC000935A23 /* LocalFileStrageTests.swift */; };
 		4605108144C901485312FAC8 /* Pods_EssCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,7 +137,6 @@
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssCore-Bridging-Header.h"; sourceTree = "<group>"; };
 		34B1437321D3D6BD00EC06AE /* EssCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		34B1437521D3D6BD00EC06AE /* EssCoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCoreTests.swift; sourceTree = "<group>"; };
 		34B1437721D3D6BD00EC06AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
 		34B143A521D3D95A00EC06AE /* RGB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		34F00A6121D6815000B01C99 /* AppStateEventProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxy.swift; sourceTree = "<group>"; };
 		34F00A6221D6815000B01C99 /* AppStateEventProxyInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateEventProxyInterface.swift; sourceTree = "<group>"; };
 		34F6DCD521F3BEB000935A23 /* libEssStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		34F6DCDB21F3CAC000935A23 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
 		3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA50676A8A38DB7FDA98361D /* Pods-EssCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssCore.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssCore/Pods-EssCore.release.xcconfig"; sourceTree = "<group>"; };
 		EC60A077B644353D87CDEC0B /* Pods-EssCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssCore.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssCore/Pods-EssCore.debug.xcconfig"; sourceTree = "<group>"; };
@@ -367,7 +367,7 @@
 		34B1437421D3D6BD00EC06AE /* EssCoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				34B1437521D3D6BD00EC06AE /* EssCoreTests.swift */,
+				34F6DCDA21F3CAC000935A23 /* Services */,
 				34B1437721D3D6BD00EC06AE /* Info.plist */,
 			);
 			path = EssCoreTests;
@@ -535,6 +535,14 @@
 				34F00A6221D6815000B01C99 /* AppStateEventProxyInterface.swift */,
 			);
 			path = ApplicationStateInteractor;
+			sourceTree = "<group>";
+		};
+		34F6DCDA21F3CAC000935A23 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				34F6DCDB21F3CAC000935A23 /* LocalFileStrageTests.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8904581153F5DB166733051D /* Pods */ = {
@@ -754,7 +762,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34B1437621D3D6BD00EC06AE /* EssCoreTests.swift in Sources */,
+				34F6DCDC21F3CAC000935A23 /* LocalFileStrageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
