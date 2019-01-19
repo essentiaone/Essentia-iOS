@@ -12,6 +12,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
+import EssStore
 
 fileprivate struct Constants {
     static var separatorInset = UIEdgeInsets(top: 0, left: 65, bottom: 0, right: 0)

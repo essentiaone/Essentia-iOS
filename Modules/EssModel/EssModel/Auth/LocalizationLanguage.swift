@@ -40,7 +40,7 @@ public enum LocalizationLanguage: String, Codable, Equatable {
         return String(describing: self)
     }
     
-   public static var defaultLanguage: LocalizationLanguage {
+    public static var defaultLanguage: LocalizationLanguage {
         guard let languageCode = Locale.current.languageCode?.prefix(2) else {
             return .english
         }

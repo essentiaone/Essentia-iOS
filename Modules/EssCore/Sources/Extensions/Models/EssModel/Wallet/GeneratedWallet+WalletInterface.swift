@@ -11,8 +11,7 @@ import EssModel
 
 extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     public func privateKey(withSeed: String) -> String? {
-        return ""
-//        return (inject() as  WalletServiceInterface).generatePk(self)
+        return (inject() as  WalletServiceInterface).generatePk(self, seed: Data(hex: withSeed))
     }
     
     public convenience init(name: String, coin: Coin, derivationIndex: UInt32) {
@@ -38,8 +37,7 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
         return coin
     }
     
-    public var address: String {
-        return ""
-//        return (inject() as  WalletServiceInterface).generateAddress(self)
+    public func address(withSeed: String) -> String {
+        return (inject() as  WalletServiceInterface).generateAddress(self, seed: Data(hex: withSeed))
     }
 }

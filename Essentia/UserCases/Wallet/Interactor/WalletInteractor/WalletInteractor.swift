@@ -9,6 +9,7 @@
 import Foundation
 import EssCore
 import EssModel
+import EssStore
 
 class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()

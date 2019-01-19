@@ -12,6 +12,7 @@ import EssentiaNetworkCore
 import HDWalletKit
 import EssCore
 import EssModel
+import EssStore
 
 fileprivate struct Constants {
     static var url = "https://b3.essentia.network"

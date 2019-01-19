@@ -26,14 +26,12 @@ extension TokenWallet: WalletInterface, ViewWalletInterface {
         return token
     }
     
-    public var address: String {
-        return ""
-        //            return (inject() as WalletServiceInterface).generateAddress(wallet)
+    public func address(withSeed: String) -> String {
+        return wallet.address(withSeed: withSeed)
     }
     
     public func privateKey(withSeed: String) -> String? {
-        return ""
-        //            let walletService: WalletServiceInterface = inject()
-        //            return walletService.generatePk(wallet)
+        let walletService: WalletServiceInterface = inject()
+        return walletService.generatePk(wallet, seed: Data(hex: withSeed))
     }
 }

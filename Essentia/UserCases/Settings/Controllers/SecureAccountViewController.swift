@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssResources
+import EssStore
 import EssUI
 
 class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {

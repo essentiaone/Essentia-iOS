@@ -9,6 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
+import EssStore
 import EssResources
 import EssUI
 
