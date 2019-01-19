@@ -41,6 +41,8 @@
 		345D6E0721EFBC7800C59398 /* SectionedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DE621EFBC7800C59398 /* SectionedValues.swift */; };
 		345D6E0821EFBC7800C59398 /* AbstractDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DE721EFBC7800C59398 /* AbstractDiffCalculator.swift */; };
 		3474E49921F0C308003D8DFF /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E49821F0C308003D8DFF /* Sugar.swift */; };
+		3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E49B21F0FFFC003D8DFF /* TableComponentAnimation.swift */; };
+		3474E49E21F10006003D8DFF /* TableComponentAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */; };
 		3478F87121ECE35D00D54FEF /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3478F86721ECE35D00D54FEF /* EssUI.framework */; };
 		3478F87621ECE35D00D54FEF /* EssUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478F87521ECE35D00D54FEF /* EssUITests.swift */; };
 		34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775821ECF5AC003612EE /* ComponentState.swift */; };
@@ -185,6 +187,8 @@
 		345D6DE621EFBC7800C59398 /* SectionedValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedValues.swift; sourceTree = "<group>"; };
 		345D6DE721EFBC7800C59398 /* AbstractDiffCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDiffCalculator.swift; sourceTree = "<group>"; };
 		3474E49821F0C308003D8DFF /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
+		3474E49B21F0FFFC003D8DFF /* TableComponentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAnimation.swift; sourceTree = "<group>"; };
+		3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAnimation.xib; sourceTree = "<group>"; };
 		3478F86721ECE35D00D54FEF /* EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3478F87021ECE35D00D54FEF /* EssUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3478F87521ECE35D00D54FEF /* EssUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssUITests.swift; sourceTree = "<group>"; };
@@ -481,6 +485,15 @@
 			path = TableAdapterCore;
 			sourceTree = "<group>";
 		};
+		3474E49A21F0FCAF003D8DFF /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				3474E49B21F0FFFC003D8DFF /* TableComponentAnimation.swift */,
+				3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		3478F85D21ECE35D00D54FEF = {
 			isa = PBXGroup;
 			children = (
@@ -532,6 +545,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3474E49A21F0FCAF003D8DFF /* Animation */,
 				34CA775B21ECF5AC003612EE /* Transaction */,
 				34CA775E21ECF5AC003612EE /* CheckField */,
 				34CA776121ECF5AC003612EE /* TableView */,
@@ -1088,6 +1102,7 @@
 				34CA783321ECF5AC003612EE /* TableComponentCenteredButton.xib in Resources */,
 				34CA77E621ECF5AC003612EE /* TableComponentTableView.xib in Resources */,
 				34CA77F421ECF5AC003612EE /* TableComponentCenteredImage.xib in Resources */,
+				3474E49E21F10006003D8DFF /* TableComponentAnimation.xib in Resources */,
 				34CA77EA21ECF5AC003612EE /* TableComponentPassword.xib in Resources */,
 				34CA780121ECF5AC003612EE /* TableComponentCustomSegment.xib in Resources */,
 				34CA780A21ECF5AC003612EE /* TableComponentTextField.xib in Resources */,
@@ -1161,6 +1176,7 @@
 				345D6DED21EFBC7800C59398 /* LaunchpadItemCell.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,
 				34CA77F321ECF5AC003612EE /* TableComponentCenteredImage.swift in Sources */,
+				3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */,
 				34CA77E321ECF5AC003612EE /* TableComponentTransaction.swift in Sources */,
 				345D6E0121EFBC7800C59398 /* BaseRouter.swift in Sources */,
 				34CA782221ECF5AC003612EE /* TableComponentAccountStrength.swift in Sources */,

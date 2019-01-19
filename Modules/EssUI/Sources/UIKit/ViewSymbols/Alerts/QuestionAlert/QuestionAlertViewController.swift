@@ -29,7 +29,7 @@ open class QuestionAlertViewController: UIViewController {
     public init(leftAction: @escaping () -> Void, rightAction: @escaping () -> Void) {
         self.leftAction = leftAction
         self.rightAction = rightAction
-        super.init(nibName: "QuestionAlertViewController", bundle: Bundle.main)
+        super.init(nibName: "QuestionAlertViewController", bundle: currentBundle)
         self.modalPresentationStyle = .custom
     }
     

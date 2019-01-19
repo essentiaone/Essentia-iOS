@@ -163,6 +163,8 @@ public class TableAdapterHelper {
             return heightForEmptySpace(with: state)
         case .loader:
             return 40
+        case .animation(_, let height):
+            return height
         }
     }
     
