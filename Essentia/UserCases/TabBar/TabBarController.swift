@@ -10,6 +10,7 @@ import UIKit
 import EssCore
 import EssResources
 import EssUI
+import EssWallet
 
 fileprivate enum Constants: String {
     case walletOnbordingKey
@@ -101,7 +102,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
         case .wallet:
             prepareInjection(WalletInteractor() as WalletInteractorInterface, memoryPolicy: .viewController)
             prepareInjection(WalletBlockchainWrapperInteractor() as WalletBlockchainWrapperInteractorInterface, memoryPolicy: .viewController)
-            prepareInjection(WalletRouter(navigationController: nvc) as WalletRouterInterface, memoryPolicy: .viewController)
+            prepareInjection(WalletRouter(tabBarController: self, nvc: nvc) as WalletRouterInterface, memoryPolicy: .viewController)
         default: return
         }
     }

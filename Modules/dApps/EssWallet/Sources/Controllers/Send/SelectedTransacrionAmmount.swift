@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SelectedTransacrionAmmount {
+public struct SelectedTransacrionAmmount {
     var inCrypto: String
     var inCurrency: String
 }

@@ -12,12 +12,6 @@ import EssModel
 import EssResources
 import EssUI
 
-protocol SelectAccountDelegate: class {
-    func didSelectUser(_ user: User)
-    func didSetUser()
-    func createNewUser()
-}
-
 class SelectAccoutViewController: BaseBluredTableAdapterController {
     var users: [User] = []
     weak var delegate: SelectAccountDelegate?

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */; };
 		347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */; };
 		347A3B2321F3B0C70053C2F3 /* DeleteWalletWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFB21F3B0C70053C2F3 /* DeleteWalletWarningViewController.swift */; };
 		347A3B2421F3B0C70053C2F3 /* WalletDeletedWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFC21F3B0C70053C2F3 /* WalletDeletedWarningViewController.swift */; };
@@ -36,8 +37,8 @@
 		347A3B3C21F3B0C70053C2F3 /* WalletBlockchainWrapperInteractorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1E21F3B0C70053C2F3 /* WalletBlockchainWrapperInteractorInterface.swift */; };
 		347A3B3D21F3B0C70053C2F3 /* WalletRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2021F3B0C70053C2F3 /* WalletRouter.swift */; };
 		347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2121F3B0C70053C2F3 /* WalletRouterInterface.swift */; };
-		347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B3F21F3B1350053C2F3 /* libEssCore.a */; };
-		347A3B4221F3B1350053C2F3 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4121F3B1350053C2F3 /* libEssModel.a */; };
+		347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B3F21F3B1350053C2F3 /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		347A3B4221F3B1350053C2F3 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4121F3B1350053C2F3 /* libEssModel.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		347A3B4421F3B15B0053C2F3 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4321F3B15B0053C2F3 /* EssUI.framework */; };
 		FD89AEE7E8E4CCD567278105 /* Pods_EssWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
 		347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
 		347A3AFB21F3B0C70053C2F3 /* DeleteWalletWarningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWalletWarningViewController.swift; sourceTree = "<group>"; };
 		347A3AFC21F3B0C70053C2F3 /* WalletDeletedWarningViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletDeletedWarningViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		347A3B0A21F3B0C70053C2F3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */,
 				347A3B0B21F3B0C70053C2F3 /* WalletMainViewController.swift */,
 				347A3B0C21F3B0C70053C2F3 /* WalletWelcomeViewController.swift */,
 			);
@@ -381,6 +384,7 @@
 				347A3B3221F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift in Sources */,
 				347A3B3921F3B0C70053C2F3 /* WalletInteractorInterface.swift in Sources */,
 				347A3B3821F3B0C70053C2F3 /* ConfirmEthereumTransactionDetailViewController.swift in Sources */,
+				345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */,
 				347A3B3021F3B0C70053C2F3 /* WalletMainViewController.swift in Sources */,
 				347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */,
 				347A3B3521F3B0C70053C2F3 /* ConfirmTransactionViewController.swift in Sources */,
@@ -455,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -510,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

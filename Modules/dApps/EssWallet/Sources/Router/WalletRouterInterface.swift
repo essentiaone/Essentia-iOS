@@ -11,7 +11,7 @@ import QRCodeReader
 import EssModel
 import EssUI
 
-enum WalletRoutes {
+public enum WalletRoutes {
     case newAssets
     case selectImportAsset
     case importAsset(Coin)
@@ -33,6 +33,6 @@ enum WalletRoutes {
     case doneTx
 }
 
-protocol WalletRouterInterface: BaseRouterInterface {
+public protocol WalletRouterInterface: BaseRouterInterface {
     func show(_ route: WalletRoutes)
 }

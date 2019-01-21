@@ -9,8 +9,9 @@
 import UIKit
 import EssModel
 import EssUI
+import EssCore
 
-protocol AuthRouterInterface: class {
+public protocol AuthRouterInterface: class {
     init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate)
     func showNext()
     func showPrev()

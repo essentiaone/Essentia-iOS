@@ -1,21 +1,20 @@
 //
 //  CryptoFormatter.swift
-//  Essentia
+//  EssCore
 //
-//  Created by Pavlo Boiko on 1/10/19.
-//  Copyright © 2019 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 1/20/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import Foundation
 import EssentiaNetworkCore
 import EssentiaBridgesApi
 import HDWalletKit
-import EssCore
 import EssModel
 import EssResources
 
-class CryptoFormatter {
-    static func formattedAmmount(amount: Double?, type: TransactionType, asset: AssetInterface) -> NSAttributedString {
+public class CryptoFormatter {
+    public static func formattedAmmount(amount: Double?, type: TransactionType, asset: AssetInterface) -> NSAttributedString {
         let ammountFormatter = BalanceFormatter(asset: asset)
         let formattedAmmount = ammountFormatter.formattedAmmountWithCurrency(amount: amount)
         let separeted = formattedAmmount.split(separator: " ")
@@ -36,7 +35,7 @@ class CryptoFormatter {
         return attributed
     }
     
-    static func attributedHex(amount: String, type: TransactionType, asset: AssetInterface) -> NSAttributedString {
+    public static func attributedHex(amount: String, type: TransactionType, asset: AssetInterface) -> NSAttributedString {
         guard let wei = BInt(amount, radix: 10),
             let etherAmmount = try? WeiEthterConverter.toEther(wei: wei) else {
                 return NSAttributedString()
@@ -44,7 +43,7 @@ class CryptoFormatter {
         return formattedAmmount(amount: (etherAmmount as NSDecimalNumber).doubleValue, type: type, asset: asset)
     }
     
-    static func attributedHex(amount: String, type: TransactionType, decimals: Int, asset: AssetInterface) -> NSAttributedString {
+    public static func attributedHex(amount: String, type: TransactionType, decimals: Int, asset: AssetInterface) -> NSAttributedString {
         guard let convertedAmmount = try? WeiEthterConverter.toToken(balance: amount, decimals: decimals, radix: 10) else {
             return NSAttributedString()
         }

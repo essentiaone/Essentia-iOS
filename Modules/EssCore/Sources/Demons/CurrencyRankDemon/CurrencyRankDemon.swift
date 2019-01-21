@@ -7,23 +7,22 @@
 //
 
 import Foundation
-import EssCore
 import EssModel
 import EssStore
 
-class CurrencyRankDaemon: CurrencyRankDaemonInterface {
+public class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     var assets: [AssetInterface] = []
     private lazy var  converterService: CurrencyConverterServiceInterface = inject()
     
-    init() {
+    public init() {
         update()
     }
     
-    func update() {
+    public func update() {
         updateRanks()
     }
     
-    func update(callBack: @escaping () -> Void) {
+    public func update(callBack: @escaping () -> Void) {
         updateRanks(callBack: callBack)
     }
     

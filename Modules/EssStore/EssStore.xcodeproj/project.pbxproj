@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		23D7C2C43BAFC76EC3D33C2E /* Pods_EssStore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E9F0BEBB6783967BB067CB /* Pods_EssStore.framework */; };
+		345747A821F50CD6006E2EAB /* StorageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747A721F50CD6006E2EAB /* StorageInterface.swift */; };
+		345747AA21F50D68006E2EAB /* RealmStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747A921F50D68006E2EAB /* RealmStorage.swift */; };
 		34F6DCCC21F3BCAF00935A23 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCC921F3BCAF00935A23 /* CurrentCredentials.swift */; };
 		34F6DCCD21F3BCAF00935A23 /* EssentiaStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCCA21F3BCAF00935A23 /* EssentiaStore.swift */; };
 		34F6DCCE21F3BCAF00935A23 /* EssentiaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCCB21F3BCAF00935A23 /* EssentiaConstants.swift */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		2B8CAF657CE7A0016E487365 /* Pods-EssStore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssStore.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssStore/Pods-EssStore.release.xcconfig"; sourceTree = "<group>"; };
+		345747A721F50CD6006E2EAB /* StorageInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageInterface.swift; sourceTree = "<group>"; };
+		345747A921F50D68006E2EAB /* RealmStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmStorage.swift; sourceTree = "<group>"; };
 		347A3BA221F3BBCE0053C2F3 /* libEssStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F6DCC921F3BCAF00935A23 /* CurrentCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
 		34F6DCCA21F3BCAF00935A23 /* EssentiaStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssentiaStore.swift; sourceTree = "<group>"; };
@@ -61,6 +65,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		345747A621F50C9A006E2EAB /* Datasase */ = {
+			isa = PBXGroup;
+			children = (
+				345747A721F50CD6006E2EAB /* StorageInterface.swift */,
+				345747A921F50D68006E2EAB /* RealmStorage.swift */,
+			);
+			path = Datasase;
+			sourceTree = "<group>";
+		};
 		347A3B9921F3BBCE0053C2F3 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		34F6DCC721F3BC8600935A23 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				345747A621F50C9A006E2EAB /* Datasase */,
 				34F6DCC821F3BC9800935A23 /* FolderStore */,
 			);
 			path = Sources;
@@ -191,7 +205,9 @@
 			files = (
 				34F6DCCC21F3BCAF00935A23 /* CurrentCredentials.swift in Sources */,
 				34F6DCCD21F3BCAF00935A23 /* EssentiaStore.swift in Sources */,
+				345747AA21F50D68006E2EAB /* RealmStorage.swift in Sources */,
 				34F6DCCE21F3BCAF00935A23 /* EssentiaConstants.swift in Sources */,
+				345747A821F50CD6006E2EAB /* StorageInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

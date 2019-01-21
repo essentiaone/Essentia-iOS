@@ -11,9 +11,22 @@ import QRCodeReader
 import EssModel
 import EssCore
 import EssUI
+import EssStore
 
-class WalletRouter: BaseRouter, WalletRouterInterface {
-    func show(_ route: WalletRoutes) {
+public class WalletRouter: BaseRouter, WalletRouterInterface {
+
+    private let tabBar: BaseTabBarController
+    
+    public required init(tabBarController: BaseTabBarController, nvc: BaseNavigationController) {
+        tabBar = tabBarController
+        super.init(navigationController: nvc)
+    }
+    
+    required public init(navigationController: UINavigationController) {
+        fatalError("init(navigationController:) has not been implemented")
+    }
+    
+    public func show(_ route: WalletRoutes) {
         switch route {
         case .newAssets:
             popUp(vc: WalletNewAssetViewController())
@@ -57,7 +70,7 @@ class WalletRouter: BaseRouter, WalletRouterInterface {
     }
     
     private func showBackupKeystore() {
-        TabBarController.shared.selectedViewController = (inject() as SettingsRouterInterface).nvc
+        tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
         (inject() as SettingsRouterInterface).show(.security)
         if EssentiaStore.shared.currentCredentials.mnemonic != nil {
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))

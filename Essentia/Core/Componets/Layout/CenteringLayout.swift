@@ -18,14 +18,14 @@ fileprivate enum LayoutAttributesType {
     case right
 }
 
-class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
+public class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     var rowSizes: [[CGFloat]] = []
     
     var interItemSpacing: CGFloat {
         return minimumLineSpacing
     }
 
-    override func layoutAttributesForElements
+    override public func layoutAttributesForElements
         (
         in rect: CGRect
         ) -> [UICollectionViewLayoutAttributes]? {

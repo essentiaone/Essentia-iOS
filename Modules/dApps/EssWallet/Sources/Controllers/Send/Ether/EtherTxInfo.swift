@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct EtherTxInfo {
+public struct EtherTxInfo {
     var address: String
     var ammount: SelectedTransacrionAmmount
     var data: String

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		345747BE21F51510006E2EAB /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */; };
 		345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */; };
 		345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */; };
 		345D6DEA21EFBC7800C59398 /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBB21EFBC7800C59398 /* BaseBluredTableAdapterController.swift */; };
@@ -153,6 +154,7 @@
 
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
+		345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		345D6DBB21EFBC7800C59398 /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
@@ -319,6 +321,14 @@
 				3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		345747BC21F51510006E2EAB /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */,
+			);
+			path = Routers;
 			sourceTree = "<group>";
 		};
 		345D6DB821EFBC7800C59398 /* UIKit */ = {
@@ -497,7 +507,6 @@
 		3478F85D21ECE35D00D54FEF = {
 			isa = PBXGroup;
 			children = (
-				34CA773D21ECED6F003612EE /* Resources */,
 				34CA773A21ECED6F003612EE /* Sources */,
 				3478F87421ECE35D00D54FEF /* EssUITests */,
 				3478F86821ECE35D00D54FEF /* Products */,
@@ -527,19 +536,13 @@
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				345747BC21F51510006E2EAB /* Routers */,
 				34DB80ED21EFCBE800C6BCC1 /* Tools */,
 				345D6E0921EFBC7F00C59398 /* TableAdapterCore */,
 				345D6DE221EFBC7800C59398 /* Third-Party */,
 				345D6DB821EFBC7800C59398 /* UIKit */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		34CA773D21ECED6F003612EE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
@@ -1175,6 +1178,7 @@
 				34CA781321ECF5AC003612EE /* TableComponentMenuButton.swift in Sources */,
 				345D6DED21EFBC7800C59398 /* LaunchpadItemCell.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,
+				345747BE21F51510006E2EAB /* SettingsRouterInterface.swift in Sources */,
 				34CA77F321ECF5AC003612EE /* TableComponentCenteredImage.swift in Sources */,
 				3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */,
 				34CA77E321ECF5AC003612EE /* TableComponentTransaction.swift in Sources */,

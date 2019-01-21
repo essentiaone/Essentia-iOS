@@ -11,6 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
+import EssStore
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
@@ -23,7 +24,7 @@ fileprivate struct Store {
     
 }
 
-class WalletMainViewController: BaseTableAdapterController {
+public class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -32,18 +33,18 @@ class WalletMainViewController: BaseTableAdapterController {
     private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         (inject() as LoaderInterface).show()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         hardReload()
         showOnbordingIfNeeded()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.store.tableHeight = tableView.frame.height
     }
@@ -280,7 +281,7 @@ class WalletMainViewController: BaseTableAdapterController {
         return formatter.formattedAmmountWithCurrency(amount: balance)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    override public var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
     }
 }

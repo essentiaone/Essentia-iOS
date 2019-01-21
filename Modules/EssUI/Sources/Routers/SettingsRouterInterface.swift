@@ -1,27 +1,27 @@
 //
 //  SettingsRouterInterface.swift
-//  Essentia
+//  EssCore
 //
-//  Created by Pavlo Boiko on 14.08.18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 1/20/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
-import UIKit
 import EssModel
-import EssUI
+import UIKit
+import EssCore
 
-enum SettingsRoutes {
+public enum SettingsRoutes {
     case accountStrength
     case language
     case currency
-    case security 
+    case security
     case switchAccount(SelectAccountDelegate)
     case backup(type: BackupType)
     case accountName
     case fullSecured
 }
 
-protocol SettingsRouterInterface: BaseRouterInterface {
+public protocol SettingsRouterInterface: BaseRouterInterface {
     func show(_ route: SettingsRoutes)
     func logOut()
     var nvc: UINavigationController? { get }

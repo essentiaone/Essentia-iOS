@@ -12,7 +12,7 @@ import EssentiaBridgesApi
 import HDWalletKit
 import EssModel
 
-protocol WalletBlockchainWrapperInteractorInterface {
+public protocol WalletBlockchainWrapperInteractorInterface {
     func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void)
     func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void)
     func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void)
