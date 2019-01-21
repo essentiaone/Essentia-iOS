@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		345747BE21F51510006E2EAB /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */; };
+		345747C321F5C3B3006E2EAB /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CA783D21ECF8B6003612EE /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747CA21F5CED9006E2EAB /* EssResources.framework */; };
 		345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */; };
 		345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */; };
 		345D6DEA21EFBC7800C59398 /* BaseBluredTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBB21EFBC7800C59398 /* BaseBluredTableAdapterController.swift */; };
@@ -136,7 +138,6 @@
 		34CA783A21ECF5AC003612EE /* TableAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA77DD21ECF5AC003612EE /* TableAdapter.swift */; };
 		34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA77DE21ECF5AC003612EE /* TableAdapterAnimation.swift */; };
 		34CA783C21ECF5AC003612EE /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA77DF21ECF5AC003612EE /* TableAdapterHelper.swift */; };
-		34CA783E21ECF8B6003612EE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CA783D21ECF8B6003612EE /* libEssCore.a */; };
 		34DB80EF21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB80EE21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift */; };
 		34DB80F121EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB80F021EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift */; };
 		774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */; };
@@ -155,6 +156,7 @@
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
 		345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
+		345747CA21F5CED9006E2EAB /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		345D6DBB21EFBC7800C59398 /* BaseBluredTableAdapterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBluredTableAdapterController.swift; sourceTree = "<group>"; };
@@ -195,7 +197,6 @@
 		3478F87021ECE35D00D54FEF /* EssUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3478F87521ECE35D00D54FEF /* EssUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssUITests.swift; sourceTree = "<group>"; };
 		3478F87721ECE35D00D54FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		34CA775621ECF481003612EE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34CA775821ECF5AC003612EE /* ComponentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentState.swift; sourceTree = "<group>"; };
 		34CA775921ECF5AC003612EE /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
@@ -298,7 +299,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34CA783E21ECF8B6003612EE /* libEssCore.a in Frameworks */,
+				345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */,
+				345747C321F5C3B3006E2EAB /* libEssCore.a in Frameworks */,
 				774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,8 +981,8 @@
 		D97DC84B851796F10BF5B1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				345747CA21F5CED9006E2EAB /* EssResources.framework */,
 				34CA783D21ECF8B6003612EE /* libEssCore.a */,
-				34CA775621ECF481003612EE /* libEssCore.a */,
 				BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */,
 			);
 			name = Frameworks;
@@ -1397,6 +1399,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7BFA303BAC08CEEDA8047584 /* Pods-EssUI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -1426,6 +1429,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
