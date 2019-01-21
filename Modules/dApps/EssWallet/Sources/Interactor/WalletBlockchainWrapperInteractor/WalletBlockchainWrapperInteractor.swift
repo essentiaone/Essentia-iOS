@@ -12,6 +12,7 @@ import EssentiaNetworkCore
 import HDWalletKit
 import EssCore
 import EssModel
+import EssStore
 
 fileprivate struct Constants {
     static var url = "https://b3.essentia.network"
@@ -20,14 +21,14 @@ fileprivate struct Constants {
     static var ethterScanApiKey = "IH2B5YWPTT3B19KMFYIFPMD85SQ7A12BDU"
 }
 
-class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterface {
+public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterface {
     private var cryptoWallet: CryptoWallet
     
-    init() {
+    public init() {
         cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
     }
     
-    func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
+    public func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
         case .bitcoin:
             cryptoWallet.bitcoin.getBalance(for: address) { (result) in
@@ -64,7 +65,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
+    public func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void) {
         let erc20Token = ERC20(contractAddress: token.address, decimal: token.decimals, symbol: token.symbol)
         guard let data = try? erc20Token.generateGetBalanceParameter(toAddress: address) else {
             return
@@ -82,23 +83,23 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
+    public func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
     
-    func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<BitcoinTransactionsHistory>) -> Void) {
+    public func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<BitcoinTransactionsHistory>) -> Void) {
         cryptoWallet.bitcoin.getTransactionsHistory(for: address, result: result)
     }
     
-    func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (NetworkResult<EthereumTransactionsByAddress>) -> Void) {
+    public func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (NetworkResult<EthereumTransactionsByAddress>) -> Void) {
         cryptoWallet.ethereum.getTxHistory(for: address, result: result)
     }
     
-    func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void) {
+    public func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void) {
         
     }
     
-    func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void) {
+    public func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void) {
         cryptoWallet.ethereum.getGasSpeed { (result) in
             switch result {
             case .success(let object):
@@ -109,7 +110,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getEthGasPrice(gasPrice: @escaping (Double) -> Void) {
+    public func getEthGasPrice(gasPrice: @escaping (Double) -> Void) {
         cryptoWallet.ethereum.getGasPrice { (result) in
             switch result {
             case .success(let object):
@@ -119,7 +120,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
+    public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
         cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
             switch result {
             case .failure(let error):
@@ -131,7 +132,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {
+    public func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {
         switch asset {
         case let token as Token:
             let value = Wei(integerLiteral: 0)
@@ -147,7 +148,7 @@ class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterf
         }
     }
     
-    func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (NetworkResult<String>) -> Void) throws {
+    public func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (NetworkResult<String>) -> Void) throws {
         let txRwDetails = try txRawParametrs(for: wallet.asset,
                                              toAddress: transacionDetial.address,
                                              ammountInCrypto: transacionDetial.ammount.inCrypto,

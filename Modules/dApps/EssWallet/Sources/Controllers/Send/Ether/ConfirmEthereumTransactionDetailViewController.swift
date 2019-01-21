@@ -12,6 +12,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
+import EssStore
 
 class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences

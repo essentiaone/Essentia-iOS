@@ -13,6 +13,10 @@
 		343C851121D53428000FEE9A /* DIDependencyProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850B21D53428000FEE9A /* DIDependencyProviderInterface.swift */; };
 		343C851221D53428000FEE9A /* DependenceCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850C21D53428000FEE9A /* DependenceCore.swift */; };
 		343C851321D53428000FEE9A /* DIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343C850D21D53428000FEE9A /* DIEngine.swift */; };
+		345747AE21F50EBC006E2EAB /* CryptoFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747AD21F50EBC006E2EAB /* CryptoFormatter.swift */; };
+		345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */; };
+		345747B421F50F57006E2EAB /* CurrencyRankDemonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */; };
+		345747BB21F51336006E2EAB /* SelectAccountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */; };
 		345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345D6DB621EF84CD00C59398 /* EssResources.framework */; };
 		347A3B6E21F3B4330053C2F3 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4721F3B4330053C2F3 /* BitcoinTransaction+Status.swift */; };
 		347A3B6F21F3B4330053C2F3 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */; };
@@ -117,6 +121,10 @@
 		343C850C21D53428000FEE9A /* DependenceCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependenceCore.swift; sourceTree = "<group>"; };
 		343C850D21D53428000FEE9A /* DIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIEngine.swift; sourceTree = "<group>"; };
 		343D98EF21E86DDF00BE0034 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		345747AD21F50EBC006E2EAB /* CryptoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFormatter.swift; sourceTree = "<group>"; };
+		345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemon.swift; sourceTree = "<group>"; };
+		345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemonInterface.swift; sourceTree = "<group>"; };
+		345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountDelegate.swift; sourceTree = "<group>"; };
 		345D6DB621EF84CD00C59398 /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4721F3B4330053C2F3 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
@@ -259,6 +267,23 @@
 			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
+		345747AF21F50F57006E2EAB /* Demons */ = {
+			isa = PBXGroup;
+			children = (
+				345747B021F50F57006E2EAB /* CurrencyRankDemon */,
+			);
+			path = Demons;
+			sourceTree = "<group>";
+		};
+		345747B021F50F57006E2EAB /* CurrencyRankDemon */ = {
+			isa = PBXGroup;
+			children = (
+				345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */,
+				345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */,
+			);
+			path = CurrencyRankDemon;
+			sourceTree = "<group>";
+		};
 		347A3B4521F3B4330053C2F3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,7 +349,6 @@
 		34B1435321D3C31800EC06AE = {
 			isa = PBXGroup;
 			children = (
-				34B1436821D3C8DE00EC06AE /* Resources */,
 				34B1436621D3C8DE00EC06AE /* Sources */,
 				34B1437421D3D6BD00EC06AE /* EssCoreTests */,
 				34B1435D21D3C31800EC06AE /* Products */,
@@ -345,6 +369,7 @@
 		34B1436621D3C8DE00EC06AE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				345747AF21F50F57006E2EAB /* Demons */,
 				34F00A3421D6807800B01C99 /* Services */,
 				343C850721D53428000FEE9A /* DependencyInjection */,
 				34B143A821D3D95A00EC06AE /* Formatters */,
@@ -355,13 +380,6 @@
 				34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */,
 			);
 			path = Sources;
-			sourceTree = "<group>";
-		};
-		34B1436821D3C8DE00EC06AE /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		34B1437421D3D6BD00EC06AE /* EssCoreTests */ = {
@@ -391,6 +409,7 @@
 				34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */,
 				34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */,
 				34B143AC21D3D95A00EC06AE /* DateFormatter.swift */,
+				345747AD21F50EBC006E2EAB /* CryptoFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -431,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				34B143A421D3D95A00EC06AE /* AmmountEnteringDelegate.swift */,
+				345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -713,11 +733,13 @@
 				34F00A5521D6807800B01C99 /* TekensEndpoint.swift in Sources */,
 				34F00A5921D6807800B01C99 /* LoggerServiceInterface.swift in Sources */,
 				34B143BD21D3D95A00EC06AE /* DateFormatter.swift in Sources */,
+				345747BB21F51336006E2EAB /* SelectAccountDelegate.swift in Sources */,
 				347A3B7021F3B4330053C2F3 /* Coin+AssetInterface.swift in Sources */,
 				34B143E021D3D96400EC06AE /* UIView+Shadow.swift in Sources */,
 				347A3B8821F3B4330053C2F3 /* FiatCurrency+LS.swift in Sources */,
 				34B143E821D3D96400EC06AE /* String+Format.swift in Sources */,
 				34B143DC21D3D96400EC06AE /* UIViewController+DismissKeyboard.swift in Sources */,
+				345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */,
 				34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */,
 				34F00A5721D6807800B01C99 /* WalletService.swift in Sources */,
 				347A3B7B21F3B4330053C2F3 /* ViewWallet+EssStore.swift in Sources */,
@@ -729,6 +751,7 @@
 				343C851021D53428000FEE9A /* DIStorageInterface.swift in Sources */,
 				34F00A5021D6807800B01C99 /* CurrencyConverterEndpoint.swift in Sources */,
 				34F00A5421D6807800B01C99 /* TokensServiceInterface.swift in Sources */,
+				345747AE21F50EBC006E2EAB /* CryptoFormatter.swift in Sources */,
 				34B143C521D3D95A00EC06AE /* MethodSwizzle.swift in Sources */,
 				34B143B921D3D95A00EC06AE /* String+Size.swift in Sources */,
 				34B143EB21D3D96400EC06AE /* AttributedString+Size.swift in Sources */,
@@ -746,6 +769,7 @@
 				34B143DD21D3D96400EC06AE /* Int+Unary.swift in Sources */,
 				34B143BF21D3D95A00EC06AE /* LocalizedStrings.swift in Sources */,
 				34B143B721D3D95A00EC06AE /* RGB.swift in Sources */,
+				345747B421F50F57006E2EAB /* CurrencyRankDemonInterface.swift in Sources */,
 				34B143C021D3D95A00EC06AE /* EssCharacters.swift in Sources */,
 				347A3B7A21F3B4330053C2F3 /* Bundle+LS.swift in Sources */,
 				347A3B8F21F3BA510053C2F3 /* GeneratedWallet+WalletInterface.swift in Sources */,
