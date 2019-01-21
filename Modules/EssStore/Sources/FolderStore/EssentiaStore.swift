@@ -10,7 +10,7 @@ import Foundation
 import EssModel
 
 public func storeCurrentUser() {
-    let user = EssentiaStore.shared.currentUser
+//    let user = EssentiaStore.shared.currentUser
 //    (inject() as UserStorageServiceInterface).store(user: user)
 }
 

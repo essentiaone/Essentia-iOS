@@ -64,8 +64,6 @@
 		34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143DA21D3D96400EC06AE /* Date+Intervals.swift */; };
 		34B143ED21D3D96400EC06AE /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143DB21D3D96400EC06AE /* UIImage+UIColor.swift */; };
 		34B143F221D3DA5000EC06AE /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143F121D3DA5000EC06AE /* GCD.swift */; };
-		34B1446D21D3E98C00EC06AE /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1446C21D3E98C00EC06AE /* libEssModel.a */; };
-		34CA775521ECF445003612EE /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CA775421ECF445003612EE /* libEssModel.a */; };
 		34F00A4D21D6807800B01C99 /* MnemonicServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A3621D6807800B01C99 /* MnemonicServiceInterface.swift */; };
 		34F00A4E21D6807800B01C99 /* MnemonicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A3721D6807800B01C99 /* MnemonicService.swift */; };
 		34F00A4F21D6807800B01C99 /* CurrencyConverterServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A3921D6807800B01C99 /* CurrencyConverterServiceInterface.swift */; };
@@ -120,7 +118,6 @@
 		343C850B21D53428000FEE9A /* DIDependencyProviderInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIDependencyProviderInterface.swift; sourceTree = "<group>"; };
 		343C850C21D53428000FEE9A /* DependenceCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DependenceCore.swift; sourceTree = "<group>"; };
 		343C850D21D53428000FEE9A /* DIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIEngine.swift; sourceTree = "<group>"; };
-		343D98EF21E86DDF00BE0034 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		345747AD21F50EBC006E2EAB /* CryptoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFormatter.swift; sourceTree = "<group>"; };
 		345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemon.swift; sourceTree = "<group>"; };
 		345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemonInterface.swift; sourceTree = "<group>"; };
@@ -175,9 +172,6 @@
 		34B143DA21D3D96400EC06AE /* Date+Intervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
 		34B143DB21D3D96400EC06AE /* UIImage+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
 		34B143F121D3DA5000EC06AE /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
-		34B1446C21D3E98C00EC06AE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		34B1446E21D3EA3A00EC06AE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		34CA775421ECF445003612EE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F00A3621D6807800B01C99 /* MnemonicServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicServiceInterface.swift; sourceTree = "<group>"; };
 		34F00A3721D6807800B01C99 /* MnemonicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicService.swift; sourceTree = "<group>"; };
 		34F00A3921D6807800B01C99 /* CurrencyConverterServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyConverterServiceInterface.swift; sourceTree = "<group>"; };
@@ -212,7 +206,6 @@
 			files = (
 				34F6DCD621F3BEB000935A23 /* libEssStore.a in Frameworks */,
 				345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */,
-				34CA775521ECF445003612EE /* libEssModel.a in Frameworks */,
 				4605108144C901485312FAC8 /* Pods_EssCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +214,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34B1446D21D3E98C00EC06AE /* libEssModel.a in Frameworks */,
 				34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,10 +571,6 @@
 			children = (
 				34F6DCD521F3BEB000935A23 /* libEssStore.a */,
 				345D6DB621EF84CD00C59398 /* EssResources.framework */,
-				34CA775421ECF445003612EE /* libEssModel.a */,
-				343D98EF21E86DDF00BE0034 /* libEssModel.a */,
-				34B1446E21D3EA3A00EC06AE /* libEssModel.a */,
-				34B1446C21D3E98C00EC06AE /* libEssModel.a */,
 				3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */,
 			);
 			name = Frameworks;

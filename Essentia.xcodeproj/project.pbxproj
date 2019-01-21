@@ -54,9 +54,8 @@
 		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
 		344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826C621218C9C00C19EB3 /* SettingsViewController.swift */; };
 		345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747AB21F50DD6006E2EAB /* libEssWallet.a */; };
-		345747C021F5BB95006E2EAB /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
-		345747C121F5BBCF006E2EAB /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
-		345747C221F5BBCF006E2EAB /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		345747CE21F5D904006E2EAB /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
+		345747CF21F5D904006E2EAB /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34864027219319F2008CA223 /* LaunchpadPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */; };
 		34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
@@ -89,7 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				345747C221F5BBCF006E2EAB /* EssUI.framework in Embed Frameworks */,
+				345747CF21F5D904006E2EAB /* EssUI.framework in Embed Frameworks */,
 				3426963221ED5BB40063E2D8 /* EssResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -176,8 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				345747C121F5BBCF006E2EAB /* EssUI.framework in Frameworks */,
-				345747C021F5BB95006E2EAB /* EssUI.framework in Frameworks */,
+				345747CE21F5D904006E2EAB /* EssUI.framework in Frameworks */,
 				345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */,
 				3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */,
 				E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */,
@@ -1010,6 +1008,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7ea2d12b-3218-4fcb-b9d1-18e7f8c01a8f";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development essentia.Essentia";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1036,6 +1036,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "6d60cbe9-05b7-409e-a5aa-6c3dd5fbcf9c";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore essentia.Essentia";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = arm64;
