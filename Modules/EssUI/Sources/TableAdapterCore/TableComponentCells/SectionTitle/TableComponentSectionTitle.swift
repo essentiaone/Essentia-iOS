@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 import EssResources
 
 class TableComponentSectionTitle: UITableViewCell, NibLoadable {

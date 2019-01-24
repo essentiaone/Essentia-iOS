@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 open class BaseViewController: UIViewController, UINavigationControllerDelegate {
     public var keyboardObserver: KeyboardHeightObserver

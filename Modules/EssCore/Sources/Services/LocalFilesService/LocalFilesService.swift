@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EssDI
 
 public class LocalFilesService: LocalFilesServiceInterface {
     public init() {}

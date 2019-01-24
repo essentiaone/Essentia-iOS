@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import RealmSwift
 
-public struct Token: Codable {
-    public var id: String
-    public var address: String
-    public var symbol: String
-    public var name: String
-    public var decimals: Int
-    public var path: TokenIcons?
+@objc
+public class Token: Object, Codable {
+    @objc dynamic public var id: String = ""
+    @objc dynamic public var address: String = ""
+    @objc dynamic public var symbol: String = ""
+    @objc dynamic public var name: String = ""
+    @objc dynamic public var decimals: Int = 0
+    @objc dynamic public var path: TokenIcons?
 }

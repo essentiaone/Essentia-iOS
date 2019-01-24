@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentBlure: UITableViewCell, NibLoadable {
     @IBOutlet weak var blureView: UIVisualEffectView!

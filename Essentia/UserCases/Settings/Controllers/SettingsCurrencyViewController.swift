@@ -11,7 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -51,8 +51,9 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: { [unowned self] in
-                    EssentiaStore.shared.currentUser.profile.currency = currency
-                    storeCurrentUser()
+                    (inject() as UserStorageServiceInterface).update({ (user) in
+                        user.profile.currency = currency
+                    })
                     (inject() as CurrencyRankDaemonInterface).update()
                     self.tableAdapter.hardReload(self.state)
             }))

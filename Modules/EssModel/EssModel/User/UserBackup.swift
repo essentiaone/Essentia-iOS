@@ -7,16 +7,10 @@
 //
 
 import Foundation
+import RealmSwift
 
-public class UserBackup: Codable {
-    public var currentlyBackedUp: Set<BackupType> = []
-    public var keystoreUrl: URL?
-    
-    public var isSecured: Bool {
-         return currentlyBackedUp.count == 3
-    }
-    
-    public var secureLevel: Int {
-        return currentlyBackedUp.count
-    }
+@objcMembers
+public class UserBackup: Object {
+    dynamic public var currentlyBackup: CurrentlyBackup? = CurrentlyBackup()
+    dynamic public var keystorePath: String?
 }

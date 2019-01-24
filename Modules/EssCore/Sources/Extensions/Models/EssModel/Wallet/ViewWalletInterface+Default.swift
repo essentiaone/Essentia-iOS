@@ -11,13 +11,11 @@ import EssModel
 
 public extension ViewWalletInterface {
     public func balanceInCurrency(currency: FiatCurrency, with rank: Double) -> Double {
-        guard let currentBalance = lastBalance else { return 0 }
-        return currentBalance * rank
+        return lastBalance * rank
     }
     
     public func yesterdayBalanceCurrency(currency: FiatCurrency, with rank: Double) -> Double {
-        guard let currentBalance = lastBalance else { return 0 }
-        return currentBalance * rank
+        return lastBalance * rank
     }
     
     public func formattedBalanceInCurrency(currency: FiatCurrency, with rank: Double) -> String {

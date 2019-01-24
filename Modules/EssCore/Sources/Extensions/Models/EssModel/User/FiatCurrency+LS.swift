@@ -8,6 +8,7 @@
 
 import Foundation
 import EssModel
+import EssResources
 
 extension FiatCurrency {
     public var titleString: String {

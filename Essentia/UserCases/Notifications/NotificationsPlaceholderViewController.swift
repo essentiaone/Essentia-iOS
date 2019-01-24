@@ -10,6 +10,7 @@ import UIKit
 import EssCore
 import EssResources
 import EssUI
+import EssDI
 
 class NotificationsPlaceholderViewController: BaseTableAdapterController {
     // MARK: - Dependences

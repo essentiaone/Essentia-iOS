@@ -8,8 +8,7 @@
 
 import UIKit
 
-//enum Coin: String, Codable, AssetInterface {
-public enum Coin: String, Codable {
+public enum Coin: String {
     case bitcoin
     case ethereum
     case litecoin

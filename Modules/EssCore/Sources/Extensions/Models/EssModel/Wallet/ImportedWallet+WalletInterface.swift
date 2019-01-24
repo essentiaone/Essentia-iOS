@@ -12,7 +12,7 @@ import CryptoSwift
 fileprivate var iv = "457373656e746961"
 
 extension ImportedWallet: WalletInterface, ViewWalletInterface {
-    public convenience init?(address: String, coin: Coin, pk: String, name: String, lastBalance: Double? = nil, seed: String) {
+    public convenience init?(address: String, coin: Coin, pk: String, name: String, lastBalance: Double, seed: String) {
         guard let aesInstance = ImportedWallet.aesInstance(withSeed: seed),
             let encodedBytes = try? aesInstance.encrypt(pk.bytes)  else { return nil }
         self.init(address: address, coin: coin, encodedPk: Data(bytes: encodedBytes), name: name, lastBalance: lastBalance)

@@ -8,6 +8,7 @@
 
 import Foundation
 import EssModel
+import EssDI
 
 extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     public func privateKey(withSeed: String) -> String? {
@@ -18,7 +19,7 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
         self.init(name: name, coin: coin, derivationIndex: derivationIndex, lastBalance: 0)
         self.coin = coin
         self.derivationIndex = derivationIndex
-        self.lastBalance = nil
+        self.lastBalance = 0
     }
     
     public var symbol: String {
@@ -27,10 +28,6 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     
     public func isValidAddress(_ address: String) -> Bool {
         return coin.isValidAddress(address)
-    }
-    
-    public var hashValue: Int {
-        return 1
     }
     
     public var asset: AssetInterface {

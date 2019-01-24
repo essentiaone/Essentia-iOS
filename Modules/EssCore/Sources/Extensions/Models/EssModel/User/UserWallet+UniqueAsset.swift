@@ -24,8 +24,9 @@ extension UserWallet {
         }
     
         public func remove(wallet: ViewWalletInterface) {
-            importedWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
-            generatedWalletsInfo.removeAll { return ($0 as ViewWalletInterface) == wallet }
-            tokenWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
+            #warning("Remove wallets")
+//            importedWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
+//            generatedWalletsInfo.removeAll { return ($0 as ViewWalletInterface) == wallet }
+//            tokenWallets.removeAll { return ($0 as ViewWalletInterface) == wallet }
         }
 }

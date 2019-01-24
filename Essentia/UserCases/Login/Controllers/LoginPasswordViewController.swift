@@ -11,6 +11,7 @@ import UIKit
 import EssCore
 import EssResources
 import EssUI
+import EssDI
 
 fileprivate struct Store {
     var password: String = ""

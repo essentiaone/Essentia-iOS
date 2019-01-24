@@ -8,6 +8,7 @@
 
 import Foundation
 import EssCore
+import EssDI
 
 fileprivate struct Constants {
     static var confirmationNeeded: Int = 12

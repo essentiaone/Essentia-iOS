@@ -8,7 +8,7 @@
 
 import Foundation
 import EssModel
-import EssStore
+import EssDI
 
 public class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     var assets: [AssetInterface] = []

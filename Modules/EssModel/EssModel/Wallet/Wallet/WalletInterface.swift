@@ -8,7 +8,7 @@
 
 import Foundation
 
-public protocol WalletInterface: Codable {
+public protocol WalletInterface {
     func address(withSeed: String) -> String
     var asset: AssetInterface { get }
     var name: String { get set }

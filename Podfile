@@ -38,7 +38,7 @@ def pod_debug
 end
 
 def pod_database
-    pod 'Realm'
+    pod 'RealmSwift'
 end
 
 # Core functionality
@@ -46,34 +46,35 @@ end
 target 'EssModel' do
     project 'Modules/EssModel/EssModel.xcodeproj'
     use_frameworks!
-    pod_core
+    pod_database
 end
 
 target 'EssUI' do
     project 'Modules/EssUI/EssUI.xcodeproj'
     use_frameworks!
     pod_ui
-    pod_core
+    pod_database
 end
 
 target 'EssResources' do
     project 'Modules/EssResources/EssResources.xcodeproj'
     use_frameworks!
-    pod_core
     pod_debug
+    pod_database
+end
+
+target 'EssDI' do
+    project 'Modules/EssDI/EssDI.xcodeproj'
+    use_frameworks!
+    
 end
 
 target 'EssCore' do 
     project 'Modules/EssCore/EssCore.xcodeproj'
     use_frameworks!
-    pod_core
     pod_debug
-end
-
-target 'EssStore' do 
-    project 'Modules/EssStore/EssStore.xcodeproj'
-    use_frameworks!
-    pod_database
+    pod_ui
+    pod_core
 end
 
 # dApps
@@ -84,6 +85,7 @@ target 'EssWallet' do
     pod_core
     pod_debug
     pod_ui
+    pod_database
 end
 
 # =====
@@ -95,4 +97,14 @@ target 'Essentia' do
     pod_debug
     pod_analytics
     pod_functional
+    pod_database
+end
+
+target 'EssUIGallery' do 
+    project 'Modules/EssUIGallery/EssUIGallery.xcodeproj'
+    use_frameworks!
+    pod_core
+    pod_ui
+    pod_database
+    pod_debug
 end

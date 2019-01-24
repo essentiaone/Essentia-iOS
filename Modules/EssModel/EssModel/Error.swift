@@ -13,6 +13,14 @@ public enum EssentiaError: Error {
         case invalidPk
         
     }
+    
+    public enum DBError: Error {
+        case notCreated
+        case databaseNotFound
+        case objectsNotFound
+    }
+    
+    case dbError(DBError)
     case txError(TxError)
     case unknownError
     case unexpectedBehavior
@@ -20,6 +28,15 @@ public enum EssentiaError: Error {
     
     public var localizedDescription: String {
         switch self {
+        case .dbError(let dbError):
+            switch dbError {
+            case .databaseNotFound:
+                return "Datatabase not foud"
+            case .notCreated:
+                return "Can not create database"
+            case .objectsNotFound:
+                return "Database is empty"
+            }
         case .txError(let txError):
             switch txError {
             case .invalidPk:

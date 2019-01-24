@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-public class UserEvents: Codable {
-    public var isAccountFullySecuredShown: Bool = false
+@objcMembers
+public class UserEvents: Object {
+    dynamic public var isAccountFullySecuredShown: Bool = false
 }

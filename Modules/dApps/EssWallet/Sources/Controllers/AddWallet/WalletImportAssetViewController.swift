@@ -10,7 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssResources
-import EssStore
+import EssDI
 import EssUI
 
 fileprivate struct Store {

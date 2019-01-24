@@ -8,7 +8,7 @@
 
 import UIKit
 import EssModel
-import EssCore
+import EssDI
 import EssResources
 
 public enum AlertType {

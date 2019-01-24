@@ -10,7 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate enum AuthRoutes {
     case warning
@@ -67,7 +67,6 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
                     .keyStoreWarning,
                     .keyStorePassword(auth: auth, delegate: delegate)
                 ]
-            default: routes = []
             }
         case .login:
             switch type {
@@ -83,7 +82,6 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
                 routes = [
                     .keyStorePassword(auth: auth, delegate: delegate)
                 ]
-            default: routes = []
             }
         }
         super.init(navigationController: navigationController)

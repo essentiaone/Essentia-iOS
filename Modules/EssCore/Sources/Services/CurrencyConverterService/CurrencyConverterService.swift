@@ -9,6 +9,7 @@
 import Foundation
 import EssentiaNetworkCore
 import EssModel
+import EssDI
 
 fileprivate struct Constants {
     static var sourceUrl = "https://api.coingecko.com/api/v3"

@@ -14,7 +14,7 @@ import HDWalletKit
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate struct Store {
     var isLoadingTransactions: Bool = false

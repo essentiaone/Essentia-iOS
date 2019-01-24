@@ -7,22 +7,21 @@
 //
 
 import Foundation
+import RealmSwift
 
-public class GeneratingWalletInfo: Hashable, Codable {
-    public var name: String
-    public var coin: Coin
-    public var derivationIndex: UInt32
-    public var lastBalance: Double?
+@objcMembers
+public class GeneratingWalletInfo: Object {
+    dynamic public var name: String = ""
+    dynamic public var coin: Coin = .bitcoin
+    dynamic public var derivationIndex: UInt32 = 0
+    dynamic public var lastBalance: Double = 0
     
-    public init(name: String, coin: Coin, derivationIndex: UInt32, lastBalance: Double?) {
+    public convenience init(name: String, coin: Coin, derivationIndex: UInt32, lastBalance: Double) {
+        self.init()
         self.name = name
         self.coin = coin
         self.derivationIndex = derivationIndex
         self.lastBalance = lastBalance
-    }
-    
-    public var hashValue: Int {
-        return 1
     }
     
     static public func == (lhs: GeneratingWalletInfo, rhs: GeneratingWalletInfo) -> Bool {

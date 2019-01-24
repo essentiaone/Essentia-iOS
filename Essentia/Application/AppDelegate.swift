@@ -10,6 +10,7 @@ import UIKit
 import Crashlytics
 import Fabric
 import EssCore
+import EssDI
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     

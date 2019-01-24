@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentCenteredImage: UITableViewCell, NibLoadable {
     @IBOutlet weak var verticalInset: NSLayoutConstraint!

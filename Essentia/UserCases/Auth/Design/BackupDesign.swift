@@ -9,7 +9,7 @@
 import UIKit
 import EssCore
 import EssResources
-import EssStore
+import EssDI
 
 class BackupDesign: BackupDesignInterface {
     private lazy var imageProvider: AppImageProviderInterface = inject()

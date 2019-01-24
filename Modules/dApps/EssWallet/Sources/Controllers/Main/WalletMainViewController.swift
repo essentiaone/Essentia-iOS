@@ -11,7 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate struct Store {
     var tokens: [GeneratingWalletInfo: [TokenWallet]] = [:]
@@ -187,7 +187,8 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var addWalletAction: () -> Void = {
-        guard !EssentiaStore.shared.currentUser.backup.currentlyBackedUp.isEmpty else {
+        let isConfirmed = EssentiaStore.shared.currentUser.backup.currentlyBackup?.isConfirmed ?? false
+        if !isConfirmed {
             self.present(BackupMnemonicAlert.init(leftAction: {},
                                                   rightAction: {
                                                     (inject() as WalletRouterInterface).show(.backupKeystore)

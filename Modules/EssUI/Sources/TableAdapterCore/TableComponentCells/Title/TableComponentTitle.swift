@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentTitle: UITableViewCell, NibLoadable {
     @IBOutlet weak var titleLabel: UILabel!

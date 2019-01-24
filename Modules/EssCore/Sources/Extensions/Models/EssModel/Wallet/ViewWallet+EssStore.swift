@@ -8,7 +8,6 @@
 
 import Foundation
 import EssModel
-import EssStore
 
 public extension ViewWalletInterface {
     public var formattedBalanceInCurrentCurrencyWithSymbol: String {

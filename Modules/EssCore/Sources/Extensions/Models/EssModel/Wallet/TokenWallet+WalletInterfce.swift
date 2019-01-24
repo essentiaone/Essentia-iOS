@@ -8,9 +8,10 @@
 
 import Foundation
 import EssModel
+import EssDI
 
 extension TokenWallet: WalletInterface, ViewWalletInterface {
-    public convenience init(token: Token, wallet: GeneratingWalletInfo, lastBalance: Double? = nil) {
+    public convenience init(token: Token, wallet: GeneratingWalletInfo, lastBalance: Double) {
         self.init(name: token.name, token: token, wallet: wallet, lastBalance: lastBalance)
     }
     

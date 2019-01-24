@@ -9,7 +9,7 @@
 import Foundation
 import EssModel
 import EssCore
-import EssStore
+import EssDI
 
 class LoginInteractor: LoginInteractorInterface {
     private lazy var userService: UserStorageServiceInterface = inject()
@@ -21,7 +21,7 @@ class LoginInteractor: LoginInteractorInterface {
             let mnemonic = self.mnemonicService.newMnemonic(with: currentLocaleLanguage)
             DispatchQueue.main.async {
                 let user = User(mnemonic: mnemonic)
-                try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+                EssentiaStore.shared.setUser(user)
                 callBack()
             }
         }

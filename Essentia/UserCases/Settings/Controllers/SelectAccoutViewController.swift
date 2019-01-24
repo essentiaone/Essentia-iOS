@@ -11,13 +11,14 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
+import EssDI
 
 class SelectAccoutViewController: BaseBluredTableAdapterController {
     var users: [User] = []
     weak var delegate: SelectAccountDelegate?
     
     // MARK: - Dependences
-    private lazy var userService: UserStorageServiceInterface = inject()
+    private lazy var userService: UserListStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
@@ -39,13 +40,13 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let usersState = userService.get().map({ (user) -> [TableComponent] in
-            return [.imageTitle(image: user.profile.icon, title: user.dislayName, withArrow: true, action: { [unowned self] in
-                        self.dismiss(animated: true)
-                        self.delegate?.didSelectUser(user)
-                    }),
+        let usersState = userService.get().map { (user) -> [TableComponent] in
+            return [.imageTitle(image: UIImage(), title: user.name, withArrow: true, action: { [unowned self] in
+                                    self.dismiss(animated: true)
+                                    self.delegate?.didSelectUser(user)
+                                }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
-        }).flatMap { return $0 }
+            }.flatMap { return $0 }
         return [
                .empty(height: 10, background: .white),
                .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
