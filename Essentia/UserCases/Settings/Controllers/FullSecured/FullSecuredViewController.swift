@@ -11,7 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 class FullSecuredViewController: BaseViewController {
     @IBOutlet weak var animationImageView: UIImageView!
@@ -59,8 +59,9 @@ class FullSecuredViewController: BaseViewController {
     }
     
     @IBAction func continueAction(_ sender: Any) {
-        EssentiaStore.shared.currentUser.userEvents.isAccountFullySecuredShown = true
-        storeCurrentUser()
+        (inject() as UserStorageServiceInterface).update({ (user) in
+            user.userEvents.isAccountFullySecuredShown = true
+        })
         self.navigationController?.popViewController(animated: true)
     }
 }

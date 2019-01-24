@@ -11,6 +11,7 @@ import EssentiaNetworkCore
 import EssentiaBridgesApi
 import HDWalletKit
 import EssModel
+import EssUI
 import EssResources
 
 public class CryptoFormatter {

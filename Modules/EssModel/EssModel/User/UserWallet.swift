@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import RealmSwift
 
-public class UserWallet: Codable {
-    public var importedWallets: [ImportedWallet] = []
-    public var generatedWalletsInfo: [GeneratingWalletInfo] = []
-    public var tokenWallets: [TokenWallet] = []
+@objcMembers
+public class UserWallet: Object {
+    dynamic public var importedWallets: List<ImportedWallet> = List()
+    dynamic public var generatedWalletsInfo: List<GeneratingWalletInfo> = List()
+    dynamic public var tokenWallets: List<TokenWallet> = List()
     
     public var isEmpty: Bool {
         return importedWallets.isEmpty && tokenWallets.isEmpty && generatedWalletsInfo.isEmpty

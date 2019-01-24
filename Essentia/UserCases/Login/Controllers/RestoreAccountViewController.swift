@@ -11,6 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
+import EssDI
 
 protocol RestoreAccountDelegate: class {
     func showBackup(type: BackupType)

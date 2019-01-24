@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import EssCore
+import EssDI
 import EssResources
 
 class TableComponentAnimation: UITableViewCell, NibLoadable {

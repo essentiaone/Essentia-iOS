@@ -9,7 +9,7 @@
 import Foundation
 import EssCore
 import EssModel
-import EssStore
+import EssDI
 
 public class WalletInteractor: WalletInteractorInterface {    
     private lazy var walletService: WalletServiceInterface = inject()
@@ -52,7 +52,7 @@ public class WalletInteractor: WalletInteractorInterface {
         }
         EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo = currentlyAddedWallets
         (inject() as CurrencyRankDaemonInterface).update()
-        return currentlyAddedWallets
+        return currentlyAddedWallets.map { return $0 }
     }
     
     public func addTokensToWallet(_ assets: [AssetInterface]) {
@@ -65,24 +65,25 @@ public class WalletInteractor: WalletInteractorInterface {
     public func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo) {
         guard let tokens = assets as? [Token] else { return }
         tokens.forEach { token in
-            let tokenAsset = TokenWallet(token: token, wallet: wallet)
-            EssentiaStore.shared.currentUser.wallet.tokenWallets.append(tokenAsset)
-            storeCurrentUser()
+            let tokenAsset = TokenWallet(token: token, wallet: wallet, lastBalance: 0)
+            (inject() as UserStorageServiceInterface).update({ (user) in
+                user.wallet.tokenWallets.append(tokenAsset)
+            })
             (inject() as CurrencyRankDaemonInterface).update()
         }
     }
     
     public func getGeneratedWallets() -> [GeneratingWalletInfo] {
-        return EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
+        return EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo.map { return $0 }
     }
     
     public func getImportedWallets() -> [ImportedWallet] {
-        return EssentiaStore.shared.currentUser.wallet.importedWallets
+        return EssentiaStore.shared.currentUser.wallet.importedWallets.map { return $0 }
     }
     
     public func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]] {
         var tokensByWallets: [GeneratingWalletInfo: [TokenWallet]] = [:]
-        let tokens = EssentiaStore.shared.currentUser.wallet.tokenWallets
+        let tokens: [TokenWallet] = EssentiaStore.shared.currentUser.wallet.tokenWallets.map({ return $0 })
         let wallets = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo
         for wallet in wallets {
             let tokensByCurrentWallet = tokens.filter({ return $0.wallet == wallet })

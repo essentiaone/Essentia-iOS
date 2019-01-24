@@ -8,6 +8,8 @@
 
 import UIKit
 import EssModel
+import EssResources
+import EssUI
 
 extension Coin: AssetInterface {
     public var localizedName: String {

@@ -7,17 +7,18 @@
 //
 
 import UIKit
-import HDWalletKit
-import CryptoSwift
+import RealmSwift
 
-public class ImportedWallet: Codable {
-    public var address: String
-    public var coin: Coin
-    public var encodedPk: Data
-    public var name: String
-    public var lastBalance: Double?
+@objcMembers
+public class ImportedWallet: Object {
+    dynamic public var address: String = ""
+    dynamic public var coin: Coin = .bitcoin
+    dynamic public var encodedPk: Data = Data()
+    dynamic public var name: String = ""
+    dynamic public var lastBalance: Double = 0
     
-    public init(address: String, coin: Coin, encodedPk: Data, name: String, lastBalance: Double?) {
+    public convenience init(address: String, coin: Coin, encodedPk: Data, name: String, lastBalance: Double) {
+        self.init()
         self.address = address
         self.coin = coin
         self.encodedPk = encodedPk

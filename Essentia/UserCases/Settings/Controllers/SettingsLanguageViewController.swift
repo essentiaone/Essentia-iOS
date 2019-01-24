@@ -11,7 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -51,8 +51,9 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
                 title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: { [unowned self] in
-                    EssentiaStore.shared.currentUser.profile.language = language
-                    storeCurrentUser()
+                    (inject() as UserStorageServiceInterface).update({ (user) in
+                        user.profile.language = language
+                    })
                     self.tableAdapter.hardReload(self.state)
                     self.showFlipAnimation()
             }))

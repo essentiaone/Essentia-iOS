@@ -10,7 +10,7 @@ import UIKit
 import EssCore
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -76,7 +76,8 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.mnemonic) else {
+        let containMnemonic = EssentiaStore.shared.currentUser.backup.currentlyBackup?.contain(.mnemonic) ?? false
+        if !containMnemonic {
             (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
             return
         }
@@ -87,12 +88,14 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var ketstoreAction: () -> Void = { [unowned self] in
-        guard EssentiaStore.shared.currentUser.backup.currentlyBackedUp.contains(.keystore),
-            let keystore = EssentiaStore.shared.currentUser.backup.keystoreUrl,
-            (try? Data(contentsOf: keystore)) != nil  else {
+        let containKeystore = EssentiaStore.shared.currentUser.backup.currentlyBackup?.contain(.keystore) ?? false
+        guard containKeystore,
+            let keystorePath = EssentiaStore.shared.currentUser.backup.keystorePath,
+            let url = URL(fileURLWithPath: keystorePath) as? URL,
+            (try? Data(contentsOf: url)) != nil  else {
                 (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
                 return
         }
-        self.present(UIActivityViewController(activityItems: [keystore], applicationActivities: nil), animated: true)
+        self.present(UIActivityViewController(activityItems: [url], applicationActivities: nil), animated: true)
     }
 }

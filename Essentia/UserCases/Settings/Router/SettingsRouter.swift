@@ -10,6 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssUI
+import EssDI
 
 class SettingsRouter: BaseRouter, SettingsRouterInterface {
     func show(_ route: SettingsRoutes) {

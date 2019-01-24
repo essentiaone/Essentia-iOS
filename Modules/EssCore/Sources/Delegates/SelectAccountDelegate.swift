@@ -10,7 +10,7 @@ import Foundation
 import EssModel
 
 public protocol SelectAccountDelegate: class {
-    func didSelectUser(_ user: User)
+    func didSelectUser(_ user: ViewUser)
     func didSetUser()
     func createNewUser()
 }

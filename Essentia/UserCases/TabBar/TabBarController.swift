@@ -11,6 +11,7 @@ import EssCore
 import EssResources
 import EssUI
 import EssWallet
+import EssDI
 
 fileprivate enum Constants: String {
     case walletOnbordingKey

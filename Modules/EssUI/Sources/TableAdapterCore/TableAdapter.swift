@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-import EssCore
+import EssDI
 import EssResources
 
 public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
@@ -325,7 +325,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .menuTitleCheck(let title, let state, _):
             let cell: TableComponentCheckField = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
-            cell.checkImageView.image = state.value ?! imageProvider.checkIcon
+            cell.checkImageView.image = state.value ? imageProvider.checkIcon : nil
             return cell
         case .imageTitle(let image, let title, let withArrow, _):
             let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)

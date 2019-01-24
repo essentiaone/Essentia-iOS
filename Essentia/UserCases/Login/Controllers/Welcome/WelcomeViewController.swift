@@ -10,7 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssUI
-import EssStore
+import EssDI
 
 class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
     // MARK: - IBOutlet
@@ -24,7 +24,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     // MARK: - Dependences
     private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
-    private lazy var userService: UserStorageServiceInterface = inject()
+    private lazy var userService: UserListStorageServiceInterface = inject()
     
     // MARK: - Lifecycle
     
@@ -65,16 +65,11 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     }
     
     // MARK: - SelectAccountDelegate
-    func didSelectUser(_ user: User) {
-        guard user.seed == nil else {
-            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
-            user.backup.currentlyBackedUp = []
-            showTabBar()
-            return
-        }
+    func didSelectUser(_ user: ViewUser) {
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
-                try EssentiaStore.shared.setUser(user, password: pass)
+                let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: user.id, password: pass)
+                EssentiaStore.shared.setUser(userStore.get())
             } catch {
                 (inject() as LoaderInterface).showError(error)
                 return false

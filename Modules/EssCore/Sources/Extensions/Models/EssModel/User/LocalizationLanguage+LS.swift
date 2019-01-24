@@ -8,6 +8,7 @@
 
 import Foundation
 import EssModel
+import EssResources
 
 extension LocalizationLanguage {
     public var titleString: String {

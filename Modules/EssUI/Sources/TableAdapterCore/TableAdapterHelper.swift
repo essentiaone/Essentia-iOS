@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 import EssResources
 
 public class TableAdapterHelper {
@@ -31,7 +31,7 @@ public class TableAdapterHelper {
         let resultHeight = tableView.frame.height - totalContentHeight
         return resultHeight > 0.0 ? resultHeight : 0.0
     }
-    
+    #warning("Check tab bat size on X")
     func height(for indexPath: IndexPath, in state: [TableComponent]) -> CGFloat {
         let component = state[indexPath.row]
         switch component {
@@ -91,7 +91,8 @@ public class TableAdapterHelper {
                 description.multyLineLabelHeight(with: AppFont.regular.withSize(17),
                                                  width: labelWidth) + 20
         case .tabBarSpace:
-            return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
+//            return DeviceSeries.currentSeries == .iPhoneX ? 69.0 : 40.0
+            return 40
         case .menuTitleCheck:
             return 44.0
         case .checkImageTitle: fallthrough

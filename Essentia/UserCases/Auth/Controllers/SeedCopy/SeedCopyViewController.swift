@@ -10,8 +10,7 @@ import UIKit
 import EssCore
 import EssModel
 import EssUI
-import EssStore
-import EssStore
+import EssDI
 
 class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableNavigation {
     // MARK: - IBOutlet
@@ -65,12 +64,12 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
     @IBAction func continueAction(_ sender: Any) {
         switch authType {
         case .backup:
-            EssentiaStore.shared.currentUser.backup.currentlyBackedUp.insert(.seed)
+            EssentiaStore.shared.currentUser.backup.currentlyBackup?.add(.seed)
             storeCurrentUser()
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let user = User(seed: textView.text)
-            try? EssentiaStore.shared.setUser(user, password: User.defaultPassword)
+            EssentiaStore.shared.setUser(user)
             (inject() as AuthRouterInterface).showPrev()
             delegate?.didSetUser()
         }

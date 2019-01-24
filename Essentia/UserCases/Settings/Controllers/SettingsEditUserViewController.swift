@@ -10,7 +10,7 @@ import Foundation
 import EssCore
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences

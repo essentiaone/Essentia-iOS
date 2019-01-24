@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentContainer: UITableViewCell, NibLoadable {
     @IBOutlet weak var containerContentView: UIView!

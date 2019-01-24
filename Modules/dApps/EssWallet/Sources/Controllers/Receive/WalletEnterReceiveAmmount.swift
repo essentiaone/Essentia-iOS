@@ -11,7 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate struct Store {
     let asset: AssetInterface

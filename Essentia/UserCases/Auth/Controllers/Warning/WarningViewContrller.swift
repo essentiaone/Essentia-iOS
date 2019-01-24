@@ -9,6 +9,7 @@
 import UIKit
 import EssCore
 import EssUI
+import EssDI
 
 class WarningViewContrller: BaseViewController, SwipeableNavigation {
     // MARK: - IBOutlet

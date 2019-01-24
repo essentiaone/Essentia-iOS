@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		01E790472AB458EC39B11075 /* Pods_EssModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44395D71DC1FA8821C5E4A94 /* Pods_EssModel.framework */; };
+		3423DA9021F8B5C600578930 /* ViewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA8F21F8B5C600578930 /* ViewUser.swift */; };
 		34B1442521D3DE2C00EC06AE /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440821D3DE2C00EC06AE /* TransactionType.swift */; };
 		34B1442621D3DE2C00EC06AE /* ViewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440921D3DE2C00EC06AE /* ViewTransaction.swift */; };
 		34B1442721D3DE2C00EC06AE /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440A21D3DE2C00EC06AE /* TransactionStatus.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3423DA8F21F8B5C600578930 /* ViewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUser.swift; sourceTree = "<group>"; };
 		34B143FC21D3DDA700EC06AE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1440621D3DE2B00EC06AE /* EssModel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssModel-Bridging-Header.h"; sourceTree = "<group>"; };
 		34B1440821D3DE2C00EC06AE /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				34B1440E21D3DE2C00EC06AE /* UserProfile.swift */,
 				34B1440F21D3DE2C00EC06AE /* User.swift */,
 				34B1441021D3DE2C00EC06AE /* UserBackup.swift */,
+				3423DA8F21F8B5C600578930 /* ViewUser.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				34B1442D21D3DE2C00EC06AE /* Error.swift in Sources */,
 				34B1443621D3DE2C00EC06AE /* WalletInterface.swift in Sources */,
 				34B1442B21D3DE2C00EC06AE /* User.swift in Sources */,
+				3423DA9021F8B5C600578930 /* ViewUser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

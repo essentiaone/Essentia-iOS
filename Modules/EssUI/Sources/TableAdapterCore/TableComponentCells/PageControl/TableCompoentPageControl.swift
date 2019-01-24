@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentPageControl: UITableViewCell, NibLoadable {
     @IBOutlet weak var pageControl: UIPageControl!

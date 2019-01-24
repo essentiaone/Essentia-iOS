@@ -11,7 +11,8 @@ import QRCodeReader
 import EssModel
 import EssCore
 import EssUI
-import EssStore
+import EssResources
+import EssDI
 
 public class WalletRouter: BaseRouter, WalletRouterInterface {
 

@@ -54,8 +54,6 @@
 		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
 		344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826C621218C9C00C19EB3 /* SettingsViewController.swift */; };
 		345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747AB21F50DD6006E2EAB /* libEssWallet.a */; };
-		345747CE21F5D904006E2EAB /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
-		345747CF21F5D904006E2EAB /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34864027219319F2008CA223 /* LaunchpadPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34864026219319F2008CA223 /* LaunchpadPlaceholderViewController.swift */; };
 		34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
@@ -64,6 +62,8 @@
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
+		34D9C96021F9311D00B3A625 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
+		34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
 		34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */; };
 		34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */; };
@@ -88,7 +88,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				345747CF21F5D904006E2EAB /* EssUI.framework in Embed Frameworks */,
+				34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */,
 				3426963221ED5BB40063E2D8 /* EssResources.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -175,7 +175,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				345747CE21F5D904006E2EAB /* EssUI.framework in Frameworks */,
+				34D9C96021F9311D00B3A625 /* EssUI.framework in Frameworks */,
 				345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */,
 				3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */,
 				E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */,
@@ -764,23 +764,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
+				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

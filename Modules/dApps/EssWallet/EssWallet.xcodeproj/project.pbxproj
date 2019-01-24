@@ -38,7 +38,6 @@
 		347A3B3D21F3B0C70053C2F3 /* WalletRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2021F3B0C70053C2F3 /* WalletRouter.swift */; };
 		347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2121F3B0C70053C2F3 /* WalletRouterInterface.swift */; };
 		347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B3F21F3B1350053C2F3 /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
-		347A3B4221F3B1350053C2F3 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4121F3B1350053C2F3 /* libEssModel.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		347A3B4421F3B15B0053C2F3 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4321F3B15B0053C2F3 /* EssUI.framework */; };
 		FD89AEE7E8E4CCD567278105 /* Pods_EssWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */; };
 /* End PBXBuildFile section */
@@ -102,7 +101,6 @@
 			files = (
 				347A3B4421F3B15B0053C2F3 /* EssUI.framework in Frameworks */,
 				347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */,
-				347A3B4221F3B1350053C2F3 /* libEssModel.a in Frameworks */,
 				FD89AEE7E8E4CCD567278105 /* Pods_EssWallet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

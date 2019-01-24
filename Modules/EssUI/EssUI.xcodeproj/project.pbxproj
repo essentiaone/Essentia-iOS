@@ -7,8 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		345747BE21F51510006E2EAB /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */; };
-		345747C321F5C3B3006E2EAB /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34CA783D21ECF8B6003612EE /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */; };
+		3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */; };
+		342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A91FE21F8FCFC009840DD /* libEssDI.a */; };
+		342A920521F8FD92009840DD /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920421F8FD92009840DD /* RGB.swift */; };
+		342A920721F8FE19009840DD /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920621F8FE19009840DD /* String+Size.swift */; };
+		342A921421F8FEFB009840DD /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */; };
+		342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */; };
+		342A921621F8FEFB009840DD /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920F21F8FEFB009840DD /* UIView+Gradient.swift */; };
+		342A921721F8FEFB009840DD /* UIView+Shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921021F8FEFB009840DD /* UIView+Shadow.swift */; };
+		342A921821F8FEFB009840DD /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921121F8FEFB009840DD /* UIView+Animation.swift */; };
+		342A921921F8FEFB009840DD /* UIViewController+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921221F8FEFB009840DD /* UIViewController+DismissKeyboard.swift */; };
+		342A921A21F8FEFB009840DD /* UIImage+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921321F8FEFB009840DD /* UIImage+UIColor.swift */; };
+		342A921C21F90006009840DD /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A921B21F90006009840DD /* libEssModel.a */; };
+		342A921E21F901E3009840DD /* KeyboardHeightObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921D21F901E3009840DD /* KeyboardHeightObserver.swift */; };
+		342A922021F90234009840DD /* AmmountEnteringDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A921F21F90234009840DD /* AmmountEnteringDelegate.swift */; };
+		342A922221F9025E009840DD /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922121F9025E009840DD /* EssCharacters.swift */; };
+		342A922421F90358009840DD /* String+CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922321F90358009840DD /* String+CharacterSet.swift */; };
+		342A922721F90381009840DD /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922621F90381009840DD /* String+Format.swift */; };
 		345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747CA21F5CED9006E2EAB /* EssResources.framework */; };
 		345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */; };
 		345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */; };
@@ -30,10 +46,7 @@
 		345D6DF921EFBC7800C59398 /* TopAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DD421EFBC7800C59398 /* TopAlert.swift */; };
 		345D6DFA21EFBC7800C59398 /* QuestionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DD621EFBC7800C59398 /* QuestionAlertViewController.swift */; };
 		345D6DFB21EFBC7800C59398 /* QuestionAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345D6DD721EFBC7800C59398 /* QuestionAlertViewController.xib */; };
-		345D6DFC21EFBC7800C59398 /* EssentiaLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DD921EFBC7800C59398 /* EssentiaLoader.swift */; };
-		345D6DFD21EFBC7800C59398 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDA21EFBC7800C59398 /* Loader.swift */; };
 		345D6DFE21EFBC7800C59398 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDB21EFBC7800C59398 /* BaseCollectionViewCell.swift */; };
-		345D6DFF21EFBC7800C59398 /* BaseRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDC21EFBC7800C59398 /* BaseRouterInterface.swift */; };
 		345D6E0021EFBC7800C59398 /* BaseTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDD21EFBC7800C59398 /* BaseTableAdapterController.swift */; };
 		345D6E0121EFBC7800C59398 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDE21EFBC7800C59398 /* BaseRouter.swift */; };
 		345D6E0221EFBC7800C59398 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DDF21EFBC7800C59398 /* BaseNavigationController.swift */; };
@@ -43,6 +56,7 @@
 		345D6E0621EFBC7800C59398 /* Dwifft+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DE521EFBC7800C59398 /* Dwifft+UIKit.swift */; };
 		345D6E0721EFBC7800C59398 /* SectionedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DE621EFBC7800C59398 /* SectionedValues.swift */; };
 		345D6E0821EFBC7800C59398 /* AbstractDiffCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DE721EFBC7800C59398 /* AbstractDiffCalculator.swift */; };
+		3468CC0721F7787700275FE5 /* EssentiaLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3468CC0621F7787700275FE5 /* EssentiaLoader.swift */; };
 		3474E49921F0C308003D8DFF /* Sugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E49821F0C308003D8DFF /* Sugar.swift */; };
 		3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3474E49B21F0FFFC003D8DFF /* TableComponentAnimation.swift */; };
 		3474E49E21F10006003D8DFF /* TableComponentAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */; };
@@ -155,7 +169,26 @@
 
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
-		345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
+		3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableCell+Nib.swift"; sourceTree = "<group>"; };
+		3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
+		3423DA8121F855FC00578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3423DA8321F857D100578930 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		342A91FE21F8FCFC009840DD /* libEssDI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssDI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		342A920421F8FD92009840DD /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
+		342A920621F8FE19009840DD /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
+		342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
+		342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
+		342A920F21F8FEFB009840DD /* UIView+Gradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
+		342A921021F8FEFB009840DD /* UIView+Shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Shadow.swift"; sourceTree = "<group>"; };
+		342A921121F8FEFB009840DD /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		342A921221F8FEFB009840DD /* UIViewController+DismissKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		342A921321F8FEFB009840DD /* UIImage+UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+UIColor.swift"; sourceTree = "<group>"; };
+		342A921B21F90006009840DD /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		342A921D21F901E3009840DD /* KeyboardHeightObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHeightObserver.swift; sourceTree = "<group>"; };
+		342A921F21F90234009840DD /* AmmountEnteringDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmmountEnteringDelegate.swift; sourceTree = "<group>"; };
+		342A922121F9025E009840DD /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
+		342A922321F90358009840DD /* String+CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CharacterSet.swift"; sourceTree = "<group>"; };
+		342A922621F90381009840DD /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		345747CA21F5CED9006E2EAB /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -177,10 +210,7 @@
 		345D6DD421EFBC7800C59398 /* TopAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopAlert.swift; sourceTree = "<group>"; };
 		345D6DD621EFBC7800C59398 /* QuestionAlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionAlertViewController.swift; sourceTree = "<group>"; };
 		345D6DD721EFBC7800C59398 /* QuestionAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuestionAlertViewController.xib; sourceTree = "<group>"; };
-		345D6DD921EFBC7800C59398 /* EssentiaLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssentiaLoader.swift; sourceTree = "<group>"; };
-		345D6DDA21EFBC7800C59398 /* Loader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		345D6DDB21EFBC7800C59398 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		345D6DDC21EFBC7800C59398 /* BaseRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterInterface.swift; sourceTree = "<group>"; };
 		345D6DDD21EFBC7800C59398 /* BaseTableAdapterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableAdapterController.swift; sourceTree = "<group>"; };
 		345D6DDE21EFBC7800C59398 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
 		345D6DDF21EFBC7800C59398 /* BaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
@@ -190,6 +220,7 @@
 		345D6DE521EFBC7800C59398 /* Dwifft+UIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Dwifft+UIKit.swift"; sourceTree = "<group>"; };
 		345D6DE621EFBC7800C59398 /* SectionedValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionedValues.swift; sourceTree = "<group>"; };
 		345D6DE721EFBC7800C59398 /* AbstractDiffCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractDiffCalculator.swift; sourceTree = "<group>"; };
+		3468CC0621F7787700275FE5 /* EssentiaLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentiaLoader.swift; sourceTree = "<group>"; };
 		3474E49821F0C308003D8DFF /* Sugar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sugar.swift; sourceTree = "<group>"; };
 		3474E49B21F0FFFC003D8DFF /* TableComponentAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAnimation.swift; sourceTree = "<group>"; };
 		3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAnimation.xib; sourceTree = "<group>"; };
@@ -299,8 +330,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342A921C21F90006009840DD /* libEssModel.a in Frameworks */,
+				342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */,
 				345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */,
-				345747C321F5C3B3006E2EAB /* libEssCore.a in Frameworks */,
 				774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +348,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3423DA7921F854C000578930 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				342A922521F90370009840DD /* String */,
+				342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */,
+				342A921321F8FEFB009840DD /* UIImage+UIColor.swift */,
+				342A920D21F8FEFB009840DD /* UIView */,
+				342A921221F8FEFB009840DD /* UIViewController+DismissKeyboard.swift */,
+				3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */,
+				3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		342A920321F8FD89009840DD /* Sugar */ = {
+			isa = PBXGroup;
+			children = (
+				342A920421F8FD92009840DD /* RGB.swift */,
+			);
+			path = Sugar;
+			sourceTree = "<group>";
+		};
+		342A920D21F8FEFB009840DD /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */,
+				342A920F21F8FEFB009840DD /* UIView+Gradient.swift */,
+				342A921021F8FEFB009840DD /* UIView+Shadow.swift */,
+				342A921121F8FEFB009840DD /* UIView+Animation.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		342A922521F90370009840DD /* String */ = {
+			isa = PBXGroup;
+			children = (
+				342A920621F8FE19009840DD /* String+Size.swift */,
+				342A922321F90358009840DD /* String+CharacterSet.swift */,
+				342A922621F90381009840DD /* String+Format.swift */,
+			);
+			path = String;
+			sourceTree = "<group>";
+		};
 		343480A388DCC1379D406DE5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,14 +398,6 @@
 				3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		345747BC21F51510006E2EAB /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				345747BD21F51510006E2EAB /* SettingsRouterInterface.swift */,
-			);
-			path = Routers;
 			sourceTree = "<group>";
 		};
 		345D6DB821EFBC7800C59398 /* UIKit */ = {
@@ -342,7 +409,6 @@
 				345D6DBC21EFBC7800C59398 /* BaseViewController.swift */,
 				345D6DBD21EFBC7800C59398 /* ViewSymbols */,
 				345D6DDB21EFBC7800C59398 /* BaseCollectionViewCell.swift */,
-				345D6DDC21EFBC7800C59398 /* BaseRouterInterface.swift */,
 				345D6DDD21EFBC7800C59398 /* BaseTableAdapterController.swift */,
 				345D6DDE21EFBC7800C59398 /* BaseRouter.swift */,
 				345D6DDF21EFBC7800C59398 /* BaseNavigationController.swift */,
@@ -359,7 +425,7 @@
 				345D6DC821EFBC7800C59398 /* Buttons */,
 				345D6DCD21EFBC7800C59398 /* TextFields */,
 				345D6DCF21EFBC7800C59398 /* Alerts */,
-				345D6DD821EFBC7800C59398 /* Loader */,
+				3468CC0621F7787700275FE5 /* EssentiaLoader.swift */,
 			);
 			path = ViewSymbols;
 			sourceTree = "<group>";
@@ -456,15 +522,6 @@
 			path = QuestionAlert;
 			sourceTree = "<group>";
 		};
-		345D6DD821EFBC7800C59398 /* Loader */ = {
-			isa = PBXGroup;
-			children = (
-				345D6DD921EFBC7800C59398 /* EssentiaLoader.swift */,
-				345D6DDA21EFBC7800C59398 /* Loader.swift */,
-			);
-			path = Loader;
-			sourceTree = "<group>";
-		};
 		345D6DE221EFBC7800C59398 /* Third-Party */ = {
 			isa = PBXGroup;
 			children = (
@@ -538,7 +595,8 @@
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				345747BC21F51510006E2EAB /* Routers */,
+				342A920321F8FD89009840DD /* Sugar */,
+				3423DA7921F854C000578930 /* Extensions */,
 				34DB80ED21EFCBE800C6BCC1 /* Tools */,
 				345D6E0921EFBC7F00C59398 /* TableAdapterCore */,
 				345D6DE221EFBC7800C59398 /* Third-Party */,
@@ -974,6 +1032,9 @@
 				34DB80EE21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift */,
 				34DB80F021EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift */,
 				3474E49821F0C308003D8DFF /* Sugar.swift */,
+				342A921D21F901E3009840DD /* KeyboardHeightObserver.swift */,
+				342A921F21F90234009840DD /* AmmountEnteringDelegate.swift */,
+				342A922121F9025E009840DD /* EssCharacters.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -981,6 +1042,10 @@
 		D97DC84B851796F10BF5B1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				342A921B21F90006009840DD /* libEssModel.a */,
+				342A91FE21F8FCFC009840DD /* libEssDI.a */,
+				3423DA8321F857D100578930 /* libEssCore.a */,
+				3423DA8121F855FC00578930 /* libEssModel.a */,
 				345747CA21F5CED9006E2EAB /* EssResources.framework */,
 				34CA783D21ECF8B6003612EE /* libEssCore.a */,
 				BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */,
@@ -1168,7 +1233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				342A921621F8FEFB009840DD /* UIView+Gradient.swift in Sources */,
 				34CA782F21ECF5AC003612EE /* TableCompoentPageControl.swift in Sources */,
+				342A921421F8FEFB009840DD /* Collection+SafeSubscript.swift in Sources */,
 				34CA77F621ECF5AC003612EE /* BaseAccountStrengthCell.swift in Sources */,
 				345D6E0621EFBC7800C59398 /* Dwifft+UIKit.swift in Sources */,
 				34CA781D21ECF5AC003612EE /* TableComponentDescription.swift in Sources */,
@@ -1179,10 +1246,13 @@
 				34CA782021ECF5AC003612EE /* TableComponentCurrentAccount.swift in Sources */,
 				34CA781321ECF5AC003612EE /* TableComponentMenuButton.swift in Sources */,
 				345D6DED21EFBC7800C59398 /* LaunchpadItemCell.swift in Sources */,
+				342A921E21F901E3009840DD /* KeyboardHeightObserver.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,
-				345747BE21F51510006E2EAB /* SettingsRouterInterface.swift in Sources */,
 				34CA77F321ECF5AC003612EE /* TableComponentCenteredImage.swift in Sources */,
+				342A920521F8FD92009840DD /* RGB.swift in Sources */,
+				342A921721F8FEFB009840DD /* UIView+Shadow.swift in Sources */,
 				3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */,
+				342A921921F8FEFB009840DD /* UIViewController+DismissKeyboard.swift in Sources */,
 				34CA77E321ECF5AC003612EE /* TableComponentTransaction.swift in Sources */,
 				345D6E0121EFBC7800C59398 /* BaseRouter.swift in Sources */,
 				34CA782221ECF5AC003612EE /* TableComponentAccountStrength.swift in Sources */,
@@ -1196,23 +1266,23 @@
 				345D6DF921EFBC7800C59398 /* TopAlert.swift in Sources */,
 				34CA782521ECF5AC003612EE /* TableComponentSwitch.swift in Sources */,
 				34CA782B21ECF5AC003612EE /* TableComponentEmpty.swift in Sources */,
+				342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */,
 				34CA783221ECF5AC003612EE /* TableComponentCenteredButton.swift in Sources */,
 				34CA77E921ECF5AC003612EE /* TableComponentTextView.swift in Sources */,
 				34CA783A21ECF5AC003612EE /* TableAdapter.swift in Sources */,
+				342A922421F90358009840DD /* String+CharacterSet.swift in Sources */,
 				34CA783C21ECF5AC003612EE /* TableAdapterHelper.swift in Sources */,
 				34CA782C21ECF5AC003612EE /* TableComponentImageTitleSubtitle.swift in Sources */,
+				342A922221F9025E009840DD /* EssCharacters.swift in Sources */,
 				345D6E0021EFBC7800C59398 /* BaseTableAdapterController.swift in Sources */,
 				345D6E0321EFBC7800C59398 /* BaseBluredController.swift in Sources */,
 				34CA783521ECF5AC003612EE /* TableComponentTitleSubtitle.swift in Sources */,
-				345D6DFD21EFBC7800C59398 /* Loader.swift in Sources */,
 				345D6E0221EFBC7800C59398 /* BaseNavigationController.swift in Sources */,
 				34CA77E721ECF5AC003612EE /* TableComponentTableView.swift in Sources */,
 				34CA77F921ECF5AC003612EE /* TableComponentParagraph.swift in Sources */,
 				34CA782A21ECF5AC003612EE /* TableComponentTitleCenterDetail.swift in Sources */,
-				345D6DFF21EFBC7800C59398 /* BaseRouterInterface.swift in Sources */,
 				34CA77FF21ECF5AC003612EE /* TableComponentTitleImageButton.swift in Sources */,
 				34CA780021ECF5AC003612EE /* TableComponentCustomSegment.swift in Sources */,
-				345D6DFC21EFBC7800C59398 /* EssentiaLoader.swift in Sources */,
 				345D6DF321EFBC7800C59398 /* BackButton.swift in Sources */,
 				34CA780C21ECF5AC003612EE /* TableComponentSlider.swift in Sources */,
 				345D6DEF21EFBC7800C59398 /* EditingCell.swift in Sources */,
@@ -1220,32 +1290,40 @@
 				34CA77ED21ECF5AC003612EE /* TableComponentTitleCenterTextDetail.swift in Sources */,
 				345D6DFE21EFBC7800C59398 /* BaseCollectionViewCell.swift in Sources */,
 				34CA783721ECF5AC003612EE /* TableComponentSegmentControl.swift in Sources */,
+				342A922721F90381009840DD /* String+Format.swift in Sources */,
 				345D6E0421EFBC7800C59398 /* BaseButton.swift in Sources */,
 				345D6DF521EFBC7800C59398 /* CenteredButton.swift in Sources */,
 				34CA781021ECF5AC003612EE /* TableComponentTitleDetail.swift in Sources */,
+				342A921A21F8FEFB009840DD /* UIImage+UIColor.swift in Sources */,
 				34CA780721ECF5AC003612EE /* TableComponentTextFieldDetail.swift in Sources */,
 				3474E49921F0C308003D8DFF /* Sugar.swift in Sources */,
 				34CA77EB21ECF5AC003612EE /* TableComponentPassword.swift in Sources */,
+				342A920721F8FE19009840DD /* String+Size.swift in Sources */,
 				34CA783021ECF5AC003612EE /* TableComponentImageParagraph.swift in Sources */,
 				345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */,
 				34CA781721ECF5AC003612EE /* TableComponentContainer.swift in Sources */,
 				34CA780E21ECF5AC003612EE /* TableComponentBlure.swift in Sources */,
 				34CA780321ECF5AC003612EE /* TableComponentShadow.swift in Sources */,
 				34CA77E521ECF5AC003612EE /* TableComponentCheckField.swift in Sources */,
+				342A921821F8FEFB009840DD /* UIView+Animation.swift in Sources */,
+				342A922021F90234009840DD /* AmmountEnteringDelegate.swift in Sources */,
 				34CA782721ECF5AC003612EE /* TableComponentTwoButtons.swift in Sources */,
 				345D6DF721EFBC7800C59398 /* InfoAlertViewController.swift in Sources */,
 				345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */,
+				3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */,
 				34DB80F121EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift in Sources */,
 				34DB80EF21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift in Sources */,
 				345D6DFA21EFBC7800C59398 /* QuestionAlertViewController.swift in Sources */,
 				34CA77FC21ECF5AC003612EE /* TableComponentCheckBox.swift in Sources */,
 				345D6DF421EFBC7800C59398 /* BorderedButton.swift in Sources */,
+				3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */,
 				34CA77F221ECF5AC003612EE /* TableComponentAssetBalance.swift in Sources */,
 				34CA781821ECF5AC003612EE /* TableComponentSectionTitle.swift in Sources */,
 				34CA780921ECF5AC003612EE /* TableComponentTextField.swift in Sources */,
 				34CA781121ECF5AC003612EE /* TableComponentNavigationBar.swift in Sources */,
 				34CA781B21ECF5AC003612EE /* TableComponentTitleSubtileDescription.swift in Sources */,
 				34CA781E21ECF5AC003612EE /* TableComponentLoader.swift in Sources */,
+				3468CC0721F7787700275FE5 /* EssentiaLoader.swift in Sources */,
 				345D6DF121EFBC7800C59398 /* BorderedCell.swift in Sources */,
 				34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */,
 				345D6E0521EFBC7800C59398 /* Dwifft.swift in Sources */,

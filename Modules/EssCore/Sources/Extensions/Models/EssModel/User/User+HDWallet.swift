@@ -8,26 +8,28 @@
 
 import EssResources
 import EssModel
-
+import EssDI
 extension User {
-    public convenience init(mnemonic: String, index: Int, name: String) {
-        let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)
-        let icon = (inject() as AppImageProviderInterface).testAvatar
-        self.init(seed: seed, index: index, image: icon, name: name)
-        self.encodedMnemonic = User.encrypt(data: mnemonic, password: User.defaultPassword)
-    }
-    
     public convenience init(mnemonic: String) {
-        let index = (inject() as UserStorageServiceInterface).freeIndex
-        let name = LS("Settings.CurrentAccountTitle.Default") + " (\(index))"
-        self.init(mnemonic: mnemonic, index: index, name: name)
+        let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)
+        self.init(seed: seed)
     }
     
     public convenience init(seed: String) {
-        let index = (inject() as UserStorageServiceInterface).freeIndex
+        let index = (inject() as UserListStorageServiceInterface).freeIndex
         let name = LS("Settings.CurrentAccountTitle.Default") + " (\(index))"
+        self.init(seed: seed, name: name)
+    }
+    
+    public convenience init(mnemonic: String, name: String) {
+        let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)
+        self.init(seed: seed, name: name)
+        self.mnemonic = mnemonic
+    }
+    
+    public convenience init(seed: String, name: String) {
         let icon = (inject() as AppImageProviderInterface).testAvatar
-        self.init(seed: seed, index: index, image: icon, name: name)
-        
+        let id = seed.sha256()
+        self.init(id: id, seed: seed, image: icon, name: name)
     }
 }

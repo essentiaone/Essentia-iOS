@@ -11,7 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate struct Store {
     var selectedComponent: Int = 0

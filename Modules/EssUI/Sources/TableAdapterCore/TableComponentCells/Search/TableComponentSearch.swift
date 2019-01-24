@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import EssCore
+import EssDI
 
 class TableComponentSearch: UITableViewCell, NibLoadable, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!

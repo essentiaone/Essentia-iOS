@@ -11,7 +11,7 @@ import EssCore
 import EssModel
 import EssResources
 import EssUI
-import EssStore
+import EssDI
 
 fileprivate struct Store {
     let wallet: ViewWalletInterface
@@ -30,7 +30,7 @@ fileprivate struct Store {
     
     var isValidAmmount: Bool {
         guard let entered = Double(enterdValueInCrypto) else { return false }
-        return entered < (wallet.lastBalance ?? 0) && entered > 0
+        return entered < wallet.lastBalance && entered > 0
     }
 }
 

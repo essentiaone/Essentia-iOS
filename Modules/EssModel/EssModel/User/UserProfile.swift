@@ -7,14 +7,26 @@
 //
 
 import UIKit
+import RealmSwift
 
-public class UserProfile: Codable {
-    public var name: String?
-    public var currency: FiatCurrency
-    public var imageData: Data?
-    public var language: LocalizationLanguage
+@objcMembers
+public class UserProfile: Object, Codable {
+    dynamic public var name: String = ""
+    dynamic public var privateCurrency: String = ""
+    dynamic public var imageData: Data?
+    @objc private dynamic var privateLanguage: String = ""
     
-    public init(image: UIImage, name: String) {
+    public var language: LocalizationLanguage {
+        get { return LocalizationLanguage(rawValue: privateLanguage)! }
+        set { privateLanguage = newValue.rawValue }
+    }
+    public var currency: FiatCurrency {
+        get { return FiatCurrency(rawValue: privateCurrency)! }
+        set { privateCurrency = newValue.rawValue }
+    }
+    
+    convenience init(image: UIImage, name: String) {
+        self.init()
         self.name = name
         self.imageData = image.jpegData(compressionQuality: 1.0)
         self.currency = .usd

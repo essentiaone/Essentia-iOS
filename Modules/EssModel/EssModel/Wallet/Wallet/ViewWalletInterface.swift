@@ -15,7 +15,7 @@ public protocol ViewWalletInterface: WalletInterface {
     func yesterdayBalanceCurrency(currency: FiatCurrency, with rank: Double) -> Double
     func formattedBalanceInCurrency(currency: FiatCurrency, with rank: Double) -> String
     var formattedBalance: String { get }
-    var lastBalance: Double? { get }
+    var lastBalance: Double { get }
     func privateKey(withSeed: String) -> String?
 }
 
