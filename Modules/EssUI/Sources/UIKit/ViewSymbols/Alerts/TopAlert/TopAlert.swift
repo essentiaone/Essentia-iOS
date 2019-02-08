@@ -16,7 +16,7 @@ public enum AlertType {
     case info
     
     var prefixImage: UIImage {
-        switch self {
+        switch self {
         case .info:
             return (inject() as AppImageProviderInterface).topAlertInfo
         case .error:
@@ -34,7 +34,7 @@ public enum AlertType {
     }
 }
 
-open class TopAlert: UIView {
+public class TopAlert: UIView {
     private var label = UILabel()
     private let alertType: AlertType
     private var isAnimating: Bool = false
@@ -78,7 +78,7 @@ open class TopAlert: UIView {
         let prefixImage = NSTextAttachment()
         prefixImage.bounds = CGRect(x: 0, y: (font.capHeight - image.size.height).rounded() / 2, width: image.size.width, height: image.size.height)
         prefixImage.image = image
-    
+        
         let text = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font,
                                                                   NSAttributedString.Key.foregroundColor: UIColor.white])
         let imageString = NSAttributedString(attachment: prefixImage)

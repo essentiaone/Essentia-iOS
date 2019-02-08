@@ -24,6 +24,7 @@ public indirect enum LocalFolderPath {
 }
 
 public protocol LocalFilesServiceInterface {
+    func createFolder(path: LocalFolderPath)
     func getFile<File: Codable>(path: LocalFolderPath, name: String) throws -> File
     func getFilesInFolder<File: Codable>(path: LocalFolderPath) throws -> [File]
     func storeFile<File: Codable>(file: File, to path: LocalFolderPath, with name: String) throws -> URL

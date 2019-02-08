@@ -57,15 +57,16 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
     @IBAction func copyAction(_ sender: Any) {
         copyButton.isSelected = true
         continueButton.isEnabled = true
-        UIPasteboard.general.string = EssentiaStore.shared.currentCredentials.seed
+        UIPasteboard.general.string = EssentiaStore.shared.currentUser.seed
         TopAlert(alertType: .info, title: "Seed сopied", inView: self.view).show()
     }
     
     @IBAction func continueAction(_ sender: Any) {
         switch authType {
         case .backup:
-            EssentiaStore.shared.currentUser.backup.currentlyBackup?.add(.seed)
-            storeCurrentUser()
+            (inject() as UserStorageServiceInterface).update({ (user) in
+                user.backup?.currentlyBackup?.add(.seed)
+            })
             (inject() as AuthRouterInterface).showNext()
         case .login:
             let user = User(seed: textView.text)

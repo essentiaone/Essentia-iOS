@@ -15,10 +15,4 @@ public extension String {
         let suffix = self.suffix(count - 1)
         return firstSimbol + suffix
     }
-    
-    public var formattedCoinName: String {
-        let lowercased = self.lowercased()
-        let formatted = lowercased.replacingOccurrences(of: " ", with: "-")
-        return formatted
-    }
 }

@@ -12,16 +12,15 @@ import EssDI
 
 public class EssentiaStore: NSObject {
     public static var shared: EssentiaStore = EssentiaStore()
+    
     public var currentUser: User = User.notSigned
     public var ranks: AssetRank = AssetRank()
-    public var currentCredentials: CurrentCredentials = .none
+    public var currentLangugale: LocalizationLanguage = .english
     
     public func setUser(_ user: User) {
-        (inject() as LoggerServiceInterface).log("User: \(user.dislayName) did set", level: .warning)
+        (inject() as LoggerServiceInterface).log("User: \(user.seed) did set", level: .warning)
         currentUser = user
-        if user != .notSigned {
-            currentCredentials = CurrentCredentials(seed: user.seed, mnemonic: user.mnemonic)
-        }
+        currentLangugale = currentUser.profile?.language ?? .english
         (inject() as CurrencyRankDaemonInterface).update()
     }
 }

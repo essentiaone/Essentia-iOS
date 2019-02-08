@@ -10,14 +10,11 @@ import Foundation
 import EssModel
 import RealmSwift
 
-public class ViewUserStorageService: UserListStorageServiceInterface {
+public class ViewUserStorageService: ViewUserStorageServiceInterface {
     let realm: Realm
     
     public init() {
-        let defaultConfig = Realm.Configuration.defaultConfiguration
-        let url = defaultConfig.fileURL!.deletingLastPathComponent().appendingPathComponent("ViewUsers.realm")
-        let config = Realm.Configuration(fileURL: url, readOnly: false)
-        self.realm = try! Realm(configuration: config)
+        self.realm = try! Realm()
     }
     
     public func add(_ user: ViewUser) {
@@ -37,6 +34,13 @@ public class ViewUserStorageService: UserListStorageServiceInterface {
     }
     
     public func update(_ updateBlock: (ViewUser) -> Void) {
-        
+        let currentUserId = EssentiaStore.shared.currentUser.id
+        let viewUser = get().first {
+            return $0.id == currentUserId
+        }
+        guard let user = viewUser else { return }
+        try? realm.write {
+            updateBlock(user)
+        }
     }
 }

@@ -106,15 +106,15 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         self.tableAdapter.endEditing(true)
         let address = (inject() as WalletServiceInterface).generateAddress(from: self.store.privateKey, coin: self.store.coin)
         let walletName = self.store.name.isEmpty ? self.store.coin.localizedName : self.store.name
-        let seed = EssentiaStore.shared.currentCredentials.seed
-        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0, seed: seed)
-        guard let wallet = newWallet,
-            (inject() as WalletInteractorInterface).isValidWallet(wallet) else {
+        let seed = EssentiaStore.shared.currentUser.seed
+        let newWallet = ImportedWallet(address: address, coin: self.store.coin, pk: self.store.privateKey, name: walletName, lastBalance: 0)
+        guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return
         }
-        EssentiaStore.shared.currentUser.wallet.importedWallets.append(wallet)
-        storeCurrentUser()
+        (inject() as UserStorageServiceInterface).update({ (user) in
+            user.wallet?.importedWallets.append(newWallet)
+        })
         (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
     }

@@ -38,7 +38,8 @@ public class CurrencyConverterService: CurrencyConverterServiceInterface {
     }
     
     public func getCoinInfo(from asset: AssetInterface, to currency: FiatCurrency, info: @escaping (CoinGeckoCurrencyModel) -> Void) {
-        let endpoint = CurrencyConverterEndpoint.getPrice(forCoin: asset.name.formattedCoinName, inCurrency: currency)
+        let coinName = asset.name.lowercased().replacingOccurrences(of: " ", with: "-")
+        let endpoint = CurrencyConverterEndpoint.getPrice(forCoin: coinName, inCurrency: currency )
         networkManager.makeAsyncRequest(endpoint) { (result: NetworkResult<[CoinGeckoCurrencyModel]>) in
             switch result {
             case .success(let objects):

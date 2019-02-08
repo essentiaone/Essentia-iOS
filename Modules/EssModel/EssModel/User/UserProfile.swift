@@ -12,12 +12,12 @@ import RealmSwift
 @objcMembers
 public class UserProfile: Object, Codable {
     dynamic public var name: String = ""
-    dynamic public var privateCurrency: String = ""
+    dynamic public var privateCurrency: String = "none"
     dynamic public var imageData: Data?
     @objc private dynamic var privateLanguage: String = ""
     
     public var language: LocalizationLanguage {
-        get { return LocalizationLanguage(rawValue: privateLanguage)! }
+        get { return LocalizationLanguage(rawValue: privateLanguage) ?? .english }
         set { privateLanguage = newValue.rawValue }
     }
     public var currency: FiatCurrency {

@@ -52,7 +52,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private var keystoreState: [TableComponent] {
-        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
         return [.menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
                                        detail: LS("Settings.Security.Keystore.Detail"),
                                        withArrow: false,
@@ -61,7 +61,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     var mnemonicState: [TableComponent] {
-        guard EssentiaStore.shared.currentCredentials.mnemonic != nil else { return [] }
+        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
         return [ .menuSimpleTitleDetail(title: LS("Settings.Security.Mnemonic.Title"),
                                         detail: LS("Settings.Security.Mnemonic.Detail"),
                                         withArrow: true,
@@ -76,7 +76,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        let containMnemonic = EssentiaStore.shared.currentUser.backup.currentlyBackup?.contain(.mnemonic) ?? false
+        let containMnemonic = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.contain(.mnemonic) ?? false
         if !containMnemonic {
             (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
             return
@@ -88,14 +88,14 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var ketstoreAction: () -> Void = { [unowned self] in
-        let containKeystore = EssentiaStore.shared.currentUser.backup.currentlyBackup?.contain(.keystore) ?? false
-        guard containKeystore,
-            let keystorePath = EssentiaStore.shared.currentUser.backup.keystorePath,
-            let url = URL(fileURLWithPath: keystorePath) as? URL,
-            (try? Data(contentsOf: url)) != nil  else {
-                (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
-                return
+        let containKeystore = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.contain(.keystore) ?? false
+        if !containKeystore {
+            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
+            return
         }
-        self.present(UIActivityViewController(activityItems: [url], applicationActivities: nil), animated: true)
+        if let keystorePath = EssentiaStore.shared.currentUser.backup?.keystorePath {
+            let url = URL(fileURLWithPath: keystorePath)
+            self.present(UIActivityViewController(activityItems: [url], applicationActivities: nil), animated: true)
+        }
     }
 }

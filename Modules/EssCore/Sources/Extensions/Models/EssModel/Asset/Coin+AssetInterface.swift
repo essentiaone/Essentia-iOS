@@ -9,7 +9,7 @@
 import UIKit
 import EssModel
 import EssResources
-import EssUI
+import EssDI
 
 extension Coin: AssetInterface {
     public var localizedName: String {
@@ -54,7 +54,7 @@ extension Coin: AssetInterface {
     public var shadowColor: UIColor {
         switch self {
         case .bitcoin:
-            return RGB(246, 137, 35)
+            return (inject() as AppColorInterface).coinsShadowColor
         case .ethereum:
             return .lightGray
         default: return .lightGray
@@ -66,18 +66,17 @@ extension Coin: AssetInterface {
     }
     
     public var icon: UIImage {
-        return UIImage()
-//        let imageProvider = inject() as AppImageProviderInterface
-//        switch self {
-//        case .bitcoin:
-//            return imageProvider.bitcoinIcon
-//        case .ethereum:
-//            return imageProvider.ethereumIcon
-//        case .litecoin:
-//            return imageProvider.litecoinIcon
-//        case .bitcoinCash:
-//            return imageProvider.bitcoinCashIcon
-//        }
+        let imageProvider = inject() as AppImageProviderInterface
+        switch self {
+        case .bitcoin:
+            return imageProvider.bitcoinIcon
+        case .ethereum:
+            return imageProvider.ethereumIcon
+        case .litecoin:
+            return imageProvider.litecoinIcon
+        case .bitcoinCash:
+            return imageProvider.bitcoinCashIcon
+        }
     }
     
     public func isValidAddress(_ address: String) -> Bool {

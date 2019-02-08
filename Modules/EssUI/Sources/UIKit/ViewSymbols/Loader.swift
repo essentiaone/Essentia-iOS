@@ -1,15 +1,15 @@
 //
 //  Loader.swift
-//  Essentia
+//  EssUI
 //
-//  Created by Pavlo Boiko on 27.08.18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 2/1/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import Foundation
 import SVProgressHUD
-import EssentiaNetworkCore
 import EssModel
+import EssDI
 
 public class Loader: LoaderInterface {
     public init() {
@@ -26,19 +26,12 @@ public class Loader: LoaderInterface {
     }
     
     public func showError(_ error: Error) {
-        switch error {
-        case let essError as EssentiaError:
-            showError(essError.localizedDescription)
-        case let networkError as EssentiaNetworkError:
-            showError(networkError.localizedDescription)
-        default:
-            showError(EssentiaError.unknownError.localizedDescription)
-        }
+        showError(error.localizedDescription)
     }
     
     public func showError(_ message: String) {
         guard let topView = UIApplication.shared.keyWindow?.subviews.last else { return }
-//        TopAlert(alertType: .error, title: message, inView: topView).show()
+        TopAlert(alertType: .error, title: message, inView: topView).show()
     }
     
     public func loaderScope(_ scope: () -> Void) {

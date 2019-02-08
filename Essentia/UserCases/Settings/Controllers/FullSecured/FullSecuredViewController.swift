@@ -60,7 +60,7 @@ class FullSecuredViewController: BaseViewController {
     
     @IBAction func continueAction(_ sender: Any) {
         (inject() as UserStorageServiceInterface).update({ (user) in
-            user.userEvents.isAccountFullySecuredShown = true
+            user.userEvents?.isAccountFullySecuredShown = true
         })
         self.navigationController?.popViewController(animated: true)
     }

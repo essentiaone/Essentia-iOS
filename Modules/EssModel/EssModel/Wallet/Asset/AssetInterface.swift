@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 public enum CryptoType {
     case coin
@@ -37,9 +38,15 @@ public protocol AssetInterface {
     
     func isValidAddress(_ address: String) -> Bool
 }
-//
-//extension AssetInterface where Self: Hashable {
-//    var hashValue: Int {
-//        return name.djb2hash
-//    }
-//}
+
+public class EmptyAsset: AssetInterface {
+    public var name: String { return "" }
+    public var localizedName: String { return "" }
+    public var symbol: String { return "" }
+    public var iconUrl: URL { return URL(fileURLWithPath: "") }
+    public var type: CryptoType { return .coin }
+    public var shadowColor: UIColor { return .white }
+    public func isValidAddress(_ address: String) -> Bool {
+        return true
+    }
+}

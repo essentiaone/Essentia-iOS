@@ -9,14 +9,16 @@
 import EssResources
 import EssModel
 import EssDI
+
 extension User {
     public convenience init(mnemonic: String) {
         let seed = (inject() as MnemonicServiceInterface).seed(from: mnemonic)
         self.init(seed: seed)
+        self.mnemonic = mnemonic
     }
     
     public convenience init(seed: String) {
-        let index = (inject() as UserListStorageServiceInterface).freeIndex
+        let index = (inject() as ViewUserStorageServiceInterface).freeIndex
         let name = LS("Settings.CurrentAccountTitle.Default") + " (\(index))"
         self.init(seed: seed, name: name)
     }

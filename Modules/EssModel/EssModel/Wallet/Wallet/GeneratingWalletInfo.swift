@@ -12,14 +12,18 @@ import RealmSwift
 @objcMembers
 public class GeneratingWalletInfo: Object {
     dynamic public var name: String = ""
-    dynamic public var coin: Coin = .bitcoin
-    dynamic public var derivationIndex: UInt32 = 0
+    public var coin: Coin {
+        set { privateCoin = newValue.rawValue }
+        get { return Coin(rawValue: privateCoin)! }
+    }
+    dynamic public var derivationIndex: Int32 = 0
     dynamic public var lastBalance: Double = 0
+    @objc dynamic private var privateCoin: String = "bitcoin"
     
-    public convenience init(name: String, coin: Coin, derivationIndex: UInt32, lastBalance: Double) {
+    public convenience init(name: String, coin: Coin, derivationIndex: Int32, lastBalance: Double) {
         self.init()
         self.name = name
-        self.coin = coin
+        self.privateCoin = coin.rawValue
         self.derivationIndex = derivationIndex
         self.lastBalance = lastBalance
     }

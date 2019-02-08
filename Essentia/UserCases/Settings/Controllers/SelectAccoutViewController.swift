@@ -18,7 +18,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     weak var delegate: SelectAccountDelegate?
     
     // MARK: - Dependences
-    private lazy var userService: UserListStorageServiceInterface = inject()
+    private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
@@ -41,7 +41,8 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         let usersState = userService.get().map { (user) -> [TableComponent] in
-            return [.imageTitle(image: UIImage(), title: user.name, withArrow: true, action: { [unowned self] in
+            let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
+            return [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
                                     self.dismiss(animated: true)
                                     self.delegate?.didSelectUser(user)
                                 }),

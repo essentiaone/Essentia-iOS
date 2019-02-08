@@ -29,6 +29,7 @@ fileprivate struct Constants {
     static var appWhiteWithLightBlue = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.9803921569, alpha: 1) //RGB(237, 242, 250)
     static var appOrageColor = #colorLiteral(red: 1, green: 0.631372549, blue: 0, alpha: 1) //RGB(255,161,0)
     static var shadowColor = #colorLiteral(red: 0.07843137255, green: 0.137254902, blue: 0.3019607843, alpha: 1) //RGB(20,35,77)
+    static var coinsShadow = #colorLiteral(red: 0.9647058824, green: 0.537254902, blue: 0.137254902, alpha: 1) //RGB(246, 137, 35)
 }
 
 public struct DefaultColorSheme: AppColorInterface {
@@ -56,7 +57,7 @@ public struct DefaultColorSheme: AppColorInterface {
     public var enteredWordText: UIColor = Constants.appWhiteColor
     public var validPasswordIndicator: UIColor = Constants.appGreen
     public var notValidPasswordIndicator: UIColor = Constants.appLigntLightGray
-    
+    public var coinsShadowColor: UIColor = Constants.coinsShadow
     // MARK: - Launchpad
     public var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     public var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray

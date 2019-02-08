@@ -15,7 +15,7 @@ public class WalletService: WalletServiceInterface {
     public func generateAccount(seed: Data, walletInfo: GeneratingWalletInfo) -> Account {
         let hdwalletCoin = wrapCoin(coin: walletInfo.coin)
         let wallet = Wallet(seed: seed, coin: hdwalletCoin)
-        return wallet.generateAccount(at: walletInfo.derivationIndex)
+        return wallet.generateAccount(at: UInt32(walletInfo.derivationIndex))
     }
     
     private func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {

@@ -13,6 +13,7 @@
 		342A91FB21F8FCBA009840DD /* DependenceCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A91F521F8FCB9009840DD /* DependenceCore.swift */; };
 		342A91FC21F8FCBA009840DD /* DIEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A91F621F8FCB9009840DD /* DIEngine.swift */; };
 		342A91FD21F8FCBA009840DD /* DIStorageInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A91F721F8FCB9009840DD /* DIStorageInterface.swift */; };
+		34EFEEC82204A4D10005DCC3 /* LoaderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFEEC72204A4D10005DCC3 /* LoaderInterface.swift */; };
 		6AA57ED50366263394BC842B /* Pods_EssDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4904D501C8159511093C52F2 /* Pods_EssDI.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		342A91F621F8FCB9009840DD /* DIEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIEngine.swift; sourceTree = "<group>"; };
 		342A91F721F8FCB9009840DD /* DIStorageInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DIStorageInterface.swift; sourceTree = "<group>"; };
 		3434717221F8FC200067FB7C /* libEssDI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssDI.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		34EFEEC72204A4D10005DCC3 /* LoaderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderInterface.swift; sourceTree = "<group>"; };
 		4904D501C8159511093C52F2 /* Pods_EssDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D08F6044CA2E325361C28CFC /* Pods-EssDI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssDI.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssDI/Pods-EssDI.debug.xcconfig"; sourceTree = "<group>"; };
 		FFCB46D7CCDBAC4C1C390476 /* Pods-EssDI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssDI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssDI/Pods-EssDI.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		342A91E521F8FC67009840DD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				34EFEEC62204A4B00005DCC3 /* Interfaces */,
 				342A91F521F8FCB9009840DD /* DependenceCore.swift */,
 				342A91F221F8FCB9009840DD /* DIDependencyProviderInterface.swift */,
 				342A91F621F8FCB9009840DD /* DIEngine.swift */,
@@ -91,6 +94,14 @@
 				3434717221F8FC200067FB7C /* libEssDI.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		34EFEEC62204A4B00005DCC3 /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				34EFEEC72204A4D10005DCC3 /* LoaderInterface.swift */,
+			);
+			path = Interfaces;
 			sourceTree = "<group>";
 		};
 		7995C41CEF36E17F6BCEA1D0 /* Frameworks */ = {
@@ -190,6 +201,7 @@
 				342A91FD21F8FCBA009840DD /* DIStorageInterface.swift in Sources */,
 				342A91F921F8FCBA009840DD /* DIObjectScope.swift in Sources */,
 				342A91FA21F8FCBA009840DD /* DIRegisteredObject.swift in Sources */,
+				34EFEEC82204A4D10005DCC3 /* LoaderInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,6 +21,8 @@ extension FiatCurrency {
             return LS("Currency.krw")
         case .cny:
             return LS("Currency.cny")
+        case .none:
+            return ""
         }
     }
 }

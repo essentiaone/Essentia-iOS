@@ -16,7 +16,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
-    private var enteredName: String = EssentiaStore.shared.currentUser.dislayName
+    private var enteredName: String = ""
     
     // MARK: - Lifecycle
     
@@ -29,6 +29,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
     // MARK: - Design
     private func applyDesign() {
         tableView.backgroundColor = colorProvider.settingsBackgroud
+        enteredName = EssentiaStore.shared.currentUser.profile?.name ?? ""
     }
     
     private var state: [TableComponent] {
@@ -40,7 +41,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
                            lAction: backAction,
                            rAction: doneAction),
             .empty(height: 15, background: colorProvider.settingsBackgroud),
-            .textField(placeholder: LS("EditAccount.Placeholder") + EssentiaStore.shared.currentUser.dislayName,
+            .textField(placeholder: LS("EditAccount.Placeholder") + (EssentiaStore.shared.currentUser.profile?.name ?? ""),
                        text: enteredName,
                        endEditing: nameAction,
                        isFirstResponder: true
@@ -65,8 +66,13 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
             return
         }
         self.view.endEditing(true)
-        EssentiaStore.shared.currentUser.profile.name = self.enteredName
-        storeCurrentUser()
+        
+        (inject() as UserStorageServiceInterface).update({ (user) in
+            user.profile?.name = self.enteredName
+        })
+        (inject() as ViewUserStorageServiceInterface).update({ (user) in
+            user.name = self.enteredName
+        })
         self.router.pop()
     }
     

@@ -45,14 +45,14 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
     
     var languageState: [TableComponent] {
         var languageComponent: [TableComponent] = []
-        let currenyLanguage = EssentiaStore.shared.currentUser.profile.language
+        let currenyLanguage = EssentiaStore.shared.currentUser.profile?.language ?? .english
         LocalizationLanguage.cases.forEach { (language) in
             languageComponent.append(.menuTitleCheck(
                 title: language.titleString,
                 state: ComponentState(defaultValue: currenyLanguage == language),
                 action: { [unowned self] in
                     (inject() as UserStorageServiceInterface).update({ (user) in
-                        user.profile.language = language
+                        user.profile?.language = language
                     })
                     self.tableAdapter.hardReload(self.state)
                     self.showFlipAnimation()

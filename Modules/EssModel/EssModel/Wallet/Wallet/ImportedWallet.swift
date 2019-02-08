@@ -12,16 +12,21 @@ import RealmSwift
 @objcMembers
 public class ImportedWallet: Object {
     dynamic public var address: String = ""
-    dynamic public var coin: Coin = .bitcoin
-    dynamic public var encodedPk: Data = Data()
+    @objc dynamic private var privateCoin: String = "bitcoin"
+    dynamic public var pk: String = ""
     dynamic public var name: String = ""
     dynamic public var lastBalance: Double = 0
     
-    public convenience init(address: String, coin: Coin, encodedPk: Data, name: String, lastBalance: Double) {
+    public var coin: Coin {
+        set { privateCoin = newValue.rawValue }
+        get { return Coin(rawValue: privateCoin)! }
+    }
+    
+    public convenience init(address: String, coin: Coin, pk: String, name: String, lastBalance: Double) {
         self.init()
         self.address = address
-        self.coin = coin
-        self.encodedPk = encodedPk
+        self.privateCoin = coin.rawValue
+        self.pk = pk
         self.name = name
         self.lastBalance = lastBalance
     }
