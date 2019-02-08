@@ -163,7 +163,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         self.store.enteredFee = currentFee
         let feeFormatter = BalanceFormatter(asset: EssModel.Coin.ethereum)
         let formattedFee = feeFormatter.formattedAmmountWithCurrency(amount: currentFee)
-        let currency = EssentiaStore.shared.currentUser.profile.currency
+        let currency = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         let currentRank = EssentiaStore.shared.ranks.getRank(for: Coin.ethereum, on: currency) ?? 0
         let feeInCurrency = currentFee * currentRank
         let formattedFeeInCurrency = BalanceFormatter(currency: currency).formattedAmmountWithCurrency(amount: feeInCurrency)
@@ -265,7 +265,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             !self.store.address.isEmpty else {
             return
         }
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let address = store.wallet.address(withSeed: seed)
         interactor.getEthGasEstimate(fromAddress: address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
             (inject() as LoaderInterface).hide()

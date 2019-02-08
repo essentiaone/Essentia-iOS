@@ -22,7 +22,7 @@ fileprivate struct Store {
     var keyboardHeight: CGFloat = 0
     
     init(asset: AssetInterface) {
-        currentCurrency = EssentiaStore.shared.currentUser.profile.currency
+        currentCurrency = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         self.asset = asset
         enterdValueInCrypto = ""
         enterdValueInCurrency = ""

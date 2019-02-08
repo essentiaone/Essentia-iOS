@@ -76,7 +76,7 @@ class BackupDesign: BackupDesignInterface {
         vc.titleLabel.text = LS("SeedCopy.Title")
         vc.descriptionLabel.text = description
         if vc.authType == .backup {
-            vc.textView.text = EssentiaStore.shared.currentCredentials.seed
+            vc.textView.text = EssentiaStore.shared.currentUser.seed
         }
         
         // MARK: - Fonts

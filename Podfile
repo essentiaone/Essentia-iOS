@@ -21,6 +21,11 @@ def pod_core
    pod 'essentia-network-core-ios'
 end
 
+def pod_notification
+    pod 'Firebase/Core'
+    pod 'Firebase/Messaging'
+end
+
 
 def pod_functional 
     #pod 'PromiseKit', '~> 6.0'
@@ -53,7 +58,6 @@ target 'EssUI' do
     project 'Modules/EssUI/EssUI.xcodeproj'
     use_frameworks!
     pod_ui
-    pod_database
 end
 
 target 'EssResources' do
@@ -98,6 +102,7 @@ target 'Essentia' do
     pod_analytics
     pod_functional
     pod_database
+    pod_notification
 end
 
 target 'EssUIGallery' do 

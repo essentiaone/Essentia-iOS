@@ -21,7 +21,7 @@ class LoginDesign: LoginDesignInterface {
         vc.title1Label.text = LS("Welcome.Title1")
         vc.title2Label.text = LS("Welcome.Title2")
         vc.descriptionLabel.text = LS("Welcome.Description")
-        if (inject() as UserListStorageServiceInterface).get().isEmpty {
+        if (inject() as ViewUserStorageServiceInterface).get().isEmpty {
             vc.enterButton.setTitle(LS("Welcome.Start"), for: .normal)
         } else {
             vc.enterButton.setTitle(LS("Welcome.Enter"), for: .normal)

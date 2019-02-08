@@ -13,9 +13,8 @@ public protocol WalletInteractorInterface {
     func isValidWallet(_ wallet: ImportedWallet) -> Bool
     func getCoinsList() -> [Coin]
     func getTokensList(result: @escaping ([AssetInterface]) -> Void)
-    @discardableResult func addCoinsToWallet(_ assets: [AssetInterface]) -> [GeneratingWalletInfo]
+    func addCoinsToWallet(_ assets: [AssetInterface], wallet: @escaping (GeneratingWalletInfo) -> Void)
     func addTokensToWallet(_ assets: [AssetInterface], for wallet: GeneratingWalletInfo)
-    func addTokensToWallet(_ assets: [AssetInterface])
     func getGeneratedWallets() -> [GeneratingWalletInfo]
     func getImportedWallets() -> [ImportedWallet]
     func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]]

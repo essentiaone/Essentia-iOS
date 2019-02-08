@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
 
-public protocol ViewWalletInterface: WalletInterface {
+public protocol ViewWalletInterface: WalletInterface, ThreadConfined {
     var iconUrl: URL { get }
     var symbol: String { get }
     func balanceInCurrency(currency: FiatCurrency, with rank: Double) -> Double
@@ -16,7 +17,6 @@ public protocol ViewWalletInterface: WalletInterface {
     func formattedBalanceInCurrency(currency: FiatCurrency, with rank: Double) -> String
     var formattedBalance: String { get }
     var lastBalance: Double { get }
-    func privateKey(withSeed: String) -> String?
 }
 
 public func == (lhs: ViewWalletInterface, rhs: ViewWalletInterface) -> Bool {

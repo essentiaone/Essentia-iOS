@@ -45,14 +45,14 @@ class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavig
     
     var currenciesState: [TableComponent] {
         var currencyState: [TableComponent] = []
-        let currenyCurrency = EssentiaStore.shared.currentUser.profile.currency
+        let currenyCurrency = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         FiatCurrency.cases.forEach { (currency) in
             currencyState.append(.menuTitleCheck(
                 title: currency.titleString,
                 state: ComponentState(defaultValue: currenyCurrency == currency),
                 action: { [unowned self] in
                     (inject() as UserStorageServiceInterface).update({ (user) in
-                        user.profile.currency = currency
+                        user.profile?.currency = currency
                     })
                     (inject() as CurrencyRankDaemonInterface).update()
                     self.tableAdapter.hardReload(self.state)

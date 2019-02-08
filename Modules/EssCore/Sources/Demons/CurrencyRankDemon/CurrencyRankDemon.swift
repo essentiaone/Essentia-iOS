@@ -10,13 +10,15 @@ import Foundation
 import EssModel
 import EssDI
 
+fileprivate struct Defaults {
+    static var queue = "CurrencyRank"
+}
+
 public class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     var assets: [AssetInterface] = []
     private lazy var  converterService: CurrencyConverterServiceInterface = inject()
     
-    public init() {
-        update()
-    }
+    public init() {}
     
     public func update() {
         updateRanks()
@@ -27,9 +29,10 @@ public class CurrencyRankDaemon: CurrencyRankDaemonInterface {
     }
     
     private func updateRanks(callBack: (() -> Void)? = nil) {
-        global {
-            self.assets = EssentiaStore.shared.currentUser.wallet.uniqueAssets
-            let currency = EssentiaStore.shared.currentUser.profile.currency
+        (inject() as LoaderInterface).hide()
+        (inject() as UserStorageServiceInterface).get { (user) in
+            self.assets = user.wallet?.uniqueAssets ?? []
+            let currency = user.profile?.currency ?? .usd
             let group = DispatchGroup()
             group.notify(queue: .main, execute: {
                 callBack?()

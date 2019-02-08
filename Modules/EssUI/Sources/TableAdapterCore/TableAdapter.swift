@@ -208,6 +208,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .accountStrengthAction(let action, let status, let currentLevel):
             let cell: TableComponentAccountStrengthAction = tableView.dequeueReusableCell(for: indexPath)
             cell.renderState(state: status, secureLevel: currentLevel)
+            // TODO: Try refactor
+            self.tableState[indexPath.row] = TableComponent.accountStrengthAction(action: action, status: .idle, currentLevel: currentLevel)
             cell.resultAction = action
             return cell
         case .accountStrength(let backAction, let currentLevel):

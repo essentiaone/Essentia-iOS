@@ -24,7 +24,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     // MARK: - Dependences
     private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
-    private lazy var userService: UserListStorageServiceInterface = inject()
+    private lazy var userService: ViewUserStorageServiceInterface = inject()
     
     // MARK: - Lifecycle
     
@@ -68,10 +68,16 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     func didSelectUser(_ user: ViewUser) {
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
+                if pass.sha512().sha512() != user.passwordHash {
+                    throw EssentiaError.wrongPassword
+                }
                 let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: user.id, password: pass)
-                EssentiaStore.shared.setUser(userStore.get())
+                prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
+                (inject() as UserStorageServiceInterface).update { (user) in
+                    EssentiaStore.shared.setUser(user)
+                }
             } catch {
-                (inject() as LoaderInterface).showError(error)
+                (inject() as LoaderInterface).showError(error.localizedDescription)
                 return false
             }
             self.dismiss(animated: true, completion: { [unowned self] in

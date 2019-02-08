@@ -153,7 +153,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                                              toAddress: transacionDetial.address,
                                              ammountInCrypto: transacionDetial.ammount.inCrypto,
                                              data: Data(hex: transacionDetial.data))
-        let seed =  EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         guard let pk = wallet.privateKey(withSeed: seed) else {
             throw EssentiaError.txError(.invalidPk)
         }

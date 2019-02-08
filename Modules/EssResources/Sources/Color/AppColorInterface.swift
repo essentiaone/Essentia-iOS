@@ -32,6 +32,7 @@ public protocol AppColorInterface {
     var enteredWordText: UIColor { get }
     var validPasswordIndicator: UIColor { get }
     var notValidPasswordIndicator: UIColor { get }
+    var coinsShadowColor: UIColor { get }
     // MARK: - Launchpad
     var launchpadItemTitleColor: UIColor { get }
     var launchpadItemSubTitleColor: UIColor { get }

@@ -10,32 +10,23 @@ import Foundation
 import EssModel
 
 public protocol UserStorageServiceInterface {
-    init(user: User, password: String) throws
-    init(seedHash: String, password: String) throws
-    func update(_ updateBlock: (User) -> Void)
-    func get() -> User
+    func update(_ updateBlock: @escaping (User) -> Void)
+    func get(_ user: @escaping (User) -> Void)
     func remove()
 }
 
-public protocol UserListStorageServiceInterface {
-    func add(_ user: ViewUser)
-    func remove(_ user: ViewUser)
-    func get() -> [ViewUser]
-    func update(_ updateBlock: (ViewUser) -> Void)
-}
+public class DefaultUserStorage: UserStorageServiceInterface {
 
-extension UserListStorageServiceInterface {
-    public var freeIndex: Int {
-        var index: Int = 0
-        let users = get()
-        guard !users.isEmpty else { return 0 }
-        while index < Int.max {
-            if users.contains(where: { $0.index == index }) {
-                index++
-            }
-            return index
-            
-        }
-        fatalError("Maximum user reached")
+    
+    public init() {}
+    
+    public func update(_ updateBlock: @escaping (User) -> Void) {
+        updateBlock(EssentiaStore.shared.currentUser)
     }
+    
+    public func get(_ user: @escaping (User) -> Void) {
+        user(EssentiaStore.shared.currentUser)
+    }
+    
+    public func remove() {}
 }

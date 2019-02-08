@@ -14,10 +14,10 @@ public class User: Object {
     public static var notSigned = User()
     
     @objc dynamic public var id: String = ""
-    @objc dynamic public var profile: UserProfile = UserProfile()
-    @objc dynamic public var backup: UserBackup = UserBackup()
-    @objc dynamic public var userEvents: UserEvents = UserEvents()
-    @objc dynamic public var wallet: UserWallet = UserWallet()
+    @objc dynamic public var profile: UserProfile? = UserProfile()
+    @objc dynamic public var backup: UserBackup? = UserBackup()
+    @objc dynamic public var userEvents: UserEvents? = UserEvents()
+    @objc dynamic public var wallet: UserWallet? = UserWallet()
     @objc dynamic public var seed: String = ""
     @objc dynamic public var mnemonic: String? 
     
@@ -27,8 +27,8 @@ public class User: Object {
         self.id = id
         self.seed = seed
     }
-
-    public var dislayName: String {
-        return profile.name
+    
+    override public class func primaryKey() -> String? {
+        return "id"
     }
 }

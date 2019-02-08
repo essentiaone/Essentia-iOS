@@ -13,6 +13,7 @@ public enum FiatCurrency: String, Codable, Equatable, Hashable {
     case eur
     case krw
     case cny
+    case none
     
     public var symbol: String {
         switch self {
@@ -24,6 +25,8 @@ public enum FiatCurrency: String, Codable, Equatable, Hashable {
             return "₩"
         case .cny:
             return "¥"
+        case .none:
+            return ""
         }
     }
     

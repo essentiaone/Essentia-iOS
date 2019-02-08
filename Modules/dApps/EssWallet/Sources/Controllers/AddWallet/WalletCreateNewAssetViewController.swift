@@ -86,10 +86,11 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     var selectWalletState: [TableComponent] {
-        guard store.selectedComponent != 0 else { return [] }
-        let wallets = EssentiaStore.shared.currentUser.wallet.generatedWalletsInfo.filter({ return $0.coin == Coin.ethereum })
-        guard wallets.count > 1 else { return [] }
-        let selectedWallet = store.etherWalletForTokens ?? wallets.first!
+        guard store.selectedComponent != 0,
+            let wallets =  EssentiaStore.shared.currentUser.wallet?.generatedWalletsInfo else { return [] }
+        let filtered = wallets.filter({ return $0.coin == Coin.ethereum })
+        guard filtered.count > 1 else { return [] }
+        let selectedWallet = store.etherWalletForTokens ?? filtered.first!
         return [
             .titleSubtitleDescription(title: LS("Wallet.NewAsset.Token.SelectWallet.Title"),
                                       subtile: LS("Wallet.NewAsset.Token.SelectWallet.Subtitle"),
@@ -128,17 +129,18 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     private lazy var doneAction: () -> Void = { [unowned self] in
         switch self.store.selectedComponent {
         case 0:
-            (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets)
+            (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: {_ in })
         case 1:
             guard let wallet = self.store.etherWalletForTokens else {
-                (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets)
-                (inject() as WalletRouterInterface).show(.successGeneratingAlert)
+                (inject() as WalletInteractorInterface).addCoinsToWallet([Coin.ethereum], wallet: { newWallet in
+                    (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: newWallet)
+                    (inject() as WalletRouterInterface).show(.successGeneratingAlert)
+                })
                 return
             }
             (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
         default: return
         }
-        storeCurrentUser()
         (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     

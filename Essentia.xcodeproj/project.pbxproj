@@ -62,7 +62,7 @@
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
-		34D9C96021F9311D00B3A625 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; };
+		34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */; };
 		34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
 		34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */; };
@@ -158,6 +158,8 @@
 		34B1436D21D3C9C700EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
+		34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		34B612DF220DB704006EA6B3 /* Essentia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Essentia.entitlements; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
 		34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditUserViewController.swift; sourceTree = "<group>"; };
 		34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLoginController.swift; sourceTree = "<group>"; };
@@ -175,7 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34D9C96021F9311D00B3A625 /* EssUI.framework in Frameworks */,
 				345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */,
 				3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */,
 				E7164E6551E391201522411B /* Pods_Essentia.framework in Frameworks */,
@@ -215,6 +216,7 @@
 		3401AF2420F7C2CA006DEF49 /* Essentia */ = {
 			isa = PBXGroup;
 			children = (
+				34B612DF220DB704006EA6B3 /* Essentia.entitlements */,
 				95AC5A4B6668826F51D64E2B /* Pods */,
 				3401AF5120F806C9006DEF49 /* UserCases */,
 				3401AF3920F7C3BC006DEF49 /* Resources */,
@@ -248,6 +250,7 @@
 			children = (
 				3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */,
 				3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */,
+				34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */,
 				3401AF3120F7C2CD006DEF49 /* Info.plist */,
 			);
 			path = Resources;
@@ -342,8 +345,8 @@
 		3401AF9320FFF4A3006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3448265C21199F7A00C19EB3 /* KeyStorePassword */,
-				343122652124ACE5009E4A7A /* KeyStoreWarning */,
+				3448265D2119A10600C19EB3 /* KeyStorePasswordViewController.swift */,
+				343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */,
 				3448265721189B5B00C19EB3 /* SeedCopy */,
 				3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */,
 				3401AFC22101E8B1006DEF49 /* MnemonicPhraseCopy */,
@@ -442,14 +445,6 @@
 			path = Notifications;
 			sourceTree = "<group>";
 		};
-		343122652124ACE5009E4A7A /* KeyStoreWarning */ = {
-			isa = PBXGroup;
-			children = (
-				343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */,
-			);
-			path = KeyStoreWarning;
-			sourceTree = "<group>";
-		};
 		344167F5212EC222008B8A91 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,14 +472,6 @@
 				3448265A21189B8500C19EB3 /* SeedCopyViewController.xib */,
 			);
 			path = SeedCopy;
-			sourceTree = "<group>";
-		};
-		3448265C21199F7A00C19EB3 /* KeyStorePassword */ = {
-			isa = PBXGroup;
-			children = (
-				3448265D2119A10600C19EB3 /* KeyStorePasswordViewController.swift */,
-			);
-			path = KeyStorePassword;
 			sourceTree = "<group>";
 		};
 		34482668211B321000C19EB3 /* Launchpad */ = {
@@ -610,7 +597,6 @@
 				3401AF1F20F7C2CA006DEF49 /* Frameworks */,
 				3401AF2020F7C2CA006DEF49 /* Resources */,
 				3401AF5F20F81011006DEF49 /* Swift Lint */,
-				3401AF6020F81284006DEF49 /* Fabric */,
 				4EF57AFD2BA3AAA086D8961D /* [CP] Embed Pods Frameworks */,
 				3426963321ED5BB40063E2D8 /* Embed Frameworks */,
 			);
@@ -654,6 +640,11 @@
 					3401AF2120F7C2CA006DEF49 = {
 						CreatedOnToolsVersion = 9.4.1;
 						LastSwiftMigration = 1000;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					3401AFB021012D93006DEF49 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -696,6 +687,7 @@
 				3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */,
 				340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
+				34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */,
 				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 			);
@@ -773,6 +765,9 @@
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/scrypt/scrypt.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -785,6 +780,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/scrypt.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -997,6 +995,7 @@
 			baseConfigurationReference = A5095476FCA3B42E7A63E40A /* Pods-Essentia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Essentia/Essentia.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 64;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1025,6 +1024,7 @@
 			baseConfigurationReference = CF82FC3EA722652B63E7C7EB /* Pods-Essentia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Essentia/Essentia.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 64;

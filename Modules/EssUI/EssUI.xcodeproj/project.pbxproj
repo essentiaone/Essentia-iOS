@@ -154,6 +154,7 @@
 		34CA783C21ECF5AC003612EE /* TableAdapterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA77DF21ECF5AC003612EE /* TableAdapterHelper.swift */; };
 		34DB80EF21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB80EE21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift */; };
 		34DB80F121EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB80F021EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift */; };
+		34EFEEC5220493E30005DCC3 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFEEC4220493E30005DCC3 /* Loader.swift */; };
 		774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */; };
 /* End PBXBuildFile section */
 
@@ -321,6 +322,7 @@
 		34CA783D21ECF8B6003612EE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34DB80EE21EFCBE800C6BCC1 /* PNGAnimationPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PNGAnimationPlayer.swift; sourceTree = "<group>"; };
 		34DB80F021EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantNumberOfDigitsFormatter.swift; sourceTree = "<group>"; };
+		34EFEEC4220493E30005DCC3 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		7BFA303BAC08CEEDA8047584 /* Pods-EssUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.debug.xcconfig"; sourceTree = "<group>"; };
 		BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -426,6 +428,7 @@
 				345D6DCD21EFBC7800C59398 /* TextFields */,
 				345D6DCF21EFBC7800C59398 /* Alerts */,
 				3468CC0621F7787700275FE5 /* EssentiaLoader.swift */,
+				34EFEEC4220493E30005DCC3 /* Loader.swift */,
 			);
 			path = ViewSymbols;
 			sourceTree = "<group>";
@@ -1245,6 +1248,7 @@
 				345D6DEB21EFBC7800C59398 /* BaseViewController.swift in Sources */,
 				34CA782021ECF5AC003612EE /* TableComponentCurrentAccount.swift in Sources */,
 				34CA781321ECF5AC003612EE /* TableComponentMenuButton.swift in Sources */,
+				34EFEEC5220493E30005DCC3 /* Loader.swift in Sources */,
 				345D6DED21EFBC7800C59398 /* LaunchpadItemCell.swift in Sources */,
 				342A921E21F901E3009840DD /* KeyboardHeightObserver.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,

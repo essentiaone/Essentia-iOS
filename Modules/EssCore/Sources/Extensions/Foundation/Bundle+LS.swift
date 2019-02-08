@@ -8,6 +8,7 @@
 
 import Foundation
 import EssModel
+import EssDI
 
 public func SwizzleLocalizedFiles() {
     MethodSwizzleGivenClassName (
@@ -26,7 +27,7 @@ extension Bundle {
     }
     
     private var pathForCurrentLanguageResources: String {
-        let currentLanguage = LocalizationLanguage.english.localizationFileName //EssentiaStore.shared.currentUser.profile.language.localizationFileName
+        let currentLanguage = EssentiaStore.shared.currentLangugale.localizationFileName
         guard let resourcesBundle = Bundle(identifier: "Essentia.EssResources") else {
             fatalError("Resource framework is not connected!")
         }

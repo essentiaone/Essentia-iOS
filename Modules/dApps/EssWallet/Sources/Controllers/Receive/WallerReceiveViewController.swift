@@ -20,7 +20,7 @@ fileprivate struct Store {
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         address = wallet.address(withSeed: seed)
         
     }

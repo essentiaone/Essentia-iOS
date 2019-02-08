@@ -23,7 +23,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private var currentUserId = EssentiaStore.shared.currentUser.id
-    private var currentSecurity = EssentiaStore.shared.currentUser.backup.currentlyBackup?.secureLevel ?? 0
+    private var currentSecurity = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.secureLevel ?? 0
     
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
@@ -60,14 +60,14 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     private var dynamicContent: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
-        let showSecureStatus = !user.userEvents.isAccountFullySecuredShown
+        let showSecureStatus = !(user.userEvents?.isAccountFullySecuredShown ?? false)
         let rawState: [TableComponent?] =
             [showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction, status: secureAnimationStatus, currentLevel: currentSecurity):
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
-             .currentAccount(icon: user.profile.icon,
+             .currentAccount(icon: EssentiaStore.shared.currentUser.profile?.icon ?? UIImage(),
                              title: LS("Settings.CurrentAccountTitle"),
-                             name: EssentiaStore.shared.currentUser.dislayName,
+                             name: EssentiaStore.shared.currentUser.profile?.name ?? "",
                              action: editCurrentAccountAction),
              .empty(height: 16.0, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .left,
@@ -78,7 +78,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .empty(height: 5.0, background: colorProvider.settingsBackgroud),
              .menuTitleDetail(icon: imageProvider.currencyIcon,
                               title: LS("Settings.Currency"),
-                              detail: user.profile.currency.titleString,
+                              detail: user.profile?.currency.titleString ?? "",
                               action: currencyAction),
              .separator(inset: Constants.separatorInset),
              .empty(height: 16, background: colorProvider.settingsBackgroud),
@@ -137,10 +137,11 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     private var secureAnimationStatus: AnimationState {
         let newUser = EssentiaStore.shared.currentUser
-        let shoudShowAnimation = currentSecurity != newUser.backup.currentlyBackup?.secureLevel && currentUserId == newUser.id
+        let shoudShowAnimation = currentSecurity != newUser.backup?.currentlyBackup?.secureLevel && currentUserId == newUser.id
         currentUserId = newUser.id
-        currentSecurity = newUser.backup.currentlyBackup?.secureLevel ?? 0
+        currentSecurity = newUser.backup?.currentlyBackup?.secureLevel ?? 0
         if shoudShowAnimation {
+            
             return .updating
         }
         return .idle
@@ -161,11 +162,12 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     func logOutUser() {
         EssentiaStore.shared.setUser(.notSigned)
+        prepareInjection(DefaultUserStorage() as UserStorageServiceInterface, memoryPolicy: .viewController)
         (inject() as SettingsRouterInterface).logOut()
     }
     
     private lazy var securityAction: () -> Void = { [unowned self] in
-        switch EssentiaStore.shared.currentUser.backup.currentlyBackup?.get() {
+        switch EssentiaStore.shared.currentUser.backup?.currentlyBackup?.get() {
         case []:
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
         default:
@@ -178,7 +180,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
-        switch EssentiaStore.shared.currentUser.backup.currentlyBackup?.get() {
+        switch EssentiaStore.shared.currentUser.backup?.currentlyBackup?.get() {
         case [.keystore, .seed, .mnemonic]:
             (inject() as SettingsRouterInterface).show(.fullSecured)
         case []:
@@ -206,11 +208,17 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
+                if pass.sha512().sha512() != user.passwordHash {
+                    throw EssentiaError.wrongPassword
+                }
                 let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: user.id, password: pass)
-                EssentiaStore.shared.setUser(userStore.get())
+                prepareInjection(userStore, memoryPolicy: .viewController)
+                (inject() as UserStorageServiceInterface).update { (user) in
+                    EssentiaStore.shared.setUser(user)
+                }
                 TabBarController.shared.selectedIndex = 0
             } catch {
-                (inject() as LoaderInterface).showError(error)
+                (inject() as LoaderInterface).showError(EssentiaError.wrongPassword)
                 return false
             }
             self.dismiss(animated: true)

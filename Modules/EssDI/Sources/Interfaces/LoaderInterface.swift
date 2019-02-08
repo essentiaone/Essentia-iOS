@@ -1,9 +1,9 @@
 //
 //  LoaderInterface.swift
-//  EssCore
+//  EssDI
 //
-//  Created by Pavlo Boiko on 12/28/18.
-//  Copyright © 2018 Pavlo Boiko. All rights reserved.
+//  Created by Pavlo Boiko on 2/1/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import Foundation

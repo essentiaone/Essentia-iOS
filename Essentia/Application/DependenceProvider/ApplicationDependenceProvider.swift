@@ -11,6 +11,7 @@ import EssCore
 import EssResources
 import EssUI
 import EssDI
+import EssModel
 
 class ApplicationDependenceProvider {
     func loadDependences() {
@@ -86,6 +87,7 @@ class ApplicationDependenceProvider {
     // MARK: - Services
     private func loadServices() {
         loadUserService()
+        loadUserListService()
         loadFileService()
         loadMnemonicService()
         loadLoader()
@@ -126,7 +128,12 @@ class ApplicationDependenceProvider {
     }
     
     private func loadUserService() {
-        let injection: UserListStorageServiceInterface = ViewUserStorageService()
+        let injection: UserStorageServiceInterface = DefaultUserStorage()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadUserListService() {
+        let injection: ViewUserStorageServiceInterface = ViewUserStorageService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     

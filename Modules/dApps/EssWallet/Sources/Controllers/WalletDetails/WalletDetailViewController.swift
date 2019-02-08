@@ -56,19 +56,17 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        global {
-            self.loadRank()
-            self.loadTransactions()
-            self.loadBalance()
-        }
+        self.loadRank()
+        self.loadTransactions()
+        self.loadBalance()
         tableAdapter.hardReload(state)
     }
     
     // MARK: - State
     private var state: [TableComponent] {
         return
-             staticContent + 
-            [.tableWithCalculatableSpace(state: dynamicContent, background: .white)]
+            staticContent +
+                [.tableWithCalculatableSpace(state: dynamicContent, background: .white)]
     }
     
     private var staticContent: [TableComponent] {
@@ -108,7 +106,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                            action: walletOperationAtIndex),
             .empty(height: 28, background: colorProvider.settingsCellsBackround)
             ] + buildTransactionState +
-            loaderStateIfNeeded
+        loaderStateIfNeeded
     }
     
     // MARK: - State Builders
@@ -171,38 +169,45 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Network
     private func loadBalance() {
         let wallet = self.store.wallet
-        let seed = EssentiaStore.shared.currentCredentials.seed
-        let address = wallet.address(withSeed: seed)
-        switch wallet.asset {
-        case let token as Token:
-            blockchainInteractor.getTokenBalance(for: token, address: address, balance: balanceChanged)
-        case let coin as EssModel.Coin:
-            blockchainInteractor.getCoinBalance(for: coin, address: address, balance: balanceChanged)
-        default: return
+        (inject() as UserStorageServiceInterface).get { (user) in
+            let seed = user.seed
+            let address = wallet.address(withSeed: seed)
+            print(wallet.asset)
+            switch wallet.asset {
+            case let token as Token:
+                self.blockchainInteractor.getTokenBalance(for: token, address: address, balance: self.balanceChanged)
+            case let coin as EssModel.Coin:
+                self.blockchainInteractor.getCoinBalance(for: coin, address: address, balance: self.balanceChanged)
+            default: return
+            }
         }
     }
     
     private func loadRank() {
-        let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
-        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency)
-        let formatter = BalanceFormatter(currency: currentCurrency)
-        let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
-        store.currentRank = formattedRank
+        (inject() as UserStorageServiceInterface).update { (user) in
+            let currentCurrency = user.profile?.currency ?? .usd
+            let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency)
+            let formatter = BalanceFormatter(currency: currentCurrency)
+            let formattedRank = formatter.formattedAmmountWithCurrency(amount: rank)
+            self.store.currentRank = formattedRank
+        }
     }
     
-    private lazy var balanceChanged: (Double) -> Void = {
-        let currentCurrency = EssentiaStore.shared.currentUser.profile.currency
-        let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency) ?? 0
-        let newCurrentBalance = $0 * rank
-        let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
-        self.store.balance = newCurrentBalance
-        self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: yesterdayBalance,
-                                                                        newestBalance: newCurrentBalance)
-        self.tableAdapter.simpleReload(self.state)
+    private lazy var balanceChanged: (Double) -> Void = { balance in
+        (inject() as UserStorageServiceInterface).update { (user) in
+            let currentCurrency = user.profile?.currency ?? .usd
+            let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency) ?? 0
+            let newCurrentBalance = balance * rank
+            let yesterdayBalance = self.store.wallet.yesterdayBalanceInCurrentCurrency
+            self.store.balance = newCurrentBalance
+            self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: yesterdayBalance,
+                                                                            newestBalance: newCurrentBalance)
+            self.tableAdapter.simpleReload(self.state)
+        }
     }
     
     func getTransactionsByWallet(_ wallet: EssModel.WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let address = wallet.address(withSeed: seed)
         switch wallet.asset {
         case let token as Token:
@@ -268,7 +273,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let address = store.wallet.address(withSeed: seed)
         return [ViewTransaction](transactions.map({
             let ammount = $0.transactionAmmount(for: address)
@@ -284,7 +289,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
         let nonTokenTx = transactions.filter({ return $0.value != "0" })
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let address = store.wallet.address(withSeed: seed)
         return  [ViewTransaction](nonTokenTx.map({
             let txType = $0.type(for: address)
@@ -300,7 +305,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], forToken: Token) -> [ViewTransaction] {
-        let seed = EssentiaStore.shared.currentCredentials.seed
+        let seed = EssentiaStore.shared.currentUser.seed
         let address = store.wallet.address(withSeed: seed)
         return  [ViewTransaction](transactions.map({
             let txType = $0.type(for: address)
@@ -338,7 +343,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func formattedBalance(_ balance: Double) -> String {
-        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile.currency)
+        let formatter = BalanceFormatter(currency: EssentiaStore.shared.currentUser.profile?.currency ?? .usd)
         return formatter.formattedAmmountWithCurrency(amount: balance)
     }
     

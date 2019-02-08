@@ -143,8 +143,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             let mnemonic = try (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
             let user = User(mnemonic: mnemonic)
             EssentiaStore.shared.setUser(user)
-            user.backup.currentlyBackup?.clear()
-            user.backup.currentlyBackup?.add(.keystore)
+            user.backup?.currentlyBackup?.clear()
+            user.backup?.currentlyBackup?.add(.keystore)
             (inject() as AuthRouterInterface).showPrev()
             delegate?.didSetUser()
         } catch {
@@ -161,33 +161,30 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     
     private func storeKeystore() {
         (inject() as LoaderInterface).show()
-        DispatchQueue.global().async { [unowned self] in
-            do {
-                let path = LocalFolderPath.final(Store.keyStoreFolder)
-                if let mnemonic = EssentiaStore.shared.currentCredentials.mnemonic {
-                    let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mnemonic,
-                                                                                           password: self.store.password)
-                    let userId = EssentiaStore.shared.currentUser.id
-                    let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: userId, password: self.store.password)
-                    let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
-                                                                                     to: path,
-                                                                                     with: "\(EssentiaStore.shared.currentUser.id)")
-                    userStore.update({ (user) in
-                        user.backup.keystorePath = url.path
-                    })}
-            } catch {
-                (inject() as LoggerServiceInterface).log(error.localizedDescription)
+        do {
+            let path = LocalFolderPath.final(Store.keyStoreFolder)
+            if let mnemonic = EssentiaStore.shared.currentUser.mnemonic {
+                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mnemonic,
+                                                                                       password: self.store.password)
+                let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
+                                                                                 to: path,
+                                                                                 with: "\(EssentiaStore.shared.currentUser.id)")
+                EssentiaStore.shared.currentUser.backup?.keystorePath = url.path
+                EssentiaStore.shared.currentUser.backup?.currentlyBackup?.add(.keystore)
+                let user = EssentiaStore.shared.currentUser
+                let userStore: UserStorageServiceInterface = try RealmUserStorage(user: user, password: self.store.password)
+                prepareInjection(userStore, memoryPolicy: .viewController)
             }
-            self.showSuccess()
+        } catch {
+            (inject() as LoggerServiceInterface).log(error.localizedDescription)
         }
+        self.showSuccess()
     }
     
     private func showSuccess() {
         OperationQueue.main.addOperation {
             (inject() as LoaderInterface).hide()
             let alert = KeystoreSavedAlert(okAction: {
-                EssentiaStore.shared.currentUser.backup.currentlyBackup?.add(.keystore)
-                storeCurrentUser()
                 (inject() as AuthRouterInterface).showNext()
             })
             self.present(alert, animated: true)

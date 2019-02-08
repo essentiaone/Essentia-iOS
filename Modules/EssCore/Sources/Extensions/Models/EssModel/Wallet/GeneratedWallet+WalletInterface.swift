@@ -15,7 +15,7 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
         return (inject() as  WalletServiceInterface).generatePk(self, seed: Data(hex: withSeed))
     }
     
-    public convenience init(name: String, coin: Coin, derivationIndex: UInt32) {
+    public convenience init(name: String, coin: Coin, derivationIndex: Int32) {
         self.init(name: name, coin: coin, derivationIndex: derivationIndex, lastBalance: 0)
         self.coin = coin
         self.derivationIndex = derivationIndex

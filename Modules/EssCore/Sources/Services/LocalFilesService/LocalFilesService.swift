@@ -60,6 +60,15 @@ public class LocalFilesService: LocalFilesServiceInterface {
         return FileManager.default.fileExists(atPath: url.path)
     }
     
+    public func createFolder(path: LocalFolderPath) {
+        let folderPath = fileUrl(fromPath: path.path)
+        do {
+            try FileManager.default.createDirectory(atPath: folderPath.path, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            (inject() as LoggerServiceInterface).log(error.localizedDescription)
+        }
+    }
+    
     private func directoryPath(currentPath: String) -> String {
         let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
         return documentPath.appending(currentPath)

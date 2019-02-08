@@ -21,6 +21,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     @IBOutlet weak var accountButton: UIButton!
     
     var resultAction: (() -> Void)?
+    var status: AnimationState = .idle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,6 +51,7 @@ class TableComponentAccountStrengthAction: BaseAccountStrengthCell, NibLoadable 
     }
     
     func renderState(state: AnimationState, secureLevel: Int) {
+        self.status = state
         let animation = animationForSecurirtyLevel(secureLevel)
         let player = PNGAnimationPlayer(animation: animation, in: self.progressImageView)
         switch state {

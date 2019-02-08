@@ -9,12 +9,12 @@
 import UIKit
 import RealmSwift
 
-@objc
+@objcMembers
 public class Token: Object, Codable {
-    @objc dynamic public var id: String = ""
-    @objc dynamic public var address: String = ""
-    @objc dynamic public var symbol: String = ""
-    @objc dynamic public var name: String = ""
-    @objc dynamic public var decimals: Int = 0
-    @objc dynamic public var path: TokenIcons?
+    dynamic public var id: String = ""
+    dynamic public var address: String = ""
+    dynamic public var symbol: String = ""
+    dynamic public var name: String = ""
+    dynamic public var decimals: Int = 0
+    dynamic public var path: TokenIcons?
 }

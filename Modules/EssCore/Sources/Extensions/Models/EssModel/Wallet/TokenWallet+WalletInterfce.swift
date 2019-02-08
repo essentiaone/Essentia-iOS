@@ -15,24 +15,25 @@ extension TokenWallet: WalletInterface, ViewWalletInterface {
         self.init(name: token.name, token: token, wallet: wallet, lastBalance: lastBalance)
     }
     
-    public var iconUrl: URL {
-        return token.iconUrl
+    public var iconUrl: URL? {
+        return token?.iconUrl
     }
     
     public var symbol: String {
-        return token.symbol
+        return token?.symbol ?? ""
     }
     
     public var asset: AssetInterface {
-        return token
+        return token ?? Token()
     }
     
     public func address(withSeed: String) -> String {
-        return wallet.address(withSeed: withSeed)
+        return wallet?.address(withSeed: withSeed) ?? ""
     }
     
     public func privateKey(withSeed: String) -> String? {
         let walletService: WalletServiceInterface = inject()
+        guard let wallet = wallet else { return nil }
         return walletService.generatePk(wallet, seed: Data(hex: withSeed))
     }
 }
