@@ -27,32 +27,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
-        Fabric.with([Crashlytics.self])
         FirebaseApp.configure()
+        Fabric.with([Crashlytics.self])
         appStateEventProxy.didFinishLaunching(application)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = WelcomeViewController()
+        
         SwizzleLocalizedFiles()
-        
-        if #available(iOS 10.0, *) {
-            UNUserNotificationCenter.current().delegate = self
-            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-            UNUserNotificationCenter.current().requestAuthorization(
-                options: authOptions,
-                completionHandler: {_, _
-                    
-                    in })
-        } else {
-            let settings: UIUserNotificationSettings =
-                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-            application.registerUserNotificationSettings(settings)
-        }
-        
-        application.registerForRemoteNotifications()
-        Messaging.messaging().delegate = self
-        
+        registerForRemoteNotifications(application)
         return true
     }
     
@@ -74,32 +58,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     // MARK: - Notifications
-    
     func registerForRemoteNotifications(_ application: UIApplication) {
-
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _
+                    
+                    in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        Messaging.messaging().delegate = self
     }
     
     // MARK: - UNUserNotificationCenterDelegate
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        
-    }
-    
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        (inject() as LoggerServiceInterface).log(error.localizedDescription)
+        (inject() as LoggerServiceInterface).log(error.localizedDescription, level: .error)
     }
     
     // MARK: - MessagingDelegate
-    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
-        
+        (inject() as LoggerServiceInterface).log("FCM Token: " + fcmToken, level: .info)
     }
     
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
-        
+        (inject() as LoggerServiceInterface).log("Remote messae: " + remoteMessage.appData.description, level: .info)
     }
 }

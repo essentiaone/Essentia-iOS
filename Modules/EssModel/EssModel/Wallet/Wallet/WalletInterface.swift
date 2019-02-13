@@ -9,8 +9,8 @@
 import Foundation
 
 public protocol WalletInterface {
-    func address(withSeed: String) -> String
-    func privateKey(withSeed: String) -> String?
+    var address: String { get }
+    var privateKey: String { get }
     var asset: AssetInterface { get }
     var name: String { get set }
 }

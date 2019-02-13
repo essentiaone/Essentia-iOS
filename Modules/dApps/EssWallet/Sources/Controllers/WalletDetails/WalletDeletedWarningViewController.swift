@@ -15,8 +15,8 @@ import EssResources
 class WalletDeletedWarningViewController: InfoAlertViewController {
     private var walletName: String
     
-    init(wallet: ViewWalletInterface, okAction: @escaping () -> Void) {
-        self.walletName = wallet.name
+    init(walletName: String, okAction: @escaping () -> Void) {
+        self.walletName = walletName
         super.init(okAction: okAction)
     }
     

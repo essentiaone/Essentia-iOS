@@ -8,21 +8,21 @@
 
 import EssModel
 import CryptoSwift
+import HDWalletKit
 
 extension ImportedWallet: WalletInterface, ViewWalletInterface {
+    public convenience init(coin: EssModel.Coin, privateKey: String, name: String, lastBalance: Double) {
+        let hdCoin: HDWalletKit.Coin = wrapCoin(coin: coin)
+        let rawRrivateKey = PrivateKey(pk: privateKey, coin: hdCoin)
+        let address = rawRrivateKey.publicKey.address
+        self.init(address: address, coin: coin, privateKey: privateKey, name: name, lastBalance: lastBalance)
+    }
+
     public var symbol: String {
         return coin.symbol
     }
     
     public var asset: AssetInterface {
         return coin
-    }
-    
-    public func privateKey(withSeed: String) -> String? {
-        return pk
-    }
-    
-    public func address(withSeed: String) -> String {
-        return address
     }
 }

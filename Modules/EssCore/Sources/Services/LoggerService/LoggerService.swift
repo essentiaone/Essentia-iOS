@@ -12,7 +12,7 @@ import CocoaLumberjack
 public class LoggerService: LoggerServiceInterface {
     public init() {
         DDLog.add(DDTTYLogger.sharedInstance)
-        DDLog.add(DDASLLogger.sharedInstance)
+        DDLog.add(DDOSLogger.sharedInstance)
         DDTTYLogger.sharedInstance.colorsEnabled = true
     }
     

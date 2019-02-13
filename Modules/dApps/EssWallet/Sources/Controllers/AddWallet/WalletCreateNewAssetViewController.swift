@@ -18,7 +18,7 @@ fileprivate struct Store {
     var searchString: String = ""
     var assets: [AssetInterface] = []
     var selectedAssets: [AssetInterface] = []
-    var etherWalletForTokens: GeneratingWalletInfo?
+    var etherWalletForTokens: ViewWalletInterface?
 }
 
 class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableNavigation {
@@ -44,6 +44,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        store.etherWalletForTokens = wallets.first
         selectSegmentCotrolAction(self.store.selectedComponent)
     }
     
@@ -87,10 +88,8 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     var selectWalletState: [TableComponent] {
         guard store.selectedComponent != 0,
-            let wallets =  EssentiaStore.shared.currentUser.wallet?.generatedWalletsInfo else { return [] }
-        let filtered = wallets.filter({ return $0.coin == Coin.ethereum })
-        guard filtered.count > 1 else { return [] }
-        let selectedWallet = store.etherWalletForTokens ?? filtered.first!
+              wallets.count > 1,
+              let selectedWallet = store.etherWalletForTokens else { return [] }
         return [
             .titleSubtitleDescription(title: LS("Wallet.NewAsset.Token.SelectWallet.Title"),
                                       subtile: LS("Wallet.NewAsset.Token.SelectWallet.Subtitle"),
@@ -174,13 +173,19 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
-        let wallets = self.interactor.getGeneratedWallets().filter({ return $0.coin == .ethereum })
         (inject() as LoaderInterface).show()
-        (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: wallets, action: { (wallet) in
+        (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: self.wallets, action: { (wallet) in
             (inject() as LoaderInterface).hide()
-            guard let generatedWallet = wallet as? GeneratingWalletInfo else { return }
-            self.store.etherWalletForTokens = generatedWallet
+            self.store.etherWalletForTokens = wallet
             self.asyncReloadState()
         }))
+    }
+    
+    private var wallets: [ViewWalletInterface] {
+        let generatedWallets = self.interactor.getGeneratedWallets().filter({ return $0.coin == .ethereum })
+        let importedWallets = self.interactor.getImportedWallets().filter({ return $0.coin == .ethereum })
+        var wallets: [ViewWalletInterface] = generatedWallets
+        wallets.append(contentsOf: importedWallets)
+        return wallets
     }
 }

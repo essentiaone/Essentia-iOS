@@ -146,17 +146,17 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     private func showDeleteWarning() {
         self.present(DeleteWalletWarningViewController(wallet: wallet, leftAction: {}, rightAction: { [weak self] in
             guard let `self` = self else { return }
+            let walletName = self.wallet.name
             (inject() as UserStorageServiceInterface).update({ (user) in
                 user.wallet?.remove(wallet: self.wallet)
             })
             self.dismiss(animated: true, completion: {
-                (inject() as WalletRouterInterface).show(.walletDeleted(wallet: self.wallet))
+                (inject() as WalletRouterInterface).show(.walletDeleted(walletName: walletName))
             })
         }), animated: true)
     }
     
     var privateKey: String {
-        let seed = EssentiaStore.shared.currentUser.seed
-        return wallet.privateKey(withSeed: seed) ?? ""
+       return wallet.privateKey
     }
 }

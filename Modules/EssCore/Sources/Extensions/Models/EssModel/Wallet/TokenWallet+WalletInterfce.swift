@@ -11,12 +11,8 @@ import EssModel
 import EssDI
 
 extension TokenWallet: WalletInterface, ViewWalletInterface {
-    public convenience init(token: Token, wallet: GeneratingWalletInfo, lastBalance: Double) {
-        self.init(name: token.name, token: token, wallet: wallet, lastBalance: lastBalance)
-    }
-    
-    public var iconUrl: URL? {
-        return token?.iconUrl
+    public convenience init(token: Token, wallet: ViewWalletInterface, lastBalance: Double) {
+        self.init(name: token.name, token: token, privateKey: wallet.privateKey, address: wallet.address, lastBalance: lastBalance)
     }
     
     public var symbol: String {
@@ -25,15 +21,5 @@ extension TokenWallet: WalletInterface, ViewWalletInterface {
     
     public var asset: AssetInterface {
         return token ?? Token()
-    }
-    
-    public func address(withSeed: String) -> String {
-        return wallet?.address(withSeed: withSeed) ?? ""
-    }
-    
-    public func privateKey(withSeed: String) -> String? {
-        let walletService: WalletServiceInterface = inject()
-        guard let wallet = wallet else { return nil }
-        return walletService.generatePk(wallet, seed: Data(hex: withSeed))
-    }
+    } 
 }
