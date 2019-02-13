@@ -26,7 +26,6 @@ extension ViewUserStorageServiceInterface {
                 index++
             }
             return index
-            
         }
         fatalError("Maximum user reached")
     }

@@ -265,8 +265,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             !self.store.address.isEmpty else {
             return
         }
-        let seed = EssentiaStore.shared.currentUser.seed
-        let address = store.wallet.address(withSeed: seed)
+        let address = store.wallet.address
         interactor.getEthGasEstimate(fromAddress: address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
             (inject() as LoaderInterface).hide()
             self.store.gasEstimate = price

@@ -162,7 +162,8 @@
 "Wallet.Welcome.Continue" = "CONTINUE";
 
 "Wallet.Title" = "Wallets";
-"Wallet.Empty.Description" = "No Coins have been added yet";
+"Wallet.Empty.Description.Token" = "No Tokens have been added yet";
+"Wallet.Empty.Description.Coin" = "No Coins have been added yet";
 "Wallet.Empty.Add" = "ADD";
 "Wallet.Main.Balance.Title" = "Total Balance";
 "Wallet.Main.Coins.Essntia" = "ESSENTIA ASSETS";

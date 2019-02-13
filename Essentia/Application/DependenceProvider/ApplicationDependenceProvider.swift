@@ -93,17 +93,11 @@ class ApplicationDependenceProvider {
         loadLoader()
         loadLogger()
         loadTokens()
-        loadWallets()
         loadCurrencyConvert()
     }
     
     private func loadCurrencyConvert() {
         let injection: CurrencyConverterServiceInterface = CurrencyConverterService()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
-    private func loadWallets() {
-        let injection: WalletServiceInterface = WalletService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     

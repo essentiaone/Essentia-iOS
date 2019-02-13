@@ -8,15 +8,16 @@
 
 import Foundation
 import EssModel
+import HDWalletKit
 import EssDI
 
 extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
-    public func privateKey(withSeed: String) -> String? {
-        return (inject() as  WalletServiceInterface).generatePk(self, seed: Data(hex: withSeed))
-    }
-    
-    public convenience init(name: String, coin: Coin, derivationIndex: Int32) {
-        self.init(name: name, coin: coin, derivationIndex: derivationIndex, lastBalance: 0)
+    public convenience init(name: String, coin: EssModel.Coin, derivationIndex: Int32) {
+        let hdwalletCoin = wrapCoin(coin: coin)
+        let seed = EssentiaStore.shared.currentUser.seed
+        let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)
+        let account = wallet.generateAccount(at: UInt32(derivationIndex))
+        self.init(name: name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: derivationIndex, lastBalance: 0)
         self.coin = coin
         self.derivationIndex = derivationIndex
         self.lastBalance = 0
@@ -33,8 +34,17 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     public var asset: AssetInterface {
         return coin
     }
-    
-    public func address(withSeed: String) -> String {
-        return (inject() as  WalletServiceInterface).generateAddress(self, seed: Data(hex: withSeed))
+}
+// ToDo: - Make single Coin model
+func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {
+    switch coin {
+    case .bitcoin:
+        return HDWalletKit.Coin.bitcoin
+    case .ethereum:
+        return HDWalletKit.Coin.ethereum
+    case .bitcoinCash:
+        return HDWalletKit.Coin.bitcoinCash
+    case .litecoin:
+        return HDWalletKit.Coin.litecoin
     }
 }

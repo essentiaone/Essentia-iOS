@@ -16,8 +16,6 @@ public protocol UserStorageServiceInterface {
 }
 
 public class DefaultUserStorage: UserStorageServiceInterface {
-
-    
     public init() {}
     
     public func update(_ updateBlock: @escaping (User) -> Void) {

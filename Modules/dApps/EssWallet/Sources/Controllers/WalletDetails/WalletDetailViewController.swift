@@ -169,9 +169,8 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Network
     private func loadBalance() {
         let wallet = self.store.wallet
-        (inject() as UserStorageServiceInterface).get { (user) in
-            let seed = user.seed
-            let address = wallet.address(withSeed: seed)
+        (inject() as UserStorageServiceInterface).get { _ in
+            let address = wallet.address
             print(wallet.asset)
             switch wallet.asset {
             case let token as Token:
@@ -206,44 +205,6 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         }
     }
     
-    func getTransactionsByWallet(_ wallet: EssModel.WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void) {
-        let seed = EssentiaStore.shared.currentUser.seed
-        let address = wallet.address(withSeed: seed)
-        switch wallet.asset {
-        case let token as Token:
-            blockchainInteractor.getTokenTxHistory(address: address, smartContract: token.address) { [unowned self] (result) in
-                switch result {
-                case .success(let tx):
-                    transactions(self.mapTransactions(tx.result, forToken: token))
-                case .failure(let error):
-                    self.showError(error)
-                }
-            }
-        case let coin as EssModel.Coin:
-            switch coin {
-            case .bitcoin:
-                blockchainInteractor.getTxHistoryForBitcoinAddress(address) { [unowned self] (result) in
-                    switch result {
-                    case .success(let tx):
-                        transactions(self.mapTransactions(tx.items))
-                    case .failure(let error):
-                        self.showError(error)
-                    }
-                }
-            case .ethereum:
-                blockchainInteractor.getTxHistoryForEthereumAddress(address) { [unowned self] (result) in
-                    switch result {
-                    case .success(let tx):
-                        transactions(self.mapTransactions(tx.result))
-                    case .failure(let error):
-                        self.showError(error)
-                    }
-                }
-            default: return
-            }
-        default: return
-        }
-    }
     // MARK: - Actions
     private lazy var backAction: () -> Void = {
         (inject() as WalletRouterInterface).pop()
@@ -268,58 +229,6 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     // MARK: - Private
-    private func showError(_ error: EssentiaNetworkError) {
-        (inject() as LoaderInterface).showError(error)
-    }
-    
-    private func mapTransactions(_ transactions: [BitcoinTransactionValue]) -> [ViewTransaction] {
-        let seed = EssentiaStore.shared.currentUser.seed
-        let address = store.wallet.address(withSeed: seed)
-        return [ViewTransaction](transactions.map({
-            let ammount = $0.transactionAmmount(for: address)
-            let type = $0.type(for: address)
-            return ViewTransaction(hash: $0.txid,
-                                   address: $0.txid,
-                                   ammount: CryptoFormatter.formattedAmmount(amount: ammount, type: type, asset: self.store.wallet.asset),
-                                   status: $0.status,
-                                   type: type,
-                                   date: TimeInterval($0.time))
-        }))
-    }
-    
-    private func mapTransactions(_ transactions: [EthereumTransactionDetail]) -> [ViewTransaction] {
-        let nonTokenTx = transactions.filter({ return $0.value != "0" })
-        let seed = EssentiaStore.shared.currentUser.seed
-        let address = store.wallet.address(withSeed: seed)
-        return  [ViewTransaction](nonTokenTx.map({
-            let txType = $0.type(for: address)
-            let address = txType == .recive ? $0.from : $0.to
-            return ViewTransaction(
-                hash: $0.hash,
-                address: address,
-                ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, asset: self.store.wallet.asset),
-                status: $0.status,
-                type: $0.type(for: address),
-                date: TimeInterval($0.timeStamp) ?? 0)
-        }))
-    }
-    
-    private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], forToken: Token) -> [ViewTransaction] {
-        let seed = EssentiaStore.shared.currentUser.seed
-        let address = store.wallet.address(withSeed: seed)
-        return  [ViewTransaction](transactions.map({
-            let txType = $0.type(for: address)
-            let address = txType == .recive ? $0.from : $0.to
-            return ViewTransaction(
-                hash: $0.hash,
-                address: address,
-                ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, decimals: forToken.decimals, asset: self.store.wallet.asset),
-                status: $0.status,
-                type: $0.type(for: address),
-                date: TimeInterval($0.timeStamp) ?? 0)
-        }))
-    }
-    
     private func formattedCurrentRank() -> NSAttributedString {
         let formatted = NSMutableAttributedString(string: LS("Wallet.Detail.Price"),
                                                   attributes: [NSAttributedString.Key.foregroundColor:
@@ -334,7 +243,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func loadTransactions() {
         self.store.isLoadingTransactions = true
-        getTransactionsByWallet(store.wallet, transactions: { [unowned self] in
+        (inject() as WalletBlockchainWrapperInteractorInterface).getTransactionsByWallet(store.wallet, transactions: { [unowned self] in
             self.store.transactions = $0
             self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
             self.store.isLoadingTransactions = false

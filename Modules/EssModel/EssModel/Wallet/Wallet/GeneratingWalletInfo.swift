@@ -17,15 +17,19 @@ public class GeneratingWalletInfo: Object {
         get { return Coin(rawValue: privateCoin)! }
     }
     dynamic public var derivationIndex: Int32 = 0
+    dynamic public var privateKey: String = ""
+    dynamic public var address: String = ""
     dynamic public var lastBalance: Double = 0
     @objc dynamic private var privateCoin: String = "bitcoin"
     
-    public convenience init(name: String, coin: Coin, derivationIndex: Int32, lastBalance: Double) {
+    public convenience init(name: String, coin: Coin, privateKey: String, address: String, derivationIndex: Int32, lastBalance: Double) {
         self.init()
         self.name = name
         self.privateCoin = coin.rawValue
         self.derivationIndex = derivationIndex
         self.lastBalance = lastBalance
+        self.privateKey = privateKey
+        self.address = address
     }
     
     static public func == (lhs: GeneratingWalletInfo, rhs: GeneratingWalletInfo) -> Bool {

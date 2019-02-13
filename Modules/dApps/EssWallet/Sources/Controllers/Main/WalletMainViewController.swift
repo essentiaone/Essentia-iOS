@@ -55,11 +55,23 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private var dynamicState: [TableComponent] {
-        let isEmptyWallet = EssentiaStore.shared.currentUser.wallet?.isEmpty ?? true
-        if isEmptyWallet {
-            return emptyState
+        let wallet = EssentiaStore.shared.currentUser.wallet
+        switch self.store.currentSegment {
+        case 0:
+            let isGeneratedWalletsEmpty = wallet?.generatedWalletsInfo.isEmpty ?? true
+            let isImportedWalletEmpty = wallet?.importedWallets.isEmpty ?? true
+            if isImportedWalletEmpty && isGeneratedWalletsEmpty {
+                return emptyState
+            }
+            return [.tableWithCalculatableSpace(state: coinsState(), background: .white)]
+        case 1:
+            let isTokensEmpty = wallet?.tokenWallets.isEmpty ?? true
+            if isTokensEmpty {
+                return emptyState
+            }
+            return [.tableWithCalculatableSpace(state: tokensState(), background: .white)]
+        default: return []
         }
-        return [.tableWithCalculatableSpace(state: assetState, background: .white)]
     }
     
     private var staticState: [TableComponent] {
@@ -89,20 +101,11 @@ public class WalletMainViewController: BaseTableAdapterController {
         ]
     }
     
-    private var assetState: [TableComponent] {
-        switch store.currentSegment {
-        case 0:
-            return coinsState()
-        case 1:
-            return tokensState()
-        default: return []
-        }
-    }
-    
     private var emptyState: [TableComponent] {
+        let title = self.store.currentSegment == 0 ? LS("Wallet.Empty.Description.Coin") : LS("Wallet.Empty.Description.Token")
         return [
             .empty(height: 110, background: colorProvider.settingsBackgroud),
-            .descriptionWithSize(aligment: .center, fontSize: 16, title: LS("Wallet.Empty.Description"), background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
+            .descriptionWithSize(aligment: .center, fontSize: 16, title: title, background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
             .calculatbleSpace(background: colorProvider.settingsBackgroud),
             .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.settingsBackgroud),
             .empty(height: 16, background: colorProvider.settingsBackgroud)
@@ -176,12 +179,14 @@ public class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = { [unowned self] in
+        (inject() as LoaderInterface).show()
         self.store.currentSegment = $0
         (inject() as UserStorageServiceInterface).get({ _ in
             self.loadBalances()
         })
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
             self.tableAdapter.simpleReload(self.state())
+            (inject() as LoaderInterface).hide()
         })
     }
     
@@ -245,9 +250,8 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadCoinBalances() {
-        let seed = EssentiaStore.shared.currentUser.seed
         self.store.generatedWallets.enumerated().forEach { (arg) in
-            let address = arg.element.address(withSeed: seed)
+            let address = arg.element.address
             blockchainInterator.getCoinBalance(for: arg.element.coin, address: address, balance: { [unowned self] (balance) in
                 (inject() as UserStorageServiceInterface).update({ _ in
                     self.store.generatedWallets[safe: arg.offset]?.lastBalance = balance
@@ -266,10 +270,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func loadTokenBalances() {
-        let seed = EssentiaStore.shared.currentUser.seed
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
-                let address = indexedToken.element.address(withSeed: seed)
+                let address = indexedToken.element.address
                 blockchainInterator.getTokenBalance(for: indexedToken.element.token ?? Token(), address: address, balance: { [unowned self] (balance) in
                     (inject() as UserStorageServiceInterface).update({ _ in
                         self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
