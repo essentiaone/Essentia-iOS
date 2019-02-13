@@ -22,6 +22,7 @@ public class TableAdapterHelper {
             switch item {
             case .calculatbleSpace: fallthrough
             case .tableWithCalculatableSpace: fallthrough
+            case .centeredImageWithCalculatableSpace: fallthrough
             case .centeredComponentTopInstet:
                 break
             default:
@@ -55,6 +56,8 @@ public class TableAdapterHelper {
         case .tableWithHeight(let height, _):
             return height
         case .calculatbleSpace:
+            return heightForEmptySpace(with: state)
+        case .centeredImageWithCalculatableSpace:
             return heightForEmptySpace(with: state)
         case .accountStrength:
             return 286.0

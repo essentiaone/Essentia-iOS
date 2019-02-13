@@ -97,6 +97,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                              isEnable: store.isBothValid,
                              action: continueAction,
                              background: colorProvider.settingsCellsBackround),
+             .empty(height: 20, background: colorProvider.settingsCellsBackround),
              .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
