@@ -15,20 +15,6 @@ class BackupDesign: BackupDesignInterface {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
-    func applyDesign(to vc: WarningViewContrller) {
-        // MARK: - Localized Strings
-        vc.titleLabel.text = LS("Warning.Title")
-        vc.doneButton.setTitle(LS("Warning.Done"), for: .normal)
-        
-        // MARK: - Colors
-        vc.titleLabel.textColor =  colorProvider.appTitleColor
-        
-        // MARK: - Fonts
-        vc.titleLabel.font = AppFont.bold.withSize(32)
-
-        vc.imageView.image = imageProvider.warningPrivacyIcon
-    }
-    
     func applyDesign(to vc: MnemonicPhraseCopyViewController) {
         // MARK: - Localized Strings
         vc.copyButton.setTitle(LS("MnemonicPhrase.Copy"), for: .normal)
