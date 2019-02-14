@@ -218,7 +218,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                 }
                 TabBarController.shared.selectedIndex = 0
             } catch {
-                (inject() as LoaderInterface).showError(EssentiaError.wrongPassword)
+                (inject() as LoaderInterface).showError(error.description)
                 return false
             }
             self.dismiss(animated: true)

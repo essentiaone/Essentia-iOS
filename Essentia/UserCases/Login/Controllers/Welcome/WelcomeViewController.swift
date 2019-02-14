@@ -77,7 +77,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
                     EssentiaStore.shared.setUser(user)
                 }
             } catch {
-                (inject() as LoaderInterface).showError(error.localizedDescription)
+                (inject() as LoaderInterface).showError(error.description)
                 return false
             }
             self.dismiss(animated: true, completion: { [unowned self] in

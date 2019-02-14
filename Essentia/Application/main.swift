@@ -8,7 +8,7 @@
 
 import UIKit
 
-_ = UIApplicationMain(
+ _ = UIApplicationMain(
     CommandLine.argc,
     CommandLine.unsafeArgv,
     NSStringFromClass(Application.self),
