@@ -29,6 +29,7 @@
 		347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */; };
 		347A3B9421F3BA790053C2F3 /* User+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */; };
 		347A3B9521F3BA790053C2F3 /* UserWallet+UniqueAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */; };
+		349757AA2215AB770067CD96 /* Error+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349757A92215AB770067CD96 /* Error+Description.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
 		34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A921D3D95A00EC06AE /* ProcentsFormatter.swift */; };
 		34B143BB21D3D95A00EC06AE /* BalanceFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */; };
@@ -115,6 +116,7 @@
 		347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImportedWallet+WalletInterface.swift"; sourceTree = "<group>"; };
 		347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+HDWallet.swift"; sourceTree = "<group>"; };
 		347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWallet+UniqueAsset.swift"; sourceTree = "<group>"; };
+		349757A92215AB770067CD96 /* Error+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Description.swift"; sourceTree = "<group>"; };
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssCore-Bridging-Header.h"; sourceTree = "<group>"; };
 		34B1437321D3D6BD00EC06AE /* EssCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -198,6 +200,7 @@
 				34B143DA21D3D96400EC06AE /* Date+Intervals.swift */,
 				34B143D521D3D96400EC06AE /* String */,
 				34B143C821D3D96400EC06AE /* Int+Unary.swift */,
+				349757A92215AB770067CD96 /* Error+Description.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				3423DA8621F85A9000578930 /* BaseRouterInterface.swift in Sources */,
 				347A3B8721F3B4330053C2F3 /* TransactionStatus+Assets.swift in Sources */,
 				34E2D8DB21F75FAB00AA3636 /* CurrentCredentials.swift in Sources */,
+				349757AA2215AB770067CD96 /* Error+Description.swift in Sources */,
 				34F00A4E21D6807800B01C99 /* MnemonicService.swift in Sources */,
 				34F00A5321D6807800B01C99 /* TokensService.swift in Sources */,
 				34F00A5221D6807800B01C99 /* CoinGeckoCurrencyModel.swift in Sources */,

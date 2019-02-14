@@ -97,7 +97,6 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                              isEnable: store.isBothValid,
                              action: continueAction,
                              background: colorProvider.settingsCellsBackround),
-             .empty(height: 20, background: colorProvider.settingsCellsBackround),
              .empty(height: store.keyboardHeight, background: colorProvider.settingsBackgroud)
         ]
     }
@@ -177,7 +176,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                 prepareInjection(userStore, memoryPolicy: .viewController)
             }
         } catch {
-            (inject() as LoggerServiceInterface).log(error.localizedDescription)
+            (inject() as LoggerServiceInterface).log(error.description)
         }
         self.showSuccess()
     }

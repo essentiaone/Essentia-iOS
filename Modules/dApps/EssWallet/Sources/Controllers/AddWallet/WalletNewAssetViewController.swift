@@ -12,7 +12,7 @@ import EssResources
 import EssUI
 import EssDI
 
-class WalletNewAssetViewController: BaseTableAdapterController, SwipeableNavigation {
+class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -24,14 +24,13 @@ class WalletNewAssetViewController: BaseTableAdapterController, SwipeableNavigat
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
     }
-
+    
     private var state: [TableComponent] {
-        return [.blure(state: [
+        return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
             .empty(height: 18, background: .clear)
-            ]
-        )]
+        ]
     }
     
     private var containerState: [TableComponent] {
