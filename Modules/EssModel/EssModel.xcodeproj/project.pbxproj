@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		01E790472AB458EC39B11075 /* Pods_EssModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44395D71DC1FA8821C5E4A94 /* Pods_EssModel.framework */; };
 		3423DA9021F8B5C600578930 /* ViewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA8F21F8B5C600578930 /* ViewUser.swift */; };
+		3496AA9F2216CA22006478E1 /* TokenUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496AA9E2216CA22006478E1 /* TokenUpdate.swift */; };
 		34B1442521D3DE2C00EC06AE /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440821D3DE2C00EC06AE /* TransactionType.swift */; };
 		34B1442621D3DE2C00EC06AE /* ViewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440921D3DE2C00EC06AE /* ViewTransaction.swift */; };
 		34B1442721D3DE2C00EC06AE /* TransactionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440A21D3DE2C00EC06AE /* TransactionStatus.swift */; };
@@ -50,6 +51,7 @@
 
 /* Begin PBXFileReference section */
 		3423DA8F21F8B5C600578930 /* ViewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUser.swift; sourceTree = "<group>"; };
+		3496AA9E2216CA22006478E1 /* TokenUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUpdate.swift; sourceTree = "<group>"; };
 		34B143FC21D3DDA700EC06AE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1440621D3DE2B00EC06AE /* EssModel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssModel-Bridging-Header.h"; sourceTree = "<group>"; };
 		34B1440821D3DE2C00EC06AE /* TransactionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionType.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				34B1441921D3DE2C00EC06AE /* TokenIcons.swift */,
 				34B1441A21D3DE2C00EC06AE /* Token.swift */,
 				34B1441B21D3DE2C00EC06AE /* AssetInterface.swift */,
+				3496AA9E2216CA22006478E1 /* TokenUpdate.swift */,
 			);
 			path = Asset;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				34B1443A21D3DE2C00EC06AE /* AssetsRank.swift in Sources */,
 				34B1443721D3DE2C00EC06AE /* TokenWallet.swift in Sources */,
 				34B1443421D3DE2C00EC06AE /* AssetInterface.swift in Sources */,
+				3496AA9F2216CA22006478E1 /* TokenUpdate.swift in Sources */,
 				34B1442C21D3DE2C00EC06AE /* UserBackup.swift in Sources */,
 				34B1442921D3DE2C00EC06AE /* UserWallet.swift in Sources */,
 				34B1443B21D3DE2C00EC06AE /* AssetPrice.swift in Sources */,

@@ -27,13 +27,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JRO-WL-DnD">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="697"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nwM-Ly-Qke">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="687"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="697"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="drP-tv-mlP">
-                                <rect key="frame" x="25" y="243.5" width="325" height="200"/>
+                                <rect key="frame" x="25" y="248.5" width="325" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oiL-rR-zlp">
                                         <rect key="frame" x="0.0" y="155" width="325" height="45"/>
@@ -108,12 +108,12 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="Oae-bJ-fNX" firstAttribute="trailing" secondItem="JRO-WL-DnD" secondAttribute="trailing" id="2qB-yh-am4"/>
-                <constraint firstItem="Oae-bJ-fNX" firstAttribute="bottom" secondItem="JRO-WL-DnD" secondAttribute="bottom" constant="-20" id="Tkh-7G-T88"/>
                 <constraint firstItem="JRO-WL-DnD" firstAttribute="top" secondItem="Oae-bJ-fNX" secondAttribute="top" constant="-20" id="VTL-zI-nFW"/>
+                <constraint firstItem="Oae-bJ-fNX" firstAttribute="bottom" secondItem="JRO-WL-DnD" secondAttribute="bottom" constant="-30" id="YVe-se-mP3"/>
                 <constraint firstItem="JRO-WL-DnD" firstAttribute="leading" secondItem="Oae-bJ-fNX" secondAttribute="leading" id="xfW-Fe-OMz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Oae-bJ-fNX"/>
-            <point key="canvasLocation" x="190.5" y="-165.5"/>
+            <point key="canvasLocation" x="189.59999999999999" y="-165.96701649175412"/>
         </view>
     </objects>
 </document>

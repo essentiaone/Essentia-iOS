@@ -11,7 +11,12 @@ import EssentiaNetworkCore
 
 enum TokensEndpoint: RequestProtocol {
     var path: String {
-        return "/new/tokens.json"
+        switch self {
+        case .list:
+            return "/new/tokens.json"
+        case .update:
+            return "/new/tokens_updated_at"
+        }
     }
     
     var extraHeaders: [String: String]? {
@@ -29,4 +34,5 @@ enum TokensEndpoint: RequestProtocol {
     }
     
     case list
+    case update
 }

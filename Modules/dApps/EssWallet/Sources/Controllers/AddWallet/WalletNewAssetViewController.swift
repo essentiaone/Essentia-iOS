@@ -47,6 +47,7 @@ class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableN
     
     private lazy var addAssetAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
+        (inject() as TokensServiceInterface).updateTokensIfNeeded({})
         (inject() as WalletRouterInterface).show(.addAsset(.coin))
     }
     

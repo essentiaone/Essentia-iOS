@@ -22,4 +22,12 @@ public class TokenIcons: Object, Codable {
         case x64 = "64x64"
         case x128 = "128x128"
     }
+    
+    public convenience init(x16: String?, x32: String?, x64: String?, x128: String?) {
+        self.init()
+        self.x16 = x16
+        self.x32 = x32
+        self.x64 = x64
+        self.x128 = x128
+    }
 }

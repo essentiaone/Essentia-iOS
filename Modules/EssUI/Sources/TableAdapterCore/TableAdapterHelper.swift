@@ -32,7 +32,7 @@ public class TableAdapterHelper {
         let resultHeight = tableView.frame.height - totalContentHeight
         return resultHeight > 0.0 ? resultHeight : 0.0
     }
-    #warning("Check tab bat size on X")
+    
     func height(for indexPath: IndexPath, in state: [TableComponent]) -> CGFloat {
         let component = state[indexPath.row]
         switch component {
