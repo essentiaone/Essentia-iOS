@@ -17,4 +17,14 @@ public class Token: Object, Codable {
     dynamic public var name: String = ""
     dynamic public var decimals: Int = 0
     dynamic public var path: TokenIcons?
+    
+    public convenience init(id: String, address: String, symbol: String, name: String, decimals: Int, path: TokenIcons?) {
+        self.init()
+        self.id = id
+        self.address = address
+        self.symbol = symbol
+        self.name = name
+        self.decimals = decimals
+        self.path = path
+    }
 }

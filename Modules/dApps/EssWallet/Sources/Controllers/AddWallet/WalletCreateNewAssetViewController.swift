@@ -11,6 +11,7 @@ import EssModel
 import EssCore
 import EssResources
 import EssUI
+import RealmSwift
 import EssDI
 
 fileprivate struct Store {
@@ -55,8 +56,8 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     private var state: [TableComponent] {
         return
-             staticContent +
-            [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
+            staticContent +
+                [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
     }
     
     private var staticContent: [TableComponent] {
@@ -81,15 +82,15 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     private var dynamicContent: [TableComponent] {
         return  [.empty(height: 16, background: colorProvider.settingsBackgroud)]
-                + selectWalletState + assetState +
-                [.calculatbleSpace(background: colorProvider.settingsBackgroud)
+            + selectWalletState + assetState +
+            [.calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]
     }
     
     var selectWalletState: [TableComponent] {
         guard store.selectedComponent != 0,
-              wallets.count > 1,
-              let selectedWallet = store.etherWalletForTokens else { return [] }
+            wallets.count > 1,
+            let selectedWallet = store.etherWalletForTokens else { return [] }
         return [
             .titleSubtitleDescription(title: LS("Wallet.NewAsset.Token.SelectWallet.Title"),
                                       subtile: LS("Wallet.NewAsset.Token.SelectWallet.Subtitle"),
@@ -156,12 +157,8 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 0:
             self.store.assets = interactor.getCoinsList()
         case 1:
-            (inject() as LoaderInterface).show()
-                interactor.getTokensList(result: { [unowned self] in
-                (inject() as LoaderInterface).hide()
-                self.store.assets = $0
-                self.asyncReloadState()
-            })
+            self.store.assets = self.filterTokensDueWallet()
+            self.asyncReloadState()
         default: return
         }
         self.asyncReloadState()
@@ -173,10 +170,9 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
-        (inject() as LoaderInterface).show()
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: self.wallets, action: { (wallet) in
-            (inject() as LoaderInterface).hide()
             self.store.etherWalletForTokens = wallet
+            self.store.assets = self.filterTokensDueWallet()
             self.asyncReloadState()
         }))
     }
@@ -187,5 +183,18 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         var wallets: [ViewWalletInterface] = generatedWallets
         wallets.append(contentsOf: importedWallets)
         return wallets
+    }
+    
+    private func filterTokensDueWallet() -> [Token] {
+        guard let tokensUpdate = try? Realm().objects(TokenUpdate.self).first,
+            let tokens = tokensUpdate?.tokens,
+            let currentWallet = self.store.etherWalletForTokens else { return [] }
+        let currentWalletAddress = currentWallet.address
+        let tokenWallets = self.interactor.getTokensByWalleets()
+        let alreadyAddedTokenWallets = tokenWallets[currentWalletAddress] ?? []
+        let alreadyAddedTokensId = alreadyAddedTokenWallets.map({ return $0.token?.id ?? "" })
+        return tokens.filter { (token) -> Bool in
+            return !alreadyAddedTokensId.contains(token.id)
+        }
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 import EssCore
 import EssModel
 import EssDI
+import RealmSwift
 
 public class WalletInteractor: WalletInteractorInterface {    
     private lazy var tokenService: TokensServiceInterface = inject()
@@ -28,12 +29,6 @@ public class WalletInteractor: WalletInteractorInterface {
     
     public func getCoinsList() -> [Coin] {
         return [Coin.ethereum]
-    }
-    
-    public func getTokensList(result: @escaping ([AssetInterface]) -> Void) {
-        tokenService.getTokensList { (tokens) in
-            result(tokens)
-        }
     }
     
     private func freeIndex(for coin: Coin) -> Int32 {
@@ -74,9 +69,13 @@ public class WalletInteractor: WalletInteractorInterface {
     
     public func addTokensToWallet(_ assets: [AssetInterface], for wallet: ViewWalletInterface) {
         guard let tokens = assets as? [Token] else { return }
-        tokens.forEach { token in
-            let tokenAsset = TokenWallet(token: token, wallet: wallet, lastBalance: 0)
+        let copyTokens = tokens.map ({ token -> Token in
+            let iconsPath = TokenIcons(x16: token.path?.x16, x32: token.path?.x32, x64: token.path?.x64, x128: token.path?.x128)
+            return Token(id: token.id, address: token.address, symbol: token.symbol, name: token.name, decimals: token.decimals, path: iconsPath)
+        })
+        copyTokens.forEach { token in
             (inject() as UserStorageServiceInterface).update({ (user) in
+                let tokenAsset = TokenWallet(token: token, wallet: wallet, lastBalance: 0)
                 user.wallet?.tokenWallets.append(tokenAsset)
             })
             (inject() as CurrencyRankDaemonInterface).update()
@@ -91,12 +90,12 @@ public class WalletInteractor: WalletInteractorInterface {
         return EssentiaStore.shared.currentUser.wallet?.importedWallets.map { return $0 } ?? []
     }
     
-    public func getTokensByWalleets() -> [GeneratingWalletInfo: [TokenWallet]] {
-        var tokensByWallets: [GeneratingWalletInfo: [TokenWallet]] = [:]
+    public func getTokensByWalleets() -> [String: [TokenWallet]] {
+        var tokensByWallets: [String: [TokenWallet]] = [:]
         let tokens: [TokenWallet] = EssentiaStore.shared.currentUser.wallet?.tokenWallets.map { return $0 } ?? []
-        guard let wallets = EssentiaStore.shared.currentUser.wallet?.generatedWalletsInfo else { return [:] }
+        let wallets: Set<String> = Set(tokens.map { return $0.address })
         for wallet in wallets {
-            let tokensByCurrentWallet = tokens.filter({ return $0.address == wallet.address })
+            let tokensByCurrentWallet = tokens.filter({ return $0.address == wallet })
             guard !tokensByCurrentWallet.isEmpty else { continue }
             tokensByWallets[wallet] = tokensByCurrentWallet
         }

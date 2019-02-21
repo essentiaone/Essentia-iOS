@@ -28,7 +28,7 @@ public enum CurrencyType {
     }
 }
 
-public protocol AssetInterface {
+public protocol AssetInterface  {
     var name: String { get }
     var localizedName: String { get }
     var symbol: String { get }
