@@ -11,31 +11,67 @@ import EssCore
 import EssModel
 import EssUI
 import EssDI
+import EssResources
 
 class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
     @IBOutlet weak var title2Label: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var enterButton: CenteredButton!
     @IBOutlet weak var termsButton: UIButton!
     
     // MARK: - Dependences
-    private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: ViewUserStorageServiceInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - Lifecycle
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        design.applyDesign(to: self)
+        applyDesign()
+    }
+    
+    func applyDesign() {
+        restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
+        title1Label.text = LS("Welcome.Title1")
+        title2Label.text = LS("Welcome.Title2")
+        if (inject() as ViewUserStorageServiceInterface).get().isEmpty {
+            enterButton.setTitle(LS("Welcome.Start"), for: .normal)
+        } else {
+            enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
+        }
+        
+        let termsAttributedText = NSMutableAttributedString()
+        termsAttributedText.append(
+            NSAttributedString(
+                string: LS("Welcome.Tersm1"),
+                attributes: [.font: AppFont.regular.withSize(13)]
+            )
+        )
+        termsAttributedText.append(
+            NSAttributedString(
+                string: LS("Welcome.Tersm2"),
+                attributes: [.font: AppFont.regular.withSize(13),
+                             .underlineStyle: NSUnderlineStyle.single.rawValue]
+            )
+        )
+        termsButton.setAttributedTitle(termsAttributedText, for: .normal)
+        
+        // MARK: - Colors
+        title1Label.textColor = colorProvider.appTitleColor
+        title2Label.textColor = colorProvider.appTitleColor
+        termsButton.titleLabel?.textColor = colorProvider.appLinkTextColor
+        
+        // MARK: - Font
+        title1Label.font = AppFont.regular.withSize(36)
+        title2Label.font = AppFont.bold.withSize(36)
     }
     
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
-        present(RestoreAccountViewController(delegate: self), animated: true)
+        present(ImportAccountViewController(), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {

@@ -1,10 +1,12 @@
 //
-//  RestoreAccountViewController.swift
+//  ImportAccountViewController.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 29.08.18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 2/25/19.
+//  Copyright © 2019 Essentia-One. All rights reserved.
 //
+
+import Foundation
 
 import UIKit
 import EssModel
@@ -13,25 +15,12 @@ import EssResources
 import EssUI
 import EssDI
 
-protocol RestoreAccountDelegate: class {
-    func showBackup(type: BackupType)
-}
-
-class RestoreAccountViewController: BaseBluredTableAdapterController {
+class ImportAccountViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     private weak var delegate: RestoreAccountDelegate?
-    
-    init(delegate: RestoreAccountDelegate) {
-        super.init()
-        self.delegate = delegate
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: - State
     private var state: [TableComponent] {
@@ -40,25 +29,26 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
             .container(state: containerState),
             .empty(height: 18, background: .clear)]
     }
-    
+
     private var containerState: [TableComponent] {
         return [
             .empty(height: 10, background: .white),
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
-            .imageTitle(image: imageProvider.mnemonicIcon,
-                        title: LS("Restore.Mnemonic"),
+            .titleWithCancel(title: LS("Settings.ImportAccount.Title"), action: cancelAction),
+            .description(title: LS("Settings.ImportAccount.Description"), backgroud: .clear),
+            .imageTitle(image: imageProvider.importApp,
+                        title: LS("Settings.ImportAccount.EssentiaApp"),
                         withArrow: true,
-                        action: mnemonicAction),
+                        action: importFromApp),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
-            .imageTitle(image: imageProvider.seedIcon,
-                        title: LS("Restore.Seed"),
+            .imageTitle(image: imageProvider.importWeb,
+                        title: LS("Settings.ImportAccount.EssentiaWeb"),
                         withArrow: true,
-                        action: seedAction),
+                        action: importFromWeb),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
-            .imageTitle(image: imageProvider.keystoreIcon,
-                        title: LS("Restore.Keystore"),
+            .imageTitle(image: imageProvider.importOthers,
+                        title: LS("Settings.ImportAccount.Others"),
                         withArrow: true,
-                        action: keystoreAction)]
+                        action: importFromOtherWallet)]
     }
     // MARK: - Lifecycly
     override func viewDidLoad() {
@@ -71,15 +61,15 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
         self.dismiss(animated: true)
     }
     
-    private lazy var keystoreAction: () -> Void = { [unowned self] in
+    private lazy var importFromApp: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .keystore)
     }
     
-    private lazy var seedAction: () -> Void = { [unowned self] in
+    private lazy var importFromWeb: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .seed)
     }
     
-    private lazy var mnemonicAction: () -> Void = { [unowned self] in
+    private lazy var importFromOtherWallet: () -> Void = { [unowned self] in
         self.delegate?.showBackup(type: .mnemonic)
     }
 }

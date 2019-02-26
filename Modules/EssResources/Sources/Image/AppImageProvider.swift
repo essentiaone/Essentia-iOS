@@ -71,6 +71,10 @@ public class AppImageProvider: AppImageProviderInterface {
     public var walletOptionsRename: UIImage = image(name: "optionsRename")
     public var walletOptionsExport: UIImage = image(name: "optionsExport")
     public var walletOptionsDelete: UIImage = image(name: "optionsDelete")
+    // MARK: - Import
+    public var importApp: UIImage = image(name: "importApp")
+    public var importWeb: UIImage = image(name: "importWeb")
+    public var importOthers: UIImage = image(name: "importOthers")
     
     public static func image(name: String) -> UIImage {
         return UIImage(named: name, in: bandle, compatibleWith: nil) ?? UIImage()

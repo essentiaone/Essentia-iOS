@@ -8,7 +8,7 @@
 
 "Back" = "Back";
 
-"Welcome.Restore" = "RESTORE";
+"Welcome.Restore" = "IMPORT";
 "Welcome.Title1" = "Welcome to";
 "Welcome.Title2" = "Essentia";
 "Welcome.Description" = "Join the framework where all your dApps are interconnected and available any minute. Essentia is your decentralized life, at your fingertips.";
@@ -104,6 +104,12 @@
 
 "Settings.Accounts.Title" = "Accounts";
 "Settings.Accounts.CreateNew" = "Create Account";
+
+"Settings.ImportAccount.Title" = "Import Account";
+"Settings.ImportAccount.Description" = "Choose your...";
+"Settings.ImportAccount.EssentiaApp" = "Essentia App";
+"Settings.ImportAccount.EssentiaWeb" = "Essentia Web";
+"Settings.ImportAccount.Others" = "Other wallets";
 
 "Settings.Security.Title" = "Security";
 "Settings.Security.SectionHeader" = "BACKUP FILES";
