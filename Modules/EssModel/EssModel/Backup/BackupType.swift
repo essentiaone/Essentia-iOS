@@ -60,3 +60,10 @@ public enum BackupType: Int {
     case seed
     case keystore
 }
+
+public enum OtherBackupType: Int {
+    case jaxx
+    case metaMask
+    case exodus
+    case wallet
+}

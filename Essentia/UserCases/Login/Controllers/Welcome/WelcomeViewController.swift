@@ -13,7 +13,8 @@ import EssUI
 import EssDI
 import EssResources
 
-class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
+class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
+    
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
@@ -71,7 +72,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
-        present(ImportAccountViewController(), animated: true)
+        present(ImportAccountViewController(delegate: self), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {
@@ -88,7 +89,7 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     }
     
     // MARK: - RestoreAccountDelegate
-    func showBackup(type: BackupType) {
+    func importApp(type: BackupType) {
         dismiss(animated: true)
         let nvc = UINavigationController()
         nvc.setNavigationBarHidden(true, animated: false)
@@ -98,6 +99,14 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
                                     auth: .login,
                                     delegate: self) as AuthRouterInterface,
                          memoryPolicy: .viewController)
+    }
+    
+    func importWeb(type: BackupType) {
+        
+    }
+    
+    func importOthers(type: OtherBackupType) {
+
     }
     
     // MARK: - SelectAccountDelegate

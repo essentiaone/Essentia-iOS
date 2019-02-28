@@ -104,11 +104,15 @@
 "Settings.Accounts.Title" = "帐户";
 "Settings.Accounts.CreateNew" = "创建帐户";
 
+"Settings.ImportWeb.Title" = "Import from Essentia Web";
+
 "Settings.ImportAccount.Title" = "Import Account";
 "Settings.ImportAccount.Description" = "Choose your...";
 "Settings.ImportAccount.EssentiaApp" = "Essentia App";
 "Settings.ImportAccount.EssentiaWeb" = "Essentia Web";
 "Settings.ImportAccount.Others" = "Other wallets";
+
+"Settings.ImportOther.Title" = "Other wallets";
 
 "Settings.Security.Title" = "安全性";
 "Settings.Security.SectionHeader" = "备份文件";

@@ -1,8 +1,8 @@
 //
-//  ImportAccountViewController.swift
+//  ImportFromOtherWallets.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 2/25/19.
+//  Created by Pavlo Boiko on 2/27/19.
 //  Copyright © 2019 Essentia-One. All rights reserved.
 //
 
@@ -13,13 +13,7 @@ import EssResources
 import EssUI
 import EssDI
 
-protocol ImportAccountDelegate: class {
-    func importApp(type: BackupType)
-    func importWeb(type: BackupType)
-    func importOthers(type: OtherBackupType)
-}
-
-class ImportAccountViewController: BaseBluredTableAdapterController {
+class ImportFromOtherController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
@@ -43,26 +37,25 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
             .container(state: containerState),
             .empty(height: 18, background: .clear)]
     }
-
+    
     private var containerState: [TableComponent] {
         return [
             .empty(height: 10, background: .white),
-            .titleWithCancel(title: LS("Settings.ImportAccount.Title"), action: cancelAction),
-            .description(title: LS("Settings.ImportAccount.Description"), backgroud: .clear),
-            .imageTitle(image: imageProvider.importApp,
-                        title: LS("Settings.ImportAccount.EssentiaApp"),
+            .titleWithCancel(title: LS("Settings.ImportOther.Title"), action: cancelAction),
+            .imageTitle(image: imageProvider.testAvatar,
+                        title: "Jaxx",
                         withArrow: true,
-                        action: importFromApp),
+                        action: importFromJaxx),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
-            .imageTitle(image: imageProvider.importWeb,
-                        title: LS("Settings.ImportAccount.EssentiaWeb"),
+            .imageTitle(image: imageProvider.testAvatar,
+                        title: "MetaMast",
                         withArrow: true,
-                        action: importFromWeb),
+                        action: importFromMetaMask),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
-            .imageTitle(image: imageProvider.importOthers,
-                        title: LS("Settings.ImportAccount.Others"),
+            .imageTitle(image: imageProvider.testAvatar,
+                        title: "Exodus",
                         withArrow: true,
-                        action: importFromOtherWallet)]
+                        action: importFromExodus)]
     }
     // MARK: - Lifecycly
     override func viewDidLoad() {
@@ -75,15 +68,15 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
         self.dismiss(animated: true)
     }
     
-    private lazy var importFromApp: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .keystore)
+    private lazy var importFromJaxx: () -> Void = { [unowned self] in
+        self.delegate?.importOthers(type: .jaxx)
     }
     
-    private lazy var importFromWeb: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .seed)
+    private lazy var importFromMetaMask: () -> Void = { [unowned self] in
+        self.delegate?.importOthers(type: .metaMask)
     }
     
-    private lazy var importFromOtherWallet: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .mnemonic)
+    private lazy var importFromExodus: () -> Void = { [unowned self] in
+        self.delegate?.importOthers(type: .exodus)
     }
 }

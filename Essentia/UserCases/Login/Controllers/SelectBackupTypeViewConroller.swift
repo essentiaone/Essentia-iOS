@@ -1,5 +1,5 @@
 //
-//  RestoreAccountViewController.swift
+//  ImportFromAppViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 29.08.18.
@@ -13,18 +13,16 @@ import EssResources
 import EssUI
 import EssDI
 
-protocol RestoreAccountDelegate: class {
-    func showBackup(type: BackupType)
-}
-
-class RestoreAccountViewController: BaseBluredTableAdapterController {
+class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private weak var delegate: RestoreAccountDelegate?
+    private weak var delegate: ImportAccountDelegate?
+    private var importTitle: String
     
-    init(delegate: RestoreAccountDelegate) {
+    init(delegate: ImportAccountDelegate, title: String) {
+        self.importTitle = title
         super.init()
         self.delegate = delegate
     }
@@ -44,7 +42,8 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
     private var containerState: [TableComponent] {
         return [
             .empty(height: 10, background: .white),
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
+            //            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
+            .titleWithCancel(title: importTitle, action: cancelAction),
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),
                         withArrow: true,
@@ -72,14 +71,14 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
     }
     
     private lazy var keystoreAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .keystore)
+        self.delegate?.importApp(type: .keystore)
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .seed)
+        self.delegate?.importApp(type: .seed)
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .mnemonic)
+        self.delegate?.importApp(type: .mnemonic)
     }
 }
