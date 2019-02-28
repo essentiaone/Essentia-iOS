@@ -70,6 +70,10 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
         tableAdapter.hardReload(state)
     }
     
+    private func selectBackupType(sourceType: BackupSourceType) {
+        self.present(SelectBackupTypeViewConroller())
+    }
+    
     // MARK: - Actions
     private lazy var cancelAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)

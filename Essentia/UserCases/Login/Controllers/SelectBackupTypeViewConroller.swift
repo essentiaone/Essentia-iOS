@@ -18,13 +18,13 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private weak var delegate: ImportAccountDelegate?
+    private weak var selectBackupType: (BackupType) -> Void
     private var importTitle: String
     
-    init(delegate: ImportAccountDelegate, title: String) {
+    public init(title: String, selectBackupType: (BackupType) -> Void) {
         self.importTitle = title
         super.init()
-        self.delegate = delegate
+        self.selectBackupType = selectBackupType
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,7 +42,6 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     private var containerState: [TableComponent] {
         return [
             .empty(height: 10, background: .white),
-            //            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
             .titleWithCancel(title: importTitle, action: cancelAction),
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),
@@ -71,14 +70,14 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     }
     
     private lazy var keystoreAction: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .keystore)
+        self.selectBackupType(.keystore)
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .seed)
+        self.selectBackupType(.seed)
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .mnemonic)
+        self.selectBackupType(.mnemonic)
     }
 }

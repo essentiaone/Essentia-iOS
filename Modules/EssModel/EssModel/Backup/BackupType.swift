@@ -61,7 +61,9 @@ public enum BackupType: Int {
     case keystore
 }
 
-public enum OtherBackupType: Int {
+public enum BackupSourceType {
+    case app
+    case web
     case jaxx
     case metaMask
     case exodus
