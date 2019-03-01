@@ -43,6 +43,7 @@
 		34B143EA21D3D96400EC06AE /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143D821D3D96400EC06AE /* String+Helpers.swift */; };
 		34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143DA21D3D96400EC06AE /* Date+Intervals.swift */; };
 		34B143F221D3DA5000EC06AE /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143F121D3DA5000EC06AE /* GCD.swift */; };
+		34C19BD02228B45800B02203 /* BackupSourceType+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BCF2228B45800B02203 /* BackupSourceType+HDWallet.swift */; };
 		34D4643321FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D4643221FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift */; };
 		34D9C96221F934D600B3A625 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3423DA7721F7DDC100578930 /* libEssModel.a */; };
 		34E2D8DB21F75FAB00AA3636 /* CurrentCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E2D8D521F75FAB00AA3636 /* CurrentCredentials.swift */; };
@@ -133,6 +134,7 @@
 		34B143D821D3D96400EC06AE /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		34B143DA21D3D96400EC06AE /* Date+Intervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
 		34B143F121D3DA5000EC06AE /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
+		34C19BCF2228B45800B02203 /* BackupSourceType+HDWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupSourceType+HDWallet.swift"; sourceTree = "<group>"; };
 		34D4643221FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserStorageServiceInterface.swift; sourceTree = "<group>"; };
 		34E2D8D521F75FAB00AA3636 /* CurrentCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
 		34E2D8D621F75FAB00AA3636 /* EssentiaStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EssentiaStore.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 				347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */,
 				347A3B6C21F3B4330053C2F3 /* FiatCurrency+LS.swift */,
 				347A3B6A21F3B4330053C2F3 /* LocalizationLanguage+LS.swift */,
+				34C19BCF2228B45800B02203 /* BackupSourceType+HDWallet.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -639,6 +642,7 @@
 				347A3B9021F3BA510053C2F3 /* TokenWallet+WalletInterfce.swift in Sources */,
 				347A3B7121F3B4330053C2F3 /* Token+AssetInterface.swift in Sources */,
 				347A3B9521F3BA790053C2F3 /* UserWallet+UniqueAsset.swift in Sources */,
+				34C19BD02228B45800B02203 /* BackupSourceType+HDWallet.swift in Sources */,
 				34F00A6421D6815000B01C99 /* AppStateEventProxyInterface.swift in Sources */,
 				34F00A5821D6807800B01C99 /* LoggerService.swift in Sources */,
 				34B143C421D3D95A00EC06AE /* DeviceSeries.swift in Sources */,

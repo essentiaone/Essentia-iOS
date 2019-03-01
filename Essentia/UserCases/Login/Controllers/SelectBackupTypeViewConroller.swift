@@ -18,13 +18,13 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private weak var selectBackupType: (BackupType) -> Void
+    private var selectBackupType: (BackupType) -> Void
     private var importTitle: String
     
-    public init(title: String, selectBackupType: (BackupType) -> Void) {
+    public init(title: String, selectBackupType: @escaping (BackupType) -> Void) {
         self.importTitle = title
-        super.init()
         self.selectBackupType = selectBackupType
+        super.init()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,7 +36,7 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
-            .empty(height: 18, background: .clear)]
+            .empty(height: 25, background: .clear)]
     }
     
     private var containerState: [TableComponent] {

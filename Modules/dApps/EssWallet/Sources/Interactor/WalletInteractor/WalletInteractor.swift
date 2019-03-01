@@ -50,8 +50,10 @@ public class WalletInteractor: WalletInteractorInterface {
               let currentlyAddedWallets = EssentiaStore.shared.currentUser.wallet?.generatedWalletsInfo else { return }
         coins.forEach { coin in
             let index = freeIndex(for: coin)
+            let sourceType = EssentiaStore.shared.currentUser.wallet?.sourceType ?? .app
             let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                   coin: coin,
+                                                  sourceType: sourceType,
                                                   derivationIndex: index)
             (inject() as UserStorageServiceInterface).update({ _ in
                 let address = walletInfo.address

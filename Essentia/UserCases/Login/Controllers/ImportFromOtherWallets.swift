@@ -18,12 +18,12 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private weak var delegate: ImportAccountDelegate?
+    private var selectBackupSourceType: (BackupSourceType) -> Void
     
     // MARK: - Int
-    init(delegate: ImportAccountDelegate) {
+    init(selectBackupSourceType: @escaping (BackupSourceType) -> Void) {
+        self.selectBackupSourceType = selectBackupSourceType
         super.init()
-        self.delegate = delegate
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -35,7 +35,7 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
-            .empty(height: 18, background: .clear)]
+            .empty(height: 25, background: .clear)]
     }
     
     private var containerState: [TableComponent] {
@@ -69,14 +69,20 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
     }
     
     private lazy var importFromJaxx: () -> Void = { [unowned self] in
-        self.delegate?.importOthers(type: .jaxx)
+        self.dismiss(animated: true, completion: {
+            self.selectBackupSourceType(.jaxx)
+        })
     }
     
     private lazy var importFromMetaMask: () -> Void = { [unowned self] in
-        self.delegate?.importOthers(type: .metaMask)
+        self.dismiss(animated: true, completion: {
+            self.selectBackupSourceType(.metaMask)
+        })
     }
     
     private lazy var importFromExodus: () -> Void = { [unowned self] in
-        self.delegate?.importOthers(type: .exodus)
+        self.dismiss(animated: true, completion: {
+            self.selectBackupSourceType(.exodus)
+        })
     }
 }

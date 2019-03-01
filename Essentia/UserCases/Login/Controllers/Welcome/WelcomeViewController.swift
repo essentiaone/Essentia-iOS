@@ -27,6 +27,8 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
+    private var lastSource: BackupSourceType?
+    
     // MARK: - Lifecycle
     
     override func viewDidLayoutSubviews() {
@@ -89,24 +91,17 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     // MARK: - RestoreAccountDelegate
-    func importApp(type: BackupType) {
+    func importAccountWith(sourceType: BackupSourceType, backupType: BackupType) {
+        self.lastSource = sourceType
         dismiss(animated: true)
         let nvc = UINavigationController()
         nvc.setNavigationBarHidden(true, animated: false)
         self.present(nvc, animated: true)
         prepareInjection(AuthRouter(navigationController: nvc,
-                                    type: type,
+                                    type: backupType,
                                     auth: .login,
                                     delegate: self) as AuthRouterInterface,
                          memoryPolicy: .viewController)
-    }
-    
-    func importWeb(type: BackupType) {
-        
-    }
-    
-    func importOthers(type: OtherBackupType) {
-
     }
     
     // MARK: - SelectAccountDelegate
@@ -136,6 +131,18 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     
     func didSetUser() {
         showTabBar()
+        guard let backupSourceType = lastSource else { return }
+        (inject() as UserStorageServiceInterface).update { (user) in
+            user.wallet?.sourceType = backupSourceType
+            if backupSourceType.shouldCrateWalletsWhenCreate {
+                [Coin.ethereum].forEach({ (coin) in
+                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(name: coin.name,
+                                                                                 coin: coin,
+                                                                                 sourceType: backupSourceType,
+                                                                                 derivationIndex: 0))
+                })
+            }
+        }
     }
     
     func showTabBar() {

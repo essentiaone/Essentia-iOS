@@ -14,9 +14,7 @@ import EssUI
 import EssDI
 
 protocol ImportAccountDelegate: class {
-    func importApp(type: BackupType)
-    func importWeb(type: BackupType)
-    func importOthers(type: OtherBackupType)
+    func importAccountWith(sourceType: BackupSourceType, backupType: BackupType) 
 }
 
 class ImportAccountViewController: BaseBluredTableAdapterController {
@@ -41,7 +39,7 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
-            .empty(height: 18, background: .clear)]
+            .empty(height: 25, background: .clear)]
     }
 
     private var containerState: [TableComponent] {
@@ -71,7 +69,9 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
     }
     
     private func selectBackupType(sourceType: BackupSourceType) {
-        self.present(SelectBackupTypeViewConroller())
+        self.present(SelectBackupTypeViewConroller(title: sourceType.title, selectBackupType: { (backupType) in
+            self.delegate?.importAccountWith(sourceType: sourceType, backupType: backupType)
+        }), animated: true)
     }
     
     // MARK: - Actions
@@ -80,14 +80,16 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
     }
     
     private lazy var importFromApp: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .keystore)
+        self.selectBackupType(sourceType: .app)
     }
     
     private lazy var importFromWeb: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .seed)
+        self.selectBackupType(sourceType: .web)
     }
     
     private lazy var importFromOtherWallet: () -> Void = { [unowned self] in
-        self.delegate?.importApp(type: .mnemonic)
+        self.present(ImportFromOtherController(selectBackupSourceType: { (type) in
+            self.selectBackupType(sourceType: type)
+        }), animated: true)
     }
 }

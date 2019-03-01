@@ -15,6 +15,8 @@ public class UserWallet: Object {
     dynamic public var generatedWalletsInfo: List<GeneratingWalletInfo> = List()
     dynamic public var tokenWallets: List<TokenWallet> = List()
     
+    dynamic public var sourceType: BackupSourceType = .app
+    
     public var isEmpty: Bool {
         return importedWallets.isEmpty && tokenWallets.isEmpty && generatedWalletsInfo.isEmpty
     }
