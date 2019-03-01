@@ -15,13 +15,33 @@ public extension BackupSourceType {
     public func derivationNodesFor(coin: HDWalletKit.Coin) -> [DerivationNode] {
         switch coin {
         case .bitcoin:
-            return [.hardened(44), .hardened(0), .hardened(0), .notHardened(0)]
+            switch self {
+            case .web:
+                return [.hardened(0), .hardened(1)]
+            default:
+                return [.hardened(44), .hardened(0), .hardened(0), .notHardened(0)]
+            }
         case .ethereum:
-            return [.hardened(44), .hardened(60), .hardened(0), .notHardened(0)]
+            switch self {
+            case .web:
+                return [.hardened(0), .hardened(0), .hardened(1), .hardened(2),.hardened(3), .hardened(4), .hardened(5)]
+            default:
+                return [.hardened(44), .hardened(60), .hardened(0), .notHardened(0)]
+            }
         case .litecoin:
-            return [.hardened(44), .hardened(2), .hardened(0), .notHardened(0)]
+            switch self {
+            case .web:
+                return [.hardened(0), .hardened(1)]
+            default:
+                return [.hardened(44), .hardened(2), .hardened(0), .notHardened(0)]
+            }
         case .bitcoinCash:
-            return [.hardened(44), .hardened(145), .hardened(0), .notHardened(0)]
+            switch self {
+            case .web:
+                return [.hardened(0), .hardened(1)]
+            default:
+                return [.hardened(44), .hardened(145), .hardened(0), .notHardened(0)]
+            }
         }
     }
     
