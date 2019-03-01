@@ -17,28 +17,28 @@ public extension BackupSourceType {
         case .bitcoin:
             switch self {
             case .web:
-                return [.hardened(0), .hardened(1)]
+                return [.notHardened(0), .notHardened(1)]
             default:
                 return [.hardened(44), .hardened(0), .hardened(0), .notHardened(0)]
             }
         case .ethereum:
             switch self {
             case .web:
-                return [.hardened(0), .hardened(0), .hardened(1), .hardened(2),.hardened(3), .hardened(4), .hardened(5)]
+                return [.notHardened(0), .notHardened(0), .notHardened(1), .notHardened(2), .notHardened(3), .notHardened(4), .notHardened(5)]
             default:
                 return [.hardened(44), .hardened(60), .hardened(0), .notHardened(0)]
             }
         case .litecoin:
             switch self {
             case .web:
-                return [.hardened(0), .hardened(1)]
+                return [.notHardened(0), .notHardened(1)]
             default:
                 return [.hardened(44), .hardened(2), .hardened(0), .notHardened(0)]
             }
         case .bitcoinCash:
             switch self {
             case .web:
-                return [.hardened(0), .hardened(1)]
+                return [.notHardened(0), .notHardened(1)]
             default:
                 return [.hardened(44), .hardened(145), .hardened(0), .notHardened(0)]
             }
