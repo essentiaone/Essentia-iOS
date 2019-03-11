@@ -12,7 +12,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Essentia">
             <connections>
-                <outlet property="descriptionLabel" destination="Fid-8C-D4l" id="Pcv-DX-ZOW"/>
                 <outlet property="enterButton" destination="Gxx-Jy-XHK" id="QR0-2A-UIf"/>
                 <outlet property="restoreButton" destination="UHP-iY-vDO" id="3Hf-UD-8nf"/>
                 <outlet property="termsButton" destination="TVC-iP-m9A" id="io2-eQ-rL2"/>
@@ -75,21 +74,12 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fid-8C-D4l">
-                            <rect key="frame" x="0.0" y="186" width="351" height="0.0"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="41o-OK-U10" firstAttribute="top" secondItem="d5U-Ig-VGq" secondAttribute="top" constant="88" id="M5W-iy-Xsh"/>
-                        <constraint firstItem="Fid-8C-D4l" firstAttribute="leading" secondItem="d5U-Ig-VGq" secondAttribute="leading" id="e7c-K8-8iS"/>
                         <constraint firstItem="41o-OK-U10" firstAttribute="leading" secondItem="d5U-Ig-VGq" secondAttribute="leading" id="g5t-7v-UHD"/>
-                        <constraint firstItem="Fid-8C-D4l" firstAttribute="top" secondItem="qRm-jB-C6K" secondAttribute="bottom" constant="20" id="iY8-ss-TDg"/>
                         <constraint firstItem="qRm-jB-C6K" firstAttribute="leading" secondItem="d5U-Ig-VGq" secondAttribute="leading" id="oz2-gK-3xx"/>
-                        <constraint firstAttribute="trailing" secondItem="Fid-8C-D4l" secondAttribute="trailing" id="sV1-SU-PPd"/>
                         <constraint firstItem="qRm-jB-C6K" firstAttribute="top" secondItem="41o-OK-U10" secondAttribute="bottom" constant="8" id="sYN-Ja-VO6"/>
                     </constraints>
                 </view>

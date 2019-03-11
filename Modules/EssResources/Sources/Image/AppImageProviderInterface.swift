@@ -68,4 +68,8 @@ public protocol AppImageProviderInterface {
     var walletOptionsRename: UIImage { get }
     var walletOptionsExport: UIImage { get }
     var walletOptionsDelete: UIImage { get }
+    // MARK: - Import
+    var importApp: UIImage { get }
+    var importWeb: UIImage { get }
+    var importOthers: UIImage { get }
 }

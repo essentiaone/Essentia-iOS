@@ -228,7 +228,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }), animated: true)
     }
     
-    func didSetUser() {
+    func didSetUser(seed: String) {
         TabBarController.shared.selectedIndex = 0
     }
     

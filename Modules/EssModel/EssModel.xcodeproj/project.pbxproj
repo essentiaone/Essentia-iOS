@@ -35,6 +35,7 @@
 		34B1443B21D3DE2C00EC06AE /* AssetPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1442421D3DE2C00EC06AE /* AssetPrice.swift */; };
 		34B1443E21D3DE8B00EC06AE /* BackupType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1443D21D3DE8B00EC06AE /* BackupType.swift */; };
 		34B1444121D3DF2000EC06AE /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1444021D3DF2000EC06AE /* DateFormat.swift */; };
+		34C19BCE2228B42C00B02203 /* BackupSourceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BCD2228B42C00B02203 /* BackupSourceType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +80,7 @@
 		34B1442421D3DE2C00EC06AE /* AssetPrice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetPrice.swift; sourceTree = "<group>"; };
 		34B1443D21D3DE8B00EC06AE /* BackupType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupType.swift; sourceTree = "<group>"; };
 		34B1444021D3DF2000EC06AE /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		34C19BCD2228B42C00B02203 /* BackupSourceType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupSourceType.swift; sourceTree = "<group>"; };
 		44395D71DC1FA8821C5E4A94 /* Pods_EssModel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssModel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99180F335C2A8403F83689D9 /* Pods-EssModel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssModel.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssModel/Pods-EssModel.debug.xcconfig"; sourceTree = "<group>"; };
 		C5DF018467B7DC8E34A8B234 /* Pods-EssModel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssModel.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssModel/Pods-EssModel.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				34B1443D21D3DE8B00EC06AE /* BackupType.swift */,
+				34C19BCD2228B42C00B02203 /* BackupSourceType.swift */,
 			);
 			path = Backup;
 			sourceTree = "<group>";
@@ -336,6 +339,7 @@
 				34B1442621D3DE2C00EC06AE /* ViewTransaction.swift in Sources */,
 				34B1443E21D3DE8B00EC06AE /* BackupType.swift in Sources */,
 				34B1443321D3DE2C00EC06AE /* Token.swift in Sources */,
+				34C19BCE2228B42C00B02203 /* BackupSourceType.swift in Sources */,
 				34B1443021D3DE2C00EC06AE /* Currencies.swift in Sources */,
 				34B1444121D3DF2000EC06AE /* DateFormat.swift in Sources */,
 				34B1442721D3DE2C00EC06AE /* TransactionStatus.swift in Sources */,

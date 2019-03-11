@@ -14,6 +14,10 @@ public enum Coin: String {
     case litecoin
     case bitcoinCash
     
+    public static var fullySupportedCoins: [Coin] {
+        return [.ethereum]
+    }
+    
     public func isValidPK(_ pk: String) -> Bool {
         return !pk.isEmpty
     }

@@ -14,8 +14,6 @@
 		3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF5620F80822006DEF49 /* WelcomeViewController.xib */; };
 		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
 		3401AF5B20F80B41006DEF49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5A20F80B41006DEF49 /* Application.swift */; };
-		3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */; };
-		3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */; };
 		3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */; };
 		3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */; };
 		3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFA121000078006DEF49 /* BackupDesign.swift */; };
@@ -57,11 +55,13 @@
 		34864029219319FC008CA223 /* LaunchpadPlaceholderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
-		34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */; };
+		34AA4E922136ABDD004C25ED /* SelectBackupTypeViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* SelectBackupTypeViewConroller.swift */; };
 		34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */; };
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
 		34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */; };
+		34C19BC62224228800B02203 /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC52224228800B02203 /* ImportAccountViewController.swift */; };
+		34C19BC82226E46500B02203 /* ImportFromOtherWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */; };
 		34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		34ECE48C2136F10A008D9696 /* ConfirmLogOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */; };
 		34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */; };
@@ -105,8 +105,6 @@
 		3401AF5620F80822006DEF49 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3401AF5A20F80B41006DEF49 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
-		3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesignInterface.swift; sourceTree = "<group>"; };
-		3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesign.swift; sourceTree = "<group>"; };
 		3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependenceProvider.swift; sourceTree = "<group>"; };
 		3401AF9520FFF5F1006DEF49 /* WarningViewContrller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarningViewContrller.swift; sourceTree = "<group>"; };
 		3401AFA121000078006DEF49 /* BackupDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupDesign.swift; sourceTree = "<group>"; };
@@ -151,13 +149,15 @@
 		34864028219319FC008CA223 /* LaunchpadPlaceholderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchpadPlaceholderViewController.xib; sourceTree = "<group>"; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
-		34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
+		34AA4E912136ABDD004C25ED /* SelectBackupTypeViewConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBackupTypeViewConroller.swift; sourceTree = "<group>"; };
 		34AC4DEF21494203001C17D8 /* KeystoreSavedAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystoreSavedAlert.swift; sourceTree = "<group>"; };
 		34B1436D21D3C9C700EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
 		34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34B612DF220DB704006EA6B3 /* Essentia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Essentia.entitlements; sourceTree = "<group>"; };
+		34C19BC52224228800B02203 /* ImportAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
+		34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromOtherWallets.swift; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
 		34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEditUserViewController.swift; sourceTree = "<group>"; };
 		34ECE49721387A5D008D9696 /* MnemonicLoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicLoginController.swift; sourceTree = "<group>"; };
@@ -279,7 +279,6 @@
 			isa = PBXGroup;
 			children = (
 				344167F5212EC222008B8A91 /* Interactor */,
-				3401AF7A20FD3299006DEF49 /* Design */,
 				3401AF7920FD328C006DEF49 /* Controllers */,
 			);
 			path = Login;
@@ -297,20 +296,13 @@
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				34AA4E912136ABDD004C25ED /* RestoreAccountViewController.swift */,
+				34AA4E912136ABDD004C25ED /* SelectBackupTypeViewConroller.swift */,
 				3401AF5320F807EA006DEF49 /* Welcome */,
 				34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */,
+				34C19BC52224228800B02203 /* ImportAccountViewController.swift */,
+				34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		3401AF7A20FD3299006DEF49 /* Design */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF7B20FD32AA006DEF49 /* LoginDesignInterface.swift */,
-				3401AF7D20FD32D0006DEF49 /* LoginDesign.swift */,
-			);
-			path = Design;
 			sourceTree = "<group>";
 		};
 		3401AF8C20FE4592006DEF49 /* DependenceProvider */ = {
@@ -772,8 +764,8 @@
 			files = (
 				349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */,
 				3448266C211B362000C19EB3 /* LaunchpadViewController.swift in Sources */,
+				34C19BC82226E46500B02203 /* ImportFromOtherWallets.swift in Sources */,
 				344826522114B21B00C19EB3 /* PhraseEnteringState.swift in Sources */,
-				3401AF7C20FD32AA006DEF49 /* LoginDesignInterface.swift in Sources */,
 				343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */,
 				3401AF9620FFF5F1006DEF49 /* WarningViewContrller.swift in Sources */,
 				34AC4DF021494203001C17D8 /* KeystoreSavedAlert.swift in Sources */,
@@ -790,7 +782,6 @@
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
-				3401AF7E20FD32D1006DEF49 /* LoginDesign.swift in Sources */,
 				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
 				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
 				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
@@ -810,7 +801,8 @@
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
-				34AA4E922136ABDD004C25ED /* RestoreAccountViewController.swift in Sources */,
+				34C19BC62224228800B02203 /* ImportAccountViewController.swift in Sources */,
+				34AA4E922136ABDD004C25ED /* SelectBackupTypeViewConroller.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,
 				3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */,
 				34F2884421CCD1BF0098E4CF /* LoginPasswordViewController.swift in Sources */,

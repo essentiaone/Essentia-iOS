@@ -132,7 +132,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
             (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: {_ in })
         case 1:
             guard let wallet = self.store.etherWalletForTokens else {
-                (inject() as WalletInteractorInterface).addCoinsToWallet([Coin.ethereum], wallet: { newWallet in
+                (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: { newWallet in
                     (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: newWallet)
                     (inject() as WalletRouterInterface).show(.successGeneratingAlert)
                 })

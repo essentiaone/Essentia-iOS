@@ -83,7 +83,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         }
     }
     
-    public func getTokenTxHistory(address: Address, smartContract: Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
+    public func getTokenTxHistory(address: EssentiaBridgesApi.Address, smartContract: EssentiaBridgesApi.Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
     

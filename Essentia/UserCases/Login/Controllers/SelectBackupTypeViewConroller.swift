@@ -1,5 +1,5 @@
 //
-//  RestoreAccountViewController.swift
+//  ImportFromAppViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 29.08.18.
@@ -13,21 +13,18 @@ import EssResources
 import EssUI
 import EssDI
 
-protocol RestoreAccountDelegate: class {
-    func showBackup(type: BackupType)
-}
-
-class RestoreAccountViewController: BaseBluredTableAdapterController {
+class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
-    private weak var delegate: RestoreAccountDelegate?
+    private var selectBackupType: (BackupType) -> Void
+    private var importTitle: String
     
-    init(delegate: RestoreAccountDelegate) {
+    public init(title: String, selectBackupType: @escaping (BackupType) -> Void) {
+        self.importTitle = title
+        self.selectBackupType = selectBackupType
         super.init()
-        self.delegate = delegate
-        modalPresentationStyle = .custom
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -39,13 +36,13 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
-            .empty(height: 18, background: .clear)]
+            .empty(height: 25, background: .clear)]
     }
     
     private var containerState: [TableComponent] {
         return [
             .empty(height: 10, background: .white),
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction),
+            .titleWithCancel(title: importTitle, action: cancelAction),
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),
                         withArrow: true,
@@ -73,14 +70,14 @@ class RestoreAccountViewController: BaseBluredTableAdapterController {
     }
     
     private lazy var keystoreAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .keystore)
+        self.selectBackupType(.keystore)
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .seed)
+        self.selectBackupType(.seed)
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        self.delegate?.showBackup(type: .mnemonic)
+        self.selectBackupType(.mnemonic)
     }
 }

@@ -8,7 +8,7 @@
 
 "Back" = "返回";
 
-"Welcome.Restore" = "恢复";
+"Welcome.Restore" = "IMPORT";
 "Welcome.Title1" = "欢迎来到";
 "Welcome.Title2" = "Essentia";
 "Welcome.Description" = "加入我们的框架，在这里您所有的dApp都互相关联并且随时可用。Essentia是您触手可及的去中心化生活。";
@@ -103,6 +103,16 @@
 
 "Settings.Accounts.Title" = "帐户";
 "Settings.Accounts.CreateNew" = "创建帐户";
+
+"Settings.ImportWeb.Title" = "Import from Essentia Web";
+
+"Settings.ImportAccount.Title" = "Import Account";
+"Settings.ImportAccount.Description" = "Choose your...";
+"Settings.ImportAccount.EssentiaApp" = "Essentia App";
+"Settings.ImportAccount.EssentiaWeb" = "Essentia Web";
+"Settings.ImportAccount.Others" = "Other wallets";
+
+"Settings.ImportOther.Title" = "Other wallets";
 
 "Settings.Security.Title" = "安全性";
 "Settings.Security.SectionHeader" = "备份文件";

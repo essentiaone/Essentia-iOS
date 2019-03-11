@@ -14,7 +14,8 @@ public class ViewUserStorageService: ViewUserStorageServiceInterface {
     let realm: Realm
     
     public init() {
-        self.realm = try! Realm()
+        let config = Realm.Configuration(schemaVersion: 1)
+        self.realm = try! Realm(configuration: config)
     }
     
     public func add(_ user: ViewUser) {

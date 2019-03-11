@@ -11,31 +11,70 @@ import EssCore
 import EssModel
 import EssUI
 import EssDI
+import EssResources
 
-class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectAccountDelegate {
+class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
+    
     // MARK: - IBOutlet
     @IBOutlet weak var restoreButton: UIButton!
     @IBOutlet weak var title1Label: UILabel!
     @IBOutlet weak var title2Label: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var enterButton: CenteredButton!
     @IBOutlet weak var termsButton: UIButton!
     
     // MARK: - Dependences
-    private lazy var design: LoginDesignInterface = inject()
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: ViewUserStorageServiceInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
+    
+    private var lastSource: BackupSourceType?
     
     // MARK: - Lifecycle
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        design.applyDesign(to: self)
+        applyDesign()
+    }
+    
+    func applyDesign() {
+        restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
+        title1Label.text = LS("Welcome.Title1")
+        title2Label.text = LS("Welcome.Title2")
+        if (inject() as ViewUserStorageServiceInterface).get().isEmpty {
+            enterButton.setTitle(LS("Welcome.Start"), for: .normal)
+        } else {
+            enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
+        }
+        
+        let termsAttributedText = NSMutableAttributedString()
+        termsAttributedText.append(
+            NSAttributedString(
+                string: LS("Welcome.Tersm1"),
+                attributes: [.font: AppFont.regular.withSize(13)]
+            )
+        )
+        termsAttributedText.append(
+            NSAttributedString(
+                string: LS("Welcome.Tersm2"),
+                attributes: [.font: AppFont.regular.withSize(13),
+                             .underlineStyle: NSUnderlineStyle.single.rawValue]
+            )
+        )
+        termsButton.setAttributedTitle(termsAttributedText, for: .normal)
+        
+        // MARK: - Colors
+        title1Label.textColor = colorProvider.appTitleColor
+        title2Label.textColor = colorProvider.appTitleColor
+        termsButton.titleLabel?.textColor = colorProvider.appLinkTextColor
+        
+        // MARK: - Font
+        title1Label.font = AppFont.regular.withSize(36)
+        title2Label.font = AppFont.bold.withSize(36)
     }
     
     // MARK: - Actions
     @IBAction func restoreAction(_ sender: Any) {
-        present(RestoreAccountViewController(delegate: self), animated: true)
+        present(ImportAccountViewController(delegate: self), animated: true)
     }
     
     @IBAction func enterAction(_ sender: Any) {
@@ -52,13 +91,14 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
     }
     
     // MARK: - RestoreAccountDelegate
-    func showBackup(type: BackupType) {
+    func importAccountWith(sourceType: BackupSourceType, backupType: BackupType) {
+        self.lastSource = sourceType
         dismiss(animated: true)
         let nvc = UINavigationController()
         nvc.setNavigationBarHidden(true, animated: false)
         self.present(nvc, animated: true)
         prepareInjection(AuthRouter(navigationController: nvc,
-                                    type: type,
+                                    type: backupType,
                                     auth: .login,
                                     delegate: self) as AuthRouterInterface,
                          memoryPolicy: .viewController)
@@ -89,8 +129,17 @@ class WelcomeViewController: BaseViewController, RestoreAccountDelegate, SelectA
         }), animated: true)
     }
     
-    func didSetUser() {
+    func didSetUser(seed: String) {
         showTabBar()
+        guard let backupSourceType = lastSource else { return }
+        (inject() as UserStorageServiceInterface).update { (user) in
+            user.wallet?.sourceType = backupSourceType
+            if backupSourceType.shouldCrateWalletsWhenCreate {
+                Coin.fullySupportedCoins.forEach({ (coin) in
+                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: seed))
+                })
+            }
+        }
     }
     
     func showTabBar() {

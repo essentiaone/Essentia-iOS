@@ -46,7 +46,7 @@ public class RealmUserStorage: UserStorageServiceInterface {
             throw EssentiaError.dbError(.databaseNotFound)
         }
         let url = defaultUrl.deletingLastPathComponent().appendingPathComponent(Constants.storageFolder).appendingPathComponent("\(seedHash).realm")
-        self.config = Realm.Configuration(fileURL: url, encryptionKey: key, readOnly: false, schemaVersion: 0)
+        self.config = Realm.Configuration(fileURL: url, encryptionKey: key, readOnly: false, schemaVersion: 1)
         _ = try Realm(configuration: config)
     }
     

@@ -33,7 +33,6 @@ class ApplicationDependenceProvider {
     }
     
     private func loadDesignDependences() {
-        loadLoginDesign()
         loadBackupDesign()
     }
     
@@ -63,11 +62,6 @@ class ApplicationDependenceProvider {
     }
     
     // MARK: - Design
-    private func loadLoginDesign() {
-        let injection: LoginDesignInterface = LoginDesign()
-        prepareInjection(injection, memoryPolicy: .viewController)
-    }
-    
     private func loadBackupDesign() {
         let injection: BackupDesignInterface = BackupDesign()
         prepareInjection(injection, memoryPolicy: .viewController)
