@@ -142,11 +142,12 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         do {
             let mnemonic = try (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
             let user = User(mnemonic: mnemonic)
+            let seed = user.seed
             EssentiaStore.shared.setUser(user)
             user.backup?.currentlyBackup?.clear()
             user.backup?.currentlyBackup?.add(.keystore)
             (inject() as AuthRouterInterface).showPrev()
-            delegate?.didSetUser()
+            delegate?.didSetUser(seed: seed)
         } catch {
             (inject() as LoaderInterface).showError(error)
         }

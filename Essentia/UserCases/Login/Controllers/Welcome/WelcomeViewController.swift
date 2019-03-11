@@ -129,17 +129,14 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         }), animated: true)
     }
     
-    func didSetUser() {
+    func didSetUser(seed: String) {
         showTabBar()
         guard let backupSourceType = lastSource else { return }
         (inject() as UserStorageServiceInterface).update { (user) in
             user.wallet?.sourceType = backupSourceType
             if backupSourceType.shouldCrateWalletsWhenCreate {
-                [Coin.ethereum].forEach({ (coin) in
-                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(name: coin.name,
-                                                                                 coin: coin,
-                                                                                 sourceType: backupSourceType,
-                                                                                 derivationIndex: 0))
+                Coin.fullySupportedCoins.forEach({ (coin) in
+                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: seed))
                 })
             }
         }

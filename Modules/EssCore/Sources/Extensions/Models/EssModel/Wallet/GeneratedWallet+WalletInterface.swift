@@ -12,15 +12,24 @@ import HDWalletKit
 import EssDI
 
 extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
-    public convenience init(name: String, coin: EssModel.Coin, sourceType: BackupSourceType, derivationIndex: Int32) {
+    public convenience init(name: String, coin: EssModel.Coin, derivationIndex: Int32, seed: String) {
         let hdwalletCoin = wrapCoin(coin: coin)
-        let seed = EssentiaStore.shared.currentUser.seed
         let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)
-        //TODO: generate accounts due to full derivation path
         let account = wallet.generateAccount(at: UInt32(derivationIndex))
         self.init(name: name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: derivationIndex, lastBalance: 0)
         self.coin = coin
         self.derivationIndex = derivationIndex
+        self.lastBalance = 0
+    }
+    
+    public convenience init(coin: EssModel.Coin, sourceType: BackupSourceType, seed: String) {
+        let hdwalletCoin = wrapCoin(coin: coin)
+        let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)
+        let coinDerivationNode = sourceType.derivationNodesFor(coin: hdwalletCoin)
+        let fullDerivationNode = coinDerivationNode + [.notHardened(0)]
+        let account = wallet.generateAccount(at: fullDerivationNode)
+        self.init(name: sourceType.name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: Int32.max, lastBalance: 0)
+        self.coin = coin
         self.lastBalance = 0
     }
     

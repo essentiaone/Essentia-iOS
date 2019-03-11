@@ -28,7 +28,7 @@ public class WalletInteractor: WalletInteractorInterface {
     }
     
     public func getCoinsList() -> [Coin] {
-        return [Coin.ethereum]
+        return Coin.fullySupportedCoins
     }
     
     private func freeIndex(for coin: Coin) -> Int32 {
@@ -50,11 +50,11 @@ public class WalletInteractor: WalletInteractorInterface {
               let currentlyAddedWallets = EssentiaStore.shared.currentUser.wallet?.generatedWalletsInfo else { return }
         coins.forEach { coin in
             let index = freeIndex(for: coin)
-            let sourceType = EssentiaStore.shared.currentUser.wallet?.sourceType ?? .app
+            let seed = EssentiaStore.shared.currentUser.seed
             let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
-                                                  coin: coin,
-                                                  sourceType: sourceType,
-                                                  derivationIndex: index)
+                                                 coin: coin,
+                                                 derivationIndex: index,
+                                                 seed: seed)
             (inject() as UserStorageServiceInterface).update({ _ in
                 let address = walletInfo.address
                 let generatedName = walletInfo.name + " " + address.suffix(4)

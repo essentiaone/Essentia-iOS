@@ -46,19 +46,23 @@ public extension BackupSourceType {
     }
     
     public var title: String {
+        return "Import from " + name
+    }
+    
+    public var name: String {
         switch self {
         case .app:
-            return "Import from Essentia App"
+            return "Essentia App"
         case .web:
-            return "Import from Essentia Web"
+            return "Essentia Web"
         case .exodus:
-            return "Import from Exodus"
+            return "Exodus"
         case .jaxx:
-            return "Import from Jaxx"
+            return "Jaxx"
         case .metaMask:
-            return "Import from MetaMask"
+            return "MetaMask"
         case .wallet:
-            return "Import from Wallet"
+            return "Wallet"
         }
     }
 }

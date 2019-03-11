@@ -24,7 +24,7 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private weak var delegate: ImportAccountDelegate?
     
-    // MARK: - Int
+    // MARK: - Init
     init(delegate: ImportAccountDelegate) {
         super.init()
         self.delegate = delegate
