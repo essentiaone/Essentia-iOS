@@ -25,9 +25,9 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     public convenience init(coin: EssModel.Coin, sourceType: BackupSourceType, seed: String) {
         let hdwalletCoin = wrapCoin(coin: coin)
         let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)
-        let coinDerivationNode = sourceType.derivationNodesFor(coin: hdwalletCoin)
-        let fullDerivationNode = coinDerivationNode + [.notHardened(0)]
-        let account = wallet.generateAccount(at: fullDerivationNode)
+        var coinDerivationNode = sourceType.derivationNodesFor(coin: hdwalletCoin)
+        if sourceType != .web { coinDerivationNode.append(.notHardened(0)) }
+        let account = wallet.generateAccount(at: coinDerivationNode)
         self.init(name: sourceType.name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: Int32.max, lastBalance: 0)
         self.coin = coin
         self.lastBalance = 0

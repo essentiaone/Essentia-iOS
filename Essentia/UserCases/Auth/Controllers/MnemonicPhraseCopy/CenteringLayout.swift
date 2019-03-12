@@ -2,8 +2,8 @@
 //  CenteringLayout.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 21.07.18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 3/12/19.
+//  Copyright © 2019 Essentia-One. All rights reserved.
 //
 
 import UIKit
@@ -24,7 +24,7 @@ public class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     var interItemSpacing: CGFloat {
         return minimumLineSpacing
     }
-
+    
     override public func layoutAttributesForElements
         (
         in rect: CGRect
@@ -88,7 +88,7 @@ public class CenterAlignedCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     func layoutAttributes(in rect: CGRect) -> [UICollectionViewLayoutAttributes] {
         guard let superAttributes = super.layoutAttributesForElements(in: rect),
-        let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else {
+            let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes] else {
                 return [UICollectionViewLayoutAttributes]()
         }
         return attributes

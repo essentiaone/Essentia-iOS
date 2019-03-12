@@ -21,7 +21,6 @@
 		3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */; };
 		3401AFC62101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */; };
 		3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */; };
-		3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */; };
 		3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */; };
 		3401AFE321062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AFE221062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib */; };
 		3401AFE621064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */; };
@@ -60,6 +59,7 @@
 		34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A2F21302E2300527F15 /* SettingsLanguageViewController.swift */; };
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
 		34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */; };
+		34C0911E223808DA000FAF5C /* CenteringLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0911D223808DA000FAF5C /* CenteringLayout.swift */; };
 		34C19BC62224228800B02203 /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC52224228800B02203 /* ImportAccountViewController.swift */; };
 		34C19BC82226E46500B02203 /* ImportFromOtherWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */; };
 		34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -114,7 +114,6 @@
 		3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseCopyViewController.swift; sourceTree = "<group>"; };
 		3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MnemonicPhraseCopyViewController.xib; sourceTree = "<group>"; };
 		3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringCollectionViewAdapter.swift; sourceTree = "<group>"; };
-		3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringLayout.swift; sourceTree = "<group>"; };
 		3401AFE021062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhraseConfirmViewController.swift; sourceTree = "<group>"; };
 		3401AFE221062B9A006DEF49 /* MnemonicPhraseConfirmViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MnemonicPhraseConfirmViewController.xib; sourceTree = "<group>"; };
 		3401AFE521064159006DEF49 /* PhraseConfirmCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhraseConfirmCollectionViewAdapter.swift; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccoutViewController.swift; sourceTree = "<group>"; };
 		34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34B612DF220DB704006EA6B3 /* Essentia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Essentia.entitlements; sourceTree = "<group>"; };
+		34C0911D223808DA000FAF5C /* CenteringLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringLayout.swift; sourceTree = "<group>"; };
 		34C19BC52224228800B02203 /* ImportAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
 		34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromOtherWallets.swift; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -219,17 +219,8 @@
 				3401AF5120F806C9006DEF49 /* UserCases */,
 				3401AF3920F7C3BC006DEF49 /* Resources */,
 				3401AF3820F7C3B1006DEF49 /* Application */,
-				3401AF3720F7C394006DEF49 /* Core */,
 			);
 			path = Essentia;
-			sourceTree = "<group>";
-		};
-		3401AF3720F7C394006DEF49 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF3D20F7CF92006DEF49 /* Componets */,
-			);
-			path = Core;
 			sourceTree = "<group>";
 		};
 		3401AF3820F7C3B1006DEF49 /* Application */ = {
@@ -252,14 +243,6 @@
 				3401AF3120F7C2CD006DEF49 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		3401AF3D20F7CF92006DEF49 /* Componets */ = {
-			isa = PBXGroup;
-			children = (
-				3401AFDA21033B0A006DEF49 /* Layout */,
-			);
-			path = Componets;
 			sourceTree = "<group>";
 		};
 		3401AF5120F806C9006DEF49 /* UserCases */ = {
@@ -360,6 +343,7 @@
 				3401AFCA21022B07006DEF49 /* CollectionView */,
 				3401AFC32101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift */,
 				3401AFC42101E8B1006DEF49 /* MnemonicPhraseCopyViewController.xib */,
+				34C0911D223808DA000FAF5C /* CenteringLayout.swift */,
 			);
 			path = MnemonicPhraseCopy;
 			sourceTree = "<group>";
@@ -370,14 +354,6 @@
 				3401AFCB21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift */,
 			);
 			path = CollectionView;
-			sourceTree = "<group>";
-		};
-		3401AFDA21033B0A006DEF49 /* Layout */ = {
-			isa = PBXGroup;
-			children = (
-				3401AFDB21033B1B006DEF49 /* CenteringLayout.swift */,
-			);
-			path = Layout;
 			sourceTree = "<group>";
 		};
 		3401AFDF21062854006DEF49 /* MnemonicPhraseConfirm */ = {
@@ -783,6 +759,7 @@
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
+				34C0911E223808DA000FAF5C /* CenteringLayout.swift in Sources */,
 				3401AFC52101E8B1006DEF49 /* MnemonicPhraseCopyViewController.swift in Sources */,
 				3401AFE121062B91006DEF49 /* MnemonicPhraseConfirmViewController.swift in Sources */,
 				34ECE49821387A5D008D9696 /* MnemonicLoginController.swift in Sources */,
@@ -797,7 +774,6 @@
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,
 				344826542115EFA700C19EB3 /* PhraseEnteringControllerDelegate.swift in Sources */,
 				34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */,
-				3401AFDC21033B1B006DEF49 /* CenteringLayout.swift in Sources */,
 				3401AFEE2109FD4F006DEF49 /* MnemonicConfirmEnteringController.swift in Sources */,
 				344167F9212EC246008B8A91 /* LoginInteractorInterface.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,

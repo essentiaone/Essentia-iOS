@@ -27,7 +27,7 @@
 		347A3B3221F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B0E21F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift */; };
 		347A3B3321F3B0C70053C2F3 /* DoneTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B0F21F3B0C70053C2F3 /* DoneTransactionViewController.swift */; };
 		347A3B3421F3B0C70053C2F3 /* EnterTransactionAmmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1021F3B0C70053C2F3 /* EnterTransactionAmmountViewController.swift */; };
-		347A3B3521F3B0C70053C2F3 /* ConfirmTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1221F3B0C70053C2F3 /* ConfirmTransactionViewController.swift */; };
+		347A3B3521F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1221F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift */; };
 		347A3B3621F3B0C70053C2F3 /* EtherTxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1421F3B0C70053C2F3 /* EtherTxInfo.swift */; };
 		347A3B3721F3B0C70053C2F3 /* SendEthTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1521F3B0C70053C2F3 /* SendEthTransactionDetailViewController.swift */; };
 		347A3B3821F3B0C70053C2F3 /* ConfirmEthereumTransactionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B1621F3B0C70053C2F3 /* ConfirmEthereumTransactionDetailViewController.swift */; };
@@ -39,6 +39,7 @@
 		347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2121F3B0C70053C2F3 /* WalletRouterInterface.swift */; };
 		347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B3F21F3B1350053C2F3 /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		347A3B4421F3B15B0053C2F3 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4321F3B15B0053C2F3 /* EssUI.framework */; };
+		34B225652237AE060046EBE7 /* UtxoTxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B225642237AE060046EBE7 /* UtxoTxInfo.swift */; };
 		34C2B82721FA19CD00B38E90 /* CryptoFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C2B82621FA19CD00B38E90 /* CryptoFormatter.swift */; };
 		FD89AEE7E8E4CCD567278105 /* Pods_EssWallet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */; };
 /* End PBXBuildFile section */
@@ -77,7 +78,7 @@
 		347A3B0E21F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedTransacrionAmmount.swift; sourceTree = "<group>"; };
 		347A3B0F21F3B0C70053C2F3 /* DoneTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTransactionViewController.swift; sourceTree = "<group>"; };
 		347A3B1021F3B0C70053C2F3 /* EnterTransactionAmmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterTransactionAmmountViewController.swift; sourceTree = "<group>"; };
-		347A3B1221F3B0C70053C2F3 /* ConfirmTransactionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionViewController.swift; sourceTree = "<group>"; };
+		347A3B1221F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmBitcoinTxDetailViewController.swift; sourceTree = "<group>"; };
 		347A3B1421F3B0C70053C2F3 /* EtherTxInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EtherTxInfo.swift; sourceTree = "<group>"; };
 		347A3B1521F3B0C70053C2F3 /* SendEthTransactionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendEthTransactionDetailViewController.swift; sourceTree = "<group>"; };
 		347A3B1621F3B0C70053C2F3 /* ConfirmEthereumTransactionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmEthereumTransactionDetailViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		347A3B3F21F3B1350053C2F3 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4121F3B1350053C2F3 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4321F3B15B0053C2F3 /* EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34B225642237AE060046EBE7 /* UtxoTxInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtxoTxInfo.swift; sourceTree = "<group>"; };
 		34C2B82621FA19CD00B38E90 /* CryptoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFormatter.swift; sourceTree = "<group>"; };
 		34CBB71F21F3AFDD001B7A20 /* libEssWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssWallet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		38A3FFC28A2B74B0A404631C /* Pods-EssWallet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssWallet.debug.xcconfig"; path = "../../../Pods/Target Support Files/Pods-EssWallet/Pods-EssWallet.debug.xcconfig"; sourceTree = "<group>"; };
@@ -194,7 +196,8 @@
 		347A3B1121F3B0C70053C2F3 /* Bitcoin */ = {
 			isa = PBXGroup;
 			children = (
-				347A3B1221F3B0C70053C2F3 /* ConfirmTransactionViewController.swift */,
+				34B225642237AE060046EBE7 /* UtxoTxInfo.swift */,
+				347A3B1221F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift */,
 			);
 			path = Bitcoin;
 			sourceTree = "<group>";
@@ -397,9 +400,10 @@
 				345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */,
 				347A3B3021F3B0C70053C2F3 /* WalletMainViewController.swift in Sources */,
 				347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */,
-				347A3B3521F3B0C70053C2F3 /* ConfirmTransactionViewController.swift in Sources */,
+				347A3B3521F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift in Sources */,
 				347A3B2921F3B0C70053C2F3 /* WalletImportAssetViewController.swift in Sources */,
 				347A3B3D21F3B0C70053C2F3 /* WalletRouter.swift in Sources */,
+				34B225652237AE060046EBE7 /* UtxoTxInfo.swift in Sources */,
 				347A3B2D21F3B0C70053C2F3 /* WalletDoneGeneratingAlert.swift in Sources */,
 				347A3B2A21F3B0C70053C2F3 /* WalletNewAssetViewController.swift in Sources */,
 				347A3B2821F3B0C70053C2F3 /* WalletCreateNewAssetViewController.swift in Sources */,

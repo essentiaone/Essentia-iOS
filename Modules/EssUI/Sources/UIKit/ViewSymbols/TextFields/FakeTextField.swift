@@ -28,7 +28,7 @@ open class FakeTextField: UITextField, UITextFieldDelegate {
     }
     
     // MARK: - UITextFieldDelegate
-    private func textField
+    public func textField
         (
         _ textField: UITextField,
         shouldChangeCharactersIn range: NSRange,
@@ -38,7 +38,7 @@ open class FakeTextField: UITextField, UITextFieldDelegate {
         return true
     }
     
-    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return false
     }
 }

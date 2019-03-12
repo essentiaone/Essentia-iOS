@@ -78,11 +78,11 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IrJ-iR-jXK" customClass="FakeTextField" customModule="EssUI">
-                    <rect key="frame" x="0.0" y="667" width="0.0" height="0.0"/>
+                    <rect key="frame" x="0.0" y="627" width="100" height="40"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" id="EnI-kW-J4U"/>
-                        <constraint firstAttribute="height" id="Yi1-vq-ySk"/>
+                        <constraint firstAttribute="width" constant="100" id="EnI-kW-J4U"/>
+                        <constraint firstAttribute="height" constant="40" id="Yi1-vq-ySk"/>
                     </constraints>
                     <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
