@@ -80,14 +80,19 @@ class ApplicationDependenceProvider {
     
     // MARK: - Services
     private func loadServices() {
-        loadUserService()
-        loadUserListService()
+        loadUser()
         loadFileService()
         loadMnemonicService()
         loadLoader()
         loadLogger()
         loadTokens()
         loadCurrencyConvert()
+    }
+    
+    private func loadUser() {
+        loadUserService()
+        loadUserListService()
+        loadPushNotificationsService()
     }
     
     private func loadCurrencyConvert() {
@@ -122,6 +127,11 @@ class ApplicationDependenceProvider {
     
     private func loadUserListService() {
         let injection: ViewUserStorageServiceInterface = ViewUserStorageService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadPushNotificationsService() {
+        let injection: PushNotificationsServiceInterface = PushNotificationsService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     

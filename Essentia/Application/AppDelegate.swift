@@ -88,6 +88,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     // MARK: - MessagingDelegate
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        (inject() as PushNotificationsServiceInterface).updateToken(fcmToken: fcmToken)
         (inject() as LoggerServiceInterface).log("FCM Token: " + fcmToken, level: .info)
     }
     
