@@ -70,7 +70,7 @@ public class LocalFilesService: LocalFilesServiceInterface {
     }
     
     private func directoryPath(currentPath: String) -> String {
-        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first ?? ""
+        let documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true).first ?? ""
         return documentPath.appending(currentPath)
     }
     
