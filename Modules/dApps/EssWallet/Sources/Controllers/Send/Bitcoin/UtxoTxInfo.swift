@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import EssModel
 
 struct UtxoTxInfo {
     var address: String
     var ammount: SelectedTransacrionAmmount
-    var signedTx: String
+    var wallet: ViewWalletInterface
 }

@@ -11,6 +11,7 @@ import Foundation
 public enum EssentiaError: Error {
     public enum TxError: Error {
         case invalidPk
+        case failCreateTx
         
     }
     
@@ -41,6 +42,8 @@ public enum EssentiaError: Error {
             switch txError {
             case .invalidPk:
                 return "Invalid private key"
+            case .failCreateTx:
+                return "Can not create transaction"
             }
         case .unknownError:
             return "Something wrong"

@@ -83,7 +83,7 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
         case let coin as Coin:
             switch coin {
             case .bitcoin:
-                print("TODO")
+                push(vc: SendBitcoinTransactionViewController(wallet: wallet, ammount: ammount))
             case .ethereum:
                 push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
             default: return
