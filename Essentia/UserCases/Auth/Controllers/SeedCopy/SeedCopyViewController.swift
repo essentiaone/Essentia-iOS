@@ -73,7 +73,7 @@ class SeedCopyViewController: BaseViewController, UITextViewDelegate, SwipeableN
             let user = User(seed: seed)
             EssentiaStore.shared.setUser(user)
             (inject() as AuthRouterInterface).showPrev()
-            delegate?.didSetUser(seed: seed)
+            delegate?.didSetUser(user: user)
         }
 
     }

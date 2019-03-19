@@ -25,6 +25,7 @@ public enum EssentiaError: Error {
     case unknownError
     case unexpectedBehavior
     case wrongPassword
+    case userExist
     
     public var localizedDescription: String {
         switch self {
@@ -48,6 +49,8 @@ public enum EssentiaError: Error {
             return "Unexpected behavour, write to support"
         case .wrongPassword:
             return "Wrong password, try again!"
+        case .userExist:
+            return "User already exist!"
         }
     }
 }

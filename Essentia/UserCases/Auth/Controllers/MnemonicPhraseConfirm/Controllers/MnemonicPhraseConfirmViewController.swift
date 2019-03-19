@@ -118,10 +118,9 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         case .login:
             let mnemonic = mnemonic.joined(separator: " ")
             let user = User(mnemonic: mnemonic)
-            let seed = user.seed
             EssentiaStore.shared.setUser(user)
             (inject() as AuthRouterInterface).showPrev()
-            delegate?.didSetUser(seed: seed)
+            delegate?.didSetUser(user: user)
         }
     }
     
