@@ -124,8 +124,8 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
                 self.showTabBar()
             })
             return true
-        }, cancel: { [unowned self] in
-            self.dismiss(animated: true)
+            }, cancel: { [unowned self] in
+                self.dismiss(animated: true)
         }), animated: true)
     }
     
@@ -134,11 +134,9 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         guard let backupSourceType = lastSource else { return }
         (inject() as UserStorageServiceInterface).update { (user) in
             user.wallet?.sourceType = backupSourceType
-            if backupSourceType.shouldCrateWalletsWhenCreate {
-                Coin.fullySupportedCoins.forEach({ (coin) in
-                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: seed))
-                })
-            }
+            Coin.fullySupportedCoins.forEach({ (coin) in
+                user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: seed))
+            })
         }
     }
     
