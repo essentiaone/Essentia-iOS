@@ -125,7 +125,7 @@ class ConfirmBitcoinTxDetailViewController: BaseTableAdapterController {
             let selectedTx = try self.utxoSelector.select(from: unspendTransactions, targetValue: self.ammount)
             self.fee = selectedTx.fee
             let address = try LegacyAddress(tx.address, coin: .bitcoin)
-            self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: selectedTx.utxos)
+            self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
             self.tableAdapter.simpleReload(self.state)
         } catch {
             (inject() as LoaderInterface).showError(EssentiaError.TxError.failCreateTx)
