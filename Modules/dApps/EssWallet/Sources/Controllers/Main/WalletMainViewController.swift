@@ -214,6 +214,14 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
+        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
+        if !isConfirmed {
+            self.present(BackupMnemonicAlert.init(leftAction: {},
+                                                  rightAction: {
+                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
+            }), animated: true)
+            return
+        }
         (inject() as WalletRouterInterface).show(.walletDetail(wallet))
     }
     
