@@ -28,7 +28,8 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
         var coinDerivationNode = sourceType.derivationNodesFor(coin: hdwalletCoin)
         if sourceType != .web { coinDerivationNode.append(.notHardened(0)) }
         let account = wallet.generateAccount(at: coinDerivationNode)
-        self.init(name: sourceType.name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: Int32.max, lastBalance: 0)
+        let index = coinDerivationNode.last!.index
+        self.init(name: sourceType.name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: Int32(index), lastBalance: 0)
         self.coin = coin
         self.lastBalance = 0
     }
