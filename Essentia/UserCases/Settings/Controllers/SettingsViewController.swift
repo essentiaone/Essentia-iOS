@@ -141,7 +141,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         currentUserId = newUser.id
         currentSecurity = newUser.backup?.currentlyBackup?.secureLevel ?? 0
         if shoudShowAnimation {
-            
             return .updating
         }
         return .idle

@@ -142,7 +142,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         (inject() as UserStorageServiceInterface).update { (user) in
             user.wallet?.sourceType = backupSourceType
             Coin.fullySupportedCoins.forEach({ (coin) in
-                user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: user.id))
+                user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: user.seed))
             })
         }
     }
