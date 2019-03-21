@@ -29,6 +29,7 @@
 		347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */; };
 		347A3B9421F3BA790053C2F3 /* User+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */; };
 		347A3B9521F3BA790053C2F3 /* UserWallet+UniqueAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */; };
+		348919FC2243D9DE008CBA74 /* Collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348919FB2243D9DE008CBA74 /* Collections.swift */; };
 		349757AA2215AB770067CD96 /* Error+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349757A92215AB770067CD96 /* Error+Description.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
 		34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A921D3D95A00EC06AE /* ProcentsFormatter.swift */; };
@@ -117,6 +118,7 @@
 		347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImportedWallet+WalletInterface.swift"; sourceTree = "<group>"; };
 		347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+HDWallet.swift"; sourceTree = "<group>"; };
 		347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWallet+UniqueAsset.swift"; sourceTree = "<group>"; };
+		348919FB2243D9DE008CBA74 /* Collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collections.swift; sourceTree = "<group>"; };
 		349757A92215AB770067CD96 /* Error+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Description.swift"; sourceTree = "<group>"; };
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssCore-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 			children = (
 				34B143B021D3D95A00EC06AE /* FastTernaryOperator.swift */,
 				34B143F121D3DA5000EC06AE /* GCD.swift */,
+				348919FB2243D9DE008CBA74 /* Collections.swift */,
 			);
 			path = Sugar;
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				34B143DD21D3D96400EC06AE /* Int+Unary.swift in Sources */,
 				345747B421F50F57006E2EAB /* CurrencyRankDemonInterface.swift in Sources */,
 				34E2D8DD21F75FAB00AA3636 /* RealmUserStorage.swift in Sources */,
+				348919FC2243D9DE008CBA74 /* Collections.swift in Sources */,
 				347A3B7A21F3B4330053C2F3 /* Bundle+LS.swift in Sources */,
 				347A3B8F21F3BA510053C2F3 /* GeneratedWallet+WalletInterface.swift in Sources */,
 				347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */,

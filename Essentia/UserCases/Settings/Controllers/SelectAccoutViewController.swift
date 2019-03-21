@@ -47,11 +47,12 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
                                     self.delegate?.didSelectUser(user)
                                 }),
                     .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
-            }.flatMap { return $0 }
+            }
         return [
                .empty(height: 10, background: .white),
                .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
-               + usersState +
+               + collect(usersState)
+            +
                [.imageTitle(image: imageProvider.plusIcon,
                             title: LS("Settings.Accounts.CreateNew"),
                         withArrow: false,

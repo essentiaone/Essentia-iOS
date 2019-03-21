@@ -40,6 +40,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableAdapter.hardReload([])
         hardReload()
         showOnbordingIfNeeded()
     }
@@ -154,21 +155,19 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
-        var assetState: [TableComponent] = []
-        wallets.forEach { (wallet) in
-            assetState.append(
-                .assetBalance(imageUrl: wallet.iconUrl,
-                              title: wallet.name,
-                              value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                              currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
-                              action: { [unowned self] in
-                                self.showWalletDetail(for: wallet)
-                                
-                })
-            )
-            assetState.append(.separator(inset: .zero))
-        }
-        return assetState
+        let assetsState: [[TableComponent]] = wallets.map { wallet in
+            let oneAssetState: [TableComponent] =
+                [ .assetBalance(imageUrl: wallet.iconUrl,
+                                title: wallet.name,
+                                value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
+                                currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
+                                action: { [unowned self] in
+                                    self.showWalletDetail(for: wallet)}),
+                  .separator(inset: .zero)
+                    ] as [TableComponent]
+            return oneAssetState
+            }
+        return collect(assetsState)
     }
     
     // MARK: - Cash

@@ -139,13 +139,6 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
             return false
         }
         showTabBar()
-        guard let backupSourceType = lastSource else { return false }
-        (inject() as UserStorageServiceInterface).update { (user) in
-            user.wallet?.sourceType = backupSourceType
-            Coin.fullySupportedCoins.forEach({ (coin) in
-                user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: user.seed))
-            })
-        }
         return true
     }
     

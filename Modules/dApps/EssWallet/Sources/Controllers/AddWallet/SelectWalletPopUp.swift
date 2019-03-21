@@ -47,13 +47,13 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
     }
     
     private var walletsState: [TableComponent] {
-        return wallets.map({ wallet -> [TableComponent] in
+        return collect(wallets.map({ wallet -> [TableComponent] in
             return [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [unowned self] in
                         self.didSelect(wallet)
                         self.dismiss(animated: true)
                     }),
                     .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
-        }).flatMap { return $0 }
+        }))
     }
     
     // MARK: - Lifecycle

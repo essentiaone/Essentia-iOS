@@ -43,6 +43,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Init
     init(wallet: ViewWalletInterface) {
         self.store = Store(wallet: wallet)
+        print(wallet.address)
         super.init()
         self.store.balance = wallet.balanceInCurrentCurrency
         self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: wallet.yesterdayBalanceInCurrentCurrency,

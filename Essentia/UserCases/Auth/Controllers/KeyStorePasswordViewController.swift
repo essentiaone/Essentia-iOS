@@ -12,6 +12,7 @@ import EssModel
 import EssResources
 import EssUI
 import EssDI
+import RealmSwift
 
 fileprivate struct Store {
     var password: String = ""
@@ -169,6 +170,12 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             user.backup?.currentlyBackup?.clear()
             user.backup?.currentlyBackup?.add(.keystore)
             (inject() as AuthRouterInterface).showPrev()
+            user.wallet?.sourceType = self.store.backupSourceType
+            let wallets: List<GeneratingWalletInfo> = List()
+            Coin.fullySupportedCoins.forEach({ (coin) in
+                wallets.append(GeneratingWalletInfo(coin: coin, sourceType: self.store.backupSourceType, seed: user.seed))
+            })
+            user.wallet?.generatedWalletsInfo = wallets
             if delegate?.didSetUser(user: user) == true {
                 try storeUser(user)
             }
