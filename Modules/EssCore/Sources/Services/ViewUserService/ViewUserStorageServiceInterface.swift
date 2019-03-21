@@ -24,6 +24,7 @@ extension ViewUserStorageServiceInterface {
         while index < Int.max {
             if users.contains(where: { $0.index == index }) {
                 index++
+                continue
             }
             return index
         }

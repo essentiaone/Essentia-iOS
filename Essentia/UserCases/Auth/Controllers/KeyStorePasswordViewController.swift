@@ -169,7 +169,9 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             user.backup?.currentlyBackup?.clear()
             user.backup?.currentlyBackup?.add(.keystore)
             (inject() as AuthRouterInterface).showPrev()
-            delegate?.didSetUser(user: user)
+            if delegate?.didSetUser(user: user) == true {
+                try storeUser(user)
+            }
         } catch {
             (inject() as LoaderInterface).showError(EssentiaError.unknownError.localizedDescription)
         }
@@ -195,12 +197,16 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
             EssentiaStore.shared.currentUser.backup?.keystorePath = url.path
             EssentiaStore.shared.currentUser.backup?.currentlyBackup?.add(.keystore)
             let user = EssentiaStore.shared.currentUser
-            let userStore: UserStorageServiceInterface = try RealmUserStorage(user: user, password: self.store.password)
-            prepareInjection(userStore, memoryPolicy: .viewController)
+            try storeUser(user)
         } catch {
             (inject() as LoggerServiceInterface).log(error.description)
         }
         self.showSuccess()
+    }
+    
+    private func storeUser(_ user: User) throws {
+        let userStore: UserStorageServiceInterface = try RealmUserStorage(user: user, password: self.store.password)
+        prepareInjection(userStore, memoryPolicy: .viewController)
     }
     
     private func showSuccess() {

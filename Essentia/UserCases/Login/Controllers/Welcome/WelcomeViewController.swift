@@ -130,22 +130,23 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         }), animated: true)
     }
     
-    func didSetUser(user: User) {
+    func didSetUser(user: User) -> Bool {
         let viewUsers = (inject() as ViewUserStorageServiceInterface).get()
         let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
         guard !userAlreadyExist else {
             EssentiaStore.shared.currentUser = .notSigned
             (inject() as LoaderInterface).showError(EssentiaError.userExist.localizedDescription)
-            return
+            return false
         }
         showTabBar()
-        guard let backupSourceType = lastSource else { return }
+        guard let backupSourceType = lastSource else { return false }
         (inject() as UserStorageServiceInterface).update { (user) in
             user.wallet?.sourceType = backupSourceType
             Coin.fullySupportedCoins.forEach({ (coin) in
                 user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: user.seed))
             })
         }
+        return true
     }
     
     func showTabBar() {
