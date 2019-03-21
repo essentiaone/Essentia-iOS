@@ -100,7 +100,8 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         prepareInjection(AuthRouter(navigationController: nvc,
                                     type: backupType,
                                     auth: .login,
-                                    delegate: self) as AuthRouterInterface,
+                                    delegate: self,
+                                    sourceType: sourceType) as AuthRouterInterface,
                          memoryPolicy: .viewController)
     }
     

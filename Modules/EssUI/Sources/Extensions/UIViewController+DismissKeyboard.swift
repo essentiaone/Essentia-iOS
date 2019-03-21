@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIViewController {
+public extension BaseViewController {
     private struct AssociatedKey {
         static var hideKeyboardRecognizer = "hideKeyboardRecognizer"
     }
@@ -23,7 +23,7 @@ public extension UIViewController {
     }
     
     public func hideKeyboardWhenTappedAround() {
-        hideKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        hideKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaseViewController.dismissKeyboard))
         hideKeyboardRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(hideKeyboardRecognizer)
     }
@@ -33,6 +33,7 @@ public extension UIViewController {
     }
     
     @objc public func dismissKeyboard() {
+        keyboardObserver.stop()
         view.endEditing(true)
     }
 }

@@ -12,7 +12,11 @@ import EssUI
 import EssCore
 
 public protocol AuthRouterInterface: class {
-    init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate)
+    init(navigationController: UINavigationController,
+         type: BackupType,
+         auth: AuthType,
+         delegate: SelectAccountDelegate,
+         sourceType: BackupSourceType)
     func showNext()
     func showPrev()
 }

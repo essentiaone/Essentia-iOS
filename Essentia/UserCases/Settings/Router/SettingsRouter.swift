@@ -49,6 +49,10 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         guard let navigation = navigationController else {
                 return
         }
-        prepareInjection(AuthRouter(navigationController: navigation, type: type, auth: .backup, delegate: delegate) as AuthRouterInterface, memoryPolicy: .viewController)
+        prepareInjection(AuthRouter(navigationController: navigation,
+                                    type: type,
+                                    auth: .backup,
+                                    delegate: delegate,
+                                    sourceType: .app) as AuthRouterInterface, memoryPolicy: .viewController)
     }
 }

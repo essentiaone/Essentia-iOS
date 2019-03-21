@@ -20,6 +20,7 @@ fileprivate struct Store {
     var isValidRepeate: Bool = false
     let authType: AuthType
     var keyboardHeight: CGFloat = 0
+    var backupSourceType: BackupSourceType
     
     var isBothValid: Bool {
         if authType == .login {
@@ -28,8 +29,18 @@ fileprivate struct Store {
         return isValid && isValidRepeate && password == repeatPass
     }
     
-    init(authType: AuthType) {
+    var encodedPassword: Data {
+        switch backupSourceType {
+        case .web:
+            return password.data(using: .utf8) ?? Data()
+        default:
+            return password.data(using: .utf8)?.sha3(.keccak256) ?? Data()
+        }
+    }
+    
+    init(authType: AuthType, backupSourceType: BackupSourceType) {
         self.authType = authType
+        self.backupSourceType = backupSourceType
     }
     static var keyStoreFolder = "Keystore"
 }
@@ -46,8 +57,8 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private weak var delegate: SelectAccountDelegate?
     
     // MARK: - Init
-    required init(_ auth: AuthType, delegate: SelectAccountDelegate) {
-        store = Store(authType: auth)
+    required init(_ auth: AuthType, delegate: SelectAccountDelegate, backupSourceType: BackupSourceType) {
+        store = Store(authType: auth, backupSourceType: backupSourceType)
         self.delegate = delegate
         super.init()
     }
@@ -140,20 +151,32 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     private func decodeKeystore() {
         guard let data = self.keystore else { return }
         do {
-            let mnemonic = try (inject() as MnemonicServiceInterface).mnemonic(from: data, password: self.store.password)
-            let user = User(mnemonic: mnemonic)
+            let decodedData = try (inject() as MnemonicServiceInterface).data(from: data, passwordData: self.store.encodedPassword)
+            var user: User
+            switch self.store.backupSourceType {
+            case .web:
+                let seed = decodedData.toHexString()
+                user = User(seed: seed)
+            default:
+                let decodedString = String(data: decodedData, encoding: .utf8) ?? ""
+                if decodedString.split(separator: " ").count == 12 {
+                    user = User(mnemonic: decodedString)
+                } else {
+                    user = User(seed: decodedString)
+                }
+            }
             EssentiaStore.shared.setUser(user)
             user.backup?.currentlyBackup?.clear()
             user.backup?.currentlyBackup?.add(.keystore)
             (inject() as AuthRouterInterface).showPrev()
             delegate?.didSetUser(user: user)
         } catch {
-            (inject() as LoaderInterface).showError(error.localizedDescription)
+            (inject() as LoaderInterface).showError(EssentiaError.unknownError.localizedDescription)
         }
     }
     
     private func showFilePicker() {
-        let fileBrowser = UIDocumentPickerViewController(documentTypes: ["public.data"], in: .open)
+        let fileBrowser = UIDocumentPickerViewController(documentTypes: [], in: .open)
         fileBrowser.delegate = self
         isPickerShown = true
         present(fileBrowser, animated: true)
@@ -163,18 +186,17 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         (inject() as LoaderInterface).show()
         do {
             let path = LocalFolderPath.final(Store.keyStoreFolder)
-            if let mnemonic = EssentiaStore.shared.currentUser.mnemonic {
-                let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(mnemonic: mnemonic,
-                                                                                       password: self.store.password)
-                let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
-                                                                                 to: path,
-                                                                                 with: "\(EssentiaStore.shared.currentUser.id)")
-                EssentiaStore.shared.currentUser.backup?.keystorePath = url.path
-                EssentiaStore.shared.currentUser.backup?.currentlyBackup?.add(.keystore)
-                let user = EssentiaStore.shared.currentUser
-                let userStore: UserStorageServiceInterface = try RealmUserStorage(user: user, password: self.store.password)
-                prepareInjection(userStore, memoryPolicy: .viewController)
-            }
+            let stringToStore = EssentiaStore.shared.currentUser.mnemonic ?? EssentiaStore.shared.currentUser.seed
+            let keystore = try (inject() as MnemonicServiceInterface).keyStoreFile(stringData: stringToStore,
+                                                                                   passwordData: self.store.encodedPassword)
+            let url = try (inject() as LocalFilesServiceInterface).storeData(keystore,
+                                                                             to: path,
+                                                                             with: "\(EssentiaStore.shared.currentUser.id)")
+            EssentiaStore.shared.currentUser.backup?.keystorePath = url.path
+            EssentiaStore.shared.currentUser.backup?.currentlyBackup?.add(.keystore)
+            let user = EssentiaStore.shared.currentUser
+            let userStore: UserStorageServiceInterface = try RealmUserStorage(user: user, password: self.store.password)
+            prepareInjection(userStore, memoryPolicy: .viewController)
         } catch {
             (inject() as LoggerServiceInterface).log(error.description)
         }

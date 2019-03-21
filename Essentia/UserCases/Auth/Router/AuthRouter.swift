@@ -18,7 +18,7 @@ fileprivate enum AuthRoutes {
     case phraseConfirm(mnemonic: String)
     case mnemonicLogin(delegate: SelectAccountDelegate)
     case seedAuth(auth: AuthType, delegate: SelectAccountDelegate)
-    case keyStorePassword(auth: AuthType, delegate: SelectAccountDelegate)
+    case keyStorePassword(auth: AuthType, delegate: SelectAccountDelegate, backupSourceType: BackupSourceType)
     case keyStoreWarning
     
     var controller: UIViewController {
@@ -31,8 +31,8 @@ fileprivate enum AuthRoutes {
             return MnemonicPhraseConfirmViewController(mnemonic: mnemonic)
         case .seedAuth(let auth, let delegate):
             return SeedCopyViewController(auth, delegate: delegate)
-        case .keyStorePassword(let auth, let delegate):
-            return KeyStorePasswordViewController(auth, delegate: delegate)
+        case .keyStorePassword(let auth, let delegate, let sourceType):
+            return KeyStorePasswordViewController(auth, delegate: delegate, backupSourceType: sourceType)
         case .keyStoreWarning:
             return KeyStoreWarningViewController()
         case .mnemonicLogin(let delegate):
@@ -44,7 +44,11 @@ fileprivate enum AuthRoutes {
 class AuthRouter: BaseRouter, AuthRouterInterface {
     fileprivate let routes: [AuthRoutes]
     var current: Int = 0
-    required init(navigationController: UINavigationController, type: BackupType, auth: AuthType, delegate: SelectAccountDelegate) {
+    required init(navigationController: UINavigationController,
+                  type: BackupType,
+                  auth: AuthType,
+                  delegate: SelectAccountDelegate,
+                  sourceType: BackupSourceType) {
         switch auth {
         case .backup:
             switch type {
@@ -65,7 +69,7 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
             case .keystore:
                 routes = [
                     .keyStoreWarning,
-                    .keyStorePassword(auth: auth, delegate: delegate)
+                    .keyStorePassword(auth: auth, delegate: delegate, backupSourceType: sourceType)
                 ]
             }
         case .login:
@@ -80,7 +84,7 @@ class AuthRouter: BaseRouter, AuthRouterInterface {
                 ]
             case .keystore:
                 routes = [
-                    .keyStorePassword(auth: auth, delegate: delegate)
+                    .keyStorePassword(auth: auth, delegate: delegate, backupSourceType: sourceType)
                 ]
             }
         }
