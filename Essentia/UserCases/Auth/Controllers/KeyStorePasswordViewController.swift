@@ -176,7 +176,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
     }
     
     private func showFilePicker() {
-        let fileBrowser = UIDocumentPickerViewController(documentTypes: [], in: .open)
+        let fileBrowser = UIDocumentPickerViewController(documentTypes: ["public.data", "public.item"], in: .open)
         fileBrowser.delegate = self
         isPickerShown = true
         present(fileBrowser, animated: true)
