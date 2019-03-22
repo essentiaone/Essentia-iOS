@@ -140,7 +140,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
             return false
         }
         let wallets: List<GeneratingWalletInfo> = List()
-        let sourceType = user.wallet?.sourceType ?? .app
+        let sourceType = lastSource ?? .app
         Coin.fullySupportedCoins.forEach({ (coin) in
             wallets.append(GeneratingWalletInfo(coin: coin, sourceType: sourceType, seed: user.seed))
         })
