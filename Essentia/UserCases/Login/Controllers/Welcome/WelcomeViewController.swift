@@ -12,6 +12,7 @@ import EssModel
 import EssUI
 import EssDI
 import EssResources
+import RealmSwift
 
 class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
     
@@ -138,6 +139,12 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
             (inject() as LoaderInterface).showError(EssentiaError.userExist.localizedDescription)
             return false
         }
+        let wallets: List<GeneratingWalletInfo> = List()
+        let sourceType = user.wallet?.sourceType ?? .app
+        Coin.fullySupportedCoins.forEach({ (coin) in
+            wallets.append(GeneratingWalletInfo(coin: coin, sourceType: sourceType, seed: user.seed))
+        })
+        user.wallet?.generatedWalletsInfo = wallets
         showTabBar()
         return true
     }
