@@ -73,9 +73,7 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
     private func showBackupKeystore() {
         tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
         (inject() as SettingsRouterInterface).show(.security)
-        if EssentiaStore.shared.currentUser.mnemonic != nil {
-            (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
-        }
+        (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
     }
     
     private func transactionDetail(wallet: ViewWalletInterface, ammount: SelectedTransacrionAmmount) {

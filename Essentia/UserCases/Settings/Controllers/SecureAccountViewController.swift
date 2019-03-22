@@ -62,9 +62,14 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
                        titlePrifex: LS("Settings.Secure.Prefix.Show"),
                        title: LS("Settings.Secure.Seed.Title"),
                        subtitle: LS("Settings.Secure.Seed.Description"),
-                       action: seedAction)]
-            + keystoreState +
-            [.empty(height: 8, background: colorProvider.settingsBackgroud),
+                       action: seedAction),
+             .empty(height: 1, background: colorProvider.settingsBackgroud),
+             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contain(.keystore)),
+                       titlePrifex: LS("Settings.Secure.Prefix.Save"),
+                       title: LS("Settings.Secure.KeyStore.Title"),
+                       subtitle: LS("Settings.Secure.KeyStore.Description"),
+                       action: keyStoreAction),
+             .empty(height: 8, background: colorProvider.settingsBackgroud),
              .description(title: LS("Settings.Secure.Description"),
                           backgroud: colorProvider.settingsBackgroud),
              .calculatbleSpace(background: colorProvider.settingsBackgroud)]
@@ -85,19 +90,6 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
                       title: LS("Settings.Secure.Mnemonic.Title"),
                       subtitle: LS("Settings.Secure.Mnemonic.Description"),
                       action: mnemonicAction)
-        ]
-    }
-    
-    private var keystoreState: [TableComponent] {
-        guard let currentUserBackups = EssentiaStore.shared.currentUser.backup?.currentlyBackup else { return [] }
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
-        return [
-            .empty(height: 1, background: colorProvider.settingsBackgroud),
-            .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contain(.keystore)),
-                      titlePrifex: LS("Settings.Secure.Prefix.Save"),
-                      title: LS("Settings.Secure.KeyStore.Title"),
-                      subtitle: LS("Settings.Secure.KeyStore.Description"),
-                      action: keyStoreAction)
         ]
     }
     
