@@ -180,7 +180,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
         switch EssentiaStore.shared.currentUser.backup?.currentlyBackup?.get() {
-        case [.keystore, .seed, .mnemonic]:
+        case [.keystore, .seed, .mnemonic], [.keystore, .mnemonic, .seed]:
             (inject() as SettingsRouterInterface).show(.fullSecured)
         case []:
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))

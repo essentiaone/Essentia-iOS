@@ -28,15 +28,18 @@ public class Loader: LoaderInterface {
     public func showError(_ error: Error) {
         showError(error.localizedDescription)
     }
-    
-    public func showInfoError(_ message: String) {
-        SVProgressHUD.showError(withStatus: message)
-    }
-    
+
     public func showError(_ message: String) {
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             guard let topView = UIApplication.shared.keyWindow?.subviews.last else { return }
             TopAlert(alertType: .error, title: message, inView: topView).show()
+        }
+    }
+    
+    public func showInfo(_ message: String) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+            guard let topView = UIApplication.shared.keyWindow?.subviews.last else { return }
+            TopAlert(alertType: .info, title: message, inView: topView).show()
         }
     }
     

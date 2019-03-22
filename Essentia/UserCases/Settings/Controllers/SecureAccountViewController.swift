@@ -108,6 +108,11 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var keyStoreAction: () -> Void = { [unowned self] in
-        self.router.show(.backup(type: .keystore))
+        guard let currentlyBackup = EssentiaStore.shared.currentUser.backup?.currentlyBackup else { return }
+        if !currentlyBackup.contain(.keystore) {
+            self.router.show(.backup(type: .keystore))
+        } else {
+            (inject() as LoaderInterface).showInfo("Keystore already backuped")
+        }
     }
 }

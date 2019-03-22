@@ -71,11 +71,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        let containMnemonic = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.contain(.mnemonic) ?? false
-        if !containMnemonic {
-            (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
-            return
-        }
+        (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
