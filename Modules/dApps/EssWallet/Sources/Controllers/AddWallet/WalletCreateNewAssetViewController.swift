@@ -197,7 +197,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         guard let tokensUpdate = try? Realm().objects(TokenUpdate.self).first,
             let tokens = tokensUpdate?.tokens else { return [] }
         guard let currentWallet = self.store.etherWalletForTokens else { return tokens.map { return $0 } }
-        let currentWalletAddress = currentWallet.address
+        let currentWalletAddress = currentWallet.viewWalletObject
         let tokenWallets = self.interactor.getTokensByWalleets()
         let alreadyAddedTokenWallets = tokenWallets[currentWalletAddress] ?? []
         let alreadyAddedTokensId = alreadyAddedTokenWallets.map({ return $0.token?.id ?? "" })

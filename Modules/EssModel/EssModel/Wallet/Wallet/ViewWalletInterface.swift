@@ -19,6 +19,17 @@ public protocol ViewWalletInterface: WalletInterface, ThreadConfined {
     var lastBalance: Double { get }
 }
 
-public func == (lhs: ViewWalletInterface, rhs: ViewWalletInterface) -> Bool {
-    return lhs.asset.name == rhs.asset.name && lhs.asset.type == rhs.asset.type
+public struct ViewWalletObject: Hashable {
+    public static func == (lhs: ViewWalletObject, rhs: ViewWalletObject) -> Bool {
+        return lhs.address == rhs.address && lhs.name == rhs.name
+    }
+    
+    public var address: String
+    public var name: String
+}
+
+extension ViewWalletInterface {
+    public var viewWalletObject: ViewWalletObject {
+        return ViewWalletObject(address: address, name: name)
+    }
 }

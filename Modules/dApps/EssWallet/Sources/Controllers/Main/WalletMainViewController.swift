@@ -14,7 +14,7 @@ import EssUI
 import EssDI
 
 fileprivate struct Store {
-    var tokens: [String: [TokenWallet]] = [:]
+    var tokens: [ViewWalletObject: [TokenWallet]] = [:]
     var generatedWallets: [GeneratingWalletInfo] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
@@ -116,8 +116,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     private func tokensState() -> [TableComponent] {
         var tokenTabState: [TableComponent] = []
         for (key, value) in store.tokens {
-            let name = Coin.ethereum.name + " " + key.suffix(4)
-            tokenTabState.append(contentsOf: buildSection(title: name, wallets: value))
+            tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
         }
         return tokenTabState
     }
