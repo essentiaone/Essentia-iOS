@@ -9,7 +9,7 @@
 import Foundation
 
 // Collect
-public func collect<A>(_ elements: [[A]]) -> [A] {
+public func concat<A>(_ elements: [[A]]) -> [A] {
     return elements.flatMap { return $0 }
 }
 
@@ -20,6 +20,9 @@ precedencegroup ForwardApplication {
 
 infix operator |>: ForwardApplication
 
+public func |> <A, B>(a: [A], f: (A) -> B) -> [B] {
+    return a.map { return $0 |> f }
+}
 public func |> <A, B>(a: A, f: (A) -> B) -> B {
     return f(a)
 }

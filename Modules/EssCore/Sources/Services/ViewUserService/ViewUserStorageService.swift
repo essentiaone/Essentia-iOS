@@ -30,13 +30,13 @@ public class ViewUserStorageService: ViewUserStorageServiceInterface {
         }
     }
     
-    public func get() -> [ViewUser] {
+    public var users: [ViewUser] {
         return realm.objects(ViewUser.self).map({ return $0 })
     }
     
     public func update(_ updateBlock: (ViewUser) -> Void) {
         let currentUserId = EssentiaStore.shared.currentUser.id
-        let viewUser = get().first {
+        let viewUser = users.first {
             return $0.id == currentUserId
         }
         guard let user = viewUser else { return }

@@ -40,8 +40,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let viewUsers = userService.get()
-        let viewUsersState = viewUsers.map(viewUserState) |> collect
+        let viewUsersState = userService.users |> viewUserState |> concat
         return [
             .empty(height: 10, background: .white),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
@@ -55,10 +54,12 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {
         let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
-        return [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
-            self.dismiss(animated: true)
-            self.delegate?.didSelectUser(user)}),
-                .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
+        return
+            [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
+                self.dismiss(animated: true)
+                self.delegate?.didSelectUser(user)
+            }),
+             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
     }
     
     // MARK: - Lifecycle

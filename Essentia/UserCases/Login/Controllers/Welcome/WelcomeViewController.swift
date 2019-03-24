@@ -41,7 +41,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
         title1Label.text = LS("Welcome.Title1")
         title2Label.text = LS("Welcome.Title2")
-        if (inject() as ViewUserStorageServiceInterface).get().isEmpty {
+        if (inject() as ViewUserStorageServiceInterface).users.isEmpty {
             enterButton.setTitle(LS("Welcome.Start"), for: .normal)
         } else {
             enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
@@ -79,7 +79,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        if userService.get().isEmpty {
+        if userService.users.isEmpty {
             createNewUser()
             return
         }
@@ -132,7 +132,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     func didSetUser(user: User) -> Bool {
-        let viewUsers = (inject() as ViewUserStorageServiceInterface).get()
+        let viewUsers = (inject() as ViewUserStorageServiceInterface).users
         let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
         guard !userAlreadyExist else {
             EssentiaStore.shared.currentUser = .notSigned
