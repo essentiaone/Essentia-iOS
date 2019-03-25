@@ -17,6 +17,7 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
+    private let currentLanguage = EssentiaStore.shared.currentUser.profile?.language ?? .english
     
     // MARK: - Lifecycle
     
@@ -44,26 +45,25 @@ class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     var languageState: [TableComponent] {
-        var languageComponent: [TableComponent] = []
-        let currenyLanguage = EssentiaStore.shared.currentUser.profile?.language ?? .english
-        LocalizationLanguage.cases.forEach { (language) in
-            languageComponent.append(.menuTitleCheck(
+        return LocalizationLanguage.cases |> buildLanguageState |> concat
+    }
+    
+    private func buildLanguageState(_ language: LocalizationLanguage) -> [TableComponent] {
+        return [
+            .menuTitleCheck(
                 title: language.titleString,
-                state: ComponentState(defaultValue: currenyLanguage == language),
+                state: ComponentState(defaultValue: currentLanguage == language),
                 action: { [unowned self] in
                     (inject() as UserStorageServiceInterface).update({ (user) in
                         user.profile?.language = language
                     })
                     self.tableAdapter.hardReload(self.state)
                     self.showFlipAnimation()
-            }))
-            languageComponent.append(.separator(inset: .zero))
-        }
-        return languageComponent
+            }),
+            .separator(inset: .zero)]
     }
     
     // MARK: - Actions
-    
     private lazy var backAction: () -> Void = { [unowned self] in
         self.router.pop()
     }

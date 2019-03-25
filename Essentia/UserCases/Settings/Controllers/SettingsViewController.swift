@@ -202,9 +202,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
-        guard user.id != EssentiaStore.shared.currentUser.id else {
-            return
-        }
+        guard user.id != EssentiaStore.shared.currentUser.id else { return }
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 if pass.sha512().sha512() != user.passwordHash {

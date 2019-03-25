@@ -36,14 +36,15 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        return [
-            .empty(height: 5, background: colorProvider.settingsCellsBackround),
-            .titleWithCancel(title: LS("Wallet.AddTokens.SelectRoot.Title"), action: cancelAction),
-            .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround)
+        return
+            [
+                .empty(height: 5, background: colorProvider.settingsCellsBackround),
+                .titleWithCancel(title: LS("Wallet.AddTokens.SelectRoot.Title"), action: cancelAction),
+                .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
+                .empty(height: 8, background: colorProvider.settingsCellsBackround)
             ] + walletsState + [
                 .empty(height: 5, background: colorProvider.settingsCellsBackround)
-        ]
+            ]
     }
     
     private var walletsState: [TableComponent] {

@@ -40,11 +40,11 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let viewUsersState = userService.users |> viewUserState |> concat
+        let usersState = userService.users |> viewUserState |> concat
         return [
             .empty(height: 10, background: .white),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
-            + viewUsersState +
+            + usersState +
             [.imageTitle(image: imageProvider.plusIcon,
                          title: LS("Settings.Accounts.CreateNew"),
                          withArrow: false,
