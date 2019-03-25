@@ -40,24 +40,26 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let usersState = userService.get().map { (user) -> [TableComponent] in
-            let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
-            return [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
-                                    self.dismiss(animated: true)
-                                    self.delegate?.didSelectUser(user)
-                                }),
-                    .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
-            }
+        let usersState = userService.users |> viewUserState |> concat
         return [
-               .empty(height: 10, background: .white),
-               .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
-               + collect(usersState)
-            +
-               [.imageTitle(image: imageProvider.plusIcon,
-                            title: LS("Settings.Accounts.CreateNew"),
-                        withArrow: false,
-                           action: createUserAction),
-                .empty(height: 10, background: .white)]
+            .empty(height: 10, background: .white),
+            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
+            + usersState +
+            [.imageTitle(image: imageProvider.plusIcon,
+                         title: LS("Settings.Accounts.CreateNew"),
+                         withArrow: false,
+                         action: createUserAction),
+             .empty(height: 10, background: .white)]
+    }
+    
+    func viewUserState(_ user: ViewUser) -> [TableComponent] {
+        let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
+        return
+            [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
+                self.dismiss(animated: true)
+                self.delegate?.didSelectUser(user)
+            }),
+             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
     }
     
     // MARK: - Lifecycle
@@ -75,5 +77,5 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         self.dismiss(animated: true)
         self.delegate?.createNewUser()
     }
-
+    
 }

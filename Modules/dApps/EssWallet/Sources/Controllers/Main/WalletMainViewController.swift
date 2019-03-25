@@ -166,7 +166,7 @@ public class WalletMainViewController: BaseTableAdapterController {
                     ] as [TableComponent]
             return oneAssetState
             }
-        return collect(assetsState)
+        return assetsState |> concat
     }
     
     // MARK: - Cash
