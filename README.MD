@@ -1,4 +1,5 @@
 [<img src="https://clogos.essdev.info/new/128x128/essentia.png" align="middle" width="128" height="128">](https://itunes.apple.com/ua/app/essentia/id1438535734)
+
 [![Build Status](https://travis-ci.com/essentiaone/Essentia-iOS.svg?token=KxqSd9shNNgW2Ln2sojL&branch=develop)](https://travis-ci.com/essentiaone/Essentia-iOS)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
