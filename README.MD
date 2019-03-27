@@ -18,6 +18,6 @@ open Essentia.xcworkspace
 - `Swift 4.2`
 
 ## License
-Essentia is released under the [MIT License](https://github.com/essentiaone/Essentia-iOS/blob/develop/LICENSE).
+Essentia is released under the [GNU General Public License v3.0](https://github.com/essentiaone/Essentia-iOS/blob/develop/LICENSE).
 
 [<img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" >](https://itunes.apple.com/ua/app/essentia/id1438535734)
