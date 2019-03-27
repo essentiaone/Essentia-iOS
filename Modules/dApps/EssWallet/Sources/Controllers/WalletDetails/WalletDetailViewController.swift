@@ -160,7 +160,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                    title: tx.type.title ,
                                    subtitle: tx.address,
                                    description: tx.ammount,
-                                   action: {
+                                   action: { [unowned self] in
                                     (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
                                                                                                 txId: tx.hash))
         }),
@@ -184,7 +184,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func loadRank() {
-        (inject() as UserStorageServiceInterface).update { (user) in
+        (inject() as UserStorageServiceInterface).update { [unowned self] (user) in
             let currentCurrency = user.profile?.currency ?? .usd
             let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency)
             let formatter = BalanceFormatter(currency: currentCurrency)
@@ -193,7 +193,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         }
     }
     
-    private lazy var balanceChanged: (Double) -> Void = { balance in
+    private lazy var balanceChanged: (Double) -> Void = { [unowned self] balance in
         (inject() as UserStorageServiceInterface).update { (user) in
             let currentCurrency = user.profile?.currency ?? .usd
             let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency) ?? 0
