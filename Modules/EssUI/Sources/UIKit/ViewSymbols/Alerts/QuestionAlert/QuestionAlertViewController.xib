@@ -28,13 +28,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Si-PW-bma">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="bdV-4Z-Edh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FOD-Sz-hS1">
-                                <rect key="frame" x="25" y="208.5" width="325" height="230"/>
+                                <rect key="frame" x="25" y="218.5" width="325" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gKg-l9-oA5">
                                         <rect key="frame" x="0.0" y="185" width="162.5" height="45"/>
@@ -124,7 +124,7 @@
                 <constraint firstItem="9Si-PW-bma" firstAttribute="leading" secondItem="oNA-dA-ngD" secondAttribute="leading" id="5lL-92-3zq"/>
                 <constraint firstItem="9Si-PW-bma" firstAttribute="top" secondItem="VrK-4H-gia" secondAttribute="top" id="A81-dx-4uI"/>
                 <constraint firstItem="oNA-dA-ngD" firstAttribute="trailing" secondItem="9Si-PW-bma" secondAttribute="trailing" id="Ilx-Rk-tQN"/>
-                <constraint firstItem="9Si-PW-bma" firstAttribute="bottom" secondItem="oNA-dA-ngD" secondAttribute="bottom" constant="-20" id="qw4-Fv-6e7"/>
+                <constraint firstItem="9Si-PW-bma" firstAttribute="bottom" secondItem="oNA-dA-ngD" secondAttribute="bottom" id="qw4-Fv-6e7"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="oNA-dA-ngD"/>
             <point key="canvasLocation" x="194" y="-165.5"/>

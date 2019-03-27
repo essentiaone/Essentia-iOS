@@ -141,7 +141,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         currentUserId = newUser.id
         currentSecurity = newUser.backup?.currentlyBackup?.secureLevel ?? 0
         if shoudShowAnimation {
-            
             return .updating
         }
         return .idle
@@ -181,7 +180,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     private lazy var accountStrenghtAction: () -> Void = { [unowned self] in
         switch EssentiaStore.shared.currentUser.backup?.currentlyBackup?.get() {
-        case [.keystore, .seed, .mnemonic]:
+        case [.keystore, .seed, .mnemonic], [.keystore, .mnemonic, .seed]:
             (inject() as SettingsRouterInterface).show(.fullSecured)
         case []:
             (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
@@ -203,9 +202,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
-        guard user.id != EssentiaStore.shared.currentUser.id else {
-            return
-        }
+        guard user.id != EssentiaStore.shared.currentUser.id else { return }
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
             do {
                 if pass.sha512().sha512() != user.passwordHash {
@@ -228,8 +225,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         }), animated: true)
     }
     
-    func didSetUser(seed: String) {
+    func didSetUser(user: User) -> Bool {
         TabBarController.shared.selectedIndex = 0
+        return true
     }
     
     func createNewUser() {

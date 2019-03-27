@@ -12,6 +12,7 @@ import EssModel
 import EssUI
 import EssDI
 import EssResources
+import RealmSwift
 
 class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
     
@@ -40,7 +41,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
         title1Label.text = LS("Welcome.Title1")
         title2Label.text = LS("Welcome.Title2")
-        if (inject() as ViewUserStorageServiceInterface).get().isEmpty {
+        if (inject() as ViewUserStorageServiceInterface).users.isEmpty {
             enterButton.setTitle(LS("Welcome.Start"), for: .normal)
         } else {
             enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
@@ -78,7 +79,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     @IBAction func enterAction(_ sender: Any) {
-        if userService.get().isEmpty {
+        if userService.users.isEmpty {
             createNewUser()
             return
         }
@@ -100,7 +101,8 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         prepareInjection(AuthRouter(navigationController: nvc,
                                     type: backupType,
                                     auth: .login,
-                                    delegate: self) as AuthRouterInterface,
+                                    delegate: self,
+                                    sourceType: sourceType) as AuthRouterInterface,
                          memoryPolicy: .viewController)
     }
     
@@ -124,22 +126,27 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
                 self.showTabBar()
             })
             return true
-        }, cancel: { [unowned self] in
-            self.dismiss(animated: true)
+            }, cancel: { [unowned self] in
+                self.dismiss(animated: true)
         }), animated: true)
     }
     
-    func didSetUser(seed: String) {
-        showTabBar()
-        guard let backupSourceType = lastSource else { return }
-        (inject() as UserStorageServiceInterface).update { (user) in
-            user.wallet?.sourceType = backupSourceType
-            if backupSourceType.shouldCrateWalletsWhenCreate {
-                Coin.fullySupportedCoins.forEach({ (coin) in
-                   user.wallet?.generatedWalletsInfo.append(GeneratingWalletInfo(coin: coin, sourceType: backupSourceType, seed: seed))
-                })
-            }
+    func didSetUser(user: User) -> Bool {
+        let viewUsers = (inject() as ViewUserStorageServiceInterface).users
+        let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
+        guard !userAlreadyExist else {
+            EssentiaStore.shared.currentUser = .notSigned
+            (inject() as LoaderInterface).showError(EssentiaError.userExist.localizedDescription)
+            return false
         }
+        let wallets: List<GeneratingWalletInfo> = List()
+        let sourceType = lastSource ?? .app
+        Coin.fullySupportedCoins.forEach({ (coin) in
+            wallets.append(GeneratingWalletInfo(coin: coin, sourceType: sourceType, seed: user.seed))
+        })
+        user.wallet?.generatedWalletsInfo = wallets
+        showTabBar()
+        return true
     }
     
     func showTabBar() {

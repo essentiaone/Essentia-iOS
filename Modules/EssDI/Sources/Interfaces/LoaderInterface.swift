@@ -13,5 +13,5 @@ public protocol LoaderInterface {
     func show()
     func hide()
     func showError(_ message: String)
-    func showError(_ error: Error)
+    func showInfo(_ message: String)
 }

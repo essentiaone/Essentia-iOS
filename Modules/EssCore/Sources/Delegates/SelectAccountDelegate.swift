@@ -11,6 +11,6 @@ import EssModel
 
 public protocol SelectAccountDelegate: class {
     func didSelectUser(_ user: ViewUser)
-    func didSetUser(seed: String)
+    @discardableResult func didSetUser(user: User) -> Bool
     func createNewUser()
 }

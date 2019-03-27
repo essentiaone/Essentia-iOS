@@ -62,9 +62,14 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
                        titlePrifex: LS("Settings.Secure.Prefix.Show"),
                        title: LS("Settings.Secure.Seed.Title"),
                        subtitle: LS("Settings.Secure.Seed.Description"),
-                       action: seedAction)]
-            + keystoreState +
-            [.empty(height: 8, background: colorProvider.settingsBackgroud),
+                       action: seedAction),
+             .empty(height: 1, background: colorProvider.settingsBackgroud),
+             .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contain(.keystore)),
+                       titlePrifex: LS("Settings.Secure.Prefix.Save"),
+                       title: LS("Settings.Secure.KeyStore.Title"),
+                       subtitle: LS("Settings.Secure.KeyStore.Description"),
+                       action: keyStoreAction),
+             .empty(height: 8, background: colorProvider.settingsBackgroud),
              .description(title: LS("Settings.Secure.Description"),
                           backgroud: colorProvider.settingsBackgroud),
              .calculatbleSpace(background: colorProvider.settingsBackgroud)]
@@ -88,19 +93,6 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
         ]
     }
     
-    private var keystoreState: [TableComponent] {
-        guard let currentUserBackups = EssentiaStore.shared.currentUser.backup?.currentlyBackup else { return [] }
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
-        return [
-            .empty(height: 1, background: colorProvider.settingsBackgroud),
-            .checkBox(state:  ComponentState(defaultValue: currentUserBackups.contain(.keystore)),
-                      titlePrifex: LS("Settings.Secure.Prefix.Save"),
-                      title: LS("Settings.Secure.KeyStore.Title"),
-                      subtitle: LS("Settings.Secure.KeyStore.Description"),
-                      action: keyStoreAction)
-        ]
-    }
-    
     // MARK: - Actions
     
     private lazy var backAction: () -> Void = { [unowned self] in
@@ -116,6 +108,11 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     }
     
     private lazy var keyStoreAction: () -> Void = { [unowned self] in
-        self.router.show(.backup(type: .keystore))
+        guard let currentlyBackup = EssentiaStore.shared.currentUser.backup?.currentlyBackup else { return }
+        if !currentlyBackup.contain(.keystore) {
+            self.router.show(.backup(type: .keystore))
+        } else {
+            (inject() as LoaderInterface).showInfo("Keystore already backuped")
+        }
     }
 }

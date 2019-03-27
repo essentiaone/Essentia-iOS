@@ -14,7 +14,7 @@ import EssUI
 import EssDI
 
 fileprivate struct Store {
-    var tokens: [String: [TokenWallet]] = [:]
+    var tokens: [ViewWalletObject: [TokenWallet]] = [:]
     var generatedWallets: [GeneratingWalletInfo] = []
     var importedWallets: [ImportedWallet] = []
     var currentSegment: Int = 0
@@ -40,6 +40,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableAdapter.hardReload([])
         hardReload()
         showOnbordingIfNeeded()
     }
@@ -115,8 +116,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     private func tokensState() -> [TableComponent] {
         var tokenTabState: [TableComponent] = []
         for (key, value) in store.tokens {
-            let name = Coin.ethereum.name + " " + key.suffix(4)
-            tokenTabState.append(contentsOf: buildSection(title: name, wallets: value))
+            tokenTabState.append(contentsOf: buildSection(title: key.name, wallets: value))
         }
         return tokenTabState
     }
@@ -154,21 +154,19 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
-        var assetState: [TableComponent] = []
-        wallets.forEach { (wallet) in
-            assetState.append(
-                .assetBalance(imageUrl: wallet.iconUrl,
-                              title: wallet.name,
-                              value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                              currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
-                              action: { [unowned self] in
-                                self.showWalletDetail(for: wallet)
-                                
-                })
-            )
-            assetState.append(.separator(inset: .zero))
-        }
-        return assetState
+        let assetsState: [[TableComponent]] = wallets.map { wallet in
+            let oneAssetState: [TableComponent] =
+                [ .assetBalance(imageUrl: wallet.iconUrl,
+                                title: wallet.name,
+                                value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
+                                currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
+                                action: { [unowned self] in
+                                    self.showWalletDetail(for: wallet)}),
+                  .separator(inset: .zero)
+                    ] as [TableComponent]
+            return oneAssetState
+            }
+        return assetsState |> concat
     }
     
     // MARK: - Cash
@@ -214,6 +212,14 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
+        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
+        if !isConfirmed {
+            self.present(BackupMnemonicAlert.init(leftAction: {},
+                                                  rightAction: {
+                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
+            }), animated: true)
+            return
+        }
         (inject() as WalletRouterInterface).show(.walletDetail(wallet))
     }
     

@@ -27,15 +27,16 @@ public class MnemonicService: MnemonicServiceInterface {
         return wrappedLanguage(for: language).words
     }
     
-    public func keyStoreFile(mnemonic: String, password: String) throws -> Data {
-        let keystore = try KeystoreV3(data: mnemonic, password: password)
+    public func keyStoreFile(stringData: String, passwordData: Data) throws -> Data {
+        let data = Data(stringData.utf8)
+        let keystore = try KeystoreV3(data: data, passwordData: passwordData)
         return (try keystore?.encodedData())!
     }
     
-    public func mnemonic(from keystoreFile: Data, password: String) throws -> String {
+    public func data(from keystoreFile: Data, passwordData: Data) throws -> Data {
         let keystoreV3 = try KeystoreV3(keyStore: keystoreFile)
         guard let keystore = keystoreV3,
-              let decripted = try keystore.getDecriptedKeyStore(password: password) else {
+              let decripted = try keystore.getDecriptedKeyStore(passwordData: passwordData) else {
             throw EssentiaError.unexpectedBehavior
         }
         return decripted

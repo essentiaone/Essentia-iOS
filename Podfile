@@ -1,6 +1,5 @@
-# Uncomment the next line to define a global platform for your project
- platform :ios, '11.0'
- inhibit_all_warnings!
+platform :ios, '11.0'
+inhibit_all_warnings!
 ENV['COCOAPODS_DISABLE_STATS'] = "true"
 
 workspace 'Essentia.xcworkspace'
@@ -33,7 +32,7 @@ end
 
 def pod_ui
     pod 'SVProgressHUD' # Can remove later
-    pod 'Kingfisher' # Can remove later
+    pod 'Kingfisher', '5.1.1' # Can remove later
     pod 'QRCodeReader.swift' # Can remove later
 
 end

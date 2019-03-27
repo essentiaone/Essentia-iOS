@@ -48,7 +48,7 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
                         action: importFromJaxx),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),
             .imageTitle(image: imageProvider.testAvatar,
-                        title: "MetaMast",
+                        title: "MetaMask",
                         withArrow: true,
                         action: importFromMetaMask),
             .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0)),

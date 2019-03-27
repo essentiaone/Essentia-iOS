@@ -32,6 +32,7 @@ public final class KeyboardHeightObserver: NSObject {
     }
     
     public func stop() {
+        willAnimateKeyboard?(0)
         notificationCenter.removeObserver(self)
     }
     

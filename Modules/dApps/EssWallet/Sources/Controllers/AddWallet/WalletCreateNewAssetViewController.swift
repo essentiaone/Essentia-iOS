@@ -132,7 +132,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
             (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: {_ in })
         case 1:
             guard let wallet = self.store.etherWalletForTokens else {
-                (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: { newWallet in
+                (inject() as WalletInteractorInterface).addCoinsToWallet([Coin.ethereum], wallet: { newWallet in
                     (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: newWallet)
                     (inject() as WalletRouterInterface).show(.successGeneratingAlert)
                 })
@@ -157,6 +157,14 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         case 0:
             self.store.assets = interactor.getCoinsList()
         case 1:
+            (inject() as LoaderInterface).show()
+            (inject() as TokensServiceInterface).updateTokensIfNeeded({
+                (inject() as LoaderInterface).hide()
+                main {
+                    self.store.assets = self.filterTokensDueWallet()
+                    self.asyncReloadState()
+                }
+            })
             self.store.assets = self.filterTokensDueWallet()
             self.asyncReloadState()
         default: return
@@ -187,9 +195,9 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     private func filterTokensDueWallet() -> [Token] {
         guard let tokensUpdate = try? Realm().objects(TokenUpdate.self).first,
-            let tokens = tokensUpdate?.tokens,
-            let currentWallet = self.store.etherWalletForTokens else { return [] }
-        let currentWalletAddress = currentWallet.address
+            let tokens = tokensUpdate?.tokens else { return [] }
+        guard let currentWallet = self.store.etherWalletForTokens else { return tokens.map { return $0 } }
+        let currentWalletAddress = currentWallet.viewWalletObject
         let tokenWallets = self.interactor.getTokensByWalleets()
         let alreadyAddedTokenWallets = tokenWallets[currentWalletAddress] ?? []
         let alreadyAddedTokensId = alreadyAddedTokenWallets.map({ return $0.token?.id ?? "" })

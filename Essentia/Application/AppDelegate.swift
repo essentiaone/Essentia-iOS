@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.rootViewController = WelcomeViewController()
         
         SwizzleLocalizedFiles()
-        registerForRemoteNotifications(application)
+//        registerForRemoteNotifications(application)
         return true
     }
     

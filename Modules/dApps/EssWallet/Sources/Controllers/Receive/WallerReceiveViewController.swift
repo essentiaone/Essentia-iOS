@@ -40,6 +40,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
     
     init(wallet: ViewWalletInterface) {
         self.store = Store(wallet: wallet)
+        print(wallet.address)
         super.init()
     }
     

@@ -29,31 +29,34 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
     }
     
     // MARK: - State
-
+    
     private var state: [TableComponent] {
         return [.centeredComponentTopInstet,
                 .container(state: containerState)]
     }
     
     private var containerState: [TableComponent] {
-         return [
-            .empty(height: 5, background: colorProvider.settingsCellsBackround),
-            .titleWithCancel(title: LS("Wallet.AddTokens.SelectRoot.Title"), action: cancelAction),
-            .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
-            .empty(height: 8, background: colorProvider.settingsCellsBackround)
+        return
+            [
+                .empty(height: 5, background: colorProvider.settingsCellsBackround),
+                .titleWithCancel(title: LS("Wallet.AddTokens.SelectRoot.Title"), action: cancelAction),
+                .description(title: LS("Wallet.AddTokens.SelectRoot.Description"), backgroud: colorProvider.settingsCellsBackround),
+                .empty(height: 8, background: colorProvider.settingsCellsBackround)
             ] + walletsState + [
-            .empty(height: 5, background: colorProvider.settingsCellsBackround)
-        ]
+                .empty(height: 5, background: colorProvider.settingsCellsBackround)
+            ]
     }
     
     private var walletsState: [TableComponent] {
-        return wallets.map({ wallet -> [TableComponent] in
-            return [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [unowned self] in
-                        self.didSelect(wallet)
-                        self.dismiss(animated: true)
-                    }),
-                    .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
-        }).flatMap { return $0 }
+        return wallets |> buildWalletState |> concat
+    }
+    
+    private func buildWalletState(_ wallet: ViewWalletInterface) -> [TableComponent] {
+        return  [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [unowned self] in
+                    self.didSelect(wallet)
+                    self.dismiss(animated: true)
+                 }),
+                 .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
     }
     
     // MARK: - Lifecycle

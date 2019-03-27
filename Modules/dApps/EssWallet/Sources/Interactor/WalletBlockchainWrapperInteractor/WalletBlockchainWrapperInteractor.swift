@@ -263,6 +263,6 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
     }
     
     private func showError(_ error: EssentiaNetworkError) {
-        (inject() as LoaderInterface).showError(error)
+        (inject() as LoaderInterface).showError(error.localizedDescription)
     }
 }

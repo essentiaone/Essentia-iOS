@@ -92,12 +92,14 @@ public class WalletInteractor: WalletInteractorInterface {
         return EssentiaStore.shared.currentUser.wallet?.importedWallets.map { return $0 } ?? []
     }
     
-    public func getTokensByWalleets() -> [String: [TokenWallet]] {
-        var tokensByWallets: [String: [TokenWallet]] = [:]
+    public func getTokensByWalleets() -> [ViewWalletObject: [TokenWallet]] {
+        var tokensByWallets: [ViewWalletObject: [TokenWallet]] = [:]
         let tokens: [TokenWallet] = EssentiaStore.shared.currentUser.wallet?.tokenWallets.map { return $0 } ?? []
-        let wallets: Set<String> = Set(tokens.map { return $0.address })
+        var allWallets: [ViewWalletInterface] = getImportedWallets()
+        allWallets.append(contentsOf: getGeneratedWallets())
+        let wallets: Set<ViewWalletObject> = Set(allWallets.map { return $0.viewWalletObject })
         for wallet in wallets {
-            let tokensByCurrentWallet = tokens.filter({ return $0.address == wallet })
+            let tokensByCurrentWallet = tokens.filter({ return $0.address == wallet.address })
             guard !tokensByCurrentWallet.isEmpty else { continue }
             tokensByWallets[wallet] = tokensByCurrentWallet
         }

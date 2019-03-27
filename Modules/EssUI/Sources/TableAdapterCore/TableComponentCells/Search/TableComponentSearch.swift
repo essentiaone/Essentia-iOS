@@ -25,6 +25,10 @@ class TableComponentSearch: UITableViewCell, NibLoadable, UISearchBarDelegate {
     
     // MARK: - UISearchBarDelegate
     
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         textChangedAction?(searchText)
     }

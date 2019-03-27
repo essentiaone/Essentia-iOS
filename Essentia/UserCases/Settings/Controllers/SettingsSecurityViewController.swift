@@ -47,17 +47,12 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
                                     detail: LS("Settings.Security.Seed.Detail"),
                                     withArrow: true,
                                     action: seedAction),
+             .separator(inset: .zero),
+             .menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
+                                    detail: LS("Settings.Security.Keystore.Detail"),
+                                    withArrow: false,
+                                    action: ketstoreAction),
              .separator(inset: .zero)]
-            + keystoreState
-    }
-    
-    private var keystoreState: [TableComponent] {
-        guard EssentiaStore.shared.currentUser.mnemonic != nil else { return [] }
-        return [.menuSimpleTitleDetail(title: LS("Settings.Security.Keystore.Title"),
-                                       detail: LS("Settings.Security.Keystore.Detail"),
-                                       withArrow: false,
-                                       action: ketstoreAction),
-                .separator(inset: .zero)]
     }
     
     var mnemonicState: [TableComponent] {
@@ -76,11 +71,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
     }
     
     private lazy var mnemonicAction: () -> Void = { [unowned self] in
-        let containMnemonic = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.contain(.mnemonic) ?? false
-        if !containMnemonic {
-            (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
-            return
-        }
+        (inject() as SettingsRouterInterface).show(.backup(type: .mnemonic))
     }
     
     private lazy var seedAction: () -> Void = { [unowned self] in
