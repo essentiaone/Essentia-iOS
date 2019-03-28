@@ -20,22 +20,10 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     private lazy var router: SettingsRouterInterface = inject()
     
     // MARK: - Lifecycle
-    
-    private lazy var cashState: [TableComponent] = []
-    
-    override init() {
-        super.init()
-        self.cashState = state
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyDesign()
-        tableAdapter.hardReload(cashState)
+        tableAdapter.hardReload(state)
     }
     
     // MARK: - Override
@@ -53,9 +41,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
         let secureLevel = currentUserBackups.secureLevel
         return [
             .accountStrength(backAction: backAction, currentLevel: secureLevel),
-            .shadow(height: 10,
-                    shadowColor: colorProvider.settingsShadowColor,
-                    background: colorProvider.settingsBackgroud)]
+            .empty(height: 10, background: colorProvider.settingsBackgroud)]
             + mnemonicState +
             [.empty(height: 1, background: colorProvider.settingsBackgroud),
              .checkBox(state: ComponentState(defaultValue: currentUserBackups.contain(.seed)),

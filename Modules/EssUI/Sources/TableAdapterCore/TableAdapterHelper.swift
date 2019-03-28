@@ -38,8 +38,6 @@ public class TableAdapterHelper {
         switch component {
         case .separator:
             return 1.0
-        case .shadow(let height, _, _):
-            return height
         case .empty(let height, _):
             return height
         case .title(let bold, let title):

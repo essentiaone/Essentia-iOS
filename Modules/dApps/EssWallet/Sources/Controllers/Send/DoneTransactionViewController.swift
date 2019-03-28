@@ -69,7 +69,7 @@ class DoneTransactionViewController: BaseTableAdapterController {
         }
     }
     
-    private lazy var continueAction: () -> Void = {
+    private lazy var continueAction: () -> Void = { [unowned self] in
         self.navigationController?.popToRootViewController(animated: true)
     }
 }

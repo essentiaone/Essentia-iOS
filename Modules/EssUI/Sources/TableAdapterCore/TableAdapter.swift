@@ -149,12 +149,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
             cell.backgroundColor = background
             return cell
-        case .shadow(_, let shadowColor, let background):
-            let cell: TableComponentShadow = tableView.dequeueReusableCell(for: indexPath)
-            cell.backgroundColor = background
-            cell.drawGradient(withColor: shadowColor)
-            cell.layoutSubviews()
-            return cell
         case .separator(let inset):
             let cell: TableComponentSeparator = tableView.dequeueReusableCell(for: indexPath)
             cell.separatorInset = inset

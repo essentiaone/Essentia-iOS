@@ -30,9 +30,7 @@ class WalletSelectImportAssetViewController: BaseTableAdapterController, Swipeab
                            title: LS("Wallet.ImportAsset.Title"),
                            lAction: backAction,
                            rAction: nil),
-            .shadow(height: 16,
-                    shadowColor: colorProvider.settingsShadowColor,
-                    background: colorProvider.settingsBackgroud)
+            .empty(height: 16, background: colorProvider.settingsBackgroud)
             ] + coins + [
             .calculatbleSpace(background: colorProvider.settingsBackgroud)
         ]

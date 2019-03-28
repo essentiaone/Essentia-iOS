@@ -22,7 +22,7 @@ public class WalletInteractor: WalletInteractorInterface {
             return true
         }
         let alreadyContainWallet = importdAssets.contains {
-            return $0.name == wallet.name || $0.privateKey == wallet.privateKey
+            return $0.privateKey == wallet.privateKey
         }
         return !alreadyContainWallet
     }

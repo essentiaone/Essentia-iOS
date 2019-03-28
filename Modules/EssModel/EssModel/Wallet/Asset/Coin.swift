@@ -15,7 +15,8 @@ public enum Coin: String {
     case bitcoinCash
     
     public static var fullySupportedCoins: [Coin] {
-        return [.ethereum]
+        return [.ethereum,
+                .bitcoin]
     }
     
     public func isValidPK(_ pk: String) -> Bool {
