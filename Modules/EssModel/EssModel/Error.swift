@@ -12,7 +12,6 @@ public enum EssentiaError: Error {
     public enum TxError: Error {
         case invalidPk
         case failCreateTx
-        
     }
     
     public enum DBError: Error {
@@ -21,6 +20,11 @@ public enum EssentiaError: Error {
         case objectsNotFound
     }
     
+    public enum ImportError: Error {
+        case walletExist
+    }
+    
+    case importError(ImportError)
     case dbError(DBError)
     case txError(TxError)
     case unknownError
@@ -45,6 +49,11 @@ public enum EssentiaError: Error {
                 return "Invalid private key"
             case .failCreateTx:
                 return "Can not create transaction"
+            }
+        case .importError(let importError):
+            switch importError {
+            case .walletExist:
+                return "Wallet already exist"
             }
         case .unknownError:
             return "Something wrong"

@@ -16,6 +16,7 @@ public func concat<A>(_ elements: [[A]]) -> [A] {
 // Apply
 precedencegroup ForwardApplication {
     associativity: left
+    higherThan: AdditionPrecedence
 }
 
 infix operator |>: ForwardApplication

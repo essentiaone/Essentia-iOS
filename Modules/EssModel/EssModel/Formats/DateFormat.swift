@@ -13,7 +13,7 @@ public enum DateFormat: String {
     case UTCFullDateZ = "yyyy-MM-dd'T'HH:mm:ssZ"
     case date = "dd.MM.yy"
     case dateTime = "dd.MM.yyyy', 'HH':'mm"
-    case dayMonth = "d MMMM"
+    case dayMonth = "d MMMM YYYY"
 }
 
 public extension DateFormatter {
