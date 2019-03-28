@@ -10,7 +10,7 @@ import Foundation
 
 public typealias Satoshi = UInt64
 public typealias Bitcoin = Double
-fileprivate var satoshiesInBitcoin: Double = 100_000_000
+public var satoshiesInBitcoin: Double = 100_000_000
 
 public class BitcoinConverter {
     private let value: UInt64

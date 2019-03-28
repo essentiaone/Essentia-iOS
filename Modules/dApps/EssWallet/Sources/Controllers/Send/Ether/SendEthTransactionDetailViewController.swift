@@ -77,10 +77,6 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         keyboardObserver.start()
     }
     
-    /*
-     "Wallet.Send.Mins" = "mins";
-     "Wallet.Send.hours" = "hours";
-     "Wallet.Send.TransactionTime" = "Transaction time";*/
     private var state: [TableComponent] {
         let ammountFormatter = BalanceFormatter(asset: store.wallet.asset)
         return [
