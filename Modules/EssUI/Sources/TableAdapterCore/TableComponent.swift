@@ -15,7 +15,6 @@ public enum TableComponent: Equatable {
     case slider(titles: (String, String, String), values: (Double, Double, Double), didChange: (Float) -> Void)
     case separator(inset: UIEdgeInsets)
     case empty(height: CGFloat, background: UIColor)
-    case shadow(height: CGFloat, shadowColor: UIColor, background: UIColor)
     case title(bold: Bool, title: String)
     case titleWithFont(font: UIFont, title: String, background: UIColor, aligment: NSTextAlignment)
     case titleWithFontAligment(font: UIFont, title: String, aligment: NSTextAlignment, color: UIColor)
