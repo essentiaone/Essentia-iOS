@@ -1,17 +1,17 @@
 //
-//  BitcoinTransaction+Status.swift
-//  Essentia
+//  LitecoinTransaction.swift
+//  EssCore
 //
-//  Created by Pavlo Boiko on 10/26/18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 3/29/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import EssentiaBridgesApi
 import EssModel
 
-public extension BitcoinTransactionValue {
+public extension LitecoinTransactionValue {
     public var status: TransactionStatus {
-        if confirmations >= 2 {
+        if confirmations >= 5 {
             return .success
         }
         return .pending
