@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/essentiaone/Essentia-iOS.svg?token=KxqSd9shNNgW2Ln2sojL&branch=develop)](https://travis-ci.com/essentiaone/Essentia-iOS)
+[![Black Duck Security Risk](https://copilot.blackducksoftware.com/github/repos/essentiaone/Essentia-iOS/branches/develop/badge-risk.svg)](https://copilot.blackducksoftware.com/github/repos/essentiaone/Essentia-iOS/branches/develop)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## Essentia One iOS application.
