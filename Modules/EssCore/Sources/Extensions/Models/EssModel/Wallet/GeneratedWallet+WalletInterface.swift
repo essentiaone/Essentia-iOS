@@ -12,10 +12,13 @@ import HDWalletKit
 import EssDI
 
 extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
-    public convenience init(name: String, coin: EssModel.Coin, derivationIndex: Int32, seed: String) {
+    public convenience init(name: String, coin: EssModel.Coin, derivationIndex: Int32, seed: String, sourseType: BackupSourceType) {
         let hdwalletCoin = wrapCoin(coin: coin)
         let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)
-        let account = wallet.generateAccount(at: UInt32(derivationIndex))
+    
+        var walletDerivationNode = sourseType.derivationNodesFor(coin: wrapCoin(coin: coin))
+        walletDerivationNode.append(.notHardened(UInt32(derivationIndex)))
+        let account = wallet.generateAccount(at: walletDerivationNode)
         self.init(name: name, coin: coin, privateKey: account.rawPrivateKey, address: account.address, derivationIndex: derivationIndex, lastBalance: 0)
         self.coin = coin
         self.derivationIndex = derivationIndex
