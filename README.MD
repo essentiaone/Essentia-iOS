@@ -5,7 +5,7 @@
 ## Essentia One iOS application.
 Manage all crypto assets in one environment and bring blockchain power to your everyday life. Buy & sell cross-platform tokens in one click. 
 
-[<img src="https://clogos.essdev.info/ios/iOS_code_Essentia.png" >](https://itunes.apple.com/ua/app/essentia/id1438535734)
+[<img src="https://clogos.essdev.info/ios/iOS_code_Essentia.png" >](https://itunes.apple.com/app/essentia/id1438535734)
 
 - Secure 
 - Fast and user-friendly
@@ -39,4 +39,4 @@ You can find more Essentia code through the following link: https://github.com/e
 ### License
 Essentia is released under the [GNU General Public License v3.0](https://github.com/essentiaone/Essentia-iOS/blob/develop/LICENSE).
 
-[<img src="https://clogos.essdev.info/ios/Download_on_the_App_Store_Badge.svg" >](https://itunes.apple.com/ua/app/essentia/id1438535734)
+[<img src="https://clogos.essdev.info/ios/Download_on_the_App_Store_Badge.svg" >](https://itunes.apple.com/app/essentia/id1438535734)
