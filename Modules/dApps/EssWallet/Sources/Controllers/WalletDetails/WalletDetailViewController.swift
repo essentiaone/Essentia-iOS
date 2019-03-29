@@ -20,7 +20,6 @@ fileprivate struct Store {
     var isLoadingTransactions: Bool = false
     var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
-    var transactionsByDate: [String: [ViewTransaction]] = [:]
     var bitcoinTransactions: [BitcoinTransactionValue] = []
     var ethereumTransactions: [EthereumTransactionDetail] = []
     var balance: Double = 0
@@ -29,6 +28,7 @@ fileprivate struct Store {
     
     init(wallet: ViewWalletInterface) {
         self.wallet = wallet
+        self.balance = wallet.balanceInCurrentCurrency
     }
 }
 
@@ -43,9 +43,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     // MARK: - Init
     init(wallet: ViewWalletInterface) {
         self.store = Store(wallet: wallet)
-        print(wallet.address)
         super.init()
-        self.store.balance = wallet.balanceInCurrentCurrency
         self.store.balanceChanging = self.interactor.getBalanceChanging(olderBalance: wallet.yesterdayBalanceInCurrentCurrency,
                                                                         newestBalance: wallet.balanceInCurrentCurrency)
     }
@@ -124,25 +122,16 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                              action: searchTransactionAction)] + formattedTransactions
     }
     
-    // Refactor?
     private var formattedTransactions: [TableComponent] {
-        let txByDate = self.store.transactionsByDate
-        let keys = txByDate.keys.sorted { (lhs, rhs) -> Bool in
-            let dateFormatter = DateFormatter(formate: DateFormat.dayMonth)
-            let lhsDate = dateFormatter.date(from: lhs) ?? Date()
-            let rhsDate = dateFormatter.date(from: rhs) ?? Date()
-            return lhsDate > rhsDate
+        let grouped = Dictionary(grouping: self.store.transactions) { return $0.stringDate }
+        let sortedGroup = grouped.sorted {
+            return $0.value[0].date > $1.value[0].date
         }
-        return keys.map { (key) -> [TableComponent]  in
-            return formattedDateSection(date: key) +
-                formattedTransactionsSection(txByDate[key] ?? [])
-            }.reduce([], + )
+        return sortedGroup |> buildSectionState |> concat
     }
     
-    private func formattedTransactionsSection(_ transactions: [ViewTransaction]) -> [TableComponent] {
-        return transactions.map {
-            return formattedTransaction($0)
-            }.reduce([], + )
+    private func buildSectionState(date: String, _ transactions: [ViewTransaction]) -> [TableComponent] {
+        return formattedDateSection(date: date) + transactions |> formattedTransaction |> concat
     }
     
     private func formattedDateSection(date: String) -> [TableComponent] {
@@ -160,7 +149,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
                                    title: tx.type.title ,
                                    subtitle: tx.address,
                                    description: tx.ammount,
-                                   action: {
+                                   action: { [unowned self] in
                                     (inject() as WalletRouterInterface).show(.transactionDetail(asset: self.store.wallet.asset,
                                                                                                 txId: tx.hash))
         }),
@@ -184,7 +173,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     }
     
     private func loadRank() {
-        (inject() as UserStorageServiceInterface).update { (user) in
+        (inject() as UserStorageServiceInterface).update { [unowned self] (user) in
             let currentCurrency = user.profile?.currency ?? .usd
             let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency)
             let formatter = BalanceFormatter(currency: currentCurrency)
@@ -193,7 +182,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         }
     }
     
-    private lazy var balanceChanged: (Double) -> Void = { balance in
+    private lazy var balanceChanged: (Double) -> Void = { [unowned self] balance in
         (inject() as UserStorageServiceInterface).update { (user) in
             let currentCurrency = user.profile?.currency ?? .usd
             let rank = EssentiaStore.shared.ranks.getRank(for: self.store.wallet.asset, on: currentCurrency) ?? 0
@@ -244,9 +233,9 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     
     private func loadTransactions() {
         self.store.isLoadingTransactions = true
-        (inject() as WalletBlockchainWrapperInteractorInterface).getTransactionsByWallet(store.wallet, transactions: { [unowned self] in
+        (inject() as WalletBlockchainWrapperInteractorInterface).getTransactionsByWallet(store.wallet, transactions: { [weak self] in
+            guard let self = self else { return }
             self.store.transactions = $0
-            self.store.transactionsByDate = Dictionary(grouping: $0, by: { $0.stringDate })
             self.store.isLoadingTransactions = false
             self.tableAdapter.simpleReload(self.state)
         })

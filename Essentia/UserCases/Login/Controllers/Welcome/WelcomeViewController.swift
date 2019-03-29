@@ -155,7 +155,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     func createNewUser() {
-        EssentiaLoader.show {
+        EssentiaLoader.show { [unowned self] in
             self.showTabBar()
         }
         (inject() as LoginInteractorInterface).generateNewUser {}

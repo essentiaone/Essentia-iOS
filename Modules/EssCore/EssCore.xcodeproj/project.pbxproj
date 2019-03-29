@@ -12,6 +12,7 @@
 		345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */; };
 		345747B421F50F57006E2EAB /* CurrencyRankDemonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */; };
 		345747BB21F51336006E2EAB /* SelectAccountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */; };
+		3457B7FE223FA60D00D54283 /* BitcoinConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */; };
 		345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345D6DB621EF84CD00C59398 /* EssResources.framework */; };
 		347A3B6E21F3B4330053C2F3 /* BitcoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4721F3B4330053C2F3 /* BitcoinTransaction+Status.swift */; };
 		347A3B6F21F3B4330053C2F3 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */; };
@@ -101,6 +102,7 @@
 		345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemon.swift; sourceTree = "<group>"; };
 		345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemonInterface.swift; sourceTree = "<group>"; };
 		345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountDelegate.swift; sourceTree = "<group>"; };
+		3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinConverter.swift; sourceTree = "<group>"; };
 		345D6DB621EF84CD00C59398 /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4721F3B4330053C2F3 /* BitcoinTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BitcoinTransaction+Status.swift"; sourceTree = "<group>"; };
 		347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				34B143AA21D3D95A00EC06AE /* BalanceFormatter.swift */,
 				34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */,
 				34B143AC21D3D95A00EC06AE /* DateFormatter.swift */,
+				3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -693,6 +696,7 @@
 				34F00A5121D6807800B01C99 /* CurrencyConverterService.swift in Sources */,
 				34F00A6321D6815000B01C99 /* AppStateEventProxy.swift in Sources */,
 				347A3B8621F3B4330053C2F3 /* LocalizationLanguage+LS.swift in Sources */,
+				3457B7FE223FA60D00D54283 /* BitcoinConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
