@@ -51,10 +51,12 @@ public class WalletInteractor: WalletInteractorInterface {
         coins.forEach { coin in
             let index = freeIndex(for: coin)
             let seed = EssentiaStore.shared.currentUser.seed
+            let sourseType = EssentiaStore.shared.currentUser.wallet?.sourceType ?? .app
             let walletInfo = GeneratingWalletInfo(name: coin.localizedName,
                                                  coin: coin,
                                                  derivationIndex: index,
-                                                 seed: seed)
+                                                 seed: seed,
+                                                 sourseType: sourseType)
             (inject() as UserStorageServiceInterface).update({ _ in
                 let address = walletInfo.address
                 let generatedName = walletInfo.name + " " + address.suffix(4)
