@@ -5,7 +5,6 @@ ENV['COCOAPODS_DISABLE_STATS'] = "true"
 workspace 'Essentia.xcworkspace'
 
 source 'https://github.com/CocoaPods/Specs.git'
-source 'https://github.com/essentiaone/ess-cocoapodspec.git'
 
 # Pods def
 
