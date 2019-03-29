@@ -159,7 +159,8 @@ class SendBitcoinTransactionViewController: BaseTableAdapterController, QRCodeRe
         self.tableAdapter.endEditing(true)
         let txInfo = UtxoTxInfo(address: self.store.address,
                                 ammount: self.store.ammount,
-                                wallet: self.store.wallet)
+                                wallet: self.store.wallet,
+                                feePerByte: UInt64(self.store.selectedFeeSlider))
         let vc = ConfirmBitcoinTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)

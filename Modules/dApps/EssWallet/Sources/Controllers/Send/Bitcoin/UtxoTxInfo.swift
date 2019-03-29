@@ -13,4 +13,5 @@ struct UtxoTxInfo {
     var address: String
     var ammount: SelectedTransacrionAmmount
     var wallet: ViewWalletInterface
+    var feePerByte: UInt64
 }
