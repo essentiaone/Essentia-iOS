@@ -33,13 +33,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        (inject() as LoaderInterface).show()
-    }
-    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        (inject() as LoaderInterface).show()
         tableAdapter.hardReload([])
         hardReload()
         showOnbordingIfNeeded()
