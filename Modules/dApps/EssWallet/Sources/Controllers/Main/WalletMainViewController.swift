@@ -189,13 +189,10 @@ public class WalletMainViewController: BaseTableAdapterController {
         })
     }
     
-    private lazy var addWalletAction: () -> Void = {
-        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
-        if !isConfirmed {
-            self.present(BackupMnemonicAlert.init(leftAction: {},
-                                                  rightAction: {
-                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
-            }), animated: true)
+    private lazy var addWalletAction: () -> Void = { [ weak self] in
+        guard let self = self else { return }
+        guard self.isConfirmed else {
+            self.showConfrimAlert()
             return
         }
         switch self.store.currentSegment {
@@ -212,12 +209,8 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
-        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
-        if !isConfirmed {
-            self.present(BackupMnemonicAlert.init(leftAction: {},
-                                                  rightAction: {
-                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
-            }), animated: true)
+        guard isConfirmed else {
+            showConfrimAlert()
             return
         }
         (inject() as WalletRouterInterface).show(.walletDetail(wallet))
@@ -244,6 +237,17 @@ public class WalletMainViewController: BaseTableAdapterController {
             self.store.balanceChangedPer24Hours = changes
             self.tableAdapter.simpleReload(self.state())
         }
+    }
+    
+    private var isConfirmed: Bool {
+        return EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
+    }
+    
+    private func showConfrimAlert() {
+        self.present(BackupMnemonicAlert.init(leftAction: {},
+                                              rightAction: {
+                                                (inject() as WalletRouterInterface).show(.backupKeystore)
+        }), animated: true)
     }
     
     private func loadBalances() {

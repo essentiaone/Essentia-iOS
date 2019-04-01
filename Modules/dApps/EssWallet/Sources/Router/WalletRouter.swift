@@ -72,7 +72,6 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
     
     private func showBackupKeystore() {
         tabBar.selectedViewController = (inject() as SettingsRouterInterface).nvc
-        (inject() as SettingsRouterInterface).show(.security)
         (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
     }
     
