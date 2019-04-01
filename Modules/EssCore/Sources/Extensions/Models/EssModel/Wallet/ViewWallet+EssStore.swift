@@ -14,7 +14,7 @@ public extension ViewWalletInterface {
     public var formattedBalanceInCurrentCurrencyWithSymbol: String {
         guard let currency = EssentiaStore.shared.currentUser.profile?.currency,
               let rank = EssentiaStore.shared.ranks.getRank(for: asset, on: currency) else {
-            return ""
+            return "0.0"
         }
         return formattedBalanceInCurrency(currency: currency, with: rank)
     }
