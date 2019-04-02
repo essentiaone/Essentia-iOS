@@ -28,10 +28,7 @@ public class CryptoFormatter {
         switch type {
         case .recive:
             attributed.addAttributes([NSAttributedString.Key.foregroundColor: RGB(59, 207, 85)], range: NSRange(location: 0, length: attributed.length))
-        case .send:
-            print("Send")
-        case .exchange:
-            print("Exchange")
+        default: break
         }
         return attributed
     }
