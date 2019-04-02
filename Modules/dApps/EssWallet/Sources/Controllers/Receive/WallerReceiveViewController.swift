@@ -24,10 +24,10 @@ fileprivate struct Store {
     }
     
     var qrText: String {
-        guard !enterdValueInCrypto.isEmpty else {
+//        guard !enterdValueInCrypto.isEmpty else {
             return address
-        }
-        return wallet.asset.name.lowercased() + ":" + address + "?" + "value=" + enterdValueInCrypto
+//        }
+//        return wallet.asset.name.lowercased() + ":" + address + "?" + "value=" + enterdValueInCrypto
     }
 }
 class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigation {
@@ -72,9 +72,9 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
                            aligment: .center),
             .empty(height: 6, background: colorProvider.settingsCellsBackround),
             .titleAction(font: AppFont.bold.withSize(15), title: store.address, action: copyAction),
-            .empty(height: 20, background: colorProvider.settingsCellsBackround)]
-            + ammountComponent +
-            [.separator(inset: .zero),
+            .empty(height: 20, background: colorProvider.settingsCellsBackround),
+//            ] + ammountComponent + [
+                .separator(inset: .zero),
             .empty(height: 16, background: colorProvider.settingsCellsBackround),
             .smallCenteredButton(title: LS("Wallet.Receive.Copy"), isEnable: true, action: copyAction, background: colorProvider.settingsCellsBackround),
             .empty(height: 24, background: colorProvider.settingsCellsBackround)

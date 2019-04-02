@@ -33,13 +33,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     private lazy var store: Store = Store()
     
     // MARK: - Lifecycle
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        (inject() as LoaderInterface).show()
-    }
-    
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        (inject() as LoaderInterface).show()
         tableAdapter.hardReload([])
         hardReload()
         showOnbordingIfNeeded()
@@ -141,32 +137,31 @@ public class WalletMainViewController: BaseTableAdapterController {
     // MARK: - State builders
     func buildSection(title: String, wallets: [ViewWalletInterface]) -> [TableComponent] {
         guard !wallets.isEmpty else { return [] }
-        var sectionState: [TableComponent] = []
-        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
-        sectionState.append(.descriptionWithSize(aligment: .left,
-                                                 fontSize: 14,
-                                                 title: title,
-                                                 background: colorProvider.settingsBackgroud,
-                                                 textColor: colorProvider.appDefaultTextColor))
-        sectionState.append(.empty(height: 10, background: colorProvider.settingsBackgroud))
-        sectionState.append(contentsOf: buildStateForWallets(wallets))
-        return sectionState
+        return [
+            .empty(height: 10, background: colorProvider.settingsBackgroud),
+            .descriptionWithSize(aligment: .left,
+                                 fontSize: 14,
+                                 title: title,
+                                 background: colorProvider.settingsBackgroud,
+                                 textColor: colorProvider.appDefaultTextColor),
+            .empty(height: 10, background: colorProvider.settingsBackgroud)] +
+            buildStateForWallets(wallets)
     }
     
     func buildStateForWallets(_ wallets: [ViewWalletInterface]) -> [TableComponent] {
-        let assetsState: [[TableComponent]] = wallets.map { wallet in
-            let oneAssetState: [TableComponent] =
-                [ .assetBalance(imageUrl: wallet.iconUrl,
-                                title: wallet.name,
-                                value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
-                                currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
-                                action: { [unowned self] in
-                                    self.showWalletDetail(for: wallet)}),
-                  .separator(inset: .zero)
-                    ] as [TableComponent]
-            return oneAssetState
-            }
-        return assetsState |> concat
+        return wallets |> buildAsetState |> concat
+    }
+    
+    private func buildAsetState(_ wallet: ViewWalletInterface) -> [TableComponent] {
+        return 
+            [ .assetBalance(imageUrl: wallet.iconUrl,
+                            title: wallet.name,
+                            value: wallet.formattedBalanceInCurrentCurrencyWithSymbol,
+                            currencyValue: wallet.formattedBalanceWithSymbol.uppercased(),
+                            action: { [unowned self] in
+                                self.showWalletDetail(for: wallet)}),
+              .separator(inset: .zero)
+        ]
     }
     
     // MARK: - Cash
@@ -189,13 +184,10 @@ public class WalletMainViewController: BaseTableAdapterController {
         })
     }
     
-    private lazy var addWalletAction: () -> Void = {
-        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
-        if !isConfirmed {
-            self.present(BackupMnemonicAlert.init(leftAction: {},
-                                                  rightAction: {
-                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
-            }), animated: true)
+    private lazy var addWalletAction: () -> Void = { [ weak self] in
+        guard let self = self else { return }
+        guard self.isConfirmed else {
+            self.showConfrimAlert()
             return
         }
         switch self.store.currentSegment {
@@ -212,12 +204,8 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
-        let isConfirmed = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
-        if !isConfirmed {
-            self.present(BackupMnemonicAlert.init(leftAction: {},
-                                                  rightAction: {
-                                                    (inject() as WalletRouterInterface).show(.backupKeystore)
-            }), animated: true)
+        guard isConfirmed else {
+            showConfrimAlert()
             return
         }
         (inject() as WalletRouterInterface).show(.walletDetail(wallet))
@@ -244,6 +232,17 @@ public class WalletMainViewController: BaseTableAdapterController {
             self.store.balanceChangedPer24Hours = changes
             self.tableAdapter.simpleReload(self.state())
         }
+    }
+    
+    private var isConfirmed: Bool {
+        return EssentiaStore.shared.currentUser.backup?.currentlyBackup?.isConfirmed ?? false
+    }
+    
+    private func showConfrimAlert() {
+        self.present(BackupMnemonicAlert.init(leftAction: {},
+                                              rightAction: {
+                                                (inject() as WalletRouterInterface).show(.backupKeystore)
+        }), animated: true)
     }
     
     private func loadBalances() {
