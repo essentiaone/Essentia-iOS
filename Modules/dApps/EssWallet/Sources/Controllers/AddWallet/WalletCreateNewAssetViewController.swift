@@ -180,8 +180,10 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: self.wallets, action: { (wallet) in
             self.store.etherWalletForTokens = wallet
-            self.store.assets = self.filterTokensDueWallet()
-            self.asyncReloadState()
+            main {
+                self.store.assets = self.filterTokensDueWallet()
+                self.asyncReloadState()
+            }
         }))
     }
     
