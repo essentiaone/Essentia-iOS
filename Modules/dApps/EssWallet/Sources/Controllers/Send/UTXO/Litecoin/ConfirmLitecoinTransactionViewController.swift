@@ -23,7 +23,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
-    private var bitcoinService: BitcoinWalletInterface
+    private var litecoinService: LitecoinWalletInterface
     private var utxoSelector: UtxoSelectorInterface
     private var utxoWallet: UTXOWallet
     private var bitcoinConverter: BitcoinConverter
@@ -37,9 +37,9 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo) {
         self.viewWallet = wallet
         self.tx = tx
-        bitcoinService = BitcoinWallet(EssentiaConstants.bridgeUrl)
+        litecoinService = LitecoinWallet(EssentiaConstants.bridgeUrl)
         utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .bitcoin)
+        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .litecoin)
         utxoWallet = UTXOWallet(privateKey: privateKey,
                                 utxoSelector: utxoSelector,
                                 utxoTransactionBuilder: UtxoTransactionBuilder(),
@@ -104,14 +104,14 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedFee() -> String {
-        let ammountFormatter = BalanceFormatter(asset: Coin.bitcoin)
+        let ammountFormatter = BalanceFormatter(asset: Coin.litecoin)
         guard let fee = fee else { return "" }
         let feeConverter = BitcoinConverter(satoshi: fee)
         return ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
     }
     
     private func loadUnspendTransaction() {
-        bitcoinService.getUTxo(for: tx.wallet.address) { (result) in
+        litecoinService.getUTxo(for: tx.wallet.address) { (result) in
             switch result {
             case .success(let transactions):
                 self.generateTransaction(fromUtxo: transactions)
@@ -121,12 +121,12 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
         }
     }
     
-    private func generateTransaction(fromUtxo: [BitcoinUTXO]) {
+    private func generateTransaction(fromUtxo: [LitecoinUTXO]) {
         let unspendTransactions: [UnspentTransaction] = fromUtxo.map { return $0.unspendTx }
         do {
             let selectedTx = try self.utxoSelector.select(from: unspendTransactions, targetValue: self.ammount)
             self.fee = selectedTx.fee
-            let address = try LegacyAddress(tx.address, coin: .bitcoin)
+            let address = try LegacyAddress(tx.address, coin: .litecoin)
             self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
             self.tableAdapter.simpleReload(self.state)
         } catch {
@@ -143,7 +143,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     private lazy var confirmAction: () -> Void = { [unowned self] in
         guard let rawTx = self.rawTx else { return }
         (inject() as LoaderInterface).show()
-        self.bitcoinService.sendTransaction(with: rawTx) { [unowned self] in
+        self.litecoinService.sendTransaction(with: rawTx) { [unowned self] in
             (inject() as LoaderInterface).hide()
             switch $0 {
             case .success(let object):

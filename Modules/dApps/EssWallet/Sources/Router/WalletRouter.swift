@@ -84,7 +84,10 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
                 push(vc: SendBitcoinTransactionViewController(wallet: wallet, ammount: ammount))
             case .ethereum:
                 push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
-            default: return
+            case .litecoin:
+                push(vc: SendLitecoinTransactionViewController(wallet: wallet, ammount: ammount))
+            default:
+                fatalError()
             }
         case is Token:
             push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
