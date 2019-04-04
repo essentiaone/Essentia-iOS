@@ -86,6 +86,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentTwoButtons.self)
         tableView.register(TableComponentLoader.self)
         tableView.register(TableComponentAnimation.self)
+        tableView.register(TableComponentAlert.self)
     }
     
     // MARK: - Update State
@@ -138,12 +139,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.animateImageView.backgroundColor = .clear
             cell.animateImageView.contentMode = .scaleAspectFit
             return cell
-        case .topAlert(let type, let string):
-            if let superView = tableView.superview {
-                let alert = TopAlert(alertType: type, title: string, inView: superView)
-                alert.show()
-            }
-            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+        case .alert(let type, let string):
+            let cell: TableComponentAlert = tableView.dequeueReusableCell(for: indexPath)
+            cell.alertTitle.attributedText = type.attributedTitle(string)
+            cell.backgroundColor = type.backgroundColor
             return cell
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)

@@ -16,7 +16,6 @@ import EssDI
 fileprivate enum SelectedOption {
     case none
     case rename
-    case exportTap
     case export
 }
 
@@ -57,9 +56,8 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         return
-            exportAlert +
-                [.titleWithCancel(title: LS("Wallet.Options.Title"), action: backAction),
-                 .imageTitle(image: imageProvider.walletOptionsRename, title: LS("Wallet.Options.Rename"), withArrow: false, action: renameAction)]
+            [.titleWithCancel(title: LS("Wallet.Options.Title"), action: backAction),
+             .imageTitle(image: imageProvider.walletOptionsRename, title: LS("Wallet.Options.Rename"), withArrow: false, action: renameAction)]
                 + editTextField +
                 [.imageTitle(image: imageProvider.walletOptionsExport, title: LS("Wallet.Options.Export"), withArrow: false, action: exportAction)]
                 + exportPrivateKey +
@@ -80,12 +78,6 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
         guard selected == .export else { return [] }
         return [.titleWithFontAligment(font: AppFont.bold.withSize(14), title: LS("Wallet.Options.Export.PK"), aligment: .left, color: colorProvider.appTitleColor),
                 .titleAction(font: AppFont.regular.withSize(15), title: privateKey, action: copyAction)]
-    }
-    
-    private var exportAlert: [TableComponent] {
-        guard selected == .exportTap else { return [] }
-        self.selected = .export
-        return [.topAlert(alertType: .info, title: LS("Wallet.Options.Export.Copied"))]
     }
     
     // MARK: - Lifecycle
@@ -138,7 +130,8 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     
     private lazy var copyAction: () -> Void = { [weak self] in
         guard let `self` = self else { return }
-        self.selected = .exportTap
+        self.selected = .export
+        (inject() as LoaderInterface).showInfo(LS("Wallet.Options.Export.Copied"))
         UIPasteboard.general.string = self.privateKey
         self.tableAdapter.simpleReload(self.state)
     }
@@ -157,6 +150,6 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
     }
     
     var privateKey: String {
-       return wallet.privateKey
+        return wallet.privateKey
     }
 }

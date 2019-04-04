@@ -67,4 +67,13 @@ open class BaseTableAdapterController: BaseViewController {
         self.tableAdapter = TableAdapter(tableView: self.tableView)
         prepareTableView()
     }
+    
+    public func showInfo(_ message: String, tableState: [TableComponent], type: AlertType) {
+        var updateState = tableState
+        updateState.insert(.alert(alertType: type, title: message), at: 1)
+        tableAdapter.performTableUpdate(newState: updateState, withAnimation: .toTop)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            self?.tableAdapter.performTableUpdate(newState: tableState, withAnimation: .toTop)
+        }
+    }
 }

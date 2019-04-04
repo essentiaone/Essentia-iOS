@@ -32,7 +32,7 @@ public enum TableComponent: Equatable {
     case twoButtons(lTitle: String, rTitle: String, lColor: UIColor, rColor: UIColor, lAction:() -> Void, rAction:() -> Void)
     case paragraph(title: String, description: String)
     case pageControl(count: Int, selected: Int)
-    case topAlert(alertType: AlertType, title: String)
+    case alert(alertType: AlertType, title: String)
     // MARK: - Navigation Bar
     case navigationBar(left: String, right: String, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)

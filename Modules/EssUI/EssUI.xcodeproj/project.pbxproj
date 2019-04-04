@@ -62,6 +62,8 @@
 		3474E49E21F10006003D8DFF /* TableComponentAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */; };
 		3478F87121ECE35D00D54FEF /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3478F86721ECE35D00D54FEF /* EssUI.framework */; };
 		3478F87621ECE35D00D54FEF /* EssUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478F87521ECE35D00D54FEF /* EssUITests.swift */; };
+		3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B2962255598D0072FD02 /* TableComponentAlert.swift */; };
+		3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3482B29A225559B00072FD02 /* TableComponentAlert.xib */; };
 		34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775821ECF5AC003612EE /* ComponentState.swift */; };
 		34CA77E121ECF5AC003612EE /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775921ECF5AC003612EE /* TableComponent.swift */; };
 		34CA77E221ECF5AC003612EE /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */; };
@@ -229,6 +231,8 @@
 		3478F87021ECE35D00D54FEF /* EssUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3478F87521ECE35D00D54FEF /* EssUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssUITests.swift; sourceTree = "<group>"; };
 		3478F87721ECE35D00D54FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3482B2962255598D0072FD02 /* TableComponentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAlert.swift; sourceTree = "<group>"; };
+		3482B29A225559B00072FD02 /* TableComponentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAlert.xib; sourceTree = "<group>"; };
 		34CA775821ECF5AC003612EE /* ComponentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentState.swift; sourceTree = "<group>"; };
 		34CA775921ECF5AC003612EE /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
@@ -595,6 +599,15 @@
 			path = EssUITests;
 			sourceTree = "<group>";
 		};
+		3482B2992255599F0072FD02 /* TableComponentAlert */ = {
+			isa = PBXGroup;
+			children = (
+				3482B2962255598D0072FD02 /* TableComponentAlert.swift */,
+				3482B29A225559B00072FD02 /* TableComponentAlert.xib */,
+			);
+			path = TableComponentAlert;
+			sourceTree = "<group>";
+		};
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +624,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3482B2992255599F0072FD02 /* TableComponentAlert */,
 				3474E49A21F0FCAF003D8DFF /* Animation */,
 				34CA775B21ECF5AC003612EE /* Transaction */,
 				34CA775E21ECF5AC003612EE /* CheckField */,
@@ -1168,6 +1182,7 @@
 				34CA780D21ECF5AC003612EE /* TableComponentBlure.xib in Resources */,
 				34CA781C21ECF5AC003612EE /* TableComponentDescription.xib in Resources */,
 				34CA781921ECF5AC003612EE /* TableComponentSectionTitle.xib in Resources */,
+				3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */,
 				34CA781F21ECF5AC003612EE /* TableComponentCurrentAccount.xib in Resources */,
 				345D6DFB21EFBC7800C59398 /* QuestionAlertViewController.xib in Resources */,
 				34CA782321ECF5AC003612EE /* TableComponentCheckImageTitle.xib in Resources */,
@@ -1279,6 +1294,7 @@
 				34CA782C21ECF5AC003612EE /* TableComponentImageTitleSubtitle.swift in Sources */,
 				342A922221F9025E009840DD /* EssCharacters.swift in Sources */,
 				345D6E0021EFBC7800C59398 /* BaseTableAdapterController.swift in Sources */,
+				3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */,
 				345D6E0321EFBC7800C59398 /* BaseBluredController.swift in Sources */,
 				34CA783521ECF5AC003612EE /* TableComponentTitleSubtitle.swift in Sources */,
 				345D6E0221EFBC7800C59398 /* BaseNavigationController.swift in Sources */,
