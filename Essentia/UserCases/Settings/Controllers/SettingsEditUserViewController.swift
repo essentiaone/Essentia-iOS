@@ -32,7 +32,7 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
         enteredName = EssentiaStore.shared.currentUser.profile?.name ?? ""
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("EditAccount.Back"),

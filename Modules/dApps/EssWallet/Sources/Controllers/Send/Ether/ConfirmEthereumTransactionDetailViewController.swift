@@ -42,7 +42,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         tableView.isScrollEnabled = false
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [.blure(state:
             [.centeredComponentTopInstet,
              .container(state: containerState)]
@@ -100,7 +100,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         do {
             try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
         } catch {
-            (inject() as LoaderInterface).showError(error.localizedDescription)
+            self.showInfo(error.localizedDescription, type: .error)
         }
     }
     
@@ -112,7 +112,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
             self.dismiss(animated: true)
             (inject() as WalletRouterInterface).show(.doneTx)
         case .failure(let error):
-            (inject() as LoaderInterface).showError(error.localizedDescription)
+            self.showInfo(error.localizedDescription, type: .error)
         }
     }
 }

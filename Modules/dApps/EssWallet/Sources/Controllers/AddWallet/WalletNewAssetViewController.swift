@@ -25,7 +25,7 @@ class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableN
         tableView.backgroundColor = .clear
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),

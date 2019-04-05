@@ -77,7 +77,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
         keyboardObserver.start()
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let ammountFormatter = BalanceFormatter(asset: store.wallet.asset)
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),

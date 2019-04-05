@@ -41,7 +41,7 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),

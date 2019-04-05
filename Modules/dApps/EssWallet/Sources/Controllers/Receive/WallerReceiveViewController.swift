@@ -54,7 +54,7 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
         tableAdapter.hardReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationImageBar(left: LS("Back"),

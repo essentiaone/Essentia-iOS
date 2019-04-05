@@ -109,19 +109,15 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
         present(LoginPasswordViewController(password: { [unowned self] (pass) in
-            do {
-                if pass.sha512().sha512() != user.passwordHash {
-                    throw EssentiaError.wrongPassword
-                }
-                let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: user.id, password: pass)
-                prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
-                (inject() as UserStorageServiceInterface).update { (user) in
-                    EssentiaStore.shared.setUser(user)
-                }
-            } catch {
-                (inject() as LoaderInterface).showError(error.description)
-                return false
+            if pass.sha512().sha512() != user.passwordHash { return false }
+            
+            guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return false }
+            prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
+            
+            (inject() as UserStorageServiceInterface).update { (user) in
+                EssentiaStore.shared.setUser(user)
             }
+            
             self.dismiss(animated: true, completion: { [unowned self] in
                 self.showTabBar()
             })

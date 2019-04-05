@@ -63,7 +63,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
         loadUnspendTransaction()
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [.blure(state:
             [.centeredComponentTopInstet,
              .container(state: containerState)]
@@ -116,7 +116,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
             case .success(let transactions):
                 self.generateTransaction(fromUtxo: transactions)
             case .failure(_):
-                (inject() as LoaderInterface).showError(EssentiaError.TxError.failCreateTx.localizedDescription)
+                self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
             }
         }
     }
@@ -130,7 +130,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
             self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
             self.tableAdapter.simpleReload(self.state)
         } catch {
-            (inject() as LoaderInterface).showError(EssentiaError.TxError.failCreateTx.localizedDescription)
+            self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
         }
         
     }
@@ -150,7 +150,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
                 self.dismiss(animated: true)
                 (inject() as WalletRouterInterface).show(.doneTx)
             case .failure(let error):
-                (inject() as LoaderInterface).showError(error.localizedDescription)
+                self.showInfo(error.localizedDescription, type: .error)
             }
         }
     }

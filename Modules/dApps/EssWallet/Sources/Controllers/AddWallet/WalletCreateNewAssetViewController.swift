@@ -54,7 +54,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         hideKeyboardWhenTappedAround()
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return
             staticContent +
                 [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
