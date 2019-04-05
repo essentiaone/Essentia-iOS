@@ -132,7 +132,6 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
         } catch {
             self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
         }
-        
     }
     
     // MARK: - Actions

@@ -90,32 +90,15 @@ class SendLitecoinTransactionViewController: BaseTableAdapterController, QRCodeR
                                                   rightButtonImage: store.qrImage,
                                                   rightButtonAction: readQrAction,
                                                   textFieldChanged: addressEditingChanged),
-            .separator(inset: .zero)]
-            + feeComponents +
-            [.calculatbleSpace(background: colorProvider.settingsCellsBackround),
-             .empty(height: 8, background: colorProvider.settingsCellsBackround),
-             .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
-                             isEnable: store.isValidTransaction,
-                             action: continueAction,
-                             background: colorProvider.settingsCellsBackround),
-             .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
+            .separator(inset: .zero),
+            .calculatbleSpace(background: colorProvider.settingsCellsBackround),
+            .empty(height: 8, background: colorProvider.settingsCellsBackround),
+            .centeredButton(title: LS("Wallet.Send.GenerateTransaction"),
+                            isEnable: store.isValidTransaction,
+                            action: continueAction,
+                            background: colorProvider.settingsCellsBackround),
+            .empty(height: store.keyboardHeight, background: colorProvider.settingsCellsBackround)
         ]
-    }
-    
-    var feeComponents: [TableComponent] {
-        let ammountFormatter = BalanceFormatter(asset: self.store.wallet.asset)
-        if store.isFeeEnteringDirectly {
-            return [.separator(inset: .zero),
-                    .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.Fee"),
-                                                          text:ammountFormatter.formattedAmmount(amount: Double(self.store.selectedFeeSlider)),
-                                                          placeholder: self.store.wallet.asset.symbol,
-                                                          rightButtonImage: nil,
-                                                          rightButtonAction: nil,
-                                                          textFieldChanged: feeChangedDirectly)]
-        }
-        return [.attributedTitleDetail(title: formattedFeeTitle, detail: formattedInputFeeButton, action: inputFeeAction),
-                .slider(titles: (LS("Wallet.Send.Slow"), LS("Wallet.Send.Normal"), LS("Wallet.Send.Fast")),
-                        values: (store.lowFee, Double(store.selectedFeeSlider), store.fastFee), didChange: feeChanged)]
     }
     
     // MARK: - Formatters
@@ -136,18 +119,6 @@ class SendLitecoinTransactionViewController: BaseTableAdapterController, QRCodeR
                 NSAttributedString.Key.foregroundColor: colorProvider.titleColor]
     }
     
-    var formattedFeeTitle: NSAttributedString {
-        let currentFee = Int(self.store.selectedFeeSlider)
-        let string = LS("Wallet.Send.Fee") + " \(currentFee) satoshi/byte"
-        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15),
-                                                               NSAttributedString.Key.foregroundColor: colorProvider.titleColor])
-    }
-    
-    var formattedInputFeeButton: NSAttributedString {
-        return NSAttributedString(string: LS("Wallet.Send.InputFee"),
-                                  attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(12),
-                                               NSAttributedString.Key.foregroundColor: colorProvider.centeredButtonBackgroudColor])
-    }
     // MARK: - Actions
     private lazy var backAction: () -> Void = { [unowned self] in
         self.view.endEditing(true)
@@ -160,7 +131,7 @@ class SendLitecoinTransactionViewController: BaseTableAdapterController, QRCodeR
         let txInfo = UtxoTxInfo(address: self.store.address,
                                 ammount: self.store.ammount,
                                 wallet: self.store.wallet,
-                                feePerByte: UInt64(self.store.selectedFeeSlider))
+                                feePerByte: 1)
         let vc = ConfirmLitecoinTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
