@@ -203,7 +203,8 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
         guard user.id != EssentiaStore.shared.currentUser.id else { return }
-        present(LoginPasswordViewController(password: { [unowned self] (pass) in
+        
+        func isValudPassword(_ pass: String) -> Bool {
             if pass.sha512().sha512() != user.passwordHash {
                 return false
             }
@@ -216,9 +217,13 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             
             self.dismiss(animated: true)
             return true
-            }, cancel: { [unowned self] in
-                self.dismiss(animated: true)
-        }), animated: true)
+        }
+        
+        present(LoginPasswordViewController(password: isValudPassword, cancel: dismiss), animated: true)
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true)
     }
     
     func didSetUser(user: User) -> Bool {
