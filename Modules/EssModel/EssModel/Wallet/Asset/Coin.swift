@@ -24,6 +24,17 @@ public enum Coin: String {
         return !pk.isEmpty
     }
     
+    public var minimumTransactionAmmount: Double {
+        switch self {
+        case .bitcoin:
+            return 0.00000546
+        case .litecoin:
+            return 0.00001
+        default:
+            return 0
+        }
+    }
+    
     func isValidAddress(_ address: String) -> Bool {
         switch self {
         case .bitcoin:
