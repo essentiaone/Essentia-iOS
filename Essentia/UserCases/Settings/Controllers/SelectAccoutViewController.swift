@@ -53,7 +53,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {
-        let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
+        let icon = AvatarHashView(hash: user.id, frame: CGRect(x: 0, y: 0, width: 40, height: 40)).image
         return
             [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
                 self.dismiss(animated: true)

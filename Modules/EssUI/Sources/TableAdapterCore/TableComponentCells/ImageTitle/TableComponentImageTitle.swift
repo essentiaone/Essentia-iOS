@@ -23,5 +23,7 @@ class TableComponentImageTitle: UITableViewCell, NibLoadable {
         titleImage.layer.cornerRadius = 30.0
         titleLabel.font = AppFont.medium.withSize(17)
         titleLabel.textColor = (inject() as AppColorInterface).appTitleColor
+        titleImage.layer.cornerRadius = titleImage.layer.bounds.width / 2
+        titleImage.clipsToBounds = true
     }
 }
