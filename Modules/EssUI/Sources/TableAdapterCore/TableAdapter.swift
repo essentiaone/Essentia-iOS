@@ -247,9 +247,9 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.textLabel?.text = title
             cell.textLabel?.textColor = color
             return cell
-        case .currentAccount(let icon, let title, let name, _):
+        case .currentAccount(let userId, let title, let name, _):
             let cell: TableComponentCurrentAccount = tableView.dequeueReusableCell(for: indexPath)
-            cell.accountImageView.image = icon
+            cell.accountAvatarView.setUser(hash: userId)
             cell.accountTitleLabel.text = title
             cell.accountDescription.text = name
             return cell

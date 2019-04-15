@@ -41,7 +41,7 @@ public enum TableComponent: Equatable {
     // MARK: - Settings
     case accountStrength(backAction: () -> Void, currentLevel: Int)
     case accountStrengthAction(action: () -> Void, status: AnimationState, currentLevel: Int)
-    case currentAccount(icon: UIImage, title: String, name: String, action: () -> Void)
+    case currentAccount(userId: String, title: String, name: String, action: () -> Void)
     case titleSubtitle(title: String, detail: String, action: () -> Void)
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
     case menuSimpleTitleDetail(title: String, detail: String, withArrow: Bool, action: () -> Void)

@@ -65,7 +65,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             [showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction, status: secureAnimationStatus, currentLevel: currentSecurity):
                 .empty(height: 16.0, background: colorProvider.settingsBackgroud),
-             .currentAccount(icon: EssentiaStore.shared.currentUser.profile?.icon ?? UIImage(),
+             .currentAccount(userId: EssentiaStore.shared.currentUser.id,
                              title: LS("Settings.CurrentAccountTitle"),
                              name: EssentiaStore.shared.currentUser.profile?.name ?? "",
                              action: editCurrentAccountAction),

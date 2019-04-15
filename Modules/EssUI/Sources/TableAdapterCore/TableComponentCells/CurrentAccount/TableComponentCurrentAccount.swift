@@ -12,7 +12,7 @@ import EssModel
 import EssResources
 
 class TableComponentCurrentAccount: UITableViewCell, NibLoadable {
-    @IBOutlet weak var accountImageView: UIImageView!
+    @IBOutlet weak var accountAvatarView: AvatarHashView!
     @IBOutlet weak var accountTitleLabel: UILabel!
     @IBOutlet weak var accountDescription: UILabel!
     
@@ -32,6 +32,7 @@ class TableComponentCurrentAccount: UITableViewCell, NibLoadable {
         accountTitleLabel.textColor = colorProvider.settingsMenuSubtitle
         accountDescription.textColor = colorProvider.titleColor
         
-        accountImageView.layer.cornerRadius = 5.0
+        accountAvatarView.layer.cornerRadius = accountAvatarView.layer.bounds.width / 2
+        accountAvatarView.clipsToBounds = true
     }
 }
