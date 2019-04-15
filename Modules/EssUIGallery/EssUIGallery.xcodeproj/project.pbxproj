@@ -257,7 +257,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-EssUIGallery/Pods-EssUIGallery-frameworks.sh",
+				"${SRCROOT}/../../Pods/Target Support Files/Pods-EssUIGallery/Pods-EssUIGallery-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -282,7 +282,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EssUIGallery/Pods-EssUIGallery-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/../../Pods/Target Support Files/Pods-EssUIGallery/Pods-EssUIGallery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C52E4500589A6B31BA4FAF6A /* [CP] Check Pods Manifest.lock */ = {
