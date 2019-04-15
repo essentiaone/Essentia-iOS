@@ -27,11 +27,11 @@ public enum Coin: String {
     public var minimumTransactionAmmount: Double {
         switch self {
         case .bitcoin:
-            return 0.00000546
+            return 0.000_005_46
         case .litecoin:
-            return 0.00001
+            return 0.000_01
         default:
-            return 0
+            return 1/pow(10, 6)
         }
     }
     
