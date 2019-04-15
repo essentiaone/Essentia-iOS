@@ -53,7 +53,7 @@ fileprivate enum TabBarTab {
     private var controller: UIViewController {
         switch self {
         case .launchpad:
-            return LaunchpadPlaceholderViewController()
+            return UIViewController()
         case .wallet:
             return WalletMainViewController()
         case .notifications:

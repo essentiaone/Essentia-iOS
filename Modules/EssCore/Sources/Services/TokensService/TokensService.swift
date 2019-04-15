@@ -10,6 +10,7 @@ import Foundation
 import EssentiaNetworkCore
 import EssModel
 import RealmSwift
+import EssDI
 
 public class TokenService: TokensServiceInterface {
     let networkManager: NetworkManager = NetworkManager("https://clogos.essdev.info")
@@ -19,10 +20,9 @@ public class TokenService: TokensServiceInterface {
         networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: NetworkResult<[Token]>) in
             switch result {
             case .success(let object):
-                main {
-                    callBack(object)
-                }
-            default: return
+                callBack(object)
+            default:
+                (inject() as LoaderInterface).hide()
             }
         }
     }

@@ -13,7 +13,9 @@ open class BaseTableAdapterController: BaseViewController {
     public var tableView: UITableView
     public lazy var tableAdapter = TableAdapter(tableView: tableView)
     private var scrollObserver: NSKeyValueObservation?
-    
+    open var state: [TableComponent] {
+        return []
+    }
     public override init() {
         tableView = UITableView()
         super.init()
@@ -66,5 +68,15 @@ open class BaseTableAdapterController: BaseViewController {
         self.tableView = UITableView()
         self.tableAdapter = TableAdapter(tableView: self.tableView)
         prepareTableView()
+    }
+    
+    public func showInfo(_ message: String, type: AlertType, atIndex: Int = 1) {
+        var updateState = state
+        updateState.insert(.alert(alertType: type, title: message), at: atIndex)
+        tableAdapter.performTableUpdate(newState: updateState, withAnimation: .toTop)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            guard let self = self else { return }
+            self.tableAdapter.performTableUpdate(newState: self.state, withAnimation: .toTop)
+        }
     }
 }

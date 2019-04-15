@@ -23,7 +23,7 @@ class WarningViewContrller: BaseTableAdapterController, SwipeableNavigation {
     }
     
     // MARK: - State
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 30, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"), right: "", title: "", lAction: backAction, rAction: nil),

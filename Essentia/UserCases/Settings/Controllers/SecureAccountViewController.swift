@@ -36,7 +36,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
         tableView.backgroundColor = colorProvider.settingsCellsBackround
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         guard let currentUserBackups = EssentiaStore.shared.currentUser.backup?.currentlyBackup else { return [] }
         let secureLevel = currentUserBackups.secureLevel
         return [
@@ -98,7 +98,7 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
         if !currentlyBackup.contain(.keystore) {
             self.router.show(.backup(type: .keystore))
         } else {
-            (inject() as LoaderInterface).showInfo("Keystore already backuped")
+            self.showInfo("Keystore already backuped", type: .error)
         }
     }
 }

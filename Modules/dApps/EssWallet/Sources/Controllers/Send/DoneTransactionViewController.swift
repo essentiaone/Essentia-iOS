@@ -15,7 +15,7 @@ fileprivate struct Defaults {
 }
 
 class DoneTransactionViewController: BaseTableAdapterController {
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let animationHeight = UIScreen.main.bounds.height - 300
         return [.empty(height: 30, background: .clear),
                 .animation(.sendTx, height: animationHeight)]

@@ -21,7 +21,7 @@ class ViewController: BaseTableAdapterController {
         self.tableAdapter.hardReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             // MARK: - Account Strength
             .accountStrength(backAction: action, currentLevel: 0),

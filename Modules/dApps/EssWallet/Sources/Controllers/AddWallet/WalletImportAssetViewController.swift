@@ -52,7 +52,7 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         }
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let rawState: [TableComponent?] = [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),

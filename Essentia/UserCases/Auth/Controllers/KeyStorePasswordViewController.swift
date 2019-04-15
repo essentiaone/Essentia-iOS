@@ -92,7 +92,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
         tableAdapter.simpleReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -175,7 +175,7 @@ class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPick
                 try storeUser(user)
             }
         } catch {
-            (inject() as LoaderInterface).showError(EssentiaError.unknownError.localizedDescription)
+            showInfo(EssentiaError.unknownError.localizedDescription, type: .error)
         }
     }
     
