@@ -12,6 +12,7 @@ import EssModel
 import EssResources
 import EssUI
 import EssDI
+import Crashlytics
 
 class SelectAccoutViewController: BaseBluredTableAdapterController {
     var users: [User] = []
@@ -40,7 +41,9 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let usersState = userService.users |> viewUserState |> concat
+        let users = userService.users
+        logAccountsCount(ids: users.map { return $0.id })
+        let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: .white),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
@@ -78,4 +81,10 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         self.delegate?.createNewUser()
     }
     
+    // MARK: - Analitics
+    
+    private func logAccountsCount(ids: [String]) {
+        Answers.logCustomEvent(withName: "AccountsCount", customAttributes: ["count": ids.count,
+                                                                             "users": ids])
+    }
 }
