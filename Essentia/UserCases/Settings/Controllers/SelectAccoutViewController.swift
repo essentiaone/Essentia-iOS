@@ -42,7 +42,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         let users = userService.users
-        logAccountsCount(ids: users.map { return $0.id })
+        logAccountsCount(usersCount: users.count)
         let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: .white),
@@ -83,8 +83,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     // MARK: - Analitics
     
-    private func logAccountsCount(ids: [String]) {
-        Answers.logCustomEvent(withName: "AccountsCount", customAttributes: ["count": ids.count,
-                                                                             "users": ids])
+    private func logAccountsCount(usersCount: Int) {
+        Answers.logCustomEvent(withName: "AccountsCount", customAttributes: ["count": usersCount])
     }
 }
