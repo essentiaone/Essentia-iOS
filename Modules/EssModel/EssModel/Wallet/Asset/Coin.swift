@@ -31,7 +31,7 @@ public enum Coin: String {
         case .litecoin:
             return 0.000_01
         default:
-            return 1/pow(10, 6)
+            return 1/pow(10, 18)
         }
     }
     
