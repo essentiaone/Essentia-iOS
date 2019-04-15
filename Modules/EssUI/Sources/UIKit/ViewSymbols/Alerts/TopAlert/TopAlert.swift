@@ -32,6 +32,32 @@ public enum AlertType {
             return 16.0
         }
     }
+    
+    var backgroundColor: UIColor {
+        switch self {
+        case .error:
+            return RGB(255, 56, 0)
+        case .info:
+            return RGB(59, 207, 85)
+        }
+    }
+    
+    func attributedTitle(_ message: String) -> NSAttributedString {
+        let font = AppFont.medium.withSize(14)
+        let fullString = NSMutableAttributedString()
+        let prefixImageAtachment = NSTextAttachment()
+        prefixImageAtachment.bounds = CGRect(x: 0, y: (font.capHeight - prefixImage.size.height).rounded() / 2,
+                                    width: prefixImage.size.width, height: prefixImage.size.height)
+        prefixImageAtachment.image = prefixImage
+        
+        let text = NSAttributedString(string: message, attributes: [NSAttributedString.Key.font: font,
+                                                                  NSAttributedString.Key.foregroundColor: UIColor.white])
+        let imageString = NSAttributedString(attachment: prefixImageAtachment)
+        fullString.append(imageString)
+        fullString.append(NSAttributedString(string: "   "))
+        fullString.append(NSAttributedString(attributedString: text))
+        return fullString
+    }
 }
 
 public class TopAlert: UIView {
@@ -44,14 +70,9 @@ public class TopAlert: UIView {
         self.containerView = inView
         self.alertType = alertType
         super.init(frame: CGRect(x: alertType.insets, y: -40, width: inView.frame.width - alertType.insets * 2, height: 40))
-        switch alertType {
-        case .error:
-            setGradientBackground(first: RGB(255, 56, 0), second: RGB(255, 56, 60), type: .topToBottom)
-        case .info:
-            backgroundColor = RGB(59, 207, 85)
-        }
-        
-        applyTitle(title: title, image: alertType.prefixImage)
+        backgroundColor = alertType.backgroundColor
+        label.attributedText = alertType.attributedTitle(title)
+        addSubview(label)
         applyDesign()
         inView.addSubview(self)
     }
@@ -70,23 +91,6 @@ public class TopAlert: UIView {
     override open  func layoutSubviews() {
         super.layoutSubviews()
         label.frame = bounds
-    }
-    
-    func applyTitle(title: String, image: UIImage) {
-        let font = AppFont.medium.withSize(14)
-        let fullString = NSMutableAttributedString()
-        let prefixImage = NSTextAttachment()
-        prefixImage.bounds = CGRect(x: 0, y: (font.capHeight - image.size.height).rounded() / 2, width: image.size.width, height: image.size.height)
-        prefixImage.image = image
-        
-        let text = NSAttributedString(string: title, attributes: [NSAttributedString.Key.font: font,
-                                                                  NSAttributedString.Key.foregroundColor: UIColor.white])
-        let imageString = NSAttributedString(attachment: prefixImage)
-        fullString.append(imageString)
-        fullString.append(NSAttributedString(string: "   "))
-        fullString.append(NSAttributedString(attributedString: text))
-        label.attributedText = fullString
-        addSubview(label)
     }
     
     // MARK: - Actions

@@ -41,7 +41,7 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     }
     
     // MARK: - State
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let currentImage = AppImageProvider.image(name: "walletOnbording\(currentPosition)")
         return [
             .calculatbleSpace(background: .clear),

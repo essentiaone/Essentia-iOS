@@ -54,7 +54,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         hideKeyboardWhenTappedAround()
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return
             staticContent +
                 [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
@@ -180,8 +180,10 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: self.wallets, action: { (wallet) in
             self.store.etherWalletForTokens = wallet
-            self.store.assets = self.filterTokensDueWallet()
-            self.asyncReloadState()
+            main {
+                self.store.assets = self.filterTokensDueWallet()
+                self.asyncReloadState()
+            }
         }))
     }
     

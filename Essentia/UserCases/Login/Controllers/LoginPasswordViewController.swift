@@ -12,6 +12,7 @@ import EssCore
 import EssResources
 import EssUI
 import EssDI
+import EssModel
 
 fileprivate struct Store {
     var password: String = ""
@@ -59,7 +60,7 @@ class LoginPasswordViewController: BaseTableAdapterController {
         tableAdapter.simpleReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),
@@ -97,6 +98,8 @@ class LoginPasswordViewController: BaseTableAdapterController {
         if validatePasswordCallback(self.store.password) {
             self.keyboardObserver.stop()
             self.tableAdapter.endEditing(true)
+        } else {
+            self.showInfo(EssentiaError.wrongPassword.localizedDescription, type: .error)
         }
     }
 }

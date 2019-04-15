@@ -34,7 +34,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
             tableView.endUpdates()
         }
     }
-
+    
     // MARK: - Override
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
@@ -44,10 +44,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         tableAdapter.hardReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return
             staticContent +
-            [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
+                [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
     }
     
     private var staticContent: [TableComponent] {
@@ -203,26 +203,27 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
         guard user.id != EssentiaStore.shared.currentUser.id else { return }
-        present(LoginPasswordViewController(password: { [unowned self] (pass) in
-            do {
-                if pass.sha512().sha512() != user.passwordHash {
-                    throw EssentiaError.wrongPassword
-                }
-                let userStore: UserStorageServiceInterface = try RealmUserStorage(seedHash: user.id, password: pass)
-                prepareInjection(userStore, memoryPolicy: .viewController)
-                (inject() as UserStorageServiceInterface).update { (user) in
-                    EssentiaStore.shared.setUser(user)
-                }
-                TabBarController.shared.selectedIndex = 0
-            } catch {
-                (inject() as LoaderInterface).showError(error.description)
+        
+        func isValudPassword(_ pass: String) -> Bool {
+            if pass.sha512().sha512() != user.passwordHash {
                 return false
             }
+            guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return false }
+            prepareInjection(userStore, memoryPolicy: .viewController)
+            (inject() as UserStorageServiceInterface).update { (user) in
+                EssentiaStore.shared.setUser(user)
+            }
+            TabBarController.shared.selectedIndex = 0
+            
             self.dismiss(animated: true)
             return true
-        }, cancel: { [unowned self] in
-            self.dismiss(animated: true)
-        }), animated: true)
+        }
+        
+        present(LoginPasswordViewController(password: isValudPassword, cancel: dismiss), animated: true)
+    }
+    
+    func dismiss() {
+        self.dismiss(animated: true)
     }
     
     func didSetUser(user: User) -> Bool {

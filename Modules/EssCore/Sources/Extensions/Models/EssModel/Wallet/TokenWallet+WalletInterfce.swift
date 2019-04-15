@@ -21,5 +21,5 @@ extension TokenWallet: WalletInterface, ViewWalletInterface {
     
     public var asset: AssetInterface {
         return token ?? Token()
-    } 
+    }
 }

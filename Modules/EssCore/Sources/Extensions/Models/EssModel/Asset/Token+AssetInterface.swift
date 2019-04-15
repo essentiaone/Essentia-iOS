@@ -10,6 +10,10 @@ import EssModel
 import UIKit
 
 extension Token: AssetInterface {
+    public var minimumTransactionAmmount: Double {
+        return 1.0 / pow(10.0, Double(decimals))
+    }
+    
     public var shadowColor: UIColor {
         return .lightGray
     }

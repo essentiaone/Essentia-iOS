@@ -13,6 +13,9 @@ open class BaseBluredTableAdapterController: BaseBluredController {
     public let tableView: UITableView
     public lazy var tableAdapter = TableAdapter(tableView: tableView)
     private var scrollObserver: NSKeyValueObservation?
+    open var state: [TableComponent] {
+        return []
+    }
     
     public override init() {
         tableView = UITableView()

@@ -1,17 +1,17 @@
 //
-//  BitcoinTransaction+Status.swift
-//  Essentia
+//  LitecoinTransaction.swift
+//  EssCore
 //
-//  Created by Pavlo Boiko on 10/26/18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 3/29/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import EssentiaBridgesApi
 import EssModel
 
-public extension BitcoinTransactionValue {
+public extension LitecoinTransactionValue {
     public var status: TransactionStatus {
-        if confirmations >= 2 {
+        if confirmations >= 5 {
             return .success
         }
         return .pending
@@ -30,11 +30,9 @@ public extension BitcoinTransactionValue {
     public func transactionAmmount(for address: String) -> Double? {
         switch type(for: address) {
         case .send:
-            let input = vin.map { return $0.value }.reduce(0.0, +)
-            let myOutputs = vout.filter { $0.scriptPubKey.addresses.first == address }
-                                .map { return $0.value }
-                                .reduce(0.0, { return $0 + (Double($1) ?? 0) })
-            return -(input - myOutputs)
+            let input = vin.first { $0.addr == address }?.value ?? 0
+            let myOutputs = vout.first { $0.scriptPubKey.addresses.first == address }?.value ?? "0"
+            return input - (Double(myOutputs) ?? 0)
         case .recive:
             let output = vout.first { out in
                 return out.scriptPubKey.addresses.contains(where: { $0 == address })

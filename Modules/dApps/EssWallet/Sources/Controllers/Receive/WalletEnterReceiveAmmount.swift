@@ -64,7 +64,7 @@ class WalletEnterReceiveAmmount: BaseTableAdapterController, SwipeableNavigation
         }
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let selected = fieldsFor(type: self.store.currentlyEdited)
         let deselected = fieldsFor(type: self.store.currentlyEdited.another)
         return [

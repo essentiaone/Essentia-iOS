@@ -1,5 +1,5 @@
 //
-//  ConfirmEthereumTransactionDetailViewController.swift
+//  ConfirmBitcoinTxDetailViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 11/13/18.
@@ -11,21 +11,39 @@ import EssentiaNetworkCore
 import EssCore
 import EssModel
 import EssResources
+import HDWalletKit
+import EssentiaBridgesApi
 import EssUI
 import EssDI
 
-class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
+class ConfirmBitcoinTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
+    private var bitcoinService: BitcoinWalletInterface
+    private var utxoSelector: UtxoSelectorInterface
+    private var utxoWallet: UTXOWallet
+    private var bitcoinConverter: BitcoinConverter
     
-    private var wallet: ViewWalletInterface
-    private var tx: EtherTxInfo
+    private var viewWallet: ViewWalletInterface
+    private var tx: UtxoTxInfo
+    private var ammount: UInt64
+    private var fee: UInt64?
+    private var rawTx: String?
     
-    init(_ wallet: ViewWalletInterface, tx: EtherTxInfo) {
-        self.wallet = wallet
+    init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo) {
+        self.viewWallet = wallet
         self.tx = tx
+        bitcoinService = BitcoinWallet(EssentiaConstants.bridgeUrl)
+        utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
+        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .bitcoin)
+        utxoWallet = UTXOWallet(privateKey: privateKey,
+                                utxoSelector: utxoSelector,
+                                utxoTransactionBuilder: UtxoTransactionBuilder(),
+                                utoxTransactionSigner: UtxoTransactionSigner())
+        bitcoinConverter = BitcoinConverter(bitcoinString: tx.ammount.inCrypto)
+        ammount = bitcoinConverter.inSatoshi
         super.init()
     }
     
@@ -40,6 +58,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
+        loadUnspendTransaction()
     }
     
     override var state: [TableComponent] {
@@ -61,9 +80,6 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
             .empty(height: 5, background: .clear),
             .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Fee"), background: .clear, textColor: colorProvider.appDefaultTextColor),
             .descriptionWithSize(aligment: .left, fontSize: 13, title: formattedFee(), background: .clear, textColor: colorProvider.titleColor),
-            //            .empty(height: 5, background: .clear),
-            //            .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("Wallet.Send.Confirm.Time"), background: .clear, textColor: colorProvider.appDefaultTextColor),
-            //            .descriptionWithSize(aligment: .left, fontSize: 13, title: " ~ 35 min", background: .clear, textColor: colorProvider.titleColor),
             .empty(height: 10, background: .clear),
             .separator(inset: .zero),
             .twoButtons(lTitle: LS("Wallet.Send.Confirm.Cancel"),
@@ -77,7 +93,7 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedTransactionAmmount() -> String {
-        let cryptoFormatter = BalanceFormatter(asset: wallet.asset)
+        let cryptoFormatter = BalanceFormatter(asset: viewWallet.asset)
         let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
         let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         let currencyFormatter = BalanceFormatter(currency: current)
@@ -86,8 +102,35 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     private func formattedFee() -> String {
-        let ammountFormatter = BalanceFormatter(asset: Coin.ethereum)
-        return ammountFormatter.formattedAmmountWithCurrency(amount: tx.fee)
+        let ammountFormatter = BalanceFormatter(asset: Coin.bitcoin)
+        guard let fee = fee else { return "" }
+        let feeConverter = BitcoinConverter(satoshi: fee)
+        return ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
+    }
+    
+    private func loadUnspendTransaction() {
+        bitcoinService.getUTxo(for: tx.wallet.address) { (result) in
+            switch result {
+            case .success(let transactions):
+                self.generateTransaction(fromUtxo: transactions)
+            case .failure(_):
+                self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
+            }
+        }
+    }
+    
+    private func generateTransaction(fromUtxo: [BitcoinUTXO]) {
+        let unspendTransactions: [UnspentTransaction] = fromUtxo.map { return $0.unspendTx }
+        do {
+            let selectedTx = try self.utxoSelector.select(from: unspendTransactions, targetValue: self.ammount)
+            self.fee = selectedTx.fee
+            let address = try LegacyAddress(tx.address, coin: .bitcoin)
+            self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
+            self.tableAdapter.simpleReload(self.state)
+        } catch {
+            self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
+        }
+        
     }
     
     // MARK: - Actions
@@ -96,23 +139,17 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var confirmAction: () -> Void = { [unowned self] in
+        guard let rawTx = self.rawTx else { return }
         (inject() as LoaderInterface).show()
-        do {
-            try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
-        } catch {
-            self.showInfo(error.localizedDescription, type: .error)
-        }
-    }
-    
-    private lazy var responceTransaction: (NetworkResult<String>) -> Void = { [unowned self] in
-        (inject() as LoaderInterface).hide()
-        switch $0 {
-        case .success(let object):
-            (inject() as LoggerServiceInterface).log(object)
-            self.dismiss(animated: true)
-            (inject() as WalletRouterInterface).show(.doneTx)
-        case .failure(let error):
-            self.showInfo(error.localizedDescription, type: .error)
+        self.bitcoinService.sendTransaction(with: rawTx) { [unowned self] in
+            (inject() as LoaderInterface).hide()
+            switch $0 {
+            case .success(let object):
+                self.dismiss(animated: true)
+                (inject() as WalletRouterInterface).show(.doneTx)
+            case .failure(let error):
+                self.showInfo(error.localizedDescription, type: .error)
+            }
         }
     }
 }

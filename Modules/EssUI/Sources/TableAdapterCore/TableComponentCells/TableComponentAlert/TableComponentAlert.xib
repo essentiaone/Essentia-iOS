@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentAlert" id="bkS-ZL-FLi" customClass="TableComponentAlert" customModule="EssUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bkS-ZL-FLi" id="ax2-tv-Lmf">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VH7-Vf-ZEn">
+                        <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VH7-Vf-ZEn" firstAttribute="centerX" secondItem="ax2-tv-Lmf" secondAttribute="centerX" id="16I-BL-9qF"/>
+                    <constraint firstItem="VH7-Vf-ZEn" firstAttribute="leading" secondItem="ax2-tv-Lmf" secondAttribute="leadingMargin" id="DY6-Cf-PqH"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VH7-Vf-ZEn" secondAttribute="trailing" id="Nev-Mq-YIN"/>
+                    <constraint firstItem="VH7-Vf-ZEn" firstAttribute="top" secondItem="ax2-tv-Lmf" secondAttribute="top" id="dsa-Xk-mda"/>
+                    <constraint firstItem="VH7-Vf-ZEn" firstAttribute="centerY" secondItem="ax2-tv-Lmf" secondAttribute="centerY" id="wa1-HO-QAL"/>
+                    <constraint firstAttribute="bottom" secondItem="VH7-Vf-ZEn" secondAttribute="bottom" id="yes-wt-MGQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="alertTitle" destination="VH7-Vf-ZEn" id="I4R-cv-yTD"/>
+            </connections>
+            <point key="canvasLocation" x="-15.199999999999999" y="-5.3973013493253381"/>
+        </tableViewCell>
+    </objects>
+</document>
