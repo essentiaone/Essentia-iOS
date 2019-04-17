@@ -42,6 +42,7 @@ public class AppImageProvider: AppImageProviderInterface {
     public var clearTextField: UIImage = image(name: "clearTextField")
     public var topAlertInfo: UIImage = image(name: "topAlertInfo")
     public var topAlertCancel: UIImage = image(name: "topAlertCancel")
+    public var touchIdIcon: UIImage = image(name: "touchIdIcon")
     // MARK: - Wallet
     public var welcomeParagraph1: UIImage = image(name: "paragraph1")
     public var welcomeParagraph2: UIImage = image(name: "paragraph2")
