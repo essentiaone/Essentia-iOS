@@ -131,7 +131,7 @@ class SendLitecoinTransactionViewController: BaseTableAdapterController, QRCodeR
         let txInfo = UtxoTxInfo(address: self.store.address,
                                 ammount: self.store.ammount,
                                 wallet: self.store.wallet,
-                                feePerByte: 1)
+                                feePerByte: 100)
         let vc = ConfirmLitecoinTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
