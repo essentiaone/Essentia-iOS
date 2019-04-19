@@ -39,7 +39,7 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
         self.tx = tx
         litecoinService = LitecoinWallet(EssentiaConstants.bridgeUrl)
         utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .litecoin)
+        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .litecoin)!
         utxoWallet = UTXOWallet(privateKey: privateKey,
                                 utxoSelector: utxoSelector,
                                 utxoTransactionBuilder: UtxoTransactionBuilder(),

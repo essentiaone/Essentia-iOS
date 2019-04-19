@@ -37,7 +37,7 @@ class ConfirmBitcoinTxDetailViewController: BaseTableAdapterController {
         self.tx = tx
         bitcoinService = BitcoinWallet(EssentiaConstants.bridgeUrl)
         utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .bitcoin)
+        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .bitcoin)!
         utxoWallet = UTXOWallet(privateKey: privateKey,
                                 utxoSelector: utxoSelector,
                                 utxoTransactionBuilder: UtxoTransactionBuilder(),

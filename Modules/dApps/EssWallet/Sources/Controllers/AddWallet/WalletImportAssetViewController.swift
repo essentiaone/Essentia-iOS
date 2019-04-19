@@ -31,6 +31,7 @@ fileprivate struct Store {
 class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var walletInteractor: WalletInteractorInterface = inject()
     
     private var store: Store
     
@@ -106,12 +107,13 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         self.tableAdapter.endEditing(true)
         let walletName = self.store.name.isEmpty ? self.store.coin.localizedName : self.store.name
         let newWallet = ImportedWallet(coin: self.store.coin, privateKey: self.store.privateKey, name: walletName, lastBalance: 0)
-        guard (inject() as WalletInteractorInterface).isValidWallet(newWallet) else {
+        guard let wallet = newWallet,
+              self.walletInteractor.isValidWallet(wallet) else {
             (inject() as WalletRouterInterface).show(.failImportingAlert)
             return
         }
         (inject() as UserStorageServiceInterface).update({ (user) in
-            user.wallet?.importedWallets.append(newWallet)
+            user.wallet?.importedWallets.append(wallet)
         })
         (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
