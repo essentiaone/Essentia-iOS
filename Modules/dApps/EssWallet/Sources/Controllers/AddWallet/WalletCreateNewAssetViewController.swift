@@ -127,22 +127,21 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     
     // MARK: - Actions
     private lazy var doneAction: () -> Void = { [unowned self] in
-        self.navigationController?.pushViewController(DoneTransactionViewController(), animated: true)
-//        switch self.store.selectedComponent {
-//        case 0:
-//            (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: {_ in })
-//        case 1:
-//            guard let wallet = self.store.etherWalletForTokens else {
-//                (inject() as WalletInteractorInterface).addCoinsToWallet([Coin.ethereum], wallet: { newWallet in
-//                    (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: newWallet)
-//                    (inject() as WalletRouterInterface).show(.successGeneratingAlert)
-//                })
-//                return
-//            }
-//            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
-//        default: return
-//        }
-//        (inject() as WalletRouterInterface).show(.successGeneratingAlert)
+        switch self.store.selectedComponent {
+        case 0:
+            (inject() as WalletInteractorInterface).addCoinsToWallet(self.store.selectedAssets, wallet: {_ in })
+        case 1:
+            guard let wallet = self.store.etherWalletForTokens else {
+                (inject() as WalletInteractorInterface).addCoinsToWallet([Coin.ethereum], wallet: { newWallet in
+                    (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: newWallet)
+                    (inject() as WalletRouterInterface).show(.successGeneratingAlert)
+                })
+                return
+            }
+            (inject() as WalletInteractorInterface).addTokensToWallet(self.store.selectedAssets, for: wallet)
+        default: return
+        }
+        (inject() as WalletRouterInterface).show(.successGeneratingAlert)
     }
     
     private lazy var backAction: () -> Void = { [unowned self] in
