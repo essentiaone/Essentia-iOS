@@ -95,11 +95,12 @@ public class AvatarHashView: UIView {
         let isEverBlockCount = blockPerSide % 2 == 0
         let negativeBlocksAddition = isEverBlockCount ? 1 : 0
         
-        for var i in 0..<halfAllBlocsCount {
-            let advanceValueBytes = Data(bytes: &i, count: MemoryLayout.size(ofValue: i))
+        for i in 0..<halfAllBlocsCount {
+            let advanceValueBytes = Data("\(i)".utf8)
             let currentFullBytes = value + advanceValueBytes
-            let currentBlockData = currentFullBytes.sha256.map { return UInt64($0) }
-            let currentValue = currentBlockData.reduce(0, +) % 2 == 0
+            let currentBlockData = currentFullBytes.sha256.hex.prefix(5)
+            let calculateBlockValue = currentBlockData.reduce(0, { return $0 + UInt64(Data("\($1)".utf8)[0]) })
+            let currentValue = calculateBlockValue % 2 == 0
             if currentValue {
                 let x = ((i % halfOneSideBlocksCount))
                 let y = (i / halfOneSideBlocksCount)
