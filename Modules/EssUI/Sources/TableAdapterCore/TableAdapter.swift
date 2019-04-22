@@ -552,9 +552,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.subltitle.text = subtitle
             cell.titleImagevView.image = image
             return cell
-        case .centeredImageButton(let image, _):
+        case .centeredImageButton(let image, let action):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            cell.imageAction = action
             cell.titleImageView.contentMode = .center
             return cell
         case .blure(let state):
@@ -614,7 +615,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
         case .titleCenteredDetailTextFildWithImage: fallthrough
-        case .centeredImageButton: fallthrough
         case .titleAction: fallthrough
         case .assetBalance:
             return true
@@ -681,8 +681,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTitleCenterTextDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.centeredTextField)
-        case .centeredImageButton(_, let action):
-            action()
         case .titleAction(_, _, let action):
             action()
         default:

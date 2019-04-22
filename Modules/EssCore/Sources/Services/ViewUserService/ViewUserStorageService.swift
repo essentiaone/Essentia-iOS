@@ -14,7 +14,7 @@ public class ViewUserStorageService: ViewUserStorageServiceInterface {
     let realm: Realm
     
     public init() {
-        let config = Realm.Configuration(schemaVersion: 1)
+        let config = Realm.Configuration(schemaVersion: 2)
         self.realm = try! Realm(configuration: config)
     }
     
@@ -32,6 +32,12 @@ public class ViewUserStorageService: ViewUserStorageServiceInterface {
     
     public var users: [ViewUser] {
         return realm.objects(ViewUser.self).map({ return $0 })
+    }
+    
+    public var current: ViewUser? {
+        return realm.objects(ViewUser.self).filter({ (user) -> Bool in
+            return user.id == EssentiaStore.shared.currentUser.id
+        }).first
     }
     
     public func update(_ updateBlock: (ViewUser) -> Void) {

@@ -87,6 +87,7 @@ class ApplicationDependenceProvider {
         loadLoader()
         loadLogger()
         loadTokens()
+        loadKeychain()
         loadCurrencyConvert()
     }
     
@@ -127,6 +128,11 @@ class ApplicationDependenceProvider {
     
     private func loadFileService() {
         let injection: LocalFilesServiceInterface = LocalFilesService()
+        prepareInjection(injection, memoryPolicy: .viewController)
+    }
+    
+    private func loadKeychain() {
+        let injection: KeychainServiceInterface = KeychainService()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
 }

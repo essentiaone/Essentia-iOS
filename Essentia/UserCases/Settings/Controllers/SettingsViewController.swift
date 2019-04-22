@@ -22,6 +22,8 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
+    private lazy var keychainService: KeychainServiceInterface = inject()
     private var currentUserId = EssentiaStore.shared.currentUser.id
     private var currentSecurity = EssentiaStore.shared.currentUser.backup?.currentlyBackup?.secureLevel ?? 0
     
@@ -93,6 +95,11 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                               detail: "",
                               action: securityAction),
              .separator(inset: Constants.separatorInset),
+             .menuSwitch(icon: imageProvider.settingsTouchId,
+                         title: "Touch ID",
+                         state: ComponentState(defaultValue: viewUserService.current?.isTouchIdEnabled ?? false),
+                         action: touchIdAction),
+             .separator(inset: Constants.separatorInset),
              .empty(height: 16, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .left,
                                   fontSize: 13,
@@ -146,7 +153,44 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
         return .idle
     }
     
+    private func setTouchIdEnabled(_ isEnabled: Bool) {
+        self.viewUserService.update({ (user) in
+            user.isTouchIdEnabled = isEnabled
+        })
+    }
+    
     // MARK: - Actions
+    private lazy var touchIdAction: (Bool) -> Void = { [unowned self] newValue in
+        if newValue {
+            guard let currentUser = self.viewUserService.current else { return }
+            let login = LoginPasswordViewController(userId: currentUser.id, hash: currentUser.passwordHash, password: { (pass) in
+                self.keychainService.storePassword(userId: currentUser.id, password: pass, result: { result in
+                    switch result {
+                    case .success:
+                        self.setTouchIdEnabled(true)
+                    case .failure:
+                        self.setTouchIdEnabled(false)
+                    }
+                    self.dismiss(animated: true)
+                })
+            }, cancel: {
+                self.keychainService.removePassword(userId: currentUser.id, result: { result in
+                    switch result {
+                    case .success:
+                        self.setTouchIdEnabled(false)
+                    case .failure:
+                        self.setTouchIdEnabled(true)
+                    }
+                    self.dismiss(animated: true)
+                    self.tableAdapter.simpleReload(self.state)
+                })
+            })
+            self.present(login, animated: true)
+        } else {
+            self.setTouchIdEnabled(false)
+        }
+    }
+    
     private lazy var currencyAction: () -> Void = { [unowned self] in
         (inject() as SettingsRouterInterface).show(.currency)
     }
@@ -203,23 +247,15 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - SelectAccountDelegate
     func didSelectUser(_ user: ViewUser) {
         guard user.id != EssentiaStore.shared.currentUser.id else { return }
-        
-        func isValudPassword(_ pass: String) -> Bool {
-            if pass.sha512().sha512() != user.passwordHash {
-                return false
-            }
-            guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return false }
+        present(LoginPasswordViewController(userId: user.id, hash: user.passwordHash, password: { [unowned self] pass in 
+            guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return }
             prepareInjection(userStore, memoryPolicy: .viewController)
             (inject() as UserStorageServiceInterface).update { (user) in
                 EssentiaStore.shared.setUser(user)
             }
             TabBarController.shared.selectedIndex = 0
-            
             self.dismiss(animated: true)
-            return true
-        }
-        
-        present(LoginPasswordViewController(password: isValudPassword, cancel: dismiss), animated: true)
+        }, cancel: dismiss), animated: true)
     }
     
     func dismiss() {

@@ -46,7 +46,7 @@ public enum TableComponent: Equatable {
     case menuTitleDetail(icon: UIImage, title: String, detail: String, action: () -> Void)
     case menuSimpleTitleDetail(title: String, detail: String, withArrow: Bool, action: () -> Void)
     case menuTitleCheck(title: String, state: ComponentState<Bool>, action: () -> Void)
-    case menuSwitch(icon: UIImage, title: String, state: ComponentState<Bool>, action: (Bool) -> Void)
+    case menuSwitch(icon: UIImage?, title: String, state: ComponentState<Bool>, action: (Bool) -> Void)
     case menuSectionHeader(title:String, backgroud: UIColor)
     case menuButton(title: String, color: UIColor, action: () -> Void)
     case checkBox(state: ComponentState<Bool>, titlePrifex: String, title: String, subtitle: String, action: () -> Void)

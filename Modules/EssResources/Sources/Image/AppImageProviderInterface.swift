@@ -21,6 +21,7 @@ public protocol AppImageProviderInterface {
     var securityIcon: UIImage { get }
     var darkThemeIcon: UIImage { get }
     var feedbackIcon: UIImage { get }
+    var settingsTouchId: UIImage { get }
     var testAvatarIcon: UIImage { get }
     var backWhiteIcon: UIImage { get }
     var checkBoxEmpty: UIImage { get }
