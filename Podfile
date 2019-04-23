@@ -42,6 +42,7 @@ end
 
 def pod_database
     pod 'RealmSwift'
+    pod 'KeychainAccess'
 end
 
 # Core functionality
