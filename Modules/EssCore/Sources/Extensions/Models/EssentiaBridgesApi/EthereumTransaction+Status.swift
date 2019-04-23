@@ -47,7 +47,7 @@ public extension EthereumTokenTransactionDetail {
         case from.uppercased():
             return .recive
         default:
-            return .recive
+            return .send
         }
     }
 }
