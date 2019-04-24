@@ -255,10 +255,10 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         let nonTokenTx = transactions.filter({ return $0.value != "0" })
         return  [ViewTransaction](nonTokenTx.map({
             let txType = $0.type(for: address)
-            let address = txType == .recive ? $0.to : $0.from
+            let txAddress = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
                 hash: $0.hash,
-                address: address,
+                address: txAddress,
                 ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, asset: asset),
                 status: $0.status,
                 type: $0.type(for: address),
@@ -269,10 +269,10 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
     private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], address: String, forToken: Token) -> [ViewTransaction] {
         return  [ViewTransaction](transactions.map({
             let txType = $0.type(for: address)
-            let address = txType == .recive ? $0.to : $0.from
+            let txAddress = txType == .recive ? $0.from : $0.to
             return ViewTransaction(
                 hash: $0.hash,
-                address: address,
+                address: txAddress,
                 ammount: CryptoFormatter.attributedHex(amount: $0.value, type: txType, decimals: forToken.decimals, asset: forToken),
                 status: $0.status,
                 type: $0.type(for: address),

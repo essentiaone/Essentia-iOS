@@ -23,9 +23,9 @@ public extension EthereumTransactionDetail {
     public func type(for: Address) -> TransactionType {
         switch `for`.uppercased() {
         case to.uppercased():
-            return .send
-        case from.uppercased():
             return .recive
+        case from.uppercased():
+            return .send
         default:
             return .recive
         }
@@ -43,9 +43,9 @@ public extension EthereumTokenTransactionDetail {
     public func type(for: Address) -> TransactionType {
         switch `for`.uppercased() {
         case to.uppercased():
-            return .send
-        case from.uppercased():
             return .recive
+        case from.uppercased():
+            return .send
         default:
             return .send
         }
