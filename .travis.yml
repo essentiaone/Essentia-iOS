@@ -1,6 +1,7 @@
 language: objective-c
 osx_image: xcode10.2
 before_install:
+- sudo gem update cocoapods --pre
 - pod update
 install:
 - gem install xcpretty-travis-formatter
