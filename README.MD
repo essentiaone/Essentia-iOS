@@ -23,9 +23,9 @@ pod install
 open Essentia.xcworkspace
 ```
 ### The minimum requirements to set up the Essentia App:
-- `xCode 10.0`
+- `xCode 10.2`
 - `iOS 11.0`
-- `Swift 4.2`
+- `Swift 5`
 
 If you would like to report bugs or provide feedback (which we will much appreciate) please open a GitHub issue.
 When doing so please be sure to attach: 
