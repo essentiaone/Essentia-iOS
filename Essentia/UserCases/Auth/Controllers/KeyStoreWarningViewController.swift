@@ -22,7 +22,7 @@ class KeyStoreWarningViewController: BaseTableAdapterController, SwipeableNaviga
         tableAdapter.hardReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),

@@ -83,7 +83,10 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
                 push(vc: SendBitcoinTransactionViewController(wallet: wallet, ammount: ammount))
             case .ethereum:
                 push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
-            default: return
+            case .litecoin:
+                push(vc: SendLitecoinTransactionViewController(wallet: wallet, ammount: ammount))
+            default:
+                fatalError()
             }
         case is Token:
             push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
@@ -113,6 +116,8 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
                 url = URL(string: "https://www.blockchain.com/en/btc/tx/" + txId)
             case .ethereum:
                 url = URL(string: "https://etherscan.io/tx/" + txId)
+            case .litecoin:
+                url = URL(string: "https://blockchair.com/litecoin/transaction/" + txId)
             default: return
             }
         case is Token:

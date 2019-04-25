@@ -12,7 +12,7 @@ import EssResources
 import EssModel
 
 public extension BackupSourceType {
-    public func derivationNodesFor(coin: HDWalletKit.Coin) -> [DerivationNode] {
+    func derivationNodesFor(coin: HDWalletKit.Coin) -> [DerivationNode] {
         switch coin {
         case .bitcoin:
             switch self {
@@ -53,11 +53,11 @@ public extension BackupSourceType {
         }
     }
     
-    public var title: String {
+    var title: String {
         return "Import from " + name
     }
     
-    public var name: String {
+    var name: String {
         switch self {
         case .app:
             return "Essentia App"

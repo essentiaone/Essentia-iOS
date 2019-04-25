@@ -2,38 +2,24 @@
 //  GCD.swift
 //  EssCore
 //
-//  Created by Pavlo Boiko on 12/26/18.
-//  Copyright © 2018 Pavlo Boiko. All rights reserved.
+//  Created by Pavlo Boiko on 4/2/19.
+//  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
 import Foundation
-import UIKit
 
-public func main(_ closure: @escaping () -> Void) {
-    DispatchQueue.main.async(execute: closure)
-}
-
-public func global(_ closure: @escaping () -> Void) {
-    DispatchQueue.global(qos: .background).async(execute: closure)
-}
-
-public func asyncUIUpdate(backgroud: @escaping () -> Void, uiUpdate:  @escaping () -> Void) {
-    global {
-        backgroud()
-        main {
-            uiUpdate()
-        }
+public func main(_ f: @escaping () -> Void) {
+    DispatchQueue.main.async {
+        f()
     }
 }
 
-public func queueWithDelays(_ queue :[() -> Void], delayInNanosecods: UInt32) {
-    DispatchQueue.global().async {
-        queue.forEach { (action) in
-            DispatchQueue.main.async {
-                action()
-            }
-            usleep(delayInNanosecods)
-        }
+public func |> <V>(q: DispatchQueue, f: (V, (V) -> Void)) {
+   apply(queue: q, v: f.0, f: f.1)
+}
 
+public func apply<V>(queue: DispatchQueue, v: V, f: @escaping (V) -> Void) {
+    queue.async {
+        f(v)
     }
 }

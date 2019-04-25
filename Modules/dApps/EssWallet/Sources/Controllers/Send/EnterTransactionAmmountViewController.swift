@@ -30,7 +30,8 @@ fileprivate struct Store {
     
     var isValidAmmount: Bool {
         guard let entered = Double(enterdValueInCrypto) else { return false }
-        return entered < wallet.lastBalance && entered > 0
+        let minAmmount = wallet.asset.minimumTransactionAmmount
+        return entered < wallet.lastBalance && entered >= minAmmount
     }
 }
 
@@ -62,7 +63,7 @@ class EnterTransactionAmmountViewController: BaseTableAdapterController, Swipeab
         
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         let selected = fieldsFor(type: self.store.currentlyEdited)
         let deselected = fieldsFor(type: self.store.currentlyEdited.another)
         return [

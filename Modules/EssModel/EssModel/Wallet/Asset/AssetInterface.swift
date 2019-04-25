@@ -35,6 +35,7 @@ public protocol AssetInterface {
     var iconUrl: URL { get }
     var type: CryptoType { get }
     var shadowColor: UIColor { get }
+    var minimumTransactionAmmount: Double { get }
     
     func isValidAddress(_ address: String) -> Bool
 }
@@ -46,6 +47,7 @@ public class EmptyAsset: AssetInterface {
     public var iconUrl: URL { return URL(fileURLWithPath: "") }
     public var type: CryptoType { return .coin }
     public var shadowColor: UIColor { return .white }
+    public var minimumTransactionAmmount: Double = 0
     public func isValidAddress(_ address: String) -> Bool {
         return true
     }

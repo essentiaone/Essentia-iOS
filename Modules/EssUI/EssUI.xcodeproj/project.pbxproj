@@ -25,6 +25,7 @@
 		342A922221F9025E009840DD /* EssCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922121F9025E009840DD /* EssCharacters.swift */; };
 		342A922421F90358009840DD /* String+CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922321F90358009840DD /* String+CharacterSet.swift */; };
 		342A922721F90381009840DD /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922621F90381009840DD /* String+Format.swift */; };
+		344A93A022648D4A00EFA1B3 /* AvatarHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A939F22648D4A00EFA1B3 /* AvatarHashView.swift */; };
 		345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747CA21F5CED9006E2EAB /* EssResources.framework */; };
 		345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */; };
 		345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */; };
@@ -62,6 +63,8 @@
 		3474E49E21F10006003D8DFF /* TableComponentAnimation.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3474E49D21F10006003D8DFF /* TableComponentAnimation.xib */; };
 		3478F87121ECE35D00D54FEF /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3478F86721ECE35D00D54FEF /* EssUI.framework */; };
 		3478F87621ECE35D00D54FEF /* EssUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478F87521ECE35D00D54FEF /* EssUITests.swift */; };
+		3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B2962255598D0072FD02 /* TableComponentAlert.swift */; };
+		3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3482B29A225559B00072FD02 /* TableComponentAlert.xib */; };
 		34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775821ECF5AC003612EE /* ComponentState.swift */; };
 		34CA77E121ECF5AC003612EE /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775921ECF5AC003612EE /* TableComponent.swift */; };
 		34CA77E221ECF5AC003612EE /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */; };
@@ -190,6 +193,7 @@
 		342A922121F9025E009840DD /* EssCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssCharacters.swift; sourceTree = "<group>"; };
 		342A922321F90358009840DD /* String+CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CharacterSet.swift"; sourceTree = "<group>"; };
 		342A922621F90381009840DD /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
+		344A939F22648D4A00EFA1B3 /* AvatarHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHashView.swift; sourceTree = "<group>"; };
 		345747CA21F5CED9006E2EAB /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -229,6 +233,8 @@
 		3478F87021ECE35D00D54FEF /* EssUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3478F87521ECE35D00D54FEF /* EssUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssUITests.swift; sourceTree = "<group>"; };
 		3478F87721ECE35D00D54FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3482B2962255598D0072FD02 /* TableComponentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAlert.swift; sourceTree = "<group>"; };
+		3482B29A225559B00072FD02 /* TableComponentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAlert.xib; sourceTree = "<group>"; };
 		34CA775821ECF5AC003612EE /* ComponentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentState.swift; sourceTree = "<group>"; };
 		34CA775921ECF5AC003612EE /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
@@ -423,6 +429,7 @@
 		345D6DBD21EFBC7800C59398 /* ViewSymbols */ = {
 			isa = PBXGroup;
 			children = (
+				344A939F22648D4A00EFA1B3 /* AvatarHashView.swift */,
 				345D6DBE21EFBC7800C59398 /* Cells */,
 				345D6DC821EFBC7800C59398 /* Buttons */,
 				345D6DCD21EFBC7800C59398 /* TextFields */,
@@ -595,6 +602,15 @@
 			path = EssUITests;
 			sourceTree = "<group>";
 		};
+		3482B2992255599F0072FD02 /* TableComponentAlert */ = {
+			isa = PBXGroup;
+			children = (
+				3482B2962255598D0072FD02 /* TableComponentAlert.swift */,
+				3482B29A225559B00072FD02 /* TableComponentAlert.xib */,
+			);
+			path = TableComponentAlert;
+			sourceTree = "<group>";
+		};
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +627,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3482B2992255599F0072FD02 /* TableComponentAlert */,
 				3474E49A21F0FCAF003D8DFF /* Animation */,
 				34CA775B21ECF5AC003612EE /* Transaction */,
 				34CA775E21ECF5AC003612EE /* CheckField */,
@@ -1168,6 +1185,7 @@
 				34CA780D21ECF5AC003612EE /* TableComponentBlure.xib in Resources */,
 				34CA781C21ECF5AC003612EE /* TableComponentDescription.xib in Resources */,
 				34CA781921ECF5AC003612EE /* TableComponentSectionTitle.xib in Resources */,
+				3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */,
 				34CA781F21ECF5AC003612EE /* TableComponentCurrentAccount.xib in Resources */,
 				345D6DFB21EFBC7800C59398 /* QuestionAlertViewController.xib in Resources */,
 				34CA782321ECF5AC003612EE /* TableComponentCheckImageTitle.xib in Resources */,
@@ -1269,6 +1287,7 @@
 				345D6DF221EFBC7800C59398 /* CopyButton.swift in Sources */,
 				345D6DF921EFBC7800C59398 /* TopAlert.swift in Sources */,
 				34CA782521ECF5AC003612EE /* TableComponentSwitch.swift in Sources */,
+				344A93A022648D4A00EFA1B3 /* AvatarHashView.swift in Sources */,
 				34CA782B21ECF5AC003612EE /* TableComponentEmpty.swift in Sources */,
 				342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */,
 				34CA783221ECF5AC003612EE /* TableComponentCenteredButton.swift in Sources */,
@@ -1279,6 +1298,7 @@
 				34CA782C21ECF5AC003612EE /* TableComponentImageTitleSubtitle.swift in Sources */,
 				342A922221F9025E009840DD /* EssCharacters.swift in Sources */,
 				345D6E0021EFBC7800C59398 /* BaseTableAdapterController.swift in Sources */,
+				3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */,
 				345D6E0321EFBC7800C59398 /* BaseBluredController.swift in Sources */,
 				34CA783521ECF5AC003612EE /* TableComponentTitleSubtitle.swift in Sources */,
 				345D6E0221EFBC7800C59398 /* BaseNavigationController.swift in Sources */,
@@ -1414,6 +1434,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1471,6 +1492,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1502,7 +1524,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1531,7 +1553,7 @@
 				PRODUCT_MODULE_NAME = EssUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

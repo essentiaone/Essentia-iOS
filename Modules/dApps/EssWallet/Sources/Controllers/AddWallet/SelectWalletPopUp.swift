@@ -30,7 +30,7 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
     
     // MARK: - State
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [.centeredComponentTopInstet,
                 .container(state: containerState)]
     }

@@ -31,7 +31,7 @@ end
 
 def pod_ui
     pod 'SVProgressHUD' # Can remove later
-    pod 'Kingfisher', '5.1.1' # Can remove later
+    pod 'Kingfisher' # Can remove later
     pod 'QRCodeReader.swift' # Can remove later
     pod 'AvatarHashView'
 end
@@ -42,6 +42,7 @@ end
 
 def pod_database
     pod 'RealmSwift'
+    pod 'KeychainAccess'
 end
 
 # Core functionality
@@ -110,4 +111,10 @@ target 'EssUIGallery' do
     pod_ui
     pod_database
     pod_debug
+end
+
+post_install do |installer|
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED'] = 'YES'
+  end
 end

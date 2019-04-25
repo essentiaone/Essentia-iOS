@@ -11,7 +11,7 @@ import EssModel
 import EssDI
 
 public extension ViewWalletInterface {
-    public var formattedBalanceInCurrentCurrencyWithSymbol: String {
+    var formattedBalanceInCurrentCurrencyWithSymbol: String {
         guard let currency = EssentiaStore.shared.currentUser.profile?.currency,
               let rank = EssentiaStore.shared.ranks.getRank(for: asset, on: currency) else {
             return "0.0"
@@ -19,7 +19,7 @@ public extension ViewWalletInterface {
         return formattedBalanceInCurrency(currency: currency, with: rank)
     }
     
-    public var balanceInCurrentCurrency: Double {
+    var balanceInCurrentCurrency: Double {
         guard let currency = EssentiaStore.shared.currentUser.profile?.currency,
               let rank = EssentiaStore.shared.ranks.getRank(for: asset, on: currency) else {
             return 0
@@ -27,7 +27,7 @@ public extension ViewWalletInterface {
         return balanceInCurrency(currency: currency, with: rank)
     }
     
-    public var yesterdayBalanceInCurrentCurrency: Double {
+    var yesterdayBalanceInCurrentCurrency: Double {
         guard let currency = EssentiaStore.shared.currentUser.profile?.currency,
               let rank = EssentiaStore.shared.ranks.getYesterdayRank(for: asset, on: currency) else {
             return 0

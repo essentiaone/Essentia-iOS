@@ -54,7 +54,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         hideKeyboardWhenTappedAround()
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return
             staticContent +
                 [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.settingsBackgroud)]
@@ -105,7 +105,7 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
         if filteredStore.isEmpty { filteredStore = self.store.assets }
         var coinsState: [TableComponent] = []
         filteredStore.forEach { (asset) in
-            let selectedIndex = self.store.selectedAssets.index(where: { $0.name.lowercased() == asset.name.lowercased() })
+            let selectedIndex = self.store.selectedAssets.firstIndex(where: { $0.name.lowercased() == asset.name.lowercased() })
             let isSelected = selectedIndex != nil
             coinsState.append(.checkImageTitle(imageUrl: asset.iconUrl, title: asset.localizedName, isSelected: isSelected, action: { [unowned self] in
                 if isSelected {
@@ -180,8 +180,10 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     private lazy var selectWalletAction: () -> Void = { [unowned self] in
         (inject() as WalletRouterInterface).show(.selectEtherWallet(wallets: self.wallets, action: { (wallet) in
             self.store.etherWalletForTokens = wallet
-            self.store.assets = self.filterTokensDueWallet()
-            self.asyncReloadState()
+            main {
+                self.store.assets = self.filterTokensDueWallet()
+                self.asyncReloadState()
+            }
         }))
     }
     
@@ -194,8 +196,8 @@ class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableN
     }
     
     private func filterTokensDueWallet() -> [Token] {
-        guard let tokensUpdate = try? Realm().objects(TokenUpdate.self).first,
-            let tokens = tokensUpdate?.tokens else { return [] }
+        guard let tokensUpdate = try? Realm().objects(TokenUpdate.self).first else { return [] }
+        let tokens = tokensUpdate.tokens 
         guard let currentWallet = self.store.etherWalletForTokens else { return tokens.map { return $0 } }
         let currentWalletAddress = currentWallet.viewWalletObject
         let tokenWallets = self.interactor.getTokensByWalleets()

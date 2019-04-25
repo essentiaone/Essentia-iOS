@@ -32,7 +32,7 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     }
     
     // MARK: - State
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),

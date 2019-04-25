@@ -21,6 +21,7 @@ public protocol AppImageProviderInterface {
     var securityIcon: UIImage { get }
     var darkThemeIcon: UIImage { get }
     var feedbackIcon: UIImage { get }
+    var settingsTouchId: UIImage { get }
     var testAvatarIcon: UIImage { get }
     var backWhiteIcon: UIImage { get }
     var checkBoxEmpty: UIImage { get }
@@ -44,6 +45,7 @@ public protocol AppImageProviderInterface {
     var passwordVisible: UIImage { get }
     var topAlertInfo: UIImage { get }
     var topAlertCancel: UIImage { get }
+    var touchIdIcon: UIImage { get }
     // MARK: - Wallet
     var welcomeParagraph1: UIImage { get }
     var welcomeParagraph2: UIImage { get }

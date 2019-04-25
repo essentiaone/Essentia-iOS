@@ -9,7 +9,7 @@
 import Foundation
 
 public extension String {
-    public func firstSimbolUppercased() -> String {
+    func firstSimbolUppercased() -> String {
         guard !self.isEmpty else { return "" }
         let firstSimbol = String(self.first!).uppercased()
         let suffix = self.suffix(count - 1)

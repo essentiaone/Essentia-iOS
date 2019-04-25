@@ -14,6 +14,7 @@ public protocol ViewUserStorageServiceInterface {
     func remove(_ user: ViewUser)
     func update(_ updateBlock: (ViewUser) -> Void)
     var users: [ViewUser] { get }
+    var current: ViewUser? { get } 
 }
 
 extension ViewUserStorageServiceInterface {

@@ -17,6 +17,7 @@ public class ViewUser: Object {
     public dynamic var icon: Data = Data()
     public dynamic var passwordHash: String = ""
     public dynamic var test: String = ""
+    public dynamic var isTouchIdEnabled: Bool = false
     
     public convenience init(id: String, index: Int, name: String, icon: Data?, passwordHash: String) {
         self.init()

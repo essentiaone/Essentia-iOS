@@ -30,7 +30,7 @@ class SettingsSecurityViewController: BaseTableAdapterController, SwipeableNavig
         tableView.backgroundColor = colorProvider.settingsBackgroud
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Settings.Title"),

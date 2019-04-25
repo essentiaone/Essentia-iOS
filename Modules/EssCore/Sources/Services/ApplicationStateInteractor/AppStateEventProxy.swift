@@ -22,7 +22,7 @@ public class AppStateEventProxy: AppStateEventProxyInterface {
     
     private func remove(subscriber: AppStateEventHandler, for event: AppStates) {
         if let subscribers = eventSubscribers[event] {
-            if let index = subscribers.index(where: { $0 === subscriber }) {
+            if let index = subscribers.firstIndex(where: { $0 === subscriber }) {
                 eventSubscribers[event]?.remove(at: index)
             }
         }

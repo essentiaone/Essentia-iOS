@@ -21,7 +21,7 @@ public struct CoinGeckoCurrencyModel: Codable {
     public var low24h: Double
     public var priceChange24h: Double
     public var priceChangePercentage24h: Double
-    public var circulatingSupply: String
+    public var circulatingSupply: Double
     public var ath: Double
     public var athChangePercentage: Double
     public var athDate: String

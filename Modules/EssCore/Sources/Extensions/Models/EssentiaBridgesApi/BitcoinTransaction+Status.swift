@@ -10,14 +10,14 @@ import EssentiaBridgesApi
 import EssModel
 
 public extension BitcoinTransactionValue {
-    public var status: TransactionStatus {
-        if confirmations >= 5 {
+    var status: TransactionStatus {
+        if confirmations >= 2 {
             return .success
         }
         return .pending
     }
     
-    public func type(for address: String) -> TransactionType {
+    func type(for address: String) -> TransactionType {
         let input = vin.contains {
             return $0.addr == address
         }
@@ -27,7 +27,7 @@ public extension BitcoinTransactionValue {
         return .recive
     }
     
-    public func transactionAmmount(for address: String) -> Double? {
+    func transactionAmmount(for address: String) -> Double? {
         switch type(for: address) {
         case .send:
             let input = vin.map { return $0.value }.reduce(0.0, +)

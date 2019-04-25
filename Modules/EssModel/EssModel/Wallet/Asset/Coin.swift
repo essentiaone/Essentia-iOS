@@ -16,11 +16,23 @@ public enum Coin: String {
     
     public static var fullySupportedCoins: [Coin] {
         return [.ethereum,
-                .bitcoin]
+                .bitcoin,
+                .litecoin]
     }
     
     public func isValidPK(_ pk: String) -> Bool {
         return !pk.isEmpty
+    }
+    
+    public var minimumTransactionAmmount: Double {
+        switch self {
+        case .bitcoin:
+            return 0.000_005_46
+        case .litecoin:
+            return 0.000_01
+        default:
+            return 1/pow(10, 18)
+        }
     }
     
     func isValidAddress(_ address: String) -> Bool {

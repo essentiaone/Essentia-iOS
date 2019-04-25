@@ -16,9 +16,6 @@ public protocol WalletBlockchainWrapperInteractorInterface {
     func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void)
     func getTokenBalance(for token: Token, address: String, balance: @escaping (Double) -> Void)
     func getTokenTxHistory(address: EssentiaBridgesApi.Address, smartContract: EssentiaBridgesApi.Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void)
-    func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<BitcoinTransactionsHistory>) -> Void)
-    func getTxHistoryForEthereumAddress(_ address: String, result: @escaping (NetworkResult<EthereumTransactionsByAddress>) -> Void)
-    func getTxHistory(for token: Token, address: String, balance: @escaping (Double) -> Void)
     
     func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void)
     func getEthGasPrice(gasPrice: @escaping (Double) -> Void)

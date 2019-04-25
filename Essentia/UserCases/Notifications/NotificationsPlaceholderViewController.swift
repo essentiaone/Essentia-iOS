@@ -22,7 +22,7 @@ class NotificationsPlaceholderViewController: BaseTableAdapterController {
         self.tableAdapter.simpleReload(state)
     }
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .empty(height: 45, background: colorProvider.settingsCellsBackround),
             .titleWithFont(font: AppFont.bold.withSize(34),

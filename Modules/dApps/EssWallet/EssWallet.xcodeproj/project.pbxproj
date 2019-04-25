@@ -40,6 +40,9 @@
 		347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B2121F3B0C70053C2F3 /* WalletRouterInterface.swift */; };
 		347A3B4021F3B1350053C2F3 /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B3F21F3B1350053C2F3 /* libEssCore.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		347A3B4421F3B15B0053C2F3 /* EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347A3B4321F3B15B0053C2F3 /* EssUI.framework */; };
+		3482B28F224E2F810072FD02 /* ConfirmLitecoinTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B28E224E2F810072FD02 /* ConfirmLitecoinTransactionViewController.swift */; };
+		3482B291224E2F8D0072FD02 /* SendLitecoinTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B290224E2F8D0072FD02 /* SendLitecoinTransactionViewController.swift */; };
+		3482B293224E2FA20072FD02 /* LitecoinUtxo+UnspendTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B292224E2FA20072FD02 /* LitecoinUtxo+UnspendTransaction.swift */; };
 		34B225652237AE060046EBE7 /* UtxoTxInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B225642237AE060046EBE7 /* UtxoTxInfo.swift */; };
 		34C091202238F03C000FAF5C /* SendBitcoinTransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0911F2238F03C000FAF5C /* SendBitcoinTransactionViewController.swift */; };
 		34C2B82721FA19CD00B38E90 /* CryptoFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C2B82621FA19CD00B38E90 /* CryptoFormatter.swift */; };
@@ -94,6 +97,9 @@
 		347A3B3F21F3B1350053C2F3 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4121F3B1350053C2F3 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		347A3B4321F3B15B0053C2F3 /* EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3482B28E224E2F810072FD02 /* ConfirmLitecoinTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLitecoinTransactionViewController.swift; sourceTree = "<group>"; };
+		3482B290224E2F8D0072FD02 /* SendLitecoinTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLitecoinTransactionViewController.swift; sourceTree = "<group>"; };
+		3482B292224E2FA20072FD02 /* LitecoinUtxo+UnspendTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LitecoinUtxo+UnspendTransaction.swift"; sourceTree = "<group>"; };
 		34B225642237AE060046EBE7 /* UtxoTxInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtxoTxInfo.swift; sourceTree = "<group>"; };
 		34C0911F2238F03C000FAF5C /* SendBitcoinTransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendBitcoinTransactionViewController.swift; sourceTree = "<group>"; };
 		34C2B82621FA19CD00B38E90 /* CryptoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFormatter.swift; sourceTree = "<group>"; };
@@ -187,10 +193,10 @@
 		347A3B0D21F3B0C70053C2F3 /* Send */ = {
 			isa = PBXGroup;
 			children = (
+				3482B28D224E2F570072FD02 /* UTXO */,
 				347A3B0E21F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift */,
 				347A3B0F21F3B0C70053C2F3 /* DoneTransactionViewController.swift */,
 				347A3B1021F3B0C70053C2F3 /* EnterTransactionAmmountViewController.swift */,
-				347A3B1121F3B0C70053C2F3 /* Bitcoin */,
 				347A3B1321F3B0C70053C2F3 /* Ether */,
 			);
 			path = Send;
@@ -199,7 +205,6 @@
 		347A3B1121F3B0C70053C2F3 /* Bitcoin */ = {
 			isa = PBXGroup;
 			children = (
-				34B225642237AE060046EBE7 /* UtxoTxInfo.swift */,
 				347A3B1221F3B0C70053C2F3 /* ConfirmBitcoinTxDetailViewController.swift */,
 				34C0911F2238F03C000FAF5C /* SendBitcoinTransactionViewController.swift */,
 				3457B7FB223FA54500D54283 /* BitcoinUtxo+UnspendTransaction.swift */,
@@ -251,6 +256,26 @@
 				347A3B2121F3B0C70053C2F3 /* WalletRouterInterface.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		3482B28C224E2F4A0072FD02 /* Litecoin */ = {
+			isa = PBXGroup;
+			children = (
+				3482B28E224E2F810072FD02 /* ConfirmLitecoinTransactionViewController.swift */,
+				3482B290224E2F8D0072FD02 /* SendLitecoinTransactionViewController.swift */,
+				3482B292224E2FA20072FD02 /* LitecoinUtxo+UnspendTransaction.swift */,
+			);
+			path = Litecoin;
+			sourceTree = "<group>";
+		};
+		3482B28D224E2F570072FD02 /* UTXO */ = {
+			isa = PBXGroup;
+			children = (
+				34B225642237AE060046EBE7 /* UtxoTxInfo.swift */,
+				3482B28C224E2F4A0072FD02 /* Litecoin */,
+				347A3B1121F3B0C70053C2F3 /* Bitcoin */,
+			);
+			path = UTXO;
 			sourceTree = "<group>";
 		};
 		34C2B82521FA19AF00B38E90 /* Formatters */ = {
@@ -386,11 +411,13 @@
 				347A3B3121F3B0C70053C2F3 /* WalletWelcomeViewController.swift in Sources */,
 				347A3B2C21F3B0C70053C2F3 /* WalletDoneImportingAlert.swift in Sources */,
 				347A3B3621F3B0C70053C2F3 /* EtherTxInfo.swift in Sources */,
+				3482B291224E2F8D0072FD02 /* SendLitecoinTransactionViewController.swift in Sources */,
 				347A3B2521F3B0C70053C2F3 /* WalletDetailViewController.swift in Sources */,
 				347A3B2E21F3B0C70053C2F3 /* FailImportingAlert.swift in Sources */,
 				347A3B2621F3B0C70053C2F3 /* WalletEnterReceiveAmmount.swift in Sources */,
 				347A3B3A21F3B0C70053C2F3 /* WalletInteractor.swift in Sources */,
 				347A3B3B21F3B0C70053C2F3 /* WalletBlockchainWrapperInteractor.swift in Sources */,
+				3482B28F224E2F810072FD02 /* ConfirmLitecoinTransactionViewController.swift in Sources */,
 				347A3B3221F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift in Sources */,
 				347A3B3921F3B0C70053C2F3 /* WalletInteractorInterface.swift in Sources */,
 				34C2B82721FA19CD00B38E90 /* CryptoFormatter.swift in Sources */,
@@ -409,6 +436,7 @@
 				347A3B2821F3B0C70053C2F3 /* WalletCreateNewAssetViewController.swift in Sources */,
 				347A3B2321F3B0C70053C2F3 /* DeleteWalletWarningViewController.swift in Sources */,
 				347A3B3321F3B0C70053C2F3 /* DoneTransactionViewController.swift in Sources */,
+				3482B293224E2FA20072FD02 /* LitecoinUtxo+UnspendTransaction.swift in Sources */,
 				347A3B2421F3B0C70053C2F3 /* WalletDeletedWarningViewController.swift in Sources */,
 				347A3B2F21F3B0C70053C2F3 /* SelectWalletPopUp.swift in Sources */,
 				347A3B3421F3B0C70053C2F3 /* EnterTransactionAmmountViewController.swift in Sources */,
@@ -480,6 +508,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -534,6 +563,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -550,7 +580,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -567,7 +597,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

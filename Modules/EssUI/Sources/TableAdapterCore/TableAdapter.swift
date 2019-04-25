@@ -86,6 +86,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentTwoButtons.self)
         tableView.register(TableComponentLoader.self)
         tableView.register(TableComponentAnimation.self)
+        tableView.register(TableComponentAlert.self)
     }
     
     // MARK: - Update State
@@ -138,12 +139,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.animateImageView.backgroundColor = .clear
             cell.animateImageView.contentMode = .scaleAspectFit
             return cell
-        case .topAlert(let type, let string):
-            if let superView = tableView.superview {
-                let alert = TopAlert(alertType: type, title: string, inView: superView)
-                alert.show()
-            }
-            let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
+        case .alert(let type, let string):
+            let cell: TableComponentAlert = tableView.dequeueReusableCell(for: indexPath)
+            cell.alertTitle.attributedText = type.attributedTitle(string)
+            cell.backgroundColor = type.backgroundColor
             return cell
         case .empty(_, let background):
             let cell: TableComponentEmpty = tableView.dequeueReusableCell(for: indexPath)
@@ -247,9 +246,9 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.textLabel?.text = title
             cell.textLabel?.textColor = color
             return cell
-        case .currentAccount(let icon, let title, let name, _):
+        case .currentAccount(let userId, let title, let name, _):
             let cell: TableComponentCurrentAccount = tableView.dequeueReusableCell(for: indexPath)
-            cell.accountImageView.image = icon
+            cell.accountAvatarView.setUser(hash: userId)
             cell.accountTitleLabel.text = title
             cell.accountDescription.text = name
             return cell
@@ -553,9 +552,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.subltitle.text = subtitle
             cell.titleImagevView.image = image
             return cell
-        case .centeredImageButton(let image, _):
+        case .centeredImageButton(let image, let action):
             let cell: TableComponentCenteredImage = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.image = image
+            cell.imageAction = action
             cell.titleImageView.contentMode = .center
             return cell
         case .blure(let state):
@@ -615,7 +615,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .transactionDetail: fallthrough
         case .textFieldTitleDetail: fallthrough
         case .titleCenteredDetailTextFildWithImage: fallthrough
-        case .centeredImageButton: fallthrough
         case .titleAction: fallthrough
         case .assetBalance:
             return true
@@ -682,8 +681,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTitleCenterTextDetail = tableView.cellForRow(at: indexPath)
             selectedRow = indexPath
             focusView(view: cell.centeredTextField)
-        case .centeredImageButton(_, let action):
-            action()
         case .titleAction(_, _, let action):
             action()
         default:

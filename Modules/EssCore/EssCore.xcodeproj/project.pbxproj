@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3423DA8021F8557C00578930 /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7F21F8557C00578930 /* SettingsRouterInterface.swift */; };
 		3423DA8621F85A9000578930 /* BaseRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA8521F85A9000578930 /* BaseRouterInterface.swift */; };
+		344A93A32264D4A300EFA1B3 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A93A22264D4A300EFA1B3 /* KeychainService.swift */; };
+		344A93A52264D4AA00EFA1B3 /* KeychainServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A93A42264D4AA00EFA1B3 /* KeychainServiceInterface.swift */; };
 		345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */; };
 		345747B421F50F57006E2EAB /* CurrencyRankDemonInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */; };
 		345747BB21F51336006E2EAB /* SelectAccountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */; };
@@ -30,6 +32,8 @@
 		347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */; };
 		347A3B9421F3BA790053C2F3 /* User+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */; };
 		347A3B9521F3BA790053C2F3 /* UserWallet+UniqueAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */; };
+		3482B28B224E2D6C0072FD02 /* LitecoinTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B28A224E2D6C0072FD02 /* LitecoinTransaction+Status.swift */; };
+		3482B29522536B810072FD02 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B29422536B810072FD02 /* GCD.swift */; };
 		348919FC2243D9DE008CBA74 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348919FB2243D9DE008CBA74 /* Functional.swift */; };
 		349757AA2215AB770067CD96 /* Error+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349757A92215AB770067CD96 /* Error+Description.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
@@ -44,7 +48,6 @@
 		34B143E921D3D96400EC06AE /* String+bjd2+sbdm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143D721D3D96400EC06AE /* String+bjd2+sbdm.swift */; };
 		34B143EA21D3D96400EC06AE /* String+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143D821D3D96400EC06AE /* String+Helpers.swift */; };
 		34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143DA21D3D96400EC06AE /* Date+Intervals.swift */; };
-		34B143F221D3DA5000EC06AE /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143F121D3DA5000EC06AE /* GCD.swift */; };
 		34C19BD02228B45800B02203 /* BackupSourceType+HDWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BCF2228B45800B02203 /* BackupSourceType+HDWallet.swift */; };
 		34D4643321FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D4643221FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift */; };
 		34D9C96221F934D600B3A625 /* libEssModel.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3423DA7721F7DDC100578930 /* libEssModel.a */; };
@@ -99,6 +102,8 @@
 		3423DA7721F7DDC100578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3423DA7F21F8557C00578930 /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		3423DA8521F85A9000578930 /* BaseRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterInterface.swift; sourceTree = "<group>"; };
+		344A93A22264D4A300EFA1B3 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		344A93A42264D4AA00EFA1B3 /* KeychainServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainServiceInterface.swift; sourceTree = "<group>"; };
 		345747B121F50F57006E2EAB /* CurrencyRankDemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemon.swift; sourceTree = "<group>"; };
 		345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyRankDemonInterface.swift; sourceTree = "<group>"; };
 		345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +125,8 @@
 		347A3B8D21F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImportedWallet+WalletInterface.swift"; sourceTree = "<group>"; };
 		347A3B9221F3BA790053C2F3 /* User+HDWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+HDWallet.swift"; sourceTree = "<group>"; };
 		347A3B9321F3BA790053C2F3 /* UserWallet+UniqueAsset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserWallet+UniqueAsset.swift"; sourceTree = "<group>"; };
+		3482B28A224E2D6C0072FD02 /* LitecoinTransaction+Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LitecoinTransaction+Status.swift"; sourceTree = "<group>"; };
+		3482B29422536B810072FD02 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		348919FB2243D9DE008CBA74 /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		349757A92215AB770067CD96 /* Error+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Description.swift"; sourceTree = "<group>"; };
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +144,6 @@
 		34B143D721D3D96400EC06AE /* String+bjd2+sbdm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+bjd2+sbdm.swift"; sourceTree = "<group>"; };
 		34B143D821D3D96400EC06AE /* String+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Helpers.swift"; sourceTree = "<group>"; };
 		34B143DA21D3D96400EC06AE /* Date+Intervals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Intervals.swift"; sourceTree = "<group>"; };
-		34B143F121D3DA5000EC06AE /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		34C19BCF2228B45800B02203 /* BackupSourceType+HDWallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BackupSourceType+HDWallet.swift"; sourceTree = "<group>"; };
 		34D4643221FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUserStorageServiceInterface.swift; sourceTree = "<group>"; };
 		34E2D8D521F75FAB00AA3636 /* CurrentCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentCredentials.swift; sourceTree = "<group>"; };
@@ -211,6 +217,15 @@
 			path = Foundation;
 			sourceTree = "<group>";
 		};
+		344A93A12264D49100EFA1B3 /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				344A93A22264D4A300EFA1B3 /* KeychainService.swift */,
+				344A93A42264D4AA00EFA1B3 /* KeychainServiceInterface.swift */,
+			);
+			path = KeychainService;
+			sourceTree = "<group>";
+		};
 		345747AF21F50F57006E2EAB /* Demons */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +257,7 @@
 			children = (
 				347A3B4721F3B4330053C2F3 /* BitcoinTransaction+Status.swift */,
 				347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */,
+				3482B28A224E2D6C0072FD02 /* LitecoinTransaction+Status.swift */,
 			);
 			path = EssentiaBridgesApi;
 			sourceTree = "<group>";
@@ -388,8 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				34B143B021D3D95A00EC06AE /* FastTernaryOperator.swift */,
-				34B143F121D3DA5000EC06AE /* GCD.swift */,
 				348919FB2243D9DE008CBA74 /* Functional.swift */,
+				3482B29422536B810072FD02 /* GCD.swift */,
 			);
 			path = Sugar;
 			sourceTree = "<group>";
@@ -417,6 +433,7 @@
 		34F00A3421D6807800B01C99 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				344A93A12264D49100EFA1B3 /* KeychainService */,
 				34F00A6021D6815000B01C99 /* ApplicationStateInteractor */,
 				34F00A3521D6807800B01C99 /* MnemonicService */,
 				34F00A3821D6807800B01C99 /* CurrencyConverterService */,
@@ -657,9 +674,9 @@
 				347A3B9421F3BA790053C2F3 /* User+HDWallet.swift in Sources */,
 				34D4643321FFC13D00FCB643 /* ViewUserStorageServiceInterface.swift in Sources */,
 				34B143EA21D3D96400EC06AE /* String+Helpers.swift in Sources */,
-				34B143F221D3DA5000EC06AE /* GCD.swift in Sources */,
 				347A3B6F21F3B4330053C2F3 /* EthereumTransaction+Status.swift in Sources */,
 				34B143BC21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift in Sources */,
+				344A93A32264D4A300EFA1B3 /* KeychainService.swift in Sources */,
 				34F00A5521D6807800B01C99 /* TekensEndpoint.swift in Sources */,
 				34F00A5921D6807800B01C99 /* LoggerServiceInterface.swift in Sources */,
 				34B143BD21D3D95A00EC06AE /* DateFormatter.swift in Sources */,
@@ -669,6 +686,7 @@
 				345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */,
 				34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */,
 				347A3B7B21F3B4330053C2F3 /* ViewWallet+EssStore.swift in Sources */,
+				3482B29522536B810072FD02 /* GCD.swift in Sources */,
 				34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */,
 				34F00A4F21D6807800B01C99 /* CurrencyConverterServiceInterface.swift in Sources */,
 				34E2D8DE21F75FAB00AA3636 /* UserStorageInterface.swift in Sources */,
@@ -676,10 +694,12 @@
 				34F00A5421D6807800B01C99 /* TokensServiceInterface.swift in Sources */,
 				3423DA8021F8557C00578930 /* SettingsRouterInterface.swift in Sources */,
 				34B143C521D3D95A00EC06AE /* MethodSwizzle.swift in Sources */,
+				344A93A52264D4AA00EFA1B3 /* KeychainServiceInterface.swift in Sources */,
 				34B143BB21D3D95A00EC06AE /* BalanceFormatter.swift in Sources */,
 				34F00A4D21D6807800B01C99 /* MnemonicServiceInterface.swift in Sources */,
 				34E2D8DF21F75FAB00AA3636 /* EssentiaConstants.swift in Sources */,
 				34B143C121D3D95A00EC06AE /* FastTernaryOperator.swift in Sources */,
+				3482B28B224E2D6C0072FD02 /* LitecoinTransaction+Status.swift in Sources */,
 				34B143E921D3D96400EC06AE /* String+bjd2+sbdm.swift in Sources */,
 				34F00A5C21D6807800B01C99 /* LocalFilesService.swift in Sources */,
 				34E2D8DC21F75FAB00AA3636 /* EssentiaStore.swift in Sources */,
@@ -777,6 +797,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -831,6 +852,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -855,7 +877,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Sources/EssCore-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -879,7 +901,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "Sources/EssCore-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

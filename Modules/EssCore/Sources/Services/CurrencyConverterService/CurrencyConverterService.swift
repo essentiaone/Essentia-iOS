@@ -40,19 +40,14 @@ public class CurrencyConverterService: CurrencyConverterServiceInterface {
     public func getCoinInfo(from asset: AssetInterface, to currency: FiatCurrency, info: @escaping (CoinGeckoCurrencyModel) -> Void) {
         let coinName = asset.name.lowercased().replacingOccurrences(of: " ", with: "-")
         let endpoint = CurrencyConverterEndpoint.getPrice(forCoin: coinName, inCurrency: currency )
-        networkManager.makeAsyncRequest(endpoint) { (result: NetworkResult<[CoinGeckoCurrencyModel]>) in
+        networkManager.request(endpoint) { (result: NetworkResult<[CoinGeckoCurrencyModel]>) in
             switch result {
             case .success(let objects):
                 guard let object = objects.first else { return }
                 self.storeCoinInfo(object, from: asset, to: currency)
                 info(object)
-            case .failure(let error):
-                switch error {
-                case .error(let errorMessage):
-                    (inject() as LoaderInterface).showError(errorMessage.error)
-                default:
-                    (inject() as LoaderInterface).hide()
-                }
+            case .failure:
+                (inject() as LoaderInterface).hide()
             }
         }
         guard let stored = getCoinInfoFromStorage(from: asset, to: currency) else { return }

@@ -12,6 +12,7 @@ import EssModel
 import EssResources
 import EssUI
 import EssDI
+import Crashlytics
 
 class SelectAccoutViewController: BaseBluredTableAdapterController {
     var users: [User] = []
@@ -32,7 +33,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     // MARK: - State
     
-    private var state: [TableComponent] {
+    override var state: [TableComponent] {
         return [
             .calculatbleSpace(background: .clear),
             .container(state: containerState),
@@ -40,7 +41,9 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     private var containerState: [TableComponent] {
-        let usersState = userService.users |> viewUserState |> concat
+        let users = userService.users
+        logAccountsCount(usersCount: users.count)
+        let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: .white),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
@@ -53,7 +56,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {
-        let icon = UIImage(data: user.icon) ?? imageProvider.testAvatar
+        let icon = AvatarHashView(hash: user.id, frame: CGRect(x: 0, y: 0, width: 40, height: 40)).image
         return
             [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
                 self.dismiss(animated: true)
@@ -78,4 +81,9 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         self.delegate?.createNewUser()
     }
     
+    // MARK: - Analitics
+    
+    private func logAccountsCount(usersCount: Int) {
+        Answers.logCustomEvent(withName: "AccountsCount", customAttributes: ["count": usersCount])
+    }
 }
