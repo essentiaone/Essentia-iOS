@@ -11,7 +11,7 @@ import EssentiaNetworkCore
 import EssModel
 
 public extension Error {
-    public var description: String {
+    var description: String {
         switch self {
         case let error as EssentiaNetworkError:
             return error.localizedDescription

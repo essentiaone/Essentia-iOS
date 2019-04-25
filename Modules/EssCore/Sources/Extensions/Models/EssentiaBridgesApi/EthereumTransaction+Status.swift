@@ -10,7 +10,7 @@ import EssentiaBridgesApi
 import EssModel
 
 public extension EthereumTransactionDetail {
-    public var status: TransactionStatus {
+    var status: TransactionStatus {
         if isError == "1" {
             return .failure
         }
@@ -20,7 +20,7 @@ public extension EthereumTransactionDetail {
         return .success
     }
     
-    public func type(for: Address) -> TransactionType {
+    func type(for: Address) -> TransactionType {
         switch `for`.uppercased() {
         case to.uppercased():
             return .recive
@@ -33,14 +33,14 @@ public extension EthereumTransactionDetail {
 }
 
 public extension EthereumTokenTransactionDetail {
-    public var status: TransactionStatus {
+    var status: TransactionStatus {
         if (Int(confirmations) ?? 0) < 5 {
             return .pending
         }
         return .success
     }
     
-    public func type(for: Address) -> TransactionType {
+    func type(for: Address) -> TransactionType {
         switch `for`.uppercased() {
         case to.uppercased():
             return .recive

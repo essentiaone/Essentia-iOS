@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIView {
-    public func findView<T>(type: T.Type) -> T? {
+    func findView<T>(type: T.Type) -> T? {
         let svs = subviews.flatMap { $0.subviews }
         guard let element = (svs.filter { $0 is T }).first as? T else { return nil }
         return element

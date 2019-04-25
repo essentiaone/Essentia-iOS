@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 public extension UIView {
-    public func animateToColor(_ color: UIColor, with duration: Double = 0.5) {
+    func animateToColor(_ color: UIColor, with duration: Double = 0.5) {
         UIView.transition(with: self, duration: duration, options: .beginFromCurrentState, animations: {
             self.superview?.layoutSubviews()
             self.backgroundColor = color

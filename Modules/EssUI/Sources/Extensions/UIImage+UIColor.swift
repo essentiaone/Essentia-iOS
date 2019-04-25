@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UIImage {
-    public static func withColor(_ color: UIColor, size: CGSize) -> UIImage {
+    static func withColor(_ color: UIColor, size: CGSize) -> UIImage {
         UIGraphicsBeginImageContext(size)
         color.setFill()
         UIRectFill(CGRect(origin: .zero, size: size))
@@ -18,7 +18,7 @@ public extension UIImage {
         return img!
     }
     
-    public static func withColor(_ color: UIColor) -> UIImage {
+    static func withColor(_ color: UIColor) -> UIImage {
         return withColor(color, size: CGSize(width: 1, height: 1))
     }
 }

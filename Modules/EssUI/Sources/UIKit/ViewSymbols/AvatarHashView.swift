@@ -34,9 +34,9 @@ fileprivate extension Data {
     var sha256: Data {
         var hash = [UInt8](repeating: 0, count: Int(CC_SHA256_DIGEST_LENGTH))
         self.withUnsafeBytes {
-            _ = CC_SHA256($0, CC_LONG(self.count), &hash)
+            _ = CC_SHA256($0.baseAddress, CC_LONG(self.count), &hash)
         }
-        return Data(bytes: hash)
+        return Data(hash)
     }
     
     var hex: String {

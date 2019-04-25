@@ -13,14 +13,14 @@ public protocol NibLoadable {
 }
 
 public extension NibLoadable where Self: UICollectionViewCell & NibLoadable {
-    public static var nib: UINib {
+    static var nib: UINib {
         let bundle = Bundle(for: self)
         return UINib(nibName: identifire, bundle: bundle)
     }
 }
 
 public extension NibLoadable where Self: UITableViewCell & NibLoadable {
-    public static var nib: UINib {
+    static var nib: UINib {
         let bundle = Bundle(for: self)
         return UINib(nibName: identifire, bundle: bundle)
     }

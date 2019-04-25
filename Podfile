@@ -31,7 +31,7 @@ end
 
 def pod_ui
     pod 'SVProgressHUD' # Can remove later
-    pod 'Kingfisher', '5.1.1' # Can remove later
+    pod 'Kingfisher' # Can remove later
     pod 'QRCodeReader.swift' # Can remove later
 
 end

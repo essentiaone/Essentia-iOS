@@ -28,11 +28,11 @@ public class AmmountEnteringDelegate: NSObject, UITextFieldDelegate {
     
     // MARK: - UITextFieldDelegate
     
-    private func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = enteredAmount
     }
     
-    private func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         textField.isUserInteractionEnabled = false
         let zeroValues = ["0", "0.0", "0.00"]
         guard let text = textField.text, !zeroValues.contains(text) else {
@@ -53,11 +53,11 @@ public class AmmountEnteringDelegate: NSObject, UITextFieldDelegate {
         doneAction(sender.text ?? "")
     }
     
-    private func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return true
     }
     
-    private func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let newCharacter = string
         let ammountField = textField.text ?? ""
         if newCharacter.isEmpty && !ammountField.isEmpty { return true }

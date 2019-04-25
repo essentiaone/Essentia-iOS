@@ -13,7 +13,7 @@ public extension BaseViewController {
         static var hideKeyboardRecognizer = "hideKeyboardRecognizer"
     }
     
-    public var hideKeyboardRecognizer: UITapGestureRecognizer! {
+    var hideKeyboardRecognizer: UITapGestureRecognizer! {
         get {
             return objc_getAssociatedObject( self, &AssociatedKey.hideKeyboardRecognizer ) as? UITapGestureRecognizer
         }
@@ -22,17 +22,17 @@ public extension BaseViewController {
         }
     }
     
-    public func hideKeyboardWhenTappedAround() {
+    func hideKeyboardWhenTappedAround() {
         hideKeyboardRecognizer = UITapGestureRecognizer(target: self, action: #selector(BaseViewController.dismissKeyboard))
         hideKeyboardRecognizer.cancelsTouchesInView = false
         view.addGestureRecognizer(hideKeyboardRecognizer)
     }
     
-    public func disableEventHideKeyboard() {
+    func disableEventHideKeyboard() {
         view.removeGestureRecognizer(hideKeyboardRecognizer)
     }
     
-    @objc public func dismissKeyboard() {
+    @objc func dismissKeyboard() {
         keyboardObserver.stop()
         view.endEditing(true)
     }

@@ -17,7 +17,7 @@ public enum DateFormat: String {
 }
 
 public extension DateFormatter {
-    public convenience init(formate: DateFormat) {
+    convenience init(formate: DateFormat) {
         self.init()
         dateFormat = formate.rawValue
     }
