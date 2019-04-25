@@ -17,7 +17,7 @@ public class TokenService: TokensServiceInterface {
     public init() {}
     
     public func getTokensList(_ callBack: @escaping ([Token]) -> Void) {
-        networkManager.makeAsyncRequest(TokensEndpoint.list) { (result: NetworkResult<[Token]>) in
+        networkManager.request(TokensEndpoint.list) { (result: NetworkResult<[Token]>) in
             switch result {
             case .success(let object):
                 callBack(object)

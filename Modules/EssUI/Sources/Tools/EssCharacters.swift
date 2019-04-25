@@ -29,14 +29,14 @@ public enum EssCharacters: String {
 }
 
 public extension String {
-    public func coincidencesIndexes(with set: CharacterSet) -> [Int] {
+    func coincidencesIndexes(with set: CharacterSet) -> [Int] {
         return self.enumerated().compactMap { (index, character) -> Int? in
             let setContainCharacter = set.isSuperset(of: CharacterSet(charactersIn: String(character)))
             return setContainCharacter ? index : nil
         }
     }
     
-    public func onlyContain(characters: CharacterSet) -> Bool {
+    func onlyContain(characters: CharacterSet) -> Bool {
         return characters.isSuperset(of: CharacterSet(charactersIn: self))
     }
 }

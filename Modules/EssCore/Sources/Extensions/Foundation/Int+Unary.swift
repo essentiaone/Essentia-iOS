@@ -12,15 +12,15 @@ postfix operator ++
 postfix operator --
 
 public extension Int {
-    public static postfix func++(lhs: inout Int) {
+    static postfix func++(lhs: inout Int) {
         return lhs += 1
     }
     
-    public static postfix func--(lhs: inout Int) {
+    static postfix func--(lhs: inout Int) {
         return lhs -= 1
     }
     
-    public var string: String {
+    var string: String {
         return "\(self)"
     }
 }

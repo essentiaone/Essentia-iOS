@@ -10,29 +10,29 @@ import Foundation
 import EssModel
 
 public extension ViewWalletInterface {
-    public func balanceInCurrency(currency: FiatCurrency, with rank: Double) -> Double {
+    func balanceInCurrency(currency: FiatCurrency, with rank: Double) -> Double {
         return lastBalance * rank
     }
     
-    public func yesterdayBalanceCurrency(currency: FiatCurrency, with rank: Double) -> Double {
+    func yesterdayBalanceCurrency(currency: FiatCurrency, with rank: Double) -> Double {
         return lastBalance * rank
     }
     
-    public func formattedBalanceInCurrency(currency: FiatCurrency, with rank: Double) -> String {
+    func formattedBalanceInCurrency(currency: FiatCurrency, with rank: Double) -> String {
         let formatter = BalanceFormatter(currency: currency)
         return  formatter.formattedAmmountWithCurrency(amount: balanceInCurrency(currency: currency, with: rank))
     }
     
-    public var formattedBalance: String {
+    var formattedBalance: String {
         let formatter = BalanceFormatter(asset: asset)
         return formatter.formattedAmmount(amount: lastBalance)
     }
     
-    public var iconUrl: URL {
+    var iconUrl: URL {
         return CoinIconsUrlFormatter(name: asset.name, size: .x128).url
     }
     
-    public var formattedBalanceWithSymbol: String {
+    var formattedBalanceWithSymbol: String {
         return formattedBalance + " " + asset.symbol
     }
 }
