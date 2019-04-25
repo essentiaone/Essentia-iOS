@@ -1,13 +1,12 @@
 language: objective-c
 osx_image: xcode10.2
 before_install:
-- pod cache clean --all
 - pod update
 install:
 - gem install xcpretty-travis-formatter
 script:
-- xcodebuild test -workspace 'Essentia.xcworkspace' -scheme 'EssentiaTests' -destination
-  'platform=iOS Simulator,name=iPhone 7,OS=12.2' | xcpretty -f `xcpretty-travis-formatter`
+- xcodebuild build -workspace 'Essentia.xcworkspace' -scheme 'Essentia'
+ | xcpretty -f `xcpretty-travis-formatter`
 env:
   global:
     secure: xpVs3rTKh7BXpd6YjO5p7PUKqRYi9pJilORRFOxx9s5W07afP7fWu637Vrn+bVRgIB5qqiNRY/eZmHKCGcxNvrBIYHSJlDzBfxfh4862TlmQWxEf3NxD8LrsQV63pfIlZZd0yuo9sN5tI2kSocIBpoBBxvaPwuRlEcgmZaOyoF8UiprOOtw2L0IP/y++6DSJZbBYoP3DJ13jFybkor7SsPdrwMQm/p+NiAF1wzEiMMQwUEw4x02J//vmWW+HVgIuavkpuzy/7s22e1oOsDr06MfZm59LXT2Wb436BPq68JupBbkuTXa/xJgZ5/bIE/I5B6r7J1LI2jeN3ZauEFzdQC35D3eLrVHqpkVDZbBqSNoU7HkdPnkxsFTqufjGdKPWh7JOpFefk/MfKWlAVQSp3QRGnWvHhLrGihpSAKJsYy5L2aGl3g1o80JHkhqcIbu5/HoSaF0RnwH05V1yF5+STOvJUc1ej6zRRs0Y4vLk5FN2MFG6hWBZP/t7163GtjhsuM7bY5YI1v9P0ksFPvtGuWeqWaCYh8YuGIC2vI8DnK2/clmE3FdipYNvIgGR9dbioTT0dvvV6CQPidjcjEfw8j6a6YYQlM6PMQpsoIw/DqsI0w3acoh1sx0KKhNbV94AbuDm/5lkXyEUGdPZdlNMSzjJsKhdZ3Zr1IBMqvo/nIE=
