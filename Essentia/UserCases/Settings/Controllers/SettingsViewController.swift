@@ -162,7 +162,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     // MARK: - Actions
     private lazy var touchIdAction: (Bool) -> Void = { [unowned self] newValue in
         if newValue {
-            guard let currentUser = self.viewUserService.current else { return }
+            guard let currentUser = self.viewUserService.current else {
+                (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
+                return
+            }
             let login = LoginPasswordViewController(userId: currentUser.id, hash: currentUser.passwordHash, password: { (pass) in
                 self.keychainService.storePassword(userId: currentUser.id, password: pass, result: { result in
                     switch result {
