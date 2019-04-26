@@ -166,32 +166,29 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                 (inject() as SettingsRouterInterface).show(.backup(type: .keystore))
                 return
             }
-            let login = LoginPasswordViewController(userId: currentUser.id, hash: currentUser.passwordHash, password: { (pass) in
-                self.keychainService.storePassword(userId: currentUser.id, password: pass, result: { result in
-                    switch result {
-                    case .success:
-                        self.setTouchIdEnabled(true)
-                    case .failure:
-                        self.setTouchIdEnabled(false)
-                    }
-                    self.dismiss(animated: true)
+            self.present(LoginPasswordViewController(userId: currentUser.id, hash: currentUser.passwordHash, password: { (pass) in
+                self.keychainService.storePassword(userId: currentUser.id, password: pass, result: {
+                    self.handleKeychainResult(operation: $0, shouldEnable: true)
                 })
             }, cancel: {
-                self.keychainService.removePassword(userId: currentUser.id, result: { result in
-                    switch result {
-                    case .success:
-                        self.setTouchIdEnabled(false)
-                    case .failure:
-                        self.setTouchIdEnabled(true)
-                    }
-                    self.dismiss(animated: true)
+                self.keychainService.removePassword(userId: currentUser.id, result: {
+                    self.handleKeychainResult(operation: $0, shouldEnable: false)
                     self.tableAdapter.simpleReload(self.state)
                 })
-            })
-            self.present(login, animated: true)
+            }), animated: true)
         } else {
             self.setTouchIdEnabled(false)
         }
+    }
+    
+    private func handleKeychainResult(operation: KeychainOperation<Void>, shouldEnable: Bool) {
+        switch operation {
+        case .success:
+            self.setTouchIdEnabled(shouldEnable)
+        case .failure:
+            self.setTouchIdEnabled(!shouldEnable)
+        }
+        self.dismiss(animated: true)
     }
     
     private lazy var currencyAction: () -> Void = { [unowned self] in

@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol KeychainServiceInterface {
-    func storePassword(userId: String, password: String, result: @escaping KeychainOperationStore)
+    func storePassword(userId: String, password: String, result: @escaping KeychainOperationUpdate)
     func getPassword(userId: String, result: @escaping KeychainOperationGet)
-    func removePassword(userId: String, result: @escaping KeychainOperationRemove)
+    func removePassword(userId: String, result: @escaping KeychainOperationUpdate)
 }

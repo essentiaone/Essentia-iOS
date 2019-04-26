@@ -16,9 +16,8 @@ public enum KeychainOperation<T> {
     case failure(Error)
 }
 
-public typealias KeychainOperationStore = (KeychainOperation<Void>) -> Void
+public typealias KeychainOperationUpdate = (KeychainOperation<Void>) -> Void
 public typealias KeychainOperationGet = (KeychainOperation<String?>) -> Void
-public typealias KeychainOperationRemove = (KeychainOperation<Void>) -> Void
 
 public class KeychainService: KeychainServiceInterface {
     private let keychain: Keychain
@@ -31,7 +30,7 @@ public class KeychainService: KeychainServiceInterface {
         responceQueue = DispatchQueue.main
     }
     
-    public func storePassword(userId: String, password: String, result: @escaping KeychainOperationStore) {
+    public func storePassword(userId: String, password: String, result: @escaping KeychainOperationUpdate) {
         keychainQueue.async {
             do {
                 try self.keychain
@@ -57,7 +56,7 @@ public class KeychainService: KeychainServiceInterface {
         }
     }
     
-    public func removePassword(userId: String, result: @escaping KeychainOperationRemove) {
+    public func removePassword(userId: String, result: @escaping KeychainOperationUpdate) {
         keychainQueue.async {
             do {
                 try self.keychain.remove(userId)
