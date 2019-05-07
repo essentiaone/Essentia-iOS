@@ -159,6 +159,8 @@
 		34DB80F121EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB80F021EFECFE00C6BCC1 /* ConstantNumberOfDigitsFormatter.swift */; };
 		34EFEEC5220493E30005DCC3 /* Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EFEEC4220493E30005DCC3 /* Loader.swift */; };
 		774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */; };
+		CE335D8E2281A39200DAF943 /* TableComponentBorderedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE335D8C2281A39200DAF943 /* TableComponentBorderedButton.xib */; };
+		CE335D8F2281A39200DAF943 /* TableComponentBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE335D8D2281A39200DAF943 /* TableComponentBorderedButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -331,6 +333,8 @@
 		34EFEEC4220493E30005DCC3 /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		7BFA303BAC08CEEDA8047584 /* Pods-EssUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.debug.xcconfig"; sourceTree = "<group>"; };
 		BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE335D8C2281A39200DAF943 /* TableComponentBorderedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentBorderedButton.xib; sourceTree = "<group>"; };
+		CE335D8D2281A39200DAF943 /* TableComponentBorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentBorderedButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -627,6 +631,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				CE335D8B2281A2D900DAF943 /* BorderedButton */,
 				3482B2992255599F0072FD02 /* TableComponentAlert */,
 				3474E49A21F0FCAF003D8DFF /* Animation */,
 				34CA775B21ECF5AC003612EE /* Transaction */,
@@ -1059,6 +1064,15 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
+		CE335D8B2281A2D900DAF943 /* BorderedButton */ = {
+			isa = PBXGroup;
+			children = (
+				CE335D8D2281A39200DAF943 /* TableComponentBorderedButton.swift */,
+				CE335D8C2281A39200DAF943 /* TableComponentBorderedButton.xib */,
+			);
+			path = BorderedButton;
+			sourceTree = "<group>";
+		};
 		D97DC84B851796F10BF5B1A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1211,6 +1225,7 @@
 				34CA782D21ECF5AC003612EE /* TableComponentImageTitleSubtitle.xib in Resources */,
 				34CA781421ECF5AC003612EE /* TableComponentSearch.xib in Resources */,
 				34CA781A21ECF5AC003612EE /* TableComponentTitleSubtileDescription.xib in Resources */,
+				CE335D8E2281A39200DAF943 /* TableComponentBorderedButton.xib in Resources */,
 				345D6DF821EFBC7800C59398 /* InfoAlertViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1305,6 +1320,7 @@
 				34CA77E721ECF5AC003612EE /* TableComponentTableView.swift in Sources */,
 				34CA77F921ECF5AC003612EE /* TableComponentParagraph.swift in Sources */,
 				34CA782A21ECF5AC003612EE /* TableComponentTitleCenterDetail.swift in Sources */,
+				CE335D8F2281A39200DAF943 /* TableComponentBorderedButton.swift in Sources */,
 				34CA77FF21ECF5AC003612EE /* TableComponentTitleImageButton.swift in Sources */,
 				34CA780021ECF5AC003612EE /* TableComponentCustomSegment.swift in Sources */,
 				345D6DF321EFBC7800C59398 /* BackButton.swift in Sources */,

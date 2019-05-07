@@ -11,7 +11,6 @@
 		3401AF2D20F7C2CD006DEF49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2C20F7C2CD006DEF49 /* Assets.xcassets */; };
 		3401AF3020F7C2CD006DEF49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF2E20F7C2CD006DEF49 /* LaunchScreen.storyboard */; };
 		3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */; };
-		3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3401AF5620F80822006DEF49 /* WelcomeViewController.xib */; };
 		3401AF5920F80B21006DEF49 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5820F80B21006DEF49 /* main.swift */; };
 		3401AF5B20F80B41006DEF49 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF5A20F80B41006DEF49 /* Application.swift */; };
 		3401AF8E20FE45B2006DEF49 /* ApplicationDependenceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */; };
@@ -100,7 +99,6 @@
 		3401AF2F20F7C2CD006DEF49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3401AF3120F7C2CD006DEF49 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
-		3401AF5620F80822006DEF49 /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		3401AF5820F80B21006DEF49 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3401AF5A20F80B41006DEF49 /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		3401AF8D20FE45B2006DEF49 /* ApplicationDependenceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationDependenceProvider.swift; sourceTree = "<group>"; };
@@ -263,20 +261,11 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		3401AF5320F807EA006DEF49 /* Welcome */ = {
-			isa = PBXGroup;
-			children = (
-				3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */,
-				3401AF5620F80822006DEF49 /* WelcomeViewController.xib */,
-			);
-			path = Welcome;
-			sourceTree = "<group>";
-		};
 		3401AF7920FD328C006DEF49 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				34AA4E912136ABDD004C25ED /* SelectBackupTypeViewConroller.swift */,
-				3401AF5320F807EA006DEF49 /* Welcome */,
+				3401AF5420F807FB006DEF49 /* WelcomeViewController.swift */,
 				34F2884321CCD1BF0098E4CF /* LoginPasswordViewController.swift */,
 				34C19BC52224228800B02203 /* ImportAccountViewController.swift */,
 				34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */,
@@ -629,7 +618,6 @@
 				340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */,
 				3448265B21189B8500C19EB3 /* SeedCopyViewController.xib in Resources */,
 				34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */,
-				3401AF5720F80822006DEF49 /* WelcomeViewController.xib in Resources */,
 				3448266E211B362A00C19EB3 /* LaunchpadViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -680,42 +668,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
-			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Essentia/Pods-Essentia-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

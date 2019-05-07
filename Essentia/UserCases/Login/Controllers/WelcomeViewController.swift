@@ -14,14 +14,7 @@ import EssDI
 import EssResources
 import RealmSwift
 
-class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
-    
-    // MARK: - IBOutlet
-    @IBOutlet weak var restoreButton: UIButton!
-    @IBOutlet weak var title1Label: UILabel!
-    @IBOutlet weak var title2Label: UILabel!
-    @IBOutlet weak var enterButton: CenteredButton!
-    @IBOutlet weak var termsButton: UIButton!
+class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, SelectAccountDelegate {
     
     // MARK: - Dependences
     private lazy var interactor: LoginInteractorInterface = inject()
@@ -34,19 +27,27 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        applyDesign()
+        self.tableAdapter.hardReload(state)
     }
     
-    func applyDesign() {
-        restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
-        title1Label.text = LS("Welcome.Title1")
-        title2Label.text = LS("Welcome.Title2")
-        if (inject() as ViewUserStorageServiceInterface).users.isEmpty {
-            enterButton.setTitle(LS("Welcome.Start"), for: .normal)
-        } else {
-            enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
-        }
-        
+    // MARK: - State
+    override var state: [TableComponent] {
+        return [
+            .empty(height: 30, background: colorProvider.settingsCellsBackround),
+            .rightBorderedButton(title: LS("Welcome.Restore"), action: restoreAction,
+                                 borderColor: colorProvider.borderedButtonBorderColor.cgColor, borderWidth: 2),
+            .empty(height: 88, background: colorProvider.settingsCellsBackround),
+            .titleWithFontAligment(font: AppFont.regular.withSize(36), title: LS("Welcome.Title1"), aligment: .left, color: colorProvider.appTitleColor),
+            .titleWithFontAligment(font: AppFont.bold.withSize(36), title: LS("Welcome.Title2"), aligment: .left, color: colorProvider.appTitleColor),
+            .calculatbleSpace(background: .clear),
+            .centeredButton(title: (inject() as ViewUserStorageServiceInterface).users.isEmpty ? LS("Welcome.Start") : LS("Welcome.Enter"),
+                            isEnable: true,
+                            action: enterAction,
+                            background: colorProvider.settingsCellsBackround)]
+            + termsState
+    }
+    
+    private var termsState: [TableComponent] {
         let termsAttributedText = NSMutableAttributedString()
         termsAttributedText.append(
             NSAttributedString(
@@ -61,36 +62,29 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
                              .underlineStyle: NSUnderlineStyle.single.rawValue]
             )
         )
-        termsButton.setAttributedTitle(termsAttributedText, for: .normal)
         
-        // MARK: - Colors
-        title1Label.textColor = colorProvider.appTitleColor
-        title2Label.textColor = colorProvider.appTitleColor
-        termsButton.titleLabel?.textColor = colorProvider.appLinkTextColor
-        
-        // MARK: - Font
-        title1Label.font = AppFont.regular.withSize(36)
-        title2Label.font = AppFont.bold.withSize(36)
+        return [.attributedCenteredButton(attributedTitle: termsAttributedText, action: termsAction, textColor: colorProvider.appLinkTextColor, background: .clear),
+                .empty(height: 10, background: colorProvider.settingsCellsBackround)]
     }
     
     // MARK: - Actions
-    @IBAction func restoreAction(_ sender: Any) {
-        present(ImportAccountViewController(delegate: self), animated: true)
+    private lazy var restoreAction: () -> Void = { [unowned self] in
+        self.present(ImportAccountViewController(delegate: self), animated: true)
     }
     
-    @IBAction func enterAction(_ sender: Any) {
-        if userService.users.isEmpty {
-            createNewUser()
+    private lazy var enterAction: () -> Void = { [unowned self] in
+        if self.userService.users.isEmpty {
+            self.createNewUser()
             return
         }
-        present(SelectAccoutViewController(self), animated: true)
+        self.present(SelectAccoutViewController(self), animated: true)
     }
     
-    @IBAction func termsAction(_ sender: Any) {
+    private lazy var termsAction: () -> Void = { [unowned self] in
         guard let url = URL(string: EssentiaConstants.termsUrl) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    
+
     // MARK: - RestoreAccountDelegate
     func importAccountWith(sourceType: BackupSourceType, backupType: BackupType) {
         self.lastSource = sourceType
