@@ -75,7 +75,6 @@ public class TableAdapterHelper {
         case .smallCenteredButton: fallthrough
         case .actionCenteredButton: fallthrough
         case .borderedButton: fallthrough
-        case .rightBorderedButton: fallthrough
         case .centeredButton:
             return 75.0
         case .attributedCenteredButton:

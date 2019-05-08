@@ -288,14 +288,6 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.drawBorder(color: borderColor, width: borderWidth)
             cell.action = action
             return cell
-        case .rightBorderedButton(let title, let action, let borderColor, let borderWidth):
-            let cell: TableComponentBorderedButton = tableView.dequeueReusableCell(for: indexPath)
-            cell.titleButton.setTitle(title, for: .normal)
-            cell.drawBorder(color: borderColor, width: borderWidth)
-            let inset = tableView.frame.width - 115
-            cell.leftInset.constant = inset
-            cell.action = action
-            return cell
         case .navigationBar(let left, let right, let title, let lAction, let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
             if lAction != nil {

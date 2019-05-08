@@ -29,7 +29,6 @@ public enum TableComponent: Equatable {
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case actionCenteredButton(title: String, action: () -> Void, textColor: UIColor, backgrount: UIColor)
     case borderedButton(title: String, action: () -> Void, borderColor: CGColor, borderWidth: CGFloat)
-    case rightBorderedButton(title: String, action: () -> Void, borderColor: CGColor, borderWidth: CGFloat)
     case attributedCenteredButton(attributedTitle: NSAttributedString?, action: () -> Void, textColor: UIColor, background: UIColor)
     case smallCenteredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case twoButtons(lTitle: String, rTitle: String, lColor: UIColor, rColor: UIColor, lAction:() -> Void, rAction:() -> Void)

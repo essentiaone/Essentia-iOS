@@ -33,21 +33,33 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     // MARK: - State
     override var state: [TableComponent] {
         return [
-            .empty(height: 30, background: colorProvider.settingsCellsBackround),
-            .rightBorderedButton(title: LS("Welcome.Restore"), action: restoreAction,
-                                 borderColor: colorProvider.borderedButtonBorderColor.cgColor, borderWidth: 2),
+            .empty(height: 40, background: colorProvider.settingsCellsBackround),
+            .borderedButton(title: LS("Welcome.Restore"),
+                                 action: restoreAction,
+                                 borderColor: colorProvider.borderedButtonBorderColor.cgColor,
+                                 borderWidth: 2),
             .empty(height: 88, background: colorProvider.settingsCellsBackround),
-            .titleWithFontAligment(font: AppFont.regular.withSize(36), title: LS("Welcome.Title1"), aligment: .left, color: colorProvider.appTitleColor),
-            .titleWithFontAligment(font: AppFont.bold.withSize(36), title: LS("Welcome.Title2"), aligment: .left, color: colorProvider.appTitleColor),
+            .titleWithFontAligment(font: AppFont.regular.withSize(36),
+                                   title: LS("Welcome.Title1"),
+                                   aligment: .left,
+                                   color: colorProvider.appTitleColor),
+            .titleWithFontAligment(font: AppFont.bold.withSize(36),
+                                   title: LS("Welcome.Title2"),
+                                   aligment: .left,
+                                   color: colorProvider.appTitleColor),
             .calculatbleSpace(background: .clear),
             .centeredButton(title: (inject() as ViewUserStorageServiceInterface).users.isEmpty ? LS("Welcome.Start") : LS("Welcome.Enter"),
                             isEnable: true,
                             action: enterAction,
-                            background: colorProvider.settingsCellsBackround)]
-            + termsState
+                            background: colorProvider.settingsCellsBackround),
+            .attributedCenteredButton(attributedTitle: termsTitle,
+                                      action: termsAction,
+                                      textColor: colorProvider.appLinkTextColor,
+                                      background: .clear),
+            .empty(height: 10, background: colorProvider.settingsCellsBackround)]
     }
     
-    private var termsState: [TableComponent] {
+    private var termsTitle: NSMutableAttributedString {
         let termsAttributedText = NSMutableAttributedString()
         termsAttributedText.append(
             NSAttributedString(
@@ -62,9 +74,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
                              .underlineStyle: NSUnderlineStyle.single.rawValue]
             )
         )
-        
-        return [.attributedCenteredButton(attributedTitle: termsAttributedText, action: termsAction, textColor: colorProvider.appLinkTextColor, background: .clear),
-                .empty(height: 10, background: colorProvider.settingsCellsBackround)]
+        return termsAttributedText
     }
     
     // MARK: - Actions
