@@ -19,14 +19,15 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     // MARK: - Dependences
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: ViewUserStorageServiceInterface = inject()
+    private lazy var userStorage: UserStorageServiceInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var loader: LoaderInterface = inject()
     
     private var lastSource: BackupSourceType?
     
     // MARK: - Lifecycle
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         self.tableAdapter.hardReload(state)
     }
     
@@ -48,7 +49,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
                                    aligment: .left,
                                    color: colorProvider.appTitleColor),
             .calculatbleSpace(background: .clear),
-            .centeredButton(title: (inject() as ViewUserStorageServiceInterface).users.isEmpty ? LS("Welcome.Start") : LS("Welcome.Enter"),
+            .centeredButton(title: userService.users.isEmpty ? LS("Welcome.Start") : LS("Welcome.Enter"),
                             isEnable: true,
                             action: enterAction,
                             background: colorProvider.settingsCellsBackround),
@@ -116,7 +117,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
             guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return }
             prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
             
-            (inject() as UserStorageServiceInterface).update { (user) in
+            self.userStorage.update { (user) in
                 EssentiaStore.shared.setUser(user)
             }
             
@@ -129,11 +130,11 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func didSetUser(user: User) -> Bool {
-        let viewUsers = (inject() as ViewUserStorageServiceInterface).users
+        let viewUsers = userService.users
         let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
         guard !userAlreadyExist else {
             EssentiaStore.shared.currentUser = .notSigned
-            (inject() as LoaderInterface).showError(EssentiaError.userExist.localizedDescription)
+            loader.showError(EssentiaError.userExist.localizedDescription)
             return false
         }
         let wallets: List<GeneratingWalletInfo> = List()
@@ -155,6 +156,6 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
         EssentiaLoader.show { [unowned self] in
             self.showTabBar()
         }
-        (inject() as LoginInteractorInterface).generateNewUser {}
+        interactor.generateNewUser {}
     }
 }
