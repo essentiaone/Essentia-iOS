@@ -20,7 +20,7 @@ fileprivate struct Store {
     var isLoadingTransactions: Bool = false
     var wallet: ViewWalletInterface
     var transactions: [ViewTransaction] = []
-    var bitcoinTransactions: [BitcoinTransactionValue] = []
+    var utxoTransactions: [UtxoTransactionValue] = []
     var ethereumTransactions: [EthereumTransactionDetail] = []
     var balance: Double = 0
     var balanceChanging: Double = 0

@@ -79,14 +79,10 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
         switch wallet.asset {
         case let coin as Coin:
             switch coin {
-            case .bitcoin:
-                push(vc: SendBitcoinTransactionViewController(wallet: wallet, ammount: ammount))
+            case .bitcoin, .bitcoinCash, .litecoin, .dash:
+                push(vc: SendUtxoTransactionViewController(wallet: wallet, ammount: ammount))
             case .ethereum:
                 push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
-            case .litecoin:
-                push(vc: SendLitecoinTransactionViewController(wallet: wallet, ammount: ammount))
-            default:
-                fatalError()
             }
         case is Token:
             push(vc: SendEthTransactionDetailViewController(wallet: wallet, ammount: ammount))
@@ -118,7 +114,10 @@ public class WalletRouter: BaseRouter, WalletRouterInterface {
                 url = URL(string: "https://etherscan.io/tx/" + txId)
             case .litecoin:
                 url = URL(string: "https://blockchair.com/litecoin/transaction/" + txId)
-            default: return
+            case .bitcoinCash:
+                url = URL(string: "https://www.blockchain.com/bch/tx/" + txId)
+            case .dash:
+                url = URL(string: "https://dashblockexplorer.com/tx/" + txId)
             }
         case is Token:
             url = URL(string: "https://etherscan.io/tx/" + txId)

@@ -13,11 +13,13 @@ public enum Coin: String {
     case ethereum
     case litecoin
     case bitcoinCash
+    case dash
     
     public static var fullySupportedCoins: [Coin] {
         return [.ethereum,
                 .bitcoin,
-                .litecoin]
+                .litecoin,
+                .dash]
     }
     
     public func isValidPK(_ pk: String) -> Bool {
@@ -37,7 +39,7 @@ public enum Coin: String {
     
     func isValidAddress(_ address: String) -> Bool {
         switch self {
-        case .bitcoin:
+        case .bitcoin, .litecoin, .dash:
             return address.count > 27
         case .ethereum:
             return address.count > 40

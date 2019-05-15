@@ -22,7 +22,6 @@ fileprivate struct Constants {
 }
 
 public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterface {
-    
     private var cryptoWallet: CryptoWallet
     
     public init() {
@@ -35,7 +34,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             cryptoWallet.bitcoin.getBalance(for: address) { (result) in
                 switch result {
                 case .success(let obect):
-                    balance(obect.balance.value)
+                    balance(obect)
                 default: return
                 }
             }
@@ -51,7 +50,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             cryptoWallet.bitcoinCash.getBalance(for: address) { (result) in
                 switch result {
                 case .success(let obect):
-                    balance(obect.result)
+                    balance(obect)
                 default: return
                 }
             }
@@ -59,7 +58,15 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             cryptoWallet.litecoin.getBalance(for: address) { (result) in
                 switch result {
                 case .success(let obect):
-                    balance(obect.balance.value)
+                    balance(obect)
+                default: return
+                }
+            }
+        case .dash:
+            cryptoWallet.dash.getBalance(for: address) { (result) in
+                switch result {
+                case .success(let object):
+                    balance(object)
                 default: return
                 }
             }
@@ -88,7 +95,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         cryptoWallet.ethereum.getTokenTxHistory(for: address, smartContract: smartContract, result: result)
     }
     
-    public func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<BitcoinTransactionsHistory>) -> Void) {
+    public func getTxHistoryForBitcoinAddress(_ address: String, result: @escaping (NetworkResult<UtxoTransactionsHistory>) -> Void) {
         cryptoWallet.bitcoin.getTransactionsHistory(for: address, result: result)
     }
     
@@ -157,8 +164,9 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             }
         case let coin as EssModel.Coin:
             switch coin {
-            case .bitcoin:
-                cryptoWallet.bitcoin.getTransactionsHistory(for: wallet.address) { [unowned self] (result) in
+            case .bitcoin, .bitcoinCash, .litecoin, .dash:
+                let utxoWallet = cryptoWallet.utxoWallet(coin: coin)
+                utxoWallet.getTransactionsHistory(for: wallet.address) { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.items, address: wallet.address, asset: wallet.asset))
@@ -175,16 +183,6 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                         self.showError(error)
                     }
                 }
-            case .litecoin:
-                cryptoWallet.litecoin.getTransactionsHistory(for: wallet.address) { [unowned self] (result) in
-                    switch result {
-                    case .success(let tx):
-                        transactions(self.mapTransactions(tx.items, address: wallet.address, asset: wallet.asset))
-                    case .failure(let error):
-                        self.showError(error)
-                    }
-                }
-            default: return
             }
         default: return
         }
@@ -224,8 +222,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             
         }
     }
-    
-    private func mapTransactions(_ transactions: [LitecoinTransactionValue], address: String, asset: AssetInterface) -> [ViewTransaction] {
+
+    private func mapTransactions(_ transactions: [UtxoTransactionValue], address: String, asset: AssetInterface) -> [ViewTransaction] {
         return [ViewTransaction](transactions.map({
             let ammount = $0.transactionAmmount(for: address)
             let type = $0.type(for: address)
@@ -238,20 +236,10 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         }))
     }
     
-    private func mapTransactions(_ transactions: [BitcoinTransactionValue], address: String, asset: AssetInterface) -> [ViewTransaction] {
-        return [ViewTransaction](transactions.map({
-            let ammount = $0.transactionAmmount(for: address)
-            let type = $0.type(for: address)
-            return ViewTransaction(hash: $0.txid,
-                                   address: $0.txid,
-                                   ammount: CryptoFormatter.formattedAmmount(amount: ammount, type: type, asset: asset),
-                                   status: $0.status,
-                                   type: type,
-                                   date: TimeInterval($0.time))
-        }))
-    }
-    
-    private func mapTransactions(_ transactions: [EthereumTransactionDetail], address: String, asset: AssetInterface) -> [ViewTransaction] {
+    private func mapTransactions(
+        _ transactions: [EthereumTransactionDetail],
+        address: String,
+        asset: AssetInterface) -> [ViewTransaction] {
         let nonTokenTx = transactions.filter({ return $0.value != "0" })
         return  [ViewTransaction](nonTokenTx.map({
             let txType = $0.type(for: address)

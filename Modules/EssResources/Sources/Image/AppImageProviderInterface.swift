@@ -56,6 +56,7 @@ public protocol AppImageProviderInterface {
     var litecoinIcon: UIImage { get }
     var ethereumIcon: UIImage { get }
     var bitcoinCashIcon: UIImage { get }
+    var dashIcon: UIImage { get }
     var checkSelected: UIImage { get }
     var checkNotSelected: UIImage { get }
     var qrCode: UIImage { get }

@@ -1,5 +1,5 @@
 //
-//  SendBitcoinTransactionViewController.swift
+//  SendUtxoTransactionViewController.swift
 //  EssWallet
 //
 //  Created by Pavlo Boiko on 3/13/19.
@@ -38,7 +38,7 @@ fileprivate struct Store {
     }
 }
 
-class SendBitcoinTransactionViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
+class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReaderViewControllerDelegate {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
@@ -161,7 +161,7 @@ class SendBitcoinTransactionViewController: BaseTableAdapterController, QRCodeRe
                                 ammount: self.store.ammount,
                                 wallet: self.store.wallet,
                                 feePerByte: UInt64(self.store.selectedFeeSlider))
-        let vc = ConfirmBitcoinTxDetailViewController(self.store.wallet, tx: txInfo)
+        let vc = ConfirmUtxoTxDetailViewController(self.store.wallet, tx: txInfo)
         vc.modalPresentationStyle = .custom
         self.present(vc, animated: true)
         self.keyboardObserver.start()

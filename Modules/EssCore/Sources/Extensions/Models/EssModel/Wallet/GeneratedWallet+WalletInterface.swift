@@ -50,7 +50,7 @@ extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
     }
 }
 // ToDo: - Make single Coin model
-func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {
+public func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {
     switch coin {
     case .bitcoin:
         return HDWalletKit.Coin.bitcoin
@@ -60,5 +60,7 @@ func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {
         return HDWalletKit.Coin.bitcoinCash
     case .litecoin:
         return HDWalletKit.Coin.litecoin
+    case .dash:
+        return .dash
     }
 }
