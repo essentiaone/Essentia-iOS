@@ -48,14 +48,6 @@ class LoginPasswordViewController: BaseTableAdapterController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableAdapter.hardReload(state)
-        keyboardObserver.start()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardObserver.animateKeyboard = { [unowned self] newValue in

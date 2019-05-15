@@ -16,11 +16,6 @@ fileprivate var titleColor = UIColor.darkText
 fileprivate var backgroud = UIColor.white
 
 class ViewController: BaseTableAdapterController {
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableAdapter.hardReload(state)
-    }
-    
     override var state: [TableComponent] {
         return [
             // MARK: - Account Strength

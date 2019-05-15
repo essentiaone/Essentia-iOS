@@ -34,9 +34,8 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false

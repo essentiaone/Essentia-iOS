@@ -46,7 +46,6 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableAdapter.hardReload(state)
         keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)

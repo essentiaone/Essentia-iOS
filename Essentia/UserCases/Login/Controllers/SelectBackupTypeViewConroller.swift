@@ -58,11 +58,6 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
                         withArrow: true,
                         action: keystoreAction)]
     }
-    // MARK: - Lifecycly
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableAdapter.hardReload(state)
-    }
     
     // MARK: - Actions
     private lazy var cancelAction: () -> Void = { [unowned self] in

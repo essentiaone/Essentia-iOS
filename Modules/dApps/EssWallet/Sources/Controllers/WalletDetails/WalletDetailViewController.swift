@@ -58,7 +58,6 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         self.loadRank()
         self.loadTransactions()
         self.loadBalance()
-        tableAdapter.hardReload(state)
     }
     
     // MARK: - State

@@ -64,9 +64,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
         loadInputs()
         loadRanges()

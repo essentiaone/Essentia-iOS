@@ -21,34 +21,19 @@ class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
+
     private var utxoService: UtxoWalletUnterface
-    private var utxoSelector: UtxoSelectorInterface
-    private var utxoWallet: UTXOWallet
-    private var bitcoinConverter: BitcoinConverter
-    
     private let utxoCoin: EssModel.Coin
+    private var bitcoinConverter: BitcoinConverter
     private var viewWallet: ViewWalletInterface
     private var tx: UtxoTxInfo
-    private var ammount: UInt64
-    private var fee: UInt64?
-    private var rawTx: String?
     
-    init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo) {
+    init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo, utxoService: UtxoWalletUnterface) {
         self.viewWallet = wallet
         self.tx = tx
-        let cryptoWallet = CryptoWallet(
-            bridgeApiUrl: EssentiaConstants.bridgeUrl,
-            etherScanApiKey: "")
-        utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
+        self.utxoService = utxoService
         utxoCoin = wallet.asset as? EssModel.Coin ?? .bitcoin
-        utxoService = cryptoWallet.utxoWallet(coin: utxoCoin)
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: wrapCoin(coin: utxoCoin))!
-        utxoWallet = UTXOWallet(privateKey: privateKey,
-                                utxoSelector: utxoSelector,
-                                utxoTransactionBuilder: UtxoTransactionBuilder(),
-                                utoxTransactionSigner: UtxoTransactionSigner())
         bitcoinConverter = BitcoinConverter(bitcoinString: tx.ammount.inCrypto)
-        ammount = bitcoinConverter.inSatoshi
         super.init()
     }
     
@@ -57,13 +42,11 @@ class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        loadUnspendTransaction()
     }
     
     override var state: [TableComponent] {
@@ -108,34 +91,8 @@ class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     
     private func formattedFee() -> String {
         let ammountFormatter = BalanceFormatter(asset: utxoCoin)
-        guard let fee = fee else { return "" }
-        let feeConverter = BitcoinConverter(satoshi: fee)
+        let feeConverter = BitcoinConverter(satoshi: tx.feeInSatoshi)
         return ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
-    }
-    
-    private func loadUnspendTransaction() {
-        utxoService.getUtxo(for: tx.wallet.address) { (result) in
-            switch result {
-            case .success(let transactions):
-                self.generateTransaction(fromUtxo: transactions)
-            case .failure(_):
-                self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
-            }
-        }
-    }
-    
-    private func generateTransaction(fromUtxo: [UtxoResponce]) {
-        let unspendTransactions: [UnspentTransaction] = fromUtxo.map { return $0.unspendTx }
-        do {
-            let selectedTx = try self.utxoSelector.select(from: unspendTransactions, targetValue: self.ammount)
-            self.fee = selectedTx.fee
-            let address = try LegacyAddress(tx.address, coin: wrapCoin(coin: utxoCoin))
-            self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
-            self.tableAdapter.simpleReload(self.state)
-        } catch {
-            self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
-        }
-        
     }
     
     // MARK: - Actions
@@ -144,9 +101,8 @@ class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var confirmAction: () -> Void = { [unowned self] in
-        guard let rawTx = self.rawTx else { return }
         (inject() as LoaderInterface).show()
-        self.utxoService.sendTransaction(with: rawTx) { [unowned self] in
+        self.utxoService.sendTransaction(with: self.tx.rawTx) { [unowned self] in
             (inject() as LoaderInterface).hide()
             switch $0 {
             case .success(let object):

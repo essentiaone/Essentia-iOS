@@ -30,8 +30,11 @@ open class BaseViewController: UIViewController, UINavigationControllerDelegate 
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        keyboardObserver.start()
         setupScrollInsets()
+    }
+    
+    open override func viewWillAppear(_ animated: Bool) {
+        keyboardObserver.start()
     }
     
     private func setupScrollInsets() {

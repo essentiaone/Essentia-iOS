@@ -59,12 +59,7 @@ final class SelectWalletPopUp: BaseBluredTableAdapterController {
                  .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
     }
     
-    // MARK: - Lifecycle
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableAdapter.hardReload(state)
-    }
+    // MARK: - Actions
     
     private lazy var cancelAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)

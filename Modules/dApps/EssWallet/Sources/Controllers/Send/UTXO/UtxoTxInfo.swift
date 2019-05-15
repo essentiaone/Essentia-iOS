@@ -13,5 +13,6 @@ struct UtxoTxInfo {
     var address: String
     var ammount: SelectedTransacrionAmmount
     var wallet: ViewWalletInterface
-    var feePerByte: UInt64
+    var feeInSatoshi: UInt64
+    var rawTx: String
 }

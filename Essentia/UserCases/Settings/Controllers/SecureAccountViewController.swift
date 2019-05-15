@@ -23,7 +23,6 @@ class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigati
     override func viewDidLoad() {
         super.viewDidLoad()
         applyDesign()
-        tableAdapter.hardReload(state)
     }
     
     // MARK: - Override

@@ -57,11 +57,6 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
                         withArrow: true,
                         action: importFromExodus)]
     }
-    // MARK: - Lifecycly
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableAdapter.hardReload(state)
-    }
     
     // MARK: - Actions
     private lazy var cancelAction: () -> Void = { [unowned self] in

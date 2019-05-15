@@ -33,6 +33,11 @@ open class BaseBluredTableAdapterController: BaseBluredController {
         applyDesign()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableAdapter.hardReload(state)
+    }
+    
     private func applyDesign() {
         self.view.backgroundColor = .clear
         self.tableView.backgroundColor = .clear

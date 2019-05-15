@@ -20,9 +20,8 @@ class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavig
     
     // MARK: - Lifecycle
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         applyDesign()
     }
     

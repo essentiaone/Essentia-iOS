@@ -48,12 +48,6 @@ class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigati
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
-    }
-    
     override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
