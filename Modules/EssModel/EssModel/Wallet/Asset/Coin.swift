@@ -18,6 +18,7 @@ public enum Coin: String {
     public static var fullySupportedCoins: [Coin] {
         return [.ethereum,
                 .bitcoin,
+                .bitcoinCash,
                 .litecoin,
                 .dash]
     }
@@ -32,6 +33,10 @@ public enum Coin: String {
             return 0.000_005_46
         case .litecoin:
             return 0.000_01
+        case .dash:
+            return 0.000_01
+        case .bitcoinCash:
+            return 0.000_01
         default:
             return 1/pow(10, 18)
         }
@@ -39,12 +44,10 @@ public enum Coin: String {
     
     func isValidAddress(_ address: String) -> Bool {
         switch self {
-        case .bitcoin, .litecoin, .dash:
+        case .bitcoin, .litecoin, .dash, .bitcoinCash:
             return address.count > 27
         case .ethereum:
             return address.count > 40
-        default:
-            return true
         }
     }
 }

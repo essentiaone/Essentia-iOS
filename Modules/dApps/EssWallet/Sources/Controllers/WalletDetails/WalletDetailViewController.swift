@@ -160,7 +160,6 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
         let wallet = self.store.wallet
         (inject() as UserStorageServiceInterface).get { _ in
             let address = wallet.address
-            print(wallet.asset)
             switch wallet.asset {
             case let token as Token:
                 self.blockchainInteractor.getTokenBalance(for: token, address: address, balance: self.balanceChanged)

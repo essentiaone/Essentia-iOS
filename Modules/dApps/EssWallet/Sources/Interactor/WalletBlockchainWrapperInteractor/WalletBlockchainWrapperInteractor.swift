@@ -30,8 +30,9 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
     
     public func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
-        case .bitcoin:
-            cryptoWallet.bitcoin.getBalance(for: address) { (result) in
+        case .bitcoin, .bitcoinCash, .litecoin, .dash:
+            let utxoWallet = cryptoWallet.utxoWallet(coin: coin)
+            utxoWallet.getBalance(for: address) { (result) in
                 switch result {
                 case .success(let obect):
                     balance(obect)
@@ -43,30 +44,6 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 switch result {
                 case .success(let obect):
                     balance(obect.balance.value)
-                default: return
-                }
-            }
-        case .bitcoinCash:
-            cryptoWallet.bitcoinCash.getBalance(for: address) { (result) in
-                switch result {
-                case .success(let obect):
-                    balance(obect)
-                default: return
-                }
-            }
-        case .litecoin:
-            cryptoWallet.litecoin.getBalance(for: address) { (result) in
-                switch result {
-                case .success(let obect):
-                    balance(obect)
-                default: return
-                }
-            }
-        case .dash:
-            cryptoWallet.dash.getBalance(for: address) { (result) in
-                switch result {
-                case .success(let object):
-                    balance(object)
                 default: return
                 }
             }
@@ -126,9 +103,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
     public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
         cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
             switch result {
-            case .failure(let error):
+            case .failure:
                 (inject() as LoaderInterface).hide()
-                print(error)
             case .success(let object):
                 gasLimit(object.value)
             }
