@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         Fabric.with([Crashlytics.self])
         appStateEventProxy.didFinishLaunching(application)
         
+        SwizzleLocalizedFiles()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = WelcomeViewController()
-        
-        SwizzleLocalizedFiles()
 //        registerForRemoteNotifications(application)
         return true
     }

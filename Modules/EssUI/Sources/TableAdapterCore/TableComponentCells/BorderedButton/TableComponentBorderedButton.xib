@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableComponentBorderedButton" rowHeight="43" id="Opl-Id-Wwq" customClass="TableComponentBorderedButton" customModule="EssUI" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="124" height="43"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Opl-Id-Wwq" id="rJw-Qz-dHD">
+                <rect key="frame" x="0.0" y="0.0" width="124" height="42.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QnA-Mh-mfQ" customClass="BaseButton" customModule="EssUI" customModuleProvider="target">
+                        <rect key="frame" x="9" y="15" width="100" height="45.5"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="2Zn-LP-MmI"/>
+                            <constraint firstAttribute="width" constant="100" id="Avt-Sw-Xad"/>
+                        </constraints>
+                        <connections>
+                            <action selector="action:" destination="Opl-Id-Wwq" eventType="touchUpInside" id="YlC-fG-l2a"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QnA-Mh-mfQ" firstAttribute="centerY" secondItem="rJw-Qz-dHD" secondAttribute="centerY" id="HEK-ig-ESY"/>
+                    <constraint firstAttribute="bottom" secondItem="QnA-Mh-mfQ" secondAttribute="bottom" constant="15" id="NEi-cq-MHi"/>
+                    <constraint firstAttribute="trailing" secondItem="QnA-Mh-mfQ" secondAttribute="trailing" constant="15" id="hn0-5y-3Z6"/>
+                    <constraint firstItem="QnA-Mh-mfQ" firstAttribute="top" secondItem="rJw-Qz-dHD" secondAttribute="top" constant="15" id="xpb-uQ-AOe"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="rightInset" destination="hn0-5y-3Z6" id="ydL-Bx-ERf"/>
+                <outlet property="titleButton" destination="QnA-Mh-mfQ" id="1A4-yQ-Had"/>
+            </connections>
+            <point key="canvasLocation" x="227.19999999999999" y="23.838080959520241"/>
+        </tableViewCell>
+    </objects>
+</document>

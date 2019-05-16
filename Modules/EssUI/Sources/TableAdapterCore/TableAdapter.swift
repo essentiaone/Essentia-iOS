@@ -87,6 +87,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentLoader.self)
         tableView.register(TableComponentAnimation.self)
         tableView.register(TableComponentAlert.self)
+        tableView.register(TableComponentBorderedButton.self)
     }
     
     // MARK: - Update State
@@ -272,6 +273,20 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.action = action
             cell.titleButton.setTitleColor(textColor, for: .normal)
             cell.backgroundColor = .clear
+            return cell
+        case .attributedCenteredButton(let attributedTitle, let action, let textColor, let background):
+            let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.setAttributedTitle(attributedTitle, for: .normal)
+            cell.titleButton.backgroundColor = background
+            cell.action = action
+            cell.titleButton.titleLabel?.textColor = textColor
+            cell.backgroundColor = .clear
+            return cell
+        case .borderedButton(let title, let action, let borderColor, let borderWidth):
+            let cell: TableComponentBorderedButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.setTitle(title, for: .normal)
+            cell.drawBorder(color: borderColor, width: borderWidth)
+            cell.action = action
             return cell
         case .navigationBar(let left, let right, let title, let lAction, let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)

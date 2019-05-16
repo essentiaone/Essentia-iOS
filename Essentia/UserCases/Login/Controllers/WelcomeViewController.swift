@@ -14,39 +14,53 @@ import EssDI
 import EssResources
 import RealmSwift
 
-class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAccountDelegate {
-    
-    // MARK: - IBOutlet
-    @IBOutlet weak var restoreButton: UIButton!
-    @IBOutlet weak var title1Label: UILabel!
-    @IBOutlet weak var title2Label: UILabel!
-    @IBOutlet weak var enterButton: CenteredButton!
-    @IBOutlet weak var termsButton: UIButton!
+class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, SelectAccountDelegate {
     
     // MARK: - Dependences
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: ViewUserStorageServiceInterface = inject()
+    private lazy var userStorage: UserStorageServiceInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var loader: LoaderInterface = inject()
     
     private var lastSource: BackupSourceType?
     
     // MARK: - Lifecycle
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        applyDesign()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableAdapter.hardReload(state)
     }
     
-    func applyDesign() {
-        restoreButton.setTitle(LS("Welcome.Restore"), for: .normal)
-        title1Label.text = LS("Welcome.Title1")
-        title2Label.text = LS("Welcome.Title2")
-        if (inject() as ViewUserStorageServiceInterface).users.isEmpty {
-            enterButton.setTitle(LS("Welcome.Start"), for: .normal)
-        } else {
-            enterButton.setTitle(LS("Welcome.Enter"), for: .normal)
-        }
-        
+    // MARK: - State
+    override var state: [TableComponent] {
+        return [
+            .empty(height: 40, background: colorProvider.settingsCellsBackround),
+            .borderedButton(title: LS("Welcome.Restore"),
+                                 action: restoreAction,
+                                 borderColor: colorProvider.borderedButtonBorderColor.cgColor,
+                                 borderWidth: 2),
+            .empty(height: 88, background: colorProvider.settingsCellsBackround),
+            .titleWithFontAligment(font: AppFont.regular.withSize(36),
+                                   title: LS("Welcome.Title1"),
+                                   aligment: .left,
+                                   color: colorProvider.appTitleColor),
+            .titleWithFontAligment(font: AppFont.bold.withSize(36),
+                                   title: LS("Welcome.Title2"),
+                                   aligment: .left,
+                                   color: colorProvider.appTitleColor),
+            .calculatbleSpace(background: .clear),
+            .centeredButton(title: userService.users.isEmpty ? LS("Welcome.Start") : LS("Welcome.Enter"),
+                            isEnable: true,
+                            action: enterAction,
+                            background: colorProvider.settingsCellsBackround),
+            .attributedCenteredButton(attributedTitle: termsTitle,
+                                      action: termsAction,
+                                      textColor: colorProvider.appLinkTextColor,
+                                      background: .clear),
+            .empty(height: 10, background: colorProvider.settingsCellsBackround)]
+    }
+    
+    private var termsTitle: NSMutableAttributedString {
         let termsAttributedText = NSMutableAttributedString()
         termsAttributedText.append(
             NSAttributedString(
@@ -61,36 +75,27 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
                              .underlineStyle: NSUnderlineStyle.single.rawValue]
             )
         )
-        termsButton.setAttributedTitle(termsAttributedText, for: .normal)
-        
-        // MARK: - Colors
-        title1Label.textColor = colorProvider.appTitleColor
-        title2Label.textColor = colorProvider.appTitleColor
-        termsButton.titleLabel?.textColor = colorProvider.appLinkTextColor
-        
-        // MARK: - Font
-        title1Label.font = AppFont.regular.withSize(36)
-        title2Label.font = AppFont.bold.withSize(36)
+        return termsAttributedText
     }
     
     // MARK: - Actions
-    @IBAction func restoreAction(_ sender: Any) {
-        present(ImportAccountViewController(delegate: self), animated: true)
+    private lazy var restoreAction: () -> Void = { [unowned self] in
+        self.present(ImportAccountViewController(delegate: self), animated: true)
     }
     
-    @IBAction func enterAction(_ sender: Any) {
-        if userService.users.isEmpty {
-            createNewUser()
+    private lazy var enterAction: () -> Void = { [unowned self] in
+        if self.userService.users.isEmpty {
+            self.createNewUser()
             return
         }
-        present(SelectAccoutViewController(self), animated: true)
+        self.present(SelectAccoutViewController(self), animated: true)
     }
     
-    @IBAction func termsAction(_ sender: Any) {
+    private lazy var termsAction: () -> Void = { [unowned self] in
         guard let url = URL(string: EssentiaConstants.termsUrl) else { return }
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
-    
+
     // MARK: - RestoreAccountDelegate
     func importAccountWith(sourceType: BackupSourceType, backupType: BackupType) {
         self.lastSource = sourceType
@@ -112,7 +117,7 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
             guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return }
             prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
             
-            (inject() as UserStorageServiceInterface).update { (user) in
+            self.userStorage.update { (user) in
                 EssentiaStore.shared.setUser(user)
             }
             
@@ -125,11 +130,11 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
     }
     
     func didSetUser(user: User) -> Bool {
-        let viewUsers = (inject() as ViewUserStorageServiceInterface).users
+        let viewUsers = userService.users
         let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
         guard !userAlreadyExist else {
             EssentiaStore.shared.currentUser = .notSigned
-            (inject() as LoaderInterface).showError(EssentiaError.userExist.localizedDescription)
+            loader.showError(EssentiaError.userExist.localizedDescription)
             return false
         }
         let wallets: List<GeneratingWalletInfo> = List()
@@ -151,6 +156,6 @@ class WelcomeViewController: BaseViewController, ImportAccountDelegate, SelectAc
         EssentiaLoader.show { [unowned self] in
             self.showTabBar()
         }
-        (inject() as LoginInteractorInterface).generateNewUser {}
+        interactor.generateNewUser {}
     }
 }
