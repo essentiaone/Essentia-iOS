@@ -35,9 +35,7 @@ fileprivate struct Store {
     }
     
     var isValidTransaction: Bool {
-        return wallet.asset.isValidAddress(address)
-               && !utxo.isEmpty
-               && !address.isEmpty
+        return !utxo.isEmpty && !address.isEmpty
     }
     
     init(wallet: ViewWalletInterface, transactionAmmount: SelectedTransacrionAmmount) {
@@ -54,8 +52,6 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
 
     private var utxoService: UtxoWalletUnterface
     private let utxoCoin: EssModel.Coin
-    private var utxoSelector: UtxoSelectorInterface
-    private var utxoWallet: UTXOWallet
     private var store: Store
     private var bitcoinConverter: BitcoinConverter
     
@@ -65,12 +61,6 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
             bridgeApiUrl: EssentiaConstants.bridgeUrl,
             etherScanApiKey: "")
         utxoCoin = wallet.asset as? EssModel.Coin ?? .bitcoin
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: wrapCoin(coin: utxoCoin))!
-        utxoSelector = UtxoSelector(feePerByte: self.store.feePerByte, dustThreshhold: 3 * 182)
-        utxoWallet = UTXOWallet(privateKey: privateKey,
-                                utxoSelector: utxoSelector,
-                                utxoTransactionBuilder: UtxoTransactionBuilder(),
-                                utoxTransactionSigner: UtxoTransactionSigner())
         utxoService = cryptoWallet.utxoWallet(coin: utxoCoin)
         bitcoinConverter = BitcoinConverter(bitcoinString: ammount.inCrypto)
         super.init()
@@ -106,7 +96,7 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
                                    detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .titleCenteredDetail(title: LS("Wallet.Send.Amount"),
-                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammount.inCrypto)),
+                                 detail: ammountFormatter.formattedAmmountWithCurrency(amount: store.ammount.inCrypto)),
             .separator(inset: .zero),
             .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.To"),
                                                   text: store.address,
@@ -232,6 +222,7 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
             switch result {
             case .success(let transactions):
                 self.store.utxo = transactions.map { return $0.unspendTx }
+                self.tableAdapter.simpleReload(self.state)
             case .failure(_):
                 self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
             }
@@ -239,11 +230,18 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
     }
     
     func calculateFee() throws -> UInt64 {
-        let selectedTx = try self.utxoSelector.select(from: self.store.utxo, targetValue: bitcoinConverter.inSatoshi)
+        let utxoSelector = UtxoSelector(feePerByte: self.store.feePerByte, dustThreshhold: 3 * 182)
+        let selectedTx = try utxoSelector.select(from: self.store.utxo, targetValue: bitcoinConverter.inSatoshi)
         return selectedTx.fee
     }
     
     func createRawTx() throws -> String {
+        let privateKey = PrivateKey(pk: self.store.wallet.privateKey, coin: wrapCoin(coin: utxoCoin))!
+        let utxoSelector = UtxoSelector(feePerByte: self.store.feePerByte, dustThreshhold: 3 * 182)
+        let utxoWallet = UTXOWallet(privateKey: privateKey,
+                                utxoSelector: utxoSelector,
+                                utxoTransactionBuilder: UtxoTransactionBuilder(),
+                                utoxTransactionSigner: UtxoTransactionSigner())
         let address = try LegacyAddress(store.address, coin: wrapCoin(coin: utxoCoin))
         return try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: self.store.utxo)
     }

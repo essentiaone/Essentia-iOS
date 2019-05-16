@@ -56,8 +56,8 @@ final public class BalanceFormatter {
         }
     }
     
-    public func formattedAmmountWithCurrency(ammount: String) -> String {
-        return formattedAmmountWithCurrency(amount: Double(ammount))
+    public func formattedAmmountWithCurrency(amount: String) -> String {
+        return formattedAmmountWithCurrency(amount: Double(amount))
     }
     
     public func formattedAmmount(amount: Double?) -> String {
@@ -65,7 +65,7 @@ final public class BalanceFormatter {
         return balanceFormatter.string(for: amount) ?? "0"
     }
     
-    public func formattedAmmount(ammount: String) -> String {
-        return formattedAmmount(amount: Double(ammount))
+    public func formattedAmmount(amount: String) -> String {
+        return formattedAmmount(amount: Double(amount))
     }
 }

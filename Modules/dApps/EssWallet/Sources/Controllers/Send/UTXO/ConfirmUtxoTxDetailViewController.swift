@@ -82,17 +82,26 @@ class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     
     private func formattedTransactionAmmount() -> String {
         let cryptoFormatter = BalanceFormatter(asset: viewWallet.asset)
-        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
-        let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
-        let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCurrency)
-        return "\(inCrypto) (\(inCurrency) \(current.symbol))"
+        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
+        let inCurrency = convertToCurrentCurrency(inCrypto: Double(tx.ammount.inCrypto) ?? 0)
+        return inCrypto + " " + inCurrency
     }
     
     private func formattedFee() -> String {
         let ammountFormatter = BalanceFormatter(asset: utxoCoin)
         let feeConverter = BitcoinConverter(satoshi: tx.feeInSatoshi)
-        return ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
+        let inCrypto = ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
+        let inCurrency = convertToCurrentCurrency(inCrypto: feeConverter.inBitcoin)
+        return inCrypto + " " + inCurrency
+    }
+    
+    private func convertToCurrentCurrency(inCrypto: Double) -> String {
+        let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
+        let currencyFormatter = BalanceFormatter(currency: current)
+        let currentRank = EssentiaStore.shared.ranks.getRank(for: tx.wallet.asset, on: current) ?? 0
+        let inCurrency = currentRank * inCrypto
+        let formattedAmmount = currencyFormatter.formattedAmmount(amount: inCurrency)
+        return "(\(formattedAmmount) \(current.symbol))"
     }
     
     // MARK: - Actions

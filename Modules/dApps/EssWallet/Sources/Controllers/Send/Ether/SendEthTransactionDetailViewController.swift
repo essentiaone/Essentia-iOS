@@ -91,7 +91,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                    detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .titleCenteredDetail(title: LS("Wallet.Send.Amount"),
-                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammount.inCrypto)),
+                                 detail: ammountFormatter.formattedAmmountWithCurrency(amount: store.ammount.inCrypto)),
             .separator(inset: .zero),
             .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.To"),
                                                   text: store.address,

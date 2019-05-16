@@ -77,10 +77,10 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     
     private func formattedTransactionAmmount() -> String {
         let cryptoFormatter = BalanceFormatter(asset: wallet.asset)
-        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
+        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
         let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCurrency)
+        let inCurrency = currencyFormatter.formattedAmmount(amount: tx.ammount.inCurrency)
         return "\(inCrypto) (\(inCurrency) \(current.symbol))"
     }
     
