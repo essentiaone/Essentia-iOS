@@ -28,7 +28,7 @@ public class TokenService: TokensServiceInterface {
     }
     
     public func updateTokensIfNeeded(_ updated: @escaping () -> Void) {
-        networkManager.makeRequest(TokensEndpoint.update, result: { (data, _) in
+        networkManager.requestData(TokensEndpoint.update, result: { (data, _) in
             guard let data = data,
                   let updateDateString = String(data: data, encoding: .utf8),
                   let updateDate = Double(updateDateString) else {

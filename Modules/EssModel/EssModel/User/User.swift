@@ -11,8 +11,6 @@ import RealmSwift
 
 @objc
 public class User: Object {
-    public static var notSigned = User()
-    
     @objc dynamic public var id: String = ""
     @objc dynamic public var profile: UserProfile? = UserProfile()
     @objc dynamic public var backup: UserBackup? = UserBackup()
