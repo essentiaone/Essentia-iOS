@@ -18,9 +18,8 @@ class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableN
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
     }

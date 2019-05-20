@@ -40,9 +40,8 @@ class DoneTransactionViewController: BaseTableAdapterController {
                 .empty(height: 15, background: .clear)]
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
                 applyDesign()
         setupEndAnimationTimer()
     }

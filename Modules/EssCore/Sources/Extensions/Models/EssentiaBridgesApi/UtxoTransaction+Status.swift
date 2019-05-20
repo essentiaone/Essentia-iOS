@@ -1,5 +1,5 @@
 //
-//  BitcoinTransaction+Status.swift
+//  UtxoTransaction+Status.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 10/26/18.
@@ -9,7 +9,7 @@
 import EssentiaBridgesApi
 import EssModel
 
-public extension BitcoinTransactionValue {
+public extension UtxoTransactionValue {
     var status: TransactionStatus {
         if confirmations >= 2 {
             return .success
@@ -30,10 +30,14 @@ public extension BitcoinTransactionValue {
     func transactionAmmount(for address: String) -> Double? {
         switch type(for: address) {
         case .send:
-            let input = vin.map { return $0.value }.reduce(0.0, +)
-            let myOutputs = vout.filter { $0.scriptPubKey.addresses.first == address }
-                                .map { return $0.value }
-                                .reduce(0.0, { return $0 + (Double($1) ?? 0) })
+            
+            let input = vin
+                .map { return $0.value ?? 0 }
+                .reduce(0.0, +)
+            let myOutputs = vout
+                .filter { $0.scriptPubKey.addresses.first == address }
+                .map { return $0.value }
+                .reduce(0.0, { return $0 + (Double($1) ?? 0) })
             return -(input - myOutputs)
         case .recive:
             let output = vout.first { out in

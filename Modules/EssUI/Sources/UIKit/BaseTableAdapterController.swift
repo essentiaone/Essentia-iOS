@@ -30,6 +30,21 @@ open class BaseTableAdapterController: BaseViewController {
         prepareTableView()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableAdapter.hardReload(state)
+    }
+    
+    open override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.tableAdapter.endEditing(true)
+    }
+    
+    open override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+        self.tableAdapter.endEditing(true)
+        super.present(viewControllerToPresent, animated: flag, completion: completion)
+    }
+    
     private func prepareTableView() {
         setupTableView()
         observeScrollInsets()

@@ -1,5 +1,5 @@
 //
-//  BitcoinUtxo+UnspendTransaction.swift
+//  UtxoResponce+UnspendTransaction.swift
 //  EssWallet
 //
 //  Created by Pavlo Boiko on 3/18/19.
@@ -10,7 +10,7 @@ import Foundation
 import EssentiaBridgesApi
 import HDWalletKit
 
-extension BitcoinUTXO {
+extension UtxoResponce {
     
     var unspendTx: UnspentTransaction {
         let lockingScript: Data = Data(hex: scriptPubKey)

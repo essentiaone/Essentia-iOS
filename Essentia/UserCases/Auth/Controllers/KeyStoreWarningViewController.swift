@@ -16,12 +16,6 @@ class KeyStoreWarningViewController: BaseTableAdapterController, SwipeableNaviga
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     
-    // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
-    }
-    
     override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),

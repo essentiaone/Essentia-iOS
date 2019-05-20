@@ -64,9 +64,8 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
         loadInputs()
         loadRanges()
@@ -92,7 +91,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
                                    detail: availableBalanceString, action: nil),
             .empty(height: 26, background: colorProvider.settingsCellsBackround),
             .titleCenteredDetail(title: LS("Wallet.Send.Amount"),
-                                 detail: ammountFormatter.formattedAmmountWithCurrency(ammount: store.ammount.inCrypto)),
+                                 detail: ammountFormatter.formattedAmmountWithCurrency(amount: store.ammount.inCrypto)),
             .separator(inset: .zero),
             .titleCenteredDetailTextFildWithImage(title: LS("Wallet.Send.To"),
                                                   text: store.address,

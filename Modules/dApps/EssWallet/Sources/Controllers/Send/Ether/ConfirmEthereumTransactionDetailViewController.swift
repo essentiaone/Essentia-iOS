@@ -34,9 +34,8 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
@@ -78,10 +77,10 @@ class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     
     private func formattedTransactionAmmount() -> String {
         let cryptoFormatter = BalanceFormatter(asset: wallet.asset)
-        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
+        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
         let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
         let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCurrency)
+        let inCurrency = currencyFormatter.formattedAmmount(amount: tx.ammount.inCurrency)
         return "\(inCrypto) (\(inCurrency) \(current.symbol))"
     }
     

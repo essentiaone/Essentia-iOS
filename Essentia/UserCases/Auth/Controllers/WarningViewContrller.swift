@@ -16,12 +16,6 @@ class WarningViewContrller: BaseTableAdapterController, SwipeableNavigation {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
-    // MARK: - Lifecycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableAdapter.hardReload(state)
-    }
-    
     // MARK: - State
     override var state: [TableComponent] {
         return [

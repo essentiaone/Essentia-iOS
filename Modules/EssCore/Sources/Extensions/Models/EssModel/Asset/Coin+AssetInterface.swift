@@ -17,11 +17,14 @@ extension Coin: AssetInterface {
         case .bitcoin:
             return LS("Wallet.Bitcoin")
         case .ethereum:
+            
             return LS("Wallet.Ethereum")
         case .litecoin:
             return LS("Wallet.Litecoin")
         case .bitcoinCash:
             return LS("Wallet.BitcoinCash")
+        case .dash:
+            return LS("Wallet.Dash")
         }
     }
     
@@ -35,6 +38,8 @@ extension Coin: AssetInterface {
             return "Litecoin"
         case .bitcoinCash:
             return "Bitcoin Cash"
+        case .dash:
+            return "Dash"
         }
     }
     
@@ -48,6 +53,8 @@ extension Coin: AssetInterface {
             return LS("Wallet.Litecoin.Short")
         case .bitcoinCash:
             return LS("Wallet.BitcoinCash.Short")
+        case .dash:
+            return LS("Wallet.Dash.Short")
         }
     }
     
@@ -76,6 +83,8 @@ extension Coin: AssetInterface {
             return imageProvider.litecoinIcon
         case .bitcoinCash:
             return imageProvider.bitcoinCashIcon
+        case .dash:
+            return imageProvider.dashIcon
         }
     }
     

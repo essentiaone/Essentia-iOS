@@ -1,12 +1,10 @@
 //
-//  ConfirmLitecoinTransactionViewController.swift
-//  EssWallet
+//  ConfirmBitcoinTxDetailViewController.swift
+//  Essentia
 //
-//  Created by Pavlo Boiko on 3/29/19.
-//  Copyright © 2019 Pavlo Boiko. All rights reserved.
+//  Created by Pavlo Boiko on 11/13/18.
+//  Copyright © 2018 Essentia-One. All rights reserved.
 //
-
-import Foundation
 
 import Foundation
 import EssentiaNetworkCore
@@ -18,34 +16,24 @@ import EssentiaBridgesApi
 import EssUI
 import EssDI
 
-class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
+class ConfirmUtxoTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
-    private var litecoinService: LitecoinWalletInterface
-    private var utxoSelector: UtxoSelectorInterface
-    private var utxoWallet: UTXOWallet
+
+    private var utxoService: UtxoWalletUnterface
+    private let utxoCoin: EssModel.Coin
     private var bitcoinConverter: BitcoinConverter
-    
     private var viewWallet: ViewWalletInterface
     private var tx: UtxoTxInfo
-    private var ammount: UInt64
-    private var fee: UInt64?
-    private var rawTx: String?
     
-    init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo) {
+    init(_ wallet: ViewWalletInterface, tx: UtxoTxInfo, utxoService: UtxoWalletUnterface) {
         self.viewWallet = wallet
         self.tx = tx
-        litecoinService = LitecoinWallet(EssentiaConstants.bridgeUrl)
-        utxoSelector = UtxoSelector(feePerByte: tx.feePerByte, dustThreshhold: 3 * 182)
-        let privateKey = PrivateKey(pk: wallet.privateKey, coin: .litecoin)!
-        utxoWallet = UTXOWallet(privateKey: privateKey,
-                                utxoSelector: utxoSelector,
-                                utxoTransactionBuilder: UtxoTransactionBuilder(),
-                                utoxTransactionSigner: UtxoTransactionSigner())
+        self.utxoService = utxoService
+        utxoCoin = wallet.asset as? EssModel.Coin ?? .bitcoin
         bitcoinConverter = BitcoinConverter(bitcoinString: tx.ammount.inCrypto)
-        ammount = bitcoinConverter.inSatoshi
         super.init()
     }
     
@@ -54,13 +42,11 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     }
     
     // MARK: - Lifecycle
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableAdapter.hardReload(state)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         view.backgroundColor = .clear
         tableView.backgroundColor = .clear
         tableView.isScrollEnabled = false
-        loadUnspendTransaction()
     }
     
     override var state: [TableComponent] {
@@ -96,42 +82,26 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     
     private func formattedTransactionAmmount() -> String {
         let cryptoFormatter = BalanceFormatter(asset: viewWallet.asset)
-        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(ammount: tx.ammount.inCrypto)
-        let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
-        let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(ammount: tx.ammount.inCurrency)
-        return "\(inCrypto) (\(inCurrency) \(current.symbol))"
+        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
+        let inCurrency = convertToCurrentCurrency(inCrypto: Double(tx.ammount.inCrypto) ?? 0)
+        return inCrypto + " " + inCurrency
     }
     
     private func formattedFee() -> String {
-        let ammountFormatter = BalanceFormatter(asset: Coin.litecoin)
-        guard let fee = fee else { return "" }
-        let feeConverter = BitcoinConverter(satoshi: fee)
-        return ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
+        let ammountFormatter = BalanceFormatter(asset: utxoCoin)
+        let feeConverter = BitcoinConverter(satoshi: tx.feeInSatoshi)
+        let inCrypto = ammountFormatter.formattedAmmountWithCurrency(amount: feeConverter.inBitcoin)
+        let inCurrency = convertToCurrentCurrency(inCrypto: feeConverter.inBitcoin)
+        return inCrypto + " " + inCurrency
     }
     
-    private func loadUnspendTransaction() {
-        litecoinService.getUTxo(for: tx.wallet.address) { (result) in
-            switch result {
-            case .success(let transactions):
-                self.generateTransaction(fromUtxo: transactions)
-            case .failure(_):
-                self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
-            }
-        }
-    }
-    
-    private func generateTransaction(fromUtxo: [LitecoinUTXO]) {
-        let unspendTransactions: [UnspentTransaction] = fromUtxo.map { return $0.unspendTx }
-        do {
-            let selectedTx = try self.utxoSelector.select(from: unspendTransactions, targetValue: self.ammount)
-            self.fee = selectedTx.fee
-            let address = try LegacyAddress(tx.address, coin: .litecoin)
-            self.rawTx = try utxoWallet.createTransaction(to: address, amount: bitcoinConverter.inSatoshi, utxos: unspendTransactions)
-            self.tableAdapter.simpleReload(self.state)
-        } catch {
-            self.showInfo(EssentiaError.TxError.failCreateTx.localizedDescription, type: .error)
-        }
+    private func convertToCurrentCurrency(inCrypto: Double) -> String {
+        let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
+        let currencyFormatter = BalanceFormatter(currency: current)
+        let currentRank = EssentiaStore.shared.ranks.getRank(for: tx.wallet.asset, on: current) ?? 0
+        let inCurrency = currentRank * inCrypto
+        let formattedAmmount = currencyFormatter.formattedAmmount(amount: inCurrency)
+        return "(\(formattedAmmount) \(current.symbol))"
     }
     
     // MARK: - Actions
@@ -140,9 +110,8 @@ class ConfirmLitecoinTxDetailViewController: BaseTableAdapterController {
     }
     
     private lazy var confirmAction: () -> Void = { [unowned self] in
-        guard let rawTx = self.rawTx else { return }
         (inject() as LoaderInterface).show()
-        self.litecoinService.sendTransaction(with: rawTx) { [unowned self] in
+        self.utxoService.sendTransaction(with: self.tx.rawTx) { [unowned self] in
             (inject() as LoaderInterface).hide()
             switch $0 {
             case .success(let object):

@@ -62,11 +62,6 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
                         withArrow: true,
                         action: importFromOtherWallet)]
     }
-    // MARK: - Lifecycly
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        tableAdapter.hardReload(state)
-    }
     
     private func selectBackupType(sourceType: BackupSourceType) {
         self.present(SelectBackupTypeViewConroller(title: sourceType.title, selectBackupType: { (backupType) in

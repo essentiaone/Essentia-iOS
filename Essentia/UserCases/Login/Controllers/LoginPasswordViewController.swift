@@ -48,19 +48,14 @@ class LoginPasswordViewController: BaseTableAdapterController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Lifecycle
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableAdapter.hardReload(state)
-        keyboardObserver.start()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)
+        }
+        if isTouchIdEnabled {
+            getPasswordWithTouchId()
         }
     }
     
@@ -92,10 +87,14 @@ class LoginPasswordViewController: BaseTableAdapterController {
     }
     
     private var touchIdState: [TableComponent] {
-        let user = viewUserService.users.first { return $0.id == self.userId }
-        if user?.isTouchIdEnabled != true { return [] }
+        if !isTouchIdEnabled { return [] }
         return [.empty(height: 10.0, background: colorProvider.settingsCellsBackround),
                 .centeredImageButton(image: imageProvider.touchIdIcon, action: getPasswordWithTouchId)]
+    }
+    
+    private var isTouchIdEnabled: Bool {
+        let user = viewUserService.users.first { return $0.id == self.userId }
+        return user?.isTouchIdEnabled ?? false
     }
     
     // MARK: - Actions
