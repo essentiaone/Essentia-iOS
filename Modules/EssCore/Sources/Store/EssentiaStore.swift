@@ -13,7 +13,7 @@ import EssDI
 public class EssentiaStore: NSObject {
     public static var shared: EssentiaStore = EssentiaStore()
     
-    public var currentUser: User = User.notSigned
+    public var currentUser: User = User()
     public var ranks: AssetRank = AssetRank()
     public var currentLangugale: LocalizationLanguage = .english
     

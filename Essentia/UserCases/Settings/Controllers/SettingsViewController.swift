@@ -204,7 +204,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     func logOutUser() {
-        EssentiaStore.shared.setUser(.notSigned)
+        EssentiaStore.shared.setUser(User())
         prepareInjection(DefaultUserStorage() as UserStorageServiceInterface, memoryPolicy: .viewController)
         (inject() as SettingsRouterInterface).logOut()
     }

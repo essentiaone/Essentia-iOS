@@ -116,14 +116,12 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
         present(LoginPasswordViewController(userId: user.id, hash: user.passwordHash, password: { [unowned self] pass in
             guard let userStore: UserStorageServiceInterface = try? RealmUserStorage(seedHash: user.id, password: pass) else { return }
             prepareInjection(userStore, memoryPolicy: ObjectScope.viewController)
-            
-            self.userStorage.update { (user) in
+            (inject() as UserStorageServiceInterface).update { (user) in
                 EssentiaStore.shared.setUser(user)
+                self.dismiss(animated: true, completion: { [unowned self] in
+                    self.showTabBar()
+                })
             }
-            
-            self.dismiss(animated: true, completion: { [unowned self] in
-                self.showTabBar()
-            })
             }, cancel: { [unowned self] in
                 self.dismiss(animated: true)
         }), animated: true)
@@ -133,7 +131,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
         let viewUsers = userService.users
         let userAlreadyExist = viewUsers.contains(where: { $0.id == user.id })
         guard !userAlreadyExist else {
-            EssentiaStore.shared.currentUser = .notSigned
+            EssentiaStore.shared.currentUser = User()
             loader.showError(EssentiaError.userExist.localizedDescription)
             return false
         }
