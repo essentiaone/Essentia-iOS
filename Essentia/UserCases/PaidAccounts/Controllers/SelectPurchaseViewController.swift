@@ -56,6 +56,6 @@ class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigat
     }
     
     private lazy var backAction: () -> Void = { [unowned self] in
-        
+        self.dismiss(animated: true)
     }
 }
