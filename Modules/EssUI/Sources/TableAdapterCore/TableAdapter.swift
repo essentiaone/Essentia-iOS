@@ -88,6 +88,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentAnimation.self)
         tableView.register(TableComponentAlert.self)
         tableView.register(TableComponentBorderedButton.self)
+        tableView.register(TableComponentButtonWithSubtitle.self)
     }
     
     // MARK: - Update State
@@ -133,6 +134,12 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
+        case .buttonWithSubtitle(let title, let subtitle, let color, let action):
+            let cell: TableComponentButtonWithSubtitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleButton.backgroundColor = color
+            cell.action = action
+            cell.set(title: title, subtitle: subtitle)
+            return cell
         case .animation(let animation, _):
             let cell: TableComponentAnimation = tableView.dequeueReusableCell(for: indexPath)
             cell.playAnimation(animation)

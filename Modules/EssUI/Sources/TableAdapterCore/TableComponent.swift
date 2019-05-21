@@ -40,6 +40,8 @@ public enum TableComponent: Equatable {
     case rightNavigationButton(title:String, image: UIImage, action: () -> Void)
     case navigationImageBar(left: String, right: UIImage, title: String, lAction: (() -> Void)?, rAction: (() -> Void)?)
     case imageTitleSubtitle(image: UIImage, title: String, subtitle: String)
+    // MARK: - Paid Account
+    case buttonWithSubtitle(title: String, subtitle: String, color: UIColor, action: () -> Void)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void, currentLevel: Int)
     case accountStrengthAction(action: () -> Void, status: AnimationState, currentLevel: Int)

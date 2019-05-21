@@ -35,13 +35,13 @@ public extension UtxoTransactionValue {
                 .map { return $0.value ?? 0 }
                 .reduce(0.0, +)
             let myOutputs = vout
-                .filter { $0.scriptPubKey.addresses.first == address }
+                .filter { $0.scriptPubKey.addresses?.first == address }
                 .map { return $0.value }
                 .reduce(0.0, { return $0 + (Double($1) ?? 0) })
             return -(input - myOutputs)
         case .recive:
             let output = vout.first { out in
-                return out.scriptPubKey.addresses.contains(where: { $0 == address })
+                return out.scriptPubKey.addresses?.contains(where: { $0 == address }) ?? false
             }
             return Double(output?.value ?? "0")
         default: return 0
