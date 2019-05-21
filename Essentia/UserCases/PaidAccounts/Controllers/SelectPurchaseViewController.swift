@@ -25,14 +25,30 @@ class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigat
                            title: "",
                            lAction: backAction,
                            rAction: restoreAction),
-            .empty(height: 19, background: .clear),
+            .empty(height: 10, background: .clear),
             .title(bold: true, title: LS("PaidAccount.SelectPurchase.Title")),
             .calculatbleSpace(background: .clear),
-            .centeredImage(image: imageProvider.keystoreIcon),
+            .centeredImage(image: imageProvider.selectPurchaseTypeIcon),
             .empty(height: 19, background: .clear),
-            .description(title: "PaidAccount.SelectPurchase.Info", backgroud: .clear),
-            .empty(height: 25, background: .clear)
+            .descriptionWithSize(aligment: .left,
+                                 fontSize: 17,
+                                 title: LS("PaidAccount.SelectPurchase.Info"),
+                                 background: .clear,
+                                 textColor: colorProvider.appLinkTextColor),
+            .empty(height: 25, background: .clear),
+            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForOne"), subtitle: "FOR 5 ESS", color: colorProvider.centeredButtonBackgroudColor, action: buyOneAccount),
+            .empty(height: 10, background: .clear),
+            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForUnlimited"), subtitle: "FOR 100 ESS", color: colorProvider.copyButtonBackgroundSelectedColor, action: buyUnlimitedAccounts),
+            .empty(height: 16, background: .clear)
         ]
+    }
+    
+    private lazy var buyOneAccount: () -> Void = { [unowned self] in
+        
+    }
+    
+    private lazy var buyUnlimitedAccounts: () -> Void = { [unowned self] in
+        
     }
     
     private lazy var restoreAction: () -> Void = { [unowned self] in

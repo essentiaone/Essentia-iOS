@@ -33,7 +33,7 @@ class TableComponentNavigationBar: UITableViewCell, NibLoadable {
         
         leftButton.imageView?.contentMode = .scaleAspectFit
         leftButton.titleLabel?.font = AppFont.regular.withSize(15.0)
-        rightButton.titleLabel?.font = AppFont.regular.withSize(15.0)
+        rightButton.titleLabel?.font = AppFont.bold.withSize(15.0)
     }
     
     @IBAction func leftButtonAction(_ sender: Any) {

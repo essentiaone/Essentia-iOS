@@ -64,7 +64,8 @@ public class AppImageProvider: AppImageProviderInterface {
     public var downArrow: UIImage = image(name: "downArrow")
     public var passwordVisible: UIImage = image(name: "passwordVisible")
     public var loading: UIImage = image(name: "loading")
-    
+    // MARK: - Purchase accounts
+    public var selectPurchaseTypeIcon: UIImage = image(name: "selectPurchaseTypeIcon")
     // MARK: Transaction status
     public var txStatusSend: UIImage = image(name: "transactionSend")
     public var txStatusRecived: UIImage = image(name: "transactionRecived")

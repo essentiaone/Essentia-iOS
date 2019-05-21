@@ -61,6 +61,8 @@ public protocol AppImageProviderInterface {
     var checkNotSelected: UIImage { get }
     var qrCode: UIImage { get }
     var loading: UIImage { get }
+    // MARK: - Purchase accounts
+    var selectPurchaseTypeIcon: UIImage { get }
     // MARK: Transaction status
     var txStatusSend: UIImage { get }
     var txStatusRecived: UIImage { get }

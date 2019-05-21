@@ -343,3 +343,10 @@
 "Wallet.Transaction.Send.Done.Title" = "Well done!";
 "Wallet.Transaction.Send.Done.Description" = "Your transactoin has been sent. Soon you will be able to see it in your transaction history.";
 "Wallet.Transaction.Send.Done.Continue" = "BACK TO WALLET";
+
+// MARK: - Paid Accounts
+"PaidAccount.SelectPurchase.Restore" = "Restore";
+"PaidAccount.SelectPurchase.Title" = "Get Accounts";
+"PaidAccount.SelectPurchase.Info" = "Join the framework where all your dApps are interconnected and available any minute.";
+"PaidAccount.SelectPurchase.PayForOne" = "GET 1 ACCOUNT";
+"PaidAccount.SelectPurchase.PayForUnlimited" = "GET UNLIMITED ACCOUNTS";

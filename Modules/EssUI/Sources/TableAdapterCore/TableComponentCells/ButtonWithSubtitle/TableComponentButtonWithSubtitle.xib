@@ -19,22 +19,20 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSG-zp-sfb">
-                        <rect key="frame" x="16" y="0.0" width="343" height="73.5"/>
+                        <rect key="frame" x="15" y="0.0" width="345" height="73.5"/>
                         <connections>
                             <action selector="action:" destination="o9K-VR-YNp" eventType="touchUpInside" id="VBl-z2-mjJ"/>
-                            <action selector="rightAction:" destination="o9K-VR-YNp" eventType="touchUpInside" id="zA3-ja-1CX"/>
                         </connections>
                     </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="JSG-zp-sfb" firstAttribute="top" secondItem="saH-Q4-FXI" secondAttribute="top" id="SDn-ff-kE3"/>
                     <constraint firstAttribute="bottom" secondItem="JSG-zp-sfb" secondAttribute="bottom" id="bKr-xO-MrK"/>
-                    <constraint firstAttribute="trailing" secondItem="JSG-zp-sfb" secondAttribute="trailing" constant="16" id="hyJ-0i-IrG"/>
-                    <constraint firstItem="JSG-zp-sfb" firstAttribute="leading" secondItem="saH-Q4-FXI" secondAttribute="leading" constant="16" id="wTj-WZ-0gw"/>
+                    <constraint firstAttribute="trailing" secondItem="JSG-zp-sfb" secondAttribute="trailing" constant="15" id="hyJ-0i-IrG"/>
+                    <constraint firstItem="JSG-zp-sfb" firstAttribute="leading" secondItem="saH-Q4-FXI" secondAttribute="leading" constant="15" id="wTj-WZ-0gw"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="rightButton" destination="JSG-zp-sfb" id="HAE-A9-x2r"/>
                 <outlet property="titleButton" destination="JSG-zp-sfb" id="sWq-YM-AJu"/>
             </connections>
             <point key="canvasLocation" x="-88" y="9"/>

@@ -24,6 +24,8 @@ class TableComponentButtonWithSubtitle: UITableViewCell, NibLoadable {
     
     private func applyDesign() {
         titleButton.layer.cornerRadius = 4
+        titleButton.titleLabel?.numberOfLines = 2
+        titleButton.titleLabel?.textAlignment = .center
     }
     
     func set(title: String, subtitle: String) {
@@ -35,6 +37,7 @@ class TableComponentButtonWithSubtitle: UITableViewCell, NibLoadable {
                                                      attributes: [.font: AppFont.light.withSize(15)]))
         attributedText.addAttributes([.foregroundColor: UIColor.white.cgColor],
                                      range: NSRange(location: 0, length: attributedText.length))
+        titleButton.setAttributedTitle(attributedText, for: .normal)
     }
     
     @IBAction func action(_ sender: Any) {
