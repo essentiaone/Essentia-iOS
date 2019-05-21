@@ -151,11 +151,13 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func createNewUser() {
-        #warning("REPLACE")
+        #if DEBUG
         present(SelectPurchaseViewController(), animated: true)
-//        EssentiaLoader.show { [unowned self] in
-//            self.showTabBar()
-//        }
-//        interactor.generateNewUser {}
+        #else
+        EssentiaLoader.show { [unowned self] in
+            self.showTabBar()
+        }
+        interactor.generateNewUser {}
+        #endif
     }
 }
