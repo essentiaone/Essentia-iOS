@@ -26,8 +26,6 @@ fileprivate struct Store {
 
 public class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interator: WalletInteractorInterface = inject()
     private lazy var blockchainInterator: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var store: Store = Store()

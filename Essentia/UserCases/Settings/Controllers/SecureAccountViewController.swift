@@ -15,8 +15,6 @@ import EssUI
 
 class SecureAccountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
     
     // MARK: - Lifecycle

@@ -12,11 +12,7 @@ import EssResources
 import EssUI
 import EssDI
 
-class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableNavigation {
-    // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    
+class WalletNewAssetViewController: BaseBluredTableAdapterController, SwipeableNavigation {    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

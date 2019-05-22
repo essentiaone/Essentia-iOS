@@ -13,10 +13,6 @@ import EssUI
 import EssDI
 
 class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigation {
-    // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    
     override var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),

@@ -20,7 +20,6 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
         self.delegate = delegate

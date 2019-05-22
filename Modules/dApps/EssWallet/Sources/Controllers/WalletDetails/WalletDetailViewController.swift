@@ -33,8 +33,6 @@ fileprivate struct Store {
 }
 
 class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigation {
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     

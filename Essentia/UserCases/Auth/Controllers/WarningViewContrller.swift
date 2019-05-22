@@ -13,10 +13,6 @@ import EssDI
 import EssResources
 
 class WarningViewContrller: BaseTableAdapterController, SwipeableNavigation {
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    
-    // MARK: - State
     override var state: [TableComponent] {
         return [
             .empty(height: 30, background: colorProvider.settingsCellsBackround),

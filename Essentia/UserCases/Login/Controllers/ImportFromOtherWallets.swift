@@ -16,8 +16,6 @@ import EssDI
 class ImportFromOtherController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
     private var selectBackupSourceType: (BackupSourceType) -> Void
     
     // MARK: - Int

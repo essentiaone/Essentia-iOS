@@ -16,8 +16,6 @@ import EssDI
 
 class ConfirmEthereumTxDetailViewController: BaseTableAdapterController {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
     
     private var wallet: ViewWalletInterface

@@ -15,7 +15,6 @@ import EssDI
 
 class SettingsLanguageViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
     private let currentLanguage = EssentiaStore.shared.currentUser.profile?.language ?? .english
     

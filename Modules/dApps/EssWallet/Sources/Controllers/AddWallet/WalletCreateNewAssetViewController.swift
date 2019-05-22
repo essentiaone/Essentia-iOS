@@ -24,7 +24,6 @@ fileprivate struct Store {
 
 class WalletCreateNewAssetViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var interactor: WalletInteractorInterface = inject()
     private var store: Store = Store()
     

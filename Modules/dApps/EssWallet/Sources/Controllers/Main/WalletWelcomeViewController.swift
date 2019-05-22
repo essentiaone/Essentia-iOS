@@ -13,9 +13,6 @@ import EssUI
 import EssDI
 
 class WalletWelcomeViewController: BaseTableAdapterController {
-    // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private var currentPosition = 1
     private var leftSwipeRecognizer: UISwipeGestureRecognizer!
     private var rightSwipeRecognizer: UISwipeGestureRecognizer!

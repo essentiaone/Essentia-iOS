@@ -37,7 +37,6 @@ fileprivate struct Store {
 
 class EnterTransactionAmmountViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
     
     private var store: Store

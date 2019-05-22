@@ -14,7 +14,6 @@ import EssUI
 import EssDI
 
 final class SelectWalletPopUp: BaseBluredTableAdapterController {
-    private lazy var colorProvider: AppColorInterface = inject()
     private var wallets: [ViewWalletInterface]
     private var didSelect: (ViewWalletInterface) -> Void
     

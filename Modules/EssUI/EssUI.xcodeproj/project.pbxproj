@@ -1167,6 +1167,7 @@
 					};
 					3478F86F21ECE35D00D54FEF = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -1176,6 +1177,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 3478F85D21ECE35D00D54FEF;
 			productRefGroup = 3478F86821ECE35D00D54FEF /* Products */;
@@ -1604,7 +1606,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1623,7 +1625,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Essentia.EssUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

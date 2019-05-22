@@ -15,7 +15,6 @@ import EssDI
 
 class SettingsCurrencyViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
     
     // MARK: - Lifecycle

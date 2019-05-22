@@ -20,8 +20,6 @@ protocol ImportAccountDelegate: class {
 class ImportAccountViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: UserStorageServiceInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
     private weak var delegate: ImportAccountDelegate?
     
     // MARK: - Init

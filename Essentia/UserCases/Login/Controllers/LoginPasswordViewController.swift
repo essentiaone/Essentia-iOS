@@ -23,8 +23,6 @@ fileprivate struct Store {
 class LoginPasswordViewController: BaseTableAdapterController {
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var keystoreService: KeychainServiceInterface = inject()
     private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
     

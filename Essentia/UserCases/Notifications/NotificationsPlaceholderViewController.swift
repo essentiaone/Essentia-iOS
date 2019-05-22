@@ -13,10 +13,6 @@ import EssUI
 import EssDI
 
 class NotificationsPlaceholderViewController: BaseTableAdapterController {
-    // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableAdapter.simpleReload(state)

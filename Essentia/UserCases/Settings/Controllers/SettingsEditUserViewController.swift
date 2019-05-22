@@ -13,13 +13,10 @@ import EssUI
 import EssDI
 
 class SettingsEditUserViewController: BaseTableAdapterController, SwipeableNavigation {
-    // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: SettingsRouterInterface = inject()
     private var enteredName: String = ""
     
     // MARK: - Lifecycle
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         applyDesign()

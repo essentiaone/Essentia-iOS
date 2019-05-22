@@ -21,8 +21,6 @@ fileprivate enum SelectedOption {
 
 class WalletOptionsViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
-    private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
     
     private var wallet: ViewWalletInterface

@@ -32,7 +32,6 @@ fileprivate struct Store {
 }
 class WallerReceiveViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var router: WalletRouterInterface = inject()
     private lazy var alert = TopAlert(alertType: .info, title: LS("Wallet.Receive.Copied"), inView: self.view)
     

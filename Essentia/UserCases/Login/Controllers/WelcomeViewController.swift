@@ -20,7 +20,6 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var userStorage: UserStorageServiceInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var loader: LoaderInterface = inject()
     
     private var lastSource: BackupSourceType?

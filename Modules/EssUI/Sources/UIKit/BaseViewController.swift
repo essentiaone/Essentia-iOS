@@ -8,8 +8,13 @@
 
 import UIKit
 import EssDI
+import EssResources
 
 open class BaseViewController: UIViewController, UINavigationControllerDelegate {
+    // MARK: - Dependencies
+    public lazy var colorProvider: AppColorInterface = inject()
+    public lazy var imageProvider: AppImageProviderInterface = inject()
+    
     public var keyboardObserver: KeyboardHeightObserver
     public var isKeyboardShown: Bool = false
     public var topView: UIView?

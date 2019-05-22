@@ -49,7 +49,6 @@ fileprivate struct Store {
 class KeyStorePasswordViewController: BaseTableAdapterController, UIDocumentPickerDelegate, SwipeableNavigation {
     // MARK: - Dependence
     private lazy var design: BackupDesignInterface = inject()
-    private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - Store
     private var store: Store
