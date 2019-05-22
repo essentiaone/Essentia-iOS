@@ -142,7 +142,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             switch coin {
             case .bitcoin, .bitcoinCash, .litecoin, .dash:
                 let utxoWallet = cryptoWallet.utxoWallet(coin: coin)
-                utxoWallet.getTransactionsHistory(for: wallet.address) { [unowned self] (result) in
+                utxoWallet.getTransactionsHistory(for: "12nsfDX1tmvnqHPBQJo564iSLFoqJVNDnS") { [unowned self] (result) in
                     switch result {
                     case .success(let tx):
                         transactions(self.mapTransactions(tx.items, address: wallet.address, asset: wallet.asset))

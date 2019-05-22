@@ -342,4 +342,9 @@
 "Wallet.Transaction.Send.Done.Description" = "您的交易已发送。很快您就可以在交易历史记录中看到它。";
 "Wallet.Transaction.Send.Done.Continue" = "回到钱包";
 
-
+// MARK: - Paid Accounts
+"PaidAccount.SelectPurchase.Restore" = "Restore";
+"PaidAccount.SelectPurchase.Title" = "Get Accounts";
+"PaidAccount.SelectPurchase.Info" = "Join the framework where all your dApps are interconnected and available any minute.";
+"PaidAccount.SelectPurchase.PayForOne" = "GET 1 ACCOUNT";
+"PaidAccount.SelectPurchase.PayForUnlimited" = "GET UNLIMITED ACCOUNTS";

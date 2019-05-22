@@ -26,6 +26,8 @@
 		342A922421F90358009840DD /* String+CharacterSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922321F90358009840DD /* String+CharacterSet.swift */; };
 		342A922721F90381009840DD /* String+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A922621F90381009840DD /* String+Format.swift */; };
 		344A93A022648D4A00EFA1B3 /* AvatarHashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A939F22648D4A00EFA1B3 /* AvatarHashView.swift */; };
+		344B87DC22942FEB00840DE2 /* TableComponentButtonWithSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B87DB22942FEB00840DE2 /* TableComponentButtonWithSubtitle.swift */; };
+		344B87DE22942FF500840DE2 /* TableComponentButtonWithSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 344B87DD22942FF500840DE2 /* TableComponentButtonWithSubtitle.xib */; };
 		345747CB21F5CED9006E2EAB /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747CA21F5CED9006E2EAB /* EssResources.framework */; };
 		345D6DE821EFBC7800C59398 /* BackSwipeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */; };
 		345D6DE921EFBC7800C59398 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */; };
@@ -196,6 +198,8 @@
 		342A922321F90358009840DD /* String+CharacterSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CharacterSet.swift"; sourceTree = "<group>"; };
 		342A922621F90381009840DD /* String+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Format.swift"; sourceTree = "<group>"; };
 		344A939F22648D4A00EFA1B3 /* AvatarHashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarHashView.swift; sourceTree = "<group>"; };
+		344B87DB22942FEB00840DE2 /* TableComponentButtonWithSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentButtonWithSubtitle.swift; sourceTree = "<group>"; };
+		344B87DD22942FF500840DE2 /* TableComponentButtonWithSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentButtonWithSubtitle.xib; sourceTree = "<group>"; };
 		345747CA21F5CED9006E2EAB /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		345D6DB921EFBC7800C59398 /* BackSwipeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSwipeNavigation.swift; sourceTree = "<group>"; };
 		345D6DBA21EFBC7800C59398 /* BaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
@@ -410,6 +414,15 @@
 				3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		344B87DA22942FD000840DE2 /* ButtonWithSubtitle */ = {
+			isa = PBXGroup;
+			children = (
+				344B87DB22942FEB00840DE2 /* TableComponentButtonWithSubtitle.swift */,
+				344B87DD22942FF500840DE2 /* TableComponentButtonWithSubtitle.xib */,
+			);
+			path = ButtonWithSubtitle;
 			sourceTree = "<group>";
 		};
 		345D6DB821EFBC7800C59398 /* UIKit */ = {
@@ -631,6 +644,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				344B87DA22942FD000840DE2 /* ButtonWithSubtitle */,
 				CE335D8B2281A2D900DAF943 /* BorderedButton */,
 				3482B2992255599F0072FD02 /* TableComponentAlert */,
 				3474E49A21F0FCAF003D8DFF /* Animation */,
@@ -1197,6 +1211,7 @@
 				345D6DF021EFBC7800C59398 /* BorderedCell.xib in Resources */,
 				34CA782121ECF5AC003612EE /* TableComponentAccountStrength.xib in Resources */,
 				34CA780D21ECF5AC003612EE /* TableComponentBlure.xib in Resources */,
+				344B87DE22942FF500840DE2 /* TableComponentButtonWithSubtitle.xib in Resources */,
 				34CA781C21ECF5AC003612EE /* TableComponentDescription.xib in Resources */,
 				34CA781921ECF5AC003612EE /* TableComponentSectionTitle.xib in Resources */,
 				3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */,
@@ -1367,6 +1382,7 @@
 				345D6DF121EFBC7800C59398 /* BorderedCell.swift in Sources */,
 				34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */,
 				345D6E0521EFBC7800C59398 /* Dwifft.swift in Sources */,
+				344B87DC22942FEB00840DE2 /* TableComponentButtonWithSubtitle.swift in Sources */,
 				34CA77F721ECF5AC003612EE /* TableComponentAccountStrengthAction.swift in Sources */,
 				345D6E0721EFBC7800C59398 /* SectionedValues.swift in Sources */,
 			);

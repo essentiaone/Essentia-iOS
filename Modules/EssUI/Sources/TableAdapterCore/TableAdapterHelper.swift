@@ -170,6 +170,8 @@ public class TableAdapterHelper {
             return 40
         case .animation(_, let height):
             return height
+        case .buttonWithSubtitle:
+            return 63
         }
     }
     
