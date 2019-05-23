@@ -137,28 +137,28 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		347A3AF721F3B0C70053C2F3 /* Sources */ = {
+		3414EF5E2297410600F091C6 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				34C2B82521FA19AF00B38E90 /* Formatters */,
-				347A3AF821F3B0C70053C2F3 /* Controllers */,
-				347A3B1821F3B0C70053C2F3 /* Interactor */,
-				347A3B1F21F3B0C70053C2F3 /* Router */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		347A3AF821F3B0C70053C2F3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				3414EF582297403B00F091C6 /* PaidAccounts */,
 				347A3AF921F3B0C70053C2F3 /* WalletDetails */,
 				347A3AFE21F3B0C70053C2F3 /* Receive */,
 				347A3B0121F3B0C70053C2F3 /* AddWallet */,
 				347A3B0A21F3B0C70053C2F3 /* Main */,
 				347A3B0D21F3B0C70053C2F3 /* Send */,
 			);
-			path = Controllers;
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		347A3AF721F3B0C70053C2F3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				34C2B82521FA19AF00B38E90 /* Formatters */,
+				3414EF5E2297410600F091C6 /* Wallet */,
+				3414EF582297403B00F091C6 /* PaidAccounts */,
+				347A3B1821F3B0C70053C2F3 /* Interactor */,
+				347A3B1F21F3B0C70053C2F3 /* Router */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		347A3AF921F3B0C70053C2F3 /* WalletDetails */ = {
