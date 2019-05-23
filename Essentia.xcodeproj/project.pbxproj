@@ -49,7 +49,7 @@
 		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
 		344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826C621218C9C00C19EB3 /* SettingsViewController.swift */; };
 		344B87D82293F14B00840DE2 /* SelectPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B87D72293F14B00840DE2 /* SelectPurchaseViewController.swift */; };
-		344B87E2229580C200840DE2 /* SelectAccountToMakePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B87E1229580C200840DE2 /* SelectAccountToMakePurchaseViewController.swift */; };
+		344B87E2229580C200840DE2 /* SelectAccountToPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344B87E1229580C200840DE2 /* SelectAccountToPurchaseViewController.swift */; };
 		345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747AB21F50DD6006E2EAB /* libEssWallet.a */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
@@ -140,7 +140,7 @@
 		34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchpadCollectionViewAdapter.swift; sourceTree = "<group>"; };
 		344826C621218C9C00C19EB3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		344B87D72293F14B00840DE2 /* SelectPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPurchaseViewController.swift; sourceTree = "<group>"; };
-		344B87E1229580C200840DE2 /* SelectAccountToMakePurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountToMakePurchaseViewController.swift; sourceTree = "<group>"; };
+		344B87E1229580C200840DE2 /* SelectAccountToPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountToPurchaseViewController.swift; sourceTree = "<group>"; };
 		345747AB21F50DD6006E2EAB /* libEssWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssWallet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		345747BF21F5BB95006E2EAB /* EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		347DB23421ED55C8004420FA /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -477,7 +477,7 @@
 			isa = PBXGroup;
 			children = (
 				344B87D72293F14B00840DE2 /* SelectPurchaseViewController.swift */,
-				344B87E1229580C200840DE2 /* SelectAccountToMakePurchaseViewController.swift */,
+				344B87E1229580C200840DE2 /* SelectAccountToPurchaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -738,7 +738,7 @@
 				344167F7212EC235008B8A91 /* LoginInteractor.swift in Sources */,
 				34482678211B9BAC00C19EB3 /* TabBarController.swift in Sources */,
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
-				344B87E2229580C200840DE2 /* SelectAccountToMakePurchaseViewController.swift in Sources */,
+				344B87E2229580C200840DE2 /* SelectAccountToPurchaseViewController.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,

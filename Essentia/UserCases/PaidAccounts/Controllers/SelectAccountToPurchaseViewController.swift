@@ -1,5 +1,5 @@
 //
-//  SelectAccountToMakePurchaseViewController.swift
+//  SelectAccountToPurchaseViewController.swift
 //  Essentia
 //
 //  Created by Pavlo Boiko on 5/22/19.
@@ -14,7 +14,7 @@ import EssUI
 import EssDI
 import Crashlytics
 
-class SelectAccountToMakePurchaseViewController: BaseBluredTableAdapterController {
+class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
     weak var delegate: SelectAccountDelegate?
     
     // MARK: - Dependences
@@ -63,4 +63,3 @@ class SelectAccountToMakePurchaseViewController: BaseBluredTableAdapterControlle
         self.dismiss(animated: true)
     }
 }
-
