@@ -12,7 +12,6 @@ import EssModel
 import EssResources
 import EssUI
 import EssDI
-import Crashlytics
 
 class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
     weak var delegate: SelectAccountDelegate?
