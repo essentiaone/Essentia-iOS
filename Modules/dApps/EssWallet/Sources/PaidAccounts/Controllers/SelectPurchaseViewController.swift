@@ -12,12 +12,12 @@ import EssResources
 import EssUI
 import EssDI
 
-class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigation {
+public class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     
-    override var state: [TableComponent] {
+    override public var state: [TableComponent] {
         return [
             .empty(height: 25, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("Back"),

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3414EF5C2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */; };
+		3414EF5D2297403B00F091C6 /* SelectPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */; };
 		345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */; };
 		3457B7FC223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */; };
 		347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */; };
@@ -60,6 +62,8 @@
 
 /* Begin PBXFileReference section */
 		07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAccountToPurchaseViewController.swift; sourceTree = "<group>"; };
+		3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPurchaseViewController.swift; sourceTree = "<group>"; };
 		345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
 		3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UtxoResponce+UnspendTransaction.swift"; sourceTree = "<group>"; };
 		347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -116,18 +120,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		347A3AF721F3B0C70053C2F3 /* Sources */ = {
+		3414EF582297403B00F091C6 /* PaidAccounts */ = {
 			isa = PBXGroup;
 			children = (
-				34C2B82521FA19AF00B38E90 /* Formatters */,
-				347A3AF821F3B0C70053C2F3 /* Controllers */,
-				347A3B1821F3B0C70053C2F3 /* Interactor */,
-				347A3B1F21F3B0C70053C2F3 /* Router */,
+				3414EF592297403B00F091C6 /* Controllers */,
 			);
-			path = Sources;
+			path = PaidAccounts;
 			sourceTree = "<group>";
 		};
-		347A3AF821F3B0C70053C2F3 /* Controllers */ = {
+		3414EF592297403B00F091C6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */,
+				3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3414EF5E2297410600F091C6 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
 				347A3AF921F3B0C70053C2F3 /* WalletDetails */,
@@ -136,7 +146,19 @@
 				347A3B0A21F3B0C70053C2F3 /* Main */,
 				347A3B0D21F3B0C70053C2F3 /* Send */,
 			);
-			path = Controllers;
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		347A3AF721F3B0C70053C2F3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				34C2B82521FA19AF00B38E90 /* Formatters */,
+				3414EF5E2297410600F091C6 /* Wallet */,
+				3414EF582297403B00F091C6 /* PaidAccounts */,
+				347A3B1821F3B0C70053C2F3 /* Interactor */,
+				347A3B1F21F3B0C70053C2F3 /* Router */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		347A3AF921F3B0C70053C2F3 /* WalletDetails */ = {
@@ -385,6 +407,8 @@
 				347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */,
 				347A3B3121F3B0C70053C2F3 /* WalletWelcomeViewController.swift in Sources */,
 				347A3B2C21F3B0C70053C2F3 /* WalletDoneImportingAlert.swift in Sources */,
+				3414EF5D2297403B00F091C6 /* SelectPurchaseViewController.swift in Sources */,
+				3414EF5C2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift in Sources */,
 				347A3B3621F3B0C70053C2F3 /* EtherTxInfo.swift in Sources */,
 				347A3B2521F3B0C70053C2F3 /* WalletDetailViewController.swift in Sources */,
 				347A3B2E21F3B0C70053C2F3 /* FailImportingAlert.swift in Sources */,
