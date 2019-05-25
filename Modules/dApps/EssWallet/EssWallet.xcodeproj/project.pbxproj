@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		3414EF5C2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */; };
 		3414EF5D2297403B00F091C6 /* SelectPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */; };
+		3423A6CA2299AD880098F071 /* ConfirmPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6C92299AD880098F071 /* ConfirmPurchaseViewController.swift */; };
 		345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */; };
 		3457B7FC223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */; };
 		347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */; };
@@ -64,6 +65,7 @@
 		07D123BA6A956C71AE107B06 /* Pods_EssWallet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssWallet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAccountToPurchaseViewController.swift; sourceTree = "<group>"; };
 		3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPurchaseViewController.swift; sourceTree = "<group>"; };
+		3423A6C92299AD880098F071 /* ConfirmPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseViewController.swift; sourceTree = "<group>"; };
 		345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
 		3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UtxoResponce+UnspendTransaction.swift"; sourceTree = "<group>"; };
 		347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */,
 				3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */,
+				3423A6C92299AD880098F071 /* ConfirmPurchaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				347A3B2D21F3B0C70053C2F3 /* WalletDoneGeneratingAlert.swift in Sources */,
 				347A3B2A21F3B0C70053C2F3 /* WalletNewAssetViewController.swift in Sources */,
 				347A3B2821F3B0C70053C2F3 /* WalletCreateNewAssetViewController.swift in Sources */,
+				3423A6CA2299AD880098F071 /* ConfirmPurchaseViewController.swift in Sources */,
 				347A3B2321F3B0C70053C2F3 /* DeleteWalletWarningViewController.swift in Sources */,
 				347A3B3321F3B0C70053C2F3 /* DoneTransactionViewController.swift in Sources */,
 				347A3B2421F3B0C70053C2F3 /* WalletDeletedWarningViewController.swift in Sources */,
