@@ -9,7 +9,7 @@
 import UIKit
 
 //Duplicated Base table adapter controller
-open class BaseBluredTableAdapterController: BaseBluredController {
+open class BaseBluredTableAdapterController: BaseBluredController, StatableControllerInterface {
     public let tableView: UITableView
     public lazy var tableAdapter = TableAdapter(tableView: tableView)
     private var scrollObserver: NSKeyValueObservation?
