@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3423A6CD229AB3530098F071 /* StatableControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */; };
 		3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */; };
 		3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */; };
 		342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A91FE21F8FCFC009840DD /* libEssDI.a */; };
@@ -177,6 +178,7 @@
 
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
+		3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatableControllerInterface.swift; sourceTree = "<group>"; };
 		3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableCell+Nib.swift"; sourceTree = "<group>"; };
 		3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
 		3423DA8121F855FC00578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -576,6 +578,7 @@
 				34CA77DE21ECF5AC003612EE /* TableAdapterAnimation.swift */,
 				34CA77DF21ECF5AC003612EE /* TableAdapterHelper.swift */,
 				34CA775921ECF5AC003612EE /* TableComponent.swift */,
+				3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */,
 				34CA775A21ECF5AC003612EE /* TableComponentCells */,
 			);
 			path = TableAdapterCore;
@@ -1317,6 +1320,7 @@
 				345D6DF221EFBC7800C59398 /* CopyButton.swift in Sources */,
 				345D6DF921EFBC7800C59398 /* TopAlert.swift in Sources */,
 				34CA782521ECF5AC003612EE /* TableComponentSwitch.swift in Sources */,
+				3423A6CD229AB3530098F071 /* StatableControllerInterface.swift in Sources */,
 				344A93A022648D4A00EFA1B3 /* AvatarHashView.swift in Sources */,
 				34CA782B21ECF5AC003612EE /* TableComponentEmpty.swift in Sources */,
 				342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */,
