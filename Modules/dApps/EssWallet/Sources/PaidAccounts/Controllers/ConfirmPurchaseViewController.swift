@@ -81,7 +81,7 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
         do {
             try self.interactor.sendEthTransaction(wallet: self.wallet, transacionDetial: self.tx, result: self.responceTransaction)
         } catch {
-            //            self.showInfo(error.localizedDescription, type: .error)
+            self.showInfo(error.localizedDescription, type: .error)
         }
     }
     
@@ -93,8 +93,7 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
             self.dismiss(animated: true)
             (inject() as WalletRouterInterface).show(.doneTx)
         case .failure(let error):
-            print(error)
-            //            self.showInfo(error.localizedDescription, type: .error)
+            self.showInfo(error.localizedDescription, type: .error)
         }
     }
 }
