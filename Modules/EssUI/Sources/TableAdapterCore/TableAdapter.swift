@@ -134,6 +134,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch tableState[indexPath.row] {
+        case .imageRightTitleSubtitle(let imageUrl, let title, let rTitle, let rSubtite, _):
+            let cell: TableComponentImageRightTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage.kf.setImage(with: imageUrl)
+            cell.titleLabel.text = title
+            cell.accessoryType = .disclosureIndicator
+            cell.rightTitle.text = rTitle
+            cell.rightSubtitle.text = rSubtite
+            return cell
         case .buttonWithSubtitle(let title, let subtitle, let color, let action):
             let cell: TableComponentButtonWithSubtitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.backgroundColor = color
@@ -638,6 +646,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .textFieldTitleDetail: fallthrough
         case .titleCenteredDetailTextFildWithImage: fallthrough
         case .titleAction: fallthrough
+        case .imageRightTitleSubtitle: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -654,6 +663,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.deselectRow(at: indexPath, animated: true)
         let component = tableState[indexPath.row]
         switch component {
+        case .imageRightTitleSubtitle(_, _, _, _, let action):
+            action()
         case .menuButton(_, _, let action):
             action()
         case .menuTitleDetail(_, _, _, let action):

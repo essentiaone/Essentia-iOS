@@ -42,6 +42,7 @@ public enum TableComponent: Equatable {
     case imageTitleSubtitle(image: UIImage, title: String, subtitle: String)
     // MARK: - Paid Account
     case buttonWithSubtitle(title: String, subtitle: String, color: UIColor, action: () -> Void)
+    case imageRightTitleSubtitle(imageUrl: URL, title: String, rTitle: String, rSubtite: String, action: () -> Void)
     // MARK: - Settings
     case accountStrength(backAction: () -> Void, currentLevel: Int)
     case accountStrengthAction(action: () -> Void, status: AnimationState, currentLevel: Int)

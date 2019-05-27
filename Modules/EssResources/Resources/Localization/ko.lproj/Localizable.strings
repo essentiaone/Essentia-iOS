@@ -350,3 +350,5 @@
 "PaidAccount.SelectPurchase.Info" = "Join the framework where all your dApps are interconnected and available any minute.";
 "PaidAccount.SelectPurchase.PayForOne" = "GET 1 ACCOUNT";
 "PaidAccount.SelectPurchase.PayForUnlimited" = "GET UNLIMITED ACCOUNTS";
+
+"PaidAccount.SelectWallet.Title" = "Accounts";

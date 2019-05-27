@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3423A6CD229AB3530098F071 /* StatableControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */; };
+		3423A6E0229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */; };
+		3423A6E2229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */; };
 		3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */; };
 		3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */; };
 		342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A91FE21F8FCFC009840DD /* libEssDI.a */; };
@@ -179,6 +181,8 @@
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
 		3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatableControllerInterface.swift; sourceTree = "<group>"; };
+		3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithRightTitleAndSubtitle.swift; sourceTree = "<group>"; };
+		3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageWithRightTitleAndSubtitle.xib; sourceTree = "<group>"; };
 		3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableCell+Nib.swift"; sourceTree = "<group>"; };
 		3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
 		3423DA8121F855FC00578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -366,6 +370,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3423A6DE229BF4EE0098F071 /* ImageWithRightTitleAndSubtitle */ = {
+			isa = PBXGroup;
+			children = (
+				3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */,
+				3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */,
+			);
+			path = ImageWithRightTitleAndSubtitle;
+			sourceTree = "<group>";
+		};
 		3423DA7921F854C000578930 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,6 +660,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				3423A6DE229BF4EE0098F071 /* ImageWithRightTitleAndSubtitle */,
 				344B87DA22942FD000840DE2 /* ButtonWithSubtitle */,
 				CE335D8B2281A2D900DAF943 /* BorderedButton */,
 				3482B2992255599F0072FD02 /* TableComponentAlert */,
@@ -1207,6 +1221,7 @@
 				34CA783421ECF5AC003612EE /* TableComponentTitleSubtitle.xib in Resources */,
 				34CA77EE21ECF5AC003612EE /* TableComponentTitleCenterTextDetail.xib in Resources */,
 				34CA782921ECF5AC003612EE /* TableComponentTitleCenterDetail.xib in Resources */,
+				3423A6E2229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib in Resources */,
 				34CA781221ECF5AC003612EE /* TableComponentNavigationBar.xib in Resources */,
 				34CA780B21ECF5AC003612EE /* TableComponentSlider.xib in Resources */,
 				34CA780821ECF5AC003612EE /* TableComponentTextFieldDetail.xib in Resources */,
@@ -1311,6 +1326,7 @@
 				34CA77E321ECF5AC003612EE /* TableComponentTransaction.swift in Sources */,
 				345D6E0121EFBC7800C59398 /* BaseRouter.swift in Sources */,
 				34CA782221ECF5AC003612EE /* TableComponentAccountStrength.swift in Sources */,
+				3423A6E0229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift in Sources */,
 				34CA77EF21ECF5AC003612EE /* TableComponentImageTitle.swift in Sources */,
 				34CA77E121ECF5AC003612EE /* TableComponent.swift in Sources */,
 				34CA780521ECF5AC003612EE /* TableComponentBalanceChanging.swift in Sources */,
