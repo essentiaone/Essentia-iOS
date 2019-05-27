@@ -20,8 +20,6 @@ fileprivate struct Store {
     var currentSegment: Int = 0
     var balanceChangedPer24Hours: Double = 0
     var tableHeight: CGFloat = 0
-    static var isWalletOpened = "isWalletOpened"
-    
 }
 
 public class WalletMainViewController: BaseTableAdapterController {
@@ -127,9 +125,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private func showOnbordingIfNeeded() {
-        let isWalletOpened = UserDefaults.standard.bool(forKey: Store.isWalletOpened)
+        let isWalletOpened = UserDefaults.standard.bool(forKey: EssDefault.isWalletOpened.rawValue)
         if !isWalletOpened {
-            UserDefaults.standard.set(true, forKey: Store.isWalletOpened)
+            UserDefaults.standard.set(true, forKey: EssDefault.isWalletOpened.rawValue)
             present(WalletWelcomeViewController(), animated: true)
         }
     }
