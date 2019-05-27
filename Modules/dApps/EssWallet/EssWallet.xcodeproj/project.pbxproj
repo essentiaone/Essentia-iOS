@@ -10,6 +10,9 @@
 		3414EF5C2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */; };
 		3414EF5D2297403B00F091C6 /* SelectPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */; };
 		3423A6CA2299AD880098F071 /* ConfirmPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6C92299AD880098F071 /* ConfirmPurchaseViewController.swift */; };
+		3423A6D2229B50AE0098F071 /* PurchaseNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6D1229B50AE0098F071 /* PurchaseNetworkingService.swift */; };
+		3423A6D4229B51230098F071 /* PurchaseNetworkingServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6D3229B51230098F071 /* PurchaseNetworkingServiceInterface.swift */; };
+		3423A6D6229B554C0098F071 /* PurchaseNetworkingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6D5229B554C0098F071 /* PurchaseNetworkingEndpoint.swift */; };
 		345747B621F5112B006E2EAB /* BackupMnemonicAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */; };
 		3457B7FC223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */; };
 		347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */; };
@@ -66,6 +69,9 @@
 		3414EF5A2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectAccountToPurchaseViewController.swift; sourceTree = "<group>"; };
 		3414EF5B2297403B00F091C6 /* SelectPurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPurchaseViewController.swift; sourceTree = "<group>"; };
 		3423A6C92299AD880098F071 /* ConfirmPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPurchaseViewController.swift; sourceTree = "<group>"; };
+		3423A6D1229B50AE0098F071 /* PurchaseNetworkingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingService.swift; sourceTree = "<group>"; };
+		3423A6D3229B51230098F071 /* PurchaseNetworkingServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingServiceInterface.swift; sourceTree = "<group>"; };
+		3423A6D5229B554C0098F071 /* PurchaseNetworkingEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingEndpoint.swift; sourceTree = "<group>"; };
 		345747B521F5112B006E2EAB /* BackupMnemonicAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackupMnemonicAlert.swift; sourceTree = "<group>"; };
 		3457B7FB223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UtxoResponce+UnspendTransaction.swift"; sourceTree = "<group>"; };
 		347A3AFA21F3B0C70053C2F3 /* WalletOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletOptionsViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				3414EF592297403B00F091C6 /* Controllers */,
+				3423A6CE229B4E320098F071 /* Services */,
 			);
 			path = PaidAccounts;
 			sourceTree = "<group>";
@@ -150,6 +157,24 @@
 				347A3B0D21F3B0C70053C2F3 /* Send */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		3423A6CE229B4E320098F071 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3423A6CF229B50460098F071 /* PurchaseNetworking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		3423A6CF229B50460098F071 /* PurchaseNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				3423A6D1229B50AE0098F071 /* PurchaseNetworkingService.swift */,
+				3423A6D3229B51230098F071 /* PurchaseNetworkingServiceInterface.swift */,
+				3423A6D5229B554C0098F071 /* PurchaseNetworkingEndpoint.swift */,
+			);
+			path = PurchaseNetworking;
 			sourceTree = "<group>";
 		};
 		347A3AF721F3B0C70053C2F3 /* Sources */ = {
@@ -409,6 +434,7 @@
 			files = (
 				347A3B3E21F3B0C70053C2F3 /* WalletRouterInterface.swift in Sources */,
 				347A3B3121F3B0C70053C2F3 /* WalletWelcomeViewController.swift in Sources */,
+				3423A6D2229B50AE0098F071 /* PurchaseNetworkingService.swift in Sources */,
 				347A3B2C21F3B0C70053C2F3 /* WalletDoneImportingAlert.swift in Sources */,
 				3414EF5D2297403B00F091C6 /* SelectPurchaseViewController.swift in Sources */,
 				3414EF5C2297403B00F091C6 /* SelectAccountToPurchaseViewController.swift in Sources */,
@@ -416,6 +442,7 @@
 				347A3B2521F3B0C70053C2F3 /* WalletDetailViewController.swift in Sources */,
 				347A3B2E21F3B0C70053C2F3 /* FailImportingAlert.swift in Sources */,
 				347A3B2621F3B0C70053C2F3 /* WalletEnterReceiveAmmount.swift in Sources */,
+				3423A6D4229B51230098F071 /* PurchaseNetworkingServiceInterface.swift in Sources */,
 				347A3B3A21F3B0C70053C2F3 /* WalletInteractor.swift in Sources */,
 				347A3B3B21F3B0C70053C2F3 /* WalletBlockchainWrapperInteractor.swift in Sources */,
 				347A3B3221F3B0C70053C2F3 /* SelectedTransacrionAmmount.swift in Sources */,
@@ -427,6 +454,7 @@
 				34C091202238F03C000FAF5C /* SendUtxoTransactionViewController.swift in Sources */,
 				347A3B2221F3B0C70053C2F3 /* WalletOptionsViewController.swift in Sources */,
 				347A3B3521F3B0C70053C2F3 /* ConfirmUtxoTxDetailViewController.swift in Sources */,
+				3423A6D6229B554C0098F071 /* PurchaseNetworkingEndpoint.swift in Sources */,
 				347A3B2921F3B0C70053C2F3 /* WalletImportAssetViewController.swift in Sources */,
 				3457B7FC223FA54500D54283 /* UtxoResponce+UnspendTransaction.swift in Sources */,
 				347A3B3D21F3B0C70053C2F3 /* WalletRouter.swift in Sources */,
