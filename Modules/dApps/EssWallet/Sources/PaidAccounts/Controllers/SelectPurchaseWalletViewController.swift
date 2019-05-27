@@ -17,10 +17,12 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
     private lazy var colorProvider: AppColorInterface = inject()
     private var wallets: [ViewWalletInterface]
     private var didSelect: (ViewWalletInterface) -> Void
+    private let currency: FiatCurrency
     
-    init(wallets: [ViewWalletInterface], didSelect: @escaping (ViewWalletInterface) -> Void) {
+    init(wallets: [ViewWalletInterface], currency: FiatCurrency, didSelect: @escaping (ViewWalletInterface) -> Void) {
         self.wallets = wallets
         self.didSelect = didSelect
+        self.currency = currency
         super.init()
     }
     
@@ -42,7 +44,7 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
                 .titleWithCancel(title: LS("PaidAccount.SelectWallet.Title"), action: cancelAction),
                 .empty(height: 8, background: colorProvider.settingsCellsBackround)
                 ] + walletsState + [
-                .empty(height: 5, background: colorProvider.settingsCellsBackround)
+                    .empty(height: 5, background: colorProvider.settingsCellsBackround)
         ]
     }
     
@@ -51,10 +53,16 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
     }
     
     private func buildWalletState(_ wallet: ViewWalletInterface) -> [TableComponent] {
-        return  [.imageUrlTitle(imageUrl: wallet.iconUrl, title: wallet.name, withArrow: true, action: { [unowned self] in
-            self.didSelect(wallet)
-            self.dismiss(animated: true)
-        }),
+        let currencyRank = EssentiaStore.shared.ranks.getRank(for: wallet.asset, on: currency) ?? 0
+        return  [.imageRightTitleSubtitle(imageUrl: wallet.iconUrl,
+                                          title: wallet.name,
+                                          rTitle: wallet.formattedBalanceWithSymbol,
+                                          rSubtite: wallet.formattedBalanceInCurrency(currency: currency,
+                                                                                      with: currencyRank),
+                                          action: { [unowned self] in
+                                            self.didSelect(wallet)
+                                            self.dismiss(animated: true)
+                                          }),
                  .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
     }
     
