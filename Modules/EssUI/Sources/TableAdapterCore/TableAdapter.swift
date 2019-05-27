@@ -646,6 +646,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .textFieldTitleDetail: fallthrough
         case .titleCenteredDetailTextFildWithImage: fallthrough
         case .titleAction: fallthrough
+        case .imageRightTitleSubtitle: fallthrough
         case .assetBalance:
             return true
         case .attributedTitleDetail(_, _, let action):
@@ -662,6 +663,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.deselectRow(at: indexPath, animated: true)
         let component = tableState[indexPath.row]
         switch component {
+        case .imageRightTitleSubtitle(_, _, _, _, let action):
+            action()
         case .menuButton(_, _, let action):
             action()
         case .menuTitleDetail(_, _, _, let action):
