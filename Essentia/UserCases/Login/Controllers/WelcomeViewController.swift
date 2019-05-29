@@ -155,7 +155,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
         let accountsCount = userService.users.count
         let purchaseAddress = UserDefaults.standard.string(forKey: EssDefault.purchaseAddress.rawValue)
         
-        guard accountsCount > EssentiaConstants.freeAccountsCount else {
+        guard accountsCount >= EssentiaConstants.freeAccountsCount else {
             generateAccount()
             return
         }

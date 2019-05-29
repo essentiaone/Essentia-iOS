@@ -49,6 +49,8 @@
 		34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34482681211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift */; };
 		344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344826C621218C9C00C19EB3 /* SettingsViewController.swift */; };
 		345747AC21F50DD6006E2EAB /* libEssWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 345747AB21F50DD6006E2EAB /* libEssWallet.a */; };
+		346C8EC8229F37F400DED862 /* LoginRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8EC7229F37F400DED862 /* LoginRouterInterface.swift */; };
+		346C8ECA229F380400DED862 /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8EC9229F380400DED862 /* LoginRouter.swift */; };
 		349AA49B2122F15000E9256F /* SecureAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49A2122F15000E9256F /* SecureAccountViewController.swift */; };
 		349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349AA49E2122F48900E9256F /* SettingsRouter.swift */; };
 		34AA4E922136ABDD004C25ED /* SelectBackupTypeViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AA4E912136ABDD004C25ED /* SelectBackupTypeViewConroller.swift */; };
@@ -139,6 +141,8 @@
 		344826C621218C9C00C19EB3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		345747AB21F50DD6006E2EAB /* libEssWallet.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssWallet.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		345747BF21F5BB95006E2EAB /* EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		346C8EC7229F37F400DED862 /* LoginRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouterInterface.swift; sourceTree = "<group>"; };
+		346C8EC9229F380400DED862 /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		347DB23421ED55C8004420FA /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		349AA49A2122F15000E9256F /* SecureAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureAccountViewController.swift; sourceTree = "<group>"; };
 		349AA49E2122F48900E9256F /* SettingsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRouter.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 		3401AF5220F80704006DEF49 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				346C8EC6229F37E400DED862 /* Router */,
 				344167F5212EC222008B8A91 /* Interactor */,
 				3401AF7920FD328C006DEF49 /* Controllers */,
 			);
@@ -458,6 +463,15 @@
 				349AA4942122F0F600E9256F /* Controllers */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		346C8EC6229F37E400DED862 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				346C8EC7229F37F400DED862 /* LoginRouterInterface.swift */,
+				346C8EC9229F380400DED862 /* LoginRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		349AA4942122F0F600E9256F /* Controllers */ = {
@@ -702,6 +716,7 @@
 				344826C721218C9C00C19EB3 /* SettingsViewController.swift in Sources */,
 				34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */,
 				34482682211C3FB500C19EB3 /* LaunchpadCollectionViewAdapter.swift in Sources */,
+				346C8ECA229F380400DED862 /* LoginRouter.swift in Sources */,
 				340AC000219B0A6B00DEAFF1 /* FullSecuredViewController.swift in Sources */,
 				34ECE49021374247008D9696 /* SettingsEditUserViewController.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
@@ -717,6 +732,7 @@
 				34B27A3021302E2300527F15 /* SettingsLanguageViewController.swift in Sources */,
 				3448265921189B7900C19EB3 /* SeedCopyViewController.swift in Sources */,
 				3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */,
+				346C8EC8229F37F400DED862 /* LoginRouterInterface.swift in Sources */,
 				34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */,
 				3401AFA221000078006DEF49 /* BackupDesign.swift in Sources */,
 				34482670211B366400C19EB3 /* LaunchpadItem.swift in Sources */,

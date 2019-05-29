@@ -14,14 +14,13 @@ import EssUI
 import EssDI
 
 class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
-    weak var delegate: SelectAccountDelegate?
-    
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private var userAction: ((ViewUser) -> Void)?
     
-    init(_ delegate: SelectAccountDelegate) {
-        self.delegate = delegate
+    init(_ userAction: @escaping (ViewUser) -> Void) {
+        self.userAction = userAction
         super.init()
     }
     
@@ -52,7 +51,7 @@ class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
         return
             [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
                 self.dismiss(animated: true)
-                self.delegate?.didSelectUser(user)
+                self.userAction?(user)
             }),
              .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
     }

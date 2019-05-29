@@ -11,6 +11,7 @@ import EssCore
 import EssResources
 import EssUI
 import EssDI
+import EssModel
 
 public class SelectPurchaseViewController: BaseTableAdapterController, SwipeableNavigation {
     // MARK: - Dependences
@@ -44,11 +45,18 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     }
     
     private lazy var buyOneAccount: () -> Void = { [unowned self] in
-        
+        self.present(SelectAccountToPurchaseViewController({ user in
+            self.logInToUser(user: user, payType: .single)
+        }), animated: true)
     }
     
     private lazy var buyUnlimitedAccounts: () -> Void = { [unowned self] in
-        
+        self.present(SelectAccountToPurchaseViewController({ user in
+            self.logInToUser(user: user, payType: .unlimited)
+        }), animated: true)
+    }
+    
+    private func logInToUser(user: ViewUser, payType: PurchasePrice) {
     }
     
     private lazy var restoreAction: () -> Void = { [unowned self] in
