@@ -80,17 +80,6 @@ target 'EssCore' do
     pod_core
 end
 
-# dApps
-
-target 'EssWallet' do 
-    project 'Modules/dApps/EssWallet/EssWallet.xcodeproj'
-    use_frameworks!
-    pod_core
-    pod_debug
-    pod_ui
-    pod_database
-end
-
 # =====
 
 target 'Essentia' do

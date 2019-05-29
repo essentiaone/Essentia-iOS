@@ -13,7 +13,6 @@ import EssUI
 import EssDI
 import EssResources
 import RealmSwift
-import EssWallet
 
 class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, SelectAccountDelegate {
     
