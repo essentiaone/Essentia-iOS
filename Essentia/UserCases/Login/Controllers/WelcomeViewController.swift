@@ -23,7 +23,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     private lazy var userStorage: UserStorageServiceInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var loader: LoaderInterface = inject()
-    
+    private lazy var purchaseService: PurchaseServiceInterface = PurchaseService()
     private var lastSource: BackupSourceType?
     
     // MARK: - Lifecycle
@@ -152,13 +152,45 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func createNewUser() {
-        #if DEBUG
+        let accountsCount = userService.users.count
+        let purchaseAddress = UserDefaults.standard.string(forKey: EssDefault.purchaseAddress.rawValue)
+        
+        guard accountsCount > EssentiaConstants.freeAccountsCount else {
+            generateAccount()
+            return
+        }
+        
+        guard let address = purchaseAddress else {
+            openPurhcase()
+            return
+        }
+        
+        purchaseService.getPurchaseType(for: address) { (purchaseType) in
+            switch purchaseType {
+            case .unlimited:
+                self.generateAccount()
+            case .singeAccount(let count):
+                if count + EssentiaConstants.freeAccountsCount <= accountsCount {
+                    self.generateAccount()
+                } else {
+                    self.openPurhcase()
+                }
+            case .notPurchased:
+                self.openPurhcase()
+            case .error(let error):
+                self.showInfo(error.localizedDescription, type: .error)
+            }
+        }
+    }
+    
+    private func openPurhcase() {
         present(SelectPurchaseViewController(), animated: true)
-        #else
+    }
+    
+    func generateAccount() {
         EssentiaLoader.show { [unowned self] in
             self.showTabBar()
         }
         interactor.generateNewUser {}
-        #endif
     }
 }

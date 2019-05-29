@@ -14,18 +14,12 @@ import EssCore
 import EssModel
 import EssDI
 
-fileprivate struct Constants {
-    static var url = "https://b3.essentia.network"
-    static var apiVersion = "/api/v1"
-    static var serverUrl = url + apiVersion
-    static var ethterScanApiKey = "IH2B5YWPTT3B19KMFYIFPMD85SQ7A12BDU"
-}
-
 public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteractorInterface {
     private var cryptoWallet: CryptoWallet
     
     public init() {
-        cryptoWallet = CryptoWallet(bridgeApiUrl: Constants.serverUrl, etherScanApiKey: Constants.ethterScanApiKey)
+        cryptoWallet = CryptoWallet(bridgeApiUrl: EssentiaConstants.bridgeUrl,
+                                    etherScanApiKey: EssentiaConstants.ethterScanApiKey)
     }
     
     public func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
