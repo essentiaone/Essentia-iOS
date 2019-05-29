@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3423A6E5229C1F000098F071 /* EssDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6E4229C1F000098F071 /* EssDefault.swift */; };
+		3423A6E8229C23850098F071 /* PurchaseServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6E7229C23850098F071 /* PurchaseServiceInterface.swift */; };
+		3423A6EA229C238B0098F071 /* PurchaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6E9229C238B0098F071 /* PurchaseService.swift */; };
+		3423A6EC229C24DB0098F071 /* PurchaseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6EB229C24DB0098F071 /* PurchaseType.swift */; };
 		3423DA8021F8557C00578930 /* SettingsRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7F21F8557C00578930 /* SettingsRouterInterface.swift */; };
 		3423DA8621F85A9000578930 /* BaseRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA8521F85A9000578930 /* BaseRouterInterface.swift */; };
 		344A93A32264D4A300EFA1B3 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 344A93A22264D4A300EFA1B3 /* KeychainService.swift */; };
@@ -101,6 +104,9 @@
 
 /* Begin PBXFileReference section */
 		3423A6E4229C1F000098F071 /* EssDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssDefault.swift; sourceTree = "<group>"; };
+		3423A6E7229C23850098F071 /* PurchaseServiceInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseServiceInterface.swift; sourceTree = "<group>"; };
+		3423A6E9229C238B0098F071 /* PurchaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseService.swift; sourceTree = "<group>"; };
+		3423A6EB229C24DB0098F071 /* PurchaseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseType.swift; sourceTree = "<group>"; };
 		3423DA7721F7DDC100578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3423DA7F21F8557C00578930 /* SettingsRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRouterInterface.swift; sourceTree = "<group>"; };
 		3423DA8521F85A9000578930 /* BaseRouterInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouterInterface.swift; sourceTree = "<group>"; };
@@ -198,6 +204,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3423A6E6229C23700098F071 /* PurchaseService */ = {
+			isa = PBXGroup;
+			children = (
+				3423A6E7229C23850098F071 /* PurchaseServiceInterface.swift */,
+				3423A6E9229C238B0098F071 /* PurchaseService.swift */,
+				3423A6EB229C24DB0098F071 /* PurchaseType.swift */,
+			);
+			path = PurchaseService;
+			sourceTree = "<group>";
+		};
 		3423DA7E21F8557C00578930 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +452,7 @@
 		34F00A3421D6807800B01C99 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				3423A6E6229C23700098F071 /* PurchaseService */,
 				344A93A12264D49100EFA1B3 /* KeychainService */,
 				34F00A6021D6815000B01C99 /* ApplicationStateInteractor */,
 				34F00A3521D6807800B01C99 /* MnemonicService */,
@@ -680,6 +697,7 @@
 				347A3B6F21F3B4330053C2F3 /* EthereumTransaction+Status.swift in Sources */,
 				34B143BC21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift in Sources */,
 				344A93A32264D4A300EFA1B3 /* KeychainService.swift in Sources */,
+				3423A6E8229C23850098F071 /* PurchaseServiceInterface.swift in Sources */,
 				34F00A5521D6807800B01C99 /* TekensEndpoint.swift in Sources */,
 				34F00A5921D6807800B01C99 /* LoggerServiceInterface.swift in Sources */,
 				34B143BD21D3D95A00EC06AE /* DateFormatter.swift in Sources */,
@@ -699,12 +717,14 @@
 				34B143C521D3D95A00EC06AE /* MethodSwizzle.swift in Sources */,
 				344A93A52264D4AA00EFA1B3 /* KeychainServiceInterface.swift in Sources */,
 				34B143BB21D3D95A00EC06AE /* BalanceFormatter.swift in Sources */,
+				3423A6EC229C24DB0098F071 /* PurchaseType.swift in Sources */,
 				34F00A4D21D6807800B01C99 /* MnemonicServiceInterface.swift in Sources */,
 				34E2D8DF21F75FAB00AA3636 /* EssentiaConstants.swift in Sources */,
 				34B143C121D3D95A00EC06AE /* FastTernaryOperator.swift in Sources */,
 				34B143E921D3D96400EC06AE /* String+bjd2+sbdm.swift in Sources */,
 				34F00A5C21D6807800B01C99 /* LocalFilesService.swift in Sources */,
 				34E2D8DC21F75FAB00AA3636 /* EssentiaStore.swift in Sources */,
+				3423A6EA229C238B0098F071 /* PurchaseService.swift in Sources */,
 				34F00A5D21D6807800B01C99 /* LocalFilesServiceInterface.swift in Sources */,
 				347A3B8E21F3BA510053C2F3 /* ViewWalletInterface+Default.swift in Sources */,
 				347A3B6E21F3B4330053C2F3 /* UtxoTransaction+Status.swift in Sources */,
