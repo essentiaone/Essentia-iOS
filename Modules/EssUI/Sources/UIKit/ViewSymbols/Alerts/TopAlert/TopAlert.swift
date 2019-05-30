@@ -36,9 +36,9 @@ public enum AlertType {
     var backgroundColor: UIColor {
         switch self {
         case .error:
-            return RGB(255, 56, 0)
+            return (inject() as AppColorInterface).alertErrorColor
         case .info:
-            return RGB(59, 207, 85)
+            return (inject() as AppColorInterface).alertInfoColor
         }
     }
     

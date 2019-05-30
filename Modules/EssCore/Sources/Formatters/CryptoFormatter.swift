@@ -1,8 +1,8 @@
 //
 //  CryptoFormatter.swift
-//  EssWallet
+//  EssCore
 //
-//  Created by Pavlo Boiko on 1/24/19.
+//  Created by Pavlo Boiko on 5/30/19.
 //  Copyright © 2019 Pavlo Boiko. All rights reserved.
 //
 
@@ -10,9 +10,7 @@ import EssentiaNetworkCore
 import EssentiaBridgesApi
 import HDWalletKit
 import EssModel
-import EssCore
 import EssResources
-import EssUI
 
 public class CryptoFormatter {
     public static func formattedAmmount(amount: Double?, type: TransactionType, asset: AssetInterface) -> NSAttributedString {

@@ -13,7 +13,6 @@
 		3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */; };
 		3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */; };
 		342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A91FE21F8FCFC009840DD /* libEssDI.a */; };
-		342A920521F8FD92009840DD /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920421F8FD92009840DD /* RGB.swift */; };
 		342A920721F8FE19009840DD /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920621F8FE19009840DD /* String+Size.swift */; };
 		342A921421F8FEFB009840DD /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */; };
 		342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */; };
@@ -188,7 +187,6 @@
 		3423DA8121F855FC00578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3423DA8321F857D100578930 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		342A91FE21F8FCFC009840DD /* libEssDI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssDI.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		342A920421F8FD92009840DD /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		342A920621F8FE19009840DD /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 		342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
@@ -391,14 +389,6 @@
 				3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		342A920321F8FD89009840DD /* Sugar */ = {
-			isa = PBXGroup;
-			children = (
-				342A920421F8FD92009840DD /* RGB.swift */,
-			);
-			path = Sugar;
 			sourceTree = "<group>";
 		};
 		342A920D21F8FEFB009840DD /* UIView */ = {
@@ -647,7 +637,6 @@
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				342A920321F8FD89009840DD /* Sugar */,
 				3423DA7921F854C000578930 /* Extensions */,
 				34DB80ED21EFCBE800C6BCC1 /* Tools */,
 				345D6E0921EFBC7F00C59398 /* TableAdapterCore */,
@@ -1319,7 +1308,6 @@
 				342A921E21F901E3009840DD /* KeyboardHeightObserver.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,
 				34CA77F321ECF5AC003612EE /* TableComponentCenteredImage.swift in Sources */,
-				342A920521F8FD92009840DD /* RGB.swift in Sources */,
 				342A921721F8FEFB009840DD /* UIView+Shadow.swift in Sources */,
 				3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */,
 				342A921921F8FEFB009840DD /* UIViewController+DismissKeyboard.swift in Sources */,

@@ -10,7 +10,7 @@ import Foundation
 import EssModel
 
 public enum LoginRoutes {
-    case login(viewUser: ViewUser, )
+    case login(viewUser: ViewUser)
 }
 
 public protocol LoginRouterInterface {

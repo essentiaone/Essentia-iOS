@@ -20,6 +20,10 @@
 		345747BB21F51336006E2EAB /* SelectAccountDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */; };
 		3457B7FE223FA60D00D54283 /* BitcoinConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */; };
 		345D6DB721EF84CD00C59398 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 345D6DB621EF84CD00C59398 /* EssResources.framework */; };
+		346C8ECE229F3F5F00DED862 /* CryptoFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8ECD229F3F5F00DED862 /* CryptoFormatter.swift */; };
+		346C8ED4229F40D000DED862 /* PurchaseNetworkingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8ED1229F40D000DED862 /* PurchaseNetworkingService.swift */; };
+		346C8ED5229F40D000DED862 /* PurchaseNetworkingEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8ED2229F40D000DED862 /* PurchaseNetworkingEndpoint.swift */; };
+		346C8ED6229F40D000DED862 /* PurchaseNetworkingServiceInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346C8ED3229F40D000DED862 /* PurchaseNetworkingServiceInterface.swift */; };
 		347A3B6E21F3B4330053C2F3 /* UtxoTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4721F3B4330053C2F3 /* UtxoTransaction+Status.swift */; };
 		347A3B6F21F3B4330053C2F3 /* EthereumTransaction+Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */; };
 		347A3B7021F3B4330053C2F3 /* Coin+AssetInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 347A3B4B21F3B4330053C2F3 /* Coin+AssetInterface.swift */; };
@@ -39,6 +43,7 @@
 		3482B29522536B810072FD02 /* GCD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B29422536B810072FD02 /* GCD.swift */; };
 		348919FC2243D9DE008CBA74 /* Functional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348919FB2243D9DE008CBA74 /* Functional.swift */; };
 		349757AA2215AB770067CD96 /* Error+Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349757A92215AB770067CD96 /* Error+Description.swift */; };
+		3497D84B229F524100ADBC35 /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3497D84A229F524100ADBC35 /* RGB.swift */; };
 		34AF687D228ADECE00F5C73D /* CryptoWallet+Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AF687C228ADECE00F5C73D /* CryptoWallet+Coin.swift */; };
 		34B1437821D3D6BD00EC06AE /* libEssCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34B1435C21D3C31800EC06AE /* libEssCore.a */; };
 		34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B143A921D3D95A00EC06AE /* ProcentsFormatter.swift */; };
@@ -117,6 +122,10 @@
 		345747BA21F51336006E2EAB /* SelectAccountDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountDelegate.swift; sourceTree = "<group>"; };
 		3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinConverter.swift; sourceTree = "<group>"; };
 		345D6DB621EF84CD00C59398 /* EssResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EssResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		346C8ECD229F3F5F00DED862 /* CryptoFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoFormatter.swift; sourceTree = "<group>"; };
+		346C8ED1229F40D000DED862 /* PurchaseNetworkingService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingService.swift; sourceTree = "<group>"; };
+		346C8ED2229F40D000DED862 /* PurchaseNetworkingEndpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingEndpoint.swift; sourceTree = "<group>"; };
+		346C8ED3229F40D000DED862 /* PurchaseNetworkingServiceInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseNetworkingServiceInterface.swift; sourceTree = "<group>"; };
 		347A3B4721F3B4330053C2F3 /* UtxoTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UtxoTransaction+Status.swift"; sourceTree = "<group>"; };
 		347A3B4821F3B4330053C2F3 /* EthereumTransaction+Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EthereumTransaction+Status.swift"; sourceTree = "<group>"; };
 		347A3B4B21F3B4330053C2F3 /* Coin+AssetInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Coin+AssetInterface.swift"; sourceTree = "<group>"; };
@@ -136,6 +145,7 @@
 		3482B29422536B810072FD02 /* GCD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCD.swift; sourceTree = "<group>"; };
 		348919FB2243D9DE008CBA74 /* Functional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functional.swift; sourceTree = "<group>"; };
 		349757A92215AB770067CD96 /* Error+Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Description.swift"; sourceTree = "<group>"; };
+		3497D84A229F524100ADBC35 /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		34AF687C228ADECE00F5C73D /* CryptoWallet+Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoWallet+Coin.swift"; sourceTree = "<group>"; };
 		34B1435C21D3C31800EC06AE /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1436921D3C8F700EC06AE /* EssCore-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssCore-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -259,6 +269,16 @@
 				345747B221F50F57006E2EAB /* CurrencyRankDemonInterface.swift */,
 			);
 			path = CurrencyRankDemon;
+			sourceTree = "<group>";
+		};
+		346C8ED0229F40D000DED862 /* PurchaseNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				346C8ED1229F40D000DED862 /* PurchaseNetworkingService.swift */,
+				346C8ED2229F40D000DED862 /* PurchaseNetworkingEndpoint.swift */,
+				346C8ED3229F40D000DED862 /* PurchaseNetworkingServiceInterface.swift */,
+			);
+			path = PurchaseNetworking;
 			sourceTree = "<group>";
 		};
 		347A3B4521F3B4330053C2F3 /* Models */ = {
@@ -388,6 +408,7 @@
 				34B143AB21D3D95A00EC06AE /* CoinIconsUrlFormatter.swift */,
 				34B143AC21D3D95A00EC06AE /* DateFormatter.swift */,
 				3457B7FD223FA60D00D54283 /* BitcoinConverter.swift */,
+				346C8ECD229F3F5F00DED862 /* CryptoFormatter.swift */,
 			);
 			path = Formatters;
 			sourceTree = "<group>";
@@ -424,6 +445,7 @@
 				34B143B021D3D95A00EC06AE /* FastTernaryOperator.swift */,
 				348919FB2243D9DE008CBA74 /* Functional.swift */,
 				3482B29422536B810072FD02 /* GCD.swift */,
+				3497D84A229F524100ADBC35 /* RGB.swift */,
 			);
 			path = Sugar;
 			sourceTree = "<group>";
@@ -452,6 +474,7 @@
 		34F00A3421D6807800B01C99 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				346C8ED0229F40D000DED862 /* PurchaseNetworking */,
 				3423A6E6229C23700098F071 /* PurchaseService */,
 				344A93A12264D49100EFA1B3 /* KeychainService */,
 				34F00A6021D6815000B01C99 /* ApplicationStateInteractor */,
@@ -712,6 +735,7 @@
 				34F00A4F21D6807800B01C99 /* CurrencyConverterServiceInterface.swift in Sources */,
 				34E2D8DE21F75FAB00AA3636 /* UserStorageInterface.swift in Sources */,
 				34F00A5021D6807800B01C99 /* CurrencyConverterEndpoint.swift in Sources */,
+				346C8ECE229F3F5F00DED862 /* CryptoFormatter.swift in Sources */,
 				34F00A5421D6807800B01C99 /* TokensServiceInterface.swift in Sources */,
 				3423DA8021F8557C00578930 /* SettingsRouterInterface.swift in Sources */,
 				34B143C521D3D95A00EC06AE /* MethodSwizzle.swift in Sources */,
@@ -734,13 +758,17 @@
 				34E2D8DD21F75FAB00AA3636 /* RealmUserStorage.swift in Sources */,
 				348919FC2243D9DE008CBA74 /* Functional.swift in Sources */,
 				347A3B7A21F3B4330053C2F3 /* Bundle+LS.swift in Sources */,
+				346C8ED6229F40D000DED862 /* PurchaseNetworkingServiceInterface.swift in Sources */,
 				347A3B8F21F3BA510053C2F3 /* GeneratedWallet+WalletInterface.swift in Sources */,
 				347A3B9121F3BA510053C2F3 /* ImportedWallet+WalletInterface.swift in Sources */,
+				3497D84B229F524100ADBC35 /* RGB.swift in Sources */,
 				34F00A5121D6807800B01C99 /* CurrencyConverterService.swift in Sources */,
 				34F00A6321D6815000B01C99 /* AppStateEventProxy.swift in Sources */,
 				3423A6E5229C1F000098F071 /* EssDefault.swift in Sources */,
 				347A3B8621F3B4330053C2F3 /* LocalizationLanguage+LS.swift in Sources */,
+				346C8ED4229F40D000DED862 /* PurchaseNetworkingService.swift in Sources */,
 				3457B7FE223FA60D00D54283 /* BitcoinConverter.swift in Sources */,
+				346C8ED5229F40D000DED862 /* PurchaseNetworkingEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
