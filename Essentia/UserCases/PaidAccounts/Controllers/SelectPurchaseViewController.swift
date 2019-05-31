@@ -17,6 +17,14 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var purchaseNetworking: PurchcaseNetworkingServiceInterface = PurchaseNetworkingService()
+    
+    private var purchaseAddresss: String?
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        loadPurchaseAddress()
+    }
     
     override public var state: [TableComponent] {
         return [
@@ -57,6 +65,50 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     }
     
     private func logInToUser(user: ViewUser, payType: PurchasePrice) {
+        self.present(LoginPasswordViewController(userId: user.id, hash: user.passwordHash, password: { (password) in
+            self.dismiss(animated: true)
+            let user = try? RealmUserStorage(seedHash: user.id, password: password)
+            user?.get({ (user) in
+                let wallets: [ViewWalletInterface] = user.wallet?.tokenWallets.map { $0 } ?? []
+                let essentiaWallets = wallets.filter { return $0.asset == Token.essentiaAsset }
+                let currency = user.profile?.currency ?? .usd
+                self.present(SelectPurchaseWalletViewController(wallets: essentiaWallets,
+                                                           currency: currency,
+                                                           didSelect: { (purhcaseWallet) in
+                                                            print(purhcaseWallet.address)
+//                                                            self.dismiss(animated: true)
+                }), animated: true)
+            })
+        }, cancel: {
+            self.dismiss(animated: true)
+        }), animated: true)
+    }
+    
+    private func loadPurchaseAddress() {
+        purchaseNetworking.purchaseAddress { (result) in
+            switch result {
+            case .success(let address):
+                self.purchaseAddresss = address.address
+            case .failure(let error):
+                (inject() as LoggerServiceInterface).log(error.localizedDescription)
+                (inject() as LoaderInterface).showError("Try again later!")
+            }
+        }
+    }
+    
+    private func createPurchaseTransaction(wallet: ViewWalletInterface, payType: PurchasePrice) {
+        let txAmmount = SelectedTransacrionAmmount(inCrypto: String(payType.rawValue), inCurrency: "")
+        guard let address = purchaseAddresss else {
+            (inject() as LoaderInterface).showError("Can not make purchase, try later!")
+            return
+        }
+        let txInfo = EtherTxInfo(address: address,
+                                 ammount: txAmmount,
+                                 data: "0x",
+                                 fee: 20,
+                                 gasPrice: Int(10 * pow(10.0, 9)),
+                                 gasLimit: 21000)
+        let vc = ConfirmEthereumTxDetailViewController(wallet, tx: txInfo)
     }
     
     private lazy var restoreAction: () -> Void = { [unowned self] in

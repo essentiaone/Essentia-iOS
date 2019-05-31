@@ -40,15 +40,6 @@ public protocol AssetInterface {
     func isValidAddress(_ address: String) -> Bool
 }
 
-public class EmptyAsset: AssetInterface {
-    public var name: String { return "" }
-    public var localizedName: String { return "" }
-    public var symbol: String { return "" }
-    public var iconUrl: URL { return URL(fileURLWithPath: "") }
-    public var type: CryptoType { return .coin }
-    public var shadowColor: UIColor { return .white }
-    public var minimumTransactionAmmount: Double = 0
-    public func isValidAddress(_ address: String) -> Bool {
-        return true
-    }
+public func==(lhs: AssetInterface, rhs: AssetInterface) -> Bool {
+    return lhs.name == rhs.name && lhs.type == rhs.type && lhs.localizedName == rhs.localizedName
 }

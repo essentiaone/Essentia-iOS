@@ -27,4 +27,8 @@ public class Token: Object, Codable {
         self.decimals = decimals
         self.path = path
     }
+    public static var essentia: Token {
+        let iconPaths = TokenIcons(x16: "./coins/16x16/essentia.png", x32: "./coins/32x32/essentia.png", x64: "./coins/64x64/essentia.png", x128: "./coins/128x128/essentia.png")
+        return .init(id: "essentia", address: "0xfc05987bd2be489accf0f509e44b0145d68240f7", symbol: "ess", name: "Essentia", decimals: 18, path: iconPaths)
+    }
 }

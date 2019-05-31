@@ -36,4 +36,8 @@ extension Token: AssetInterface {
         }
         return CoinIconsUrlFormatter.urlFromPath(path: path)
     }
+    
+    public static var essentiaAsset: AssetInterface {
+        return essentia
+    }
 }

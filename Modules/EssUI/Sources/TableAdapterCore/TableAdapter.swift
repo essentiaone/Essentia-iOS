@@ -89,6 +89,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentAlert.self)
         tableView.register(TableComponentBorderedButton.self)
         tableView.register(TableComponentButtonWithSubtitle.self)
+        tableView.register(TableComponentImageRightTitleSubtitle.self)
     }
     
     // MARK: - Update State

@@ -55,7 +55,9 @@ class LoginPasswordViewController: BaseTableAdapterController {
             self.tableAdapter.simpleReload(self.state)
         }
         if isTouchIdEnabled {
-            getPasswordWithTouchId()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+                self?.getPasswordWithTouchId()
+            }
         }
     }
     
