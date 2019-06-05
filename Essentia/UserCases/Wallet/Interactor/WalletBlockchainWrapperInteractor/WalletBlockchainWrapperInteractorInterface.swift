@@ -18,7 +18,6 @@ public protocol WalletBlockchainWrapperInteractorInterface {
     func getTokenTxHistory(address: EssentiaBridgesApi.Address, smartContract: EssentiaBridgesApi.Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void)
     
     func getGasSpeed(prices: @escaping (Double, Double, Double) -> Void)
-    func getEthGasPrice(gasPrice: @escaping (Double) -> Void)
     func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void)
     
     func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data)

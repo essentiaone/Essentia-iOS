@@ -31,7 +31,7 @@ final public class BalanceFormatter {
         self.init()
         currencySymbol = asset.symbol
         symbolPossition = .suffix
-        balanceFormatter.minimumFractionDigits = 1
+        balanceFormatter.minimumFractionDigits = 0
         balanceFormatter.maximumFractionDigits = 6
     }
     

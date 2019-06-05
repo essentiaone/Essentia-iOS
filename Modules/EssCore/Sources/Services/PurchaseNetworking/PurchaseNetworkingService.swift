@@ -18,7 +18,7 @@ public class PurchaseNetworkingService: PurchcaseNetworkingServiceInterface {
     }
     
     public func purchaseAddress(response: @escaping (NetworkResult<PurchaseAddress>) -> Void) {
-        network.request(PurchaseNetworingEndpoint.purchaseAmmount, result: response)
+        network.request(PurchaseNetworingEndpoint.purchaseAddress, result: response)
     }
     
     public func purchaseAmmount(response: @escaping (Double, Double) -> Void) {

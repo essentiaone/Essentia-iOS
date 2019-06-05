@@ -163,13 +163,14 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
             openPurhcase()
             return
         }
-        
+        (inject() as LoaderInterface).show()
         purchaseService.getPurchaseType(for: address) { (purchaseType) in
+            (inject() as LoaderInterface).hide()
             switch purchaseType {
             case .unlimited:
                 self.generateAccount()
             case .singeAccount(let count):
-                if count + EssentiaConstants.freeAccountsCount <= accountsCount {
+                if accountsCount <= count + EssentiaConstants.freeAccountsCount {
                     self.generateAccount()
                 } else {
                     self.openPurhcase()
@@ -187,9 +188,11 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func generateAccount() {
-        EssentiaLoader.show { [unowned self] in
-            self.showTabBar()
+        DispatchQueue.main.async {
+            EssentiaLoader.show { [unowned self] in
+                self.showTabBar()
+            }
+            self.interactor.generateNewUser {}
         }
-        interactor.generateNewUser {}
     }
 }

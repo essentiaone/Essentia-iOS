@@ -349,4 +349,14 @@
 "PaidAccount.SelectPurchase.PayForOne" = "GET 1 ACCOUNT";
 "PaidAccount.SelectPurchase.PayForUnlimited" = "GET UNLIMITED ACCOUNTS";
 
-"cc" = "Accounts";
+"PaidAccount.SelectWallet.Title" = "Accounts";
+
+"PaidAccount.Confirm.Title" = "Confirm Pay";
+"PaidAccount.Confirm.From" = "From";
+"PaidAccount.Confirm.To" = "To";
+"PaidAccount.Confirm.AmmountToSend" = "Ammount to send";
+"PaidAccount.Confirm.Cancel" = "CANCEL";
+"PaidAccount.Confirm.Pay" = "PAY";
+
+"PaidAccount.Done.Title" = "Payment complete";
+"PaidAccount.Done.CreateAccount" = "GO TO CREATE ACCOUNT";

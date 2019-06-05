@@ -47,7 +47,7 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
             .descriptionWithSize(aligment: .left, fontSize: 13, title: wallet.name, background: .clear, textColor: colorProvider.titleColor),
             .empty(height: 5, background: .clear),
             .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("PaidAccount.Confirm.To"), background: .clear, textColor: colorProvider.appDefaultTextColor),
-            .descriptionWithSize(aligment: .left, fontSize: 13, title: tx.address, background: .clear, textColor: colorProvider.titleColor),
+            .descriptionWithSize(aligment: .left, fontSize: 12.5, title: tx.address, background: .clear, textColor: colorProvider.titleColor),
             .descriptionWithSize(aligment: .left, fontSize: 14, title: LS("PaidAccount.Confirm.AmmountToSend"), background: .clear, textColor: colorProvider.appDefaultTextColor),
             .descriptionWithSize(aligment: .left, fontSize: 13, title: formattedTransactionAmmount(), background: .clear, textColor: colorProvider.titleColor),
             .empty(height: 10, background: .clear),
@@ -64,11 +64,7 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
     
     private func formattedTransactionAmmount() -> String {
         let cryptoFormatter = BalanceFormatter(asset: wallet.asset)
-        let inCrypto = cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
-        let current = EssentiaStore.shared.currentUser.profile?.currency ?? .usd
-        let currencyFormatter = BalanceFormatter(currency: current)
-        let inCurrency = currencyFormatter.formattedAmmount(amount: tx.ammount.inCurrency)
-        return "\(inCrypto) (\(inCurrency) \(current.symbol))"
+        return cryptoFormatter.formattedAmmountWithCurrency(amount: tx.ammount.inCrypto)
     }
     
     // MARK: - Actions
@@ -90,8 +86,10 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
         switch $0 {
         case .success(let object):
             (inject() as LoggerServiceInterface).log(object)
-            self.dismiss(animated: true)
-            (inject() as WalletRouterInterface).show(.doneTx)
+            UserDefaults.standard.setValue(self.wallet.address, forKey: EssDefault.purchaseAddress.rawValue)
+            self.dismiss(animated: true, completion: {
+                self.present(DonePurchaseViewController(), animated: true)
+            })
         case .failure(let error):
             self.showInfo(error.localizedDescription, type: .error)
         }

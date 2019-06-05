@@ -30,7 +30,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 switch result {
                 case .success(let obect):
                     balance(obect)
-                default: return
+                case .failure:
+                    (inject() as LoaderInterface).hide()
                 }
             }
         case .ethereum:
@@ -38,7 +39,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 switch result {
                 case .success(let obect):
                     balance(obect.balance.value)
-                default: return
+                case .failure:
+                    (inject() as LoaderInterface).hide()
                 }
             }
         }
@@ -57,7 +59,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                         return
                 }
                 balance(etherBalance.doubleValue)
-            default: return
+            case .failure:
+                (inject() as LoaderInterface).hide()
             }
         }
     }
@@ -79,17 +82,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             case .success(let object):
                 let gasPrices = object.result
                 prices(gasPrices.safeLow, gasPrices.average, gasPrices.fast)
-            default: return
-            }
-        }
-    }
-    
-    public func getEthGasPrice(gasPrice: @escaping (Double) -> Void) {
-        cryptoWallet.ethereum.getGasPrice { (result) in
-            switch result {
-            case .success(let object):
-                gasPrice(object.value)
-            default: return
+            case .failure:
+                (inject() as LoaderInterface).hide()
             }
         }
     }

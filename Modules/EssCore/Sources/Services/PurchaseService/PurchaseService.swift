@@ -24,18 +24,24 @@ public class PurchaseService: PurchaseServiceInterface {
                                         switch responce {
                                         case .success(let transactionsResultModel):
                                            let transactions = transactionsResultModel.result
-                                           result(self.mapTransactions(transactions))
-                                 
+                                           result(self.mapTransactions(transactions, address: address))
                                         case .failure(let error):
                                             result(.error(error))
                                         }
         }
     }
     
-    private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail]) -> PurchaseType {
-        let allTxAmmount = transactions.reduce(0.0, { return $0 + (Double($1.value) ?? 0) })
+    private func mapTransactions(_ transactions: [EthereumTokenTransactionDetail], address: String) -> PurchaseType {
+        let allTxAmmount = transactions.reduce(0.0, {
+            let txValue = ((try? WeiEthterConverter.toToken(balance: $1.value, decimals: 18, radix: 10)) ?? 0) as NSDecimalNumber
+            if address.lowercased() == $1.from {
+                return $0 + txValue.doubleValue
+            }
+            return $0
+        })
         let containUnlimitedAccount = transactions.contains {
-            return (Double($0.value) ?? 0) >= PurchasePrice.unlimited.rawValue
+            let txValue = ((try? WeiEthterConverter.toToken(balance: $0.value, decimals: 18, radix: 10)) ?? 0) as NSDecimalNumber
+            return txValue.doubleValue >= PurchasePrice.unlimited.rawValue && $0.from.lowercased() == address
         }
         
         if containUnlimitedAccount {

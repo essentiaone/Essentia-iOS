@@ -101,7 +101,6 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
             prepareInjection(SettingsRouter(navigationController: nvc) as SettingsRouterInterface, memoryPolicy: .viewController)
         case .wallet:
             prepareInjection(WalletInteractor() as WalletInteractorInterface, memoryPolicy: .viewController)
-            prepareInjection(WalletBlockchainWrapperInteractor() as WalletBlockchainWrapperInteractorInterface, memoryPolicy: .viewController)
             prepareInjection(WalletRouter(tabBarController: self, nvc: nvc) as WalletRouterInterface, memoryPolicy: .viewController)
         default: return
         }
