@@ -13,12 +13,11 @@ import EssResources
 import EssUI
 import EssDI
 
-class FullSecuredViewController: BaseTableAdapterController {
+class FullSecuredViewController: AnimatbleTableAdapterController {
     
     // MARK: - Dependences
     private lazy var userStorage: UserStorageServiceInterface = inject()
-    
-    var isAnimationShow: Bool = false
+    private lazy var colorProvider: AppColorInterface = inject()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,22 +40,22 @@ class FullSecuredViewController: BaseTableAdapterController {
             .titleWithFontAligment(font: AppFont.bold.withSize(42),
                                    title: LS("Settings.FullSecured.Title"),
                                    aligment: .center,
-                                   color: .white),
+                                   color: self.colorProvider.appBackgroundColor),
             .titleWithFontAligment(font: AppFont.regular.withSize(18),
                                    title: LS("Settings.FullSecured.Description"),
                                    aligment: .center,
-                                   color: .white),
+                                   color: colorProvider.appBackgroundColor),
             .empty(height: 30, background: .clear),
             .actionCenteredButton(title: LS("Settings.FullSecured.Continue"),
                                   action: continueAction,
-                                  textColor: .black,
-                                  backgrount: .white),
+                                  textColor: colorProvider.appTitleColor,
+                                  backgrount: colorProvider.appBackgroundColor),
             .empty(height: 24, background: .clear)
         ]
     }
     
     private func applyDesign() {
-        tableView.backgroundColor = RGB(59, 207, 85)
+        tableView.backgroundColor = colorProvider.balanceChangedPlus
         tableView.bounces = false
         tableView.isScrollEnabled = false
     }
@@ -64,11 +63,7 @@ class FullSecuredViewController: BaseTableAdapterController {
     
     private func showBankAnimation() {
         let animation = PNGAnimation.securing99toSafe
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + animation.animationDuration - 0.63) { [unowned self] in
-            self.isAnimationShow.toggle()
-            self.tableAdapter.performTableUpdate(newState: self.state, withAnimation: .toTop)
-            self.tableView.isScrollEnabled = false
-        }
+        showAnimation(animation.animationDuration - 0.63, execute: {})
     }
     
     private lazy var continueAction: () -> Void = { [unowned self] in
