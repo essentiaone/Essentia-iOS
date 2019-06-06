@@ -31,7 +31,6 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
     }
     
     // MARK: - State
-    
     override var state: [TableComponent] {
         return [.calculatbleSpace(background: .clear),
                 .container(state: containerState),
