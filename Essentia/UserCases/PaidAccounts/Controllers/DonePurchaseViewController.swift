@@ -15,6 +15,16 @@ class DonePurchaseViewController: BaseTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     
     var isAnimationShow: Bool = false
+    var doneAction: (() -> Void)?
+    
+    init(doneAction: @escaping () -> Void) {
+        self.doneAction = doneAction
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override var state: [TableComponent] {
         let animationHeight = UIScreen.main.bounds.height - 300
@@ -23,7 +33,7 @@ class DonePurchaseViewController: BaseTableAdapterController {
                 .calculatbleSpace(background: .clear)] +
         buttonsState
     }
-
+    
     private var buttonsState: [TableComponent] {
         if !isAnimationShow { return [] }
         return [.titleWithFontAligment(font: AppFont.bold.withSize(42),
@@ -68,7 +78,8 @@ class DonePurchaseViewController: BaseTableAdapterController {
     }
     
     private lazy var continueAction: () -> Void = { [unowned self] in
-        self.dismiss(animated: true)
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: { [unowned self] in
+            self.doneAction?()
+        })
     }
 }

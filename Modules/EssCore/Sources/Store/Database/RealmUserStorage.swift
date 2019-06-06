@@ -50,6 +50,11 @@ public class RealmUserStorage: UserStorageServiceInterface {
         _ = try Realm(configuration: config)
     }
     
+    public var getOnly: User {
+        let realm = try! Realm(configuration: config)
+        return realm.object(ofType: User.self, forPrimaryKey: seedHash)!
+    }
+    
     public func get(_ user: @escaping (User) -> Void) {
         autoreleasepool {
             user(self.get())

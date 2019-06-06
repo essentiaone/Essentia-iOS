@@ -22,9 +22,11 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
     
     private var wallet: ViewWalletInterface
     private var tx: EtherTxInfo
+    private var completeCallback: () -> Void
     
-    public init(_ wallet: ViewWalletInterface, tx: EtherTxInfo) {
+    public init(_ wallet: ViewWalletInterface, tx: EtherTxInfo, completeCallback: @escaping () -> Void) {
         self.wallet = wallet
+        self.completeCallback = completeCallback
         self.tx = tx
         super.init()
     }
@@ -87,11 +89,12 @@ public class ConfirmPurchaseViewController: BaseBluredTableAdapterController {
         case .success(let object):
             (inject() as LoggerServiceInterface).log(object)
             UserDefaults.standard.setValue(self.wallet.address, forKey: EssDefault.purchaseAddress.rawValue)
-            self.dismiss(animated: true, completion: {
-                self.present(DonePurchaseViewController(), animated: true)
-            })
+            self.dismiss(animated: true)
+            self.completeCallback()
         case .failure(let error):
-            self.showInfo(error.localizedDescription, type: .error)
+            self.dismiss(animated: true, completion: {
+                (inject() as LoaderInterface).showError(error.localizedDescription)
+            })
         }
     }
 }

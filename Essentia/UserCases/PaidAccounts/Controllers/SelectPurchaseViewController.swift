@@ -20,6 +20,7 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     private lazy var purchaseNetworking: PurchcaseNetworkingServiceInterface = PurchaseNetworkingService()
     private lazy var blockchainService: WalletBlockchainWrapperInteractorInterface = inject()
     private lazy var interactor: WalletBlockchainWrapperInteractorInterface = inject()
+    private lazy var purchaseService: PurchaseServiceInterface = PurchaseService()
     
     private var purchaseAddresss: String?
     private var gasSpeed: Double?
@@ -58,40 +59,49 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     
     private lazy var buyOneAccount: () -> Void = { [unowned self] in
         self.present(SelectAccountToPurchaseViewController({ user in
-            self.logInToUser(user: user, payType: .single)
+            self.logInToUser(user: user, userResult: { loggedUser in
+                self.selectPurchaseWallet(user: loggedUser, selectedWallet: { (purhcaseWallet) in
+                    self.createPurchaseTransaction(wallet: purhcaseWallet, payType: .single)
+                    self.dismiss(animated: true)
+                })
+            })
         }), animated: true)
     }
     
     private lazy var buyUnlimitedAccounts: () -> Void = { [unowned self] in
         self.present(SelectAccountToPurchaseViewController({ user in
-            self.logInToUser(user: user, payType: .unlimited)
+            self.logInToUser(user: user, userResult: { loggedUser in
+                self.selectPurchaseWallet(user: loggedUser, selectedWallet: { (purhcaseWallet) in
+                    self.createPurchaseTransaction(wallet: purhcaseWallet, payType: .unlimited)
+                    self.dismiss(animated: true)
+                })
+            })
         }), animated: true)
     }
     
-    private func logInToUser(user: ViewUser, payType: PurchasePrice) {
+    private func logInToUser(user: ViewUser, userResult: @escaping (User) -> Void) {
         self.present(LoginPasswordViewController(userId: user.id, hash: user.passwordHash, password: { (password) in
             self.dismiss(animated: true)
-            let user = try? RealmUserStorage(seedHash: user.id, password: password)
-            user?.get({ (user) in
-                let wallets: [ViewWalletInterface] = user.wallet?.tokenWallets.map { $0 } ?? []
-                let essentiaWallets = wallets.filter { return $0.asset == Token.essentiaAsset }
-                guard !essentiaWallets.isEmpty else {
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
-                        self.showInfo("You do not have Ess wallet on this account!", type: .error)
-                    })
-                    return
-                }
-                let currency = user.profile?.currency ?? .usd
-                self.present(SelectPurchaseWalletViewController(wallets: essentiaWallets,
-                                                                currency: currency,
-                                                                didSelect: { (purhcaseWallet) in
-                                                                    self.createPurchaseTransaction(wallet: purhcaseWallet, payType: payType)
-                                                                    self.dismiss(animated: true)
-                }), animated: true)
-            })
+            guard let loggedUser = try? RealmUserStorage(seedHash: user.id, password: password) else { return }
+            userResult(loggedUser.getOnly)
         }, cancel: {
             self.dismiss(animated: true)
         }), animated: true)
+    }
+    
+    private func selectPurchaseWallet(user: User, selectedWallet: @escaping (ViewWalletInterface) -> Void) {
+        let wallets: [ViewWalletInterface] = user.wallet?.tokenWallets.map { $0 } ?? []
+        let essentiaWallets = wallets.filter { return $0.asset == Token.essentiaAsset }
+        guard !essentiaWallets.isEmpty else {
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5, execute: {
+                self.showInfo("You do not have Ess wallet on this account!", type: .error)
+            })
+            return
+        }
+        let currency = user.profile?.currency ?? .usd
+        self.present(SelectPurchaseWalletViewController(wallets: essentiaWallets,
+                                                        currency: currency,
+                                                        didSelect: selectedWallet), animated: true)
     }
     
     private func loadPurchaseAddress() {
@@ -132,7 +142,7 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
                     self.blockchainService.getCoinBalance(for: .ethereum, address: wallet.address, balance: { (balance) in
                         (inject() as LoaderInterface).hide()
                         if balance >= fee && tokenBalance >= payType.rawValue {
-                            self.present(ConfirmPurchaseViewController(wallet, tx: txInfo), animated: true)
+                            self.present(ConfirmPurchaseViewController(wallet, tx: txInfo, completeCallback: self.showDoneTransaction), animated: true)
                         } else {
                             (inject() as LoaderInterface).showError("Do not have enough Ethereum!")
                         }
@@ -151,8 +161,35 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
         }
     }
     
+    private func showDoneTransaction() {
+        self.present(DonePurchaseViewController(doneAction: { [unowned self] in
+            self.dismiss(animated: true, completion: {
+                (inject() as LoaderInterface).showInfo("Now you create new account!")
+            })
+            
+        }), animated: true)
+    }
+    
     private lazy var restoreAction: () -> Void = { [unowned self] in
-        
+        self.present(SelectAccountToPurchaseViewController({ user in
+            self.logInToUser(user: user, userResult: { loggedUser in
+                self.selectPurchaseWallet(user: loggedUser, selectedWallet: { (purhcaseWallet) in
+                    self.purchaseService.getPurchaseType(for: purhcaseWallet.address, result: { (type) in
+                        switch type {
+                        case .unlimited, .singeAccount:
+                            UserDefaults.standard.setValue(purhcaseWallet.address, forKey: EssDefault.purchaseAddress.rawValue)
+                            self.dismiss(animated: true, completion: {
+                                self.dismiss(animated: true)
+                                    (inject() as LoaderInterface).showInfo("Purchases succesfully restored!")
+                            })
+                        case .notPurchased:
+                            self.showInfo("Wrong wallet.", type: .error)
+                        }
+                    })
+                    self.dismiss(animated: true)
+                })
+            })
+        }), animated: true)
     }
     
     private lazy var backAction: () -> Void = { [unowned self] in

@@ -29,6 +29,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableAdapter.hardReload(state)
+        UserDefaults.standard.setValue(nil, forKey: EssDefault.purchaseAddress.rawValue)
     }
     
     // MARK: - State

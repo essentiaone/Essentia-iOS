@@ -40,6 +40,7 @@ class ApplicationDependenceProvider {
         prepareInjection(TokenService() as TokensServiceInterface, memoryPolicy: .viewController)
         prepareInjection(LoggerService() as LoggerServiceInterface, memoryPolicy: .viewController)
         prepareInjection(Loader() as LoaderInterface, memoryPolicy: .viewController)
+        prepareInjection(PurchaseService() as PurchaseServiceInterface, memoryPolicy: .viewController)
         prepareInjection(MnemonicService() as MnemonicServiceInterface, memoryPolicy: .viewController)
         prepareInjection(DefaultUserStorage() as UserStorageServiceInterface, memoryPolicy: .viewController)
         prepareInjection(ViewUserStorageService() as ViewUserStorageServiceInterface, memoryPolicy: .viewController)
