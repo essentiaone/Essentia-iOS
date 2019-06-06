@@ -27,7 +27,7 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     public override func viewDidLoad() {
         super.viewDidLoad()
         loadPurchaseAddress()
-         loadGasPrice() 
+        loadGasPrice()
     }
     
     override public var state: [TableComponent] {
@@ -83,10 +83,10 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
                 }
                 let currency = user.profile?.currency ?? .usd
                 self.present(SelectPurchaseWalletViewController(wallets: essentiaWallets,
-                                                           currency: currency,
-                                                           didSelect: { (purhcaseWallet) in
-                                                            self.createPurchaseTransaction(wallet: purhcaseWallet, payType: payType)
-                                                            self.dismiss(animated: true)
+                                                                currency: currency,
+                                                                didSelect: { (purhcaseWallet) in
+                                                                    self.createPurchaseTransaction(wallet: purhcaseWallet, payType: payType)
+                                                                    self.dismiss(animated: true)
                 }), animated: true)
             })
         }, cancel: {
@@ -109,31 +109,39 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     private func createPurchaseTransaction(wallet: ViewWalletInterface, payType: PurchasePrice) {
         let txAmmount = SelectedTransacrionAmmount(inCrypto: String(payType.rawValue), inCurrency: "")
         guard let address = purchaseAddresss,
-              let gasSpeed = gasSpeed else {
-            (inject() as LoaderInterface).showError("Can not make purchase, try later!")
-            return
+            let gasSpeed = gasSpeed else {
+                (inject() as LoaderInterface).showError("Can not make purchase, try later!")
+                return
         }
         
         guard let rawParametrs = try? interactor.txRawParametrs(for: wallet.asset, toAddress: address, ammountInCrypto: txAmmount.inCrypto, data: Data(hex: "0x")) else {
             return
         }
         (inject() as LoaderInterface).show()
-        interactor.getEthGasEstimate(fromAddress: wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
-            let txInfo = EtherTxInfo(address: address,
-                                     ammount: txAmmount,
-                                     data: "",
-                                     fee: 0,
-                                     gasPrice: Int(gasSpeed * pow(10.0, 9)),
-                                     gasLimit: Int(price))
-            let fee = Double(gasSpeed) * price / pow(10, 9)
-            self.blockchainService.getCoinBalance(for: .ethereum, address: wallet.address, balance: { (balance) in
-                (inject() as LoaderInterface).hide()
-                if balance >= fee {
-                    self.present(ConfirmPurchaseViewController(wallet, tx: txInfo), animated: true)
-                } else {
-                    (inject() as LoaderInterface).showError("Do not have enough Ethereum!")
+        interactor.getTokenBalance(for: Token.essentia, address: wallet.address) { (tokenBalance) in
+            self.interactor.getEthGasEstimate(fromAddress: wallet.address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (result) in
+                switch result {
+                case .success(let price):
+                    let txInfo = EtherTxInfo(address: address,
+                                             ammount: txAmmount,
+                                             data: "",
+                                             fee: 0,
+                                             gasPrice: Int(gasSpeed * pow(10.0, 9)),
+                                             gasLimit: Int(price.value))
+                    let fee = Double(gasSpeed) * price.value / pow(10, 9)
+                    self.blockchainService.getCoinBalance(for: .ethereum, address: wallet.address, balance: { (balance) in
+                        (inject() as LoaderInterface).hide()
+                        if balance >= fee && tokenBalance >= payType.rawValue {
+                            self.present(ConfirmPurchaseViewController(wallet, tx: txInfo), animated: true)
+                        } else {
+                            (inject() as LoaderInterface).showError("Do not have enough Ethereum!")
+                        }
+                    })
+                case .failure(let error):
+                    (inject() as LoaderInterface).hide()
+                    self.showInfo(error.localizedDescription, type: .error)
                 }
-            })
+            }
         }
     }
     

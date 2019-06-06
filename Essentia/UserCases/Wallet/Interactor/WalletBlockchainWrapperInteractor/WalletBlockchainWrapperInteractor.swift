@@ -61,6 +61,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 balance(etherBalance.doubleValue)
             case .failure:
                 (inject() as LoaderInterface).hide()
+                (inject() as LoaderInterface).showError("Something wrong! Try later.")
             }
         }
     }
@@ -88,15 +89,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         }
     }
     
-    public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
-        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
-            switch result {
-            case .failure:
-                (inject() as LoaderInterface).hide()
-            case .success(let object):
-                gasLimit(object.value)
-            }
-        }
+    public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, result: @escaping (NetworkResult<EthereumNumberValue>) -> Void) {
+        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data, result: result)
     }
     
     public func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {

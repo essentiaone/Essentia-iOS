@@ -25,8 +25,8 @@ public class PurchaseService: PurchaseServiceInterface {
                                         case .success(let transactionsResultModel):
                                            let transactions = transactionsResultModel.result
                                            result(self.mapTransactions(transactions, address: address))
-                                        case .failure(let error):
-                                            result(.error(error))
+                                        case .failure:
+                                            result(.notPurchased)
                                         }
         }
     }

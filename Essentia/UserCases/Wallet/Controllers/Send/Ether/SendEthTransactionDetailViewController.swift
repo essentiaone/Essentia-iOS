@@ -261,10 +261,15 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
             return
         }
         let address = store.wallet.address
-        interactor.getEthGasEstimate(fromAddress: address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (price) in
+        interactor.getEthGasEstimate(fromAddress: address, toAddress: rawParametrs.address, data: rawParametrs.data.toHexString().addHexPrefix()) { [unowned self] (result) in
             (inject() as LoaderInterface).hide()
-            self.store.gasEstimate = price
-            self.tableAdapter.simpleReload(self.state)
+            switch result {
+            case .success(let object):
+                self.store.gasEstimate = object.value
+                self.tableAdapter.simpleReload(self.state)
+            case .failure(let error):
+                self.showInfo(error.localizedDescription, type: .error)
+            }
         }
     }
     

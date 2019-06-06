@@ -20,6 +20,7 @@ fileprivate struct Constants {
 
 class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate {
     // MARK: - Dependences
+    private lazy var interactor: LoginInteractorInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
@@ -268,6 +269,14 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     func createNewUser() {
+        self.interactor.createNewUser(generateAccount: generateAccount, openPurchase: openPurhcase)
+    }
+    
+    private func openPurhcase() {
+        present(SelectPurchaseViewController(), animated: true)
+    }
+    
+    func generateAccount() {
         EssentiaLoader.show {}
         TabBarController.shared.selectedIndex = 0
         (inject() as LoginInteractorInterface).generateNewUser {}
