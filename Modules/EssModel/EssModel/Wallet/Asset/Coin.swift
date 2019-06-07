@@ -8,7 +8,7 @@
 
 import UIKit
 
-public enum Coin: String {
+public enum Coin: String, Equatable {
     case bitcoin
     case ethereum
     case litecoin

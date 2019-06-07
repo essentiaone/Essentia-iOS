@@ -151,35 +151,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func createNewUser() {
-        let accountsCount = userService.users.count
-        let purchaseAddress = UserDefaults.standard.string(forKey: EssDefault.purchaseAddress.rawValue)
-        
-        guard accountsCount > EssentiaConstants.freeAccountsCount else {
-            generateAccount()
-            return
-        }
-        
-        guard let address = purchaseAddress else {
-            openPurhcase()
-            return
-        }
-        
-        purchaseService.getPurchaseType(for: address) { (purchaseType) in
-            switch purchaseType {
-            case .unlimited:
-                self.generateAccount()
-            case .singeAccount(let count):
-                if count + EssentiaConstants.freeAccountsCount <= accountsCount {
-                    self.generateAccount()
-                } else {
-                    self.openPurhcase()
-                }
-            case .notPurchased:
-                self.openPurhcase()
-            case .error(let error):
-                self.showInfo(error.localizedDescription, type: .error)
-            }
-        }
+        self.interactor.createNewUser(generateAccount: generateAccount, openPurchase: openPurhcase)
     }
     
     private func openPurhcase() {
@@ -187,9 +159,11 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     func generateAccount() {
-        EssentiaLoader.show { [unowned self] in
-            self.showTabBar()
+        DispatchQueue.main.async {
+            EssentiaLoader.show { [unowned self] in
+                self.showTabBar()
+            }
+            self.interactor.generateNewUser {}
         }
-        interactor.generateNewUser {}
     }
 }

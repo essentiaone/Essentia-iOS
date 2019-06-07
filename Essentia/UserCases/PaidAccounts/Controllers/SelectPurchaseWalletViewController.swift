@@ -31,10 +31,10 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
     }
     
     // MARK: - State
-    
     override var state: [TableComponent] {
-        return [.centeredComponentTopInstet,
-                .container(state: containerState)]
+        return [.calculatbleSpace(background: .clear),
+                .container(state: containerState),
+                .empty(height: 15, background: .clear)]
     }
     
     private var containerState: [TableComponent] {
@@ -56,12 +56,11 @@ final class SelectPurchaseWalletViewController: BaseBluredTableAdapterController
         let currencyRank = EssentiaStore.shared.ranks.getRank(for: wallet.asset, on: currency) ?? 0
         return  [.imageRightTitleSubtitle(imageUrl: wallet.iconUrl,
                                           title: wallet.name,
-                                          rTitle: wallet.formattedBalanceWithSymbol,
+                                          rTitle: wallet.formattedBalanceWithSymbol.uppercased(),
                                           rSubtite: wallet.formattedBalanceInCurrency(currency: currency,
                                                                                       with: currencyRank),
                                           action: { [unowned self] in
                                             self.didSelect(wallet)
-                                            self.dismiss(animated: true)
                                           }),
                  .separator(inset: .init(top: 0, left: 60, bottom: 0, right: 0))]
     }

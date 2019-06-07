@@ -55,4 +55,7 @@ public protocol AppColorInterface {
     var balanceChangedMinus: UIColor { get }
     var balanceChanged: UIColor { get }
     var segmentControlIndicatorColor: UIColor { get }
+    // MARK: - TopAlert
+    var alertInfoColor: UIColor { get }
+    var alertErrorColor: UIColor { get }
 }

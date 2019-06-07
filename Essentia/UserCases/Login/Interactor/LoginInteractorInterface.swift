@@ -10,4 +10,5 @@ import Foundation
 
 protocol LoginInteractorInterface {
     func generateNewUser(callBack:@escaping () -> Void)
+    func createNewUser(generateAccount: @escaping () -> Void, openPurchase: @escaping () -> Void)
 }

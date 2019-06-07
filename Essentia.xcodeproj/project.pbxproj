@@ -31,6 +31,7 @@
 		340AC002219B0ABE00DEAFF1 /* FullSecuredViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */; };
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
+		341A527122A717BE000A629B /* DonePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A527022A717BE000A629B /* DonePurchaseViewController.swift */; };
 		3426963121ED5BB40063E2D8 /* EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 347DB23421ED55C8004420FA /* EssResources.framework */; };
 		3426963221ED5BB40063E2D8 /* EssResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 347DB23421ED55C8004420FA /* EssResources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		343122672124AD0C009E4A7A /* KeyStoreWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */; };
@@ -158,6 +159,7 @@
 		340AC001219B0ABE00DEAFF1 /* FullSecuredViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FullSecuredViewController.xib; sourceTree = "<group>"; };
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
+		341A527022A717BE000A629B /* DonePurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePurchaseViewController.swift; sourceTree = "<group>"; };
 		343122662124AD0C009E4A7A /* KeyStoreWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreWarningViewController.swift; sourceTree = "<group>"; };
 		343C84F321D50617000FEE9A /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		344167F6212EC235008B8A91 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
@@ -552,6 +554,7 @@
 				346C8EDA229F40F800DED862 /* ConfirmPurchaseViewController.swift */,
 				346C8EDB229F40F800DED862 /* SelectAccountToPurchaseViewController.swift */,
 				346C8EDC229F40F800DED862 /* SelectPurchaseViewController.swift */,
+				341A527022A717BE000A629B /* DonePurchaseViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -991,6 +994,7 @@
 				346C8F25229F40F900DED862 /* ConfirmEthereumTransactionDetailViewController.swift in Sources */,
 				349AA49F2122F48900E9256F /* SettingsRouter.swift in Sources */,
 				346C8F13229F40F900DED862 /* WalletEnterReceiveAmmount.swift in Sources */,
+				341A527122A717BE000A629B /* DonePurchaseViewController.swift in Sources */,
 				34C19BC62224228800B02203 /* ImportAccountViewController.swift in Sources */,
 				34AA4E922136ABDD004C25ED /* SelectBackupTypeViewConroller.swift in Sources */,
 				3401AFE82107705B006DEF49 /* CurrentWordIndicatorCollectionViewAdapter.swift in Sources */,

@@ -12,7 +12,6 @@ public enum PurchaseType {
     case unlimited
     case singeAccount(Int)
     case notPurchased
-    case error(Error)
 }
 
 public enum PurchasePrice: Double {

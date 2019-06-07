@@ -8,12 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		3423A6CD229AB3530098F071 /* StatableControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */; };
-		3423A6E0229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */; };
-		3423A6E2229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */; };
+		3423A6E0229BF6670098F071 /* TableComponentImageRightTitleSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6DF229BF6670098F071 /* TableComponentImageRightTitleSubtitle.swift */; };
+		3423A6E2229BF6770098F071 /* TableComponentImageRightTitleSubtitle.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3423A6E1229BF6770098F071 /* TableComponentImageRightTitleSubtitle.xib */; };
 		3423DA7C21F8552600578930 /* ReusableCell+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */; };
 		3423DA7D21F8552600578930 /* Collection+LoadFromXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */; };
 		342A91FF21F8FCFC009840DD /* libEssDI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342A91FE21F8FCFC009840DD /* libEssDI.a */; };
-		342A920521F8FD92009840DD /* RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920421F8FD92009840DD /* RGB.swift */; };
 		342A920721F8FE19009840DD /* String+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920621F8FE19009840DD /* String+Size.swift */; };
 		342A921421F8FEFB009840DD /* Collection+SafeSubscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */; };
 		342A921521F8FEFB009840DD /* UIView+FindSubview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */; };
@@ -181,14 +180,13 @@
 /* Begin PBXFileReference section */
 		3283C736969382512A50AB0A /* Pods-EssUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssUI.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssUI/Pods-EssUI.release.xcconfig"; sourceTree = "<group>"; };
 		3423A6CC229AB3530098F071 /* StatableControllerInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatableControllerInterface.swift; sourceTree = "<group>"; };
-		3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageWithRightTitleAndSubtitle.swift; sourceTree = "<group>"; };
-		3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageWithRightTitleAndSubtitle.xib; sourceTree = "<group>"; };
+		3423A6DF229BF6670098F071 /* TableComponentImageRightTitleSubtitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageRightTitleSubtitle.swift; sourceTree = "<group>"; };
+		3423A6E1229BF6770098F071 /* TableComponentImageRightTitleSubtitle.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageRightTitleSubtitle.xib; sourceTree = "<group>"; };
 		3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableCell+Nib.swift"; sourceTree = "<group>"; };
 		3423DA7B21F8552600578930 /* Collection+LoadFromXib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+LoadFromXib.swift"; sourceTree = "<group>"; };
 		3423DA8121F855FC00578930 /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3423DA8321F857D100578930 /* libEssCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		342A91FE21F8FCFC009840DD /* libEssDI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssDI.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		342A920421F8FD92009840DD /* RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGB.swift; sourceTree = "<group>"; };
 		342A920621F8FE19009840DD /* String+Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Size.swift"; sourceTree = "<group>"; };
 		342A920C21F8FEFB009840DD /* Collection+SafeSubscript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Collection+SafeSubscript.swift"; sourceTree = "<group>"; };
 		342A920E21F8FEFB009840DD /* UIView+FindSubview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+FindSubview.swift"; sourceTree = "<group>"; };
@@ -370,13 +368,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3423A6DE229BF4EE0098F071 /* ImageWithRightTitleAndSubtitle */ = {
+		3423A6DE229BF4EE0098F071 /* TableComponentImageRightTitleSubtitle */ = {
 			isa = PBXGroup;
 			children = (
-				3423A6DF229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift */,
-				3423A6E1229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib */,
+				3423A6DF229BF6670098F071 /* TableComponentImageRightTitleSubtitle.swift */,
+				3423A6E1229BF6770098F071 /* TableComponentImageRightTitleSubtitle.xib */,
 			);
-			path = ImageWithRightTitleAndSubtitle;
+			path = TableComponentImageRightTitleSubtitle;
 			sourceTree = "<group>";
 		};
 		3423DA7921F854C000578930 /* Extensions */ = {
@@ -391,14 +389,6 @@
 				3423DA7A21F8552600578930 /* ReusableCell+Nib.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		342A920321F8FD89009840DD /* Sugar */ = {
-			isa = PBXGroup;
-			children = (
-				342A920421F8FD92009840DD /* RGB.swift */,
-			);
-			path = Sugar;
 			sourceTree = "<group>";
 		};
 		342A920D21F8FEFB009840DD /* UIView */ = {
@@ -647,7 +637,6 @@
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				342A920321F8FD89009840DD /* Sugar */,
 				3423DA7921F854C000578930 /* Extensions */,
 				34DB80ED21EFCBE800C6BCC1 /* Tools */,
 				345D6E0921EFBC7F00C59398 /* TableAdapterCore */,
@@ -660,7 +649,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
-				3423A6DE229BF4EE0098F071 /* ImageWithRightTitleAndSubtitle */,
+				3423A6DE229BF4EE0098F071 /* TableComponentImageRightTitleSubtitle */,
 				344B87DA22942FD000840DE2 /* ButtonWithSubtitle */,
 				CE335D8B2281A2D900DAF943 /* BorderedButton */,
 				3482B2992255599F0072FD02 /* TableComponentAlert */,
@@ -1221,7 +1210,7 @@
 				34CA783421ECF5AC003612EE /* TableComponentTitleSubtitle.xib in Resources */,
 				34CA77EE21ECF5AC003612EE /* TableComponentTitleCenterTextDetail.xib in Resources */,
 				34CA782921ECF5AC003612EE /* TableComponentTitleCenterDetail.xib in Resources */,
-				3423A6E2229BF6770098F071 /* ImageWithRightTitleAndSubtitle.xib in Resources */,
+				3423A6E2229BF6770098F071 /* TableComponentImageRightTitleSubtitle.xib in Resources */,
 				34CA781221ECF5AC003612EE /* TableComponentNavigationBar.xib in Resources */,
 				34CA780B21ECF5AC003612EE /* TableComponentSlider.xib in Resources */,
 				34CA780821ECF5AC003612EE /* TableComponentTextFieldDetail.xib in Resources */,
@@ -1319,14 +1308,13 @@
 				342A921E21F901E3009840DD /* KeyboardHeightObserver.swift in Sources */,
 				34CA783B21ECF5AC003612EE /* TableAdapterAnimation.swift in Sources */,
 				34CA77F321ECF5AC003612EE /* TableComponentCenteredImage.swift in Sources */,
-				342A920521F8FD92009840DD /* RGB.swift in Sources */,
 				342A921721F8FEFB009840DD /* UIView+Shadow.swift in Sources */,
 				3474E49C21F0FFFC003D8DFF /* TableComponentAnimation.swift in Sources */,
 				342A921921F8FEFB009840DD /* UIViewController+DismissKeyboard.swift in Sources */,
 				34CA77E321ECF5AC003612EE /* TableComponentTransaction.swift in Sources */,
 				345D6E0121EFBC7800C59398 /* BaseRouter.swift in Sources */,
 				34CA782221ECF5AC003612EE /* TableComponentAccountStrength.swift in Sources */,
-				3423A6E0229BF6670098F071 /* ImageWithRightTitleAndSubtitle.swift in Sources */,
+				3423A6E0229BF6670098F071 /* TableComponentImageRightTitleSubtitle.swift in Sources */,
 				34CA77EF21ECF5AC003612EE /* TableComponentImageTitle.swift in Sources */,
 				34CA77E121ECF5AC003612EE /* TableComponent.swift in Sources */,
 				34CA780521ECF5AC003612EE /* TableComponentBalanceChanging.swift in Sources */,

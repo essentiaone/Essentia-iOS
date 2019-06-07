@@ -9,5 +9,5 @@
 import Foundation
 
 public class PurchaseAddress: Decodable {
-    var address: String
+    public var address: String
 }

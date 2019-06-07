@@ -19,7 +19,7 @@ extension StatableControllerInterface where Self: UIViewController {
         var updateState = state
         updateState.insert(.alert(alertType: type, title: message), at: atIndex)
         tableAdapter.performTableUpdate(newState: updateState, withAnimation: .toTop)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             guard let self = self else { return }
             self.tableAdapter.performTableUpdate(newState: self.state, withAnimation: .toTop)
         }

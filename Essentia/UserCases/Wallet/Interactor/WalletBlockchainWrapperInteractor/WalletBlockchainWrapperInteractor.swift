@@ -30,7 +30,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 switch result {
                 case .success(let obect):
                     balance(obect)
-                default: return
+                case .failure:
+                    (inject() as LoaderInterface).hide()
                 }
             }
         case .ethereum:
@@ -38,7 +39,8 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                 switch result {
                 case .success(let obect):
                     balance(obect.balance.value)
-                default: return
+                case .failure:
+                    (inject() as LoaderInterface).hide()
                 }
             }
         }
@@ -57,7 +59,9 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
                         return
                 }
                 balance(etherBalance.doubleValue)
-            default: return
+            case .failure:
+                (inject() as LoaderInterface).hide()
+                (inject() as LoaderInterface).showError("Something wrong! Try later.")
             }
         }
     }
@@ -79,30 +83,14 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             case .success(let object):
                 let gasPrices = object.result
                 prices(gasPrices.safeLow, gasPrices.average, gasPrices.fast)
-            default: return
-            }
-        }
-    }
-    
-    public func getEthGasPrice(gasPrice: @escaping (Double) -> Void) {
-        cryptoWallet.ethereum.getGasPrice { (result) in
-            switch result {
-            case .success(let object):
-                gasPrice(object.value)
-            default: return
-            }
-        }
-    }
-    
-    public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, gasLimit: @escaping (Double) -> Void) {
-        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data) { (result) in
-            switch result {
             case .failure:
                 (inject() as LoaderInterface).hide()
-            case .success(let object):
-                gasLimit(object.value)
             }
         }
+    }
+    
+    public func getEthGasEstimate(fromAddress: String, toAddress: String, data: String, result: @escaping (NetworkResult<EthereumNumberValue>) -> Void) {
+        cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data, result: result)
     }
     
     public func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {

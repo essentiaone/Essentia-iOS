@@ -26,8 +26,8 @@ class TableComponentTwoButtons: UITableViewCell, NibLoadable {
         rightButton.backgroundColor = .clear
         backgroundColor = .clear
         
-        leftButton.titleLabel?.font = AppFont.regular.withSize(15)
-        rightButton.titleLabel?.font = AppFont.regular.withSize(15)
+        leftButton.titleLabel?.font = AppFont.bold.withSize(15)
+        rightButton.titleLabel?.font = AppFont.bold.withSize(15)
     }
     
     @IBAction func leftAction(_ sender: Any) {
