@@ -273,7 +273,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private func openPurhcase() {
-        present(SelectPurchaseViewController(), animated: true)
+        present(SelectPurchaseViewController(createNewUser: createNewUser), animated: true)
     }
     
     func generateAccount() {

@@ -155,7 +155,7 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
     }
     
     private func openPurhcase() {
-        present(SelectPurchaseViewController(), animated: true)
+        present(SelectPurchaseViewController(createNewUser: generateAccount), animated: true)
     }
     
     func generateAccount() {

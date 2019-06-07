@@ -24,11 +24,21 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     
     private var purchaseAddresss: String?
     private var gasSpeed: Double?
+    private var createNewUser: () -> Void
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         loadPurchaseAddress()
         loadGasPrice()
+    }
+    
+    public init(createNewUser: @escaping () -> Void) {
+        self.createNewUser = createNewUser
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override public var state: [TableComponent] {
@@ -164,7 +174,7 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
     private func showDoneTransaction() {
         self.present(DonePurchaseViewController(doneAction: { [unowned self] in
             self.dismiss(animated: true, completion: {
-                (inject() as LoaderInterface).showInfo("Now you create new account!")
+                 self.createNewUser()
             })
             
         }), animated: true)
@@ -180,7 +190,7 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
                             UserDefaults.standard.setValue(purhcaseWallet.address, forKey: EssDefault.purchaseAddress.rawValue)
                             self.dismiss(animated: true, completion: {
                                 self.dismiss(animated: true)
-                                    (inject() as LoaderInterface).showInfo("Purchases succesfully restored!")
+                                 self.createNewUser()
                             })
                         case .notPurchased:
                             self.showInfo("Wrong wallet.", type: .error)
