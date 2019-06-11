@@ -89,6 +89,7 @@ public enum TableComponent: Equatable {
     // MARK: - Containers
     case blure(state: [TableComponent])
     case container(state: [TableComponent])
+    case calculatableContainer(state: [TableComponent])
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
     // MARK: - Equatable

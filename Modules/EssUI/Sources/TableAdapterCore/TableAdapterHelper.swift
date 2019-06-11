@@ -23,6 +23,7 @@ public class TableAdapterHelper {
             case .calculatbleSpace: fallthrough
             case .tableWithCalculatableSpace: fallthrough
             case .centeredImageWithCalculatableSpace: fallthrough
+            case .calculatableContainer: fallthrough
             case .centeredComponentTopInstet:
                 break
             default:
@@ -53,9 +54,10 @@ public class TableAdapterHelper {
             return title.multyLineLabelHeight(with: AppFont.regular.withSize(14.0), width: tableView.frame.width - 30) + 4
         case .tableWithHeight(let height, _):
             return height
-        case .calculatbleSpace:
-            return heightForEmptySpace(with: state)
-        case .centeredImageWithCalculatableSpace:
+        case .calculatbleSpace: fallthrough
+        case .centeredImageWithCalculatableSpace: fallthrough
+        case .tableWithCalculatableSpace: fallthrough
+        case .calculatableContainer:
             return heightForEmptySpace(with: state)
         case .accountStrength:
             return 286.0
@@ -162,8 +164,6 @@ public class TableAdapterHelper {
             return heightForEmptySpace(with: state) / 2
         case .alert:
             return 30
-        case .tableWithCalculatableSpace:
-            return heightForEmptySpace(with: state)
         case .loader:
             return 40
         case .animation(_, let height):

@@ -597,6 +597,10 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.simpleReload(state)
             return cell
+        case .calculatableContainer(let state):
+            let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.simpleReload(state)
+            return cell
         case .titleAction(let font, let title, _):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
