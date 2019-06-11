@@ -60,9 +60,15 @@ public class SelectPurchaseViewController: BaseTableAdapterController, Swipeable
                                  background: .clear,
                                  textColor: colorProvider.appLinkTextColor),
             .empty(height: 25, background: .clear),
-            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForOne"), subtitle: "FOR 5 ESS", color: colorProvider.centeredButtonBackgroudColor, action: buyOneAccount),
+            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForOne"),
+                                subtitle: "FOR \(PurchasePrice.single.rawValue) ESS",
+                color: colorProvider.centeredButtonBackgroudColor,
+                action: buyOneAccount),
             .empty(height: 10, background: .clear),
-            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForUnlimited"), subtitle: "FOR 100 ESS", color: colorProvider.copyButtonBackgroundSelectedColor, action: buyUnlimitedAccounts),
+            .buttonWithSubtitle(title: LS("PaidAccount.SelectPurchase.PayForUnlimited"),
+                                subtitle: "FOR \(PurchasePrice.unlimited.rawValue) ESS",
+                                color: colorProvider.copyButtonBackgroundSelectedColor,
+                                action: buyUnlimitedAccounts),
             .empty(height: 16, background: .clear)
         ]
     }
