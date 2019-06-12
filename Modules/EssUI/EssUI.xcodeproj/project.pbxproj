@@ -165,6 +165,7 @@
 		774C24D68E99A6634D4062E2 /* Pods_EssUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */; };
 		CE335D8E2281A39200DAF943 /* TableComponentBorderedButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE335D8C2281A39200DAF943 /* TableComponentBorderedButton.xib */; };
 		CE335D8F2281A39200DAF943 /* TableComponentBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE335D8D2281A39200DAF943 /* TableComponentBorderedButton.swift */; };
+		CEA3A66822A7F9A400770142 /* AnimatbleTableAdapterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA3A66722A7F9A400770142 /* AnimatbleTableAdapterController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +344,7 @@
 		BEEFF2A06447CE6206A2981C /* Pods_EssUI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssUI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE335D8C2281A39200DAF943 /* TableComponentBorderedButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentBorderedButton.xib; sourceTree = "<group>"; };
 		CE335D8D2281A39200DAF943 /* TableComponentBorderedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponentBorderedButton.swift; sourceTree = "<group>"; };
+		CEA3A66722A7F9A400770142 /* AnimatbleTableAdapterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatbleTableAdapterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -444,6 +446,7 @@
 				345D6DDF21EFBC7800C59398 /* BaseNavigationController.swift */,
 				345D6DE021EFBC7800C59398 /* BaseBluredController.swift */,
 				345D6DE121EFBC7800C59398 /* BaseButton.swift */,
+				CEA3A66722A7F9A400770142 /* AnimatbleTableAdapterController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1356,6 +1359,7 @@
 				342A922721F90381009840DD /* String+Format.swift in Sources */,
 				345D6E0421EFBC7800C59398 /* BaseButton.swift in Sources */,
 				345D6DF521EFBC7800C59398 /* CenteredButton.swift in Sources */,
+				CEA3A66822A7F9A400770142 /* AnimatbleTableAdapterController.swift in Sources */,
 				34CA781021ECF5AC003612EE /* TableComponentTitleDetail.swift in Sources */,
 				342A921A21F8FEFB009840DD /* UIImage+UIColor.swift in Sources */,
 				34CA780721ECF5AC003612EE /* TableComponentTextFieldDetail.swift in Sources */,
