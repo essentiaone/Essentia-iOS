@@ -78,7 +78,7 @@ public class TableAdapterHelper {
         case .centeredButton:
             return 75.0
         case .attributedCenteredButton:
-            return 40.0
+            return 45.0
         case .rightNavigationButton: fallthrough
         case .navigationImageBar: fallthrough
         case .navigationBar:

@@ -15,6 +15,8 @@ class TableComponentCenteredButton: UITableViewCell, NibLoadable {
     
     @IBOutlet weak var rightInset: NSLayoutConstraint!
     @IBOutlet weak var leftInset: NSLayoutConstraint!
+    @IBOutlet weak var topInset: NSLayoutConstraint!
+    @IBOutlet weak var bottomInset: NSLayoutConstraint!
     @IBOutlet weak var titleButton: BaseButton!
     var action: (() -> Void)?
     

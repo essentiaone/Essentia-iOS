@@ -295,6 +295,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.titleButton.setAttributedTitle(attributedTitle, for: .normal)
             cell.titleButton.backgroundColor = background
             cell.action = action
+            cell.topInset.constant = 0
+            cell.bottomInset.constant = 0
             cell.titleButton.titleLabel?.textColor = textColor
             cell.backgroundColor = .clear
             return cell
