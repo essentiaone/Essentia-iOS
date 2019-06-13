@@ -19,10 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3t1-hp-TjL" customClass="BaseButton" customModule="EssUI" customModuleProvider="target">
-                        <rect key="frame" x="15" y="15" width="345" height="45.5"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="45" id="5he-QV-UWk"/>
-                        </constraints>
+                        <rect key="frame" x="15" y="15" width="345" height="12.5"/>
                         <connections>
                             <action selector="action:" destination="wmb-Xp-crG" eventType="touchUpInside" id="s3f-m3-XSv"/>
                         </connections>
@@ -37,11 +34,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bottomInset" destination="NH9-Sp-Nqz" id="Mg3-P9-vrO"/>
                 <outlet property="leftInset" destination="2TA-EQ-mAU" id="UHR-86-WUJ"/>
                 <outlet property="rightInset" destination="Mxa-zY-m6a" id="xMF-5b-oXX"/>
                 <outlet property="titleButton" destination="3t1-hp-TjL" id="O9l-SL-W4e"/>
-                <outlet property="topInset" destination="q8l-Jj-myk" id="WUp-0W-Ovu"/>
             </connections>
             <point key="canvasLocation" x="26.5" y="24.5"/>
         </tableViewCell>
