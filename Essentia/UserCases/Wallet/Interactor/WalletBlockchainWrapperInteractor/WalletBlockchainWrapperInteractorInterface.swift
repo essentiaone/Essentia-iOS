@@ -23,4 +23,5 @@ public protocol WalletBlockchainWrapperInteractorInterface {
     func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data)
     func sendEthTransaction(wallet: ViewWalletInterface, transacionDetial: EtherTxInfo, result: @escaping (NetworkResult<String>) -> Void) throws
     func getTransactionsByWallet(_ wallet: EssModel.WalletInterface, transactions: @escaping ([ViewTransaction]) -> Void)
+    func getTokenTxHistory(address: EssentiaBridgesApi.Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void)
 }

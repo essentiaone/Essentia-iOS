@@ -93,6 +93,10 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
         cryptoWallet.ethereum.getGasEstimate(from: fromAddress, to: toAddress, data: data, result: result)
     }
     
+    public func getTokenTxHistory(address: EssentiaBridgesApi.Address, result: @escaping (NetworkResult<EthereumTokenTransactionByAddress>) -> Void) {
+        cryptoWallet.ethereum.getWalletTokenHistory(for: address, result: result)
+    }
+    
     public func txRawParametrs(for asset: AssetInterface, toAddress: String, ammountInCrypto: String, data: Data) throws -> (value: Wei, address: String, data: Data) {
         switch asset {
         case let token as Token:

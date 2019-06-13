@@ -32,6 +32,8 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
     // MARK: - Dependences
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var walletInteractor: WalletInteractorInterface = inject()
+    private lazy var blockchainInteractor: WalletBlockchainWrapperInteractorInterface = inject()
+    private lazy var tokenService: TokensServiceInterface = inject()
     
     private var store: Store
     
@@ -114,6 +116,43 @@ class WalletImportAssetViewController: BaseTableAdapterController, SwipeableNavi
         (inject() as UserStorageServiceInterface).update({ (user) in
             user.wallet?.importedWallets.append(wallet)
         })
+        switch wallet.coin {
+        case .ethereum:
+            self.loadTokens(forWallet: wallet)
+        default:
+            self.showSuccess()
+        }
+    }
+    
+    private func loadTokens(forWallet: ImportedWallet) {
+        (inject() as LoaderInterface).show()
+        blockchainInteractor.getTokenTxHistory(address: forWallet.address) { [weak self] (result) in
+            switch result {
+            case .success(let tx):
+                 let address = tx.result.map {
+                    return $0.contractAddress
+                }
+                 self?.tokenService.getTokensList({ (tokens) in
+                    (inject() as LoaderInterface).hide()
+                    let filteredTokens = tokens.filter {
+                        return address.contains($0.address)
+                    }
+                    let tokenWallets = filteredTokens.map {
+                        return TokenWallet(token: $0, wallet: forWallet, lastBalance: 0)
+                    }
+                    (inject() as UserStorageServiceInterface).update({ (user) in
+                        user.wallet?.tokenWallets.append(objectsIn: tokenWallets)
+                    })
+                    self?.showSuccess()
+                 })
+            case .failure(let error):
+                (inject() as LoaderInterface).hide()
+                (inject() as LoggerServiceInterface).log(error.localizedDescription, level: .error)
+            }
+        }
+    }
+    
+    private func showSuccess() {
         (inject() as CurrencyRankDaemonInterface).update()
         (inject() as WalletRouterInterface).show(.succesImportingAlert)
     }
