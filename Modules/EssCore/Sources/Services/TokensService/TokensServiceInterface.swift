@@ -11,4 +11,5 @@ import EssModel
 
 public protocol TokensServiceInterface {
     func updateTokensIfNeeded(_ updated: @escaping () -> Void)
+    func getTokensList(_ callBack: @escaping ([Token]) -> Void)
 }
