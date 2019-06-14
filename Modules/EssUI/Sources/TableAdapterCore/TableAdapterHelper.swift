@@ -78,7 +78,8 @@ public class TableAdapterHelper {
         case .centeredButton:
             return 75.0
         case .attributedCenteredButton(let attributedTitle, _, _, _):
-            return (attributedTitle?.height(with: tableView.bounds.width))! + 30
+            guard let titleHeight = attributedTitle?.height(with: tableView.bounds.width) else { return 20 }
+            return titleHeight + 30
         case .rightNavigationButton: fallthrough
         case .navigationImageBar: fallthrough
         case .navigationBar:
