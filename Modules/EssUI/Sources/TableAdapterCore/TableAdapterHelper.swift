@@ -24,7 +24,8 @@ public class TableAdapterHelper {
             case .tableWithCalculatableSpace: fallthrough
             case .centeredImageWithCalculatableSpace: fallthrough
             case .calculatableContainer: fallthrough
-            case .centeredComponentTopInstet:
+            case .centeredComponentTopInstet: fallthrough
+            case .tableWithRefresh:
                 break
             default:
                 totalContentHeight += height(for: IndexPath(row: index, section: 0), in: state)
@@ -170,6 +171,8 @@ public class TableAdapterHelper {
             return height
         case .buttonWithSubtitle:
             return 63
+        case .tableWithRefresh:
+            return heightForEmptySpace(with: state)
         }
     }
     
