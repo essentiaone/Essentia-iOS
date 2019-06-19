@@ -44,6 +44,12 @@ public extension BackupSourceType {
             case .web: return [.notHardened(0), .notHardened(1)]
             default: return [.hardened(44), .hardened(5), .hardened(0), .notHardened(0)]
             }
+        case .essentia:
+            switch self {
+            case .app: return [.hardened(0), .notHardened(6)]
+            case .web: return [.notHardened(0), .notHardened(1)]
+            default: return [.hardened(44), .hardened(11111), .hardened(0), .notHardened(0)]
+            }
         }
     }
     

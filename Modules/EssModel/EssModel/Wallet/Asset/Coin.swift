@@ -14,13 +14,15 @@ public enum Coin: String, Equatable {
     case litecoin
     case bitcoinCash
     case dash
+    case essentia
     
     public static var fullySupportedCoins: [Coin] {
         return [.ethereum,
                 .bitcoin,
                 .bitcoinCash,
                 .litecoin,
-                .dash]
+                .dash,
+                .essentia]
     }
     
     public func isValidPK(_ pk: String) -> Bool {
@@ -37,6 +39,8 @@ public enum Coin: String, Equatable {
             return 0.000_01
         case .bitcoinCash:
             return 0.000_01
+        case .essentia:
+            return 0.000_01
         default:
             return 1/pow(10, 18)
         }
@@ -44,7 +48,7 @@ public enum Coin: String, Equatable {
     
     func isValidAddress(_ address: String) -> Bool {
         switch self {
-        case .bitcoin, .litecoin, .dash, .bitcoinCash:
+        case .bitcoin, .litecoin, .dash, .bitcoinCash, .essentia:
             return address.count > 27
         case .ethereum:
             return address.count > 40

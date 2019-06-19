@@ -25,6 +25,8 @@ extension Coin: AssetInterface {
             return LS("Wallet.BitcoinCash")
         case .dash:
             return LS("Wallet.Dash")
+        case .essentia:
+            return LS("Wallet.Essentia")
         }
     }
     
@@ -40,6 +42,8 @@ extension Coin: AssetInterface {
             return "Bitcoin Cash"
         case .dash:
             return "Dash"
+        case .essentia:
+            return "Essentia"
         }
     }
     
@@ -55,6 +59,8 @@ extension Coin: AssetInterface {
             return LS("Wallet.BitcoinCash.Short")
         case .dash:
             return LS("Wallet.Dash.Short")
+        case .essentia:
+            return LS("Wallet.Essentia.Short")
         }
     }
     
@@ -85,6 +91,8 @@ extension Coin: AssetInterface {
             return imageProvider.bitcoinCashIcon
         case .dash:
             return imageProvider.dashIcon
+        case .essentia:
+            return imageProvider.essentiaIcon
         }
     }
     
@@ -100,7 +108,7 @@ extension Coin: AssetInterface {
     }
     
     public static var allCases: [Coin] {
-        return [.bitcoin, .ethereum, .litecoin, .bitcoinCash]
+        return [.bitcoin, .ethereum, .litecoin, .bitcoinCash, .essentia]
     }
     
     public var safeConfirmationCount: Int {
