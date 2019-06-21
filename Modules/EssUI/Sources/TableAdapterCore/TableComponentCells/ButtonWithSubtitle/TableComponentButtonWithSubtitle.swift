@@ -35,7 +35,7 @@ class TableComponentButtonWithSubtitle: UITableViewCell, NibLoadable {
         attributedText.append(NSAttributedString(string: "\n"))
         attributedText.append(NSAttributedString(string: subtitle,
                                                      attributes: [.font: AppFont.light.withSize(15)]))
-        attributedText.addAttributes([.foregroundColor: UIColor.white.cgColor],
+        attributedText.addAttributes([.foregroundColor: colorProvider.appBackgroundColor.cgColor],
                                      range: NSRange(location: 0, length: attributedText.length))
         titleButton.setAttributedTitle(attributedText, for: .normal)
     }

@@ -17,6 +17,8 @@ class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
+    
     private var userAction: ((ViewUser) -> Void)?
     
     init(_ userAction: @escaping (ViewUser) -> Void) {
@@ -40,10 +42,10 @@ class SelectAccountToPurchaseViewController: BaseBluredTableAdapterController {
     private var containerState: [TableComponent] {
         let usersState = userService.users |> viewUserState |> concat
         return [
-            .empty(height: 10, background: .white),
+            .empty(height: 10, background: colorProvider.appBackgroundColor),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
             + usersState +
-             [.empty(height: 10, background: .white)]
+             [.empty(height: 10, background: colorProvider.appBackgroundColor)]
     }
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {

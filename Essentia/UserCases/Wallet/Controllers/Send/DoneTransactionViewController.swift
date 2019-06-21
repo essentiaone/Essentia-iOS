@@ -9,8 +9,11 @@
 import EssCore
 import EssResources
 import EssUI
+import EssDI
 
 class DoneTransactionViewController: BaseTableAdapterController {
+    private lazy var colorProvider: AppColorInterface = inject()
+    
     var isAnimationShow: Bool = false
     
     override var state: [TableComponent] {
@@ -26,28 +29,28 @@ class DoneTransactionViewController: BaseTableAdapterController {
         return [.titleWithFontAligment(font: AppFont.bold.withSize(42),
                                        title: LS("Wallet.Transaction.Send.Done.Title"),
                                        aligment: .center,
-                                       color: .white),
+                                       color: colorProvider.appBackgroundColor),
                 .empty(height: 30, background: .clear),
                 .titleWithFontAligment(font: AppFont.regular.withSize(18),
                                        title: LS("Wallet.Transaction.Send.Done.Description"),
                                        aligment: .center,
-                                       color: .white),
+                                       color: colorProvider.appBackgroundColor),
                 .empty(height: 30, background: .clear),
                 .actionCenteredButton(title: LS("Wallet.Transaction.Send.Done.Continue"),
                                       action: continueAction,
-                                      textColor: RGB(73, 216, 94),
-                                      backgrount: .white),
+                                      textColor: colorProvider.shamrockColor,
+                                      backgrount: colorProvider.appBackgroundColor),
                 .empty(height: 15, background: .clear)]
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                applyDesign()
+        applyDesign()
         setupEndAnimationTimer()
     }
     
     private func applyDesign() {
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = colorProvider.appBackgroundColor
         tableView.bounces = false
         tableView.isScrollEnabled = false
     }
@@ -58,7 +61,7 @@ class DoneTransactionViewController: BaseTableAdapterController {
             self.isAnimationShow.toggle()
             self.tableAdapter.performTableUpdate(newState: self.state, withAnimation: .toTop)
             self.tableView.isScrollEnabled = false
-            let gradient = GradientType.topToBottom.gradientLayer(first: RGB(73, 216, 94), second: RGB(33, 186, 109), size: self.tableView.bounds.size)
+            let gradient = GradientType.topToBottom.gradientLayer(first: self.colorProvider.shamrockColor, second: self.colorProvider.mediumSeaGreenColor, size: self.tableView.bounds.size)
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = NSNumber(value: 0)
             animation.toValue  = NSNumber(value: 1)

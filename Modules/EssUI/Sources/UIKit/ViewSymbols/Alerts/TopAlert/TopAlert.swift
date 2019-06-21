@@ -51,7 +51,7 @@ public enum AlertType {
         prefixImageAtachment.image = prefixImage
         
         let text = NSAttributedString(string: message, attributes: [NSAttributedString.Key.font: font,
-                                                                  NSAttributedString.Key.foregroundColor: UIColor.white])
+                                                                  NSAttributedString.Key.foregroundColor: (inject() as AppColorInterface).appBackgroundColor])
         let imageString = NSAttributedString(attachment: prefixImageAtachment)
         fullString.append(imageString)
         fullString.append(NSAttributedString(string: "   "))

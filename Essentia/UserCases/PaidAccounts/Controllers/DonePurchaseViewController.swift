@@ -39,12 +39,12 @@ class DonePurchaseViewController: BaseTableAdapterController {
         return [.titleWithFontAligment(font: AppFont.bold.withSize(42),
                                        title: LS("PaidAccount.Done.Title"),
                                        aligment: .center,
-                                       color: .white),
+                                       color: colorProvider.appBackgroundColor),
                 .empty(height: 100, background: .clear),
                 .actionCenteredButton(title: LS("PaidAccount.Done.CreateAccount"),
                                       action: continueAction,
                                       textColor: colorProvider.appTitleColor,
-                                      backgrount: .white),
+                                      backgrount: colorProvider.appBackgroundColor),
                 .empty(height: 15, background: .clear)]
     }
     
@@ -55,7 +55,7 @@ class DonePurchaseViewController: BaseTableAdapterController {
     }
     
     private func applyDesign() {
-        tableView.backgroundColor = .white
+        tableView.backgroundColor = colorProvider.appBackgroundColor
         tableView.bounces = false
         tableView.isScrollEnabled = false
     }
@@ -66,7 +66,7 @@ class DonePurchaseViewController: BaseTableAdapterController {
             self.isAnimationShow.toggle()
             self.tableAdapter.performTableUpdate(newState: self.state, withAnimation: .toTop)
             self.tableView.isScrollEnabled = false
-            let gradient = GradientType.topToBottom.gradientLayer(first: RGB(73, 216, 94), second: RGB(33, 186, 109), size: self.tableView.bounds.size)
+            let gradient = GradientType.topToBottom.gradientLayer(first: self.colorProvider.shamrockColor, second: self.colorProvider.mediumSeaGreenColor, size: self.tableView.bounds.size)
             let animation = CABasicAnimation(keyPath: "opacity")
             animation.fromValue = NSNumber(value: 0)
             animation.toValue  = NSNumber(value: 1)

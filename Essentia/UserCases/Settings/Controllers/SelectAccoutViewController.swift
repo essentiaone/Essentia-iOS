@@ -21,6 +21,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
         self.delegate = delegate
@@ -45,14 +46,14 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         logAccountsCount(usersCount: users.count)
         let usersState = users |> viewUserState |> concat
         return [
-            .empty(height: 10, background: .white),
+            .empty(height: 10, background: colorProvider.appBackgroundColor),
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
             + usersState +
             [.imageTitle(image: imageProvider.plusIcon,
                          title: LS("Settings.Accounts.CreateNew"),
                          withArrow: false,
                          action: createUserAction),
-             .empty(height: 10, background: .white)]
+             .empty(height: 10, background: colorProvider.appBackgroundColor)]
     }
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {

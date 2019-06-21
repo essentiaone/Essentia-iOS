@@ -58,13 +58,13 @@ public class WalletMainViewController: BaseTableAdapterController {
             if isImportedWalletEmpty && isGeneratedWalletsEmpty {
                 return emptyState
             }
-            return [.tableWithCalculatableSpace(state: coinsState(), background: .white)]
+            return [.tableWithCalculatableSpace(state: coinsState(), background: colorProvider.appBackgroundColor)]
         case 1:
             let isTokensEmpty = wallet?.tokenWallets.isEmpty ?? true
             if isTokensEmpty {
                 return emptyState
             }
-            return [.tableWithCalculatableSpace(state: tokensState(), background: .white)]
+            return [.tableWithCalculatableSpace(state: tokensState(), background: colorProvider.appBackgroundColor)]
         default: return []
         }
     }

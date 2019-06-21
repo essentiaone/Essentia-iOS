@@ -72,6 +72,8 @@ fileprivate enum TabBarTab {
 }
 
 class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
+    private lazy var colorProvider: AppColorInterface = inject()
+    
     static var shared: TabBarController = TabBarController()
     // MARK: - Init
     override init() {
@@ -84,7 +86,7 @@ class TabBarController: BaseTabBarController, UITabBarControllerDelegate {
             return nvc
         }
         tabBar.layer.borderWidth = 0.0
-        tabBar.backgroundImage = UIImage.withColor(.white)
+        tabBar.backgroundImage = UIImage.withColor(colorProvider.appBackgroundColor)
     }
     
     required init?(coder aDecoder: NSCoder) {
