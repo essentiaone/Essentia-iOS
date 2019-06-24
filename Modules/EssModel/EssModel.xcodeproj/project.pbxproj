@@ -10,6 +10,7 @@
 		01E790472AB458EC39B11075 /* Pods_EssModel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44395D71DC1FA8821C5E4A94 /* Pods_EssModel.framework */; };
 		3423A6D9229BBEBE0098F071 /* PurchaseAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423A6D8229BBEBE0098F071 /* PurchaseAddress.swift */; };
 		3423DA9021F8B5C600578930 /* ViewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423DA8F21F8B5C600578930 /* ViewUser.swift */; };
+		348CCFB022B98D95003322B5 /* CoinWalletInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348CCFAF22B98D95003322B5 /* CoinWalletInterface.swift */; };
 		3496AA9F2216CA22006478E1 /* TokenUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3496AA9E2216CA22006478E1 /* TokenUpdate.swift */; };
 		34B1442521D3DE2C00EC06AE /* TransactionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440821D3DE2C00EC06AE /* TransactionType.swift */; };
 		34B1442621D3DE2C00EC06AE /* ViewTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B1440921D3DE2C00EC06AE /* ViewTransaction.swift */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		3423A6D8229BBEBE0098F071 /* PurchaseAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseAddress.swift; sourceTree = "<group>"; };
 		3423DA8F21F8B5C600578930 /* ViewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewUser.swift; sourceTree = "<group>"; };
+		348CCFAF22B98D95003322B5 /* CoinWalletInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinWalletInterface.swift; sourceTree = "<group>"; };
 		3496AA9E2216CA22006478E1 /* TokenUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenUpdate.swift; sourceTree = "<group>"; };
 		34B143FC21D3DDA700EC06AE /* libEssModel.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEssModel.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34B1440621D3DE2B00EC06AE /* EssModel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EssModel-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -213,6 +215,7 @@
 				34B1441F21D3DE2C00EC06AE /* TokenWallet.swift */,
 				34B1442021D3DE2C00EC06AE /* GeneratingWalletInfo.swift */,
 				34B1442121D3DE2C00EC06AE /* ImportedWallet.swift */,
+				348CCFAF22B98D95003322B5 /* CoinWalletInterface.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				34B1442A21D3DE2C00EC06AE /* UserProfile.swift in Sources */,
 				34B1442621D3DE2C00EC06AE /* ViewTransaction.swift in Sources */,
 				34B1443E21D3DE8B00EC06AE /* BackupType.swift in Sources */,
+				348CCFB022B98D95003322B5 /* CoinWalletInterface.swift in Sources */,
 				34B1443321D3DE2C00EC06AE /* Token.swift in Sources */,
 				34C19BCE2228B42C00B02203 /* BackupSourceType.swift in Sources */,
 				34B1443021D3DE2C00EC06AE /* Currencies.swift in Sources */,

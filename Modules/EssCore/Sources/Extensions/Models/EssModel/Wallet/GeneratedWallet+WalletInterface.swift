@@ -11,7 +11,7 @@ import EssModel
 import HDWalletKit
 import EssDI
 
-extension GeneratingWalletInfo: WalletInterface, ViewWalletInterface {
+extension GeneratingWalletInfo: CoinWalletInterface {
     public convenience init(name: String, coin: EssModel.Coin, derivationIndex: Int32, seed: String, sourseType: BackupSourceType) {
         let hdwalletCoin = wrapCoin(coin: coin)
         let wallet = Wallet(seed: Data(hex: seed), coin: hdwalletCoin)

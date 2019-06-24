@@ -39,6 +39,7 @@ open class BaseTableAdapterController: BaseViewController, StatableControllerInt
     open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tableAdapter.endEditing(true)
+        self.tableView.refreshControl?.endRefreshing()
     }
     
     open override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {

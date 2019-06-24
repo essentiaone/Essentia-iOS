@@ -506,6 +506,12 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.hardReload(state)
             return cell
+        case .tableWithRefresh(let state, let action):
+            let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)
+            cell.tableAdapter.hardReload(state)
+            cell.enableRefresh(action: action)
+            cell.tableView.alwaysBounceVertical = true
+            return cell
         case .titleWithCancel(let title, let action):
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.font = AppFont.bold.withSize(21)
