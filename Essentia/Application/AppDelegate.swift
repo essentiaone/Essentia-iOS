@@ -51,10 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         appStateEventProxy.applicationDidBecomeActive(application)
+        
+        self.window?.viewWithTag(221122)?.removeFromSuperview()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         appStateEventProxy.applicationWillResignActive(application)
+        
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurEffectView.frame = UIScreen.main.bounds
+        blurEffectView.tag = 221122
+        window?.addSubview(blurEffectView)
     }
     
     // MARK: - Notifications
