@@ -40,7 +40,7 @@ class ImportFromOtherController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         return [
-            .empty(height: 10, background: .white),
+            .empty(height: 10, background: colorProvider.appBackgroundColor),
             .titleWithCancel(title: LS("Settings.ImportOther.Title"), action: cancelAction),
             .imageTitle(image: imageProvider.testAvatar,
                         title: "Jaxx",

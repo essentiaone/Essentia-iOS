@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import EssResources
+import EssDI
 
 public class EssentiaLoader {
     public static func show(callBack: @escaping () -> Void) {
         let contentView = UIView(frame: UIScreen.main.bounds)
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = (inject() as AppColorInterface).appBackgroundColor
         let imageView = UIImageView(frame: contentView.frame)
         imageView.contentMode = .center
         contentView.addSubview(imageView)

@@ -11,6 +11,7 @@ import EssentiaBridgesApi
 import HDWalletKit
 import EssModel
 import EssResources
+import EssDI
 
 public class CryptoFormatter {
     public static func formattedAmmount(amount: Double?, type: TransactionType, asset: AssetInterface) -> NSAttributedString {
@@ -25,7 +26,7 @@ public class CryptoFormatter {
                                              attributes: [NSAttributedString.Key.font: AppFont.regular.withSize(15)]))
         switch type {
         case .recive:
-            attributed.addAttributes([NSAttributedString.Key.foregroundColor: RGB(59, 207, 85)], range: NSRange(location: 0, length: attributed.length))
+            attributed.addAttributes([NSAttributedString.Key.foregroundColor: (inject() as AppColorInterface).balanceChangedPlus], range: NSRange(location: 0, length: attributed.length))
         default: break
         }
         return attributed

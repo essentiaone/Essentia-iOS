@@ -64,7 +64,7 @@ class WalletDetailViewController: BaseTableAdapterController, SwipeableNavigatio
     override var state: [TableComponent] {
         return
             staticContent +
-                [.tableWithCalculatableSpace(state: dynamicContent, background: .white)]
+                [.tableWithCalculatableSpace(state: dynamicContent, background: colorProvider.appBackgroundColor)]
     }
     
     private var staticContent: [TableComponent] {

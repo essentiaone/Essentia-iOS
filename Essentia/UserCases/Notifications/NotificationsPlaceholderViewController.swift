@@ -35,7 +35,7 @@ class NotificationsPlaceholderViewController: BaseTableAdapterController {
             .descriptionWithSize(aligment: .center,
                                  fontSize: 17,
                                  title: LS("Notification.Placeholder.Description"),
-                                 background: .white,
+                                 background: colorProvider.appBackgroundColor,
                                  textColor: colorProvider.appDefaultTextColor)
         ]
     }

@@ -70,7 +70,7 @@ class WalletOptionsViewController: BaseBluredTableAdapterController {
                            text: enteredName,
                            endEditing: nameAction,
                            isFirstResponder: true),
-                .empty(height: 12, background: .white)
+                .empty(height: 12, background: colorProvider.appBackgroundColor)
         ]
     }
     

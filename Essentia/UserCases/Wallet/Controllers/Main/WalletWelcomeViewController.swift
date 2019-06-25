@@ -46,19 +46,19 @@ class WalletWelcomeViewController: BaseTableAdapterController {
             .calculatbleSpace(background: .clear),
             .centeredImage(image: currentImage),
             .empty(height: 45, background: .clear),
-            .titleWithFontAligment(font: AppFont.bold.withSize(32), title: LS("Wallet.Onbording\(currentPosition).Title"), aligment: .center, color: .white),
+            .titleWithFontAligment(font: AppFont.bold.withSize(32), title: LS("Wallet.Onbording\(currentPosition).Title"), aligment: .center, color: colorProvider.appBackgroundColor),
             .descriptionWithSize(aligment: .center,
                                  fontSize: 15,
                                  title: LS("Wallet.Onbording\(currentPosition).Detail"),
                                  background: .clear,
-                                 textColor: .white),
+                                 textColor: colorProvider.appBackgroundColor),
             .empty(height: 30, background: .clear),
             .pageControl(count: 3, selected: currentPosition - 1 ),
             .empty(height: 30, background: .clear),
             .actionCenteredButton(title: LS("Wallet.Welcome.Continue"),
                                   action: continueAction,
                                   textColor: colorProvider.appTitleColor,
-                                  backgrount: .white),
+                                  backgrount: colorProvider.appBackgroundColor),
             .empty(height: 16, background: .clear)
         ]
     }
@@ -95,13 +95,13 @@ class WalletWelcomeViewController: BaseTableAdapterController {
     private func colorForCurrentSegment() -> UIColor {
         switch currentPosition {
         case 1:
-            return RGB(56, 191, 76)
+            return colorProvider.accountStrengthContainerViewBackgroudHightSecure
         case 2:
-            return RGB(14, 64, 199)
+            return colorProvider.persianBlueColor
         case 3:
-            return RGB(67, 192, 251)
+            return colorProvider.summerSkyColor
         default:
-            return .white
+            return colorProvider.appBackgroundColor
         }
     }
     

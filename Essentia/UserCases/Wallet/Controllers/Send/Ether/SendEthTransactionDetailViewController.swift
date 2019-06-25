@@ -66,7 +66,7 @@ class SendEthTransactionDetailViewController: BaseTableAdapterController, QRCode
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
+        addLastCellBackgroundContents(topColor: colorProvider.appBackgroundColor, bottomColor: colorProvider.appBackgroundColor)
         loadInputs()
         loadRanges()
         keyboardObserver.animateKeyboard = { [unowned self] newValue in

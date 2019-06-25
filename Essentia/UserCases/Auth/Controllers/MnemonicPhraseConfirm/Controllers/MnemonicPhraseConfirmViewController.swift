@@ -27,6 +27,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
     
     // MARK: - Dependences
     private lazy var design: BackupDesignInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
     private lazy var wordIndicator = CurrentWordIndicatorAdapter(collectionView: currentWordCollectionView)
     private lazy var wordEntering = PhraseConfirmCollectionViewAdapter(collectionView: confirmWordsCollectionView)
     private var phraseEnteingController: MnemonicPhraseConfirmViewControllerInterface?
@@ -85,7 +86,7 @@ class MnemonicPhraseConfirmViewController: BaseViewController, PhraseEnteringCon
         if isMnemonic {
             let button = UIButton(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 45))
             button.setTitle(pasteboardString, for: .normal)
-            button.backgroundColor = .lightGray
+            button.backgroundColor = colorProvider.balanceChanged
             fakeTextField.inputAccessoryView = button
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         } else {

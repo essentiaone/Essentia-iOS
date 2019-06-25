@@ -45,7 +45,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - State
-    private override var state: [TableComponent] {
+    public override var state: [TableComponent] {
         return staticState + dynamicState
     }
     
@@ -64,7 +64,6 @@ public class WalletMainViewController: BaseTableAdapterController {
             if isTokensEmpty {
                 return emptyState
             }
-            
             return [.tableWithRefresh(state: tokensState(), action: refreshAction)]
         default: return []
         }

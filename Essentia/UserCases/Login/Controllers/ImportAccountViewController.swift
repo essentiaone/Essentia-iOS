@@ -44,7 +44,7 @@ class ImportAccountViewController: BaseBluredTableAdapterController {
 
     private var containerState: [TableComponent] {
         return [
-            .empty(height: 10, background: .white),
+            .empty(height: 10, background: colorProvider.appBackgroundColor),
             .titleWithCancel(title: LS("Settings.ImportAccount.Title"), action: cancelAction),
             .description(title: LS("Settings.ImportAccount.Description"), backgroud: .clear),
             .imageTitle(image: imageProvider.importApp,

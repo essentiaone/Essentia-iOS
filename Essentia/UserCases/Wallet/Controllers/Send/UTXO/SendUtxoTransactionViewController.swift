@@ -73,7 +73,7 @@ class SendUtxoTransactionViewController: BaseTableAdapterController, QRCodeReade
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        addLastCellBackgroundContents(topColor: .white, bottomColor: .white)
+        addLastCellBackgroundContents(topColor: colorProvider.appBackgroundColor, bottomColor: colorProvider.appBackgroundColor)
         keyboardObserver.animateKeyboard = { [unowned self] newValue in
             self.store.keyboardHeight = newValue
             self.tableAdapter.simpleReload(self.state)

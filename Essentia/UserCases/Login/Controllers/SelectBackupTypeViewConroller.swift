@@ -41,7 +41,7 @@ class SelectBackupTypeViewConroller: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         return [
-            .empty(height: 10, background: .white),
+            .empty(height: 10, background: colorProvider.appBackgroundColor),
             .titleWithCancel(title: importTitle, action: cancelAction),
             .imageTitle(image: imageProvider.mnemonicIcon,
                         title: LS("Restore.Mnemonic"),

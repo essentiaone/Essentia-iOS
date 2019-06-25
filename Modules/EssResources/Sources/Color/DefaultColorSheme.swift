@@ -29,6 +29,10 @@ fileprivate struct Constants {
     static var appOrageColor = #colorLiteral(red: 1, green: 0.631372549, blue: 0, alpha: 1) //RGB(255,161,0)
     static var shadowColor = #colorLiteral(red: 0.07843137255, green: 0.137254902, blue: 0.3019607843, alpha: 1) //RGB(20,35,77)
     static var coinsShadow = #colorLiteral(red: 0.9647058824, green: 0.537254902, blue: 0.137254902, alpha: 1) //RGB(246, 137, 35)
+    static var shamrockColor = #colorLiteral(red: 0.2862745098, green: 0.8470588235, blue: 0.368627451, alpha: 1) //RGB(73, 216, 94)
+    static var mediumSeaGreenColor = #colorLiteral(red: 0.1294117647, green: 0.7294117647, blue: 0.4274509804, alpha: 1) //RGB(33, 186, 109)
+    static var persianBlueColor = #colorLiteral(red: 0.05490196078, green: 0.2509803922, blue: 0.7803921569, alpha: 1) //RGB(14, 64, 199)
+    static var summerSkyColor = #colorLiteral(red: 0.262745098, green: 0.7529411765, blue: 0.9843137255, alpha: 1) //RGB(67, 192, 251)
 }
 
 public struct DefaultColorSheme: AppColorInterface {
@@ -57,6 +61,10 @@ public struct DefaultColorSheme: AppColorInterface {
     public var validPasswordIndicator: UIColor = Constants.appGreen
     public var notValidPasswordIndicator: UIColor = Constants.appLigntLightGray
     public var coinsShadowColor: UIColor = Constants.coinsShadow
+    public var shamrockColor: UIColor = Constants.shamrockColor
+    public var mediumSeaGreenColor: UIColor = Constants.mediumSeaGreenColor
+    public var persianBlueColor: UIColor = Constants.persianBlueColor
+    public var summerSkyColor: UIColor = Constants.summerSkyColor
     // MARK: - Launchpad
     public var launchpadItemTitleColor: UIColor = Constants.appSemiDarkColor
     public var launchpadItemSubTitleColor: UIColor = Constants.appDarkGray

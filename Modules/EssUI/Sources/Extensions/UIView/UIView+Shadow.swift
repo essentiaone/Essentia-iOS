@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import EssResources
+import EssDI
 
 fileprivate struct Constants {
     static var shadowWidth: CGFloat = 8.0
@@ -15,7 +17,7 @@ fileprivate struct Constants {
 
 public extension UIView {
     func drawShadow(width: CGFloat, color: UIColor? = nil) {
-        layer.shadowColor = color?.cgColor ?? (backgroundColor?.cgColor ?? UIColor.black.cgColor)
+        layer.shadowColor = color?.cgColor ?? (backgroundColor?.cgColor ?? (inject() as AppColorInterface).appTitleColor.cgColor)
         layer.shadowOpacity = Constants.shadowOpacity
         layer.shadowRadius = Constants.shadowWidth
         layer.masksToBounds =  false

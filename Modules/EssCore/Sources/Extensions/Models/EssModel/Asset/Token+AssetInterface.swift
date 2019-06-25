@@ -8,6 +8,8 @@
 
 import EssModel
 import UIKit
+import EssResources
+import EssDI
 
 extension Token: AssetInterface {
     public var minimumTransactionAmmount: Double {
@@ -15,7 +17,7 @@ extension Token: AssetInterface {
     }
     
     public var shadowColor: UIColor {
-        return .lightGray
+        return (inject() as AppColorInterface).balanceChanged
     }
     
     public var localizedName: String {
