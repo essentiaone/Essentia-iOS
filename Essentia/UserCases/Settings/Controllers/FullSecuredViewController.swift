@@ -60,7 +60,6 @@ class FullSecuredViewController: AnimatbleTableAdapterController {
         tableView.isScrollEnabled = false
     }
     
-    
     private func showBankAnimation() {
         let animation = PNGAnimation.securing99toSafe
         showAnimation(animation.animationDuration - 0.63, execute: {})

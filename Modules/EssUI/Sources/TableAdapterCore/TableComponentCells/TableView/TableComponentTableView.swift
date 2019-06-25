@@ -12,6 +12,7 @@ import EssDI
 class TableComponentTableView: UITableViewCell, NibLoadable {
     @IBOutlet weak var tableView: UITableView!
     lazy var tableAdapter = TableAdapter(tableView: tableView)
+    private var refreshAction: ((UIRefreshControl) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +23,15 @@ class TableComponentTableView: UITableViewCell, NibLoadable {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.alwaysBounceVertical = false
         tableView.separatorStyle = .none
+    }
+    
+    public func enableRefresh(action: @escaping (UIRefreshControl) -> Void) {
+        self.refreshAction = action
+        self.tableView.refreshControl = UIRefreshControl()
+        self.tableView.refreshControl?.addTarget(self, action: #selector(tableDidRefresh), for: .valueChanged)
+    }
+    
+    @objc private func tableDidRefresh(refresh: UIRefreshControl) {
+        refreshAction?(refresh)
     }
 }

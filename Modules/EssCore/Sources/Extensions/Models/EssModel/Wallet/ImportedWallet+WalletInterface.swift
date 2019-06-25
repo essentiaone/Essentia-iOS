@@ -10,7 +10,7 @@ import EssModel
 import CryptoSwift
 import HDWalletKit
 
-extension ImportedWallet: WalletInterface, ViewWalletInterface {
+extension ImportedWallet: CoinWalletInterface {
     public convenience init?(coin: EssModel.Coin, privateKey: String, name: String, lastBalance: Double) {
         let hdCoin: HDWalletKit.Coin = wrapCoin(coin: coin)
         let rawPrivateKey = PrivateKey(pk: privateKey, coin: hdCoin)

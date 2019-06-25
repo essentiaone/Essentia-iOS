@@ -33,9 +33,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     // MARK: - Lifecycle
     override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        (inject() as LoaderInterface).show()
         tableAdapter.hardReload([])
-        hardReload()
+        loadData()
+        tableAdapter.simpleReload(state)
         showOnbordingIfNeeded()
     }
     
@@ -45,7 +45,7 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - State
-    private func state() -> [TableComponent] {
+    public override var state: [TableComponent] {
         return staticState + dynamicState
     }
     
@@ -58,13 +58,13 @@ public class WalletMainViewController: BaseTableAdapterController {
             if isImportedWalletEmpty && isGeneratedWalletsEmpty {
                 return emptyState
             }
-            return [.tableWithCalculatableSpace(state: coinsState(), background: colorProvider.appBackgroundColor)]
+            return [.tableWithRefresh(state: coinsState(), action: refreshAction)]
         case 1:
             let isTokensEmpty = wallet?.tokenWallets.isEmpty ?? true
             if isTokensEmpty {
                 return emptyState
             }
-            return [.tableWithCalculatableSpace(state: tokensState(), background: colorProvider.appBackgroundColor)]
+            return [.tableWithRefresh(state: tokensState(), action: refreshAction)]
         default: return []
         }
     }
@@ -171,14 +171,18 @@ public class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Actions
     private lazy var segmentControlAction: (Int) -> Void = { [unowned self] in
-        (inject() as LoaderInterface).show()
         self.store.currentSegment = $0
-        (inject() as UserStorageServiceInterface).get({ _ in
-            self.loadBalances()
-        })
+//        (inject() as UserStorageServiceInterface).get({ _ in
+//            self.loadBalances()
+//        })
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3, execute: {
-            self.tableAdapter.simpleReload(self.state())
-            (inject() as LoaderInterface).hide()
+            self.tableAdapter.simpleReload(self.state)
+        })
+    }
+    
+    private lazy var refreshAction: (UIRefreshControl) -> Void = { [weak self] refresh in
+        self?.hardReload(action: {
+            refresh.endRefreshing()
         })
     }
     
@@ -198,7 +202,10 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     private lazy var updateBalanceChanginPerDay: () -> Void = { [unowned self] in
-        self.hardReload()
+        (inject() as LoaderInterface).show()
+        self.hardReload(action: {
+            (inject() as LoaderInterface).hide()
+        })
     }
     
     private func showWalletDetail(for wallet: ViewWalletInterface) {
@@ -210,25 +217,23 @@ public class WalletMainViewController: BaseTableAdapterController {
     }
     
     // MARK: - Private
-    private func hardReload() {
-        (inject() as LoaderInterface).show()
+    private func hardReload(action: @escaping () -> Void) {
         (inject() as CurrencyRankDaemonInterface).update { [unowned self] in
-            self.reloadAllComponents()
-            (inject() as LoaderInterface).hide()
+            self.reloadAllComponents(action)
         }
     }
     
-    private func reloadAllComponents() {
+    private func reloadAllComponents(_ completion: @escaping () -> Void) {
         self.loadData()
-        self.loadBalances()
+        self.loadBalances(completion)
         self.loadBalanceChangesPer24H()
-        self.tableAdapter.simpleReload(self.state())
+        self.tableAdapter.simpleReload(self.state)
     }
     
     private func loadBalanceChangesPer24H() {
         interator.getBalanceChangePer24Hours { [unowned self] (changes) in
             self.store.balanceChangedPer24Hours = changes
-            self.tableAdapter.simpleReload(self.state())
+            self.tableAdapter.simpleReload(self.state)
         }
     }
     
@@ -243,47 +248,51 @@ public class WalletMainViewController: BaseTableAdapterController {
         }), animated: true)
     }
     
-    private func loadBalances() {
+    private func loadBalances(_ completion: @escaping () -> Void) {
         switch store.currentSegment {
         case 0:
-            self.loadCoinBalances()
+            self.loadCoinBalances(completion)
         case 1:
-            self.loadTokenBalances()
+            self.loadTokenBalances(completion)
         default: return
         }
     }
     
-    private func loadCoinBalances() {
-        self.store.generatedWallets.enumerated().forEach { (arg) in
-            let address = arg.element.address
-            blockchainInterator.getCoinBalance(for: arg.element.coin, address: address, balance: { [unowned self] (balance) in
+    private func loadCoinBalances(_ completion: @escaping () -> Void) {
+        let wallets: [CoinWalletInterface] = self.store.generatedWallets + self.store.importedWallets
+        let group = DispatchGroup()
+        wallets.enumerated().forEach { (arg) in
+            group.enter()
+            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
+                group.leave()
                 (inject() as UserStorageServiceInterface).update({ _ in
                     self.store.generatedWallets[safe: arg.offset]?.lastBalance = balance
-                    self.tableAdapter.simpleReload(self.state())
+                    self.tableAdapter.simpleReload(self.state)
                 })
             })
         }
-        self.store.importedWallets.enumerated().forEach { (arg) in
-            blockchainInterator.getCoinBalance(for: arg.element.coin, address: arg.element.address, balance: { [unowned self] (balance) in
-                (inject() as UserStorageServiceInterface).update({ (user) in
-                    user.wallet?.importedWallets[safe: arg.offset]?.lastBalance = balance
-                    self.tableAdapter.simpleReload(self.state())
-                })
-            })
+        group.notify(queue: .main) {
+            completion()
         }
     }
     
-    private func loadTokenBalances() {
+    private func loadTokenBalances(_ completion: @escaping () -> Void) {
+        let group = DispatchGroup()
         self.store.tokens.forEach { (tokenWallet) in
             tokenWallet.value.enumerated().forEach({ indexedToken in
+                group.enter()
                 let address = indexedToken.element.address
                 blockchainInterator.getTokenBalance(for: indexedToken.element.token ?? Token(), address: address, balance: { [unowned self] (balance) in
+                    group.leave()
                     (inject() as UserStorageServiceInterface).update({ _ in
                         self.store.tokens[tokenWallet.key]?[indexedToken.offset].lastBalance = balance
-                        self.tableAdapter.simpleReload(self.state())
+                        self.tableAdapter.simpleReload(self.state)
                     })
                 })
             })
+        }
+        group.notify(queue: .main) {
+            completion()
         }
     }
     

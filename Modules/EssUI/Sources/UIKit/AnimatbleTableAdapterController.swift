@@ -11,7 +11,7 @@ import UIKit
 open class AnimatbleTableAdapterController: BaseTableAdapterController {
     public var isAnimationShow: Bool = false
     
-    public func showAnimation(_ delay: Double, execute: @escaping ()-> Void) {
+    public func showAnimation(_ delay: Double, execute: @escaping () -> Void) {
         tableAdapter.performTableUpdate(newState: state, withAnimation: .toTop)
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [unowned self] in
             self.isAnimationShow.toggle()
