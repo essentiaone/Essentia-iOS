@@ -9,6 +9,7 @@
 import Foundation
 import SVProgressHUD
 import EssModel
+import EssResources
 import EssDI
 
 public class Loader: LoaderInterface {

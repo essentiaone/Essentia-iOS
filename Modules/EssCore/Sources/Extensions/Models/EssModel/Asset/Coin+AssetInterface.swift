@@ -63,8 +63,8 @@ extension Coin: AssetInterface {
         case .bitcoin:
             return (inject() as AppColorInterface).coinsShadowColor
         case .ethereum:
-            return .lightGray
-        default: return .lightGray
+            return (inject() as AppColorInterface).balanceChanged
+        default: return (inject() as AppColorInterface).balanceChanged
         }
     }
     
