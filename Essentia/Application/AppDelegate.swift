@@ -18,6 +18,7 @@ import FirebaseMessaging
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     var window: UIWindow?
+    var blurEffectView: UIVisualEffectView?
     
     // MARK: - Dependencies
     private lazy var appStateEventProxy: AppStateEventProxyInterface = inject()
@@ -52,16 +53,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func applicationDidBecomeActive(_ application: UIApplication) {
         appStateEventProxy.applicationDidBecomeActive(application)
         
-        self.window?.viewWithTag(221122)?.removeFromSuperview()
+        blurEffectView?.removeFromSuperview()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
         appStateEventProxy.applicationWillResignActive(application)
         
-        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-        blurEffectView.frame = UIScreen.main.bounds
-        blurEffectView.tag = 221122
-        window?.addSubview(blurEffectView)
+        blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+        blurEffectView?.frame = UIScreen.main.bounds
+        window?.addSubview(blurEffectView ?? UIVisualEffectView())
     }
     
     // MARK: - Notifications
