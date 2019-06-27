@@ -1,9 +1,9 @@
 //
-//  SelectAccoutViewController.swift
+//  DeleteAccountViewController.swift
 //  Essentia
 //
-//  Created by Pavlo Boiko on 27.08.18.
-//  Copyright © 2018 Essentia-One. All rights reserved.
+//  Created by Pavlo Boiko on 6/26/19.
+//  Copyright © 2019 Essentia-One. All rights reserved.
 //
 
 import UIKit
@@ -14,26 +14,19 @@ import EssUI
 import EssDI
 import Crashlytics
 
-class SelectAccoutViewController: BaseBluredTableAdapterController {
+class DeleteAccountViewController: BaseBluredTableAdapterController {
     var users: [User] = []
-    weak var delegate: SelectAccountDelegate?
     
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
-    init(_ delegate: SelectAccountDelegate) {
-        self.delegate = delegate
-        super.init()
-    }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - State
-    
     override var state: [TableComponent] {
         return [
             .calculatbleSpace(background: .clear),
@@ -43,18 +36,11 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     private var containerState: [TableComponent] {
         let users = userService.users
-        logAccountsCount(usersCount: users.count)
         let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: colorProvider.appBackgroundColor),
-            
             .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
-            + usersState +
-            [.imageTitle(image: imageProvider.plusIcon,
-                         title: LS("Settings.Accounts.CreateNew"),
-                         withArrow: false,
-                         action: createUserAction),
-             .empty(height: 10, background: colorProvider.appBackgroundColor)]
+            + usersState
     }
     
     func viewUserState(_ user: ViewUser) -> [TableComponent] {
@@ -62,7 +48,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         return
             [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
                 self.dismiss(animated: true)
-                self.delegate?.didSelectUser(user)
+                
             }),
              .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]
     }
@@ -71,15 +57,5 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     private lazy var cancelAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
     }
-    
-    private lazy var createUserAction: () -> Void = { [unowned self] in
-        self.dismiss(animated: true)
-        self.delegate?.createNewUser()
-    }
-    
-    // MARK: - Analitics
-    
-    private func logAccountsCount(usersCount: Int) {
-        Answers.logCustomEvent(withName: "AccountsCount", customAttributes: ["count": usersCount])
-    }
 }
+

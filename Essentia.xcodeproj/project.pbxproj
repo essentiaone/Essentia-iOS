@@ -28,6 +28,7 @@
 		3401AFF1210A0885006DEF49 /* AuthRouterInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */; };
 		3401AFF3210A0AC6006DEF49 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */; };
 		340AC000219B0A6B00DEAFF1 /* FullSecuredViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */; };
+		340D079B22C3C18700F49FB5 /* DeleteAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340D079A22C3C18700F49FB5 /* DeleteAccountViewController.swift */; };
 		34115E072134AEDA00A54B7E /* SettingsSecurityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */; };
 		34115E1321368E9900A54B7E /* NotificationsPlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */; };
 		341A527122A717BE000A629B /* DonePurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341A527022A717BE000A629B /* DonePurchaseViewController.swift */; };
@@ -155,6 +156,7 @@
 		3401AFF0210A0885006DEF49 /* AuthRouterInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouterInterface.swift; sourceTree = "<group>"; };
 		3401AFF2210A0AC6006DEF49 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		340ABFFF219B0A6B00DEAFF1 /* FullSecuredViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullSecuredViewController.swift; sourceTree = "<group>"; };
+		340D079A22C3C18700F49FB5 /* DeleteAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountViewController.swift; sourceTree = "<group>"; };
 		34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSecurityViewController.swift; sourceTree = "<group>"; };
 		34115E1221368E9900A54B7E /* NotificationsPlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsPlaceholderViewController.swift; sourceTree = "<group>"; };
 		341A527022A717BE000A629B /* DonePurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonePurchaseViewController.swift; sourceTree = "<group>"; };
@@ -696,6 +698,7 @@
 				34115E062134AEDA00A54B7E /* SettingsSecurityViewController.swift */,
 				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
 				34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */,
+				340D079A22C3C18700F49FB5 /* DeleteAccountViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				346C8F12229F40F900DED862 /* WalletDetailViewController.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
+				340D079B22C3C18700F49FB5 /* DeleteAccountViewController.swift in Sources */,
 				346C8F1C229F40F900DED862 /* SelectWalletPopUp.swift in Sources */,
 				3401AFCC21022B1F006DEF49 /* CenteringCollectionViewAdapter.swift in Sources */,
 				346C8F20229F40F900DED862 /* SelectedTransacrionAmmount.swift in Sources */,

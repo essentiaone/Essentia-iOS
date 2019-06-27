@@ -516,6 +516,16 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.font = AppFont.bold.withSize(21)
             cell.titleLabel.text = title
+            cell.cancelButton.tintColor = (inject() as AppColorInterface).appTitleColor
+            cell.cancelButton.setImage(imageProvider.cancelIcon, for: .normal)
+            cell.action = action
+            return cell
+        case .titleWithDetailAction(let title, let detailTitle, let action):
+            let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.font = AppFont.bold.withSize(21)
+            cell.titleLabel.text = title
+            cell.cancelButton.tintColor = (inject() as AppColorInterface).persianBlueColor
+            cell.cancelButton.setTitle(detailTitle, for: .normal)
             cell.action = action
             return cell
         case .transactionDetail(let icon, let title, let subtitle, let description, _):

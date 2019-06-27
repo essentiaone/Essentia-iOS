@@ -93,6 +93,7 @@ public enum TableComponent: Equatable {
     case calculatableContainer(state: [TableComponent])
     // MARK: - PoUp
     case titleWithCancel(title: String, action: () -> Void)
+    case titleWithDetailAction(title: String, detailTitle: String, action: () -> Void)
     // MARK: - Equatable
     public static func==(lhs: TableComponent, rhs: TableComponent) -> Bool {
         return lhs.rawValue == rhs.rawValue

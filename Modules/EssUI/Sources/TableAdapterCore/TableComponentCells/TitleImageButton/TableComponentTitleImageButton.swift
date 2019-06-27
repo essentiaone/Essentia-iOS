@@ -19,16 +19,6 @@ class TableComponentTitleImageButton: UITableViewCell, NibLoadable {
     
     var action: (() -> Void)?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        applyDesign()
-    }
-    
-    private func applyDesign() {
-        cancelButton.tintColor = colorProvider.appTitleColor
-        cancelButton.setImage(imageProvider.cancelIcon, for: .normal)
-    }
-    
     @IBAction func cancelAction(_ sender: Any) {
         action?()
     }
