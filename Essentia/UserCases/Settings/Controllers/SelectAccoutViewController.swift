@@ -47,8 +47,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
         let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: colorProvider.appBackgroundColor),
-            
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
+            .titleWithDetailAction(title:  LS("Settings.Accounts.Title"), detailTitle: LS("Settings.Accounts.Edit"), action: editAction)]
             + usersState +
             [.imageTitle(image: imageProvider.plusIcon,
                          title: LS("Settings.Accounts.CreateNew"),
@@ -68,7 +67,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var cancelAction: () -> Void = { [unowned self] in
+    private lazy var editAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
     }
     

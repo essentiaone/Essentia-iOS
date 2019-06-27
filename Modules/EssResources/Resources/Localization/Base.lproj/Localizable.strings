@@ -108,6 +108,7 @@
 "Settings.Language.Title" = "Language";
 
 "Settings.Accounts.Title" = "Accounts";
+"Settings.Accounts.Edit" = "Edit";
 "Settings.Accounts.CreateNew" = "Create Account";
 
 "Settings.ImportWeb.Title" = "Import from Essentia Web";

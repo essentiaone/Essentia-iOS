@@ -132,7 +132,8 @@ public class TableAdapterHelper {
         case .balanceChanging: fallthrough
         case .balanceChangingWithRank:
             return 25.0
-        case .titleWithCancel:
+        case .titleWithCancel: fallthrough
+        case .titleWithDetailAction:
             return 40.0
         case .transactionDetail:
             return 65.0
