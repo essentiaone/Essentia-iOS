@@ -22,10 +22,6 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     // MARK: - State
     override var state: [TableComponent] {
         return [
@@ -39,7 +35,7 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
         let usersState = users |> viewUserState |> concat
         return [
             .empty(height: 10, background: colorProvider.appBackgroundColor),
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
+            .titleWithDetailAction(title:  LS("Settings.Accounts.Title"), detailTitle: LS("Settings.Accounts.Cancel"), action: cancelAction)]
             + usersState
     }
     
@@ -58,4 +54,3 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
         self.dismiss(animated: true)
     }
 }
-

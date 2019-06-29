@@ -95,6 +95,7 @@
 		34B27A4E2133712200527F15 /* SelectAccoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B27A4D2133712200527F15 /* SelectAccoutViewController.swift */; };
 		34B612DD220DAC1A006EA6B3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */; };
 		34C0911E223808DA000FAF5C /* CenteringLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0911D223808DA000FAF5C /* CenteringLayout.swift */; };
+		34C0AD5922C665D800B5F8FC /* DeleteAccountAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0AD5822C665D800B5F8FC /* DeleteAccountAlertViewController.swift */; };
 		34C19BC62224228800B02203 /* ImportAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC52224228800B02203 /* ImportAccountViewController.swift */; };
 		34C19BC82226E46500B02203 /* ImportFromOtherWallets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */; };
 		34D9C96121F9311D00B3A625 /* EssUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 345747BF21F5BB95006E2EAB /* EssUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -227,6 +228,7 @@
 		34B612DC220DAC1A006EA6B3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34B612DF220DB704006EA6B3 /* Essentia.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Essentia.entitlements; sourceTree = "<group>"; };
 		34C0911D223808DA000FAF5C /* CenteringLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteringLayout.swift; sourceTree = "<group>"; };
+		34C0AD5822C665D800B5F8FC /* DeleteAccountAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountAlertViewController.swift; sourceTree = "<group>"; };
 		34C19BC52224228800B02203 /* ImportAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAccountViewController.swift; sourceTree = "<group>"; };
 		34C19BC72226E46500B02203 /* ImportFromOtherWallets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFromOtherWallets.swift; sourceTree = "<group>"; };
 		34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmLogOutViewController.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				34ECE48B2136F10A008D9696 /* ConfirmLogOutViewController.swift */,
 				34ECE48F21374247008D9696 /* SettingsEditUserViewController.swift */,
 				340D079A22C3C18700F49FB5 /* DeleteAccountViewController.swift */,
+				34C0AD5822C665D800B5F8FC /* DeleteAccountAlertViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -941,6 +944,7 @@
 				346C8F1E229F40F900DED862 /* BackupMnemonicAlert.swift in Sources */,
 				346C8F26229F40F900DED862 /* ConfirmUtxoTxDetailViewController.swift in Sources */,
 				346C8F12229F40F900DED862 /* WalletDetailViewController.swift in Sources */,
+				34C0AD5922C665D800B5F8FC /* DeleteAccountAlertViewController.swift in Sources */,
 				34416805212F6F33008B8A91 /* SettingsCurrencyViewController.swift in Sources */,
 				3401AF5520F807FB006DEF49 /* WelcomeViewController.swift in Sources */,
 				340D079B22C3C18700F49FB5 /* DeleteAccountViewController.swift in Sources */,
@@ -1154,6 +1158,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Essentia/Essentia.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 117;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
