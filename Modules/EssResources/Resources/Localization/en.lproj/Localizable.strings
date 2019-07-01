@@ -109,6 +109,7 @@
 
 "Settings.Accounts.Title" = "Accounts";
 "Settings.Accounts.Edit" = "Edit";
+"Settings.Accounts.Cancel" = "Cancel";
 "Settings.Accounts.CreateNew" = "Create Account";
 
 "Settings.ImportWeb.Title" = "Import from Essentia Web";

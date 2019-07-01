@@ -68,7 +68,11 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     // MARK: - Actions
     private lazy var editAction: () -> Void = { [unowned self] in
-        self.present(DeleteAccountViewController(), animated: true)
+        self.present(DeleteAccountViewController(deletedAction: {
+            self.dismiss(animated: true, completion: {
+                (inject() as LoaderInterface).showInfo("Account Deleted")
+            })
+        }), animated: true)
     }
     
     private lazy var createUserAction: () -> Void = { [unowned self] in
