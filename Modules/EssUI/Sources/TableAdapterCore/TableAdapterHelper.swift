@@ -104,6 +104,7 @@ public class TableAdapterHelper {
         case .imageUrlTitle: fallthrough
         case .imageTitle: fallthrough
         case .titleSubtitle: fallthrough
+        case .imageTitleRightImage: fallthrough
         case .assetBalance: fallthrough
         case .titleSubtitleDescription: fallthrough
         case .imageRightTitleSubtitle: fallthrough

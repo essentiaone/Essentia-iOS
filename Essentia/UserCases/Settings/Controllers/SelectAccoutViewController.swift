@@ -22,6 +22,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
         self.delegate = delegate
@@ -78,6 +79,10 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     private lazy var createUserAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
         self.delegate?.createNewUser()
+    }
+    
+    private lazy var cancelAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
     // MARK: - Analitics

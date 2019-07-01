@@ -53,7 +53,7 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
     func viewUserState(_ user: ViewUser) -> [TableComponent] {
         let icon = AvatarHashView(hash: user.id, frame: CGRect(x: 0, y: 0, width: 40, height: 40)).image
         return
-            [.imageTitle(image: icon, title: user.name, withArrow: true, action: { [unowned self] in
+            [.imageTitleRightImage(image: icon, title: user.name, image: imageProvider.greyCancel, action: { [unowned self] in
                 self.checkLoginToUser(user)
             }),
              .separator(inset: UIEdgeInsets(top: 0, left: 45, bottom: 0, right: 0))]

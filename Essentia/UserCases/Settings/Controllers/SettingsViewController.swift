@@ -127,6 +127,10 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .menuButton(title: LS("Settings.LogOut"),
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
+             .empty(height: 1, background: colorProvider.settingsBackgroud),
+             .menuButton(title: LS("Settings.Delete"),
+                         color: colorProvider.settingsMenuLogOut,
+                         action: deleteAction),
              .calculatbleSpace(background: colorProvider.settingsBackgroud),
              .empty(height: 8, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .center,
@@ -201,13 +205,25 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var logOutAction: () -> Void = { [unowned self] in
-        self.logOutUser()
+        self.logOutUser(finish: {})
     }
     
-    func logOutUser() {
+    private lazy var deleteAction: () -> Void = { [unowned self] in
+        guard let user = self.viewUserService.current else { return }
+        self.present(DeleteAccountAlertViewController(leftAction: {
+            self.viewUserService.remove(user)
+            self.logOutUser(finish: {
+                (inject() as LoaderInterface).showInfo("Account Deleted")
+            })
+        }, rightAction: {
+            self.dismiss(animated: true)
+        }), animated: true)
+    }
+    
+    func logOutUser(finish: @escaping () -> Void) {
         EssentiaStore.shared.setUser(User())
         prepareInjection(DefaultUserStorage() as UserStorageServiceInterface, memoryPolicy: .viewController)
-        (inject() as SettingsRouterInterface).logOut()
+        (inject() as SettingsRouterInterface).logOut(finish: finish)
     }
     
     private lazy var securityAction: () -> Void = { [unowned self] in

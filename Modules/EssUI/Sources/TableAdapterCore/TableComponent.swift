@@ -26,6 +26,7 @@ public enum TableComponent: Equatable {
     case textField(placeholder: String, text: String, endEditing: (String) -> Void, isFirstResponder: Bool)
     case textView(placeholder: String, text: String, endEditing: (String) -> Void)
     case imageTitle(image: UIImage, title: String, withArrow: Bool, action: () -> Void)
+    case imageTitleRightImage(image: UIImage, title: String, image: UIImage, action: () -> Void)
     case imageUrlTitle(imageUrl: URL, title: String, withArrow: Bool, action: () -> Void)
     case centeredButton(title: String, isEnable: Bool, action: () -> Void, background: UIColor)
     case actionCenteredButton(title: String, action: () -> Void, textColor: UIColor, backgrount: UIColor)

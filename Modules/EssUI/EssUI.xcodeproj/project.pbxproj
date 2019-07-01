@@ -69,6 +69,8 @@
 		3478F87621ECE35D00D54FEF /* EssUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3478F87521ECE35D00D54FEF /* EssUITests.swift */; };
 		3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482B2962255598D0072FD02 /* TableComponentAlert.swift */; };
 		3482B29B225559B00072FD02 /* TableComponentAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3482B29A225559B00072FD02 /* TableComponentAlert.xib */; };
+		34C0AD5C22C9AC1D00B5F8FC /* TableComponentImageTitleRightImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C0AD5B22C9AC1D00B5F8FC /* TableComponentImageTitleRightImage.swift */; };
+		34C0AD5E22C9AC2A00B5F8FC /* TableComponentImageTitleRightImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34C0AD5D22C9AC2A00B5F8FC /* TableComponentImageTitleRightImage.xib */; };
 		34CA77E021ECF5AC003612EE /* ComponentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775821ECF5AC003612EE /* ComponentState.swift */; };
 		34CA77E121ECF5AC003612EE /* TableComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34CA775921ECF5AC003612EE /* TableComponent.swift */; };
 		34CA77E221ECF5AC003612EE /* TableComponentTransaction.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */; };
@@ -246,6 +248,8 @@
 		3478F87721ECE35D00D54FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3482B2962255598D0072FD02 /* TableComponentAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentAlert.swift; sourceTree = "<group>"; };
 		3482B29A225559B00072FD02 /* TableComponentAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentAlert.xib; sourceTree = "<group>"; };
+		34C0AD5B22C9AC1D00B5F8FC /* TableComponentImageTitleRightImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableComponentImageTitleRightImage.swift; sourceTree = "<group>"; };
+		34C0AD5D22C9AC2A00B5F8FC /* TableComponentImageTitleRightImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableComponentImageTitleRightImage.xib; sourceTree = "<group>"; };
 		34CA775821ECF5AC003612EE /* ComponentState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentState.swift; sourceTree = "<group>"; };
 		34CA775921ECF5AC003612EE /* TableComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableComponent.swift; sourceTree = "<group>"; };
 		34CA775C21ECF5AC003612EE /* TableComponentTransaction.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableComponentTransaction.xib; sourceTree = "<group>"; };
@@ -637,6 +641,15 @@
 			path = TableComponentAlert;
 			sourceTree = "<group>";
 		};
+		34C0AD5A22C9AC0400B5F8FC /* ImageTitleRightImage */ = {
+			isa = PBXGroup;
+			children = (
+				34C0AD5B22C9AC1D00B5F8FC /* TableComponentImageTitleRightImage.swift */,
+				34C0AD5D22C9AC2A00B5F8FC /* TableComponentImageTitleRightImage.xib */,
+			);
+			path = ImageTitleRightImage;
+			sourceTree = "<group>";
+		};
 		34CA773A21ECED6F003612EE /* Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +665,7 @@
 		34CA775A21ECF5AC003612EE /* TableComponentCells */ = {
 			isa = PBXGroup;
 			children = (
+				34C0AD5A22C9AC0400B5F8FC /* ImageTitleRightImage */,
 				3423A6DE229BF4EE0098F071 /* TableComponentImageRightTitleSubtitle */,
 				344B87DA22942FD000840DE2 /* ButtonWithSubtitle */,
 				CE335D8B2281A2D900DAF943 /* BorderedButton */,
@@ -1202,6 +1216,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C0AD5E22C9AC2A00B5F8FC /* TableComponentImageTitleRightImage.xib in Resources */,
 				34CA782621ECF5AC003612EE /* TableComponentSwitch.xib in Resources */,
 				34CA77E421ECF5AC003612EE /* TableComponentCheckField.xib in Resources */,
 				34CA77F821ECF5AC003612EE /* TableComponentParagraph.xib in Resources */,
@@ -1337,6 +1352,7 @@
 				342A922421F90358009840DD /* String+CharacterSet.swift in Sources */,
 				34CA783C21ECF5AC003612EE /* TableAdapterHelper.swift in Sources */,
 				34CA782C21ECF5AC003612EE /* TableComponentImageTitleSubtitle.swift in Sources */,
+				34C0AD5C22C9AC1D00B5F8FC /* TableComponentImageTitleRightImage.swift in Sources */,
 				342A922221F9025E009840DD /* EssCharacters.swift in Sources */,
 				345D6E0021EFBC7800C59398 /* BaseTableAdapterController.swift in Sources */,
 				3482B2972255598D0072FD02 /* TableComponentAlert.swift in Sources */,

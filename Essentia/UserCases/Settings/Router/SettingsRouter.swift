@@ -35,9 +35,11 @@ class SettingsRouter: BaseRouter, SettingsRouterInterface {
         }
     }
     
-    func logOut() {
+    func logOut(finish: @escaping () -> Void) {
         let root = UIApplication.shared.keyWindow?.rootViewController as? WelcomeViewController
-        root?.dismiss(animated: true)
+        root?.dismiss(animated: true, completion: {
+            finish()
+        })
         root?.showFlipAnimation()
     }
     

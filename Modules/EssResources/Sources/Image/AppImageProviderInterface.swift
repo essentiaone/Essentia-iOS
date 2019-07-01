@@ -29,6 +29,7 @@ public protocol AppImageProviderInterface {
     var darkDotIcon: UIImage { get }
     var checkIcon: UIImage { get }
     var cancelIcon: UIImage { get }
+    var greyCancel: UIImage { get }
     var plusIcon: UIImage { get }
     var notificationPlaceholderIcon: UIImage { get }
     var warningIcon: UIImage { get }

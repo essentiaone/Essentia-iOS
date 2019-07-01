@@ -91,6 +91,7 @@
 "Settings.Feedback" = "Feedback";
 "Settings.Switch" = "Switch Account";
 "Settings.LogOut" = "Log Out";
+"Settings.Delete" = "Delete Account";
 
 "DeleteAccountAlert.Title" = "Delete Account";
 "DeleteAccountAlert.Description" = "Please verify you want to delete your account, all your data and assets will be removed from current device";
