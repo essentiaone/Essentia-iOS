@@ -127,12 +127,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .menuButton(title: LS("Settings.LogOut"),
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
-             .empty(height: 1, background: colorProvider.settingsBackgroud),
-             .menuButton(title: LS("Settings.Delete"),
-                         color: colorProvider.settingsMenuLogOut,
-                         action: deleteAction),
-             .calculatbleSpace(background: colorProvider.settingsBackgroud),
-             .empty(height: 8, background: colorProvider.settingsBackgroud),
+             .empty(height: 1, background: colorProvider.settingsBackgroud)]
+                + deleteAccountState +
+             [.empty(height: 8, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .center,
                                   fontSize: 14,
                                   title: appVersion,
@@ -140,6 +137,16 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                                   textColor: colorProvider.appDefaultTextColor),
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
+    }
+
+    private var deleteAccountState: [TableComponent] {
+        guard currentSecurity != 0 else { return [] }
+        return [
+            .menuButton(title: LS("Settings.Delete"),
+                       color: colorProvider.settingsMenuLogOut,
+                       action: deleteAction),
+            .calculatbleSpace(background: colorProvider.settingsBackgroud)
+        ]
     }
     
     private var appVersion: String {
@@ -216,7 +223,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                 (inject() as LoaderInterface).showInfo("Account Deleted")
             })
         }, rightAction: {
-            self.dismiss(animated: true)
         }), animated: true)
     }
     
@@ -282,6 +288,15 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     func didSetUser(user: User) -> Bool {
         TabBarController.shared.selectedIndex = 0
         return true
+    }
+    
+    func didDelete(userId: String) {
+        if userId == (inject() as UserStorageServiceInterface).getOnly.id {
+            logOutUser {
+                (inject() as LoaderInterface).showInfo("Account Deleted")
+            }
+        }
+        (inject() as LoaderInterface).showInfo("Account Deleted")
     }
     
     func createNewUser() {

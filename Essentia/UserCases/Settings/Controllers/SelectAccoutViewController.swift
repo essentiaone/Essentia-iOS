@@ -14,7 +14,7 @@ import EssUI
 import EssDI
 import Crashlytics
 
-class SelectAccoutViewController: BaseBluredTableAdapterController {
+class SelectAccoutViewController: BaseTableAdapterController {
     var users: [User] = []
     weak var delegate: SelectAccountDelegate?
     
@@ -36,19 +36,16 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     // MARK: - State
     
     override var state: [TableComponent] {
-        return [
-            .calculatbleSpace(background: .clear),
-            .container(state: containerState),
-            .empty(height: 18, background: .clear)]
-    }
-    
-    private var containerState: [TableComponent] {
         let users = userService.users
         logAccountsCount(usersCount: users.count)
         let usersState = users |> viewUserState |> concat
         return [
-            .empty(height: 10, background: colorProvider.appBackgroundColor),
-            .titleWithDetailAction(title:  LS("Settings.Accounts.Title"), detailTitle: LS("Settings.Accounts.Edit"), action: editAction)]
+            .empty(height: 25, background: colorProvider.settingsCellsBackround),
+            .navigationBar(left: LS("EditAccount.Back"),
+                           right: LS("Settings.Accounts.Edit"),
+                           title: LS("Settings.Accounts.Title"),
+                           lAction: cancelAction,
+                           rAction: editAction)]
             + usersState +
             [.imageTitle(image: imageProvider.plusIcon,
                          title: LS("Settings.Accounts.CreateNew"),
@@ -69,9 +66,9 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     
     // MARK: - Actions
     private lazy var editAction: () -> Void = { [unowned self] in
-        self.present(DeleteAccountViewController(deletedAction: {
+        self.present(DeleteAccountViewController(deletedAction: { userId in
             self.dismiss(animated: true, completion: {
-                (inject() as LoaderInterface).showInfo("Account Deleted")
+                self.delegate?.didDelete(userId: userId)
             })
         }), animated: true)
     }

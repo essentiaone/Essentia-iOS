@@ -14,9 +14,9 @@ import EssUI
 import EssDI
 import Crashlytics
 
-class DeleteAccountViewController: BaseBluredTableAdapterController {
+class DeleteAccountViewController: BaseTableAdapterController {
     var users: [User] = []
-    var deletedAction: () -> Void
+    var deletedAction: (_ userId: String) -> Void
     
     // MARK: - Dependences
     private lazy var userService: ViewUserStorageServiceInterface = inject()
@@ -24,7 +24,7 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
     private lazy var colorProvider: AppColorInterface = inject()
     private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
     
-    init(deletedAction: @escaping () -> Void) {
+    init(deletedAction: @escaping (_ userId: String) -> Void) {
         self.deletedAction = deletedAction
         super.init()
     }
@@ -35,18 +35,15 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
     
     // MARK: - State
     override var state: [TableComponent] {
-        return [
-            .calculatbleSpace(background: .clear),
-            .container(state: containerState),
-            .empty(height: 18, background: .clear)]
-    }
-    
-    private var containerState: [TableComponent] {
         let users = userService.users
         let usersState = users |> viewUserState |> concat
         return [
-            .empty(height: 10, background: colorProvider.appBackgroundColor),
-            .titleWithDetailAction(title:  LS("Settings.Accounts.Title"), detailTitle: LS("Settings.Accounts.Cancel"), action: cancelAction)]
+            .empty(height: 25, background: colorProvider.settingsCellsBackround),
+            .navigationBar(left: LS("EditAccount.Back"),
+                           right: "",
+                           title: LS("Settings.Accounts.Title"),
+                           lAction: cancelAction,
+                           rAction: nil)]
             + usersState
     }
     
@@ -60,12 +57,13 @@ class DeleteAccountViewController: BaseBluredTableAdapterController {
     }
     
     private func checkLoginToUser(_ user: ViewUser) {
+        let userId = user.id
         let loginVc = LoginPasswordViewController(userId: user.id, hash: user.passwordHash, password: { _ in
             self.dismiss(animated: true)
             self.present(DeleteAccountAlertViewController(leftAction: {
                  self.viewUserService.remove(user)
                 self.dismiss(animated: true, completion: {
-                    self.deletedAction()
+                    self.deletedAction(userId)
                 })
             }, rightAction: {
                 self.dismiss(animated: true)

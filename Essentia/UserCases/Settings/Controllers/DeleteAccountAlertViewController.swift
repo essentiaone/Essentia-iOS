@@ -25,7 +25,7 @@ class DeleteAccountAlertViewController: QuestionAlertViewController {
         descriptionLabel.text = LS("DeleteAccountAlert.Description")
         leftButton.setTitle(LS("DeleteAccountAlert.LeftButton"), for: .normal)
         rightButton.setTitle(LS("DeleteAccountAlert.RightButton"), for: .normal)
-        leftButton.setTitleColor((inject() as AppColorInterface).appDefaultTextColor, for: .normal)
-        rightButton.setTitleColor((inject() as AppColorInterface).centeredButtonBackgroudColor, for: .normal)
+        leftButton.setTitleColor((inject() as AppColorInterface).centeredButtonBackgroudColor, for: .normal)
+        rightButton.setTitleColor((inject() as AppColorInterface).appDefaultTextColor, for: .normal)
     }
 }

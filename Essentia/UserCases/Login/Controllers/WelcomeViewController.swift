@@ -145,6 +145,10 @@ class WelcomeViewController: BaseTableAdapterController, ImportAccountDelegate, 
         return true
     }
     
+    func didDelete(userId: String) {
+        (inject() as LoaderInterface).showInfo("Account Deleted")
+    }
+    
     func showTabBar() {
         TabBarController.shared.selectedIndex = 0
         self.present(TabBarController.shared, animated: true)
