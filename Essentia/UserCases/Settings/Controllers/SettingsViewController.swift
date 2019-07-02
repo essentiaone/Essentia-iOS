@@ -64,6 +64,7 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     private var dynamicContent: [TableComponent] {
         let user = EssentiaStore.shared.currentUser
         let showSecureStatus = !(user.userEvents?.isAccountFullySecuredShown ?? false)
+        let showDeleteAccount = currentSecurity != 0
         let rawState: [TableComponent?] =
             [showSecureStatus ?
                 .accountStrengthAction(action: accountStrenghtAction, status: secureAnimationStatus, currentLevel: currentSecurity):
@@ -127,9 +128,13 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .menuButton(title: LS("Settings.LogOut"),
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
-             .empty(height: 1, background: colorProvider.settingsBackgroud)]
-                + deleteAccountState +
-             [.empty(height: 8, background: colorProvider.settingsBackgroud),
+             .empty(height: 1, background: colorProvider.settingsBackgroud),
+             showDeleteAccount ? .menuButton(title: LS("Settings.Delete"),
+                color: colorProvider.settingsMenuLogOut,
+                action: deleteAction) : .empty(height: 0, background: .clear),
+             showDeleteAccount ? .calculatbleSpace(background: colorProvider.settingsBackgroud):
+                .empty(height: 0, background: .clear),
+             .empty(height: 8, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .center,
                                   fontSize: 14,
                                   title: appVersion,
@@ -137,16 +142,6 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                                   textColor: colorProvider.appDefaultTextColor),
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
-    }
-
-    private var deleteAccountState: [TableComponent] {
-        guard currentSecurity != 0 else { return [] }
-        return [
-            .menuButton(title: LS("Settings.Delete"),
-                       color: colorProvider.settingsMenuLogOut,
-                       action: deleteAction),
-            .calculatbleSpace(background: colorProvider.settingsBackgroud)
-        ]
     }
     
     private var appVersion: String {
