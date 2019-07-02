@@ -86,6 +86,12 @@
 "Settings.Feedback" = "Feedback";
 "Settings.Switch" = "Switch Account";
 "Settings.LogOut" = "Log Out";
+"Settings.Delete" = "Delete Account";
+
+"DeleteAccountAlert.Title" = "Delete Account";
+"DeleteAccountAlert.Description" = "Please verify you want to delete your account, all your data and assets will be removed from current device";
+"DeleteAccountAlert.LeftButton" = "DELETE";
+"DeleteAccountAlert.RightButton" = "CANCEL";
 
 "Settings.Secure.Back" = "Settings";
 "Settings.Secure.Title" = "Take these steps to enhance your security";
@@ -103,6 +109,8 @@
 "Settings.Language.Title" = "언어";
 
 "Settings.Accounts.Title" = "Accounts";
+"Settings.Accounts.Edit" = "Edit";
+"Settings.Accounts.Cancel" = "Cancel";
 "Settings.Accounts.CreateNew" = "Create Account";
 
 "Settings.ImportWeb.Title" = "Import from Essentia Web";

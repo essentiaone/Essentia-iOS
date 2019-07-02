@@ -70,6 +70,8 @@ public class RealmUserStorage: UserStorageServiceInterface {
         autoreleasepool {
             let realm = try! Realm(configuration: config)
             realm.deleteAll()
+            let dbPath = LocalFolderPath.subFolder("Users", .final(getOnly.id))
+            try? (inject() as LocalFilesServiceInterface).removeFile(at: dbPath, with: "")
         }
     }
     

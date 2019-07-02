@@ -85,6 +85,12 @@
 "Settings.Feedback" = "反馈";
 "Settings.Switch" = "切换帐户";
 "Settings.LogOut" = "注销";
+"Settings.Delete" = "Delete Account";
+
+"DeleteAccountAlert.Title" = "Delete Account";
+"DeleteAccountAlert.Description" = "Please verify you want to delete your account, all your data and assets will be removed from current device";
+"DeleteAccountAlert.LeftButton" = "DELETE";
+"DeleteAccountAlert.RightButton" = "CANCEL";
 
 "Settings.Secure.Back" = "设置";
 "Settings.Secure.Title" = "采取这些步骤来增强您的安全性";
@@ -102,6 +108,8 @@
 "Settings.Language.Title" = "语言";
 
 "Settings.Accounts.Title" = "帐户";
+"Settings.Accounts.Edit" = "Edit";
+"Settings.Accounts.Cancel" = "Cancel";
 "Settings.Accounts.CreateNew" = "创建帐户";
 
 "Settings.ImportWeb.Title" = "Import from Essentia Web";

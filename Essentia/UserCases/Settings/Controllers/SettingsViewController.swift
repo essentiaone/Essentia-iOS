@@ -127,8 +127,9 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
              .menuButton(title: LS("Settings.LogOut"),
                          color: colorProvider.settingsMenuLogOut,
                          action: logOutAction),
-             .calculatbleSpace(background: colorProvider.settingsBackgroud),
-             .empty(height: 8, background: colorProvider.settingsBackgroud),
+             .empty(height: 1, background: colorProvider.settingsBackgroud)]
+                + deleteAccountState +
+             [.empty(height: 8, background: colorProvider.settingsBackgroud),
              .descriptionWithSize(aligment: .center,
                                   fontSize: 14,
                                   title: appVersion,
@@ -136,6 +137,16 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
                                   textColor: colorProvider.appDefaultTextColor),
              .empty(height: 8, background: colorProvider.settingsBackgroud)]
         return rawState.compactMap { return $0 }
+    }
+
+    private var deleteAccountState: [TableComponent] {
+        guard currentSecurity != 0 else { return [] }
+        return [
+            .menuButton(title: LS("Settings.Delete"),
+                       color: colorProvider.settingsMenuLogOut,
+                       action: deleteAction),
+            .calculatbleSpace(background: colorProvider.settingsBackgroud)
+        ]
     }
     
     private var appVersion: String {
@@ -201,13 +212,24 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     }
     
     private lazy var logOutAction: () -> Void = { [unowned self] in
-        self.logOutUser()
+        self.logOutUser(finish: {})
     }
     
-    func logOutUser() {
+    private lazy var deleteAction: () -> Void = { [unowned self] in
+        guard let user = self.viewUserService.current else { return }
+        self.present(DeleteAccountAlertViewController(leftAction: {
+            self.viewUserService.remove(user)
+            self.logOutUser(finish: {
+                (inject() as LoaderInterface).showInfo("Account Deleted")
+            })
+        }, rightAction: {
+        }), animated: true)
+    }
+    
+    func logOutUser(finish: @escaping () -> Void) {
         EssentiaStore.shared.setUser(User())
         prepareInjection(DefaultUserStorage() as UserStorageServiceInterface, memoryPolicy: .viewController)
-        (inject() as SettingsRouterInterface).logOut()
+        (inject() as SettingsRouterInterface).logOut(finish: finish)
     }
     
     private lazy var securityAction: () -> Void = { [unowned self] in
@@ -266,6 +288,15 @@ class SettingsViewController: BaseTableAdapterController, SelectAccountDelegate 
     func didSetUser(user: User) -> Bool {
         TabBarController.shared.selectedIndex = 0
         return true
+    }
+    
+    func didDelete(userId: String) {
+        if userId == (inject() as UserStorageServiceInterface).getOnly.id {
+            logOutUser {
+                (inject() as LoaderInterface).showInfo("Account Deleted")
+            }
+        }
+        (inject() as LoaderInterface).showInfo("Account Deleted")
     }
     
     func createNewUser() {

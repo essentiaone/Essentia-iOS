@@ -13,4 +13,5 @@ public protocol SelectAccountDelegate: class {
     func didSelectUser(_ user: ViewUser)
     @discardableResult func didSetUser(user: User) -> Bool
     func createNewUser()
+    func didDelete(userId: String)
 }

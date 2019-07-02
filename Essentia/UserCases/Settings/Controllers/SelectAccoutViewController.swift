@@ -14,7 +14,7 @@ import EssUI
 import EssDI
 import Crashlytics
 
-class SelectAccoutViewController: BaseBluredTableAdapterController {
+class SelectAccoutViewController: BaseTableAdapterController {
     var users: [User] = []
     weak var delegate: SelectAccountDelegate?
     
@@ -22,6 +22,7 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     private lazy var userService: ViewUserStorageServiceInterface = inject()
     private lazy var imageProvider: AppImageProviderInterface = inject()
     private lazy var colorProvider: AppColorInterface = inject()
+    private lazy var viewUserService: ViewUserStorageServiceInterface = inject()
     
     init(_ delegate: SelectAccountDelegate) {
         self.delegate = delegate
@@ -35,19 +36,16 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     // MARK: - State
     
     override var state: [TableComponent] {
-        return [
-            .calculatbleSpace(background: .clear),
-            .container(state: containerState),
-            .empty(height: 18, background: .clear)]
-    }
-    
-    private var containerState: [TableComponent] {
         let users = userService.users
         logAccountsCount(usersCount: users.count)
         let usersState = users |> viewUserState |> concat
         return [
-            .empty(height: 10, background: colorProvider.appBackgroundColor),
-            .titleWithCancel(title: LS("Settings.Accounts.Title"), action: cancelAction)]
+            .empty(height: 25, background: colorProvider.settingsCellsBackround),
+            .navigationBar(left: LS("EditAccount.Back"),
+                           right: LS("Settings.Accounts.Edit"),
+                           title: LS("Settings.Accounts.Title"),
+                           lAction: cancelAction,
+                           rAction: editAction)]
             + usersState +
             [.imageTitle(image: imageProvider.plusIcon,
                          title: LS("Settings.Accounts.CreateNew"),
@@ -67,13 +65,21 @@ class SelectAccoutViewController: BaseBluredTableAdapterController {
     }
     
     // MARK: - Actions
-    private lazy var cancelAction: () -> Void = { [unowned self] in
-        self.dismiss(animated: true)
+    private lazy var editAction: () -> Void = { [unowned self] in
+        self.present(DeleteAccountViewController(deletedAction: { userId in
+            self.dismiss(animated: true, completion: {
+                self.delegate?.didDelete(userId: userId)
+            })
+        }), animated: true)
     }
     
     private lazy var createUserAction: () -> Void = { [unowned self] in
         self.dismiss(animated: true)
         self.delegate?.createNewUser()
+    }
+    
+    private lazy var cancelAction: () -> Void = { [unowned self] in
+        self.dismiss(animated: true)
     }
     
     // MARK: - Analitics

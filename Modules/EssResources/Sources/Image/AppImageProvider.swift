@@ -32,6 +32,7 @@ public class AppImageProvider: AppImageProviderInterface {
     public var darkDotIcon: UIImage = image(name: "darkDot")
     public var checkIcon: UIImage = image(name: "check")
     public var cancelIcon: UIImage = image(name: "cancelIcon")
+    public var greyCancel: UIImage = image(name: "greyCancel")
     public var plusIcon: UIImage = image(name: "greenPlusIcon")
     public var notificationPlaceholderIcon: UIImage = image(name: "notificationPlaceholder")
     public var warningIcon: UIImage = image(name: "warningIcon")

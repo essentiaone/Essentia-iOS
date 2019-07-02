@@ -90,6 +90,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         tableView.register(TableComponentBorderedButton.self)
         tableView.register(TableComponentButtonWithSubtitle.self)
         tableView.register(TableComponentImageRightTitleSubtitle.self)
+        tableView.register(TableComponentImageTitleRightImage.self)
+        
     }
     
     // MARK: - Update State
@@ -362,6 +364,15 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             }
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
             return cell
+        case .imageTitleRightImage(let image, let title, let rightimage, _):
+            let cell: TableComponentImageTitleRightImage = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleImage?.image = image
+            cell.titleLabel.text = title
+            if image.size.width <= cell.titleImage.frame.size.width {
+                cell.titleImage.contentMode = .center
+            }
+            cell.rightImage.image = rightimage
+            return cell
         case .imageUrlTitle(let imageUrl, let title, let withArrow, _):
             let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage.kf.setImage(with: imageUrl)
@@ -516,6 +527,17 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.font = AppFont.bold.withSize(21)
             cell.titleLabel.text = title
+            cell.cancelButton.tintColor = (inject() as AppColorInterface).appTitleColor
+            cell.cancelButton.setImage(imageProvider.cancelIcon, for: .normal)
+            cell.action = action
+            return cell
+        case .titleWithDetailAction(let title, let detailTitle, let action):
+            let cell: TableComponentTitleImageButton = tableView.dequeueReusableCell(for: indexPath)
+            cell.titleLabel.font = AppFont.bold.withSize(21)
+            cell.titleLabel.text = title
+            cell.cancelButton.tintColor = (inject() as AppColorInterface).persianBlueColor
+            cell.cancelButton.titleLabel?.font = AppFont.bold.withSize(15)
+            cell.cancelButton.setTitle(detailTitle, for: .normal)
             cell.action = action
             return cell
         case .transactionDetail(let icon, let title, let subtitle, let description, _):
@@ -636,6 +658,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         return true
     }
     
+    
+    
     public func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         let component = tableState[indexPath.row]
         switch component {
@@ -645,6 +669,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .menuSimpleTitleDetail: fallthrough
         case .menuTitleCheck: fallthrough
         case .imageTitle: fallthrough
+        case .imageTitleRightImage: fallthrough
         case .titleSubtitle: fallthrough
         case .textField: fallthrough
         case .textView: fallthrough
@@ -689,6 +714,8 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .menuTitleCheck(_, _, let action):
             action()
         case .imageTitle(_, _, _, let action):
+            action()
+        case .imageTitleRightImage(_, _, _, let action):
             action()
         case .imageUrlTitle(_, _, _, let action):
             action()

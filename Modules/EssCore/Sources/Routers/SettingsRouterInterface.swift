@@ -22,6 +22,6 @@ public enum SettingsRoutes {
 
 public protocol SettingsRouterInterface: BaseRouterInterface {
     func show(_ route: SettingsRoutes)
-    func logOut()
+    func logOut(finish: @escaping () -> Void)
     var nvc: UINavigationController? { get }
 }
