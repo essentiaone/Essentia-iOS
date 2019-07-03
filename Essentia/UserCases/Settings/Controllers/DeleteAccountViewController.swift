@@ -38,7 +38,7 @@ class DeleteAccountViewController: BaseTableAdapterController {
         let users = userService.users
         let usersState = users |> viewUserState |> concat
         return [
-            .empty(height: 25, background: colorProvider.settingsCellsBackround),
+            .empty(height: 35, background: colorProvider.settingsCellsBackround),
             .navigationBar(left: LS("EditAccount.Back"),
                            right: "",
                            title: LS("Settings.Accounts.Title"),

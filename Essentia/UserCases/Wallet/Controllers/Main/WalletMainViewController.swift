@@ -99,11 +99,11 @@ public class WalletMainViewController: BaseTableAdapterController {
     private var emptyState: [TableComponent] {
         let title = self.store.currentSegment == 0 ? LS("Wallet.Empty.Description.Coin") : LS("Wallet.Empty.Description.Token")
         return [
-            .empty(height: 110, background: colorProvider.settingsBackgroud),
+            .empty(height: 110, background: colorProvider.appBackgroundColor),
             .descriptionWithSize(aligment: .center, fontSize: 16, title: title, background: colorProvider.settingsBackgroud, textColor: colorProvider.appDefaultTextColor),
-            .calculatbleSpace(background: colorProvider.settingsBackgroud),
-            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.settingsBackgroud),
-            .empty(height: 16, background: colorProvider.settingsBackgroud)
+            .calculatbleSpace(background: colorProvider.appBackgroundColor),
+            .smallCenteredButton(title: LS("Wallet.Empty.Add"), isEnable: true, action: addWalletAction, background: colorProvider.appBackgroundColor),
+            .empty(height: 16, background: colorProvider.appBackgroundColor)
         ]
     }
     

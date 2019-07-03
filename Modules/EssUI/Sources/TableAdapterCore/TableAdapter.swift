@@ -14,6 +14,7 @@ import EssResources
 public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate {
     // MARK: - Dependences
     private lazy var imageProvider: AppImageProviderInterface = inject()
+    private lazy var colorProvider: AppColorInterface = inject()
     
     // MARK: - State
     private var tableState: [TableComponent] = []
@@ -185,6 +186,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.backgroundColor = background
             cell.titleLabel.minimumScaleFactor = 0.5
             cell.titleLabel.textAlignment = aligment
+            cell.backgroundColor = .clear
             return cell
         case .titleWithFontAligment(let font, let title, let aligment, let color):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
@@ -202,6 +204,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.titleLabel.textAlignment = aligment
             cell.titleLabel.textColor = textColor
             cell.titleLabel.font = AppFont.regular.withSize(fontSize)
+            cell.backgroundColor = .clear
             return cell
         case .description(let title, let backgroud):
             let cell: TableComponentDescription = tableView.dequeueReusableCell(for: indexPath)
@@ -247,6 +250,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
             cell.textLabel?.text = title
             cell.detailTextLabel?.text = detail
+            cell.backgroundColor = .clear
             return cell
         case .menuSwitch(let icon, let title, let state, let action):
             let cell: TableComponentSwitch = tableView.dequeueReusableCell(for: indexPath)
@@ -275,6 +279,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentCheckBox = tableView.dequeueReusableCell(for: indexPath)
             cell.setAttributesTitle(regularPrefix: titlePrefix, attributedSuffix: title)
             cell.descriptionLabel.text = subtitle
+            cell.backgroundColor = .clear
             cell.imageView?.image = state.value ? imageProvider.checkBoxFilled : imageProvider.checkBoxEmpty
             return cell
         case .centeredButton(let title, let isEnable, let action, let background):
@@ -303,6 +308,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .borderedButton(let title, let action, let borderColor, let borderWidth):
             let cell: TableComponentBorderedButton = tableView.dequeueReusableCell(for: indexPath)
             cell.titleButton.setTitle(title, for: .normal)
+            cell.backgroundColor = colorProvider.appBackgroundColor
             cell.drawBorder(color: borderColor, width: borderWidth)
             cell.action = action
             return cell
@@ -315,6 +321,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.rightButton.setTitle(right, for: .normal)
             cell.titleLabel.text = title
             cell.leftAction = lAction
+            cell.backgroundColor = .clear
             cell.rightAction = rAction
             return cell
         case .rightNavigationButton(let title, let image, let action):
@@ -322,6 +329,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.rightButton.setImage(image, for: .normal)
             cell.titleLabel.text = title
             cell.rightAction = action
+            cell.backgroundColor = .clear
             return cell
         case .navigationImageBar(let left, let right, let title, let lAction, let rAction):
             let cell: TableComponentNavigationBar = tableView.dequeueReusableCell(for: indexPath)
@@ -331,6 +339,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.titleLabel.text = title
             cell.leftAction = lAction
             cell.rightAction = rAction
+            cell.backgroundColor = .clear
             return cell
         case .paragraph(let title, let description):
             let cell: TableComponentParagraph = tableView.dequeueReusableCell(for: indexPath)
@@ -344,6 +353,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
                 cell.passwordTextField.becomeFirstResponder()
             }
             cell.passwordAction = passwordAction
+            cell.backgroundColor = .clear
             cell.titleLabel.text = title
             return cell
         case .tabBarSpace:
@@ -363,6 +373,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
                 cell.titleImage.contentMode = .center
             }
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
+            cell.backgroundColor = .clear
             return cell
         case .imageTitleRightImage(let image, let title, let rightimage, _):
             let cell: TableComponentImageTitleRightImage = tableView.dequeueReusableCell(for: indexPath)
@@ -372,12 +383,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
                 cell.titleImage.contentMode = .center
             }
             cell.rightImage.image = rightimage
+            cell.backgroundColor = .clear
             return cell
         case .imageUrlTitle(let imageUrl, let title, let withArrow, _):
             let cell: TableComponentImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.accessoryType = withArrow ? .disclosureIndicator : .none
+            cell.backgroundColor = .clear
             return cell
         case .textField(let placeholder, let text, let endEditing, let isFirstResponder):
             let cell: TableComponentTextField = tableView.dequeueReusableCell(for: indexPath)
@@ -386,6 +399,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.textField.placeholder = placeholder
             cell.textField.text = text
             cell.textFieldAction = endEditing
+            cell.backgroundColor = .clear
             if isFirstResponder {
                 focusView(view: cell.textField)
                 selectedRow = indexPath
@@ -395,6 +409,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             let cell: TableComponentImageParagraph = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImage.image = image
             cell.titleLabel.text = paragraph
+            cell.backgroundColor = .clear
             return cell
         case .smallCenteredButton(let title, let isEnable, let action, let background):
             let cell: TableComponentCenteredButton = tableView.dequeueReusableCell(for: indexPath)
@@ -438,6 +453,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.textView.text = text
             cell.textFieldAction = endEditing
             cell.updatePlaceholderPosition()
+            cell.backgroundColor = .clear
             return cell
         case .segmentControlCell(let titles, let selected, let action):
             let cell: TableComponentSegmentControl = tableView.dequeueReusableCell(for: indexPath)
@@ -445,6 +461,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.applySelectableDesign()
             cell.segmentControllerChangedAtIndex = action
             cell.segmentControl.selectedSegmentIndex = selected
+            cell.backgroundColor = .clear
             return cell
         case .customSegmentControlCell(let titles, let selected, let action):
             let cell: TableComponentCustomSegment = tableView.dequeueReusableCell(for: indexPath)
@@ -456,12 +473,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.segmentControl.selectedSegmentIndex = selected
             cell.action = action
             cell.setNeedsLayout()
+            cell.backgroundColor = .clear
             return cell
         case .filledSegment(let titles, let action):
             let cell: TableComponentSegmentControl = tableView.dequeueReusableCell(for: indexPath)
             cell.setTitles(titles)
             cell.applyOneColorDesign()
             cell.segmentControllerChangedAtIndex = action
+            cell.backgroundColor = .clear
             return cell
         case .twoButtons(let lTitle, let rTitle, let lColor, let rColor, let lAction, let rAction):
             let cell: TableComponentTwoButtons = tableView.dequeueReusableCell(for: indexPath)
@@ -471,12 +490,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.rightButton.setTitleColor(rColor, for: .normal)
             cell.lAction = lAction
             cell.rAction = rAction
+            cell.backgroundColor = .clear
             return cell
         case .checkImageTitle(let imageUrl, let title, let isSelected, _):
             let cell: TableComponentCheckImageTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleImageView.kf.setImage(with: imageUrl)
             cell.titleLabel.text = title
             cell.checkImageView.image = isSelected ? imageProvider.checkSelected : imageProvider.checkNotSelected
+            cell.backgroundColor = .clear
             return cell
         case .search(let title, let placeholder, let tint, let backgroud, let didChangeString):
             let cell: TableComponentSearch = tableView.dequeueReusableCell(for: indexPath)
@@ -492,6 +513,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.procentTitle.text = balanceChanged
             cell.timeUpdateLabel.text = perTime
             cell.action = action
+            cell.backgroundColor = .clear
             return cell
         case .balanceChangingWithRank(let rank, let balanceChanged, let perTime):
             let cell: TableComponentBalanceChanging = tableView.dequeueReusableCell(for: indexPath)
@@ -499,6 +521,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.timeUpdateLabel.text = perTime
             cell.updateButton.isHidden = true
             cell.rankLabel.attributedText = rank
+            cell.backgroundColor = .clear
             return cell
         case .assetBalance(let imageUrl, let title, let value, let currencyValue, _):
             let cell: TableComponentAssetBalance = tableView.dequeueReusableCell(for: indexPath)
@@ -506,6 +529,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.titleLabel.text = title
             cell.balanceTopValue.text = value
             cell.balanceButtomValue.text = currencyValue
+            cell.backgroundColor = .clear
             return cell
         case .titleSubtitleDescription(let title, let subtile, let description, _):
             let cell: TableComponentTitleSubtileDescription = tableView.dequeueReusableCell(for: indexPath)
@@ -561,12 +585,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.textLabel?.text = title
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
+            cell.backgroundColor = .clear
             return cell
         case .attributedTitleDetail(let title, let detail, _):
             let cell: TableComponentTitleDetail = tableView.dequeueReusableCell(for: indexPath)
             cell.textLabel?.attributedText = title
             cell.detailTextLabel?.attributedText = detail
             cell.accessoryType = .none
+            cell.backgroundColor = .clear
             return cell
         case .slider(let titles, let values, let didChange):
             let cell: TableComponentSlider = tableView.dequeueReusableCell(for: indexPath)
@@ -577,6 +603,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.slider.minimumValue = Float(values.0)
             cell.slider.maximumValue = Float(values.2)
             cell.newSliderAction = didChange
+            cell.backgroundColor = .clear
             selectedRow = nil
             return cell
         case .textFieldTitleDetail(let string, let font, let color, let detail, let action):
@@ -587,12 +614,14 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.titleTextField.textColor = color
             cell.detailLabel.attributedText = detail
             cell.titleTextField.keyboardType = .decimalPad
+            cell.backgroundColor = .clear
             cell.enterAction = action
             return cell
         case .titleCenteredDetail(let title, let detail):
             let cell: TableComponentTitleCenterDetail = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.detailLabel.text = detail
+            cell.backgroundColor = .clear
             return cell
         case .titleCenteredDetailTextFildWithImage(let title, let text, let placeholder, let rightButtonImage, let rightButtonAction, let textFieldChanged):
             let cell: TableComponentTitleCenterTextDetail = tableView.dequeueReusableCell(for: indexPath)
@@ -604,6 +633,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
             cell.updateQrButton(text)
             cell.action = rightButtonAction
             cell.enterAction = textFieldChanged
+            cell.backgroundColor = .clear
             return cell
         case .imageTitleSubtitle(let image, let title, let subtitle):
             let cell: TableComponentImageTitleSubtitle = tableView.dequeueReusableCell(for: indexPath)
@@ -624,20 +654,24 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate 
         case .container(let state):
             let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.simpleReload(state)
+            cell.backgroundColor = colorProvider.appBackgroundColor
             return cell
         case .calculatableContainer(let state):
             let cell: TableComponentContainer = tableView.dequeueReusableCell(for: indexPath)
             cell.tableAdapter.simpleReload(state)
+            cell.backgroundColor = colorProvider.appBackgroundColor
             return cell
         case .titleAction(let font, let title, _):
             let cell: TableComponentTitle = tableView.dequeueReusableCell(for: indexPath)
             cell.titleLabel.text = title
             cell.titleLabel.font = font
+            cell.backgroundColor = .clear
             return cell
         case .pageControl(let count, let selected):
             let cell: TableComponentPageControl = tableView.dequeueReusableCell(for: indexPath)
             cell.pageControl.currentPage = selected
             cell.pageControl.numberOfPages = count
+            cell.backgroundColor = .clear
             return cell
         case .tableWithCalculatableSpace(let state, let background):
             let cell: TableComponentTableView = tableView.dequeueReusableCell(for: indexPath)

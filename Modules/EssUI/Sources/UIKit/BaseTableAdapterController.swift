@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import EssResources
+import EssDI
 
 open class BaseTableAdapterController: BaseViewController, StatableControllerInterface {
     // MARK: - Init
+    private lazy var colorProvider: AppColorInterface = inject()
     public var tableView: UITableView
     public var tableAdapter: TableAdapter
     private var scrollObserver: NSKeyValueObservation?
@@ -50,6 +53,7 @@ open class BaseTableAdapterController: BaseViewController, StatableControllerInt
     private func prepareTableView() {
         setupTableView()
         observeScrollInsets()
+        tableView.backgroundColor = colorProvider.appBackgroundColor
     }
     
     private func setupTableView() {

@@ -27,7 +27,7 @@ class TableComponentSegmentControl: UITableViewCell, NibLoadable {
     func applySelectableDesign() {
         segmentControl.layer.cornerRadius = 3.0
         segmentControl.clipsToBounds = true
-        segmentControl.backgroundColor = colorProvider.settingsCellsBackround
+        segmentControl.backgroundColor = .clear
         segmentControl.tintColor = colorProvider.centeredButtonBackgroudColor
     }
     
@@ -41,7 +41,7 @@ class TableComponentSegmentControl: UITableViewCell, NibLoadable {
         }
         segmentControl.setDividerImage(UIImage.withColor( colorProvider.centeredButtonTextColor),
                                        forLeftSegmentState: .normal, rightSegmentState: .normal, barMetrics: .default)
-        segmentControl.backgroundColor = colorProvider.centeredButtonBackgroudColor
+        segmentControl.backgroundColor = .clear 
         segmentControl.tintColor = colorProvider.centeredButtonBackgroudColor
         segmentType = .filled
     }

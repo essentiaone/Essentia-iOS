@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func loadColorSheme() {
-        let injection: AppColorInterface = DefaultColorSheme()
+        let injection: AppColorInterface = DarkColorProvider()
         prepareInjection(injection, memoryPolicy: .viewController)
     }
     

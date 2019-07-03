@@ -18,6 +18,7 @@
 		34DF5CE421EE8D75006E440B /* AppImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CDE21EE8D75006E440B /* AppImageProvider.swift */; };
 		34DF5CE521EE8D75006E440B /* DefaultColorSheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */; };
 		34DF5CE621EE8D75006E440B /* AppColorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DF5CE121EE8D75006E440B /* AppColorInterface.swift */; };
+		34E29E7622CCB98300E5D94C /* DarkColorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E29E7522CCB98300E5D94C /* DarkColorProvider.swift */; };
 		551D59C85F97CA98ABBF75EE /* Pods_EssResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12F50C456BC0C79F10C0253A /* Pods_EssResources.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		34DF5CDE21EE8D75006E440B /* AppImageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppImageProvider.swift; sourceTree = "<group>"; };
 		34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultColorSheme.swift; sourceTree = "<group>"; };
 		34DF5CE121EE8D75006E440B /* AppColorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppColorInterface.swift; sourceTree = "<group>"; };
+		34E29E7522CCB98300E5D94C /* DarkColorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkColorProvider.swift; sourceTree = "<group>"; };
 		56C7D9A010A9287AA8716A42 /* Pods-EssResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssResources.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssResources/Pods-EssResources.release.xcconfig"; sourceTree = "<group>"; };
 		68FDD8434312EC3728A27B39 /* Pods-EssResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssResources.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssResources/Pods-EssResources.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 			children = (
 				34DF5CE021EE8D75006E440B /* DefaultColorSheme.swift */,
 				34DF5CE121EE8D75006E440B /* AppColorInterface.swift */,
+				34E29E7522CCB98300E5D94C /* DarkColorProvider.swift */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				34DF5CE221EE8D75006E440B /* AppFont.swift in Sources */,
 				34DF5CE421EE8D75006E440B /* AppImageProvider.swift in Sources */,
 				342A920221F8FD46009840DD /* LocalizedStrings.swift in Sources */,
+				34E29E7622CCB98300E5D94C /* DarkColorProvider.swift in Sources */,
 				34DF5CE621EE8D75006E440B /* AppColorInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
