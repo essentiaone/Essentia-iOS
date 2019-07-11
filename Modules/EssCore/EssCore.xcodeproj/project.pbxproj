@@ -83,6 +83,7 @@
 		34F00A6421D6815000B01C99 /* AppStateEventProxyInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F00A6221D6815000B01C99 /* AppStateEventProxyInterface.swift */; };
 		34F6DCDC21F3CAC000935A23 /* LocalFileStrageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34F6DCDB21F3CAC000935A23 /* LocalFileStrageTests.swift */; };
 		4605108144C901485312FAC8 /* Pods_EssCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */; };
+		CE052DF022D71A2200830F6D /* AppPresentaionAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE052DEF22D71A2200830F6D /* AppPresentaionAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +189,7 @@
 		34F6DCD521F3BEB000935A23 /* libEssStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libEssStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		34F6DCDB21F3CAC000935A23 /* LocalFileStrageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalFileStrageTests.swift; sourceTree = "<group>"; };
 		3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EssCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE052DEF22D71A2200830F6D /* AppPresentaionAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPresentaionAdapter.swift; sourceTree = "<group>"; };
 		DA50676A8A38DB7FDA98361D /* Pods-EssCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssCore.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssCore/Pods-EssCore.release.xcconfig"; sourceTree = "<group>"; };
 		EC60A077B644353D87CDEC0B /* Pods-EssCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EssCore.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-EssCore/Pods-EssCore.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -474,6 +476,7 @@
 		34F00A3421D6807800B01C99 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				CE052DEE22D71A0C00830F6D /* AppPresentaionAdapter */,
 				346C8ED0229F40D000DED862 /* PurchaseNetworking */,
 				3423A6E6229C23700098F071 /* PurchaseService */,
 				344A93A12264D49100EFA1B3 /* KeychainService */,
@@ -580,6 +583,14 @@
 				3D81F38F4278C3BCF31E05FF /* Pods_EssCore.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE052DEE22D71A0C00830F6D /* AppPresentaionAdapter */ = {
+			isa = PBXGroup;
+			children = (
+				CE052DEF22D71A2200830F6D /* AppPresentaionAdapter.swift */,
+			);
+			path = AppPresentaionAdapter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -730,6 +741,7 @@
 				345747B321F50F57006E2EAB /* CurrencyRankDemon.swift in Sources */,
 				34B143EC21D3D96400EC06AE /* Date+Intervals.swift in Sources */,
 				347A3B7B21F3B4330053C2F3 /* ViewWallet+EssStore.swift in Sources */,
+				CE052DF022D71A2200830F6D /* AppPresentaionAdapter.swift in Sources */,
 				3482B29522536B810072FD02 /* GCD.swift in Sources */,
 				34B143BA21D3D95A00EC06AE /* ProcentsFormatter.swift in Sources */,
 				34F00A4F21D6807800B01C99 /* CurrencyConverterServiceInterface.swift in Sources */,
