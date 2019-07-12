@@ -14,10 +14,11 @@ public class AppPresentaionAdapter: AppStateEventHandler {
     var blurEffectView: UIVisualEffectView?
     
     private lazy var eventProxy: AppStateEventProxyInterface = inject()
-    private lazy var window = UIApplication.shared.keyWindow
+    fileprivate var window: UIWindow?
     
-    public init() {
+    public init(window: UIWindow?) {
         eventProxy.add(subscriber: self, for : [.willResignActive, .didBecomeActive])
+        self.window = window
     }
     
     public func receive(event: AppStates) {
