@@ -11,10 +11,10 @@ import UIKit
 import EssDI
 
 public class AppPresentaionAdapter: AppStateEventHandler {
-    var blurEffectView: UIVisualEffectView?
-    
     private lazy var eventProxy: AppStateEventProxyInterface = inject()
-    fileprivate var window: UIWindow?
+    
+    private var blurEffectView: UIVisualEffectView?
+    private var window: UIWindow?
     
     public init(window: UIWindow?) {
         eventProxy.add(subscriber: self, for : [.willResignActive, .didBecomeActive])
