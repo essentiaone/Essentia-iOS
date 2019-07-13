@@ -28,7 +28,12 @@ public class AppPresentaionAdapter: AppStateEventHandler {
             blurEffectView?.frame = UIScreen.main.bounds
             window?.addSubview(blurEffectView ?? UIVisualEffectView())
         case .didBecomeActive:
-            blurEffectView?.removeFromSuperview()
+            UIView.animate(withDuration: 0.3,
+                           animations: {
+                            self.blurEffectView?.alpha = 0.0},
+                           completion: {(value: Bool) in
+                            self.blurEffectView?.removeFromSuperview()
+            })
         default:
             break
         }
