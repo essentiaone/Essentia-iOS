@@ -32,9 +32,9 @@ public class WalletMainViewController: BaseTableAdapterController {
     
     // MARK: - Lifecycle
     override public func viewWillAppear(_ animated: Bool) {
+        loadData()
         super.viewWillAppear(animated)
         tableAdapter.hardReload([])
-        loadData()
         tableAdapter.simpleReload(state)
         showOnbordingIfNeeded()
     }
