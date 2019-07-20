@@ -62,5 +62,7 @@ public func wrapCoin(coin: EssModel.Coin) -> HDWalletKit.Coin {
         return HDWalletKit.Coin.litecoin
     case .dash:
         return .dash
+    case .essentia:
+        return .essentia
     }
 }

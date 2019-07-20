@@ -24,7 +24,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
     
     public func getCoinBalance(for coin: EssModel.Coin, address: String, balance: @escaping (Double) -> Void) {
         switch coin {
-        case .bitcoin, .bitcoinCash, .litecoin, .dash:
+        case .bitcoin, .bitcoinCash, .litecoin, .dash, .essentia:
             let utxoWallet = cryptoWallet.utxoWallet(coin: coin)
             utxoWallet.getBalance(for: address) { (result) in
                 switch result {
@@ -126,7 +126,7 @@ public class WalletBlockchainWrapperInteractor: WalletBlockchainWrapperInteracto
             }
         case let coin as EssModel.Coin:
             switch coin {
-            case .bitcoin, .bitcoinCash, .litecoin, .dash:
+            case .bitcoin, .bitcoinCash, .litecoin, .dash, .essentia:
                 let utxoWallet = cryptoWallet.utxoWallet(coin: coin)
                 utxoWallet.getTransactionsHistory(for: wallet.address) { [unowned self] (result) in
                     switch result {

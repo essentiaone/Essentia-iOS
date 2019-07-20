@@ -57,6 +57,7 @@ public class AppImageProvider: AppImageProviderInterface {
     public var ethereumIcon: UIImage = image(name: "ethereum")
     public var bitcoinCashIcon: UIImage = image(name: "bitcoinCash")
     public var dashIcon: UIImage = image(name: "dash")
+    public var essentiaIcon: UIImage = image(name: "essentia")
     public var checkSelected: UIImage = image(name: "walletCheckSelected")
     public var checkNotSelected: UIImage = image(name: "walletCheckNotSelected")
     public var qrCode: UIImage = image(name: "qrCode")

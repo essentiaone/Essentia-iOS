@@ -58,6 +58,7 @@ public protocol AppImageProviderInterface {
     var ethereumIcon: UIImage { get }
     var bitcoinCashIcon: UIImage { get }
     var dashIcon: UIImage { get }
+    var essentiaIcon: UIImage { get }
     var checkSelected: UIImage { get }
     var checkNotSelected: UIImage { get }
     var qrCode: UIImage { get }

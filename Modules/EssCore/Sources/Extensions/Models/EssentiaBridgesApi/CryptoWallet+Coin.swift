@@ -21,6 +21,8 @@ public extension CryptoWallet {
             return litecoin
         case .dash:
             return dash
+        case .essentia:
+            return essentia
         default:
             fatalError("No such Utxo wallet!")
         }
