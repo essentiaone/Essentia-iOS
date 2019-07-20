@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.rootViewController = WelcomeViewController()
+        
+        AppPresentaionAdapter(window: window)
 //        registerForRemoteNotifications(application)
         return true
     }
